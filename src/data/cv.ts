@@ -365,7 +365,7 @@ export const homeSectionCards = [
     title: 'Teaching',
     kicker: 'Philosophy & supervision',
     description:
-      'Approach and trajectory across the UK and China / Macau, plus MEd and doctoral supervision at City University of Macau.',
+      'Approach and trajectory across the UK and China / Macau, plus MEd and doctoral supervision.',
     accent: 'blue' as const,
   },
   {

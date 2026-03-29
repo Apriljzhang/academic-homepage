@@ -46,6 +46,25 @@ const jsonLd = {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Theme tokens: fallback if main stylesheet is slow or blocked so layout is never plain white-on-black. -->
+    <style is:inline>
+      html {
+        background-color: #f5efe6;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background-color: #f5efe6;
+        color: #1d2731;
+        font-family:
+          'Source Sans 3',
+          system-ui,
+          -apple-system,
+          'Segoe UI',
+          Roboto,
+          sans-serif;
+      }
+    </style>
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href={`${assetBase}favicon.svg`} />
     <meta name="generator" content={Astro.generator} />

@@ -7,6 +7,8 @@ import tailwindcss from '@tailwindcss/vite';
 // Production: custom domain (also add DNS + GitHub Pages custom domain settings).
 export default defineConfig({
   site: 'https://apriljzhang.com',
+  /** Consistent URLs on static hosts (e.g. GitHub Pages) and fewer mixed-slash edge cases. */
+  trailingSlash: 'always',
   vite: {
     plugins: [tailwindcss()]
   }
