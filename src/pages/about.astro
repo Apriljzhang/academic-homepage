@@ -3,6 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import PageShell from '../components/PageShell.astro';
+import MainWithAside from '../components/MainWithAside.astro';
+import AboutSectionAside from '../components/AboutSectionAside.astro';
 import MembershipsList from '../components/MembershipsList.astro';
 import { person, aboutNarrativeParagraphs } from '../data/cv';
 
@@ -15,14 +17,22 @@ const description = `${person.fullDisplayName} — researcher in language educat
   <main id="main-content" class="min-h-0 w-full bg-page">
     <PageShell accentBar>
       <h1 class="font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">About</h1>
+      <MainWithAside asideLabel="About menu">
+        <div>
+          <section id="about-intro" class="scroll-mt-24">
+            <div class="mt-6 max-w-3xl space-y-5 text-pretty text-base leading-relaxed text-ink/95 sm:text-lg">
+              {aboutNarrativeParagraphs.map((p) => <p>{p}</p>)}
+            </div>
+          </section>
 
-      <div class="mt-6 max-w-3xl space-y-5 text-pretty text-base leading-relaxed text-ink/95 sm:text-lg">
-        {aboutNarrativeParagraphs.map((p) => <p>{p}</p>)}
-      </div>
-
-      <div class="mt-10 border-t border-border/50 pt-8">
-        <MembershipsList />
-      </div>
+          <div id="memberships" class="scroll-mt-24">
+            <div class="mt-10 border-t border-border/50 pt-8">
+              <MembershipsList />
+            </div>
+          </div>
+        </div>
+        <AboutSectionAside slot="aside" />
+      </MainWithAside>
     </PageShell>
   </main>
   <SiteFooter />

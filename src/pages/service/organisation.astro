@@ -4,6 +4,8 @@ import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import PageShell from '../../components/PageShell.astro';
 import SectionSubnav from '../../components/SectionSubnav.astro';
+import MainWithAside from '../../components/MainWithAside.astro';
+import ServiceSectionAside from '../../components/ServiceSectionAside.astro';
 import { serviceSubnav } from '../../data/sectionNav';
 import { person, aalaConferenceUrl } from '../../data/cv';
 
@@ -18,22 +20,27 @@ const description = `AALA 2026 and professional service — ${person.fullDisplay
       <h1 class="font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">
         Conference organisation
       </h1>
-      <SectionSubnav ariaLabel="Service section" items={serviceSubnav} />
+      <MainWithAside asideLabel="Service menu">
+        <div>
+          <SectionSubnav ariaLabel="Service section" items={serviceSubnav} />
 
-      <section class="mt-10 max-w-3xl space-y-4 text-pretty text-lg leading-relaxed text-ink/95 lg:text-xl">
-        <p>
-          I am co-chairing the 12th International Conference of the Asian Association for Language Assessment (<abbr
-            title="Asian Association for Language Assessment">AALA</abbr>) in 2026, hosted at City University of Macau,
-          18–20 September 2026, on the theme <em
-            >Humanistic Approach to Assessment, Standards, Innovation, and Accountability</em>. Programme details,
-          calls for participation, and registration are on the conference site.
-        </p>
-        <p>
-          <a href={aalaConferenceUrl} target="_blank" rel="noopener noreferrer" class="font-semibold text-primary"
-            >AALA 2026 conference website →</a
-          >
-        </p>
-      </section>
+          <section class="mt-10 max-w-3xl space-y-4 text-pretty text-lg leading-relaxed text-ink/95 lg:text-xl">
+            <p>
+              I am co-chairing the 12th International Conference of the Asian Association for Language Assessment (<abbr
+                title="Asian Association for Language Assessment">AALA</abbr>) in 2026, hosted at City University of Macau,
+              18–20 September 2026, on the theme <em
+                >Humanistic Approach to Assessment, Standards, Innovation, and Accountability</em>. Programme details,
+              calls for participation, and registration are on the conference site.
+            </p>
+            <p>
+              <a href={aalaConferenceUrl} target="_blank" rel="noopener noreferrer" class="font-semibold text-primary"
+                >AALA 2026 conference website →</a
+              >
+            </p>
+          </section>
+        </div>
+        <ServiceSectionAside slot="aside" />
+      </MainWithAside>
     </PageShell>
   </main>
   <SiteFooter />

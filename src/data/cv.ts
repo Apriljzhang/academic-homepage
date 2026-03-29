@@ -56,9 +56,19 @@ export const researchThemesDetailed: readonly ResearchThemeDetailed[] = [
       'Formative and holistic assessment, engagement, and peer feedback—including in early-years settings—co-constructed rubrics, and humanising perspectives in language testing.',
     upcoming: [
       {
-        status: 'Under review',
+        status: 'In preparation',
         citationHtml:
-          'Zhang, J., Ji, T., & Wei, J. (under review). The impact of co-constructed rubric on peer assessment and academic performance in university English learning. <em>Studies in Educational Evaluation</em>.',
+          '<em>Assessment as learning in the EMI classroom: Scrutinising the socio-constructivist dynamics and affective shifts of rubric co-construction</em>.',
+      },
+      {
+        status: 'In preparation',
+        citationHtml:
+          '<em>From washback to impact by design: A review of washback research in language assessment: Fundamentals and contexts</em>.',
+      },
+      {
+        status: 'In preparation',
+        citationHtml:
+          '<em>From social referencing to cognitive scaffolding: A mixed-methods study of peer feedback dynamics in Chinese kindergartens</em>.',
       },
     ],
   },
@@ -67,28 +77,62 @@ export const researchThemesDetailed: readonly ResearchThemeDetailed[] = [
     title: 'Language education and multilingual contexts',
     description:
       'English and Chinese language teaching and learning; language dynamics in Macau higher education, including student perceptions of Mandarin use and L1/Ln use in multilingual universities.',
-    upcoming: [],
+    upcoming: [
+      {
+        status: 'In preparation',
+        citationHtml:
+          '<em>Mandarin as the first language in multilanguage classrooms in Macau’s higher education: The use and impact</em>.',
+      },
+    ],
   },
   {
     id: 'motivation-sel-experience',
     title: 'Motivation, SEL, and learner experience',
     description:
       'Job crafting and occupational characteristics in education-related roles; social–emotional learning; motivation in digital and social platforms (e.g. Xiaohongshu).',
-    upcoming: [],
+    upcoming: [
+      {
+        status: 'In preparation',
+        citationHtml:
+          '<em>Peace of mind, self-evaluation, and self-acceptance in Chinese pilots’ aviation English motivation: An English for specific purposes perspective</em>.',
+      },
+      {
+        status: 'In preparation',
+        citationHtml:
+          '<em>Welfare-adjacent universities: Governing student precarity through platformized responsibilization and conditional care</em>.',
+      },
+    ],
   },
   {
     id: 'generative-ai-education',
     title: 'Generative AI in education',
     description:
       'Affordances and attitudes around GenAI in language assessment, educator and learner coping strategies, GenAI literacy, and ethical and affective dimensions of GenAI-assisted research.',
-    upcoming: [],
+    upcoming: [
+      {
+        status: 'In preparation',
+        citationHtml:
+          '<em>Multidimensional GenAI literacy in EFL academic writing: A longitudinal study on human and AI assessment in Macau higher education</em>.',
+      },
+      {
+        status: 'In preparation',
+        citationHtml:
+          '<em>The algorithmic mirror: Linking multidimensional AI literacy to evaluative judgment and writing quality in AI-assisted L2 argumentative writing</em>.',
+      },
+    ],
   },
   {
     id: 'pedagogy-tools',
     title: 'Pedagogy and tools',
     description:
       'Flipped learning, conversational agents and speaking with young learners, vocabulary and individual differences, and exploratory AI-assisted workflows for research.',
-    upcoming: [],
+    upcoming: [
+      {
+        status: 'In preparation',
+        citationHtml:
+          '<em>Breaking the fourth wall in Chinese EFL: Stakeholder perceptions of situated learning “in the wild” with young learners</em>.',
+      },
+    ],
   },
 ] as const;
 
