@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import PageShell from '../components/PageShell.astro';
+import TeachingList from '../components/TeachingList.astro';
+import { person } from '../data/cv';
+
+const title = `Teaching · ${person.fullDisplayName}`;
+const description = `Teaching experience in higher education and schools — ${person.fullDisplayName}.`;
+---
+
+<BaseLayout {title} {description}>
+  <SiteHeader />
+  <main id="main-content" class="min-h-[50vh] w-full bg-page">
+    <PageShell accentBar>
+      <h1 class="font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">Teaching</h1>
+      <p class="mt-4 max-w-4xl text-lg text-muted">
+        University and school-based teaching roles (chronological within each section).
+      </p>
+      <TeachingList />
+    </PageShell>
+  </main>
+  <SiteFooter />
+</BaseLayout>

@@ -1,0 +1,70 @@
+---
+import { homeSectionCards } from '../data/cv';
+import { withBase } from '../utils/paths';
+
+const accentStyles = {
+  sage: {
+    bar: 'bg-primary',
+    kicker: 'text-primary',
+    glow: 'from-primary-faint/90 via-gold-muted/40 to-surface',
+    hoverRing: 'group-hover:ring-primary/25',
+  },
+  sky: {
+    bar: 'bg-secondary',
+    kicker: 'text-secondary',
+    glow: 'from-secondary-faint/90 via-blush-faint/30 to-surface',
+    hoverRing: 'group-hover:ring-secondary/25',
+  },
+  blush: {
+    bar: 'bg-accent-pink',
+    kicker: 'text-secondary',
+    glow: 'from-blush-faint/80 via-accent-yellow/15 to-surface',
+    hoverRing: 'group-hover:ring-accent-pink/40',
+  },
+} as const;
+---
+
+<section
+  class="w-full border-t border-border/60 bg-gradient-to-b from-surface via-page to-secondary-faint/30 px-5 py-14 sm:px-8 md:px-12 lg:px-16 lg:py-20 xl:px-20 2xl:px-24"
+  aria-labelledby="explore-heading"
+>
+  <h2 id="explore-heading" class="font-serif text-2xl font-semibold text-ink sm:text-3xl">
+    Explore
+  </h2>
+  <p class="mt-2 max-w-3xl text-lg text-muted">
+    Three areas of professional work—similar to a faculty homepage with clear entry points.
+  </p>
+
+  <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+    {
+      homeSectionCards.map((card) => {
+        const a = accentStyles[card.accent];
+        return (
+          <a
+            href={withBase(`/${card.slug}`)}
+            class:list={[
+              'group relative flex min-h-[220px] flex-col overflow-hidden rounded-2xl border border-border/80 bg-surface p-7 shadow-md ring-2 ring-transparent transition-all duration-300',
+              'hover:-translate-y-1 hover:shadow-xl',
+              a.hoverRing,
+            ]}
+          >
+            <div
+              class:list={['absolute inset-0 bg-gradient-to-br opacity-90 transition-opacity group-hover:opacity-100', a.glow]}
+              aria-hidden="true"
+            />
+            <div class:list={['relative h-1.5 w-14 shrink-0 rounded-full', a.bar]} aria-hidden="true" />
+            <p class:list={['relative mt-5 text-xs font-bold uppercase tracking-[0.2em]', a.kicker]}>{card.kicker}</p>
+            <h3 class="relative mt-2 font-serif text-2xl font-semibold text-ink group-hover:text-primary">
+              {card.title}
+            </h3>
+            <p class="relative mt-3 flex-1 text-pretty leading-relaxed text-muted">{card.description}</p>
+            <span class="relative mt-5 inline-flex items-center gap-1 text-sm font-semibold text-primary group-hover:text-secondary">
+              Open section
+              <span aria-hidden="true" class="transition-transform group-hover:translate-x-1">→</span>
+            </span>
+          </a>
+        );
+      })
+    }
+  </div>
+</section>

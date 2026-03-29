@@ -1,0 +1,17 @@
+---
+import { researchInterests } from '../data/cv';
+---
+
+<p class="max-w-4xl text-pretty text-lg leading-relaxed text-muted">
+  {researchInterests.pageLead}
+</p>
+<ul class="mt-8 grid gap-4 lg:grid-cols-2">
+  {
+    researchInterests.themes.map(({ title, text }) => (
+      <li class="rounded-lg border border-border/60 bg-primary-faint/40 px-5 py-4">
+        <p class="font-semibold text-ink">{title}</p>
+        <p class="mt-2 text-sm leading-relaxed text-muted">{text}</p>
+      </li>
+    ))
+  }
+</ul>

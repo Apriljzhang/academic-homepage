@@ -11,12 +11,17 @@ export const person = {
   officePhone: '+853 8590 2644',
 } as const;
 
+/** Short strapline under the name (home hero), in the spirit of faculty landing pages. */
+export const siteTagline = 'Teaching, learning & assessment in language education';
+
+/** Single site-wide biography — shown only on the home hero. */
 export const summary =
   'An experienced researcher and lecturer working in language education and formative assessment. Skilled in mixed-methods research, data analysis, lecturing, tutoring, organisation, and collaborative enquiry. PhD from the University of Sheffield on formative assessment, motivation, and achievement in language education.';
 
 export const researchInterests = {
-  intro:
-    'Alongside published work, I am developing projects on assessment for learning, multilingual higher education in Macau, motivation in digital contexts, and generative AI in language assessment and research practice. The themes below summarise ongoing directions; not every line corresponds to a finished publication.',
+  /** Short line for Research page only (no repeat of biography). */
+  pageLead:
+    'Current work spans assessment for learning, multilingual higher education in Macau, motivation in digital contexts, and generative AI in language assessment and research practice. The themes below organise ongoing directions; not every item corresponds to a finished publication.',
   themes: [
     {
       title: 'Assessment for learning',
@@ -44,42 +49,44 @@ export const researchInterests = {
 export type PublicationItem = {
   citationHtml: string;
   note?: string;
-  /** Link to this item on Google Scholar (where available). */
   scholarHref?: string;
 };
 
-/** Peer-reviewed articles and thesis, aligned with [Google Scholar](https://scholar.google.com/citations?user=UXwVmZ8AAAAJ&hl=en) (March 2026). */
+/**
+ * Publications and thesis, wording aligned with Google Scholar (sorted by year, newest first).
+ * Profile: https://scholar.google.com/citations?user=UXwVmZ8AAAAJ&hl=en
+ */
 export const publications: PublicationItem[] = [
   {
     citationHtml:
       'Ji, T., & Zhang, J. (2025). Demotivation in English learning of Chinese medical students: Insights from situated expectancy-value theory. <em>Acta Psychologica</em>, 253, Article 104716.',
     scholarHref:
-      'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UXwVmZ8AAAAJ&citation_for_view=UXwVmZ8AAAAJ:eQOLeE2rZwMC',
+      'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UXwVmZ8AAAAJ&sortby=pubdate&citation_for_view=UXwVmZ8AAAAJ:eQOLeE2rZwMC',
   },
   {
     citationHtml:
-      'Wright, C., Lu, Y., Zhang, J., Zhang, L., & Zheng, Y. (2022). Tests of learning or testing for learning? An exploratory study of motivation and language learning strategies among HSK Level 1–3 test-takers in the UK. <em>International Journal of Chinese Language Teaching</em>, 3(3), 1–19.',
+      'Wright, C., Lu, Y., Zhang, J., Zhang, L., & Zheng, Y. (2022). Tests of learning or testing for learning? An exploratory study of motivation and language learning strategies among HSK level 1–3 test-takers in UK. <em>International Journal of Chinese Language Teaching</em>, 3 (3), 1–19.',
     scholarHref:
-      'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UXwVmZ8AAAAJ&citation_for_view=UXwVmZ8AAAAJ:YsMSGLbcyi4C',
+      'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UXwVmZ8AAAAJ&sortby=pubdate&citation_for_view=UXwVmZ8AAAAJ:YsMSGLbcyi4C',
   },
   {
     citationHtml:
-      'Zheng, Y., Zheng, Y., & Zhang, J. (2021). HSK 试卷架构对1–3 级考生成绩的影响：以英语母语者为例. <em>国际汉语教学研究 International Chinese Language Education</em>, 6(3), 50–59.',
+      'Zheng, Y., Zheng, Y., & Zhang, J. (2021). HSK 试卷架构对 1–3 级考生成绩的影响：以英语母语者为例. <em>国际汉语教学研究 International Chinese Language Education</em>, 6 (3), 50–59.',
     scholarHref:
-      'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UXwVmZ8AAAAJ&citation_for_view=UXwVmZ8AAAAJ:Y0pCki6q_DkC',
+      'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UXwVmZ8AAAAJ&sortby=pubdate&citation_for_view=UXwVmZ8AAAAJ:Y0pCki6q_DkC',
   },
   {
     citationHtml:
-      'Bai, W., & Zhang, J. (2021). Developing key competencies via formative assessment in primary school English classrooms—teacher education perspective. <em>Journal of Nanjing Xiaozhuang University</em>, 37(4), 22–27.',
+      'Bai, W., & Zhang, J. (2021). Developing Key Competencies via Formative Assessment in Primary School English Classrooms-Teacher Education Perspective. <em>Journal of Nanjing Xiaozhuang University</em>, 37 (4), 22–27.',
     scholarHref:
-      'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UXwVmZ8AAAAJ&citation_for_view=UXwVmZ8AAAAJ:W7OEmFMy1HYC',
+      'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UXwVmZ8AAAAJ&sortby=pubdate&citation_for_view=UXwVmZ8AAAAJ:W7OEmFMy1HYC',
   },
   {
     citationHtml:
-      'Zhang, J. (2018). <em>The impact of formative assessment on young English learners’ motivation and achievement in China</em>. PhD thesis, The University of Sheffield.',
+      'Zhang, J. (2018). <em>The impact of formative assessment on young english learners’ motivation and achievement in china</em>. PhD thesis, University of Sheffield.',
     note: 'Thesis',
     scholarHref:
-      'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UXwVmZ8AAAAJ&citation_for_view=UXwVmZ8AAAAJ:UeHWp8X0CEIC',
+      'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UXwVmZ8AAAAJ&sortby=pubdate&citation_for_view=UXwVmZ8AAAAJ:UeHWp8X0CEIC',
   },
 ];
 
@@ -148,5 +155,82 @@ export const talks = [
     event: 'International Conference on Language Testing and Assessment',
     place: 'Guangdong University of Foreign Studies, China',
     date: 'Nov 2015',
+  },
+] as const;
+
+export const teachingUniversity = [
+  {
+    role: 'Assistant Professor',
+    place: 'School of Education, City University of Macau',
+    dates: 'Aug 2024 – present',
+  },
+  {
+    role: 'Assistant Professor',
+    place: 'University International College, Macau University of Science and Technology',
+    dates: 'Sep 2021 – Jun 2024',
+  },
+  {
+    role: 'EAP course tutor',
+    place: 'University of Nottingham Ningbo China',
+    dates: 'Feb – Jun 2021',
+  },
+  {
+    role: 'EAP lecturer',
+    place: 'Centre for English Language Education, University of Leeds',
+    dates: 'Jul – Sep 2019; Mar – Sep 2020',
+  },
+  {
+    role: 'Invited speaker',
+    place:
+      'Applied Linguistics and Language Policy Studies Training Programme, School of East Asian Studies (Ministry of Education of the PRC)',
+    dates: 'Nov – Dec 2017',
+  },
+  {
+    role: 'Part-time teacher',
+    place: 'School of Education, The University of Sheffield',
+    dates: 'Oct – Nov 2017, 2018, 2019',
+  },
+  {
+    role: 'Part-time Mandarin tutor',
+    place: 'School of East Asian Studies, The University of Sheffield',
+    dates: 'Sep 2014 – Dec 2015; Sep – Oct 2017; Feb – Jun 2020',
+  },
+] as const;
+
+export const teachingSchools = [
+  { place: 'Silverdale Secondary School, Sheffield', dates: 'Oct – Dec 2018' },
+  {
+    place: 'Sheffield High School for Girls; Birkdale School, Sheffield',
+    dates: 'Apr – Oct 2018',
+  },
+  { place: 'Malin Bridge Primary School, Sheffield', dates: 'Jan 2014 – Dec 2016' },
+  { place: 'Star Mandarin School, Sheffield', dates: 'Feb 2013 – Jun 2020' },
+] as const;
+
+/** Home page spotlight cards (paths are completed with `withBase` in the layout). */
+export const homeSectionCards = [
+  {
+    slug: 'research' as const,
+    title: 'Research',
+    kicker: 'Publications & collaboration',
+    description:
+      'Research themes, peer-reviewed publications, manuscripts under review, and funded projects—with links to Google Scholar.',
+    accent: 'sage' as const,
+  },
+  {
+    slug: 'teaching' as const,
+    title: 'Teaching',
+    kicker: 'Higher education & schools',
+    description:
+      'University teaching, EAP, and related roles, together with earlier school-based experience in the UK.',
+    accent: 'sky' as const,
+  },
+  {
+    slug: 'service' as const,
+    title: 'Service',
+    kicker: 'Conferences & engagement',
+    description:
+      'Selected conference presentations and scholarly dissemination in language education and assessment.',
+    accent: 'blush' as const,
   },
 ] as const;

@@ -8,7 +8,7 @@ import '@fontsource/source-sans-3/600.css';
 
 import { person } from '../data/cv';
 import { contact } from '../data/contact';
-import { researcherProfiles } from '../data/profiles';
+import { academicIds, googleScholarProfileUrl } from '../data/profiles';
 
 interface Props {
   title: string;
@@ -31,10 +31,10 @@ const jsonLd = {
   email: contact.cityu,
   telephone: person.officePhone,
   sameAs: [
-    researcherProfiles.googleScholar.href,
-    researcherProfiles.orcid.href,
-    researcherProfiles.scopus.href,
-    researcherProfiles.webOfScience.href,
+    googleScholarProfileUrl,
+    academicIds.orcid.href,
+    academicIds.scopus.href,
+    academicIds.webOfScience.href,
   ],
   url: Astro.site ? new URL('/', Astro.site).href : canonicalURL.href,
 };

@@ -1,5 +1,5 @@
 ---
-import { person } from '../data/cv';
+import { person, siteTagline, summary } from '../data/cv';
 import { contact } from '../data/contact';
 import ProfileLinks from './ProfileLinks.astro';
 
@@ -7,59 +7,78 @@ const profileSrc = `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}images/profi
 ---
 
 <section
-  class="relative w-full overflow-hidden border-b border-border/60 bg-gradient-to-b from-primary-faint/90 via-page to-page"
+  class="relative w-full overflow-hidden border-b border-border/50"
   aria-labelledby="hero-heading"
 >
+  <!-- Soft green → blue wash with gold / pink highlights (reference-style hero bands) -->
   <div
-    class="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-r from-accent-yellow/25 via-transparent to-accent-pink/20"
+    class="absolute inset-0 bg-gradient-to-br from-primary-faint via-page to-secondary-faint/70"
     aria-hidden="true"
   />
   <div
-    class="grid w-full gap-10 px-5 py-12 sm:px-8 md:px-12 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-start lg:gap-14 lg:px-16 lg:py-16 xl:px-20 2xl:px-24"
+    class="pointer-events-none absolute -right-20 top-0 h-72 w-72 rounded-full bg-accent-yellow/25 blur-3xl"
+    aria-hidden="true"
+  />
+  <div
+    class="pointer-events-none absolute -left-16 bottom-0 h-64 w-64 rounded-full bg-accent-pink/20 blur-3xl"
+    aria-hidden="true"
+  />
+  <div
+    class="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary via-accent-yellow to-secondary"
+    aria-hidden="true"
+  />
+
+  <div
+    class="relative grid w-full gap-10 px-5 py-14 sm:px-8 md:px-12 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:gap-16 lg:px-16 lg:py-20 xl:px-20 2xl:px-24"
   >
     <div class="min-w-0">
-      <p class="text-sm font-medium uppercase tracking-wide text-primary">Faculty profile</p>
-      <h1 id="hero-heading" class="mt-2 font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">
+      <p class="text-sm font-semibold uppercase tracking-[0.18em] text-primary">Faculty profile</p>
+      <h1
+        id="hero-heading"
+        class="mt-3 font-serif text-4xl font-semibold tracking-tight text-ink sm:text-5xl lg:text-[2.75rem] lg:leading-tight"
+      >
         {person.fullDisplayName}
       </h1>
-      <p class="mt-3 text-lg text-muted lg:text-xl">
+      <p class="mt-2 font-serif text-xl text-secondary sm:text-2xl">{siteTagline}</p>
+      <p class="mt-4 text-lg text-muted lg:text-xl">
         {person.title}, {person.affiliation}
       </p>
-      <p class="mt-4 max-w-4xl text-pretty text-lg leading-relaxed text-ink/95">
-        Research in language education, formative assessment, motivation, and language testing—with a growing interest in
-        generative AI and multilingual higher education in Macau.
+      <p class="mt-6 max-w-3xl text-pretty text-lg leading-relaxed text-ink/95 lg:text-xl lg:leading-relaxed">
+        {summary}
       </p>
 
       <div
         id="contact"
-        class="mt-8 max-w-2xl space-y-4 scroll-mt-24 rounded-xl border border-border/70 bg-surface/80 p-5 shadow-sm lg:p-6"
+        class="mt-10 max-w-2xl space-y-5 scroll-mt-24 rounded-2xl border border-border/80 bg-surface/90 p-6 shadow-lg shadow-primary/5 backdrop-blur-sm lg:p-7"
       >
         <div>
-          <p class="text-xs font-semibold uppercase tracking-wide text-muted">Contact</p>
-          <p class="mt-1">
+          <p class="text-xs font-bold uppercase tracking-wider text-primary">Contact</p>
+          <p class="mt-2">
             <span class="text-sm text-muted">CityU (primary)</span><br />
-            <a class="text-base font-medium" href={`mailto:${contact.cityu}`}>{contact.cityu}</a>
+            <a class="text-base font-semibold text-ink no-underline hover:text-primary" href={`mailto:${contact.cityu}`}
+              >{contact.cityu}</a
+            >
           </p>
           <p class="mt-3 text-sm text-muted">
             Personal (Gmail):
-            <a class="ml-1 font-medium" href={`mailto:${contact.gmail}`}>{contact.gmail}</a>
+            <a class="ml-1 font-medium text-primary" href={`mailto:${contact.gmail}`}>{contact.gmail}</a>
           </p>
           <p class="mt-1 text-sm text-muted">
             Outlook:
-            <a class="ml-1 font-medium" href={`mailto:${contact.outlook}`}>{contact.outlook}</a>
+            <a class="ml-1 font-medium text-primary" href={`mailto:${contact.outlook}`}>{contact.outlook}</a>
           </p>
           <p class="mt-2 text-sm text-muted">
             Office:
-            <a class="ml-1" href="tel:+85385902644">{person.officePhone}</a>
+            <a class="ml-1 font-medium text-primary" href="tel:+85385902644">{person.officePhone}</a>
           </p>
         </div>
         <ProfileLinks />
       </div>
     </div>
 
-    <div class="mx-auto w-40 shrink-0 lg:mx-0 lg:w-48 xl:w-52">
+    <div class="mx-auto w-44 shrink-0 lg:mx-0 lg:w-52 xl:w-56">
       <div
-        class="overflow-hidden rounded-2xl border-2 border-accent-yellow/60 bg-surface shadow-md ring-1 ring-border/40"
+        class="overflow-hidden rounded-2xl border-4 border-white bg-surface shadow-2xl shadow-secondary/20 ring-2 ring-accent-yellow/50"
       >
         <img
           src={profileSrc}

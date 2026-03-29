@@ -19,26 +19,37 @@ const homeHref = withBase('/');
 ---
 
 <header
-  class="sticky top-0 z-40 w-full border-b border-border/80 bg-page/90 backdrop-blur-md"
-  style="box-shadow: 0 1px 0 0 var(--color-accent-pink);"
+  class="sticky top-0 z-40 w-full border-b border-border/60 bg-surface/85 backdrop-blur-lg"
 >
   <div
-    class="flex w-full flex-wrap items-center justify-between gap-3 px-5 py-3 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24"
+    class="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-primary/0 via-primary/50 to-secondary/0"
+    aria-hidden="true"
+  />
+  <div
+    class="relative flex w-full flex-wrap items-center justify-between gap-4 px-5 py-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24"
   >
-    <p class="font-serif text-lg font-semibold text-ink">
-      <a href={homeHref} class="text-ink no-underline hover:text-primary">April Jiawei Zhang</a>
+    <p class="font-serif text-xl font-semibold tracking-tight text-ink">
+      <a
+        href={homeHref}
+        class="text-ink no-underline transition-colors hover:text-primary"
+      >
+        April Jiawei Zhang
+      </a>
     </p>
-    <nav aria-label="Primary" class="flex flex-wrap gap-x-4 gap-y-1 text-sm text-muted">
+    <nav
+      aria-label="Primary"
+      class="flex flex-wrap gap-x-1 gap-y-2 text-sm font-medium sm:text-base"
+    >
       {
         navItems.map(({ href, label }) => (
           <a
             href={href}
             aria-current={isActive(href) ? 'page' : undefined}
             class:list={[
-              'rounded px-1 py-0.5 font-medium no-underline transition-colors',
+              'rounded-full px-3 py-1.5 no-underline transition-all',
               isActive(href)
-                ? 'bg-accent-yellow/50 text-ink'
-                : 'text-primary hover:bg-accent-yellow/40 hover:text-ink',
+                ? 'bg-gradient-to-r from-primary-faint to-secondary-faint text-ink ring-2 ring-primary/30'
+                : 'text-muted hover:bg-gold-muted/80 hover:text-ink',
             ]}
           >
             {label}

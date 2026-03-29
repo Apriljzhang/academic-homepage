@@ -1,0 +1,28 @@
+---
+import { teachingSchools, teachingUniversity } from '../data/cv';
+---
+
+<h2 class="mt-12 font-serif text-2xl font-semibold text-ink">Higher education</h2>
+<ul class="mt-4 space-y-4">
+  {
+    teachingUniversity.map((t) => (
+      <li class="rounded-lg border border-border/60 bg-surface px-5 py-4 shadow-sm">
+        <p class="font-semibold text-ink">{t.role}</p>
+        <p class="text-muted">{t.place}</p>
+        <p class="mt-1 text-xs font-medium uppercase tracking-wide text-primary">{t.dates}</p>
+      </li>
+    ))
+  }
+</ul>
+
+<h2 class="mt-14 font-serif text-2xl font-semibold text-ink">Schools</h2>
+<ul class="mt-4 space-y-3">
+  {
+    teachingSchools.map((t) => (
+      <li class="flex flex-col gap-0.5 border-l-2 border-accent-pink/70 pl-4 sm:flex-row sm:justify-between">
+        <span class="text-ink">{t.place}</span>
+        <span class="text-sm text-muted">{t.dates}</span>
+      </li>
+    ))
+  }
+</ul>

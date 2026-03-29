@@ -1,7 +1,12 @@
-export const researcherProfiles = {
+/** Canonical Google Scholar profile URL (use across site and JSON-LD). */
+export const googleScholarProfileUrl =
+  'https://scholar.google.com/citations?user=UXwVmZ8AAAAJ&hl=en' as const;
+
+/** Research identifiers and aggregator profiles — show together as “Academic IDs”. */
+export const academicIds = {
   googleScholar: {
     label: 'Google Scholar',
-    href: 'https://scholar.google.com/citations?user=UXwVmZ8AAAAJ&hl=en',
+    href: googleScholarProfileUrl,
   },
   orcid: {
     label: 'ORCID',
@@ -16,3 +21,6 @@ export const researcherProfiles = {
     href: 'https://www.webofscience.com/wos/author/record/MGV-0744-2025',
   },
 } as const;
+
+/** @deprecated use academicIds — kept for any legacy imports */
+export const researcherProfiles = academicIds;

@@ -1,6 +1,6 @@
 ---
 import { publications, publicationsUnderReview } from '../data/cv';
-import { researcherProfiles } from '../data/profiles';
+import { googleScholarProfileUrl } from '../data/profiles';
 ---
 
 <ol class="mt-8 list-decimal space-y-8 pl-5 marker:font-serif marker:text-lg marker:text-primary">
@@ -56,13 +56,9 @@ import { researcherProfiles } from '../data/profiles';
   ) : null
 }
 
-<p class="mt-12 text-muted">
-  <a
-    href={researcherProfiles.googleScholar.href}
-    target="_blank"
-    rel="noopener noreferrer"
-    class="font-semibold text-primary"
-  >
-    Full profile and citation counts on Google Scholar →
+<p class="mt-12 text-sm text-muted">
+  Citations and any further items appear on{' '}
+  <a href={googleScholarProfileUrl} target="_blank" rel="noopener noreferrer" class="font-semibold text-primary">
+    Google Scholar →
   </a>
 </p>

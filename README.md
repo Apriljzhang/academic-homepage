@@ -1,6 +1,6 @@
 # Faculty profile site
 
-Static faculty research site for **April Jiawei Zhang 張家維**, built with [Astro](https://astro.build/) and Tailwind CSS v4. Visitor-facing copy uses **British English** (`lang="en-GB"`).
+Static faculty research site for **April Jiawei Zhang 張家維**, built with [Astro](https://astro.build/) and Tailwind CSS v4. Visitor-facing copy uses **British English** (`lang="en-GB"`). Visual layout draws on clear faculty landing patterns (e.g. [Liying Cheng](https://www.liyingcheng.ca/), [Junjie Gavin Wu](https://gavinjunjiewu2.wixsite.com/gavin)): hero plus large section cards. Colour palette: **sage green** and **gold**, **sky blue** and **blush pink**.
 
 **Live site:** [https://apriljzhang.com](https://apriljzhang.com) (custom domain on GitHub Pages).
 
@@ -11,7 +11,7 @@ npm install
 npm run dev
 ```
 
-Open `http://localhost:4321`. Routes: `/` (home), `/about`, `/publications`, `/grants`, `/talks`.
+Open `http://localhost:4321`. Routes: `/` (home), `/research`, `/teaching`, `/service`.
 
 ## Configure before publishing
 
@@ -20,7 +20,7 @@ Open `http://localhost:4321`. Routes: `/` (home), `/about`, `/publications`, `/g
 3. **`src/data/contact.ts`** — CityU / Gmail / Outlook. Optional env: `PUBLIC_CITYU_EMAIL`, `PUBLIC_OUTLOOK_EMAIL` (see `.env.example`).
 4. **`public/images/profile.jpg`** — Headshot asset.
 
-CV text, grants, and publications live in **`src/data/cv.ts`**. Research profile URLs are in **`src/data/profiles.ts`**.
+CV text, teaching, grants, talks, and publications live in **`src/data/cv.ts`**. Academic IDs (Google Scholar, ORCID, Scopus, Web of Science) are in **`src/data/profiles.ts`**.
 
 ## GitHub Pages + custom domain
 

@@ -2,10 +2,9 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import Hero from '../components/Hero.astro';
+import HomeSectionCards from '../components/HomeSectionCards.astro';
 import SiteFooter from '../components/SiteFooter.astro';
-import PageShell from '../components/PageShell.astro';
 import { person } from '../data/cv';
-import { withBase } from '../utils/paths';
 
 const title = `${person.fullDisplayName} · ${person.title}`;
 const description = `${person.fullDisplayName}, ${person.title} at ${person.affiliation}. Language education, formative assessment, and language testing.`;
@@ -15,14 +14,7 @@ const description = `${person.fullDisplayName}, ${person.title} at ${person.affi
   <SiteHeader />
   <main id="main-content">
     <Hero />
-    <PageShell class="border-t border-border/40 bg-surface/50 py-10">
-      <p class="max-w-4xl text-lg text-muted">
-        Welcome. Use the menu above for <a href={withBase('/about')}>about</a>,{' '}
-        <a href={withBase('/publications')}>publications</a>,{' '}
-        <a href={withBase('/grants')}>funded projects</a>, and{' '}
-        <a href={withBase('/talks')}>conference presentations</a>.
-      </p>
-    </PageShell>
+    <HomeSectionCards />
   </main>
   <SiteFooter />
 </BaseLayout>

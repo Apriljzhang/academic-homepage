@@ -1,18 +1,35 @@
 @import "tailwindcss";
 
+/*
+  Palette: sage green + warm gold, sky blue + soft blush pink.
+  Inspired by clean faculty landing pages (e.g. Liying Cheng, Gavin Wu style clarity).
+*/
 @theme {
   --font-serif: "Source Serif 4", ui-serif, Georgia, "Times New Roman", serif;
   --font-sans: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
 
-  --color-page: #f4f6fb;
-  --color-surface: #ffffff;
-  --color-ink: #3a4050;
-  --color-muted: #5c6378;
-  --color-primary: #5f6f9a;
-  --color-primary-faint: #e8ecf6;
-  --color-accent-yellow: #f5e6a8;
-  --color-accent-pink: #f3dbe8;
-  --color-border: #d9deeb;
+  --color-page: #ecf8f3;
+  --color-surface: #fefffe;
+  --color-ink: #1b4332;
+  --color-muted: #52796f;
+
+  /* Green family (primary brand) */
+  --color-primary: #2d6a4f;
+  --color-primary-faint: #d8f3dc;
+
+  /* Blue family */
+  --color-secondary: #457b9d;
+  --color-secondary-faint: #e3eef6;
+
+  /* Yellow / gold accents */
+  --color-accent-yellow: #e9c46a;
+  --color-gold-muted: #fef6e7;
+
+  /* Pink / rose accents */
+  --color-accent-pink: #f4acb7;
+  --color-blush-faint: #fdeef1;
+
+  --color-border: #b7e4c7;
 }
 
 @layer base {
@@ -31,6 +48,6 @@
   }
 
   a {
-    @apply text-primary underline-offset-2 decoration-primary/35 hover:decoration-accent-yellow hover:text-ink transition-colors;
+    @apply text-primary underline-offset-2 decoration-primary/40 hover:text-secondary hover:decoration-accent-yellow transition-colors;
   }
 }

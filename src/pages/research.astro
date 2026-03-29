@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import PageShell from '../components/PageShell.astro';
+import ResearchInterests from '../components/ResearchInterests.astro';
+import PublicationsList from '../components/PublicationsList.astro';
+import GrantsTable from '../components/GrantsTable.astro';
+import { googleScholarProfileUrl } from '../data/profiles';
+import { person } from '../data/cv';
+
+const title = `Research · ${person.fullDisplayName}`;
+const description = `Research interests, publications, and funded projects — ${person.fullDisplayName}.`;
+---
+
+<BaseLayout {title} {description}>
+  <SiteHeader />
+  <main id="main-content" class="min-h-[50vh] w-full bg-surface">
+    <PageShell accentBar>
+      <h1 class="font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">Research</h1>
+
+      <h2 class="mt-12 font-serif text-2xl font-semibold text-ink">Research interests</h2>
+      <ResearchInterests />
+
+      <h2 class="mt-16 font-serif text-2xl font-semibold text-ink">Publications</h2>
+      <p class="mt-3 max-w-4xl text-muted">
+        Peer-reviewed articles and thesis, ordered as on{' '}
+        <a href={googleScholarProfileUrl} target="_blank" rel="noopener noreferrer">Google Scholar</a> (newest first).
+      </p>
+      <PublicationsList />
+
+      <h2 class="mt-16 font-serif text-2xl font-semibold text-ink">Funded projects</h2>
+      <GrantsTable />
+    </PageShell>
+  </main>
+  <SiteFooter />
+</BaseLayout>
