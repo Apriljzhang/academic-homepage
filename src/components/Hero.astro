@@ -31,35 +31,39 @@ const profileSrc = `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}images/profi
 
       <div
         id="contact"
-        class="mt-8 max-w-2xl space-y-4 scroll-mt-24 rounded-xl border border-border bg-surface p-5 sm:p-6 lg:p-6"
+        class="mt-8 flex max-w-4xl scroll-mt-24 flex-col gap-5 rounded-xl border border-border bg-surface p-4 sm:flex-row sm:items-start sm:gap-8 sm:p-5"
       >
-        <div>
+        <div class="min-w-0 flex-1 space-y-2">
           <p class="text-xs font-bold uppercase tracking-wider text-primary">Contact</p>
-          <p class="mt-2 text-sm text-muted">Work</p>
+          <p class="text-sm text-muted">Work</p>
           <p>
-            <a class="text-base font-semibold text-ink no-underline hover:text-primary" href={`mailto:${contact.cityu}`}
-              >{contact.cityu}</a
+            <a
+              class="text-base font-semibold text-primary no-underline decoration-primary/40 underline-offset-2 hover:text-primary hover:underline hover:decoration-primary"
+              href={`mailto:${contact.cityu}`}>{contact.cityu}</a
             >
           </p>
-          <p class="mt-4 text-sm text-muted">Personal</p>
-          <p class="mt-1">
-            <a class="font-medium text-primary no-underline hover:underline" href={`mailto:${contact.gmail}`}
-              >{contact.gmail}</a
+          <p class="pt-1 text-sm text-muted">Personal</p>
+          <p>
+            <a
+              class="text-sm font-medium text-ink no-underline decoration-border/60 underline-offset-2 hover:text-ink hover:underline hover:decoration-border"
+              href={`mailto:${contact.gmail}`}>{contact.gmail}</a
             >
           </p>
-          <p class="mt-1">
-            <a class="font-medium text-primary no-underline hover:underline" href={`mailto:${contact.outlook}`}
-              >{contact.outlook}</a
+          <p>
+            <a
+              class="text-sm font-medium text-ink no-underline decoration-border/60 underline-offset-2 hover:text-ink hover:underline hover:decoration-border"
+              href={`mailto:${contact.outlook}`}>{contact.outlook}</a
             >
           </p>
-          <p class="mt-3 text-sm text-muted">
+          <p class="text-sm text-muted">
             Office:
-            <a class="ml-1 font-medium text-primary no-underline hover:underline" href="tel:+85385902644"
-              >{person.officePhone}</a
+            <a
+              class="ml-1 font-medium text-ink no-underline decoration-border/60 underline-offset-2 hover:text-ink hover:underline hover:decoration-border"
+              href="tel:+85385902644">{person.officePhone}</a
             >
           </p>
         </div>
-        <ProfileLinks />
+        <ProfileLinks layout="vertical" />
       </div>
     </div>
 
