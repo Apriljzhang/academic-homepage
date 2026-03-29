@@ -1,6 +1,5 @@
 ---
 import { researchSubnav } from '../data/sectionNav';
-import { googleScholarProfileUrl } from '../data/profiles';
 
 function normPath(pathname: string): string {
   const x = pathname.replace(/\/$/, '') || '/';
@@ -60,15 +59,4 @@ const { themeAnchors } = Astro.props;
       </div>
     ) : null
   }
-  <div>
-    <p class="mb-2 text-xs font-bold uppercase tracking-wider text-muted">Profiles</p>
-    <a
-      href={googleScholarProfileUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="block rounded-md px-2 py-1 text-muted no-underline hover:bg-neutral-hover hover:text-ink"
-    >
-      Google Scholar →
-    </a>
-  </div>
 </nav>

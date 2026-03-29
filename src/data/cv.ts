@@ -16,7 +16,7 @@ export const siteTagline = 'Teaching, learning & assessment in language educatio
 
 /** Single site-wide biography — shown only on the home hero. */
 export const summary =
-  'An experienced researcher and lecturer working in language education and formative assessment. Skilled in mixed-methods research, data analysis, lecturing, tutoring, organisation, and collaborative enquiry. PhD from the University of Sheffield on formative assessment, motivation, and achievement in language education.';
+  'I am Assistant Professor in the School of Education at City University of Macau. My research sits at the intersection of language education, formative and classroom assessment, and technology—including generative AI and conversational tools—in EMI and multilingual higher education. I use mixed-methods designs to connect learner experience, motivation, and assessment practice. I completed my PhD at the University of Sheffield on formative assessment, motivation, and young English learners; before Macau I taught EAP and related programmes at universities in the UK and China. I teach and supervise in teacher education and language education, and I contribute to professional networks in language assessment.';
 
 /** About page — narrative only (no photo). British English. */
 export const aboutNarrativeParagraphs = [
@@ -119,6 +119,11 @@ export const researchThemesDetailed: readonly ResearchThemeDetailed[] = [
         citationHtml:
           '<em>The algorithmic mirror: Linking multidimensional AI literacy to evaluative judgment and writing quality in AI-assisted L2 argumentative writing</em>.',
       },
+      {
+        status: 'In preparation',
+        citationHtml:
+          '<em>The impact of AI chatbot on EFL learners\' speaking performance via flow experience</em>.',
+      },
     ],
   },
   {
@@ -131,6 +136,11 @@ export const researchThemesDetailed: readonly ResearchThemeDetailed[] = [
         status: 'In preparation',
         citationHtml:
           '<em>Breaking the fourth wall in Chinese EFL: Stakeholder perceptions of situated learning “in the wild” with young learners</em>.',
+      },
+      {
+        status: 'In preparation',
+        citationHtml:
+          '<em>Interplay between personality traits, vocabulary learning strategy and achievement in English language courses in EMI</em>.',
       },
     ],
   },
@@ -216,12 +226,6 @@ export const aalaConferenceUrl = 'https://aalaconference.com/' as const;
 
 export const grants = [
   {
-    title: 'Implementation and Implication of Co-creating Rubric and Peer Assessment in EFL Courses',
-    years: '2022 – 2023',
-    institution: 'Macau University of Science and Technology',
-    role: 'Principal Investigator',
-  },
-  {
     title: 'HSK Test-taker Characteristics, Test Performance and Implications for HSK Test Constructs',
     years: '2019 – 2020',
     institution: 'University of Leeds; University of Southampton; University of Nottingham',
@@ -304,11 +308,6 @@ export const teachingUniversity = [
     dates: 'Aug 2024 – present',
   },
   {
-    role: 'Assistant Professor',
-    place: 'University International College, Macau University of Science and Technology',
-    dates: 'Sep 2021 – Jun 2024',
-  },
-  {
     role: 'EAP course tutor',
     place: 'University of Nottingham Ningbo China',
     dates: 'Feb – Jun 2021',
@@ -360,7 +359,7 @@ export const homeSectionCards = [
     title: 'Teaching',
     kicker: 'Philosophy & supervision',
     description:
-      'Approach and trajectory across the UK and China/Macau, plus MA and doctoral supervision in English and Education.',
+      'Approach and trajectory across the UK and China / Macau, plus MEd and doctoral supervision at City University of Macau.',
     accent: 'blue' as const,
   },
   {

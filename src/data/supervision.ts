@@ -3,7 +3,7 @@
  */
 
 export const supervisionIntroParagraphs = [
-  'I supervise dissertations and theses in language education, assessment, and technology-enhanced learning. At MUST (University International College), I supervised English MA dissertations on motivation, classroom assessment, early language learning, and systematic reviews. At City University of Macau, School of Education, I supervise Master of Education and doctoral work on formative assessment, AI in language education, informal digital learning, and teacher acceptance of innovation.',
+  'I supervise dissertations and theses in language education, assessment, and technology-enhanced learning at City University of Macau, School of Education: Master of Education and doctoral projects on formative assessment, AI in language education, informal digital learning, and teacher acceptance of innovation.',
   'The summaries below group dissertation themes by cohort and programme. No individual students are named. Working titles may evolve as projects mature.',
 ] as const;
 
@@ -75,40 +75,6 @@ export const supervisionBlocks: SupervisionBlock[] = [
         status: 'In progress',
         topics: [
           'Mechanisms linking formative assessment to classroom academic emotions in university English courses',
-        ],
-      },
-    ],
-  },
-  {
-    title: 'MA (English)',
-    subtitle: 'Macau University of Science and Technology — University International College',
-    cohorts: [
-      {
-        cohort: '2024',
-        status: 'Completed',
-        topics: [
-          'AI chatbot–mediated English learning versus traditional instruction: flow, emotions, and oral proficiency among adolescent EFL learners',
-          'Peer feedback in kindergarten language education: teacher observations and concerns',
-        ],
-      },
-      {
-        cohort: '2023',
-        status: 'Completed',
-        topics: [
-          'Systematic review of learning analytics in language learning and teaching',
-          'Co-constructed rubrics and peer assessment in EFL',
-          'Self-acceptance, peace of mind, and L2 learning motivation (professional cohort context)',
-          'Systematic review of video and video-call feedback in language learning and teaching',
-        ],
-      },
-      {
-        cohort: '2022',
-        status: 'Completed',
-        topics: [
-          'Parents’ attitudes and behaviours and young learners’ English learning in kindergarten',
-          'Lesson study: perceptions and impact across teacher contexts',
-          'Self-regulated strategies and motivation in secondary English writing (private versus public sectors)',
-          'Chinese learning motivation and cultural identity among heritage learners in an overseas Confucius Institute setting',
         ],
       },
     ],

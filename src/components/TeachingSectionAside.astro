@@ -1,6 +1,5 @@
 ---
 import { teachingSubnav } from '../data/sectionNav';
-import { cityUStaffProfileUrl } from '../data/profiles';
 
 function normPath(pathname: string): string {
   const x = pathname.replace(/\/$/, '') || '/';
@@ -36,16 +35,5 @@ function isCurrent(href: string): boolean {
         ))
       }
     </ul>
-  </div>
-  <div>
-    <p class="mb-2 text-xs font-bold uppercase tracking-wider text-muted">Institution</p>
-    <a
-      href={cityUStaffProfileUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="block rounded-md px-2 py-1 text-muted no-underline hover:bg-neutral-hover hover:text-ink"
-    >
-      CityU SOE profile →
-    </a>
   </div>
 </nav>
