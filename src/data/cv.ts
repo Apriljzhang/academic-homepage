@@ -18,9 +18,13 @@ export const siteTagline = 'Teaching, learning & assessment in language educatio
 export const summary =
   'An experienced researcher and lecturer working in language education and formative assessment. Skilled in mixed-methods research, data analysis, lecturing, tutoring, organisation, and collaborative enquiry. PhD from the University of Sheffield on formative assessment, motivation, and achievement in language education.';
 
-/** Minimal line on the About page (photo + short purpose). */
-export const aboutPageLead =
-  'This site is just my research—interests, publications, and funded work. That is it.';
+/** About page — narrative only (no photo). British English. */
+export const aboutNarrativeParagraphs = [
+  'I am a researcher in language education and assessment, with a particular interest in how formative and classroom-based assessment can support motivation and learning, especially for young learners and in multilingual settings. My doctoral work at the University of Sheffield examined formative assessment, motivation, and achievement among young English learners in China, and that thread—linking assessment practice to learner experience—still runs through what I do today.',
+  'More recently my interests have broadened to assessment for learning in higher education, peer assessment and co-constructed rubrics, and the place of English and Chinese in universities in Macau. I also follow how motivation and engagement play out in digital spaces, and how educators and learners navigate generative AI in language assessment and in research practice.',
+  'My published work includes studies on demotivation and expectancy-value perspectives in medical students’ English learning, motivation and learning strategies among HSK test-takers in the UK, formative assessment and key competencies in primary English classrooms, and collaborative work on Chinese language testing and test-taker characteristics. Together, these pieces reflect mixed-methods designs and a concern for both classroom relevance and testing contexts.',
+  'Alongside research, I teach and supervise in teacher education and language education, and I contribute to conferences and professional networks in language assessment across Asia and beyond.',
+] as const;
 
 export const researchInterests = {
   /** Short line for Research page only (no repeat of biography). */
@@ -52,17 +56,21 @@ export const researchInterests = {
 
 export type PublicationItem = {
   citationHtml: string;
+  /** Full DOI or retrieval URL (shown below citation in APA style). */
+  doiUrl?: string;
 };
 
-/** Peer-reviewed work and doctoral dissertation (APA 7th), newest first. */
+/** Peer-reviewed work and doctoral dissertation (APA 7th), newest first. DOI or URL where available. */
 export const publications: PublicationItem[] = [
   {
     citationHtml:
       'Ji, T., & Zhang, J. (2025). Demotivation in English learning of Chinese medical students: Insights from situated expectancy-value theory. <em>Acta Psychologica</em>, <em>253</em>, Article 104716.',
+    doiUrl: 'https://doi.org/10.1016/j.actpsy.2025.104716',
   },
   {
     citationHtml:
       'Wright, C., Lu, Y., Zhang, J., Zhang, L., & Zheng, Y. (2022). Tests of learning or testing for learning? An exploratory study of motivation and language learning strategies among HSK level 1–3 test-takers in UK. <em>International Journal of Chinese Language Teaching</em>, <em>3</em>(3), 1–19.',
+    doiUrl: 'https://doi.org/10.46451/ijclt.2022.03.01',
   },
   {
     citationHtml:
@@ -74,9 +82,20 @@ export const publications: PublicationItem[] = [
   },
   {
     citationHtml:
-      'Zhang, J. (2018). <em>The impact of formative assessment on young English learners’ motivation and achievement in China</em> [Doctoral dissertation, University of Sheffield].',
+      'Zhang, J. (2018). <em>The impact of formative assessment on young English learners’ motivation and achievement in China</em> [Doctoral dissertation, University of Sheffield]. White Rose eTheses Online.',
+    doiUrl: 'https://etheses.whiterose.ac.uk/id/eprint/21497',
   },
 ];
+
+/** Teaching page — narrative only (no job-by-job list). British English. */
+export const teachingNarrativeParagraphs = [
+  'My teaching has grown along two trajectories: extended work in the United Kingdom and, more recently, university teaching in Macau and mainland China. In the UK I spent several years in English for Academic Purposes and related support roles at research-intensive universities, working with international undergraduates and postgraduates on academic communication, reading and writing for their disciplines, and the transition into British higher education. That period also included school-based practice—primary and secondary—where I taught English, contributed to Mandarin provision for younger learners, and took part in partnership arrangements between schools and the university while I completed my doctorate.',
+  'Since moving to Macau I have taught at faculty level in international-facing programmes, including English language and education-oriented modules that connect language pedagogy, assessment literacy, and teacher development. Across both contexts, what I most often teach clusters around academic English, language education methodology, and how assessment—formative and classroom-based—can be used to support learning rather than only to certify it.',
+  'The contrast between the UK and China/Macau has shaped how I explain language policy, multilingual classrooms, and learner motivation to students: in one setting the emphasis is often on adaptation to an Anglophone academy; in the other, on English alongside Chinese and the particular profile of higher education in the Greater Bay Area. I draw on that contrast deliberately in seminars and project supervision so that trainees can compare systems without treating either as the default.',
+] as const;
+
+/** Service — AALA 2026 co-chair (see also talks list). */
+export const aalaConferenceUrl = 'https://aalaconference.com/' as const;
 
 export const grants = [
   {
@@ -194,7 +213,7 @@ export const homeSectionCards = [
     title: 'Research',
     kicker: 'Publications & collaboration',
     description: 'Research themes, peer-reviewed publications in APA 7th style, and funded projects.',
-    accent: 'sage' as const,
+    accent: 'green' as const,
   },
   {
     slug: 'teaching' as const,
@@ -202,7 +221,7 @@ export const homeSectionCards = [
     kicker: 'Higher education & schools',
     description:
       'University teaching, EAP, and related roles, together with earlier school-based experience in the UK.',
-    accent: 'sky' as const,
+    accent: 'blue' as const,
   },
   {
     slug: 'service' as const,
@@ -210,6 +229,6 @@ export const homeSectionCards = [
     kicker: 'Conferences & engagement',
     description:
       'Selected conference presentations and scholarly dissemination in language education and assessment.',
-    accent: 'blush' as const,
+    accent: 'purple' as const,
   },
 ] as const;

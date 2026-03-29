@@ -18,13 +18,8 @@ function isActive(href: string): boolean {
 const homeHref = withBase('/');
 ---
 
-<header
-  class="sticky top-0 z-40 w-full border-b border-border/60 bg-surface/85 backdrop-blur-lg"
->
-  <div
-    class="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-primary/0 via-primary/50 to-secondary/0"
-    aria-hidden="true"
-  />
+<header class="sticky top-0 z-40 w-full border-b border-border/60 bg-surface/95">
+  <div class="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-primary/25" aria-hidden="true" />
   <div
     class="relative flex w-full flex-wrap items-center justify-between gap-4 px-5 py-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24"
   >
@@ -48,8 +43,8 @@ const homeHref = withBase('/');
             class:list={[
               'rounded-full px-3 py-1.5 no-underline transition-all',
               isActive(href)
-                ? 'bg-gradient-to-r from-primary-faint to-secondary-faint text-ink ring-2 ring-primary/30'
-                : 'text-muted hover:bg-gold-muted/80 hover:text-ink',
+                ? 'bg-primary/12 text-ink ring-2 ring-primary/25'
+                : 'text-muted hover:bg-secondary/10 hover:text-ink',
             ]}
           >
             {label}

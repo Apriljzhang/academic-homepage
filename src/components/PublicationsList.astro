@@ -2,15 +2,27 @@
 import { publications } from '../data/cv';
 ---
 
-<ol class="mt-8 list-decimal space-y-8 pl-5 marker:font-serif marker:text-lg marker:text-primary">
+<div class="mt-8 space-y-10">
   {
     publications.map((item) => (
-      <li class="pl-2">
+      <div class="border-l-2 border-primary/25 pl-5">
         <p
           class="text-pretty text-lg leading-relaxed text-ink/95 [&_em]:font-serif [&_em]:italic [&_em]:text-primary"
           set:html={item.citationHtml}
         />
-      </li>
+        {item.doiUrl ? (
+          <p class="mt-2 break-all text-base">
+            <a
+              href={item.doiUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="font-medium text-primary no-underline hover:underline"
+            >
+              {item.doiUrl}
+            </a>
+          </p>
+        ) : null}
+      </div>
     ))
   }
-</ol>
+</div>

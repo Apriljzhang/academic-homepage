@@ -1,35 +1,34 @@
 @import "tailwindcss";
 
 /*
-  Palette: sage green + warm gold, sky blue + soft blush pink.
-  Inspired by clean faculty landing pages (e.g. Liying Cheng, Gavin Wu style clarity).
+  Flat, semi-transparent colour blocks (no grainy blurs).
+  Research / Teaching / Service accents: green, blue, purple.
 */
 @theme {
   --font-serif: "Source Serif 4", ui-serif, Georgia, "Times New Roman", serif;
   --font-sans: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
 
-  --color-page: #ecf8f3;
-  --color-surface: #fefffe;
+  --color-page: #f4faf7;
+  --color-surface: #ffffff;
   --color-ink: #1b4332;
   --color-muted: #52796f;
 
-  /* Green family (primary brand) */
   --color-primary: #2d6a4f;
-  --color-primary-faint: #d8f3dc;
+  --color-primary-faint: rgb(45 106 79 / 0.12);
 
-  /* Blue family */
   --color-secondary: #457b9d;
-  --color-secondary-faint: #e3eef6;
+  --color-secondary-faint: rgb(69 123 157 / 0.12);
 
-  /* Yellow / gold accents */
+  --color-accent-purple: #6d597a;
+  --color-accent-purple-faint: rgb(109 89 122 / 0.12);
+
   --color-accent-yellow: #e9c46a;
-  --color-gold-muted: #fef6e7;
+  --color-gold-muted: rgb(233 196 106 / 0.18);
 
-  /* Pink / rose accents */
   --color-accent-pink: #f4acb7;
-  --color-blush-faint: #fdeef1;
+  --color-blush-faint: rgb(244 172 183 / 0.14);
 
-  --color-border: #b7e4c7;
+  --color-border: rgb(45 106 79 / 0.22);
 }
 
 @layer base {

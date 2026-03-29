@@ -4,10 +4,10 @@ import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import PageShell from '../components/PageShell.astro';
 import TalksList from '../components/TalksList.astro';
-import { person } from '../data/cv';
+import { person, aalaConferenceUrl } from '../data/cv';
 
 const title = `Service · ${person.fullDisplayName}`;
-const description = `Conference presentations and professional engagement — ${person.fullDisplayName}.`;
+const description = `Professional service, conference organisation, and presentations — ${person.fullDisplayName}.`;
 ---
 
 <BaseLayout {title} {description}>
@@ -15,10 +15,24 @@ const description = `Conference presentations and professional engagement — ${
   <main id="main-content" class="min-h-[50vh] w-full bg-surface">
     <PageShell accentBar>
       <h1 class="font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">Service</h1>
-      <p class="mt-4 max-w-4xl text-lg text-muted">
-        Selected conference presentations and scholarly dissemination (further service roles can be added here as needed).
-      </p>
-      <h2 class="mt-10 font-serif text-2xl font-semibold text-ink">Conference presentations</h2>
+
+      <section class="mt-10 max-w-3xl space-y-4 text-pretty text-lg leading-relaxed text-ink/95 lg:text-xl">
+        <h2 class="font-serif text-2xl font-semibold text-ink">Conference organisation</h2>
+        <p>
+          I am co-chairing the 12th International Conference of the Asian Association for Language Assessment (<abbr
+            title="Asian Association for Language Assessment">AALA</abbr>) in 2026, hosted at City University of Macau,
+          18–20 September 2026, on the theme <em
+            >Humanistic Approach to Assessment, Standards, Innovation, and Accountability</em>. Programme details,
+          calls for participation, and registration are on the conference site.
+        </p>
+        <p>
+          <a href={aalaConferenceUrl} target="_blank" rel="noopener noreferrer" class="font-semibold text-primary"
+            >AALA 2026 conference website →</a
+          >
+        </p>
+      </section>
+
+      <h2 class="mt-14 font-serif text-2xl font-semibold text-ink">Conference presentations</h2>
       <TalksList />
     </PageShell>
   </main>

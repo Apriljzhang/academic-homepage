@@ -2,7 +2,7 @@
 export const googleScholarProfileUrl =
   'https://scholar.google.com/citations?user=UXwVmZ8AAAAJ&hl=en' as const;
 
-/** Research identifiers and aggregator profiles — show together as “Academic IDs”. */
+/** Research identifiers and aggregator profiles — shown as compact chips (no section blurb). */
 export const academicIds = {
   googleScholar: {
     label: 'Google Scholar',
