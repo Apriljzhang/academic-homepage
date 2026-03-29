@@ -18,6 +18,10 @@ export const siteTagline = 'Teaching, learning & assessment in language educatio
 export const summary =
   'An experienced researcher and lecturer working in language education and formative assessment. Skilled in mixed-methods research, data analysis, lecturing, tutoring, organisation, and collaborative enquiry. PhD from the University of Sheffield on formative assessment, motivation, and achievement in language education.';
 
+/** Minimal line on the About page (photo + short purpose). */
+export const aboutPageLead =
+  'This site is just my research—interests, publications, and funded work. That is it.';
+
 export const researchInterests = {
   /** Short line for Research page only (no repeat of biography). */
   pageLead:
@@ -48,53 +52,29 @@ export const researchInterests = {
 
 export type PublicationItem = {
   citationHtml: string;
-  note?: string;
-  scholarHref?: string;
 };
 
-/**
- * Publications and thesis, wording aligned with Google Scholar (sorted by year, newest first).
- * Profile: https://scholar.google.com/citations?user=UXwVmZ8AAAAJ&hl=en
- */
+/** Peer-reviewed work and doctoral dissertation (APA 7th), newest first. */
 export const publications: PublicationItem[] = [
   {
     citationHtml:
-      'Ji, T., & Zhang, J. (2025). Demotivation in English learning of Chinese medical students: Insights from situated expectancy-value theory. <em>Acta Psychologica</em>, 253, Article 104716.',
-    scholarHref:
-      'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UXwVmZ8AAAAJ&sortby=pubdate&citation_for_view=UXwVmZ8AAAAJ:eQOLeE2rZwMC',
+      'Ji, T., & Zhang, J. (2025). Demotivation in English learning of Chinese medical students: Insights from situated expectancy-value theory. <em>Acta Psychologica</em>, <em>253</em>, Article 104716.',
   },
   {
     citationHtml:
-      'Wright, C., Lu, Y., Zhang, J., Zhang, L., & Zheng, Y. (2022). Tests of learning or testing for learning? An exploratory study of motivation and language learning strategies among HSK level 1–3 test-takers in UK. <em>International Journal of Chinese Language Teaching</em>, 3 (3), 1–19.',
-    scholarHref:
-      'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UXwVmZ8AAAAJ&sortby=pubdate&citation_for_view=UXwVmZ8AAAAJ:YsMSGLbcyi4C',
+      'Wright, C., Lu, Y., Zhang, J., Zhang, L., & Zheng, Y. (2022). Tests of learning or testing for learning? An exploratory study of motivation and language learning strategies among HSK level 1–3 test-takers in UK. <em>International Journal of Chinese Language Teaching</em>, <em>3</em>(3), 1–19.',
   },
   {
     citationHtml:
-      'Zheng, Y., Zheng, Y., & Zhang, J. (2021). HSK 试卷架构对 1–3 级考生成绩的影响：以英语母语者为例. <em>国际汉语教学研究 International Chinese Language Education</em>, 6 (3), 50–59.',
-    scholarHref:
-      'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UXwVmZ8AAAAJ&sortby=pubdate&citation_for_view=UXwVmZ8AAAAJ:Y0pCki6q_DkC',
+      'Zheng, Y., Zheng, Y., & Zhang, J. (2021). HSK 试卷架构对 1–3 级考生成绩的影响：以英语母语者为例. <em>国际汉语教学研究 International Chinese Language Education</em>, <em>6</em>(3), 50–59.',
   },
   {
     citationHtml:
-      'Bai, W., & Zhang, J. (2021). Developing Key Competencies via Formative Assessment in Primary School English Classrooms-Teacher Education Perspective. <em>Journal of Nanjing Xiaozhuang University</em>, 37 (4), 22–27.',
-    scholarHref:
-      'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UXwVmZ8AAAAJ&sortby=pubdate&citation_for_view=UXwVmZ8AAAAJ:W7OEmFMy1HYC',
+      'Bai, W., & Zhang, J. (2021). Developing key competencies via formative assessment in primary school English classrooms: Teacher education perspective. <em>Journal of Nanjing Xiaozhuang University</em>, <em>37</em>(4), 22–27.',
   },
   {
     citationHtml:
-      'Zhang, J. (2018). <em>The impact of formative assessment on young english learners’ motivation and achievement in china</em>. PhD thesis, University of Sheffield.',
-    note: 'Thesis',
-    scholarHref:
-      'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UXwVmZ8AAAAJ&sortby=pubdate&citation_for_view=UXwVmZ8AAAAJ:UeHWp8X0CEIC',
-  },
-];
-
-export const publicationsUnderReview: PublicationItem[] = [
-  {
-    citationHtml:
-      'Zhang, J., Ji, T., & Wei, J. (under review). The impact of co-constructed rubric on peer assessment and academic performance in university English learning. <em>Studies in Educational Evaluation</em>.',
-    note: 'Under review',
+      'Zhang, J. (2018). <em>The impact of formative assessment on young English learners’ motivation and achievement in China</em> [Doctoral dissertation, University of Sheffield].',
   },
 ];
 
@@ -213,8 +193,7 @@ export const homeSectionCards = [
     slug: 'research' as const,
     title: 'Research',
     kicker: 'Publications & collaboration',
-    description:
-      'Research themes, peer-reviewed publications, manuscripts under review, and funded projects—with links to Google Scholar.',
+    description: 'Research themes, peer-reviewed publications in APA 7th style, and funded projects.',
     accent: 'sage' as const,
   },
   {
