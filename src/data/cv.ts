@@ -122,7 +122,7 @@ export const researchThemesDetailed: readonly ResearchThemeDetailed[] = [
       {
         status: 'In preparation',
         citationHtml:
-          '<em>The impact of AI chatbot on EFL learners\' speaking performance via flow experience</em>.',
+          '<em>The Impact of AI Chatbot on EFL learners\' speaking performance via flow experience</em>.',
       },
     ],
   },
