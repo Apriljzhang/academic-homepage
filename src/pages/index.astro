@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import Hero from '../components/Hero.astro';
+import AboutSection from '../components/AboutSection.astro';
+import PublicationsSection from '../components/PublicationsSection.astro';
+import GrantsSection from '../components/GrantsSection.astro';
+import TalksSection from '../components/TalksSection.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import { person } from '../data/cv';
+
+const title = `${person.fullDisplayName} · ${person.title}`;
+const description = `${person.fullDisplayName}, ${person.title} at ${person.affiliation}. Language education, formative assessment, and language testing.`;
+---
+
+<BaseLayout {title} {description}>
+  <SiteHeader />
+  <main id="main-content">
+    <Hero />
+    <AboutSection />
+    <PublicationsSection />
+    <GrantsSection />
+    <TalksSection />
+    <SiteFooter />
+  </main>
+</BaseLayout>

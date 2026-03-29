@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Source Serif 4", ui-serif, Georgia, "Times New Roman", serif;
+  --font-sans: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+
+  --color-page: #f4f6fb;
+  --color-surface: #ffffff;
+  --color-ink: #3a4050;
+  --color-muted: #5c6378;
+  --color-primary: #5f6f9a;
+  --color-primary-faint: #e8ecf6;
+  --color-accent-yellow: #f5e6a8;
+  --color-accent-pink: #f3dbe8;
+  --color-border: #d9deeb;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    @apply bg-page text-ink font-sans antialiased;
+  }
+
+  a {
+    @apply text-primary underline-offset-2 decoration-primary/35 hover:decoration-accent-yellow hover:text-ink transition-colors;
+  }
+}

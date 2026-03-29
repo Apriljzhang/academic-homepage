@@ -1,0 +1,21 @@
+---
+import { talks } from '../data/cv';
+---
+
+<section id="talks" class="scroll-mt-20 border-b border-border/50 bg-surface px-4 py-14 sm:px-6">
+  <div class="mx-auto max-w-3xl">
+    <h2 class="font-serif text-2xl font-semibold text-ink">Selected conference presentations</h2>
+    <ul class="mt-6 space-y-4">
+      {
+        talks.map((t) => (
+          <li class="flex flex-col gap-1 border-l-2 border-primary/40 pl-4 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
+            <span class="font-medium text-ink">{t.event}</span>
+            <span class="text-sm text-muted sm:text-right">
+              {t.place} · {t.date}
+            </span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

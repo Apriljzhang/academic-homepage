@@ -1,0 +1,33 @@
+---
+import { grants } from '../data/cv';
+---
+
+<section id="grants" class="scroll-mt-20 border-b border-border/50 bg-page px-4 py-14 sm:px-6">
+  <div class="mx-auto max-w-3xl">
+    <h2 class="font-serif text-2xl font-semibold text-ink">Funded projects</h2>
+    <div class="mt-6 overflow-x-auto rounded-xl border border-border/70 bg-surface">
+      <table class="w-full min-w-[32rem] text-left text-sm">
+        <thead class="border-b border-border bg-primary-faint/50 text-ink">
+          <tr>
+            <th scope="col" class="px-4 py-3 font-semibold">Project</th>
+            <th scope="col" class="px-4 py-3 font-semibold">Years</th>
+            <th scope="col" class="px-4 py-3 font-semibold">Institution</th>
+            <th scope="col" class="px-4 py-3 font-semibold">Role</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-border/80">
+          {
+            grants.map((g) => (
+              <tr class="align-top">
+                <td class="px-4 py-3 text-ink">{g.title}</td>
+                <td class="px-4 py-3 whitespace-nowrap text-muted">{g.years}</td>
+                <td class="px-4 py-3 text-muted">{g.institution}</td>
+                <td class="px-4 py-3 text-muted">{g.role}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

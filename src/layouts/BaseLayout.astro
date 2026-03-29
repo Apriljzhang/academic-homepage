@@ -1,0 +1,63 @@
+---
+import '../styles/global.css';
+import '@fontsource/source-serif-4/400.css';
+import '@fontsource/source-serif-4/600.css';
+import '@fontsource/source-sans-3/400.css';
+import '@fontsource/source-sans-3/500.css';
+import '@fontsource/source-sans-3/600.css';
+
+import { person } from '../data/cv';
+import { contact } from '../data/contact';
+import { researcherProfiles } from '../data/profiles';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const assetBase = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: person.fullDisplayName,
+  jobTitle: person.title,
+  worksFor: {
+    '@type': 'Organization',
+    name: 'City University of Macau',
+  },
+  email: contact.cityu,
+  telephone: person.officePhone,
+  sameAs: [
+    researcherProfiles.orcid.href,
+    researcherProfiles.scopus.href,
+    researcherProfiles.webOfScience.href,
+  ],
+  url: canonicalURL.href,
+};
+---
+
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href={`${assetBase}favicon.svg`} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonicalURL} />
+    <title>{title}</title>
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body class="min-h-screen">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-accent-yellow focus:px-3 focus:py-2 focus:text-ink focus:outline-none"
+    >
+      Skip to main content
+    </a>
+    <slot />
+  </body>
+</html>
