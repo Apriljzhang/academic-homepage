@@ -2,14 +2,19 @@
 import { talks } from '../data/cv';
 ---
 
-<ul class="mt-8 space-y-5">
+<ul class="mt-6 space-y-4">
   {
     talks.map((t) => (
-      <li class="flex flex-col gap-1 border-l-2 border-primary/40 pl-5 lg:flex-row lg:items-baseline lg:justify-between lg:gap-8">
-        <span class="text-lg font-medium text-ink">{t.event}</span>
-        <span class="text-muted lg:shrink-0 lg:text-right">
+      <li class="border-l-2 border-primary/40 pl-4">
+        {t.paperTitle ? (
+          <p class="text-base font-medium leading-snug text-ink">{t.paperTitle}</p>
+        ) : null}
+        <p class:list={[t.paperTitle ? 'mt-1 text-sm text-muted' : 'text-base font-medium text-ink']}>
+          {t.event}
+        </p>
+        <p class="mt-0.5 text-sm text-muted">
           {t.place} · {t.date}
-        </span>
+        </p>
       </li>
     ))
   }

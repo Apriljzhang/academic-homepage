@@ -1,17 +1,10 @@
 ---
-import { academicIds } from '../data/profiles';
-
-const links = [
-  academicIds.googleScholar,
-  academicIds.orcid,
-  academicIds.scopus,
-  academicIds.webOfScience,
-] as const;
+import { academicProfileLinks } from '../data/profiles';
 ---
 
 <ul class="flex flex-wrap gap-2">
   {
-    links.map(({ label, href }, i) => (
+    academicProfileLinks.map(({ label, href }, i) => (
       <li>
         <a
           href={href}

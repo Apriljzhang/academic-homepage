@@ -26,33 +26,61 @@ export const aboutNarrativeParagraphs = [
   'Alongside research, I teach and supervise in teacher education and language education, and I contribute to conferences and professional networks in language assessment across Asia and beyond.',
 ] as const;
 
+/** Four-quadrant summary used on the Research themes page (see ResearchMap.astro). */
+export const researchFramework = {
+  why: 'I want to understand how people can learn languages and academic content happily, effectively, and wisely—so that assessment and pedagogy support wellbeing as well as attainment. That motive runs from early language classrooms through to postgraduate study and professional education.',
+  who: 'Children and young learners in kindergarten and primary school; older students in secondary and university settings; and higher education participants, especially postgraduates, including trainee teachers and in-service educators. I also work with multilingual cohorts in Macau and transnational contexts.',
+  what:
+    'Formative assessment and assessment for learning; language education (English and Chinese); emotions and motivation in teaching and learning; technology-assisted and AI-mediated language learning and assessment; peer assessment and rubric co-construction; language testing and classroom practice.',
+  how: 'Primarily mixed-methods designs that combine quantitative analysis (e.g. surveys and achievement data) with qualitative approaches (e.g. interviews, classroom observation, think-aloud and text-based process data), supported by tools such as SPSS and NVivo where appropriate.',
+} as const;
+
 export const researchInterests = {
-  /** Short line for Research page only (no repeat of biography). */
   pageLead:
-    'Current work spans assessment for learning, multilingual higher education in Macau, motivation in digital contexts, and generative AI in language assessment and research practice. The themes below organise ongoing directions; not every item corresponds to a finished publication.',
+    'The framework below summarises why, who, what, and how the research is organised—aligned with my School of Education profile. The shorter theme cards add concrete entry points; not every item maps one-to-one to a single publication.',
   themes: [
     {
       title: 'Assessment for learning',
-      text: 'Formative and holistic assessment, engagement, peer feedback (including early-years settings), co-constructed rubrics, and humanising perspectives in language testing.',
+      text: 'Formative assessment, engagement, peer feedback in early years and schools, co-constructed rubrics, and useful perspectives on language testing.',
     },
     {
-      title: 'Language education and multilingual contexts',
-      text: 'English and Chinese language teaching and learning; language dynamics in Macau higher education, including student perceptions of Mandarin use and L1/Ln use in multilingual universities.',
+      title: 'Language education & multilingual contexts',
+      text: 'English and Chinese language teaching; language use and policy in Macau higher education; vocabulary and strategy development in EFL.',
     },
     {
-      title: 'Motivation, SEL, and learner experience',
-      text: 'Job crafting and occupational characteristics in education-related roles; social–emotional learning; motivation in digital and social platforms (e.g. Xiaohongshu).',
+      title: 'Emotions, motivation, and experience',
+      text: 'Academic emotions, expectancy-value perspectives, demotivation, and learner experience from childhood through university.',
     },
     {
-      title: 'Generative AI in education',
-      text: 'Affordances and attitudes around GenAI in language assessment, educator and learner coping strategies, GenAI literacy, and ethical and affective dimensions of GenAI-assisted research.',
-    },
-    {
-      title: 'Pedagogy and tools',
-      text: 'Flipped learning, conversational agents and speaking with young learners, vocabulary and individual differences, and exploratory AI-assisted workflows for research.',
+      title: 'Technology-assisted & AI-mediated learning',
+      text: 'Digital and informal language learning, GenAI in assessment and academic writing, and technology-rich classroom interventions.',
     },
   ],
 } as const;
+
+/** Current taught courses (City University of Macau, School of Education) — from institutional staff profile. */
+export const teachingCoursesCityU = [
+  { code: 'MEDC04', name: 'Education Research Methods' },
+  { code: 'ETE02', name: 'Audio-visual Materials Design' },
+  { code: 'MTL006', name: 'Teaching Assessment' },
+  { code: 'DEDC01', name: 'Learning for Educational Change in Organisational Settings' },
+  { code: 'DEDC02', name: 'Advanced Research Method' },
+  { code: 'DEDE01', name: 'Evaluation of Educational Quality and Improvement in Organisational Settings' },
+] as const;
+
+export type ProfessionalMembership = { name: string; href?: string };
+
+export const professionalMemberships: ProfessionalMembership[] = [
+  { name: 'British Educational Research Association (BERA)', href: 'https://www.bera.ac.uk/' },
+  { name: 'Asian Association for Language Assessment (AALA)', href: 'https://www.aala-asia.org/' },
+  { name: 'International Language Testing Association (ILTA)', href: 'https://www.ilta.org/' },
+  { name: 'UK Association for Language Testing and Assessment (UKALTA)', href: 'https://www.ukalta.org/' },
+  { name: 'China Association for Language Testing and Assessment (CALTA)' },
+  {
+    name: 'International TESOL Union',
+    href: 'https://www.tesol.org/',
+  },
+];
 
 export type PublicationItem = {
   citationHtml: string;
@@ -144,40 +172,63 @@ export const grants = [
 ] as const;
 
 export const talks = [
-  { event: '58th RELC International Conference', place: 'Singapore', date: 'Mar 2024' },
   {
+    paperTitle:
+      'Interplay between personality traits, vocabulary learning strategy, and achievement in Chinese EFL classes (with L. Zong)',
+    event: 'BERA Conference 2024',
+    place: 'Manchester, UK',
+    date: 'Sep 2024',
+  },
+  {
+    paperTitle: 'Impact of co-constructed rubrics within EFL and peer assessment in Chinese higher education',
+    event: '58th RELC International Conference',
+    place: 'Singapore',
+    date: 'Mar 2024',
+  },
+  {
+    paperTitle: 'Will co-constructed rubrics improve academic performance for EFL learners?',
     event: 'The 4th Southeast Asian Conference on Education',
     place: 'Chiang Mai, Thailand',
     date: 'Feb 2024',
   },
   {
+    paperTitle: 'Co-constructed rubrics and peer assessment in EFL in higher education: Preliminary findings',
     event: 'Cambridge China Education Forum',
     place: 'University of Cambridge, UK',
     date: 'Jul 2023',
   },
   {
+    paperTitle:
+      'Motivation and achievement: Exploring formative assessment strategies for young Chinese English learners',
     event: 'Language Testing Forum 2018',
     place: 'University of Bedfordshire, UK',
     date: 'Nov 2018',
   },
   {
+    paperTitle: 'Enhancing English learning: The role of formative assessment in motivating young Chinese learners',
     event: 'The 5th Annual International AALA Conference',
     place: 'Shanghai Jiao Tong University, China',
     date: 'Oct 2018',
   },
   {
+    paperTitle:
+      'The impact of formative assessment on young Chinese learners’ motivation and achievement in English learning',
     event: 'Annual Conference of China English Language Education Association',
     place: 'Beijing Foreign Studies University, China',
     date: 'Oct 2018',
   },
   {
-    event: 'Georgetown University Round Table: Useful Assessment and Evaluation in Language Education',
+    paperTitle:
+      'The impact of formative assessment on young Chinese learners’ motivation and achievement in English learning: Preliminary findings (poster)',
+    event:
+      'Georgetown University Round Table: Useful Assessment and Evaluation in Language Education',
     place: 'Georgetown University, USA',
     date: 'Apr 2016',
   },
   {
-    event: 'International Conference on Language Testing and Assessment',
-    place: 'Guangdong University of Foreign Studies, China',
+    paperTitle: 'If you are happy and you know it, clap your hands: Formative assessment in primary school English classes',
+    event: '1st International Conference on Language Testing and Assessment',
+    place: 'Guangzhou, China',
     date: 'Nov 2015',
   },
 ] as const;

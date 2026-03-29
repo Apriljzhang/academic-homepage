@@ -28,12 +28,12 @@ const accentStyles = {
 ---
 
 <section
-  class="w-full border-t border-border/50 bg-page px-5 py-14 sm:px-8 md:px-12 lg:px-16 lg:py-20 xl:px-20 2xl:px-24"
+  class="w-full border-t border-border/50 bg-page px-5 py-10 sm:px-8 md:px-12 lg:px-16 lg:py-14 xl:px-20 2xl:px-24"
   aria-labelledby="explore-heading"
 >
   <h2 id="explore-heading" class="font-serif text-2xl font-semibold text-ink sm:text-3xl">Explore</h2>
 
-  <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+  <div class="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
     {
       homeSectionCards.map((card) => {
         const a = accentStyles[card.accent];
@@ -41,7 +41,7 @@ const accentStyles = {
           <a
             href={withBase(`/${card.slug}`)}
             class:list={[
-              'group relative flex min-h-[200px] flex-col overflow-hidden rounded-2xl border border-border/70 bg-surface p-7 shadow-sm ring-2 ring-transparent transition-all duration-200',
+              'group relative flex min-h-[180px] flex-col overflow-hidden rounded-2xl border border-border/70 bg-surface p-5 shadow-sm ring-2 ring-transparent transition-all duration-200 sm:p-6',
               'hover:-translate-y-0.5 hover:shadow-md',
               a.panel,
               a.hoverBorder,
