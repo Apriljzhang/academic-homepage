@@ -1,0 +1,32 @@
+---
+import { professionalMemberships } from '../data/cv';
+---
+
+<section id="memberships" class="scroll-mt-24 mt-8 border-t border-border pt-8" aria-labelledby="memberships-heading">
+  <h2 id="memberships-heading" class="font-serif text-base font-semibold text-ink">
+    Professional memberships
+  </h2>
+  <ul class="mt-4 flex flex-col gap-3">
+    {
+      professionalMemberships.map((m) => (
+        <li>
+          {m.href ? (
+            <a
+              href={m.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block rounded-xl border border-border bg-surface p-4 text-sm font-medium text-ink shadow-sm no-underline transition-colors hover:border-secondary hover:bg-secondary-faint"
+            >
+              <span class="block leading-snug">{m.name}</span>
+              <span class="mt-2 block text-xs font-semibold uppercase tracking-wide text-primary">Association site →</span>
+            </a>
+          ) : (
+            <div class="rounded-xl border border-border bg-surface p-4 text-sm font-medium text-ink shadow-sm">
+              {m.name}
+            </div>
+          )}
+        </li>
+      ))
+    }
+  </ul>
+</section>

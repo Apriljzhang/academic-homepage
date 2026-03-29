@@ -1,6 +1,7 @@
 ---
 import { googleScholarProfileUrl, cityUStaffProfileUrl } from '../data/profiles';
 import { withBase } from '../utils/paths';
+import MembershipAsideCards from './MembershipAsideCards.astro';
 
 const onPage = [
   { id: 'about-intro', label: 'Introduction' },
@@ -8,56 +9,60 @@ const onPage = [
 ] as const;
 ---
 
-<nav class="space-y-6 text-sm" aria-label="About page sections">
-  <div>
-    <p class="mb-2 text-xs font-bold uppercase tracking-wider text-muted">On this page</p>
-    <ul class="flex flex-col gap-1.5">
-      {
-        onPage.map(({ id, label }) => (
-          <li>
-            <a
-              href={`#${id}`}
-              class="block rounded-md px-2 py-1 text-muted no-underline hover:bg-neutral-hover hover:text-ink"
-            >
-              {label}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  </div>
-  <div>
-    <p class="mb-2 text-xs font-bold uppercase tracking-wider text-muted">Research</p>
-    <a
-      href={withBase('/research/themes')}
-      class="block rounded-md px-2 py-1 text-muted no-underline hover:bg-neutral-hover hover:text-ink"
-    >
-      Research themes →
-    </a>
-  </div>
-  <div>
-    <p class="mb-2 text-xs font-bold uppercase tracking-wider text-muted">Profiles</p>
-    <ul class="flex flex-col gap-1.5">
-      <li>
-        <a
-          href={googleScholarProfileUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="block rounded-md px-2 py-1 text-muted no-underline hover:bg-neutral-hover hover:text-ink"
-        >
-          Google Scholar →
-        </a>
-      </li>
-      <li>
-        <a
-          href={cityUStaffProfileUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="block rounded-md px-2 py-1 text-muted no-underline hover:bg-neutral-hover hover:text-ink"
-        >
-          CityU SOE profile →
-        </a>
-      </li>
-    </ul>
-  </div>
-</nav>
+<div class="flex flex-col">
+  <nav class="space-y-6 text-sm" aria-label="About page sections">
+    <div>
+      <p class="mb-2 text-xs font-bold uppercase tracking-wider text-muted">On this page</p>
+      <ul class="flex flex-col gap-1.5">
+        {
+          onPage.map(({ id, label }) => (
+            <li>
+              <a
+                href={`#${id}`}
+                class="block rounded-md px-2 py-1 text-muted no-underline hover:bg-neutral-hover hover:text-ink"
+              >
+                {label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <div>
+      <p class="mb-2 text-xs font-bold uppercase tracking-wider text-muted">Research</p>
+      <a
+        href={withBase('/research/themes')}
+        class="block rounded-md px-2 py-1 text-muted no-underline hover:bg-neutral-hover hover:text-ink"
+      >
+        Research themes →
+      </a>
+    </div>
+    <div>
+      <p class="mb-2 text-xs font-bold uppercase tracking-wider text-muted">Profiles</p>
+      <ul class="flex flex-col gap-1.5">
+        <li>
+          <a
+            href={googleScholarProfileUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block rounded-md px-2 py-1 text-muted no-underline hover:bg-neutral-hover hover:text-ink"
+          >
+            Google Scholar →
+          </a>
+        </li>
+        <li>
+          <a
+            href={cityUStaffProfileUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block rounded-md px-2 py-1 text-muted no-underline hover:bg-neutral-hover hover:text-ink"
+          >
+            CityU SOE profile →
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <MembershipAsideCards />
+</div>
