@@ -12,18 +12,15 @@ const listClass = layout === 'vertical' ? 'flex flex-col gap-2 sm:shrink-0 sm:w-
 
 <ul class={listClass}>
   {
-    academicProfileLinks.map(({ label, href }, i) => (
+    academicProfileLinks.map(({ label, href }) => (
       <li class:list={[layout === 'vertical' && 'w-full']}>
         <a
           href={href}
           target="_blank"
           rel="noopener noreferrer"
           class:list={[
-            'inline-flex items-center rounded-full border px-3 py-1.5 text-sm font-semibold no-underline transition-colors',
+            'inline-flex items-center rounded-full border border-border/80 bg-page px-3 py-1.5 text-sm font-semibold text-primary no-underline transition-colors hover:bg-accent-purple-faint hover:text-accent-purple',
             layout === 'vertical' ? 'w-full justify-center sm:justify-start' : '',
-            i === 0
-              ? 'border-primary/35 bg-primary-faint text-primary hover:bg-secondary-faint hover:text-secondary'
-              : 'border-border/80 bg-page text-primary hover:bg-accent-purple-faint hover:text-accent-purple',
           ]}
         >
           {label}

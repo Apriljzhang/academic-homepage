@@ -5,12 +5,19 @@
  */
 interface Props {
   asideLabel?: string;
+  /** Widen inner content (e.g. research framework uses more horizontal space). */
+  wide?: boolean;
 }
 
-const { asideLabel = 'Section menu' } = Astro.props;
+const { asideLabel = 'Section menu', wide = false } = Astro.props;
 ---
 
-<div class="mx-auto w-full max-w-6xl">
+<div
+  class:list={[
+    'mx-auto w-full',
+    wide ? 'max-w-7xl 2xl:max-w-[min(100%,90rem)]' : 'max-w-6xl',
+  ]}
+>
   <div class="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-10 xl:gap-12">
     <div class="min-w-0 flex-1">
       <slot />

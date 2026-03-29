@@ -13,28 +13,24 @@ const quadrants = [
     label: 'Why',
     sub: 'Motives',
     body: researchFramework.why,
-    borderLeft: 'border-l-4 border-primary',
   },
   {
     key: 'who',
     label: 'Who',
     sub: 'Participants & contexts',
     body: researchFramework.who,
-    borderLeft: 'border-l-4 border-secondary',
   },
   {
     key: 'what',
     label: 'What',
     sub: 'Research interests',
     body: researchFramework.what,
-    borderLeft: 'border-l-4 border-accent-purple',
   },
   {
     key: 'how',
     label: 'How',
     sub: 'Methodology',
     body: researchFramework.how,
-    borderLeft: 'border-l-4 border-ink/55',
   },
 ] as const;
 ---
@@ -43,16 +39,16 @@ const quadrants = [
   <h2 class="font-serif text-xl font-semibold text-ink sm:text-2xl">Research framework</h2>
 
   <div
-    class="mt-4 grid grid-cols-1 gap-4 lg:gap-5"
+    class="mt-4 grid w-full grid-cols-1 gap-3 sm:gap-4"
     role="img"
     aria-label="Research framework: why, who, what, how"
   >
     {
       quadrants.map((q) => (
         <div
-          class:list={['flex min-h-0 flex-col rounded-lg border border-border bg-surface p-5 sm:p-6', q.borderLeft]}
+          class="flex min-h-0 w-full flex-col rounded-2xl border border-border/80 bg-page px-5 py-5 sm:rounded-3xl sm:px-6 sm:py-6"
         >
-          <p class="font-serif text-lg font-semibold text-ink">
+          <p class="font-serif text-lg font-semibold text-primary">
             {q.label}
             <span class="block text-xs font-sans font-normal uppercase tracking-wider text-muted">{q.sub}</span>
           </p>
