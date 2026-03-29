@@ -18,8 +18,34 @@ export type SupervisionBlock = {
   cohorts: SupervisionCohort[];
 };
 
-/** Newest cohort first within each block. */
+/** Programme blocks: doctoral first, then MEd, then prior MA. Newest cohort first within each block. */
 export const supervisionBlocks: SupervisionBlock[] = [
+  {
+    title: 'Doctor of Philosophy (Education)',
+    subtitle: 'City University of Macau, School of Education',
+    cohorts: [
+      {
+        cohort: '2025',
+        status: 'In progress',
+        topics: [
+          'Evaluative judgement in AI-enabled English language teaching: think-aloud process study with doctoral-level participants',
+          'Informal digital learning of English and self-regulation among medium-achieving students in secondary school (mixed methods)',
+        ],
+      },
+      {
+        cohort: '2024',
+        status: 'In progress',
+        topics: ['Online formative assessment, psychological capital, and self-regulated learning'],
+      },
+      {
+        cohort: '2023',
+        status: 'In progress',
+        topics: [
+          'Mechanisms linking formative assessment to classroom academic emotions in university English courses',
+        ],
+      },
+    ],
+  },
   {
     title: 'Master of Education',
     subtitle: 'City University of Macau, School of Education',
@@ -46,34 +72,6 @@ export const supervisionBlocks: SupervisionBlock[] = [
         status: 'Completed',
         topics: [
           'K–12 online English private tutoring in mainland China: difficulties, countermeasures, and narrative inquiry into interactive online teaching',
-        ],
-      },
-    ],
-  },
-  {
-    title: 'Doctor of Philosophy (Education)',
-    subtitle: 'City University of Macau, School of Education',
-    cohorts: [
-      {
-        cohort: '2025',
-        status: 'In progress',
-        topics: [
-          'Evaluative judgement in AI-enabled English language teaching: think-aloud process study with doctoral-level participants',
-        ],
-      },
-      {
-        cohort: '2024',
-        status: 'In progress',
-        topics: [
-          'Online formative assessment, psychological capital, and self-regulated learning',
-          'Efficacy of informal digital learning of English on language proficiency (mixed methods, regional context)',
-        ],
-      },
-      {
-        cohort: '2023',
-        status: 'In progress',
-        topics: [
-          'Mechanisms linking formative assessment to classroom academic emotions in university English courses',
         ],
       },
     ],
