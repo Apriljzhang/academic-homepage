@@ -7,22 +7,20 @@ interface Props {
 
 const { layout = 'horizontal' } = Astro.props;
 
-const listClass = layout === 'vertical' ? 'flex flex-col gap-2 sm:shrink-0 sm:w-44 lg:w-48' : 'flex flex-wrap gap-2';
+const listClass =
+  layout === 'vertical'
+    ? 'flex flex-col gap-2 sm:shrink-0 sm:items-end sm:text-right'
+    : 'flex flex-wrap gap-x-5 gap-y-2';
+
+const linkClass =
+  'text-sm font-semibold text-primary no-underline decoration-primary/40 underline-offset-2 hover:underline hover:decoration-primary';
 ---
 
 <ul class={listClass}>
   {
     academicProfileLinks.map(({ label, href }) => (
-      <li class:list={[layout === 'vertical' && 'w-full']}>
-        <a
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          class:list={[
-            'inline-flex items-center rounded-full border border-border/80 bg-page px-3 py-1.5 text-sm font-semibold text-primary no-underline transition-colors hover:bg-accent-purple-faint hover:text-accent-purple',
-            layout === 'vertical' ? 'w-full justify-center sm:justify-start' : '',
-          ]}
-        >
+      <li class:list={[layout === 'vertical' && 'w-full sm:w-auto']}>
+        <a href={href} target="_blank" rel="noopener noreferrer" class:list={[linkClass, layout === 'vertical' && 'block']}>
           {label}
         </a>
       </li>
