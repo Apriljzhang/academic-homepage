@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import PageShell from '../../components/PageShell.astro';
+import SectionSubnav from '../../components/SectionSubnav.astro';
+import MainWithAside from '../../components/MainWithAside.astro';
+import ServiceSectionAside from '../../components/ServiceSectionAside.astro';
+import ProfessionalMembershipsContent from '../../components/ProfessionalMembershipsContent.astro';
+import { serviceSubnav } from '../../data/sectionNav';
+import { person } from '../../data/cv';
+
+const title = `Professional memberships · ${person.fullDisplayName}`;
+const description = `Learned societies and professional networks — ${person.fullDisplayName}.`;
+---
+
+<BaseLayout {title} {description}>
+  <SiteHeader />
+  <main id="main-content" class="min-h-[50vh] w-full bg-page">
+    <PageShell accentBar>
+      <h1
+        id="memberships-heading"
+        class="font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl"
+      >
+        Professional memberships
+      </h1>
+      <MainWithAside asideLabel="Service menu">
+        <div>
+          <SectionSubnav ariaLabel="Service section" items={serviceSubnav} />
+          <ProfessionalMembershipsContent variant="page" />
+        </div>
+        <ServiceSectionAside slot="aside" />
+      </MainWithAside>
+    </PageShell>
+  </main>
+  <SiteFooter />
+</BaseLayout>

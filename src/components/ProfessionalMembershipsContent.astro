@@ -4,8 +4,8 @@ import { professionalMemberships } from '../data/cv';
 interface Props {
   /** Extra classes on outer section (e.g. aside spacing vs main column). */
   class?: string;
-  /** Omit top border/padding when embedded under cards on Service overview. */
-  variant?: 'aside' | 'inline';
+  /** aside: sidebar stack; inline: under cards; page: dedicated subpage (no duplicate h1). */
+  variant?: 'aside' | 'inline' | 'page';
 }
 
 const { class: className, variant = 'aside' } = Astro.props;
@@ -13,7 +13,9 @@ const { class: className, variant = 'aside' } = Astro.props;
 const sectionClass =
   variant === 'aside'
     ? 'scroll-mt-24 mt-8 border-t border-border pt-8'
-    : 'scroll-mt-28 mt-12 border-t border-border/50 pt-10';
+    : variant === 'inline'
+      ? 'scroll-mt-28 mt-12 border-t border-border/50 pt-10'
+      : 'mt-0 scroll-mt-24';
 ---
 
 <section
@@ -21,10 +23,14 @@ const sectionClass =
   class:list={[sectionClass, className]}
   aria-labelledby="memberships-heading"
 >
-  <h2 id="memberships-heading" class="font-serif text-xl font-semibold text-ink sm:text-2xl">
-    Professional memberships
-  </h2>
-  <ul class="mt-4 flex flex-col gap-3">
+  {
+    variant !== 'page' ? (
+      <h2 id="memberships-heading" class="font-serif text-xl font-semibold text-ink sm:text-2xl">
+        Professional memberships
+      </h2>
+    ) : null
+  }
+  <ul class:list={['flex flex-col gap-3', variant === 'page' ? 'mt-6' : 'mt-4']}>
     {
       professionalMemberships.map((m) => (
         <li>

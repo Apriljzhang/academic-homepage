@@ -17,4 +17,5 @@ export const serviceSubnav = [
   { href: withBase('/service'), label: 'Overview' },
   { href: withBase('/service/organisation'), label: 'Conference organisation' },
   { href: withBase('/service/presentations'), label: 'Presentations' },
+  { href: withBase('/service/memberships'), label: 'Professional memberships' },
 ] as const;
