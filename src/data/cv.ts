@@ -146,11 +146,14 @@ export const researchThemesDetailed: readonly ResearchThemeDetailed[] = [
   },
 ] as const;
 
-/** Current taught courses (City University of Macau, School of Education) — from institutional staff profile. */
-export const teachingCoursesCityU = [
+/** Current taught courses — CityU School of Education (codes indicate programme level). */
+export const teachingCoursesMastersCityU = [
   { code: 'MEDC04', name: 'Education Research Methods' },
   { code: 'ETE02', name: 'Audio-visual Materials Design' },
   { code: 'MTL006', name: 'Teaching Assessment' },
+] as const;
+
+export const teachingCoursesDoctoralCityU = [
   { code: 'DEDC01', name: 'Learning for Educational Change in Organisational Settings' },
   { code: 'DEDC02', name: 'Advanced Research Method' },
   { code: 'DEDE01', name: 'Evaluation of Educational Quality and Improvement in Organisational Settings' },
@@ -205,20 +208,16 @@ export const publications: PublicationItem[] = [
 
 /** Teaching page — narrative only (no job-by-job list). British English. */
 export const teachingNarrativeParagraphs = [
-  'My teaching has grown along two trajectories: extended work in the United Kingdom and, more recently, university teaching in Macau and mainland China. In the UK I spent several years in English for Academic Purposes and related support roles at research-intensive universities, working with international undergraduates and postgraduates on academic communication, reading and writing for their disciplines, and the transition into British higher education. That period also included school-based practice—primary and secondary—where I taught English, contributed to Mandarin provision for younger learners, and took part in partnership arrangements between schools and the university while I completed my doctorate.',
-  'Since moving to Macau I have taught at faculty level in international-facing programmes, including English language and education-oriented modules that connect language pedagogy, assessment literacy, and teacher development. Across both contexts, what I most often teach clusters around academic English, language education methodology, and how assessment—formative and classroom-based—can be used to support learning rather than only to certify it.',
-  'The contrast between the UK and China/Macau has shaped how I explain language policy, multilingual classrooms, and learner motivation to students: in one setting the emphasis is often on adaptation to an Anglophone academy; in the other, on English alongside Chinese and the particular profile of higher education in the Greater Bay Area. I draw on that contrast deliberately in seminars and project supervision so that trainees can compare systems without treating either as the default.',
+  'Earlier work was in the United Kingdom: English for Academic Purposes with international undergraduates and postgraduates, plus primary school partnership teaching while I completed my doctorate at Sheffield on formative assessment and young language learners.',
+  'I am now Assistant Professor in the School of Education at City University of Macau. I teach research methods, assessment, and language- and education-focused modules at master’s and doctoral level, and I supervise MEd and PhD students. Seminars draw on English alongside Chinese and on higher education in Macau and the Greater Bay Area, without treating any single system as the default.',
 ] as const;
 
 /**
- * Teaching philosophy and methods — informed by prior applications (e.g. language education lecturing)
- * and Sheffield Teaching Assistant Programme preparation: seminars, assessment literacy, dissertation feedback.
+ * Teaching philosophy — short statement aligned with current CityU role.
  */
 export const teachingPhilosophyParagraphs = [
-  'My teaching is grounded in language education and applied linguistics, with a sustained interest in how formative assessment can shape what happens in the classroom. I am comfortable with mixed-methods and evidence-informed discussion, and I use both quantitative and qualitative approaches in research-led teaching where that helps students read empirical work critically.',
-  'I aim to connect research and practice explicitly: insights from my own and others’ studies on motivation, feedback, and classroom assessment inform how I design tasks, rubrics, and dialogue in the room. Students have responded well when formative ideas from the literature are translated into concrete strategies they can try in practicum or school-based contexts.',
-  'In higher education I have taught language-focused and education-focused modules, marked dissertations, and given detailed developmental feedback in line with UK university expectations. Training through the Sheffield Teaching Assistant Programme covered lecturing, leading seminars, supervising projects, and assessment design—experience I still draw on when mentoring trainees and dissertation writers.',
-  'Outside formal courses I have maintained collaborative links with universities in mainland China on teacher education and assessment projects, which feeds into examples and comparative perspectives I use with Macau and international students.',
+  'Teaching is grounded in language education and applied linguistics, with assessment for learning and formative assessment at the centre. I use research-led discussion and mixed-methods literacy so students can read and critique empirical work, then connect ideas from the literature to tasks, rubrics, and classroom dialogue.',
+  'Preparation through the Sheffield Teaching Assistant Programme still informs how I lead seminars, design assessment, and mentor dissertations. Examples from mainland China collaborations sometimes illustrate teacher education and assessment alongside Macau-based cases.',
 ] as const;
 
 /** Service — AALA 2026 co-chair (see also talks list). */
