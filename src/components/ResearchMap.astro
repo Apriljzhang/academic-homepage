@@ -1,6 +1,12 @@
 ---
 import { researchFramework } from '../data/cv';
 
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+
 const quadrants = [
   {
     key: 'why',
@@ -33,11 +39,8 @@ const quadrants = [
 ] as const;
 ---
 
-<div class="mt-6">
+<div class:list={[className ?? 'mt-6']}>
   <h2 class="font-serif text-xl font-semibold text-ink sm:text-2xl">Research framework</h2>
-  <p class="mt-2 max-w-3xl text-sm leading-relaxed text-muted sm:text-base">
-    What drives the work, who it involves, the substantive themes (aligned with the cards below), and typical methodological approaches.
-  </p>
 
   <div
     class="mt-4 grid gap-3 sm:grid-cols-2 lg:gap-4"

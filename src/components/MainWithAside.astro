@@ -1,0 +1,25 @@
+---
+/**
+ * Two-column layout on large screens so the right column carries navigation
+ * instead of leaving empty margin space.
+ */
+interface Props {
+  asideLabel?: string;
+}
+
+const { asideLabel = 'Section menu' } = Astro.props;
+---
+
+<div class="mx-auto w-full max-w-6xl">
+  <div class="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-10 xl:gap-12">
+    <div class="min-w-0 flex-1">
+      <slot />
+    </div>
+    <aside
+      class="w-full shrink-0 border-t border-border pt-6 lg:w-56 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-1 xl:w-64"
+      aria-label={asideLabel}
+    >
+      <slot name="aside" />
+    </aside>
+  </div>
+</div>

@@ -4,6 +4,9 @@ import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import PageShell from '../../components/PageShell.astro';
 import SectionSubnav from '../../components/SectionSubnav.astro';
+import MainWithAside from '../../components/MainWithAside.astro';
+import ResearchSectionAside from '../../components/ResearchSectionAside.astro';
+import ResearchMap from '../../components/ResearchMap.astro';
 import { researchSubnav } from '../../data/sectionNav';
 import { person } from '../../data/cv';
 import { withBase } from '../../utils/paths';
@@ -17,36 +20,48 @@ const description = `Research interests, publications, and funded projects — $
   <main id="main-content" class="min-h-[50vh] w-full bg-surface">
     <PageShell accentBar>
       <h1 class="font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">Research</h1>
-      <p class="mt-4 max-w-3xl text-pretty text-lg leading-relaxed text-muted lg:text-xl">
-        My work sits at the intersection of language education, classroom and formative assessment, and—more
-        recently—technology and AI in language learning and testing. Use the links below to move between themes, outputs,
-        and funded projects.
-      </p>
-      <SectionSubnav ariaLabel="Research section" items={researchSubnav} />
+      <MainWithAside asideLabel="Research menu">
+        <div>
+          <ResearchMap class="mt-4" />
+          <p class="mt-6 max-w-3xl text-pretty text-lg leading-relaxed text-muted lg:text-xl">
+            Themes, published work, and funded projects are split across the pages linked below and in the menu.
+          </p>
+          <SectionSubnav ariaLabel="Research section" items={researchSubnav} />
 
-      <ul class="mt-10 grid gap-4 sm:grid-cols-2">
-        <li class="rounded-xl border border-border bg-surface p-5">
-          <a href={withBase('/research/themes')} class="font-serif text-lg font-semibold text-ink no-underline hover:text-primary">
-            Research themes →
-          </a>
-          <p class="mt-2 text-sm text-muted">Assessment for learning, multilingual higher education, motivation, GenAI, and pedagogy.</p>
-        </li>
-        <li class="rounded-xl border border-border bg-surface p-5">
-          <a
-            href={withBase('/research/publications')}
-            class="font-serif text-lg font-semibold text-ink no-underline hover:text-primary"
-          >
-            Publications →
-          </a>
-          <p class="mt-2 text-sm text-muted">Peer-reviewed articles, dissertation, DOIs, and manuscripts under review.</p>
-        </li>
-        <li class="rounded-xl border border-border bg-surface p-5 sm:col-span-2">
-          <a href={withBase('/research/funding')} class="font-serif text-lg font-semibold text-ink no-underline hover:text-primary">
-            Funded projects →
-          </a>
-          <p class="mt-2 text-sm text-muted">Grants and collaborative projects on assessment and language education.</p>
-        </li>
-      </ul>
+          <ul class="mt-10 grid gap-4 sm:grid-cols-2">
+            <li class="rounded-xl border border-border bg-surface p-5">
+              <a
+                href={withBase('/research/themes')}
+                class="font-serif text-lg font-semibold text-ink no-underline hover:text-primary"
+              >
+                Research themes →
+              </a>
+              <p class="mt-2 text-sm text-muted">
+                Five strands: assessment for learning, multilingual contexts, motivation and SEL, GenAI, pedagogy and tools.
+              </p>
+            </li>
+            <li class="rounded-xl border border-border bg-surface p-5">
+              <a
+                href={withBase('/research/publications')}
+                class="font-serif text-lg font-semibold text-ink no-underline hover:text-primary"
+              >
+                Publications →
+              </a>
+              <p class="mt-2 text-sm text-muted">Peer-reviewed articles and doctoral dissertation.</p>
+            </li>
+            <li class="rounded-xl border border-border bg-surface p-5 sm:col-span-2">
+              <a
+                href={withBase('/research/funding')}
+                class="font-serif text-lg font-semibold text-ink no-underline hover:text-primary"
+              >
+                Funded projects →
+              </a>
+              <p class="mt-2 text-sm text-muted">Grants and collaborative projects on assessment and language education.</p>
+            </li>
+          </ul>
+        </div>
+        <ResearchSectionAside slot="aside" />
+      </MainWithAside>
     </PageShell>
   </main>
   <SiteFooter />

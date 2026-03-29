@@ -4,6 +4,8 @@ import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import PageShell from '../../components/PageShell.astro';
 import SectionSubnav from '../../components/SectionSubnav.astro';
+import MainWithAside from '../../components/MainWithAside.astro';
+import TeachingSectionAside from '../../components/TeachingSectionAside.astro';
 import { teachingSubnav } from '../../data/sectionNav';
 import { person, teachingCoursesCityU, teachingPhilosophyParagraphs, teachingNarrativeParagraphs } from '../../data/cv';
 
@@ -18,38 +20,34 @@ const description = `Teaching philosophy and experience — ${person.fullDisplay
       <h1 class="font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">
         Approach &amp; experience
       </h1>
-      <SectionSubnav ariaLabel="Teaching section" items={teachingSubnav} />
+      <MainWithAside asideLabel="Teaching menu">
+        <div>
+          <SectionSubnav ariaLabel="Teaching section" items={teachingSubnav} />
 
-      <h2 class="mt-6 font-serif text-xl font-semibold text-ink sm:text-2xl">Current courses (CityU)</h2>
-      <p class="mt-2 max-w-3xl text-sm text-muted sm:text-base">
-        Modules listed on the{' '}
-        <a
-          href="https://soe.cityu.edu.mo/en/staffs-1/387"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="font-medium text-primary">School of Education staff profile</a
-        >.
-      </p>
-      <ul class="mt-3 grid max-w-2xl gap-2 sm:grid-cols-2">
-        {
-          teachingCoursesCityU.map((c) => (
-            <li class="rounded-lg border border-border/60 bg-surface px-3 py-2 text-sm">
-              <span class="font-mono font-semibold text-primary">{c.code}</span>
-              <span class="text-ink"> — {c.name}</span>
-            </li>
-          ))
-        }
-      </ul>
+          <h2 class="mt-6 font-serif text-xl font-semibold text-ink sm:text-2xl">Current courses (CityU)</h2>
+          <ul class="mt-3 grid max-w-2xl gap-2 sm:grid-cols-2">
+            {
+              teachingCoursesCityU.map((c) => (
+                <li class="rounded-lg border border-border bg-surface px-3 py-2 text-sm">
+                  <span class="font-mono font-semibold text-primary">{c.code}</span>
+                  <span class="text-ink"> — {c.name}</span>
+                </li>
+              ))
+            }
+          </ul>
 
-      <h2 class="mt-8 font-serif text-xl font-semibold text-ink sm:text-2xl">Philosophy and methods</h2>
-      <div class="mt-4 max-w-3xl space-y-4 text-pretty text-base leading-relaxed text-ink/95 sm:text-lg">
-        {teachingPhilosophyParagraphs.map((p) => <p>{p}</p>)}
-      </div>
+          <h2 class="mt-8 font-serif text-xl font-semibold text-ink sm:text-2xl">Philosophy and methods</h2>
+          <div class="mt-4 max-w-3xl space-y-4 text-pretty text-base leading-relaxed text-ink/95 sm:text-lg">
+            {teachingPhilosophyParagraphs.map((p) => <p>{p}</p>)}
+          </div>
 
-      <h2 class="mt-8 font-serif text-xl font-semibold text-ink sm:text-2xl">Trajectory: UK and China / Macau</h2>
-      <div class="mt-4 max-w-3xl space-y-4 text-pretty text-base leading-relaxed text-ink/95 sm:text-lg">
-        {teachingNarrativeParagraphs.map((p) => <p>{p}</p>)}
-      </div>
+          <h2 class="mt-8 font-serif text-xl font-semibold text-ink sm:text-2xl">Trajectory: UK and China / Macau</h2>
+          <div class="mt-4 max-w-3xl space-y-4 text-pretty text-base leading-relaxed text-ink/95 sm:text-lg">
+            {teachingNarrativeParagraphs.map((p) => <p>{p}</p>)}
+          </div>
+        </div>
+        <TeachingSectionAside slot="aside" />
+      </MainWithAside>
     </PageShell>
   </main>
   <SiteFooter />

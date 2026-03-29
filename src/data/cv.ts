@@ -26,37 +26,71 @@ export const aboutNarrativeParagraphs = [
   'Alongside research, I teach and supervise in teacher education and language education, and I contribute to conferences and professional networks in language assessment across Asia and beyond.',
 ] as const;
 
-/** Four-quadrant summary used on the Research themes page (see ResearchMap.astro). */
+/** Four-quadrant summary on the Research overview (ResearchMap.astro). */
 export const researchFramework = {
   why: 'I want to understand how people can learn languages and academic content happily, effectively, and wisely—so that assessment and pedagogy support wellbeing as well as attainment. That motive runs from early language classrooms through to postgraduate study and professional education.',
   who: 'Children and young learners in kindergarten and primary school; older students in secondary and university settings; and higher education participants, especially postgraduates, including trainee teachers and in-service educators. I also work with multilingual cohorts in Macau and transnational contexts.',
   what:
-    'The substantive interests match the four theme areas below: (1) assessment for learning—formative and holistic assessment, engagement, peer feedback in early years and schools, co-constructed rubrics, and useful perspectives on language testing; (2) language education and multilingual contexts—English and Chinese pedagogy, language use and policy in Macau higher education, vocabulary and strategy development in EFL; (3) emotions, motivation, and experience—academic emotions, expectancy-value and demotivation, learner experience from childhood through university; (4) technology-assisted and AI-mediated learning—digital and informal language learning, GenAI in assessment and academic writing, and technology-rich classroom interventions.',
+    'Five strands are set out on the Research themes page: assessment for learning; language education and multilingual contexts; motivation, SEL, and learner experience; generative AI in education; and pedagogy and tools.',
   how: 'I use mixed-methods designs that combine quantitative and qualitative evidence. Common tools include SPSS and Python for survey and achievement data, and NVivo for qualitative coding. Methods span questionnaires and rating scales, semi-structured interviews, classroom-based inquiry and observation, ethnographic perspectives where appropriate, Q methodology when studying subjectivity, longitudinal designs when tracking change over time, systematic and scoping reviews to synthesise fields, and process-oriented techniques such as think-aloud. The exact bundle depends on the research question and context.',
 } as const;
 
-export const researchInterests = {
-  pageLead:
-    'The framework below summarises why, who, what, and how the research is organised—aligned with my School of Education profile. The shorter theme cards add concrete entry points; not every item maps one-to-one to a single publication.',
-  themes: [
-    {
-      title: 'Assessment for learning',
-      text: 'Formative assessment, engagement, peer feedback in early years and schools, co-constructed rubrics, and useful perspectives on language testing.',
-    },
-    {
-      title: 'Language education & multilingual contexts',
-      text: 'English and Chinese language teaching; language use and policy in Macau higher education; vocabulary and strategy development in EFL.',
-    },
-    {
-      title: 'Emotions, motivation, and experience',
-      text: 'Academic emotions, expectancy-value perspectives, demotivation, and learner experience from childhood through university.',
-    },
-    {
-      title: 'Technology-assisted & AI-mediated learning',
-      text: 'Digital and informal language learning, GenAI in assessment and academic writing, and technology-rich classroom interventions.',
-    },
-  ],
-} as const;
+export type ResearchThemeUpcoming = {
+  citationHtml: string;
+  status: string;
+};
+
+export type ResearchThemeDetailed = {
+  id: string;
+  title: string;
+  description: string;
+  upcoming: readonly ResearchThemeUpcoming[];
+};
+
+/** Five project-based themes; upcoming manuscripts sit under each theme on /research/themes. */
+export const researchThemesDetailed: readonly ResearchThemeDetailed[] = [
+  {
+    id: 'assessment-for-learning',
+    title: 'Assessment for learning',
+    description:
+      'Formative and holistic assessment, engagement, and peer feedback—including in early-years settings—co-constructed rubrics, and humanising perspectives in language testing.',
+    upcoming: [
+      {
+        status: 'Under review',
+        citationHtml:
+          'Zhang, J., Ji, T., & Wei, J. (under review). The impact of co-constructed rubric on peer assessment and academic performance in university English learning. <em>Studies in Educational Evaluation</em>.',
+      },
+    ],
+  },
+  {
+    id: 'language-education-multilingual',
+    title: 'Language education and multilingual contexts',
+    description:
+      'English and Chinese language teaching and learning; language dynamics in Macau higher education, including student perceptions of Mandarin use and L1/Ln use in multilingual universities.',
+    upcoming: [],
+  },
+  {
+    id: 'motivation-sel-experience',
+    title: 'Motivation, SEL, and learner experience',
+    description:
+      'Job crafting and occupational characteristics in education-related roles; social–emotional learning; motivation in digital and social platforms (e.g. Xiaohongshu).',
+    upcoming: [],
+  },
+  {
+    id: 'generative-ai-education',
+    title: 'Generative AI in education',
+    description:
+      'Affordances and attitudes around GenAI in language assessment, educator and learner coping strategies, GenAI literacy, and ethical and affective dimensions of GenAI-assisted research.',
+    upcoming: [],
+  },
+  {
+    id: 'pedagogy-tools',
+    title: 'Pedagogy and tools',
+    description:
+      'Flipped learning, conversational agents and speaking with young learners, vocabulary and individual differences, and exploratory AI-assisted workflows for research.',
+    upcoming: [],
+  },
+] as const;
 
 /** Current taught courses (City University of Macau, School of Education) — from institutional staff profile. */
 export const teachingCoursesCityU = [
@@ -72,8 +106,8 @@ export type ProfessionalMembership = { name: string; href?: string };
 
 export const professionalMemberships: ProfessionalMembership[] = [
   { name: 'British Educational Research Association (BERA)', href: 'https://www.bera.ac.uk/' },
-  { name: 'Asian Association for Language Assessment (AALA)', href: 'https://www.aala-asia.org/' },
-  { name: 'International Language Testing Association (ILTA)', href: 'https://www.ilta.org/' },
+  { name: 'Asian Association for Language Assessment (AALA)', href: 'https://www.aalawebsite.com/' },
+  { name: 'International Language Testing Association (ILTA)', href: 'https://www.iltaonline.com/' },
   { name: 'UK Association for Language Testing and Assessment (UKALTA)', href: 'https://www.ukalta.org/' },
   { name: 'China Association for Language Testing and Assessment (CALTA)' },
   {
@@ -88,7 +122,7 @@ export type PublicationItem = {
   doiUrl?: string;
 };
 
-/** Peer-reviewed work and doctoral dissertation (APA 7th), newest first. DOI or URL where available. */
+/** Peer-reviewed work and doctoral dissertation, newest first. */
 export const publications: PublicationItem[] = [
   {
     citationHtml:
@@ -132,20 +166,6 @@ export const teachingPhilosophyParagraphs = [
   'In higher education I have taught language-focused and education-focused modules, marked dissertations, and given detailed developmental feedback in line with UK university expectations. Training through the Sheffield Teaching Assistant Programme covered lecturing, leading seminars, supervising projects, and assessment design—experience I still draw on when mentoring trainees and dissertation writers.',
   'Outside formal courses I have maintained collaborative links with universities in mainland China on teacher education and assessment projects, which feeds into examples and comparative perspectives I use with Macau and international students.',
 ] as const;
-
-/** Manuscripts not yet in the numbered publications list — edit as status changes. */
-export type UpcomingPublication = {
-  citationHtml: string;
-  status: string;
-};
-
-export const upcomingPublications: UpcomingPublication[] = [
-  {
-    status: 'Under review',
-    citationHtml:
-      'Zhang, J., Ji, T., & Wei, J. (under review). The impact of co-constructed rubric on peer assessment and academic performance in university English learning. <em>Studies in Educational Evaluation</em>.',
-  },
-];
 
 /** Service — AALA 2026 co-chair (see also talks list). */
 export const aalaConferenceUrl = 'https://aalaconference.com/' as const;
@@ -288,7 +308,7 @@ export const homeSectionCards = [
     slug: 'research' as const,
     title: 'Research',
     kicker: 'Themes, outputs, funding',
-    description: 'Research themes, publications (including forthcoming work), and funded projects— organised in subpages.',
+    description: 'Research themes, peer-reviewed outputs, and funded projects—organised in subpages.',
     accent: 'green' as const,
   },
   {

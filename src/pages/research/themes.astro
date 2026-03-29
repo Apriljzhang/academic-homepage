@@ -4,12 +4,16 @@ import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import PageShell from '../../components/PageShell.astro';
 import SectionSubnav from '../../components/SectionSubnav.astro';
-import ResearchInterests from '../../components/ResearchInterests.astro';
+import MainWithAside from '../../components/MainWithAside.astro';
+import ResearchSectionAside from '../../components/ResearchSectionAside.astro';
+import ResearchThemesDetailed from '../../components/ResearchThemesDetailed.astro';
 import { researchSubnav } from '../../data/sectionNav';
-import { person } from '../../data/cv';
+import { person, researchThemesDetailed } from '../../data/cv';
 
 const title = `Research themes · ${person.fullDisplayName}`;
 const description = `Research interests in language education and assessment — ${person.fullDisplayName}.`;
+
+const themeAnchors = researchThemesDetailed.map((t) => ({ id: t.id, label: t.title }));
 ---
 
 <BaseLayout {title} {description}>
@@ -17,8 +21,13 @@ const description = `Research interests in language education and assessment —
   <main id="main-content" class="min-h-[50vh] w-full bg-surface">
     <PageShell accentBar>
       <h1 class="font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">Research themes</h1>
-      <SectionSubnav ariaLabel="Research section" items={researchSubnav} />
-      <ResearchInterests />
+      <MainWithAside asideLabel="Research menu">
+        <div>
+          <SectionSubnav ariaLabel="Research section" items={researchSubnav} />
+          <ResearchThemesDetailed />
+        </div>
+        <ResearchSectionAside slot="aside" themeAnchors={themeAnchors} />
+      </MainWithAside>
     </PageShell>
   </main>
   <SiteFooter />

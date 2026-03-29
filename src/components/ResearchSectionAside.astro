@@ -1,0 +1,74 @@
+---
+import { researchSubnav } from '../data/sectionNav';
+import { googleScholarProfileUrl } from '../data/profiles';
+
+function normPath(pathname: string): string {
+  const x = pathname.replace(/\/$/, '') || '/';
+  return x;
+}
+
+const current = normPath(Astro.url.pathname);
+
+function isCurrent(href: string): boolean {
+  const target = normPath(new URL(href, Astro.url).pathname);
+  return current === target;
+}
+
+interface Props {
+  /** Optional anchor links for the Research themes page. */
+  themeAnchors?: readonly { id: string; label: string }[];
+}
+
+const { themeAnchors } = Astro.props;
+---
+
+<nav class="space-y-6 text-sm">
+  <div>
+    <p class="mb-2 text-xs font-bold uppercase tracking-wider text-muted">Research</p>
+    <ul class="flex flex-col gap-1.5">
+      {
+        researchSubnav.map(({ href, label }) => (
+          <li>
+            <a
+              href={href}
+              aria-current={isCurrent(href) ? 'page' : undefined}
+              class:list={[
+                'block rounded-md px-2 py-1 no-underline transition-colors',
+                isCurrent(href) ? 'bg-secondary-faint font-semibold text-ink' : 'text-muted hover:bg-neutral-hover hover:text-ink',
+              ]}
+            >
+              {label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+  {
+    themeAnchors && themeAnchors.length > 0 ? (
+      <div>
+        <p class="mb-2 text-xs font-bold uppercase tracking-wider text-muted">Themes on this page</p>
+        <ul class="flex flex-col gap-1.5">
+          {themeAnchors.map(({ id, label }) => (
+            <li>
+              <a href={`#${id}`} class="block rounded-md px-2 py-1 text-muted no-underline hover:bg-neutral-hover hover:text-ink">
+                {label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ) : null
+  }
+  <div>
+    <p class="mb-2 text-xs font-bold uppercase tracking-wider text-muted">Profiles</p>
+    <a
+      href={googleScholarProfileUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="block rounded-md px-2 py-1 text-muted no-underline hover:bg-neutral-hover hover:text-ink"
+    >
+      Google Scholar →
+    </a>
+  </div>
+</nav>
