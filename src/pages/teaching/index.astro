@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import PageShell from '../../components/PageShell.astro';
+import SectionSubnav from '../../components/SectionSubnav.astro';
+import { teachingSubnav } from '../../data/sectionNav';
+import { person } from '../../data/cv';
+import { withBase } from '../../utils/paths';
+
+const title = `Teaching · ${person.fullDisplayName}`;
+const description = `Teaching philosophy, experience, and supervision — ${person.fullDisplayName}.`;
+---
+
+<BaseLayout {title} {description}>
+  <SiteHeader />
+  <main id="main-content" class="min-h-[50vh] w-full bg-page">
+    <PageShell accentBar>
+      <h1 class="font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">Teaching</h1>
+      <p class="mt-4 max-w-3xl text-pretty text-lg leading-relaxed text-muted lg:text-xl">
+        Teaching spans English for Academic Purposes and language education in the UK, university English and education
+        modules in Macau, and sustained dissertation supervision at MUST (English MA) and CityU (MEd and PhD in
+        Education). Follow the links for philosophy and trajectory, or for a summary of supervisees and thesis topics.
+      </p>
+      <SectionSubnav ariaLabel="Teaching section" items={teachingSubnav} />
+
+      <ul class="mt-10 grid gap-4 md:grid-cols-2">
+        <li class="rounded-xl border border-border/70 bg-surface p-5">
+          <a
+            href={withBase('/teaching/approach')}
+            class="font-serif text-lg font-semibold text-ink no-underline hover:text-primary"
+          >
+            Approach &amp; experience →
+          </a>
+          <p class="mt-2 text-sm text-muted">Philosophy, methods, and UK–Macau/China trajectory without a job-by-job list.</p>
+        </li>
+        <li class="rounded-xl border border-border/70 bg-surface p-5">
+          <a
+            href={withBase('/teaching/supervision')}
+            class="font-serif text-lg font-semibold text-ink no-underline hover:text-primary"
+          >
+            Supervision →
+          </a>
+          <p class="mt-2 text-sm text-muted">MA and doctoral supervision at MUST and CityU, with thesis topics.</p>
+        </li>
+      </ul>
+    </PageShell>
+  </main>
+  <SiteFooter />
+</BaseLayout>

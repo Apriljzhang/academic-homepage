@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import PageShell from '../../components/PageShell.astro';
+import SectionSubnav from '../../components/SectionSubnav.astro';
+import { serviceSubnav } from '../../data/sectionNav';
+import { person } from '../../data/cv';
+import { withBase } from '../../utils/paths';
+
+const title = `Service · ${person.fullDisplayName}`;
+const description = `Professional service, conference organisation, and presentations — ${person.fullDisplayName}.`;
+---
+
+<BaseLayout {title} {description}>
+  <SiteHeader />
+  <main id="main-content" class="min-h-[50vh] w-full bg-surface">
+    <PageShell accentBar>
+      <h1 class="font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">Service</h1>
+      <p class="mt-4 max-w-3xl text-pretty text-lg leading-relaxed text-muted lg:text-xl">
+        Conference leadership, scholarly networks, and selected presentations in language assessment and language
+        education.
+      </p>
+      <SectionSubnav ariaLabel="Service section" items={serviceSubnav} />
+
+      <ul class="mt-10 grid gap-4 md:grid-cols-2">
+        <li class="rounded-xl border border-border/70 bg-page p-5">
+          <a
+            href={withBase('/service/organisation')}
+            class="font-serif text-lg font-semibold text-ink no-underline hover:text-primary"
+          >
+            Conference organisation →
+          </a>
+          <p class="mt-2 text-sm text-muted">AALA 2026 co-chair and host institution role at City University of Macau.</p>
+        </li>
+        <li class="rounded-xl border border-border/70 bg-page p-5">
+          <a
+            href={withBase('/service/presentations')}
+            class="font-serif text-lg font-semibold text-ink no-underline hover:text-primary"
+          >
+            Presentations →
+          </a>
+          <p class="mt-2 text-sm text-muted">Selected conference talks and forums.</p>
+        </li>
+      </ul>
+    </PageShell>
+  </main>
+  <SiteFooter />
+</BaseLayout>

@@ -1,0 +1,90 @@
+---
+import {
+  supervisionIntroParagraphs,
+  supervisionMustMa,
+  supervisionCityUMasters,
+  supervisionCityUPhD,
+} from '../data/supervision';
+
+const cols =
+  'grid grid-cols-1 gap-3 border-b border-border/70 py-3 text-sm last:border-0 md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.7fr)_minmax(0,0.55fr)_minmax(0,0.55fr)_minmax(0,1.6fr)] md:items-start md:gap-4 md:text-base';
+---
+
+<div class="mt-8 max-w-5xl space-y-6 text-pretty text-lg leading-relaxed text-ink/95">
+  {supervisionIntroParagraphs.map((p) => <p>{p}</p>)}
+</div>
+
+<h2 class="mt-14 font-serif text-2xl font-semibold text-ink">English MA supervision (MUST)</h2>
+<p class="mt-2 text-muted">Macau University of Science and Technology — University International College (completed dissertations).</p>
+<div class="mt-6 w-full overflow-x-auto rounded-xl border border-border/70 bg-surface">
+  <div class="min-w-[720px] px-4 py-2">
+    <div class={cols + ' font-semibold text-ink'}>
+      <span>Supervisee</span>
+      <span>Programme</span>
+      <span>Status</span>
+      <span>Cohort</span>
+      <span>Thesis topic</span>
+    </div>
+    {
+      supervisionMustMa.map((r) => (
+        <div class={cols}>
+          <span class="font-medium text-ink">{r.student}</span>
+          <span class="text-muted">{r.programme}</span>
+          <span class="text-muted">{r.status}</span>
+          <span class="text-muted">{r.cohort ?? '—'}</span>
+          <span class="text-ink/90">{r.topic}</span>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<h2 class="mt-14 font-serif text-2xl font-semibold text-ink">MEd supervision (City University of Macau)</h2>
+<p class="mt-2 text-muted">School of Education — dissertation / project supervision.</p>
+<div class="mt-6 w-full overflow-x-auto rounded-xl border border-border/70 bg-surface">
+  <div class="min-w-[720px] px-4 py-2">
+    <div class={cols + ' font-semibold text-ink'}>
+      <span>Supervisee</span>
+      <span>Programme</span>
+      <span>Status</span>
+      <span>Cohort</span>
+      <span>Thesis topic</span>
+    </div>
+    {
+      supervisionCityUMasters.map((r) => (
+        <div class={cols}>
+          <span class="font-medium text-ink">{r.student}</span>
+          <span class="text-muted">{r.programme}</span>
+          <span class="text-muted">{r.status}</span>
+          <span class="text-muted">{r.cohort ?? '—'}</span>
+          <span class="text-ink/90">{r.topic}</span>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<h2 class="mt-14 font-serif text-2xl font-semibold text-ink">Doctoral supervision (City University of Macau)</h2>
+<p class="mt-2 text-muted">School of Education — PhD proposals and theses in progress.</p>
+<div class="mt-6 w-full overflow-x-auto rounded-xl border border-border/70 bg-surface">
+  <div class="min-w-[720px] px-4 py-2">
+    <div class={cols + ' font-semibold text-ink'}>
+      <span>Supervisee</span>
+      <span>Programme</span>
+      <span>Status</span>
+      <span>Cohort</span>
+      <span>Thesis topic</span>
+    </div>
+    {
+      supervisionCityUPhD.map((r) => (
+        <div class={cols}>
+          <span class="font-medium text-ink">{r.student}</span>
+          <span class="text-muted">{r.programme}</span>
+          <span class="text-muted">{r.status}</span>
+          <span class="text-muted">{r.cohort ?? '—'}</span>
+          <span class="text-ink/90">{r.topic}</span>
+        </div>
+      ))
+    }
+  </div>
+</div>

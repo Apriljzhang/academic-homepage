@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import PageShell from '../../components/PageShell.astro';
+import SectionSubnav from '../../components/SectionSubnav.astro';
+import { teachingSubnav } from '../../data/sectionNav';
+import { person, teachingPhilosophyParagraphs, teachingNarrativeParagraphs } from '../../data/cv';
+
+const title = `Teaching approach · ${person.fullDisplayName}`;
+const description = `Teaching philosophy and experience — ${person.fullDisplayName}.`;
+---
+
+<BaseLayout {title} {description}>
+  <SiteHeader />
+  <main id="main-content" class="min-h-[50vh] w-full bg-page">
+    <PageShell accentBar>
+      <h1 class="font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">
+        Approach &amp; experience
+      </h1>
+      <SectionSubnav ariaLabel="Teaching section" items={teachingSubnav} />
+
+      <h2 class="mt-10 font-serif text-2xl font-semibold text-ink">Philosophy and methods</h2>
+      <div class="mt-6 max-w-3xl space-y-6 text-pretty text-lg leading-relaxed text-ink/95 lg:text-xl">
+        {teachingPhilosophyParagraphs.map((p) => <p>{p}</p>)}
+      </div>
+
+      <h2 class="mt-14 font-serif text-2xl font-semibold text-ink">Trajectory: UK and China / Macau</h2>
+      <div class="mt-6 max-w-3xl space-y-6 text-pretty text-lg leading-relaxed text-ink/95 lg:text-xl">
+        {teachingNarrativeParagraphs.map((p) => <p>{p}</p>)}
+      </div>
+    </PageShell>
+  </main>
+  <SiteFooter />
+</BaseLayout>

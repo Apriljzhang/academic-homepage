@@ -1,0 +1,26 @@
+---
+import { upcomingPublications } from '../data/cv';
+---
+
+{
+  upcomingPublications.length > 0 ? (
+    <div class="mt-10">
+      <h2 class="font-serif text-2xl font-semibold text-ink">Forthcoming &amp; under review</h2>
+      <p class="mt-3 max-w-3xl text-muted">
+        Manuscripts in the publication pipeline (not yet in the numbered reference list above). Update or remove entries
+        in site data as reviews progress.
+      </p>
+      <div class="mt-8 space-y-8">
+        {upcomingPublications.map((item) => (
+          <div class="border-l-2 border-secondary/40 pl-5">
+            <p class="text-xs font-bold uppercase tracking-wider text-secondary">{item.status}</p>
+            <p
+              class="mt-2 text-pretty text-lg leading-relaxed text-ink/95 [&_em]:font-serif [&_em]:italic [&_em]:text-primary"
+              set:html={item.citationHtml}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  ) : null
+}

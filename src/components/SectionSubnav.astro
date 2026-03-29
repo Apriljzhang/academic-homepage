@@ -1,0 +1,44 @@
+---
+type Item = { href: string; label: string };
+
+interface Props {
+  ariaLabel: string;
+  items: readonly Item[];
+}
+
+const { ariaLabel, items } = Astro.props;
+
+function normPath(pathname: string): string {
+  const x = pathname.replace(/\/$/, '') || '/';
+  return x;
+}
+
+const current = normPath(Astro.url.pathname);
+
+function isCurrent(href: string): boolean {
+  const target = normPath(new URL(href, Astro.url).pathname);
+  return current === target;
+}
+---
+
+<nav
+  aria-label={ariaLabel}
+  class="mt-8 flex flex-wrap gap-2 border-b border-border/60 pb-6"
+>
+  {
+    items.map(({ href, label }) => (
+      <a
+        href={href}
+        aria-current={isCurrent(href) ? 'page' : undefined}
+        class:list={[
+          'rounded-full px-3 py-1.5 text-sm font-semibold no-underline transition-colors',
+          isCurrent(href)
+            ? 'bg-secondary/15 text-ink ring-2 ring-secondary/25'
+            : 'bg-page text-muted hover:bg-primary-faint hover:text-ink',
+        ]}
+      >
+        {label}
+      </a>
+    ))
+  }
+</nav>

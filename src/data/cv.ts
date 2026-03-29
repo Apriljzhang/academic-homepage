@@ -94,6 +94,31 @@ export const teachingNarrativeParagraphs = [
   'The contrast between the UK and China/Macau has shaped how I explain language policy, multilingual classrooms, and learner motivation to students: in one setting the emphasis is often on adaptation to an Anglophone academy; in the other, on English alongside Chinese and the particular profile of higher education in the Greater Bay Area. I draw on that contrast deliberately in seminars and project supervision so that trainees can compare systems without treating either as the default.',
 ] as const;
 
+/**
+ * Teaching philosophy and methods — informed by prior applications (e.g. language education lecturing)
+ * and Sheffield Teaching Assistant Programme preparation: seminars, assessment literacy, dissertation feedback.
+ */
+export const teachingPhilosophyParagraphs = [
+  'My teaching is grounded in language education and applied linguistics, with a sustained interest in how formative assessment can shape what happens in the classroom. I am comfortable with mixed-methods and evidence-informed discussion, and I use both quantitative and qualitative approaches in research-led teaching where that helps students read empirical work critically.',
+  'I aim to connect research and practice explicitly: insights from my own and others’ studies on motivation, feedback, and classroom assessment inform how I design tasks, rubrics, and dialogue in the room. Students have responded well when formative ideas from the literature are translated into concrete strategies they can try in practicum or school-based contexts.',
+  'In higher education I have taught language-focused and education-focused modules, marked dissertations, and given detailed developmental feedback in line with UK university expectations. Training through the Sheffield Teaching Assistant Programme covered lecturing, leading seminars, supervising projects, and assessment design—experience I still draw on when mentoring trainees and dissertation writers.',
+  'Outside formal courses I have maintained collaborative links with universities in mainland China on teacher education and assessment projects, which feeds into examples and comparative perspectives I use with Macau and international students.',
+] as const;
+
+/** Manuscripts not yet in the numbered publications list — edit as status changes. */
+export type UpcomingPublication = {
+  citationHtml: string;
+  status: string;
+};
+
+export const upcomingPublications: UpcomingPublication[] = [
+  {
+    status: 'Under review',
+    citationHtml:
+      'Zhang, J., Ji, T., & Wei, J. (under review). The impact of co-constructed rubric on peer assessment and academic performance in university English learning. <em>Studies in Educational Evaluation</em>.',
+  },
+];
+
 /** Service — AALA 2026 co-chair (see also talks list). */
 export const aalaConferenceUrl = 'https://aalaconference.com/' as const;
 
@@ -211,24 +236,23 @@ export const homeSectionCards = [
   {
     slug: 'research' as const,
     title: 'Research',
-    kicker: 'Publications & collaboration',
-    description: 'Research themes, peer-reviewed publications in APA 7th style, and funded projects.',
+    kicker: 'Themes, outputs, funding',
+    description: 'Research themes, publications (including forthcoming work), and funded projects— organised in subpages.',
     accent: 'green' as const,
   },
   {
     slug: 'teaching' as const,
     title: 'Teaching',
-    kicker: 'Higher education & schools',
+    kicker: 'Philosophy & supervision',
     description:
-      'University teaching, EAP, and related roles, together with earlier school-based experience in the UK.',
+      'Approach and trajectory across the UK and China/Macau, plus MA and doctoral supervision in English and Education.',
     accent: 'blue' as const,
   },
   {
     slug: 'service' as const,
     title: 'Service',
     kicker: 'Conferences & engagement',
-    description:
-      'Selected conference presentations and scholarly dissemination in language education and assessment.',
+    description: 'AALA 2026 organisation, conference presentations, and related professional service.',
     accent: 'purple' as const,
   },
 ] as const;
