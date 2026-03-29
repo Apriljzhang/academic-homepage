@@ -1,215 +1,116 @@
 /**
- * Supervision records (MUST English MA; CityU MEd / PhD in Education).
- * Topics taken from student proposals, theses, and supervision folders where available.
+ * Supervision summaries without student names. Cohorts are listed newest first within each block.
  */
 
-export type SupervisionEntry = {
-  student: string;
-  programme: string;
-  institution: 'Macau University of Science and Technology (MUST)' | 'City University of Macau';
-  status: 'Completed' | 'In progress';
-  cohort?: string;
-  topic: string;
-};
-
 export const supervisionIntroParagraphs = [
-  'I supervise dissertations and theses in language education, assessment, and technology-enhanced learning. At MUST (University International College), I supervised English MA students on topics spanning motivation, classroom assessment, early language learning, and systematic reviews. At City University of Macau, School of Education, I supervise Master of Education and doctoral candidates working on formative assessment, AI in language education, informal digital learning, and teacher acceptance of innovation.',
-  'The lists below summarise supervisees and working or final thesis titles. For current students, titles may evolve as the project matures.',
+  'I supervise dissertations and theses in language education, assessment, and technology-enhanced learning. At MUST (University International College), I supervised English MA dissertations on motivation, classroom assessment, early language learning, and systematic reviews. At City University of Macau, School of Education, I supervise Master of Education and doctoral work on formative assessment, AI in language education, informal digital learning, and teacher acceptance of innovation.',
+  'The summaries below group dissertation themes by cohort and programme. No individual students are named. Working titles may evolve as projects mature.',
 ] as const;
 
-export const supervisionMustMa: SupervisionEntry[] = [
-  {
-    student: 'Hao Muyao',
-    programme: 'MA (English)',
-    institution: 'Macau University of Science and Technology (MUST)',
-    status: 'Completed',
-    cohort: '2022',
-    topic:
-      'The impact of parents’ attitudes and behaviours on young learners’ English learning in kindergarten',
-  },
-  {
-    student: 'Wang Xueying (Lisa)',
-    programme: 'MA (English)',
-    institution: 'Macau University of Science and Technology (MUST)',
-    status: 'Completed',
-    cohort: '2022',
-    topic: 'Perceptions and impact of lesson study: A comparison among language teachers across different contexts',
-  },
-  {
-    student: 'Guo Yanmin (Mandy)',
-    programme: 'MA (English)',
-    institution: 'Macau University of Science and Technology (MUST)',
-    status: 'Completed',
-    cohort: '2022',
-    topic:
-      'Self-regulated strategies and motivation in Chinese secondary school students’ English writing: Private and public sectors',
-  },
-  {
-    student: 'Song Minghui (Monica)',
-    programme: 'MA (English)',
-    institution: 'Macau University of Science and Technology (MUST)',
-    status: 'Completed',
-    cohort: '2022',
-    topic:
-      'Chinese learning motivation and cultural identity among heritage children at the University of Florence Confucius Institute (Florence “heritage class”)',
-  },
-  {
-    student: 'Li Hui',
-    programme: 'MA (English)',
-    institution: 'Macau University of Science and Technology (MUST)',
-    status: 'Completed',
-    cohort: '2023',
-    topic: 'A systematic review of learning analytics in language learning and teaching',
-  },
-  {
-    student: 'Jenny Haiqing Gong',
-    programme: 'MA (English)',
-    institution: 'Macau University of Science and Technology (MUST)',
-    status: 'Completed',
-    cohort: '2023',
-    topic: 'Co-creating rubrics and peer assessment in EFL (dissertation focus on co-constructed assessment)',
-  },
-  {
-    student: 'Huang Jiaying (Joy)',
-    programme: 'MA (English)',
-    institution: 'Macau University of Science and Technology (MUST)',
-    status: 'Completed',
-    cohort: '2023',
-    topic:
-      'The mediating effect of self-acceptance between peace of mind and L2 learning motivation among Chinese pilots',
-  },
-  {
-    student: 'Liu Wenli',
-    programme: 'MA (English)',
-    institution: 'Macau University of Science and Technology (MUST)',
-    status: 'Completed',
-    cohort: '2023',
-    topic: 'Systematic review of video feedback and video-call feedback in language learning and teaching',
-  },
-  {
-    student: 'Zhang Gongzhe',
-    programme: 'MA (English)',
-    institution: 'Macau University of Science and Technology (MUST)',
-    status: 'Completed',
-    cohort: '2024',
-    topic:
-      'AI chatbot–mediated English learning versus traditional instruction: Flow experience, emotions, and oral proficiency among adolescent EFL learners',
-  },
-  {
-    student: 'Mani',
-    programme: 'MA (English)',
-    institution: 'Macau University of Science and Technology (MUST)',
-    status: 'Completed',
-    cohort: '2024',
-    topic: 'Peer feedback in kindergarten language education: Teachers’ observations and concerns',
-  },
-];
+export type SupervisionCohort = {
+  cohort: string;
+  status: 'Completed' | 'In progress';
+  topics: string[];
+};
 
-export const supervisionCityUMasters: SupervisionEntry[] = [
-  {
-    student: 'Wang Yu',
-    programme: 'MEd',
-    institution: 'City University of Macau',
-    status: 'Completed',
-    cohort: '2024',
-    topic:
-      'Difficulties and countermeasures in K–12 online English private tutoring in mainland China (including narrative inquiry into interactive online English teaching)',
-  },
-  {
-    student: 'Liu Sijia',
-    programme: 'MEd',
-    institution: 'City University of Macau',
-    status: 'In progress',
-    cohort: '2025',
-    topic: 'AI-assisted evaluation and peer assessment in primary school Chinese writing classes',
-  },
-  {
-    student: 'Liu Ziyan',
-    programme: 'MEd',
-    institution: 'City University of Macau',
-    status: 'In progress',
-    cohort: '2025',
-    topic: 'Generative AI affordances for oral English teaching in primary schools (working title)',
-  },
-  {
-    student: 'Li Aiyan',
-    programme: 'MEd',
-    institution: 'City University of Macau',
-    status: 'In progress',
-    cohort: '2025',
-    topic:
-      'Students’ acceptance and uptake of peer assessment and AI-based assessment in junior secondary English writing: A mixed-methods study using UTAUT',
-  },
-  {
-    student: 'Tan Shuai',
-    programme: 'MEd',
-    institution: 'City University of Macau',
-    status: 'In progress',
-    cohort: '2025',
-    topic: 'Informal digital learning of English on Xiaohongshu (“red note”): Self-regulated learning and related constructs',
-  },
-  {
-    student: 'Zhang Yitian',
-    programme: 'MEd',
-    institution: 'City University of Macau',
-    status: 'In progress',
-    cohort: '2025',
-    topic:
-      'Teachers’ acceptance of gamified EFL instruction and primary pupils’ achievement emotions: Mixed-methods study (working title)',
-  },
-  {
-    student: 'Tan Tingzhen',
-    programme: 'MEd',
-    institution: 'City University of Macau',
-    status: 'In progress',
-    cohort: '2025',
-    topic: 'MEd dissertation in progress (title to be confirmed)',
-  },
-  ...(['Xu Renyu', 'Li Yingxi', 'Jin Ziyu', 'Chen Yitong', 'Chen Ziyue'] as const).map((student) => ({
-    student,
-    programme: 'MEd',
-    institution: 'City University of Macau' as const,
-    status: 'In progress' as const,
-    cohort: '2026',
-    topic: 'Supervision underway; thesis topic to be confirmed on programme records',
-  })),
-];
+export type SupervisionBlock = {
+  title: string;
+  subtitle: string;
+  cohorts: SupervisionCohort[];
+};
 
-export const supervisionCityUPhD: SupervisionEntry[] = [
+/** Newest cohort first within each block. */
+export const supervisionBlocks: SupervisionBlock[] = [
   {
-    student: 'Jiang Haitian',
-    programme: 'PhD (Education)',
-    institution: 'City University of Macau',
-    status: 'In progress',
-    cohort: '2023',
-    topic:
-      'Influence mechanism of formative assessment on students’ classroom academic emotions in English courses at Chinese universities',
+    title: 'Master of Education',
+    subtitle: 'City University of Macau, School of Education',
+    cohorts: [
+      {
+        cohort: '2026',
+        status: 'In progress',
+        topics: ['Several MEd dissertation projects underway; topics to be confirmed on programme records.'],
+      },
+      {
+        cohort: '2025',
+        status: 'In progress',
+        topics: [
+          'AI-assisted evaluation and peer assessment in primary school Chinese writing',
+          'Generative AI affordances for oral English teaching in primary schools',
+          'Acceptance and uptake of peer assessment and AI-based assessment in junior secondary English writing (UTAUT-based mixed methods)',
+          'Informal digital learning of English on social platforms and self-regulated learning',
+          'Teachers’ acceptance of gamified EFL and primary pupils’ achievement emotions (mixed methods)',
+          'Further MEd dissertation in development',
+        ],
+      },
+      {
+        cohort: '2024',
+        status: 'Completed',
+        topics: [
+          'K–12 online English private tutoring in mainland China: difficulties, countermeasures, and narrative inquiry into interactive online teaching',
+        ],
+      },
+    ],
   },
   {
-    student: 'Ni Chen',
-    programme: 'PhD (Education)',
-    institution: 'City University of Macau',
-    status: 'In progress',
-    cohort: '2024',
-    topic:
-      'Impact of implementing online formative assessment on students’ psychological capital and self-regulated learning',
+    title: 'Doctor of Philosophy (Education)',
+    subtitle: 'City University of Macau, School of Education',
+    cohorts: [
+      {
+        cohort: '2025',
+        status: 'In progress',
+        topics: [
+          'Evaluative judgement in AI-enabled English language teaching: think-aloud process study with doctoral-level participants',
+        ],
+      },
+      {
+        cohort: '2024',
+        status: 'In progress',
+        topics: [
+          'Online formative assessment, psychological capital, and self-regulated learning',
+          'Efficacy of informal digital learning of English on language proficiency (mixed methods, regional context)',
+        ],
+      },
+      {
+        cohort: '2023',
+        status: 'In progress',
+        topics: [
+          'Mechanisms linking formative assessment to classroom academic emotions in university English courses',
+        ],
+      },
+    ],
   },
   {
-    student: 'Zhao Qizhe',
-    programme: 'PhD (Education)',
-    institution: 'City University of Macau',
-    status: 'In progress',
-    cohort: '2024',
-    topic:
-      'Evaluating the efficacy of informal digital learning of English on language proficiency: A mixed-methods study in Huizhou, China',
-  },
-  {
-    student: 'Wei Jingyi',
-    programme: 'PhD (Education)',
-    institution: 'City University of Macau',
-    status: 'In progress',
-    cohort: '2025',
-    topic:
-      'Unpacking evaluative judgement in AI-enabled ELT: A think-aloud process study with doctoral students',
+    title: 'MA (English)',
+    subtitle: 'Macau University of Science and Technology — University International College',
+    cohorts: [
+      {
+        cohort: '2024',
+        status: 'Completed',
+        topics: [
+          'AI chatbot–mediated English learning versus traditional instruction: flow, emotions, and oral proficiency among adolescent EFL learners',
+          'Peer feedback in kindergarten language education: teacher observations and concerns',
+        ],
+      },
+      {
+        cohort: '2023',
+        status: 'Completed',
+        topics: [
+          'Systematic review of learning analytics in language learning and teaching',
+          'Co-constructed rubrics and peer assessment in EFL',
+          'Self-acceptance, peace of mind, and L2 learning motivation (professional cohort context)',
+          'Systematic review of video and video-call feedback in language learning and teaching',
+        ],
+      },
+      {
+        cohort: '2022',
+        status: 'Completed',
+        topics: [
+          'Parents’ attitudes and behaviours and young learners’ English learning in kindergarten',
+          'Lesson study: perceptions and impact across teacher contexts',
+          'Self-regulated strategies and motivation in secondary English writing (private versus public sectors)',
+          'Chinese learning motivation and cultural identity among heritage learners in an overseas Confucius Institute setting',
+        ],
+      },
+    ],
   },
 ];

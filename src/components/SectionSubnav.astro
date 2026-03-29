@@ -33,8 +33,8 @@ function isCurrent(href: string): boolean {
         class:list={[
           'rounded-full px-3 py-1.5 text-sm font-semibold no-underline transition-colors',
           isCurrent(href)
-            ? 'bg-secondary/15 text-ink ring-2 ring-secondary/25'
-            : 'bg-page text-muted hover:bg-primary-faint hover:text-ink',
+            ? 'bg-secondary-faint text-ink ring-2 ring-secondary'
+            : 'bg-surface text-muted hover:bg-neutral-hover hover:text-ink',
         ]}
       >
         {label}

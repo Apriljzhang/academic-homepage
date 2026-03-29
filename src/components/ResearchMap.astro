@@ -7,49 +7,49 @@ const quadrants = [
     label: 'Why',
     sub: 'Motives',
     body: researchFramework.why,
-    bar: 'bg-primary',
+    borderLeft: 'border-l-4 border-primary',
   },
   {
     key: 'who',
     label: 'Who',
     sub: 'Participants & contexts',
     body: researchFramework.who,
-    bar: 'bg-secondary',
+    borderLeft: 'border-l-4 border-secondary',
   },
   {
     key: 'what',
     label: 'What',
     sub: 'Research interests',
     body: researchFramework.what,
-    bar: 'bg-accent-purple',
+    borderLeft: 'border-l-4 border-accent-purple',
   },
   {
     key: 'how',
     label: 'How',
     sub: 'Methodology',
     body: researchFramework.how,
-    bar: 'bg-primary',
+    borderLeft: 'border-l-4 border-primary',
   },
 ] as const;
 ---
 
-<div class="mt-8">
+<div class="mt-6">
   <h2 class="font-serif text-xl font-semibold text-ink sm:text-2xl">Research framework</h2>
   <p class="mt-2 max-w-3xl text-sm leading-relaxed text-muted sm:text-base">
-    A simple map of what drives the work, who it involves, the substantive themes, and how enquiries are typically
-    designed.
+    What drives the work, who it involves, the substantive themes (aligned with the cards below), and typical methodological approaches.
   </p>
 
   <div
-    class="mt-5 grid gap-3 sm:grid-cols-2 lg:gap-4"
+    class="mt-4 grid gap-3 sm:grid-cols-2 lg:gap-4"
     role="img"
     aria-label="Research framework: why, who, what, how"
   >
     {
       quadrants.map((q) => (
-        <div class="flex min-h-0 flex-col rounded-xl border border-border/70 bg-surface p-4 shadow-sm sm:p-5">
-          <div class:list={['h-1 w-12 shrink-0 rounded-full', q.bar]} aria-hidden="true" />
-          <p class="mt-3 font-serif text-lg font-semibold text-ink">
+        <div
+          class:list={['flex min-h-0 flex-col rounded-lg border border-border bg-surface p-4 sm:p-5', q.borderLeft]}
+        >
+          <p class="font-serif text-lg font-semibold text-ink">
             {q.label}
             <span class="block text-xs font-sans font-normal uppercase tracking-wider text-muted">{q.sub}</span>
           </p>

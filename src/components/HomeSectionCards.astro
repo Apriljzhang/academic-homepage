@@ -4,36 +4,30 @@ import { withBase } from '../utils/paths';
 
 const accentStyles = {
   green: {
-    bar: 'bg-primary',
     kicker: 'text-primary',
-    panel: 'bg-primary-faint',
-    hoverBorder: 'hover:border-primary/35',
-    hoverRing: 'group-hover:ring-primary/20',
+    left: 'border-l-4 border-primary',
+    hoverRing: 'group-hover:ring-primary/35',
   },
   blue: {
-    bar: 'bg-secondary',
     kicker: 'text-secondary',
-    panel: 'bg-secondary-faint',
-    hoverBorder: 'hover:border-secondary/35',
-    hoverRing: 'group-hover:ring-secondary/20',
+    left: 'border-l-4 border-secondary',
+    hoverRing: 'group-hover:ring-secondary/35',
   },
   purple: {
-    bar: 'bg-accent-purple',
     kicker: 'text-accent-purple',
-    panel: 'bg-accent-purple-faint',
-    hoverBorder: 'hover:border-accent-purple/35',
-    hoverRing: 'group-hover:ring-accent-purple/20',
+    left: 'border-l-4 border-accent-purple',
+    hoverRing: 'group-hover:ring-accent-purple/50',
   },
 } as const;
 ---
 
 <section
-  class="w-full border-t border-border/50 bg-page px-5 py-10 sm:px-8 md:px-12 lg:px-16 lg:py-14 xl:px-20 2xl:px-24"
+  class="w-full border-t border-border bg-surface px-5 py-10 sm:px-8 md:px-12 lg:px-16 lg:py-12 xl:px-20 2xl:px-24"
   aria-labelledby="explore-heading"
 >
   <h2 id="explore-heading" class="font-serif text-2xl font-semibold text-ink sm:text-3xl">Explore</h2>
 
-  <div class="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+  <div class="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-5">
     {
       homeSectionCards.map((card) => {
         const a = accentStyles[card.accent];
@@ -41,21 +35,19 @@ const accentStyles = {
           <a
             href={withBase(`/${card.slug}`)}
             class:list={[
-              'group relative flex min-h-[180px] flex-col overflow-hidden rounded-2xl border border-border/70 bg-surface p-5 shadow-sm ring-2 ring-transparent transition-all duration-200 sm:p-6',
+              'group relative flex min-h-[180px] flex-col overflow-hidden rounded-xl border border-border bg-surface p-5 shadow-sm ring-2 ring-transparent transition-all duration-200 sm:p-6',
+              a.left,
               'hover:-translate-y-0.5 hover:shadow-md',
-              a.panel,
-              a.hoverBorder,
               a.hoverRing,
               'hover:ring-2',
             ]}
           >
-            <div class:list={['h-1.5 w-14 shrink-0 rounded-full', a.bar]} aria-hidden="true" />
-            <p class:list={['mt-5 text-xs font-bold uppercase tracking-[0.2em]', a.kicker]}>{card.kicker}</p>
+            <p class:list={['text-xs font-bold uppercase tracking-[0.2em]', a.kicker]}>{card.kicker}</p>
             <h3 class="mt-2 font-serif text-2xl font-semibold text-ink group-hover:text-primary">
               {card.title}
             </h3>
-            <p class="mt-3 flex-1 text-pretty leading-relaxed text-muted">{card.description}</p>
-            <span class="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-primary group-hover:text-secondary">
+            <p class="mt-3 flex-1 text-pretty text-sm leading-relaxed text-muted">{card.description}</p>
+            <span class="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary group-hover:text-secondary">
               Open section
               <span aria-hidden="true" class="transition-transform group-hover:translate-x-1">→</span>
             </span>

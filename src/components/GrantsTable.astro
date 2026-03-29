@@ -2,21 +2,21 @@
 import { grants } from '../data/cv';
 ---
 
-<div class="mt-8 w-full overflow-x-auto rounded-xl border border-border/70 bg-surface">
+<div class="mt-6 w-full overflow-x-auto rounded-lg border border-border bg-surface">
   <table class="w-full min-w-full text-left text-sm lg:text-base">
-    <thead class="border-b border-border bg-primary-faint/50 text-ink">
+    <thead class="border-b border-border bg-secondary-faint text-ink">
       <tr>
-        <th scope="col" class="px-4 py-3 font-semibold lg:px-6 lg:py-4">Project</th>
+        <th scope="col" class="px-4 py-3 font-semibold lg:px-6 lg:py-3">Project</th>
         <th scope="col" class="px-4 py-3 font-semibold lg:px-6">Years</th>
         <th scope="col" class="px-4 py-3 font-semibold lg:px-6">Institution</th>
         <th scope="col" class="px-4 py-3 font-semibold lg:px-6">Role</th>
       </tr>
     </thead>
-    <tbody class="divide-y divide-border/80">
+    <tbody class="divide-y divide-border">
       {
         grants.map((g) => (
           <tr class="align-top">
-            <td class="px-4 py-3 text-ink lg:px-6 lg:py-4">{g.title}</td>
+            <td class="px-4 py-3 text-ink lg:px-6 lg:py-3">{g.title}</td>
             <td class="whitespace-nowrap px-4 py-3 text-muted lg:px-6">{g.years}</td>
             <td class="px-4 py-3 text-muted lg:px-6">{g.institution}</td>
             <td class="px-4 py-3 text-muted lg:px-6">{g.role}</td>

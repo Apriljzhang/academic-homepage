@@ -5,13 +5,21 @@ import ResearchMap from './ResearchMap.astro';
 
 <ResearchMap />
 
-<p class="mt-8 max-w-3xl text-pretty text-base leading-relaxed text-muted sm:text-lg">
+<p class="mt-6 max-w-3xl text-pretty text-base leading-relaxed text-muted sm:text-lg">
   {researchInterests.pageLead}
 </p>
-<ul class="mt-5 grid gap-3 sm:grid-cols-2">
+<ul class="mt-4 grid gap-3 sm:grid-cols-2">
   {
-    researchInterests.themes.map(({ title, text }) => (
-      <li class="rounded-lg border border-border/60 bg-primary-faint px-4 py-3 sm:px-4 sm:py-3.5">
+    researchInterests.themes.map(({ title, text }, i) => (
+      <li
+        class:list={[
+          'rounded-lg border-y border-r border-border bg-surface px-4 py-3 sm:py-3.5',
+          i % 4 === 0 ? 'border-l-4 border-l-primary' : '',
+          i % 4 === 1 ? 'border-l-4 border-l-secondary' : '',
+          i % 4 === 2 ? 'border-l-4 border-l-accent-purple' : '',
+          i % 4 === 3 ? 'border-l-4 border-l-secondary' : '',
+        ]}
+      >
         <p class="text-sm font-semibold text-ink sm:text-base">{title}</p>
         <p class="mt-1.5 text-xs leading-relaxed text-muted sm:text-sm">{text}</p>
       </li>

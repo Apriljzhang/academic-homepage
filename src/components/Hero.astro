@@ -7,25 +7,11 @@ const profileSrc = `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}images/profi
 ---
 
 <section
-  class="relative w-full overflow-hidden border-b border-border/50"
+  class="relative w-full border-b-2 border-primary bg-surface"
   aria-labelledby="hero-heading"
 >
-  <div class="absolute inset-0 bg-page" aria-hidden="true" />
   <div
-    class="pointer-events-none absolute right-0 top-0 h-48 w-64 rounded-bl-3xl bg-secondary/15"
-    aria-hidden="true"
-  />
-  <div
-    class="pointer-events-none absolute bottom-0 left-0 h-40 w-56 rounded-tr-3xl bg-primary/15"
-    aria-hidden="true"
-  />
-  <div
-    class="pointer-events-none absolute inset-x-0 top-0 h-1 bg-primary/70"
-    aria-hidden="true"
-  />
-
-  <div
-    class="relative grid w-full gap-8 px-5 py-10 sm:px-8 md:px-12 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:gap-12 lg:px-16 lg:py-14 xl:px-20 2xl:px-24"
+    class="relative grid w-full gap-8 px-5 py-10 sm:px-8 md:px-12 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:gap-12 lg:px-16 lg:py-12 xl:px-20 2xl:px-24"
   >
     <div class="min-w-0">
       <p class="text-sm font-semibold uppercase tracking-[0.18em] text-primary">Faculty profile</p>
@@ -45,7 +31,7 @@ const profileSrc = `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}images/profi
 
       <div
         id="contact"
-        class="mt-8 max-w-2xl space-y-4 scroll-mt-24 rounded-2xl border border-border/80 bg-surface/95 p-5 shadow-sm sm:p-6 lg:p-6"
+        class="mt-8 max-w-2xl space-y-4 scroll-mt-24 rounded-xl border border-border bg-surface p-5 sm:p-6 lg:p-6"
       >
         <div>
           <p class="text-xs font-bold uppercase tracking-wider text-primary">Contact</p>
@@ -78,7 +64,7 @@ const profileSrc = `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}images/profi
     </div>
 
     <div class="mx-auto w-56 shrink-0 sm:w-64 lg:mx-0 lg:w-72 xl:w-80">
-      <div class="overflow-hidden rounded-2xl border border-border/60 bg-surface shadow-md">
+      <div class="overflow-hidden rounded-xl border border-border bg-surface shadow-sm">
         <img
           src={profileSrc}
           alt="April Jiawei Zhang 張家維"
