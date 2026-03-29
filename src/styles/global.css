@@ -1,31 +1,42 @@
 @import "tailwindcss";
 
 /*
-  Clean white backgrounds; accents from palette:
-  暮光绿 Mù Guāng Lǜ #9C9E89 (primary),
-  梦幻蓝 Mèng Huàn Lán #99A4BC (secondary),
-  风递蓝 Fēng Dì Lán #BCC2D4 (periwinkle / purple column).
+  Palette synthesised from your reference boards (Panera “Land of Clean”, Greetabl,
+  Van Gogh Museum, Klimt, jellyfish, La poire, Little Flyers, etc.).
+
+  60-30-10 rule (60% 主色 / 30% 辅助色 / 10% 强调色):
+  · 60% — page ground: pale cream & shell (#FBEEC1 + #F8F5F2 family) — largest areas
+  · 30% — structure: muted blue #659DBD (Panera) — headers, bands, nav fills, table heads
+  · 10% — emphasis: warm terracotta #DF744A (Greetabl) — links, kicker labels, key borders
+
+  Tertiary stripe (decorative only, still in the earth family): sandy brown #BC986A (Panera).
+  Ink leans on Klimt ivory black #1D2731 for readable body type on cream.
 */
 @theme {
   --font-serif: "Source Serif 4", ui-serif, Georgia, "Times New Roman", serif;
   --font-sans: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
 
-  --color-page: #ffffff;
-  --color-surface: #ffffff;
-  --color-ink: #2d2d2d;
-  --color-muted: #5c5c5c;
+  /* 60% — dominant surfaces */
+  --color-page: #f5efe6;
+  --color-surface: #fffcf7;
 
-  --color-primary: #9c9e89;
-  --color-primary-faint: #e8eae3;
+  --color-ink: #1d2731;
+  --color-muted: #534c45;
 
-  --color-secondary: #99a4bc;
-  --color-secondary-faint: #e8ebf2;
+  /* 30% — secondary (structure) */
+  --color-secondary: #659dbd;
+  --color-secondary-faint: #e0ecf4;
 
-  --color-accent-purple: #bcc2d4;
-  --color-accent-purple-faint: #eef0f5;
+  /* 10% — accent (CTAs, links, primary emphasis) */
+  --color-primary: #c9492a;
+  --color-primary-faint: #f8ebe6;
 
-  --color-border: #e0e0e0;
-  --color-neutral-hover: #f5f5f5;
+  /* Decorative third hue — sandy brown, use sparingly (borders / card stripes) */
+  --color-accent-purple: #b8976a;
+  --color-accent-purple-faint: #f2ebe0;
+
+  --color-border: #d9cfc2;
+  --color-neutral-hover: #ebe4d9;
 }
 
 @layer base {
@@ -44,6 +55,6 @@
   }
 
   a {
-    @apply text-primary underline-offset-2 decoration-primary/50 hover:text-secondary hover:decoration-secondary transition-colors;
+    @apply text-primary underline-offset-2 decoration-primary/40 hover:text-secondary hover:decoration-secondary transition-colors;
   }
 }
