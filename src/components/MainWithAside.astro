@@ -16,7 +16,7 @@ const { asideLabel = 'Section menu' } = Astro.props;
       <slot />
     </div>
     <aside
-      class="w-full shrink-0 border-t border-border pt-6 lg:w-56 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-1 xl:w-64"
+      class="w-full shrink-0 border-t border-border pt-6 lg:sticky lg:top-28 lg:w-56 lg:self-start lg:border-l lg:border-t-0 lg:pl-8 lg:pt-1 xl:w-64"
       aria-label={asideLabel}
     >
       <slot name="aside" />
