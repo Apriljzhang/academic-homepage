@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import PageShell from '../components/PageShell.astro';
+import GrantsTable from '../components/GrantsTable.astro';
+import { person } from '../data/cv';
+
+const title = `Funded projects · ${person.fullDisplayName}`;
+const description = `Research grants and funded projects — ${person.fullDisplayName}, ${person.affiliation}.`;
+---
+
+<BaseLayout {title} {description}>
+  <SiteHeader />
+  <main id="main-content" class="min-h-[50vh] w-full bg-page">
+    <PageShell>
+      <h1 class="font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl">Funded projects</h1>
+      <GrantsTable />
+    </PageShell>
+  </main>
+  <SiteFooter />
+</BaseLayout>

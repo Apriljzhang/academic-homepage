@@ -31,11 +31,12 @@ const jsonLd = {
   email: contact.cityu,
   telephone: person.officePhone,
   sameAs: [
+    researcherProfiles.googleScholar.href,
     researcherProfiles.orcid.href,
     researcherProfiles.scopus.href,
     researcherProfiles.webOfScience.href,
   ],
-  url: canonicalURL.href,
+  url: Astro.site ? new URL('/', Astro.site).href : canonicalURL.href,
 };
 ---
 

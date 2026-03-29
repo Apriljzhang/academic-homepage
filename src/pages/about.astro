@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import PageShell from '../components/PageShell.astro';
+import AboutContent from '../components/AboutContent.astro';
+import { person } from '../data/cv';
+
+const title = `About · ${person.fullDisplayName}`;
+const description = `Research interests and biography — ${person.fullDisplayName}, ${person.title}, ${person.affiliation}.`;
+---
+
+<BaseLayout {title} {description}>
+  <SiteHeader />
+  <main id="main-content" class="min-h-[50vh] w-full bg-surface">
+    <PageShell>
+      <h1 class="font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl">About</h1>
+      <AboutContent />
+    </PageShell>
+  </main>
+  <SiteFooter />
+</BaseLayout>

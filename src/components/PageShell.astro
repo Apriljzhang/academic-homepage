@@ -1,0 +1,14 @@
+---
+interface Props {
+  class?: string;
+}
+---
+
+<div
+  class:list={[
+    'w-full px-5 py-12 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24',
+    Astro.props.class,
+  ]}
+>
+  <slot />
+</div>

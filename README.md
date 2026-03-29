@@ -11,7 +11,7 @@ npm install
 npm run dev
 ```
 
-Open `http://localhost:4321`.
+Open `http://localhost:4321`. Routes: `/` (home), `/about`, `/publications`, `/grants`, `/talks`.
 
 ## Configure before publishing
 

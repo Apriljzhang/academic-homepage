@@ -1,0 +1,16 @@
+---
+import { talks } from '../data/cv';
+---
+
+<ul class="mt-8 space-y-5">
+  {
+    talks.map((t) => (
+      <li class="flex flex-col gap-1 border-l-2 border-primary/40 pl-5 lg:flex-row lg:items-baseline lg:justify-between lg:gap-8">
+        <span class="text-lg font-medium text-ink">{t.event}</span>
+        <span class="text-muted lg:shrink-0 lg:text-right">
+          {t.place} · {t.date}
+        </span>
+      </li>
+    ))
+  }
+</ul>

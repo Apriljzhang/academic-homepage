@@ -1,19 +1,45 @@
 ---
-import { navLinks } from '../data/cv';
+import { navItems } from '../data/nav';
+import { withBase } from '../utils/paths';
+
+function normPath(pathname: string): string {
+  const x = pathname.replace(/\/$/, '') || '/';
+  return x;
+}
+
+const current = normPath(Astro.url.pathname);
+
+function isActive(href: string): boolean {
+  const target = normPath(new URL(href, Astro.url).pathname);
+  if (target === '/') return current === '/';
+  return current === target;
+}
+
+const homeHref = withBase('/');
 ---
 
 <header
-  class="sticky top-0 z-40 border-b border-border/80 bg-page/90 backdrop-blur-md"
+  class="sticky top-0 z-40 w-full border-b border-border/80 bg-page/90 backdrop-blur-md"
   style="box-shadow: 0 1px 0 0 var(--color-accent-pink);"
 >
-  <div class="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6">
-    <p class="font-serif text-lg font-semibold text-ink">April Jiawei Zhang</p>
+  <div
+    class="flex w-full flex-wrap items-center justify-between gap-3 px-5 py-3 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24"
+  >
+    <p class="font-serif text-lg font-semibold text-ink">
+      <a href={homeHref} class="text-ink no-underline hover:text-primary">April Jiawei Zhang</a>
+    </p>
     <nav aria-label="Primary" class="flex flex-wrap gap-x-4 gap-y-1 text-sm text-muted">
       {
-        navLinks.map(({ href, label }) => (
+        navItems.map(({ href, label }) => (
           <a
             href={href}
-            class="font-medium text-primary no-underline decoration-2 hover:bg-accent-yellow/40 hover:text-ink rounded px-1 py-0.5 transition-colors"
+            aria-current={isActive(href) ? 'page' : undefined}
+            class:list={[
+              'rounded px-1 py-0.5 font-medium no-underline transition-colors',
+              isActive(href)
+                ? 'bg-accent-yellow/50 text-ink'
+                : 'text-primary hover:bg-accent-yellow/40 hover:text-ink',
+            ]}
           >
             {label}
           </a>

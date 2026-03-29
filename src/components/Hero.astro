@@ -7,30 +7,32 @@ const profileSrc = `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}images/profi
 ---
 
 <section
-  class="relative overflow-hidden border-b border-border/60 bg-gradient-to-b from-primary-faint/90 via-page to-page"
+  class="relative w-full overflow-hidden border-b border-border/60 bg-gradient-to-b from-primary-faint/90 via-page to-page"
   aria-labelledby="hero-heading"
 >
   <div
     class="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-r from-accent-yellow/25 via-transparent to-accent-pink/20"
     aria-hidden="true"
   />
-  <div class="mx-auto grid max-w-3xl gap-8 px-4 py-12 sm:grid-cols-[minmax(0,1fr)_160px] sm:items-start sm:px-6 sm:py-16">
-    <div>
+  <div
+    class="grid w-full gap-10 px-5 py-12 sm:px-8 md:px-12 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-start lg:gap-14 lg:px-16 lg:py-16 xl:px-20 2xl:px-24"
+  >
+    <div class="min-w-0">
       <p class="text-sm font-medium uppercase tracking-wide text-primary">Faculty profile</p>
-      <h1 id="hero-heading" class="mt-2 font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+      <h1 id="hero-heading" class="mt-2 font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">
         {person.fullDisplayName}
       </h1>
-      <p class="mt-3 text-lg text-muted">
+      <p class="mt-3 text-lg text-muted lg:text-xl">
         {person.title}, {person.affiliation}
       </p>
-      <p class="mt-4 max-w-prose text-pretty leading-relaxed text-ink/95">
+      <p class="mt-4 max-w-4xl text-pretty text-lg leading-relaxed text-ink/95">
         Research in language education, formative assessment, motivation, and language testing—with a growing interest in
         generative AI and multilingual higher education in Macau.
       </p>
 
       <div
         id="contact"
-        class="mt-8 space-y-4 scroll-mt-24 rounded-xl border border-border/70 bg-surface/80 p-5 shadow-sm"
+        class="mt-8 max-w-2xl space-y-4 scroll-mt-24 rounded-xl border border-border/70 bg-surface/80 p-5 shadow-sm lg:p-6"
       >
         <div>
           <p class="text-xs font-semibold uppercase tracking-wide text-muted">Contact</p>
@@ -55,7 +57,7 @@ const profileSrc = `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}images/profi
       </div>
     </div>
 
-    <div class="mx-auto w-36 shrink-0 sm:mx-0 sm:w-40">
+    <div class="mx-auto w-40 shrink-0 lg:mx-0 lg:w-48 xl:w-52">
       <div
         class="overflow-hidden rounded-2xl border-2 border-accent-yellow/60 bg-surface shadow-md ring-1 ring-border/40"
       >
