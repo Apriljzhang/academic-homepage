@@ -6,12 +6,13 @@ import PageShell from '../../components/PageShell.astro';
 import SectionSubnav from '../../components/SectionSubnav.astro';
 import MainWithAside from '../../components/MainWithAside.astro';
 import ServiceSectionAside from '../../components/ServiceSectionAside.astro';
+import ProfessionalMembershipsContent from '../../components/ProfessionalMembershipsContent.astro';
 import { serviceSubnav } from '../../data/sectionNav';
 import { person } from '../../data/cv';
 import { withBase } from '../../utils/paths';
 
 const title = `Service · ${person.fullDisplayName}`;
-const description = `Professional service, conference organisation, and presentations — ${person.fullDisplayName}.`;
+const description = `Professional service, conference organisation, presentations, and memberships — ${person.fullDisplayName}.`;
 ---
 
 <BaseLayout {title} {description}>
@@ -27,7 +28,7 @@ const description = `Professional service, conference organisation, and presenta
           </p>
           <SectionSubnav ariaLabel="Service section" items={serviceSubnav} />
 
-          <ul class="mt-10 grid gap-4 md:grid-cols-2">
+          <ul class="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             <li class="rounded-xl border border-border bg-surface p-5">
               <a
                 href={withBase('/service/organisation')}
@@ -46,7 +47,18 @@ const description = `Professional service, conference organisation, and presenta
               </a>
               <p class="mt-2 text-sm text-muted">Selected conference talks and forums.</p>
             </li>
+            <li class="rounded-xl border border-border bg-surface p-5 md:col-span-2 lg:col-span-1">
+              <a
+                href="#memberships"
+                class="font-serif text-lg font-semibold text-ink no-underline hover:text-primary"
+              >
+                Professional memberships →
+              </a>
+              <p class="mt-2 text-sm text-muted">Learned societies and professional networks in language assessment and education.</p>
+            </li>
           </ul>
+
+          <ProfessionalMembershipsContent variant="inline" />
         </div>
         <ServiceSectionAside slot="aside" />
       </MainWithAside>

@@ -1,7 +1,6 @@
 ---
 import { serviceSubnav } from '../data/sectionNav';
 import { aalaConferenceUrl } from '../data/cv';
-import MembershipAsideCards from './MembershipAsideCards.astro';
 
 function normPath(pathname: string): string {
   const x = pathname.replace(/\/$/, '') || '/';
@@ -16,54 +15,37 @@ function isCurrent(href: string): boolean {
 }
 ---
 
-<div class="flex flex-col">
-  <nav class="space-y-6 text-sm" aria-label="Service subsection">
-    <div>
-      <p class="mb-2 text-xs font-bold uppercase tracking-wider text-muted">Service</p>
-      <ul class="flex flex-col gap-1.5">
-        {
-          serviceSubnav.map(({ href, label }) => (
-            <li>
-              <a
-                href={href}
-                aria-current={isCurrent(href) ? 'page' : undefined}
-                class:list={[
-                  'block rounded-md px-2 py-1 no-underline transition-colors',
-                  isCurrent(href) ? 'bg-secondary-faint font-semibold text-ink' : 'text-muted hover:bg-neutral-hover hover:text-ink',
-                ]}
-              >
-                {label}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
-    <div>
-      <p class="mb-2 text-xs font-bold uppercase tracking-wider text-muted">On this page</p>
-      <ul class="flex flex-col gap-1.5">
-        <li>
-          <a
-            href="#memberships"
-            class="block rounded-md px-2 py-1 text-muted no-underline hover:bg-neutral-hover hover:text-ink"
-          >
-            Professional memberships
-          </a>
-        </li>
-      </ul>
-    </div>
-    <div>
-      <p class="mb-2 text-xs font-bold uppercase tracking-wider text-muted">AALA 2026</p>
-      <a
-        href={aalaConferenceUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="block rounded-md px-2 py-1 text-muted no-underline hover:bg-neutral-hover hover:text-ink"
-      >
-        Conference website →
-      </a>
-    </div>
-  </nav>
-
-  <MembershipAsideCards />
-</div>
+<nav class="space-y-6 text-sm" aria-label="Service subsection">
+  <div>
+    <p class="mb-2 text-xs font-bold uppercase tracking-wider text-muted">Service</p>
+    <ul class="flex flex-col gap-1.5">
+      {
+        serviceSubnav.map(({ href, label }) => (
+          <li>
+            <a
+              href={href}
+              aria-current={isCurrent(href) ? 'page' : undefined}
+              class:list={[
+                'block rounded-md px-2 py-1 no-underline transition-colors',
+                isCurrent(href) ? 'bg-secondary-faint font-semibold text-ink' : 'text-muted hover:bg-neutral-hover hover:text-ink',
+              ]}
+            >
+              {label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+  <div>
+    <p class="mb-2 text-xs font-bold uppercase tracking-wider text-muted">AALA 2026</p>
+    <a
+      href={aalaConferenceUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="block rounded-md px-2 py-1 text-muted no-underline hover:bg-neutral-hover hover:text-ink"
+    >
+      Conference website →
+    </a>
+  </div>
+</nav>

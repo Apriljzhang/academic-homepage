@@ -4,7 +4,6 @@
 
 export const supervisionIntroParagraphs = [
   'I supervise dissertations and theses in language education, assessment, and technology-enhanced learning at City University of Macau, School of Education: Master of Education and doctoral projects on formative assessment, AI in language education, informal digital learning, and teacher acceptance of innovation. I have also supervised English MA dissertations in a prior role—on motivation, classroom assessment, early language learning, and systematic reviews.',
-  'The summaries below group dissertation themes by cohort and programme. No individual students are named. Working titles may evolve as projects mature.',
 ] as const;
 
 export type SupervisionCohort = {

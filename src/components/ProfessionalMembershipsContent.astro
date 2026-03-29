@@ -1,0 +1,50 @@
+---
+import { professionalMemberships } from '../data/cv';
+
+interface Props {
+  /** Extra classes on outer section (e.g. aside spacing vs main column). */
+  class?: string;
+  /** Omit top border/padding when embedded under cards on Service overview. */
+  variant?: 'aside' | 'inline';
+}
+
+const { class: className, variant = 'aside' } = Astro.props;
+
+const sectionClass =
+  variant === 'aside'
+    ? 'scroll-mt-24 mt-8 border-t border-border pt-8'
+    : 'scroll-mt-28 mt-12 border-t border-border/50 pt-10';
+---
+
+<section
+  id="memberships"
+  class:list={[sectionClass, className]}
+  aria-labelledby="memberships-heading"
+>
+  <h2 id="memberships-heading" class="font-serif text-xl font-semibold text-ink sm:text-2xl">
+    Professional memberships
+  </h2>
+  <ul class="mt-4 flex flex-col gap-3">
+    {
+      professionalMemberships.map((m) => (
+        <li>
+          {m.href ? (
+            <a
+              href={m.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block h-full rounded-xl border border-border bg-surface p-4 text-sm font-medium text-ink shadow-sm no-underline transition-colors hover:border-secondary hover:bg-secondary-faint"
+            >
+              <span class="block leading-snug">{m.name}</span>
+              <span class="mt-2 block text-xs font-semibold uppercase tracking-wide text-primary">Association site →</span>
+            </a>
+          ) : (
+            <div class="h-full rounded-xl border border-border bg-surface p-4 text-sm font-medium text-ink shadow-sm">
+              {m.name}
+            </div>
+          )}
+        </li>
+      ))
+    }
+  </ul>
+</section>
