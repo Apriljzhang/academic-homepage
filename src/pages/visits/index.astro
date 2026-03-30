@@ -8,8 +8,8 @@ import WorldMap from '../../components/visits/WorldMap';
 import { person } from '../../data/cv';
 import { getCollaborators } from '../../data/collaborators';
 
-const title = `Connections · ${person.fullDisplayName}`;
-const description = `Connections and visitor locations — ${person.fullDisplayName}.`;
+const title = `Hello to Collaborators and Visitors · ${person.fullDisplayName}`;
+const description = `Hello to collaborators and visitors — map and regional visits for ${person.fullDisplayName}.`;
 
 const countsUrl = import.meta.env.PUBLIC_SUPABASE_VISIT_COUNTS_URL as string | undefined;
 
@@ -58,7 +58,7 @@ const totalVisits30d = rows.reduce((sum, r) => sum + (Number.isFinite(r.count) ?
   <SiteHeader />
   <main id="main-content" class="min-h-[50vh] w-full bg-page">
     <PageShell accentBar>
-      <h1 class="font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">Connections</h1>
+      <h1 class="font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">Hello to Collaborators and Visitors</h1>
 
       <div class="mt-10 grid gap-6 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start">
         <div class="min-w-0">
