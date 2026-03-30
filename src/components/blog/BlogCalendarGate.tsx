@@ -136,6 +136,9 @@ export default function BlogCalendarGate({ adminHref = "/blog/admin/", password 
                 setMsg("Incorrect password.");
                 return;
               }
+              try {
+                window.sessionStorage.setItem("BLOG_ADMIN_KEY", password);
+              } catch {}
               setUnlocked(true);
               setMsg("");
             }}
@@ -151,7 +154,7 @@ export default function BlogCalendarGate({ adminHref = "/blog/admin/", password 
             <div className="mt-3 space-y-2">
               <a
                 className="inline-flex w-full items-center justify-center rounded-full border border-border bg-page px-4 py-2 text-sm font-semibold text-ink hover:bg-neutral-hover no-underline"
-                href={`${adminHref}?key=${encodeURIComponent(password)}`}
+                href={adminHref}
               >
                 New post
               </a>
@@ -170,7 +173,7 @@ export default function BlogCalendarGate({ adminHref = "/blog/admin/", password 
                       </div>
                       <a
                         className="shrink-0 rounded-full bg-primary px-3 py-1.5 text-xs font-semibold text-white hover:bg-secondary hover:text-ink no-underline"
-                        href={`${adminHref}?key=${encodeURIComponent(password)}&slug=${encodeURIComponent(p.slug)}`}
+                        href={`${adminHref}?slug=${encodeURIComponent(p.slug)}`}
                       >
                         Edit
                       </a>

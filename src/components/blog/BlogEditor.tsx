@@ -18,7 +18,7 @@ function slugify(input: string) {
 }
 
 export default function BlogEditor({ adminKey }: Props) {
-  const adminKeyLocal = adminKey ?? "";
+  const [adminKeyLocal, setAdminKeyLocal] = useState(adminKey ?? "");
   const [title, setTitle] = useState("");
   const [slug, setSlug] = useState("");
   const [tags, setTags] = useState("");
@@ -48,6 +48,12 @@ export default function BlogEditor({ adminKey }: Props) {
   const supabaseAnon = useMemo(() => (import.meta as any).env?.PUBLIC_SUPABASE_ANON_KEY as string | undefined, []);
 
   useEffect(() => {
+    if (!adminKeyLocal.trim()) {
+      try {
+        const stored = window.sessionStorage.getItem("BLOG_ADMIN_KEY") ?? "";
+        if (stored) setAdminKeyLocal(stored);
+      } catch {}
+    }
     // If the editor is opened with ?slug=..., prefill from that post.
     (async () => {
       const params = new URLSearchParams(window.location.search);
