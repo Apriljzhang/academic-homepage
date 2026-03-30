@@ -1,5 +1,5 @@
 import React, { useMemo, useRef } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import DottedMap from "dotted-map";
 
 export type VisitDot = {
@@ -9,8 +9,14 @@ export type VisitDot = {
   count: number;
 };
 
+export type Route = {
+  start: { lat: number; lng: number; label?: string };
+  end: { lat: number; lng: number; label?: string };
+};
+
 type Props = {
   dots: VisitDot[];
+  routes?: Route[];
   lineColor?: string;
 };
 
@@ -20,7 +26,13 @@ function projectPoint(lat: number, lng: number) {
   return { x, y };
 }
 
-export default function WorldMap({ dots, lineColor = "#659dbd" }: Props) {
+function createCurvedPath(start: { x: number; y: number }, end: { x: number; y: number }) {
+  const midX = (start.x + end.x) / 2;
+  const midY = Math.min(start.y, end.y) - 50;
+  return `M ${start.x} ${start.y} Q ${midX} ${midY} ${end.x} ${end.y}`;
+}
+
+export default function WorldMap({ dots, routes = [], lineColor = "#659dbd" }: Props) {
   const svgRef = useRef<SVGSVGElement>(null);
 
   const map = useMemo(() => new DottedMap({ height: 100, grid: "diagonal" }), []);
@@ -59,7 +71,41 @@ export default function WorldMap({ dots, lineColor = "#659dbd" }: Props) {
                 <feMergeNode in="SourceGraphic" />
               </feMerge>
             </filter>
+
+            <linearGradient id="path-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="white" stopOpacity="0" />
+              <stop offset="10%" stopColor={lineColor} stopOpacity="0.9" />
+              <stop offset="90%" stopColor={lineColor} stopOpacity="0.9" />
+              <stop offset="100%" stopColor="white" stopOpacity="0" />
+            </linearGradient>
           </defs>
+
+          {routes.map((r, i) => {
+            const start = projectPoint(r.start.lat, r.start.lng);
+            const end = projectPoint(r.end.lat, r.end.lng);
+            const d = createCurvedPath(start, end);
+            return (
+              <g key={`route-${i}`}>
+                <motion.path
+                  d={d}
+                  fill="none"
+                  stroke="url(#path-gradient)"
+                  strokeWidth="1.2"
+                  initial={{ pathLength: 0, opacity: 0.6 }}
+                  animate={{ pathLength: 1, opacity: 0.85 }}
+                  transition={{ duration: 1.6, ease: "easeInOut", delay: 0.15 * i }}
+                />
+                <motion.circle
+                  r="3.5"
+                  fill={lineColor}
+                  initial={{ offsetDistance: "0%", opacity: 0 }}
+                  animate={{ offsetDistance: "100%", opacity: [0, 1, 0] }}
+                  transition={{ duration: 1.6, ease: "easeInOut", delay: 0.15 * i }}
+                  style={{ offsetPath: `path('${d}')` } as any}
+                />
+              </g>
+            );
+          })}
 
           {dots.map((d) => {
             const pt = projectPoint(d.lat, d.lng);
@@ -81,7 +127,6 @@ export default function WorldMap({ dots, lineColor = "#659dbd" }: Props) {
           })}
         </svg>
       </div>
-      <AnimatePresence />
     </div>
   );
 }

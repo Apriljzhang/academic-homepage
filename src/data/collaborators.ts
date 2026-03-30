@@ -3,6 +3,8 @@ import { publications } from './cv';
 export type Collaborator = {
   name: string;
   affiliation?: string;
+  lat?: number;
+  lng?: number;
 };
 
 /**
@@ -10,8 +12,21 @@ export type Collaborator = {
  * Keys should match the name extracted from citations (surname + initials).
  */
 export const collaboratorAffiliations: Record<string, string> = {
-  // Example:
-  // 'Wright, C.': 'University of ...',
+  'Bai, W.': 'Nanjing, CN',
+  'Ji, T.': 'Zhuhai, CN',
+  'Lu, Y.': 'Nottingham, UK',
+  'Wright, C.': 'Leeds, UK',
+  'Zhang, L.': 'Henan, CN',
+  'Zheng, Y.': 'Southampton, UK',
+};
+
+export const collaboratorLocations: Record<string, { lat: number; lng: number }> = {
+  'Bai, W.': { lat: 32.0603, lng: 118.7969 }, // Nanjing
+  'Ji, T.': { lat: 22.2707, lng: 113.5767 }, // Zhuhai
+  'Lu, Y.': { lat: 52.9548, lng: -1.1581 }, // Nottingham
+  'Wright, C.': { lat: 53.8008, lng: -1.5491 }, // Leeds
+  'Zhang, L.': { lat: 34.7657, lng: 113.7532 }, // Zhengzhou (Henan)
+  'Zheng, Y.': { lat: 50.9097, lng: -1.4044 }, // Southampton
 };
 
 function stripHtml(input: string): string {
@@ -47,7 +62,12 @@ export function getCollaborators(): Collaborator[] {
   const filtered = unique.filter((n) => !/^Zhang,\s*J(\.|$)/.test(n) && !/^Zhang,\s*J\w*\./.test(n));
 
   return filtered
-    .map((name) => ({ name, affiliation: collaboratorAffiliations[name] }))
+    .map((name) => ({
+      name,
+      affiliation: collaboratorAffiliations[name],
+      lat: collaboratorLocations[name]?.lat,
+      lng: collaboratorLocations[name]?.lng,
+    }))
     .sort((a, b) => a.name.localeCompare(b.name));
 }
 
