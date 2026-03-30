@@ -35,6 +35,11 @@
   --color-accent-purple: #78ab86;
   --color-accent-purple-faint: #edf6f0;
 
+  /* Decorative page-strip trio */
+  --color-strip-1: #c94d2c;
+  --color-strip-2: #6fa4c2;
+  --color-strip-3: #8fb791;
+
   --color-border: #d4cabb;
   --color-neutral-hover: #f5f0e8;
 }
