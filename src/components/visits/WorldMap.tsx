@@ -30,7 +30,7 @@ type Props = {
 
 function createCurvedPath(start: { x: number; y: number }, end: { x: number; y: number }, h: number) {
   const midX = (start.x + end.x) / 2;
-  const midY = Math.min(start.y, end.y) - h * 0.12;
+  const midY = Math.min(start.y, end.y) - h * 0.08;
   return `M ${start.x} ${start.y} Q ${midX} ${midY} ${end.x} ${end.y}`;
 }
 
@@ -117,7 +117,7 @@ export default function WorldMap({
         >
           <defs>
             <filter id="glow">
-              <feGaussianBlur stdDeviation="0.9" result="coloredBlur" />
+              <feGaussianBlur stdDeviation="0.65" result="coloredBlur" />
               <feMerge>
                 <feMergeNode in="coloredBlur" />
                 <feMergeNode in="SourceGraphic" />
@@ -146,13 +146,13 @@ export default function WorldMap({
                   d={d}
                   fill="none"
                   stroke="url(#path-gradient)"
-                  strokeWidth="1.2"
+                  strokeWidth="0.75"
                   initial={{ pathLength: 0, opacity: 0.6 }}
                   animate={{ pathLength: 1, opacity: 0.85 }}
                   transition={{ duration: 1.6, ease: "easeInOut", delay: 0.15 * i }}
                 />
                 <motion.circle
-                  r="1.8"
+                  r="1.2"
                   fill={collaboratorColor}
                   initial={{ offsetDistance: "0%", opacity: 0 }}
                   animate={{ offsetDistance: "100%", opacity: [0, 0.95, 0] }}
@@ -165,7 +165,7 @@ export default function WorldMap({
           })}
 
           {projected.dots.map(({ x, y, dot }) => {
-            const r = Math.min(4.2, 1.3 + Math.log2(Math.max(1, dot.count)) * 0.55);
+            const r = Math.min(2.9, 0.95 + Math.log2(Math.max(1, dot.count)) * 0.38);
             return (
               <g key={dot.label}>
                 <motion.g
@@ -174,7 +174,7 @@ export default function WorldMap({
                 >
                   <circle cx={x} cy={y} r={r} fill={visitorColor} filter="url(#glow)" opacity={0.9} />
                   <circle cx={x} cy={y} r={r} fill={visitorColor} opacity={0.35}>
-                    <animate attributeName="r" from={r} to={r * 2.4} dur="2.8s" begin="0s" repeatCount="indefinite" />
+                    <animate attributeName="r" from={r} to={r * 2.0} dur="2.8s" begin="0s" repeatCount="indefinite" />
                     <animate attributeName="opacity" from="0.35" to="0" dur="2.8s" begin="0s" repeatCount="indefinite" />
                   </circle>
                 </motion.g>
@@ -186,7 +186,7 @@ export default function WorldMap({
           {projected.routeEnds.map((endPt, i) => {
             return (
               <g key={`route-endpoints-${i}`}>
-                <circle cx={endPt.x} cy={endPt.y} r="2.1" fill={collaboratorColor} filter="url(#glow)" opacity={0.95} />
+                <circle cx={endPt.x} cy={endPt.y} r="1.5" fill={collaboratorColor} filter="url(#glow)" opacity={0.95} />
               </g>
             );
           })}
@@ -195,9 +195,9 @@ export default function WorldMap({
           {projected.home ? (() => {
             return (
               <g key="home-dot">
-                <circle cx={projected.home.x} cy={projected.home.y} r="3.6" fill="#2f9e44" filter="url(#glow)" opacity={0.95} />
-                <circle cx={projected.home.x} cy={projected.home.y} r="3.6" fill="#2f9e44" opacity={0.25}>
-                  <animate attributeName="r" from="3.6" to="9.6" dur="2.8s" begin="0s" repeatCount="indefinite" />
+                <circle cx={projected.home.x} cy={projected.home.y} r="2.8" fill="#2f9e44" filter="url(#glow)" opacity={0.95} />
+                <circle cx={projected.home.x} cy={projected.home.y} r="2.8" fill="#2f9e44" opacity={0.25}>
+                  <animate attributeName="r" from="2.8" to="7.2" dur="2.8s" begin="0s" repeatCount="indefinite" />
                   <animate attributeName="opacity" from="0.25" to="0" dur="2.8s" begin="0s" repeatCount="indefinite" />
                 </circle>
               </g>
