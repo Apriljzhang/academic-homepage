@@ -12,25 +12,21 @@ const quadrants = [
   {
     key: 'why',
     label: 'Why',
-    sub: 'Motives',
     body: researchFramework.why,
   },
   {
     key: 'who',
     label: 'Who',
-    sub: 'Participants & contexts',
     body: researchFramework.who,
   },
   {
     key: 'what',
     label: 'What',
-    sub: 'Research interests',
     body: researchFramework.what,
   },
   {
     key: 'how',
     label: 'How',
-    sub: 'Methodology',
     body: researchFramework.how,
   },
 ] as const;
@@ -47,10 +43,7 @@ const quadrants = [
     {
       quadrants.map((q) => (
         <CrystalCard as="div" padding="lg" class="w-full">
-          <p class="font-serif text-lg font-semibold text-ink">
-            {q.label}
-            <span class="block text-xs font-sans font-normal uppercase tracking-wider text-muted">{q.sub}</span>
-          </p>
+          <p class="font-serif text-lg font-semibold text-ink">{q.label}</p>
           <p class="mt-3 text-pretty text-base leading-relaxed text-ink/90">{q.body}</p>
         </CrystalCard>
       ))
