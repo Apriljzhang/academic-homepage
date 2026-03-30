@@ -14,9 +14,16 @@ export type Route = {
   end: { lat: number; lng: number; label?: string };
 };
 
+export type HomeDot = {
+  lat: number;
+  lng: number;
+  label?: string;
+};
+
 type Props = {
   dots: VisitDot[];
   routes?: Route[];
+  home?: HomeDot;
   visitorColor?: string;
   collaboratorColor?: string;
 };
@@ -36,6 +43,7 @@ function createCurvedPath(start: { x: number; y: number }, end: { x: number; y: 
 export default function WorldMap({
   dots,
   routes = [],
+  home,
   visitorColor = "#659dbd",
   collaboratorColor = "#c9492a",
 }: Props) {
@@ -138,11 +146,24 @@ export default function WorldMap({
             const end = projectPoint(r.end.lat, r.end.lng);
             return (
               <g key={`route-endpoints-${i}`}>
-                <circle cx={start.x} cy={start.y} r="4" fill={collaboratorColor} filter="url(#glow)" opacity={0.95} />
                 <circle cx={end.x} cy={end.y} r="4" fill={collaboratorColor} filter="url(#glow)" opacity={0.95} />
               </g>
             );
           })}
+
+          {/* home dot (Macau) */}
+          {home ? (() => {
+            const pt = projectPoint(home.lat, home.lng);
+            return (
+              <g key="home-dot">
+                <circle cx={pt.x} cy={pt.y} r="6" fill="#2f9e44" filter="url(#glow)" opacity={0.95} />
+                <circle cx={pt.x} cy={pt.y} r="6" fill="#2f9e44" opacity={0.25}>
+                  <animate attributeName="r" from="6" to="16" dur="2.8s" begin="0s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" from="0.25" to="0" dur="2.8s" begin="0s" repeatCount="indefinite" />
+                </circle>
+              </g>
+            );
+          })() : null}
         </svg>
       </div>
     </div>
