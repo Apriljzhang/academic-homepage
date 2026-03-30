@@ -2,7 +2,7 @@ import { withBase } from '../utils/paths';
 
 export const researchSubnav = [
   { href: withBase('/research'), label: 'Overview' },
-  { href: withBase('/research/themes'), label: 'Research themes' },
+  { href: withBase('/research/themes'), label: 'Research interests' },
   { href: withBase('/research/publications'), label: 'Publications' },
   { href: withBase('/research/funding'), label: 'Funded projects' },
 ] as const;
