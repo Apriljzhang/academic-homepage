@@ -17,8 +17,8 @@
   --font-sans: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
 
   /* 60% — dominant surfaces */
-  --color-page: #eceae5;
-  --color-surface: #f7f6f3;
+  --color-page: #f2efea;
+  --color-surface: #fcfbf8;
 
   --color-ink: #1d2731;
   --color-muted: #534c45;
@@ -35,8 +35,8 @@
   --color-accent-purple: #b8976a;
   --color-accent-purple-faint: #f6efe6;
 
-  --color-border: #d5c8b8;
-  --color-neutral-hover: #f0e9df;
+  --color-border: #d4cabb;
+  --color-neutral-hover: #f5f0e8;
 }
 
 @layer base {
