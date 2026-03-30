@@ -17,7 +17,8 @@ export type Route = {
 type Props = {
   dots: VisitDot[];
   routes?: Route[];
-  lineColor?: string;
+  visitorColor?: string;
+  collaboratorColor?: string;
 };
 
 function projectPoint(lat: number, lng: number) {
@@ -32,7 +33,12 @@ function createCurvedPath(start: { x: number; y: number }, end: { x: number; y: 
   return `M ${start.x} ${start.y} Q ${midX} ${midY} ${end.x} ${end.y}`;
 }
 
-export default function WorldMap({ dots, routes = [], lineColor = "#659dbd" }: Props) {
+export default function WorldMap({
+  dots,
+  routes = [],
+  visitorColor = "#659dbd",
+  collaboratorColor = "#c9492a",
+}: Props) {
   const svgRef = useRef<SVGSVGElement>(null);
 
   const map = useMemo(() => new DottedMap({ height: 100, grid: "diagonal" }), []);
@@ -74,8 +80,8 @@ export default function WorldMap({ dots, routes = [], lineColor = "#659dbd" }: P
 
             <linearGradient id="path-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="0%" stopColor="white" stopOpacity="0" />
-              <stop offset="10%" stopColor={lineColor} stopOpacity="0.9" />
-              <stop offset="90%" stopColor={lineColor} stopOpacity="0.9" />
+              <stop offset="10%" stopColor={collaboratorColor} stopOpacity="0.9" />
+              <stop offset="90%" stopColor={collaboratorColor} stopOpacity="0.9" />
               <stop offset="100%" stopColor="white" stopOpacity="0" />
             </linearGradient>
           </defs>
@@ -97,7 +103,7 @@ export default function WorldMap({ dots, routes = [], lineColor = "#659dbd" }: P
                 />
                 <motion.circle
                   r="3.5"
-                  fill={lineColor}
+                  fill={collaboratorColor}
                   initial={{ offsetDistance: "0%", opacity: 0 }}
                   animate={{ offsetDistance: "100%", opacity: [0, 1, 0] }}
                   transition={{ duration: 1.6, ease: "easeInOut", delay: 0.15 * i }}
@@ -116,12 +122,24 @@ export default function WorldMap({ dots, routes = [], lineColor = "#659dbd" }: P
                   whileHover={{ scale: 1.15 }}
                   transition={{ type: "spring", stiffness: 400, damping: 18 }}
                 >
-                  <circle cx={pt.x} cy={pt.y} r={r} fill={lineColor} filter="url(#glow)" opacity={0.9} />
-                  <circle cx={pt.x} cy={pt.y} r={r} fill={lineColor} opacity={0.35}>
+                  <circle cx={pt.x} cy={pt.y} r={r} fill={visitorColor} filter="url(#glow)" opacity={0.9} />
+                  <circle cx={pt.x} cy={pt.y} r={r} fill={visitorColor} opacity={0.35}>
                     <animate attributeName="r" from={r} to={r * 3} dur="2.8s" begin="0s" repeatCount="indefinite" />
                     <animate attributeName="opacity" from="0.35" to="0" dur="2.8s" begin="0s" repeatCount="indefinite" />
                   </circle>
                 </motion.g>
+              </g>
+            );
+          })}
+
+          {/* collaborator endpoints as dots (line color) */}
+          {routes.map((r, i) => {
+            const start = projectPoint(r.start.lat, r.start.lng);
+            const end = projectPoint(r.end.lat, r.end.lng);
+            return (
+              <g key={`route-endpoints-${i}`}>
+                <circle cx={start.x} cy={start.y} r="4" fill={collaboratorColor} filter="url(#glow)" opacity={0.95} />
+                <circle cx={end.x} cy={end.y} r="4" fill={collaboratorColor} filter="url(#glow)" opacity={0.95} />
               </g>
             );
           })}

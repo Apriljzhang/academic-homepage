@@ -60,7 +60,13 @@ const collaboratorRoutes = collaborators
 
       <div class="mt-10 grid gap-6 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start">
         <div class="min-w-0">
-          <WorldMap client:load dots={dots} routes={collaboratorRoutes} />
+          <WorldMap
+            client:load
+            dots={dots}
+            routes={collaboratorRoutes}
+            visitorColor="#659dbd"
+            collaboratorColor="#c9492a"
+          />
         </div>
         <div class="space-y-4">
           <CrystalCard as="div">
