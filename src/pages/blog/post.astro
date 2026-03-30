@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import PageShell from '../../components/PageShell.astro';
+import MainWithAside from '../../components/MainWithAside.astro';
+import CrystalCard from '../../components/CrystalCard.astro';
+import BlogPostView from '../../components/blog/BlogPostView';
+import { person } from '../../data/cv';
+import { contact } from '../../data/contact';
+
+const title = `Blog post · ${person.fullDisplayName}`;
+const description = `Blog post — ${person.fullDisplayName}.`;
+const replyTo = `mailto:${contact.cityu}?subject=${encodeURIComponent('Reply: Blog post')}`;
+---
+
+<BaseLayout {title} {description}>
+  <SiteHeader />
+  <main id="main-content" class="min-h-[50vh] w-full bg-page">
+    <PageShell accentBar>
+      <MainWithAside asideLabel="Blog">
+        <BlogPostView client:load />
+        <CrystalCard as="div" padding="md" class="mt-10">
+          <p class="font-serif text-lg font-semibold text-ink">Reply</p>
+          <p class="mt-2 text-sm text-muted">
+            No login needed. Please reply by email and include the post title.
+          </p>
+          <a href={replyTo} class="mt-3 inline-block text-sm font-semibold text-primary no-underline hover:underline">
+            Reply by email →
+          </a>
+        </CrystalCard>
+        <div slot="aside" class="text-sm text-muted">
+          <p class="text-xs font-bold uppercase tracking-wider text-muted">Blog</p>
+          <p class="mt-3">Open posts from the main blog list.</p>
+        </div>
+      </MainWithAside>
+    </PageShell>
+  </main>
+  <SiteFooter />
+</BaseLayout>

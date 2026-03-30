@@ -219,7 +219,7 @@ export default function BlogPostGrid({ initialPosts = [] }: Props) {
           filtered.map((p) => (
             <div key={p.id} className="border-l-4 border-primary pl-4">
               <div className="flex items-start justify-between gap-3">
-                <a href={`/blog/${p.slug}/`} className="min-w-0 no-underline">
+                <a href={`/blog/post/?slug=${encodeURIComponent(p.slug)}`} className="min-w-0 no-underline">
                   <p className="text-pretty text-base font-semibold text-ink sm:text-lg">{p.title}</p>
                 </a>
 
