@@ -18,7 +18,7 @@ function slugify(input: string) {
 }
 
 export default function BlogEditor({ adminKey }: Props) {
-  const [adminKeyLocal, setAdminKeyLocal] = useState(adminKey ?? "");
+  const adminKeyLocal = adminKey ?? "";
   const [title, setTitle] = useState("");
   const [slug, setSlug] = useState("");
   const [tags, setTags] = useState("");
@@ -175,7 +175,7 @@ export default function BlogEditor({ adminKey }: Props) {
   return (
     <div className="w-full">
       <div className="grid gap-4 lg:grid-cols-3">
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-3 space-y-4">
           <div className="rounded-xl border border-border bg-surface p-5 shadow-sm">
             <div className="mb-4 flex items-center justify-between gap-3">
               <p className="text-xs font-bold uppercase tracking-wider text-muted">Post details</p>
@@ -290,7 +290,7 @@ export default function BlogEditor({ adminKey }: Props) {
                 disabled={!canSubmit}
                 onClick={async () => {
                   if (!adminKeyLocal.trim()) {
-                    setStatus("Missing admin key. Add it in the sidebar first.");
+                    setStatus("Missing admin key. Open this page via the Blog admin gate so the key is included in the link.");
                     return;
                   }
                   setStatus("Saving…");
@@ -316,27 +316,6 @@ export default function BlogEditor({ adminKey }: Props) {
               onChange={(e) => setContent(e.target.value)}
               className="mt-2 w-full min-h-[420px] rounded-md border border-border bg-page px-3 py-2 font-mono text-sm"
             />
-          </div>
-        </div>
-
-        <div className="space-y-4">
-          <div className="rounded-xl border border-border bg-surface p-5 shadow-sm">
-            <p className="text-xs font-bold uppercase tracking-wider text-muted">Admin key</p>
-            <input
-              type="password"
-              value={adminKeyLocal}
-              onChange={(e) => setAdminKeyLocal(e.target.value)}
-              className="mt-2 w-full rounded-md border border-border bg-page px-3 py-2 text-sm"
-              placeholder="Paste your ADMIN_KEY here"
-            />
-            <p className="mt-2 text-xs text-muted">
-              If you opened this page with <code className="rounded bg-page px-1.5 py-0.5">?key=...</code>, it will prefill automatically.
-            </p>
-            <p className="mt-3 text-xs text-muted">
-              If you still get <code className="rounded bg-page px-1.5 py-0.5">HTTP 401</code>, disable “Verify JWT” when deploying the Supabase functions
-              (use <code className="rounded bg-page px-1.5 py-0.5">--no-verify-jwt</code>) and ensure the Supabase secret{" "}
-              <code className="rounded bg-page px-1.5 py-0.5">ADMIN_KEY</code> equals your key.
-            </p>
           </div>
         </div>
       </div>
