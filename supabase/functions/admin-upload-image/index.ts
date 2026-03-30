@@ -29,8 +29,8 @@ Deno.serve(async (req) => {
       });
     }
 
-    const url = Deno.env.get("SUPABASE_URL");
-    const serviceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+    const url = Deno.env.get("PROJECT_URL") ?? Deno.env.get("SUPABASE_URL");
+    const serviceKey = Deno.env.get("SERVICE_ROLE_KEY") ?? Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
     if (!url || !serviceKey) throw new Error("missing_supabase_env");
 
     const form = await req.formData();
