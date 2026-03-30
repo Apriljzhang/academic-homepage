@@ -126,7 +126,6 @@ export default function BlogCalendarGate({ adminHref = "/blog/admin/", password 
             );
           })}
         </div>
-        <p className="mt-4 text-xs text-muted">Highlighted dates have published posts.</p>
       </div>
     </div>
   );

@@ -2,9 +2,7 @@
  * Supervision summaries without student names. Cohorts are listed newest first within each block.
  */
 
-export const supervisionIntroParagraphs = [
-  'I supervise dissertations and theses in language education, assessment, and technology-enhanced learning at City University of Macau, School of Education: Master of Education and doctoral projects on formative assessment, AI in language education, informal digital learning, and teacher acceptance of innovation. I have also supervised English MA dissertations in a prior role—on motivation, classroom assessment, early language learning, and systematic reviews.',
-] as const;
+export const supervisionIntroParagraphs: readonly string[] = [];
 
 export type SupervisionCohort = {
   cohort: string;
@@ -22,7 +20,7 @@ export type SupervisionBlock = {
 export const supervisionBlocks: SupervisionBlock[] = [
   {
     title: 'Doctor of Philosophy (Education)',
-    subtitle: 'City University of Macau, School of Education',
+    subtitle: '',
     cohorts: [
       {
         cohort: '2025',
@@ -48,7 +46,7 @@ export const supervisionBlocks: SupervisionBlock[] = [
   },
   {
     title: 'Master of Education',
-    subtitle: 'City University of Macau, School of Education',
+    subtitle: '',
     cohorts: [
       {
         cohort: '2026',
@@ -78,7 +76,7 @@ export const supervisionBlocks: SupervisionBlock[] = [
   },
   {
     title: 'MA (English)',
-    subtitle: 'Prior programme (completed supervision)',
+    subtitle: '',
     cohorts: [
       {
         cohort: '2024',

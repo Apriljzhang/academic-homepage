@@ -11,8 +11,6 @@ import {
   person,
   teachingCoursesMastersCityU,
   teachingCoursesDoctoralCityU,
-  teachingPhilosophyParagraphs,
-  teachingNarrativeParagraphs,
 } from '../../data/cv';
 
 const title = `Teaching approach · ${person.fullDisplayName}`;
@@ -33,7 +31,7 @@ const description = `Teaching philosophy and experience — ${person.fullDisplay
           <h2 class="mt-6 font-serif text-xl font-semibold text-ink sm:text-2xl">Current courses (CityU)</h2>
           <div class="mt-4 grid max-w-4xl gap-8 lg:grid-cols-2 lg:gap-10">
             <div>
-              <h3 class="text-xs font-bold uppercase tracking-wider text-secondary">MA / MEd courses</h3>
+              <h3 class="text-xs font-bold uppercase tracking-wider text-secondary">Master courses</h3>
               <ul class="mt-3 flex flex-col gap-2">
                 {
                   teachingCoursesMastersCityU.map((c) => (
@@ -46,7 +44,7 @@ const description = `Teaching philosophy and experience — ${person.fullDisplay
               </ul>
             </div>
             <div>
-              <h3 class="text-xs font-bold uppercase tracking-wider text-secondary">PhD / Doctoral courses</h3>
+              <h3 class="text-xs font-bold uppercase tracking-wider text-secondary">Doctoral courses</h3>
               <ul class="mt-3 flex flex-col gap-2">
                 {
                   teachingCoursesDoctoralCityU.map((c) => (
@@ -60,14 +58,44 @@ const description = `Teaching philosophy and experience — ${person.fullDisplay
             </div>
           </div>
 
-          <h2 class="mt-8 font-serif text-xl font-semibold text-ink sm:text-2xl">Philosophy and methods</h2>
+          <h2 class="mt-8 font-serif text-xl font-semibold text-ink sm:text-2xl">Teaching Philosophy</h2>
           <div class="mt-4 max-w-3xl space-y-3 text-pretty text-base leading-relaxed text-ink/95 sm:text-lg">
-            {teachingPhilosophyParagraphs.map((p) => <p>{p}</p>)}
+            <p>
+              My pedagogical approach is deeply situated at the intersection of language education and applied linguistics, with
+              Assessment for Learning (AfL) serving as the heartbeat of my practice. I operate under the conviction that learning is
+              a social, co-constructed process; therefore, my sessions transcend the traditional lecture format in favor of hands-on
+              workshops and research-led discussions. I view my students not as passive recipients, but as active contributors to the
+              academic discourse.
+            </p>
+            <p>
+              To facilitate this, I employ implicit teaching methods that encourage students to discover nuanced patterns in
+              educational theory through guided inquiry. Central to this mission is the transparency of assessment. By utilizing
+              co-constructed rubrics and rigorous peer-assessment frameworks, I demystify the evaluative process, transforming it
+              into a collaborative dialogue. This approach empowers students to develop the metacognitive scaffolding necessary to
+              navigate complex academic landscapes, ensuring that assessment is not merely a final judgment, but a continuous vehicle
+              for growth and scholarly identity.
+            </p>
           </div>
 
-          <h2 class="mt-8 font-serif text-xl font-semibold text-ink sm:text-2xl">Trajectory: UK and China / Macau</h2>
+          <h2 class="mt-8 font-serif text-xl font-semibold text-ink sm:text-2xl">Professional Trajectory and Experience</h2>
           <div class="mt-4 max-w-3xl space-y-3 text-pretty text-base leading-relaxed text-ink/95 sm:text-lg">
-            {teachingNarrativeParagraphs.map((p) => <p>{p}</p>)}
+            <p>
+              My academic journey reflects a global commitment to understanding the mechanics of learning across diverse cultural and
+              linguistic contexts. My foundational work took place in the United Kingdom, where I specialized in English for Academic
+              Purposes (EAP), supporting international undergraduates and postgraduates in mastering the rigors of scholarly
+              communication. During this time, I also engaged in vital primary school partnership teaching while completing my
+              doctoral studies at the University of Sheffield. My PhD research, which focused on the nuances of formative assessment
+              and young language learners, remains a cornerstone of my evidence-based approach to teaching.
+            </p>
+            <p>
+              Currently, I serve as an Assistant Professor in the School of Education at the City University of Macau. In this role,
+              I bridge theory and practice by leading advanced modules in research methods, assessment, and specialized language
+              education at both the MA and PhD levels. Beyond the classroom, I am deeply invested in the mentorship of the next
+              generation of educational scholars, supervising doctoral candidates as they navigate the complexities of original
+              research. My transition from the UK to Macau has enriched my perspective, allowing me to cultivate a classroom
+              environment that is both inclusive and intellectually demanding, honoring the diverse academic backgrounds of my
+              students.
+            </p>
           </div>
         </div>
         <TeachingSectionAside slot="aside" />
