@@ -117,8 +117,7 @@ export default function WorldMap({
         >
           <defs>
             <filter id="glow">
-              <feMorphology operator="dilate" radius="0.6" />
-              <feGaussianBlur stdDeviation="1" result="coloredBlur" />
+              <feGaussianBlur stdDeviation="0.9" result="coloredBlur" />
               <feMerge>
                 <feMergeNode in="coloredBlur" />
                 <feMergeNode in="SourceGraphic" />
@@ -153,19 +152,20 @@ export default function WorldMap({
                   transition={{ duration: 1.6, ease: "easeInOut", delay: 0.15 * i }}
                 />
                 <motion.circle
-                  r="3.5"
+                  r="1.8"
                   fill={collaboratorColor}
                   initial={{ offsetDistance: "0%", opacity: 0 }}
-                  animate={{ offsetDistance: "100%", opacity: [0, 1, 0] }}
+                  animate={{ offsetDistance: "100%", opacity: [0, 0.95, 0] }}
                   transition={{ duration: 1.6, ease: "easeInOut", delay: 0.15 * i }}
                   style={{ offsetPath: `path('${d}')` } as any}
+                  filter="url(#glow)"
                 />
               </g>
             );
           })}
 
           {projected.dots.map(({ x, y, dot }) => {
-            const r = Math.min(10, 1.8 + Math.log2(Math.max(1, dot.count)));
+            const r = Math.min(4.2, 1.3 + Math.log2(Math.max(1, dot.count)) * 0.55);
             return (
               <g key={dot.label}>
                 <motion.g
@@ -174,7 +174,7 @@ export default function WorldMap({
                 >
                   <circle cx={x} cy={y} r={r} fill={visitorColor} filter="url(#glow)" opacity={0.9} />
                   <circle cx={x} cy={y} r={r} fill={visitorColor} opacity={0.35}>
-                    <animate attributeName="r" from={r} to={r * 3} dur="2.8s" begin="0s" repeatCount="indefinite" />
+                    <animate attributeName="r" from={r} to={r * 2.4} dur="2.8s" begin="0s" repeatCount="indefinite" />
                     <animate attributeName="opacity" from="0.35" to="0" dur="2.8s" begin="0s" repeatCount="indefinite" />
                   </circle>
                 </motion.g>
@@ -186,7 +186,7 @@ export default function WorldMap({
           {projected.routeEnds.map((endPt, i) => {
             return (
               <g key={`route-endpoints-${i}`}>
-                <circle cx={endPt.x} cy={endPt.y} r="2.6" fill={collaboratorColor} filter="url(#glow)" opacity={0.95} />
+                <circle cx={endPt.x} cy={endPt.y} r="2.1" fill={collaboratorColor} filter="url(#glow)" opacity={0.95} />
               </g>
             );
           })}
@@ -195,9 +195,9 @@ export default function WorldMap({
           {projected.home ? (() => {
             return (
               <g key="home-dot">
-                <circle cx={projected.home.x} cy={projected.home.y} r="4.5" fill="#2f9e44" filter="url(#glow)" opacity={0.95} />
-                <circle cx={projected.home.x} cy={projected.home.y} r="4.5" fill="#2f9e44" opacity={0.25}>
-                  <animate attributeName="r" from="4.5" to="12" dur="2.8s" begin="0s" repeatCount="indefinite" />
+                <circle cx={projected.home.x} cy={projected.home.y} r="3.6" fill="#2f9e44" filter="url(#glow)" opacity={0.95} />
+                <circle cx={projected.home.x} cy={projected.home.y} r="3.6" fill="#2f9e44" opacity={0.25}>
+                  <animate attributeName="r" from="3.6" to="9.6" dur="2.8s" begin="0s" repeatCount="indefinite" />
                   <animate attributeName="opacity" from="0.25" to="0" dur="2.8s" begin="0s" repeatCount="indefinite" />
                 </circle>
               </g>
