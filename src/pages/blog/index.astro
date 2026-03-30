@@ -41,9 +41,14 @@ if (SUPABASE_URL) {
         Educational and research notes. For replies, use the email link at the end of each post.
       </p>
 
-      <BlogPostGrid client:load initialPosts={posts} />
-
-      <BlogCalendarGate client:load posts={posts} />
+      <div class="mt-10 grid gap-6 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] lg:items-start">
+        <div class="order-2 lg:order-1">
+          <BlogCalendarGate client:load posts={posts} />
+        </div>
+        <div class="order-1 lg:order-2">
+          <BlogPostGrid client:load initialPosts={posts} />
+        </div>
+      </div>
     </PageShell>
   </main>
   <SiteFooter />

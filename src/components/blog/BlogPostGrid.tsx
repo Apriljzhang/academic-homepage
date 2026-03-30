@@ -53,7 +53,7 @@ export default function BlogPostGrid({ initialPosts = [] }: Props) {
   }, [supabaseUrl, supabaseAnon, initialPosts.length]);
 
   return (
-    <div className="mt-10">
+    <div className="w-full">
       {status === "error" ? (
         <p className="text-sm text-muted">
           Could not load posts right now. If you are viewing a test build, ensure{" "}
@@ -62,7 +62,7 @@ export default function BlogPostGrid({ initialPosts = [] }: Props) {
         </p>
       ) : null}
 
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-4">
         {posts.length === 0 ? (
           <p className="text-sm text-muted">
             {status === "loading" ? "Loading…" : "No published posts yet."}
