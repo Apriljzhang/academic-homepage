@@ -158,7 +158,8 @@ const homeHref = withBase('/');
         window.sessionStorage.setItem("BLOG_ADMIN_KEY", password);
       } catch {}
       dlg.close();
-      window.location.href = "/blog/admin/";
+      // After unlocking, stay on /blog in "admin mode" (edit buttons appear there).
+      window.location.href = "/blog/";
       return true;
     }
 

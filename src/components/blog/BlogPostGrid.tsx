@@ -72,7 +72,21 @@ export default function BlogPostGrid({ initialPosts = [] }: Props) {
       ) : null}
 
       {isAdmin ? (
-        <div className="mb-4 flex items-center justify-end">
+        <div className="mb-4 flex flex-wrap items-center justify-end gap-2">
+          <button
+            type="button"
+            className="rounded-full border border-border bg-page px-4 py-2 text-sm font-semibold text-muted hover:bg-neutral-hover hover:text-ink"
+            onClick={() => {
+              try {
+                window.sessionStorage.removeItem("BLOG_ADMIN_KEY");
+              } catch {}
+              setIsAdmin(false);
+              // Refresh to hide edit controls everywhere.
+              window.location.href = "/blog/";
+            }}
+          >
+            Exit admin mode
+          </button>
           <a
             href="/blog/admin/"
             className="rounded-full bg-primary px-4 py-2 text-sm font-semibold text-white no-underline hover:bg-secondary hover:text-ink"
