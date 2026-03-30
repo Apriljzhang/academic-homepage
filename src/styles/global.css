@@ -31,9 +31,9 @@
   --color-primary: #c9492a;
   --color-primary-faint: #fbf0eb;
 
-  /* Decorative third hue — green (for tertiary strips / small accents) */
-  --color-accent-purple: #2f9e44;
-  --color-accent-purple-faint: #e8f5ec;
+  /* Decorative third hue — soft green (for tertiary strips / small accents) */
+  --color-accent-purple: #78ab86;
+  --color-accent-purple-faint: #edf6f0;
 
   --color-border: #d4cabb;
   --color-neutral-hover: #f5f0e8;
