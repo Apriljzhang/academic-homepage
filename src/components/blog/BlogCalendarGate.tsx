@@ -16,6 +16,7 @@ function pad2(n: number) {
 export default function BlogCalendarGate({ adminHref = "/blog/admin/", password = "199044", posts = [] }: Props) {
   const [monthOffset, setMonthOffset] = useState(0);
   const [postDates, setPostDates] = useState<Set<string>>(new Set());
+  const [selectedDate, setSelectedDate] = useState<string>("");
 
   const supabaseUrl = useMemo(() => {
     const u = (import.meta as any).env?.PUBLIC_SUPABASE_URL as string | undefined;
@@ -98,16 +99,30 @@ export default function BlogCalendarGate({ adminHref = "/blog/admin/", password 
             const key = `${cal.year}-${pad2(cal.month + 1)}-${pad2(c.day)}`;
             const hasPost = postDates.has(key);
             return (
-              <div
+              <button
+                type="button"
                 key={c.key}
                 className={[
-                  "h-9 rounded-lg border text-sm grid place-items-center",
-                  hasPost ? "border-primary/40 bg-primary-faint text-ink" : "border-border bg-page text-ink/80",
+                  "h-9 rounded-lg border text-sm grid place-items-center transition-colors",
+                  selectedDate === key
+                    ? "border-secondary/70 bg-secondary text-white"
+                    : hasPost
+                      ? "border-primary/40 bg-primary-faint text-ink hover:bg-primary-faint/80"
+                      : "border-border bg-page text-ink/80 hover:bg-neutral-hover",
                 ].join(" ")}
                 title={hasPost ? "Blog post published" : ""}
+                onClick={() => {
+                  const next = selectedDate === key ? "" : key;
+                  setSelectedDate(next);
+                  window.dispatchEvent(
+                    new CustomEvent("blog-date-filter", {
+                      detail: { date: next },
+                    }),
+                  );
+                }}
               >
                 {c.day}
-              </div>
+              </button>
             );
           })}
         </div>

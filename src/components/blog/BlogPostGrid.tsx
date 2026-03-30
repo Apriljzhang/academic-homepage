@@ -19,6 +19,7 @@ export default function BlogPostGrid({ initialPosts = [] }: Props) {
   const [status, setStatus] = useState<"idle" | "loading" | "error">("idle");
   const [isAdmin, setIsAdmin] = useState(false);
   const [selectedTag, setSelectedTag] = useState<string>("all");
+  const [selectedDate, setSelectedDate] = useState<string>("");
 
   const supabaseUrl = useMemo(() => {
     const u = (import.meta as any).env?.PUBLIC_SUPABASE_URL as string | undefined;
@@ -62,6 +63,15 @@ export default function BlogPostGrid({ initialPosts = [] }: Props) {
     }
   }, []);
 
+  useEffect(() => {
+    const onDateFilter = (ev: Event) => {
+      const e = ev as CustomEvent<{ date?: string }>;
+      setSelectedDate(e.detail?.date ?? "");
+    };
+    window.addEventListener("blog-date-filter", onDateFilter as EventListener);
+    return () => window.removeEventListener("blog-date-filter", onDateFilter as EventListener);
+  }, []);
+
   const tagCounts = useMemo(() => {
     const m = new Map<string, number>();
     for (const p of posts) {
@@ -77,9 +87,20 @@ export default function BlogPostGrid({ initialPosts = [] }: Props) {
   }, [posts]);
 
   const filtered = useMemo(() => {
-    if (selectedTag === "all") return posts;
-    return posts.filter((p) => (p.tags ?? []).includes(selectedTag));
-  }, [posts, selectedTag]);
+    let arr = posts;
+    if (selectedTag !== "all") {
+      arr = arr.filter((p) => (p.tags ?? []).includes(selectedTag));
+    }
+    if (selectedDate) {
+      arr = arr.filter((p) => {
+        const d = new Date(p.published_at);
+        if (Number.isNaN(d.getTime())) return false;
+        const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+        return key === selectedDate;
+      });
+    }
+    return arr;
+  }, [posts, selectedTag, selectedDate]);
 
   return (
     <div className="w-full">
@@ -113,6 +134,28 @@ export default function BlogPostGrid({ initialPosts = [] }: Props) {
           >
             New post
           </a>
+        </div>
+      ) : null}
+
+      {selectedDate ? (
+        <div className="mb-4 flex items-center justify-between gap-3 rounded-xl border border-border bg-surface px-3 py-2 text-sm">
+          <p className="text-muted">
+            Filtering posts on{" "}
+            <span className="font-semibold text-ink">
+              {new Date(`${selectedDate}T00:00:00`).toLocaleDateString("en-GB", {
+                year: "numeric",
+                month: "long",
+                day: "2-digit",
+              })}
+            </span>
+          </p>
+          <button
+            type="button"
+            className="rounded-full border border-border bg-page px-3 py-1 text-xs font-semibold text-muted hover:bg-neutral-hover hover:text-ink"
+            onClick={() => setSelectedDate("")}
+          >
+            Clear date
+          </button>
         </div>
       ) : null}
 
