@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
+import mammoth from "mammoth/mammoth.browser";
 
 type Props = {
   adminKey: string;
@@ -20,8 +21,11 @@ export default function BlogEditor({ adminKey }: Props) {
   const [adminKeyLocal, setAdminKeyLocal] = useState(adminKey ?? "");
   const [title, setTitle] = useState("");
   const [slug, setSlug] = useState("");
-  const [tags, setTags] = useState("teaching, research");
-  const [publishedAt, setPublishedAt] = useState<string>("");
+  const [tags, setTags] = useState("");
+  const [publishedDate, setPublishedDate] = useState<string>(() => {
+    const d = new Date();
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+  });
   const [coverUrl, setCoverUrl] = useState<string>("");
   const [content, setContent] = useState<string>("# New post\n\nWrite in Markdown.");
   const [status, setStatus] = useState<string>("");
@@ -84,10 +88,11 @@ export default function BlogEditor({ adminKey }: Props) {
     setTags((p.tags ?? []).join(", "));
     if (p.published_at) {
       const d = new Date(p.published_at);
-      const local = new Date(d.getTime() - d.getTimezoneOffset() * 60000).toISOString().slice(0, 16);
-      setPublishedAt(local);
+      const yyyyMmDd = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+      setPublishedDate(yyyyMmDd);
     } else {
-      setPublishedAt("");
+      const now = new Date();
+      setPublishedDate(`${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`);
     }
     setStatus(`Loaded “${p.title}”. Edit and Publish / Update to save changes.`);
   }
@@ -102,18 +107,36 @@ export default function BlogEditor({ adminKey }: Props) {
       headers: { "x-admin-key": adminKeyLocal },
       body: fd,
     });
-    const data = await res.json().catch(() => null);
-    if (!res.ok || !data?.ok) return { ok: false, error: data?.error ?? "Upload failed" };
+    const text = await res.text().catch(() => "");
+    const data = (() => {
+      try {
+        return text ? JSON.parse(text) : null;
+      } catch {
+        return null;
+      }
+    })();
+    if (!res.ok || !data?.ok) {
+      const hint =
+        res.status === 401
+          ? " (401 usually means Supabase Function 'Verify JWT' is enabled OR ADMIN_KEY mismatch)"
+          : "";
+      return { ok: false, error: (data?.error ?? text ?? `HTTP ${res.status}`) + hint };
+    }
     return { ok: true, publicUrl: data.publicUrl as string };
   }
 
   async function upsertPost(): Promise<UpsertResult> {
     if (!functionsBase) return { ok: false, error: "Missing PUBLIC_SUPABASE_URL (cannot reach functions)" };
+    const iso = (() => {
+      // Date-only input; store as midnight UTC for stable ordering
+      const s = `${publishedDate}T00:00:00.000Z`;
+      return new Date(s).toISOString();
+    })();
     const payload = {
       title: title.trim(),
       slug: (slug.trim() || slugify(title)).trim(),
       content_md: content,
-      published_at: publishedAt ? new Date(publishedAt).toISOString() : new Date().toISOString(),
+      published_at: iso,
       tags: tags
         .split(",")
         .map((t) => t.trim())
@@ -126,12 +149,24 @@ export default function BlogEditor({ adminKey }: Props) {
       headers: { "content-type": "application/json", "x-admin-key": adminKeyLocal },
       body: JSON.stringify(payload),
     });
-    const data = await res.json().catch(() => null);
+    const text = await res.text().catch(() => "");
+    const data = (() => {
+      try {
+        return text ? JSON.parse(text) : null;
+      } catch {
+        return null;
+      }
+    })();
     if (!res.ok || !data?.ok) {
       const details =
         data?.error ??
         (typeof data === "string" ? data : null) ??
+        text ??
         `HTTP ${res.status} ${res.statusText}`.trim();
+      const hint =
+        res.status === 401
+          ? " (401 usually means Supabase Function 'Verify JWT' is enabled OR ADMIN_KEY mismatch)"
+          : "";
       return { ok: false, error: details || "Save failed" };
     }
     return { ok: true };
@@ -149,8 +184,9 @@ export default function BlogEditor({ adminKey }: Props) {
                 onClick={() => {
                   setTitle("");
                   setSlug("");
-                  setTags("teaching, research");
-                  setPublishedAt("");
+                  setTags("");
+                  const now = new Date();
+                  setPublishedDate(`${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`);
                   setCoverUrl("");
                   setContent("# New post\n\nWrite in Markdown.");
                   setStatus("");
@@ -180,7 +216,7 @@ export default function BlogEditor({ adminKey }: Props) {
                   value={tags}
                   onChange={(e) => setTags(e.target.value)}
                   className="w-full rounded-md border border-border bg-page px-3 py-2 text-sm"
-                  placeholder="comma,separated,tags"
+                  placeholder="e.g. teaching, research"
                 />
               </label>
             </div>
@@ -189,16 +225,16 @@ export default function BlogEditor({ adminKey }: Props) {
               <label className="space-y-1">
                 <span className="text-xs font-bold uppercase tracking-wider text-muted">Date</span>
                 <input
-                  type="datetime-local"
-                  value={publishedAt}
-                  onChange={(e) => setPublishedAt(e.target.value)}
+                  type="date"
+                  value={publishedDate}
+                  onChange={(e) => setPublishedDate(e.target.value)}
                   className="w-full rounded-md border border-border bg-page px-3 py-2 text-sm"
                 />
               </label>
             </div>
 
-            <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-              <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+            <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
                 <label className="inline-flex items-center gap-2 text-sm font-semibold text-ink">
                   <span className="rounded-full border border-border bg-page px-3 py-1.5">Cover image</span>
                   <input
@@ -215,6 +251,31 @@ export default function BlogEditor({ adminKey }: Props) {
                       }
                       setCoverUrl(r.publicUrl);
                       setStatus("Cover uploaded.");
+                    }}
+                  />
+                </label>
+                <label className="inline-flex items-center gap-2 text-sm font-semibold text-ink">
+                  <span className="rounded-full border border-border bg-page px-3 py-1.5">Import Word</span>
+                  <input
+                    type="file"
+                    accept=".docx"
+                    onChange={async (e) => {
+                      const file = e.target.files?.[0];
+                      if (!file) return;
+                      setStatus("Importing Word document…");
+                      try {
+                        const buf = await file.arrayBuffer();
+                        const res = await mammoth.extractRawText({ arrayBuffer: buf });
+                        const txt = (res.value || "").trim();
+                        if (!txt) {
+                          setStatus("No text found in the Word file.");
+                          return;
+                        }
+                        setContent((prev) => (prev.trim() ? `${prev.trim()}\n\n${txt}\n` : `${txt}\n`));
+                        setStatus("Word text imported.");
+                      } catch (err) {
+                        setStatus(`Word import failed: ${String(err)}`);
+                      }
                     }}
                   />
                 </label>
@@ -270,6 +331,11 @@ export default function BlogEditor({ adminKey }: Props) {
             />
             <p className="mt-2 text-xs text-muted">
               If you opened this page with <code className="rounded bg-page px-1.5 py-0.5">?key=...</code>, it will prefill automatically.
+            </p>
+            <p className="mt-3 text-xs text-muted">
+              If you still get <code className="rounded bg-page px-1.5 py-0.5">HTTP 401</code>, disable “Verify JWT” when deploying the Supabase functions
+              (use <code className="rounded bg-page px-1.5 py-0.5">--no-verify-jwt</code>) and ensure the Supabase secret{" "}
+              <code className="rounded bg-page px-1.5 py-0.5">ADMIN_KEY</code> equals your key.
             </p>
           </div>
         </div>
