@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 type Props = {
   adminKey: string;
@@ -25,6 +25,8 @@ export default function BlogEditor({ adminKey }: Props) {
   const [coverUrl, setCoverUrl] = useState<string>("");
   const [content, setContent] = useState<string>("# New post\n\nWrite in Markdown.");
   const [status, setStatus] = useState<string>("");
+  const [monthOffset, setMonthOffset] = useState<number>(0);
+  const [postDates, setPostDates] = useState<Set<string>>(new Set());
 
   const canSubmit = adminKey.trim().length > 0 && title.trim().length > 0 && content.trim().length > 0;
 
@@ -32,6 +34,51 @@ export default function BlogEditor({ adminKey }: Props) {
     const base = (import.meta as any).env?.PUBLIC_SUPABASE_FUNCTIONS_BASE_URL as string | undefined;
     return base?.replace(/\/$/, "") ?? "";
   }, []);
+
+  const supabaseUrl = useMemo(() => {
+    const u = (import.meta as any).env?.PUBLIC_SUPABASE_URL as string | undefined;
+    return u?.replace(/\/$/, "") ?? "";
+  }, []);
+  const supabaseAnon = useMemo(() => (import.meta as any).env?.PUBLIC_SUPABASE_ANON_KEY as string | undefined, []);
+
+  useEffect(() => {
+    (async () => {
+      if (!supabaseUrl || !supabaseAnon) return;
+      const url =
+        `${supabaseUrl}/rest/v1/blog_posts?select=slug,published_at` +
+        `&published_at=not.is.null&order=published_at.desc&limit=200`;
+      const res = await fetch(url, {
+        headers: {
+          apikey: supabaseAnon,
+          authorization: `Bearer ${supabaseAnon}`,
+        },
+      });
+      if (!res.ok) return;
+      const rows = (await res.json()) as Array<{ published_at: string }>;
+      const s = new Set<string>();
+      for (const r of rows) {
+        const d = new Date(r.published_at);
+        if (Number.isNaN(d.getTime())) continue;
+        const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+        s.add(key);
+      }
+      setPostDates(s);
+    })();
+  }, [supabaseUrl, supabaseAnon]);
+
+  const cal = useMemo(() => {
+    const now = new Date();
+    const first = new Date(now.getFullYear(), now.getMonth() + monthOffset, 1);
+    const year = first.getFullYear();
+    const month = first.getMonth();
+    const startDay = (first.getDay() + 6) % 7; // Mon=0
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const cells: Array<{ day: number | null; key: string }> = [];
+    for (let i = 0; i < startDay; i++) cells.push({ day: null, key: `b${i}` });
+    for (let d = 1; d <= daysInMonth; d++) cells.push({ day: d, key: `d${d}` });
+    while (cells.length % 7 !== 0) cells.push({ day: null, key: `a${cells.length}` });
+    return { year, month, cells };
+  }, [monthOffset]);
 
   async function uploadCover(file: File): Promise<UploadResult> {
     if (!functionsBase) return { ok: false, error: "Missing PUBLIC_SUPABASE_FUNCTIONS_BASE_URL" };
@@ -192,23 +239,58 @@ export default function BlogEditor({ adminKey }: Props) {
 
         <div className="space-y-4">
           <div className="rounded-xl border border-border bg-surface p-5 shadow-sm">
-            <p className="font-serif text-xl font-semibold text-ink">Setup</p>
-            <ul className="mt-3 space-y-2 text-sm text-muted">
-              <li>
-                <span className="font-semibold text-ink">1.</span> Deploy Supabase edge functions:{" "}
-                <code className="rounded bg-page px-1.5 py-0.5">track-visit</code>,{" "}
-                <code className="rounded bg-page px-1.5 py-0.5">admin-upsert-post</code>,{" "}
-                <code className="rounded bg-page px-1.5 py-0.5">admin-upload-image</code>.
-              </li>
-              <li>
-                <span className="font-semibold text-ink">2.</span> Set env vars in the website build:{" "}
-                <code className="rounded bg-page px-1.5 py-0.5">PUBLIC_SUPABASE_FUNCTIONS_BASE_URL</code>
-              </li>
-              <li>
-                <span className="font-semibold text-ink">3.</span> Open this page as{" "}
-                <code className="rounded bg-page px-1.5 py-0.5">/blog/admin?key=YOUR_ADMIN_KEY</code>
-              </li>
-            </ul>
+            <div className="flex items-center justify-between gap-3">
+              <p className="font-serif text-xl font-semibold text-ink">Blog calendar</p>
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => setMonthOffset((x) => x - 1)}
+                  className="rounded-full border border-border bg-page px-3 py-1.5 text-xs font-semibold text-ink hover:bg-neutral-hover"
+                >
+                  ←
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setMonthOffset((x) => (x === 0 ? 0 : x + 1))}
+                  className="rounded-full border border-border bg-page px-3 py-1.5 text-xs font-semibold text-ink hover:bg-neutral-hover"
+                >
+                  →
+                </button>
+              </div>
+            </div>
+            <p className="mt-2 text-sm text-muted">
+              {new Date(cal.year, cal.month, 1).toLocaleDateString("en-GB", { year: "numeric", month: "long" })}
+            </p>
+
+            <div className="mt-4 grid grid-cols-7 gap-2 text-center text-xs font-semibold text-muted">
+              {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((d) => (
+                <div key={d}>{d}</div>
+              ))}
+            </div>
+
+            <div className="mt-2 grid grid-cols-7 gap-2 text-center text-sm">
+              {cal.cells.map((c) => {
+                if (!c.day) return <div key={c.key} className="h-9" />;
+                const key = `${cal.year}-${String(cal.month + 1).padStart(2, "0")}-${String(c.day).padStart(2, "0")}`;
+                const hasPost = postDates.has(key);
+                return (
+                  <div
+                    key={c.key}
+                    className={[
+                      "h-9 rounded-lg border text-sm grid place-items-center",
+                      hasPost ? "border-primary/40 bg-primary-faint text-ink" : "border-border bg-page text-ink/80",
+                    ].join(" ")}
+                    title={hasPost ? "Blog post published" : ""}
+                  >
+                    {c.day}
+                  </div>
+                );
+              })}
+            </div>
+
+            <p className="mt-4 text-xs text-muted">
+              Highlighted dates have published posts.
+            </p>
           </div>
         </div>
       </div>
