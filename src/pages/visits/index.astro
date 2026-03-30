@@ -50,6 +50,8 @@ const collaboratorRoutes = collaborators
     start: macau,
     end: { lat: c.lat as number, lng: c.lng as number, label: `${c.name} (${c.affiliation ?? ''})`.trim() },
   }));
+
+const totalVisits30d = rows.reduce((sum, r) => sum + (Number.isFinite(r.count) ? r.count : 0), 0);
 ---
 
 <BaseLayout {title} {description}>
@@ -70,7 +72,14 @@ const collaboratorRoutes = collaborators
         </div>
         <div class="space-y-4">
           <CrystalCard as="div">
-            <p class="text-xs font-bold uppercase tracking-wider text-muted">Top regions (last 30 days)</p>
+            <p class="text-xs font-bold uppercase tracking-wider text-muted">Visits (last 30 days)</p>
+            <div class="mt-4 flex items-center justify-between gap-3">
+              <p class="text-sm font-semibold text-ink">Total</p>
+              <span class="shrink-0 rounded-full border border-border bg-page px-2 py-1 text-xs font-semibold text-ink">
+                {totalVisits30d}
+              </span>
+            </div>
+            <p class="mt-4 text-xs font-bold uppercase tracking-wider text-muted">Top regions</p>
             <ol class="mt-4 space-y-2 text-sm">
               {rows.slice(0, 12).map((r) => (
                 <li class="flex items-start justify-between gap-3">
@@ -83,14 +92,6 @@ const collaboratorRoutes = collaborators
                 </li>
               ))}
             </ol>
-          </CrystalCard>
-          <CrystalCard as="div" padding="md">
-            <p class="font-serif text-lg font-semibold text-ink">Notes</p>
-            <ul class="mt-2 space-y-2 text-sm text-muted">
-              <li>- Counts are approximate and based on best-effort IP geolocation.</li>
-              <li>- We store a salted hash of IP, not the raw IP address.</li>
-              <li>- Tracking runs once per browser session.</li>
-            </ul>
           </CrystalCard>
         </div>
       </div>
