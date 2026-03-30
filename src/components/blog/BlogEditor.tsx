@@ -17,6 +17,7 @@ function slugify(input: string) {
 }
 
 export default function BlogEditor({ adminKey }: Props) {
+  const [adminKeyLocal, setAdminKeyLocal] = useState(adminKey ?? "");
   const [title, setTitle] = useState("");
   const [slug, setSlug] = useState("");
   const [excerpt, setExcerpt] = useState("");
@@ -28,7 +29,8 @@ export default function BlogEditor({ adminKey }: Props) {
   const [monthOffset, setMonthOffset] = useState<number>(0);
   const [postDates, setPostDates] = useState<Set<string>>(new Set());
 
-  const canSubmit = adminKey.trim().length > 0 && title.trim().length > 0 && content.trim().length > 0;
+  const canSubmit =
+    adminKeyLocal.trim().length > 0 && title.trim().length > 0 && content.trim().length > 0;
 
   const functionsBase = useMemo(() => {
     const base = (import.meta as any).env?.PUBLIC_SUPABASE_FUNCTIONS_BASE_URL as string | undefined;
@@ -87,7 +89,7 @@ export default function BlogEditor({ adminKey }: Props) {
 
     const res = await fetch(`${functionsBase}/admin-upload-image`, {
       method: "POST",
-      headers: { "x-admin-key": adminKey },
+      headers: { "x-admin-key": adminKeyLocal },
       body: fd,
     });
     const data = await res.json().catch(() => null);
@@ -112,7 +114,7 @@ export default function BlogEditor({ adminKey }: Props) {
 
     const res = await fetch(`${functionsBase}/admin-upsert-post`, {
       method: "POST",
-      headers: { "content-type": "application/json", "x-admin-key": adminKey },
+      headers: { "content-type": "application/json", "x-admin-key": adminKeyLocal },
       body: JSON.stringify(payload),
     });
     const data = await res.json().catch(() => null);
@@ -211,6 +213,10 @@ export default function BlogEditor({ adminKey }: Props) {
               <button
                 disabled={!canSubmit}
                 onClick={async () => {
+                  if (!adminKeyLocal.trim()) {
+                    setStatus("Missing admin key. Add it in the sidebar first.");
+                    return;
+                  }
                   setStatus("Saving…");
                   const r = await upsertPost();
                   setStatus(r.ok ? "Saved. Refresh /blog to see it." : `Save failed: ${r.error}`);
@@ -239,6 +245,17 @@ export default function BlogEditor({ adminKey }: Props) {
 
         <div className="space-y-4">
           <div className="rounded-xl border border-border bg-surface p-5 shadow-sm">
+            <p className="text-xs font-bold uppercase tracking-wider text-muted">Admin key</p>
+            <input
+              value={adminKeyLocal}
+              onChange={(e) => setAdminKeyLocal(e.target.value)}
+              className="mt-2 w-full rounded-md border border-border bg-page px-3 py-2 text-sm"
+              placeholder="Paste your ADMIN_KEY here"
+            />
+            <p className="mt-2 text-xs text-muted">
+              If you opened this page with <code className="rounded bg-page px-1.5 py-0.5">?key=...</code>, it will prefill automatically.
+            </p>
+
             <div className="flex items-center justify-between gap-3">
               <p className="font-serif text-xl font-semibold text-ink">Blog calendar</p>
               <div className="flex items-center gap-2">
