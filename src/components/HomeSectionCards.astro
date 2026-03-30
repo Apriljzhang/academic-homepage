@@ -1,6 +1,7 @@
 ---
 import { homeSectionCards } from '../data/cv';
 import { withBase } from '../utils/paths';
+import CrystalCard from './CrystalCard.astro';
 
 const accentStyles = {
   green: {
@@ -32,12 +33,14 @@ const accentStyles = {
       homeSectionCards.map((card) => {
         const a = accentStyles[card.accent];
         return (
-          <a
+          <CrystalCard
+            as="a"
             href={withBase(`/${card.slug}`)}
+            hoverLift
+            padding="lg"
             class:list={[
-              'group relative flex min-h-[180px] flex-col overflow-hidden rounded-xl border border-border bg-surface p-5 shadow-sm ring-2 ring-transparent transition-all duration-200 sm:p-6',
+              'group relative flex min-h-[180px] flex-col overflow-hidden ring-2 ring-transparent',
               a.left,
-              'hover:-translate-y-0.5 hover:shadow-md',
               a.hoverRing,
               'hover:ring-2',
             ]}
@@ -51,7 +54,7 @@ const accentStyles = {
               Open section
               <span aria-hidden="true" class="transition-transform group-hover:translate-x-1">→</span>
             </span>
-          </a>
+          </CrystalCard>
         );
       })
     }

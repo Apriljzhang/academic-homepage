@@ -1,5 +1,6 @@
 ---
 import { researchFramework } from '../data/cv';
+import CrystalCard from './CrystalCard.astro';
 
 interface Props {
   class?: string;
@@ -45,15 +46,13 @@ const quadrants = [
   >
     {
       quadrants.map((q) => (
-        <div
-          class="flex min-h-0 w-full flex-col rounded-2xl border border-border/80 bg-page px-5 py-5 sm:rounded-3xl sm:px-6 sm:py-6"
-        >
-          <p class="font-serif text-lg font-semibold text-primary">
+        <CrystalCard as="div" padding="lg" class="w-full">
+          <p class="font-serif text-lg font-semibold text-ink">
             {q.label}
             <span class="block text-xs font-sans font-normal uppercase tracking-wider text-muted">{q.sub}</span>
           </p>
           <p class="mt-3 text-pretty text-base leading-relaxed text-ink/90">{q.body}</p>
-        </div>
+        </CrystalCard>
       ))
     }
   </div>
