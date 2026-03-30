@@ -27,6 +27,7 @@ export default function BlogEditor({ adminKey }: Props) {
     return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
   });
   const [coverUrl, setCoverUrl] = useState<string>("");
+  const [fileInputsKey, setFileInputsKey] = useState<number>(0);
   const [content, setContent] = useState<string>("# New post\n\nWrite in Markdown.");
   const [status, setStatus] = useState<string>("");
 
@@ -195,6 +196,7 @@ export default function BlogEditor({ adminKey }: Props) {
                   setCoverUrl("");
                   setContent("# New post\n\nWrite in Markdown.");
                   setStatus("");
+                  setFileInputsKey((x) => x + 1);
                 }}
                 className="rounded-full border border-border bg-page px-4 py-2 text-xs font-semibold text-ink hover:bg-neutral-hover"
               >
@@ -243,6 +245,7 @@ export default function BlogEditor({ adminKey }: Props) {
                 <label className="inline-flex items-center gap-2 text-sm font-semibold text-ink">
                   <span className="rounded-full border border-border bg-page px-3 py-1.5">Cover image</span>
                   <input
+                    key={`cover-${fileInputsKey}`}
                     type="file"
                     accept="image/*"
                     onChange={async (e) => {
@@ -262,6 +265,7 @@ export default function BlogEditor({ adminKey }: Props) {
                 <label className="inline-flex items-center gap-2 text-sm font-semibold text-ink">
                   <span className="rounded-full border border-border bg-page px-3 py-1.5">Import Word</span>
                   <input
+                    key={`word-${fileInputsKey}`}
                     type="file"
                     accept=".docx"
                     onChange={async (e) => {
