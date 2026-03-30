@@ -28,15 +28,9 @@ type Props = {
   collaboratorColor?: string;
 };
 
-function projectPoint(lat: number, lng: number) {
-  const x = (lng + 180) * (800 / 360);
-  const y = (90 - lat) * (400 / 180);
-  return { x, y };
-}
-
-function createCurvedPath(start: { x: number; y: number }, end: { x: number; y: number }) {
+function createCurvedPath(start: { x: number; y: number }, end: { x: number; y: number }, h: number) {
   const midX = (start.x + end.x) / 2;
-  const midY = Math.min(start.y, end.y) - 50;
+  const midY = Math.min(start.y, end.y) - h * 0.12;
   return `M ${start.x} ${start.y} Q ${midX} ${midY} ${end.x} ${end.y}`;
 }
 
@@ -49,17 +43,62 @@ export default function WorldMap({
 }: Props) {
   const svgRef = useRef<SVGSVGElement>(null);
 
-  const map = useMemo(() => new DottedMap({ height: 100, grid: "diagonal" }), []);
-  const svgMap = useMemo(
-    () =>
-      map.getSVG({
-        radius: 0.22,
-        color: "#00000030",
-        shape: "circle",
-        backgroundColor: "white",
-      }),
-    [map],
-  );
+  const { svgMap, projected, viewBox } = useMemo(() => {
+    // Use dotted-map's own projection (mercator by default) for accurate pin placement.
+    const baseMap = new DottedMap({ height: 100, grid: "diagonal" });
+    const svg = baseMap.getSVG({
+      radius: 0.22,
+      color: "#00000030",
+      shape: "circle",
+      backgroundColor: "white",
+    });
+    const vb = svg.match(/viewBox=\"([^"]+)\"/);
+    const parts = vb?.[1]?.split(" ").map((x) => Number(x)) ?? [0, 0, 198, 100];
+    const w = Number.isFinite(parts[2]) ? parts[2] : 198;
+    const h = Number.isFinite(parts[3]) ? parts[3] : 100;
+
+    const projector = new DottedMap({ height: 100, grid: "diagonal" });
+    const keyById = new Map<string, { kind: "dot" | "route-start" | "route-end" | "home"; idx: number }>();
+
+    dots.forEach((d, i) => {
+      const id = `dot-${i}`;
+      keyById.set(id, { kind: "dot", idx: i });
+      projector.addPin({ lat: d.lat, lng: d.lng, data: { id } });
+    });
+    routes.forEach((r, i) => {
+      const sid = `route-start-${i}`;
+      const eid = `route-end-${i}`;
+      keyById.set(sid, { kind: "route-start", idx: i });
+      keyById.set(eid, { kind: "route-end", idx: i });
+      projector.addPin({ lat: r.start.lat, lng: r.start.lng, data: { id: sid } });
+      projector.addPin({ lat: r.end.lat, lng: r.end.lng, data: { id: eid } });
+    });
+    if (home) {
+      keyById.set("home", { kind: "home", idx: 0 });
+      projector.addPin({ lat: home.lat, lng: home.lng, data: { id: "home" } });
+    }
+
+    const points = projector.getPoints();
+    const out = {
+      dots: [] as Array<{ x: number; y: number; dot: VisitDot }>,
+      routeStarts: [] as Array<{ x: number; y: number; route: Route }>,
+      routeEnds: [] as Array<{ x: number; y: number; route: Route }>,
+      home: undefined as undefined | { x: number; y: number },
+    };
+
+    for (const p of points) {
+      const id = p.data?.id as string | undefined;
+      if (!id) continue;
+      const m = keyById.get(id);
+      if (!m) continue;
+      if (m.kind === "dot") out.dots.push({ x: p.x, y: p.y, dot: dots[m.idx] });
+      if (m.kind === "route-start") out.routeStarts.push({ x: p.x, y: p.y, route: routes[m.idx] });
+      if (m.kind === "route-end") out.routeEnds.push({ x: p.x, y: p.y, route: routes[m.idx] });
+      if (m.kind === "home") out.home = { x: p.x, y: p.y };
+    }
+
+    return { svgMap: svg, projected: out, viewBox: { w, h } };
+  }, [dots, routes, home]);
 
   return (
     <div className="w-full overflow-hidden rounded-xl border border-border bg-surface shadow-sm">
@@ -72,7 +111,7 @@ export default function WorldMap({
         />
         <svg
           ref={svgRef}
-          viewBox="0 0 800 400"
+          viewBox={`0 0 ${viewBox.w} ${viewBox.h}`}
           className="absolute inset-0 h-full w-full select-none"
           preserveAspectRatio="xMidYMid meet"
         >
@@ -94,10 +133,14 @@ export default function WorldMap({
             </linearGradient>
           </defs>
 
-          {routes.map((r, i) => {
-            const start = projectPoint(r.start.lat, r.start.lng);
-            const end = projectPoint(r.end.lat, r.end.lng);
-            const d = createCurvedPath(start, end);
+          {projected.routeStarts.map((startPt, i) => {
+            const endPt = projected.routeEnds[i];
+            if (!endPt) return null;
+            const d = createCurvedPath(
+              { x: startPt.x, y: startPt.y },
+              { x: endPt.x, y: endPt.y },
+              viewBox.h,
+            );
             return (
               <g key={`route-${i}`}>
                 <motion.path
@@ -121,17 +164,16 @@ export default function WorldMap({
             );
           })}
 
-          {dots.map((d) => {
-            const pt = projectPoint(d.lat, d.lng);
-            const r = Math.min(10, 3 + Math.log2(Math.max(1, d.count)));
+          {projected.dots.map(({ x, y, dot }) => {
+            const r = Math.min(10, 1.8 + Math.log2(Math.max(1, dot.count)));
             return (
-              <g key={d.label}>
+              <g key={dot.label}>
                 <motion.g
                   whileHover={{ scale: 1.15 }}
                   transition={{ type: "spring", stiffness: 400, damping: 18 }}
                 >
-                  <circle cx={pt.x} cy={pt.y} r={r} fill={visitorColor} filter="url(#glow)" opacity={0.9} />
-                  <circle cx={pt.x} cy={pt.y} r={r} fill={visitorColor} opacity={0.35}>
+                  <circle cx={x} cy={y} r={r} fill={visitorColor} filter="url(#glow)" opacity={0.9} />
+                  <circle cx={x} cy={y} r={r} fill={visitorColor} opacity={0.35}>
                     <animate attributeName="r" from={r} to={r * 3} dur="2.8s" begin="0s" repeatCount="indefinite" />
                     <animate attributeName="opacity" from="0.35" to="0" dur="2.8s" begin="0s" repeatCount="indefinite" />
                   </circle>
@@ -141,24 +183,21 @@ export default function WorldMap({
           })}
 
           {/* collaborator endpoints as dots (line color) */}
-          {routes.map((r, i) => {
-            const start = projectPoint(r.start.lat, r.start.lng);
-            const end = projectPoint(r.end.lat, r.end.lng);
+          {projected.routeEnds.map((endPt, i) => {
             return (
               <g key={`route-endpoints-${i}`}>
-                <circle cx={end.x} cy={end.y} r="4" fill={collaboratorColor} filter="url(#glow)" opacity={0.95} />
+                <circle cx={endPt.x} cy={endPt.y} r="2.6" fill={collaboratorColor} filter="url(#glow)" opacity={0.95} />
               </g>
             );
           })}
 
           {/* home dot (Macau) */}
-          {home ? (() => {
-            const pt = projectPoint(home.lat, home.lng);
+          {projected.home ? (() => {
             return (
               <g key="home-dot">
-                <circle cx={pt.x} cy={pt.y} r="6" fill="#2f9e44" filter="url(#glow)" opacity={0.95} />
-                <circle cx={pt.x} cy={pt.y} r="6" fill="#2f9e44" opacity={0.25}>
-                  <animate attributeName="r" from="6" to="16" dur="2.8s" begin="0s" repeatCount="indefinite" />
+                <circle cx={projected.home.x} cy={projected.home.y} r="4.5" fill="#2f9e44" filter="url(#glow)" opacity={0.95} />
+                <circle cx={projected.home.x} cy={projected.home.y} r="4.5" fill="#2f9e44" opacity={0.25}>
+                  <animate attributeName="r" from="4.5" to="12" dur="2.8s" begin="0s" repeatCount="indefinite" />
                   <animate attributeName="opacity" from="0.25" to="0" dur="2.8s" begin="0s" repeatCount="indefinite" />
                 </circle>
               </g>
