@@ -22,9 +22,10 @@ export default function BlogEditor({ adminKey }: Props) {
   const [title, setTitle] = useState("");
   const [slug, setSlug] = useState("");
   const [tags, setTags] = useState("");
-  const [publishedDate, setPublishedDate] = useState<string>(() => {
+  const [publishedAtLocal, setPublishedAtLocal] = useState<string>(() => {
     const d = new Date();
-    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+    // datetime-local wants local time without seconds
+    return new Date(d.getTime() - d.getTimezoneOffset() * 60000).toISOString().slice(0, 16);
   });
   const [coverUrl, setCoverUrl] = useState<string>("");
   const [fileInputsKey, setFileInputsKey] = useState<number>(0);
@@ -94,11 +95,11 @@ export default function BlogEditor({ adminKey }: Props) {
     setTags((p.tags ?? []).join(", "));
     if (p.published_at) {
       const d = new Date(p.published_at);
-      const yyyyMmDd = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
-      setPublishedDate(yyyyMmDd);
+      const local = new Date(d.getTime() - d.getTimezoneOffset() * 60000).toISOString().slice(0, 16);
+      setPublishedAtLocal(local);
     } else {
       const now = new Date();
-      setPublishedDate(`${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`);
+      setPublishedAtLocal(new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().slice(0, 16));
     }
     setStatus(`Loaded “${p.title}”. Edit and Publish / Update to save changes.`);
   }
@@ -133,11 +134,7 @@ export default function BlogEditor({ adminKey }: Props) {
 
   async function upsertPost(): Promise<UpsertResult> {
     if (!functionsBase) return { ok: false, error: "Missing PUBLIC_SUPABASE_URL (cannot reach functions)" };
-    const iso = (() => {
-      // Date-only input; store as midnight UTC for stable ordering
-      const s = `${publishedDate}T00:00:00.000Z`;
-      return new Date(s).toISOString();
-    })();
+    const iso = publishedAtLocal ? new Date(publishedAtLocal).toISOString() : new Date().toISOString();
     const payload = {
       title: title.trim(),
       slug: (slug.trim() || slugify(title)).trim(),
@@ -192,7 +189,7 @@ export default function BlogEditor({ adminKey }: Props) {
                   setSlug("");
                   setTags("");
                   const now = new Date();
-                  setPublishedDate(`${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`);
+                  setPublishedAtLocal(new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().slice(0, 16));
                   setCoverUrl("");
                   setContent("# New post\n\nWrite in Markdown.");
                   setStatus("");
@@ -230,11 +227,11 @@ export default function BlogEditor({ adminKey }: Props) {
 
             <div className="mt-3 grid gap-3 sm:grid-cols-2">
               <label className="space-y-1">
-                <span className="text-xs font-bold uppercase tracking-wider text-muted">Date</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-muted">Publish time</span>
                 <input
-                  type="date"
-                  value={publishedDate}
-                  onChange={(e) => setPublishedDate(e.target.value)}
+                  type="datetime-local"
+                  value={publishedAtLocal}
+                  onChange={(e) => setPublishedAtLocal(e.target.value)}
                   className="w-full rounded-md border border-border bg-page px-3 py-2 text-sm"
                 />
               </label>
