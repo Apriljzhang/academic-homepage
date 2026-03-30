@@ -18,6 +18,7 @@ export default function BlogPostGrid({ initialPosts = [] }: Props) {
   const [posts, setPosts] = useState<Post[]>(initialPosts);
   const [status, setStatus] = useState<"idle" | "loading" | "error">("idle");
   const [isAdmin, setIsAdmin] = useState(false);
+  const [selectedTag, setSelectedTag] = useState<string>("all");
 
   const supabaseUrl = useMemo(() => {
     const u = (import.meta as any).env?.PUBLIC_SUPABASE_URL as string | undefined;
@@ -61,6 +62,25 @@ export default function BlogPostGrid({ initialPosts = [] }: Props) {
     }
   }, []);
 
+  const tagCounts = useMemo(() => {
+    const m = new Map<string, number>();
+    for (const p of posts) {
+      for (const t of p.tags ?? []) {
+        const key = String(t || "").trim();
+        if (!key) continue;
+        m.set(key, (m.get(key) ?? 0) + 1);
+      }
+    }
+    return Array.from(m.entries())
+      .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+      .map(([tag, count]) => ({ tag, count }));
+  }, [posts]);
+
+  const filtered = useMemo(() => {
+    if (selectedTag === "all") return posts;
+    return posts.filter((p) => (p.tags ?? []).includes(selectedTag));
+  }, [posts, selectedTag]);
+
   return (
     <div className="w-full">
       {status === "error" ? (
@@ -97,12 +117,16 @@ export default function BlogPostGrid({ initialPosts = [] }: Props) {
       ) : null}
 
       <div className="grid gap-4">
-        {posts.length === 0 ? (
+        {filtered.length === 0 ? (
           <p className="text-sm text-muted">
-            {status === "loading" ? "Loading…" : "No published posts yet."}
+            {status === "loading"
+              ? "Loading…"
+              : selectedTag === "all"
+                ? "No published posts yet."
+                : `No posts for “${selectedTag}”.`}
           </p>
         ) : (
-          posts.map((p) => (
+          filtered.map((p) => (
             <div key={p.id} className="border-l-4 border-primary pl-4">
               <div className="flex items-start justify-between gap-3">
                 <a href={`/blog/${p.slug}/`} className="min-w-0 no-underline">
@@ -136,6 +160,42 @@ export default function BlogPostGrid({ initialPosts = [] }: Props) {
           ))
         )}
       </div>
+
+      {tagCounts.length ? (
+        <div className="mt-10">
+          <p className="text-xs font-bold uppercase tracking-wider text-muted">Browse by tag</p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            <button
+              type="button"
+              className={[
+                "rounded-full border px-3 py-1.5 text-sm font-semibold transition-colors",
+                selectedTag === "all"
+                  ? "border-page/40 bg-secondary text-white"
+                  : "border-border bg-page text-muted hover:bg-neutral-hover hover:text-ink",
+              ].join(" ")}
+              onClick={() => setSelectedTag("all")}
+            >
+              All ({posts.length})
+            </button>
+            {tagCounts.map(({ tag, count }) => (
+              <button
+                key={tag}
+                type="button"
+                className={[
+                  "rounded-full border px-3 py-1.5 text-sm font-semibold transition-colors",
+                  selectedTag === tag
+                    ? "border-page/40 bg-secondary text-white"
+                    : "border-border bg-page text-muted hover:bg-neutral-hover hover:text-ink",
+                ].join(" ")}
+                onClick={() => setSelectedTag(tag)}
+                title={`${count} post${count === 1 ? "" : "s"}`}
+              >
+                {tag} ({count})
+              </button>
+            ))}
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 }
