@@ -29,7 +29,10 @@ export default function BlogPostGrid({ initialPosts = [] }: Props) {
 
   useEffect(() => {
     (async () => {
-      if (!supabaseUrl || !supabaseAnon) return;
+      if (!supabaseUrl || !supabaseAnon) {
+        if (initialPosts.length === 0) setStatus("error");
+        return;
+      }
       setStatus("loading");
       try {
         const url =
@@ -47,12 +50,16 @@ export default function BlogPostGrid({ initialPosts = [] }: Props) {
         setStatus("error");
       }
     })();
-  }, [supabaseUrl, supabaseAnon]);
+  }, [supabaseUrl, supabaseAnon, initialPosts.length]);
 
   return (
     <div className="mt-10">
       {status === "error" ? (
-        <p className="text-sm text-muted">Could not load posts right now.</p>
+        <p className="text-sm text-muted">
+          Could not load posts right now. If you are viewing a test build, ensure{" "}
+          <code className="rounded bg-page px-1.5 py-0.5">PUBLIC_SUPABASE_URL</code> and{" "}
+          <code className="rounded bg-page px-1.5 py-0.5">PUBLIC_SUPABASE_ANON_KEY</code> are set for that environment.
+        </p>
       ) : null}
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">

@@ -30,8 +30,7 @@ export default function BlogEditor({ adminKey }: Props) {
   const [content, setContent] = useState<string>("# New post\n\nWrite in Markdown.");
   const [status, setStatus] = useState<string>("");
 
-  const canSubmit =
-    adminKeyLocal.trim().length > 0 && title.trim().length > 0 && content.trim().length > 0;
+  const canSubmit = title.trim().length > 0 && content.trim().length > 0;
 
   const functionsBase = useMemo(() => {
     const base = (import.meta as any).env?.PUBLIC_SUPABASE_FUNCTIONS_BASE_URL as string | undefined;
