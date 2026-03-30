@@ -12,8 +12,12 @@ export const academicIds = {
     href: googleScholarProfileUrl,
   },
   cityuProfile: {
-    label: 'CityU SOE profile',
+    label: 'CityU Macau',
     href: cityUStaffProfileUrl,
+  },
+  researchGate: {
+    label: 'ResearchGate',
+    href: 'https://www.researchgate.net/profile/April-Zhang-16?ev=hdr_xprf',
   },
   orcid: {
     label: 'ORCID',
@@ -33,6 +37,7 @@ export const academicIds = {
 export const academicProfileLinks = [
   academicIds.googleScholar,
   academicIds.cityuProfile,
+  academicIds.researchGate,
   academicIds.orcid,
   academicIds.scopus,
   academicIds.webOfScience,
