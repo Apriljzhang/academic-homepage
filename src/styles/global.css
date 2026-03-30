@@ -9,7 +9,7 @@
   · 30% — structure: muted blue #659DBD (Panera) — headers, bands, nav fills, table heads
   · 10% — emphasis: warm terracotta #DF744A (Greetabl) — links, kicker labels, key borders
 
-  Tertiary stripe (decorative only, still in the earth family): sandy brown #BC986A (Panera).
+  Tertiary stripe (decorative): harmonious green aligned with the home-dot cue.
   Ink leans on Klimt ivory black #1D2731 for readable body type on cream.
 */
 @theme {
@@ -31,9 +31,9 @@
   --color-primary: #c9492a;
   --color-primary-faint: #fbf0eb;
 
-  /* Decorative third hue — sandy brown, use sparingly (borders / card stripes) */
-  --color-accent-purple: #b8976a;
-  --color-accent-purple-faint: #f6efe6;
+  /* Decorative third hue — green (for tertiary strips / small accents) */
+  --color-accent-purple: #2f9e44;
+  --color-accent-purple-faint: #e8f5ec;
 
   --color-border: #d4cabb;
   --color-neutral-hover: #f5f0e8;

@@ -41,24 +41,18 @@ const quadrants = [
         quadrants.map((q, idx) => (
           <article
             class:list={[
-              'rounded-[2.2rem] border p-5 shadow-sm',
+              'rounded-[2.2rem] border border-border bg-surface p-5 shadow-sm',
               idx === 0 ? 'translate-x-2 translate-y-2' : '',
               idx === 1 ? '-translate-x-2 translate-y-2' : '',
               idx === 2 ? 'translate-x-2 -translate-y-2' : '',
               idx === 3 ? '-translate-x-2 -translate-y-2' : '',
             ]}
-            style="background:#eceae5;border-color:#c7beb0;"
           >
             <p class="font-serif text-xl font-semibold text-ink">{q.label}</p>
             <p class="mt-2 text-sm leading-6 text-ink/90">{q.body}</p>
           </article>
         ))
       }
-      <div
-        class="pointer-events-none absolute left-1/2 top-1/2 z-10 h-16 w-16 -translate-x-1/2 -translate-y-1/2 rounded-full border shadow-sm"
-        style="background:#eceae5;border-color:#c7beb0;"
-        aria-hidden="true"
-      />
     </div>
   </div>
 
@@ -66,7 +60,7 @@ const quadrants = [
     <div class="space-y-3">
       {
         quadrants.map((q) => (
-          <div class="rounded-2xl border p-4" style="background:#eceae5;border-color:#c7beb0;">
+          <div class="rounded-2xl border border-border bg-surface p-4">
             <p class="font-serif text-lg font-semibold text-ink">{q.label}</p>
             <p class="mt-2 text-sm leading-6 text-ink/90">{q.body}</p>
           </div>
