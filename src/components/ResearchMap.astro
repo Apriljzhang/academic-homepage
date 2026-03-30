@@ -35,19 +35,40 @@ const quadrants = [
 <div class:list={[className ?? 'mt-6']}>
   <h2 class="font-serif text-xl font-semibold text-ink sm:text-2xl">Research framework</h2>
 
-  <CrystalCard
-    as="div"
-    padding="md"
-    class="mt-4"
-    role="img"
-    aria-label="Research framework: why, who, what, how"
-  >
-    <div class="divide-y divide-border/70">
+  <div class="mt-4 hidden md:block" role="img" aria-label="Research framework in four-leaf clover shape: why, who, what, how">
+    <div class="relative mx-auto grid max-w-5xl grid-cols-2 gap-4 pb-3">
+      {
+        quadrants.map((q, idx) => (
+          <article
+            class:list={[
+              'rounded-[2.2rem] border p-5 shadow-sm',
+              idx === 0 ? 'translate-x-2 translate-y-2' : '',
+              idx === 1 ? '-translate-x-2 translate-y-2' : '',
+              idx === 2 ? 'translate-x-2 -translate-y-2' : '',
+              idx === 3 ? '-translate-x-2 -translate-y-2' : '',
+            ]}
+            style="background:#eceae5;border-color:#c7beb0;"
+          >
+            <p class="font-serif text-xl font-semibold text-ink">{q.label}</p>
+            <p class="mt-2 text-sm leading-6 text-ink/90">{q.body}</p>
+          </article>
+        ))
+      }
+      <div
+        class="pointer-events-none absolute left-1/2 top-1/2 z-10 h-16 w-16 -translate-x-1/2 -translate-y-1/2 rounded-full border shadow-sm"
+        style="background:#eceae5;border-color:#c7beb0;"
+        aria-hidden="true"
+      />
+    </div>
+  </div>
+
+  <CrystalCard as="div" padding="md" class="mt-4 md:hidden" role="img" aria-label="Research framework: why, who, what, how">
+    <div class="space-y-3">
       {
         quadrants.map((q) => (
-          <div class="grid grid-cols-[4.5rem_1fr] gap-3 py-3 first:pt-1 last:pb-1 sm:grid-cols-[5.25rem_1fr] sm:gap-4 sm:py-3.5">
-            <p class="pt-0.5 font-serif text-base font-semibold text-ink sm:text-lg">{q.label}</p>
-            <p class="text-sm leading-6 text-ink/90 sm:text-[0.95rem] sm:leading-6">{q.body}</p>
+          <div class="rounded-2xl border p-4" style="background:#eceae5;border-color:#c7beb0;">
+            <p class="font-serif text-lg font-semibold text-ink">{q.label}</p>
+            <p class="mt-2 text-sm leading-6 text-ink/90">{q.body}</p>
           </div>
         ))
       }
