@@ -116,14 +116,6 @@ export default function WorldMap({
           preserveAspectRatio="xMidYMid meet"
         >
           <defs>
-            <filter id="glow">
-              <feGaussianBlur stdDeviation="0.65" result="coloredBlur" />
-              <feMerge>
-                <feMergeNode in="coloredBlur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-
             <linearGradient id="path-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="0%" stopColor="white" stopOpacity="0" />
               <stop offset="10%" stopColor={collaboratorColor} stopOpacity="0.9" />
@@ -152,30 +144,29 @@ export default function WorldMap({
                   transition={{ duration: 1.6, ease: "easeInOut", delay: 0.15 * i }}
                 />
                 <motion.circle
-                  r="1.2"
+                  r="0.9"
                   fill={collaboratorColor}
                   initial={{ offsetDistance: "0%", opacity: 0 }}
                   animate={{ offsetDistance: "100%", opacity: [0, 0.95, 0] }}
                   transition={{ duration: 1.6, ease: "easeInOut", delay: 0.15 * i }}
                   style={{ offsetPath: `path('${d}')` } as any}
-                  filter="url(#glow)"
                 />
               </g>
             );
           })}
 
           {projected.dots.map(({ x, y, dot }) => {
-            const r = Math.min(2.9, 0.95 + Math.log2(Math.max(1, dot.count)) * 0.38);
+            const r = Math.min(2.0, 0.72 + Math.log2(Math.max(1, dot.count)) * 0.28);
             return (
               <g key={dot.label}>
                 <motion.g
                   whileHover={{ scale: 1.15 }}
                   transition={{ type: "spring", stiffness: 400, damping: 18 }}
                 >
-                  <circle cx={x} cy={y} r={r} fill={visitorColor} filter="url(#glow)" opacity={0.9} />
-                  <circle cx={x} cy={y} r={r} fill={visitorColor} opacity={0.35}>
-                    <animate attributeName="r" from={r} to={r * 2.0} dur="2.8s" begin="0s" repeatCount="indefinite" />
-                    <animate attributeName="opacity" from="0.35" to="0" dur="2.8s" begin="0s" repeatCount="indefinite" />
+                  <circle cx={x} cy={y} r={r} fill={visitorColor} opacity={0.92} />
+                  <circle cx={x} cy={y} r={r} fill={visitorColor} opacity={0.22}>
+                    <animate attributeName="r" from={r} to={r * 1.75} dur="2.8s" begin="0s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" from="0.22" to="0" dur="2.8s" begin="0s" repeatCount="indefinite" />
                   </circle>
                 </motion.g>
               </g>
@@ -186,7 +177,7 @@ export default function WorldMap({
           {projected.routeEnds.map((endPt, i) => {
             return (
               <g key={`route-endpoints-${i}`}>
-                <circle cx={endPt.x} cy={endPt.y} r="1.5" fill={collaboratorColor} filter="url(#glow)" opacity={0.95} />
+                <circle cx={endPt.x} cy={endPt.y} r="1.05" fill={collaboratorColor} opacity={0.95} />
               </g>
             );
           })}
@@ -195,10 +186,10 @@ export default function WorldMap({
           {projected.home ? (() => {
             return (
               <g key="home-dot">
-                <circle cx={projected.home.x} cy={projected.home.y} r="2.8" fill="#2f9e44" filter="url(#glow)" opacity={0.95} />
-                <circle cx={projected.home.x} cy={projected.home.y} r="2.8" fill="#2f9e44" opacity={0.25}>
-                  <animate attributeName="r" from="2.8" to="7.2" dur="2.8s" begin="0s" repeatCount="indefinite" />
-                  <animate attributeName="opacity" from="0.25" to="0" dur="2.8s" begin="0s" repeatCount="indefinite" />
+                <circle cx={projected.home.x} cy={projected.home.y} r="2.1" fill="#2f9e44" opacity={0.96} />
+                <circle cx={projected.home.x} cy={projected.home.y} r="2.1" fill="#2f9e44" opacity={0.2}>
+                  <animate attributeName="r" from="2.1" to="5.6" dur="2.8s" begin="0s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" from="0.2" to="0" dur="2.8s" begin="0s" repeatCount="indefinite" />
                 </circle>
               </g>
             );
