@@ -31,7 +31,11 @@ export default function BlogEditor({ adminKey }: Props) {
 
   const functionsBase = useMemo(() => {
     const base = (import.meta as any).env?.PUBLIC_SUPABASE_FUNCTIONS_BASE_URL as string | undefined;
-    return base?.replace(/\/$/, "") ?? "";
+    if (base) return base.replace(/\/$/, "");
+    const supabaseUrlEnv = (import.meta as any).env?.PUBLIC_SUPABASE_URL as string | undefined;
+    const supabaseUrl = supabaseUrlEnv?.replace(/\/$/, "");
+    // Default Supabase Edge Functions endpoint
+    return supabaseUrl ? `${supabaseUrl}/functions/v1` : "";
   }, []);
 
   const supabaseUrl = useMemo(() => {
@@ -89,7 +93,7 @@ export default function BlogEditor({ adminKey }: Props) {
   }
 
   async function uploadCover(file: File): Promise<UploadResult> {
-    if (!functionsBase) return { ok: false, error: "Missing PUBLIC_SUPABASE_FUNCTIONS_BASE_URL" };
+    if (!functionsBase) return { ok: false, error: "Missing PUBLIC_SUPABASE_URL (cannot reach functions)" };
     const fd = new FormData();
     fd.append("file", file);
 
@@ -104,7 +108,7 @@ export default function BlogEditor({ adminKey }: Props) {
   }
 
   async function upsertPost(): Promise<UpsertResult> {
-    if (!functionsBase) return { ok: false, error: "Missing PUBLIC_SUPABASE_FUNCTIONS_BASE_URL" };
+    if (!functionsBase) return { ok: false, error: "Missing PUBLIC_SUPABASE_URL (cannot reach functions)" };
     const payload = {
       title: title.trim(),
       slug: (slug.trim() || slugify(title)).trim(),
@@ -191,15 +195,6 @@ export default function BlogEditor({ adminKey }: Props) {
                   className="w-full rounded-md border border-border bg-page px-3 py-2 text-sm"
                 />
               </label>
-              <label className="space-y-1">
-                <span className="text-xs font-bold uppercase tracking-wider text-muted">Slug (optional)</span>
-                <input
-                  value={slug}
-                  onChange={(e) => setSlug(e.target.value)}
-                  className="w-full rounded-md border border-border bg-page px-3 py-2 text-sm"
-                  placeholder="auto from title"
-                />
-              </label>
             </div>
 
             <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
@@ -267,6 +262,7 @@ export default function BlogEditor({ adminKey }: Props) {
           <div className="rounded-xl border border-border bg-surface p-5 shadow-sm">
             <p className="text-xs font-bold uppercase tracking-wider text-muted">Admin key</p>
             <input
+              type="password"
               value={adminKeyLocal}
               onChange={(e) => setAdminKeyLocal(e.target.value)}
               className="mt-2 w-full rounded-md border border-border bg-page px-3 py-2 text-sm"
