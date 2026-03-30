@@ -6,6 +6,7 @@ type Props = {
 
 type UploadResult = { ok: true; publicUrl: string } | { ok: false; error: string };
 type UpsertResult = { ok: true } | { ok: false; error: string };
+type PostMeta = { slug: string; title: string; published_at: string | null };
 
 function slugify(input: string) {
   return input
@@ -18,6 +19,8 @@ function slugify(input: string) {
 
 export default function BlogEditor({ adminKey }: Props) {
   const [adminKeyLocal, setAdminKeyLocal] = useState(adminKey ?? "");
+  const [existing, setExisting] = useState<PostMeta[]>([]);
+  const [selectedSlug, setSelectedSlug] = useState<string>("");
   const [title, setTitle] = useState("");
   const [slug, setSlug] = useState("");
   const [excerpt, setExcerpt] = useState("");
@@ -46,9 +49,7 @@ export default function BlogEditor({ adminKey }: Props) {
   useEffect(() => {
     (async () => {
       if (!supabaseUrl || !supabaseAnon) return;
-      const url =
-        `${supabaseUrl}/rest/v1/blog_posts?select=slug,published_at` +
-        `&published_at=not.is.null&order=published_at.desc&limit=200`;
+      const url = `${supabaseUrl}/rest/v1/blog_posts?select=slug,title,published_at&order=published_at.desc.nullslast&limit=300`;
       const res = await fetch(url, {
         headers: {
           apikey: supabaseAnon,
@@ -56,9 +57,11 @@ export default function BlogEditor({ adminKey }: Props) {
         },
       });
       if (!res.ok) return;
-      const rows = (await res.json()) as Array<{ published_at: string }>;
+      const rows = (await res.json()) as PostMeta[];
+      setExisting(rows);
       const s = new Set<string>();
       for (const r of rows) {
+        if (!r.published_at) continue;
         const d = new Date(r.published_at);
         if (Number.isNaN(d.getTime())) continue;
         const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
@@ -67,6 +70,45 @@ export default function BlogEditor({ adminKey }: Props) {
       setPostDates(s);
     })();
   }, [supabaseUrl, supabaseAnon]);
+
+  async function loadPost(slugToLoad: string) {
+    if (!supabaseUrl || !supabaseAnon) return;
+    const url =
+      `${supabaseUrl}/rest/v1/blog_posts?select=slug,title,excerpt,content_md,cover_image_url,tags,published_at` +
+      `&slug=eq.${encodeURIComponent(slugToLoad)}&limit=1`;
+    const res = await fetch(url, {
+      headers: { apikey: supabaseAnon, authorization: `Bearer ${supabaseAnon}` },
+    });
+    if (!res.ok) {
+      setStatus("Could not load post.");
+      return;
+    }
+    const data = (await res.json()) as Array<{
+      slug: string;
+      title: string;
+      excerpt: string | null;
+      content_md: string;
+      cover_image_url: string | null;
+      tags: string[];
+      published_at: string | null;
+    }>;
+    const p = data[0];
+    if (!p) return;
+    setTitle(p.title ?? "");
+    setSlug(p.slug ?? "");
+    setExcerpt(p.excerpt ?? "");
+    setContent(p.content_md ?? "");
+    setCoverUrl(p.cover_image_url ?? "");
+    setTags((p.tags ?? []).join(", "));
+    if (p.published_at) {
+      const d = new Date(p.published_at);
+      const local = new Date(d.getTime() - d.getTimezoneOffset() * 60000).toISOString().slice(0, 16);
+      setPublishedAt(local);
+    } else {
+      setPublishedAt("");
+    }
+    setStatus(`Loaded “${p.title}”. Edit and Publish / Update to save changes.`);
+  }
 
   const cal = useMemo(() => {
     const now = new Date();
@@ -127,6 +169,49 @@ export default function BlogEditor({ adminKey }: Props) {
       <div className="grid gap-4 lg:grid-cols-3">
         <div className="lg:col-span-2 space-y-4">
           <div className="rounded-xl border border-border bg-surface p-5 shadow-sm">
+            <div className="mb-4 grid gap-3 sm:grid-cols-2">
+              <label className="space-y-1">
+                <span className="text-xs font-bold uppercase tracking-wider text-muted">Edit existing</span>
+                <select
+                  value={selectedSlug}
+                  onChange={async (e) => {
+                    const next = e.target.value;
+                    setSelectedSlug(next);
+                    if (next) await loadPost(next);
+                  }}
+                  className="w-full rounded-md border border-border bg-page px-3 py-2 text-sm"
+                >
+                  <option value="">Select a published post…</option>
+                  {existing
+                    .filter((p) => !!p.published_at)
+                    .map((p) => (
+                      <option key={p.slug} value={p.slug}>
+                        {p.title}
+                      </option>
+                    ))}
+                </select>
+              </label>
+              <div className="flex items-end">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSelectedSlug("");
+                    setTitle("");
+                    setSlug("");
+                    setExcerpt("");
+                    setTags("teaching, research");
+                    setPublishedAt("");
+                    setCoverUrl("");
+                    setContent("# New post\n\nWrite in Markdown.");
+                    setStatus("");
+                  }}
+                  className="w-full rounded-full border border-border bg-page px-4 py-2 text-sm font-semibold text-ink hover:bg-neutral-hover"
+                >
+                  New post
+                </button>
+              </div>
+            </div>
+
             <div className="grid gap-3 sm:grid-cols-2">
               <label className="space-y-1">
                 <span className="text-xs font-bold uppercase tracking-wider text-muted">Title</span>

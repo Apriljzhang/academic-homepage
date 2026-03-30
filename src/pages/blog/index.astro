@@ -4,6 +4,7 @@ import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import PageShell from '../../components/PageShell.astro';
 import CrystalCard from '../../components/CrystalCard.astro';
+import BlogCalendarGate from '../../components/blog/BlogCalendarGate';
 import { person } from '../../data/cv';
 import { SUPABASE_URL, supabaseRestHeaders } from '../../utils/supabasePublic';
 
@@ -57,9 +58,7 @@ if (SUPABASE_URL) {
         )}
       </div>
 
-      <p class="mt-10 text-sm text-muted">
-        Admin: <a href="/blog/admin/">/blog/admin</a>
-      </p>
+      <BlogCalendarGate client:load />
     </PageShell>
   </main>
   <SiteFooter />
