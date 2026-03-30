@@ -47,6 +47,10 @@ const jsonLd = {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="upgrade-insecure-requests; block-all-mixed-content"
+    />
     <!-- Theme tokens: fallback if main stylesheet is slow or blocked so layout is never plain white-on-black. -->
     <style is:inline>
       html {
