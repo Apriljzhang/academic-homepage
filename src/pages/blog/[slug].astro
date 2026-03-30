@@ -64,6 +64,13 @@ const replyTo = `mailto:${contact.cityu}?subject=${encodeURIComponent(`Reply: ${
       <MainWithAside asideLabel="Blog">
         <div>
           <a href="/blog/" class="text-sm font-semibold text-primary no-underline hover:underline">← Back to Blog</a>
+          <a
+            id="blog-edit-link"
+            href={`/blog/admin/?slug=${encodeURIComponent(post.slug)}`}
+            class="ml-3 hidden text-sm font-semibold text-muted no-underline hover:underline"
+          >
+            Edit
+          </a>
           <h1 class="mt-4 font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl">{post.title}</h1>
           <p class="mt-2 text-sm text-muted">
             {new Date(post.published_at).toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: '2-digit' })}
@@ -100,4 +107,16 @@ const replyTo = `mailto:${contact.cityu}?subject=${encodeURIComponent(`Reply: ${
   </main>
   <SiteFooter />
 </BaseLayout>
+
+<script>
+  (() => {
+    const a = document.getElementById("blog-edit-link");
+    if (!(a instanceof HTMLAnchorElement)) return;
+    try {
+      if (window.sessionStorage.getItem("BLOG_ADMIN_KEY") === "199044") {
+        a.classList.remove("hidden");
+      }
+    } catch {}
+  })();
+</script>
 

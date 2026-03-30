@@ -17,6 +17,7 @@ type Props = {
 export default function BlogPostGrid({ initialPosts = [] }: Props) {
   const [posts, setPosts] = useState<Post[]>(initialPosts);
   const [status, setStatus] = useState<"idle" | "loading" | "error">("idle");
+  const [isAdmin, setIsAdmin] = useState(false);
 
   const supabaseUrl = useMemo(() => {
     const u = (import.meta as any).env?.PUBLIC_SUPABASE_URL as string | undefined;
@@ -52,6 +53,14 @@ export default function BlogPostGrid({ initialPosts = [] }: Props) {
     })();
   }, [supabaseUrl, supabaseAnon, initialPosts.length]);
 
+  useEffect(() => {
+    try {
+      setIsAdmin(window.sessionStorage.getItem("BLOG_ADMIN_KEY") === "199044");
+    } catch {
+      setIsAdmin(false);
+    }
+  }, []);
+
   return (
     <div className="w-full">
       {status === "error" ? (
@@ -69,14 +78,23 @@ export default function BlogPostGrid({ initialPosts = [] }: Props) {
           </p>
         ) : (
           posts.map((p) => (
-            <a
-              key={p.id}
-              href={`/blog/${p.slug}/`}
-              className="rounded-xl border border-border bg-surface p-5 shadow-sm no-underline transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
-            >
-              <p className="font-serif text-xl font-semibold text-ink">{p.title}</p>
-              {p.excerpt ? <p className="mt-2 text-sm leading-relaxed text-muted">{p.excerpt}</p> : null}
-              <div className="mt-4 flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-wide text-primary">
+            <div key={p.id} className="border-l-4 border-primary pl-4">
+              <div className="flex items-start justify-between gap-3">
+                <a href={`/blog/${p.slug}/`} className="min-w-0 no-underline">
+                  <p className="text-pretty font-serif text-lg font-semibold text-ink sm:text-xl">{p.title}</p>
+                </a>
+
+                {isAdmin ? (
+                  <a
+                    href={`/blog/admin/?slug=${encodeURIComponent(p.slug)}`}
+                    className="shrink-0 rounded-full border border-border bg-page px-3 py-1 text-xs font-semibold text-muted no-underline hover:bg-neutral-hover hover:text-ink"
+                  >
+                    Edit
+                  </a>
+                ) : null}
+              </div>
+
+              <div className="mt-1 flex flex-wrap gap-x-3 gap-y-1 text-sm text-muted">
                 <span>
                   {new Date(p.published_at).toLocaleDateString("en-GB", {
                     year: "numeric",
@@ -84,13 +102,12 @@ export default function BlogPostGrid({ initialPosts = [] }: Props) {
                     day: "2-digit",
                   })}
                 </span>
-                {p.tags?.slice(0, 3).map((t) => (
-                  <span key={t} className="rounded-full border border-border bg-page px-2 py-1 text-[11px]">
-                    {t}
-                  </span>
-                ))}
+                {p.tags?.length ? <span className="text-muted/70">·</span> : null}
+                {p.tags?.length ? <span>{p.tags.slice(0, 5).join(", ")}</span> : null}
               </div>
-            </a>
+
+              {p.excerpt ? <p className="mt-2 text-pretty text-sm leading-relaxed text-muted">{p.excerpt}</p> : null}
+            </div>
           ))
         )}
       </div>
