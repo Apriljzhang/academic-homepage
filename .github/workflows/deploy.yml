@@ -27,8 +27,20 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm ci
+      - name: Load Supabase env (from Actions variables)
+        if: ${{ vars.SUPABASE != '' }}
+        run: |
+          # Allows storing multiple PUBLIC_* env vars in a single Actions variable named "SUPABASE"
+          # with lines like: PUBLIC_SUPABASE_URL=... (one per line)
+          printf '%s\n' "${{ vars.SUPABASE }}" >> "$GITHUB_ENV"
       - name: Build
         run: npm run build
+        env:
+          PUBLIC_SUPABASE_URL: ${{ vars.PUBLIC_SUPABASE_URL }}
+          PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.PUBLIC_SUPABASE_ANON_KEY }}
+          PUBLIC_SUPABASE_FUNCTIONS_BASE_URL: ${{ vars.PUBLIC_SUPABASE_FUNCTIONS_BASE_URL }}
+          PUBLIC_SUPABASE_TRACK_VISIT_URL: ${{ vars.PUBLIC_SUPABASE_TRACK_VISIT_URL }}
+          PUBLIC_SUPABASE_VISIT_COUNTS_URL: ${{ vars.PUBLIC_SUPABASE_VISIT_COUNTS_URL }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
