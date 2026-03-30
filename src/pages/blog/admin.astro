@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import PageShell from '../../components/PageShell.astro';
+import BlogEditor from '../../components/blog/BlogEditor';
+import { person } from '../../data/cv';
+
+const title = `Blog admin · ${person.fullDisplayName}`;
+const description = `Create and publish blog posts — ${person.fullDisplayName}.`;
+
+const key = Astro.url.searchParams.get('key') ?? '';
+---
+
+<BaseLayout {title} {description}>
+  <SiteHeader />
+  <main id="main-content" class="min-h-[50vh] w-full bg-page">
+    <PageShell accentBar>
+      <h1 class="font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">Blog admin</h1>
+      <p class="mt-4 max-w-3xl text-pretty text-base leading-relaxed text-muted sm:text-lg">
+        This page does not require login, but it is protected by a secret key. Keep the URL private.
+      </p>
+      <div class="mt-8">
+        <BlogEditor client:load adminKey={key} />
+      </div>
+    </PageShell>
+  </main>
+  <SiteFooter />
+</BaseLayout>
+

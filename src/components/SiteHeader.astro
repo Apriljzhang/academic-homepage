@@ -16,7 +16,7 @@ function isActive(href: string): boolean {
   const aboutPath = normPath(withBase('/about'));
   if (target === aboutPath) return current === aboutPath;
 
-  for (const section of ['/research', '/teaching', '/service'] as const) {
+  for (const section of ['/research', '/teaching', '/service', '/blog', '/visits'] as const) {
     const root = normPath(withBase(section));
     if (target === root) {
       return current === root || current.startsWith(`${root}/`);

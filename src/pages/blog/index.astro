@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import PageShell from '../../components/PageShell.astro';
+import CrystalCard from '../../components/CrystalCard.astro';
+import { person } from '../../data/cv';
+import { SUPABASE_URL, supabaseRestHeaders } from '../../utils/supabasePublic';
+
+const title = `Blog · ${person.fullDisplayName}`;
+const description = `Educational and research notes — ${person.fullDisplayName}.`;
+
+type Post = {
+  id: string;
+  slug: string;
+  title: string;
+  excerpt: string | null;
+  cover_image_url: string | null;
+  tags: string[];
+  published_at: string;
+};
+
+let posts: Post[] = [];
+if (SUPABASE_URL) {
+  const url =
+    `${SUPABASE_URL}/rest/v1/blog_posts?select=id,slug,title,excerpt,cover_image_url,tags,published_at` +
+    `&published_at=not.is.null&published_at=lte.${encodeURIComponent(new Date().toISOString())}` +
+    `&order=published_at.desc`;
+  const res = await fetch(url, { headers: { ...supabaseRestHeaders() } });
+  if (res.ok) posts = (await res.json()) as Post[];
+}
+---
+
+<BaseLayout {title} {description}>
+  <SiteHeader />
+  <main id="main-content" class="min-h-[50vh] w-full bg-page">
+    <PageShell accentBar>
+      <h1 class="font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">Blog</h1>
+      <p class="mt-4 max-w-3xl text-pretty text-lg leading-relaxed text-muted lg:text-xl">
+        Educational and research notes. For replies, use the email link at the end of each post.
+      </p>
+
+      <div class="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {posts.length === 0 ? (
+          <p class="text-sm text-muted">No published posts yet.</p>
+        ) : (
+          posts.map((p) => (
+            <CrystalCard as="a" href={`/blog/${p.slug}/`} hoverLift class="no-underline">
+              <p class="font-serif text-xl font-semibold text-ink">{p.title}</p>
+              {p.excerpt ? <p class="mt-2 text-sm leading-relaxed text-muted">{p.excerpt}</p> : null}
+              <div class="mt-4 flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-wide text-primary">
+                <span>{new Date(p.published_at).toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: '2-digit' })}</span>
+                {p.tags?.slice(0, 3).map((t) => <span class="rounded-full border border-border bg-page px-2 py-1 text-[11px]">{t}</span>)}
+              </div>
+            </CrystalCard>
+          ))
+        )}
+      </div>
+
+      <p class="mt-10 text-sm text-muted">
+        Admin: <a href="/blog/admin/">/blog/admin</a>
+      </p>
+    </PageShell>
+  </main>
+  <SiteFooter />
+</BaseLayout>
+

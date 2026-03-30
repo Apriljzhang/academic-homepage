@@ -17,26 +17,26 @@
   --font-sans: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
 
   /* 60% — dominant surfaces */
-  --color-page: #f5efe6;
-  --color-surface: #fffcf7;
+  --color-page: #faf6ef;
+  --color-surface: #ffffff;
 
   --color-ink: #1d2731;
   --color-muted: #534c45;
 
   /* 30% — secondary (structure) */
   --color-secondary: #659dbd;
-  --color-secondary-faint: #e0ecf4;
+  --color-secondary-faint: #e7f1f7;
 
   /* 10% — accent (CTAs, links, primary emphasis) */
   --color-primary: #c9492a;
-  --color-primary-faint: #f8ebe6;
+  --color-primary-faint: #fbf0eb;
 
   /* Decorative third hue — sandy brown, use sparingly (borders / card stripes) */
   --color-accent-purple: #b8976a;
-  --color-accent-purple-faint: #f2ebe0;
+  --color-accent-purple-faint: #f6efe6;
 
-  --color-border: #d9cfc2;
-  --color-neutral-hover: #ebe4d9;
+  --color-border: #d5c8b8;
+  --color-neutral-hover: #f0e9df;
 }
 
 @layer base {
