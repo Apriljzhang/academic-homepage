@@ -20,6 +20,7 @@ export default function BlogPostGrid({ initialPosts = [] }: Props) {
   const [isAdmin, setIsAdmin] = useState(false);
   const [selectedTag, setSelectedTag] = useState<string>("all");
   const [selectedDate, setSelectedDate] = useState<string>("");
+  const [busySlug, setBusySlug] = useState<string>("");
 
   const supabaseUrl = useMemo(() => {
     const u = (import.meta as any).env?.PUBLIC_SUPABASE_URL as string | undefined;
@@ -29,6 +30,13 @@ export default function BlogPostGrid({ initialPosts = [] }: Props) {
     () => (import.meta as any).env?.PUBLIC_SUPABASE_ANON_KEY as string | undefined,
     [],
   );
+  const functionsBase = useMemo(() => {
+    const base = (import.meta as any).env?.PUBLIC_SUPABASE_FUNCTIONS_BASE_URL as string | undefined;
+    if (base) return base.replace(/\/$/, "");
+    const supabaseUrlEnv = (import.meta as any).env?.PUBLIC_SUPABASE_URL as string | undefined;
+    const x = supabaseUrlEnv?.replace(/\/$/, "");
+    return x ? `${x}/functions/v1` : "";
+  }, []);
 
   useEffect(() => {
     (async () => {
@@ -101,6 +109,45 @@ export default function BlogPostGrid({ initialPosts = [] }: Props) {
     }
     return arr;
   }, [posts, selectedTag, selectedDate]);
+
+  async function deletePost(slug: string) {
+    const ok = window.confirm("Delete this post permanently?");
+    if (!ok) return;
+
+    let adminKey = "";
+    try {
+      adminKey = window.sessionStorage.getItem("BLOG_ADMIN_KEY") ?? "";
+    } catch {}
+    if (!adminKey) {
+      window.alert("Missing admin key. Please unlock admin mode again.");
+      return;
+    }
+    if (!functionsBase) {
+      window.alert("Missing Supabase functions URL.");
+      return;
+    }
+
+    setBusySlug(slug);
+    try {
+      const res = await fetch(`${functionsBase}/admin-delete-post`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          "x-admin-key": adminKey,
+        },
+        body: JSON.stringify({ slug }),
+      });
+      const data = await res.json().catch(() => null);
+      if (!res.ok || !data?.ok) {
+        const msg = data?.error ?? `HTTP ${res.status}`;
+        window.alert(`Delete failed: ${msg}`);
+        return;
+      }
+      setPosts((prev) => prev.filter((p) => p.slug !== slug));
+    } finally {
+      setBusySlug("");
+    }
+  }
 
   return (
     <div className="w-full">
@@ -177,12 +224,22 @@ export default function BlogPostGrid({ initialPosts = [] }: Props) {
                 </a>
 
                 {isAdmin ? (
-                  <a
-                    href={`/blog/admin/?slug=${encodeURIComponent(p.slug)}`}
-                    className="shrink-0 rounded-full border border-border bg-page px-3 py-1 text-xs font-semibold text-muted no-underline hover:bg-neutral-hover hover:text-ink"
-                  >
-                    Edit
-                  </a>
+                  <div className="shrink-0 flex items-center gap-2">
+                    <a
+                      href={`/blog/admin/?slug=${encodeURIComponent(p.slug)}`}
+                      className="rounded-full border border-border bg-page px-3 py-1 text-xs font-semibold text-muted no-underline hover:bg-neutral-hover hover:text-ink"
+                    >
+                      Edit
+                    </a>
+                    <button
+                      type="button"
+                      onClick={() => deletePost(p.slug)}
+                      disabled={busySlug === p.slug}
+                      className="rounded-full border border-primary/40 bg-primary-faint px-3 py-1 text-xs font-semibold text-primary hover:bg-primary hover:text-white disabled:cursor-not-allowed disabled:opacity-60"
+                    >
+                      {busySlug === p.slug ? "Deleting…" : "Delete"}
+                    </button>
+                  </div>
                 ) : null}
               </div>
 
