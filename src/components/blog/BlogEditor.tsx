@@ -6,7 +6,6 @@ type Props = {
 
 type UploadResult = { ok: true; publicUrl: string } | { ok: false; error: string };
 type UpsertResult = { ok: true } | { ok: false; error: string };
-type PostMeta = { slug: string; title: string; published_at: string | null };
 
 function slugify(input: string) {
   return input
@@ -19,18 +18,13 @@ function slugify(input: string) {
 
 export default function BlogEditor({ adminKey }: Props) {
   const [adminKeyLocal, setAdminKeyLocal] = useState(adminKey ?? "");
-  const [existing, setExisting] = useState<PostMeta[]>([]);
-  const [selectedSlug, setSelectedSlug] = useState<string>("");
   const [title, setTitle] = useState("");
   const [slug, setSlug] = useState("");
-  const [excerpt, setExcerpt] = useState("");
   const [tags, setTags] = useState("teaching, research");
   const [publishedAt, setPublishedAt] = useState<string>("");
   const [coverUrl, setCoverUrl] = useState<string>("");
   const [content, setContent] = useState<string>("# New post\n\nWrite in Markdown.");
   const [status, setStatus] = useState<string>("");
-  const [monthOffset, setMonthOffset] = useState<number>(0);
-  const [postDates, setPostDates] = useState<Set<string>>(new Set());
 
   const canSubmit =
     adminKeyLocal.trim().length > 0 && title.trim().length > 0 && content.trim().length > 0;
@@ -47,34 +41,20 @@ export default function BlogEditor({ adminKey }: Props) {
   const supabaseAnon = useMemo(() => (import.meta as any).env?.PUBLIC_SUPABASE_ANON_KEY as string | undefined, []);
 
   useEffect(() => {
+    // If the editor is opened with ?slug=..., prefill from that post.
     (async () => {
-      if (!supabaseUrl || !supabaseAnon) return;
-      const url = `${supabaseUrl}/rest/v1/blog_posts?select=slug,title,published_at&order=published_at.desc.nullslast&limit=300`;
-      const res = await fetch(url, {
-        headers: {
-          apikey: supabaseAnon,
-          authorization: `Bearer ${supabaseAnon}`,
-        },
-      });
-      if (!res.ok) return;
-      const rows = (await res.json()) as PostMeta[];
-      setExisting(rows);
-      const s = new Set<string>();
-      for (const r of rows) {
-        if (!r.published_at) continue;
-        const d = new Date(r.published_at);
-        if (Number.isNaN(d.getTime())) continue;
-        const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
-        s.add(key);
-      }
-      setPostDates(s);
-    })();
+      const params = new URLSearchParams(window.location.search);
+      const s = params.get("slug");
+      if (!s) return;
+      await loadPost(s);
+    })().catch(() => {});
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [supabaseUrl, supabaseAnon]);
 
   async function loadPost(slugToLoad: string) {
     if (!supabaseUrl || !supabaseAnon) return;
     const url =
-      `${supabaseUrl}/rest/v1/blog_posts?select=slug,title,excerpt,content_md,cover_image_url,tags,published_at` +
+      `${supabaseUrl}/rest/v1/blog_posts?select=slug,title,content_md,cover_image_url,tags,published_at` +
       `&slug=eq.${encodeURIComponent(slugToLoad)}&limit=1`;
     const res = await fetch(url, {
       headers: { apikey: supabaseAnon, authorization: `Bearer ${supabaseAnon}` },
@@ -86,7 +66,6 @@ export default function BlogEditor({ adminKey }: Props) {
     const data = (await res.json()) as Array<{
       slug: string;
       title: string;
-      excerpt: string | null;
       content_md: string;
       cover_image_url: string | null;
       tags: string[];
@@ -96,7 +75,6 @@ export default function BlogEditor({ adminKey }: Props) {
     if (!p) return;
     setTitle(p.title ?? "");
     setSlug(p.slug ?? "");
-    setExcerpt(p.excerpt ?? "");
     setContent(p.content_md ?? "");
     setCoverUrl(p.cover_image_url ?? "");
     setTags((p.tags ?? []).join(", "));
@@ -109,20 +87,6 @@ export default function BlogEditor({ adminKey }: Props) {
     }
     setStatus(`Loaded “${p.title}”. Edit and Publish / Update to save changes.`);
   }
-
-  const cal = useMemo(() => {
-    const now = new Date();
-    const first = new Date(now.getFullYear(), now.getMonth() + monthOffset, 1);
-    const year = first.getFullYear();
-    const month = first.getMonth();
-    const startDay = (first.getDay() + 6) % 7; // Mon=0
-    const daysInMonth = new Date(year, month + 1, 0).getDate();
-    const cells: Array<{ day: number | null; key: string }> = [];
-    for (let i = 0; i < startDay; i++) cells.push({ day: null, key: `b${i}` });
-    for (let d = 1; d <= daysInMonth; d++) cells.push({ day: d, key: `d${d}` });
-    while (cells.length % 7 !== 0) cells.push({ day: null, key: `a${cells.length}` });
-    return { year, month, cells };
-  }, [monthOffset]);
 
   async function uploadCover(file: File): Promise<UploadResult> {
     if (!functionsBase) return { ok: false, error: "Missing PUBLIC_SUPABASE_FUNCTIONS_BASE_URL" };
@@ -144,7 +108,6 @@ export default function BlogEditor({ adminKey }: Props) {
     const payload = {
       title: title.trim(),
       slug: (slug.trim() || slugify(title)).trim(),
-      excerpt: excerpt.trim() || null,
       content_md: content,
       published_at: publishedAt ? new Date(publishedAt).toISOString() : new Date().toISOString(),
       tags: tags
@@ -160,7 +123,13 @@ export default function BlogEditor({ adminKey }: Props) {
       body: JSON.stringify(payload),
     });
     const data = await res.json().catch(() => null);
-    if (!res.ok || !data?.ok) return { ok: false, error: data?.error ?? "Save failed" };
+    if (!res.ok || !data?.ok) {
+      const details =
+        data?.error ??
+        (typeof data === "string" ? data : null) ??
+        `HTTP ${res.status} ${res.statusText}`.trim();
+      return { ok: false, error: details || "Save failed" };
+    }
     return { ok: true };
   }
 
@@ -169,47 +138,23 @@ export default function BlogEditor({ adminKey }: Props) {
       <div className="grid gap-4 lg:grid-cols-3">
         <div className="lg:col-span-2 space-y-4">
           <div className="rounded-xl border border-border bg-surface p-5 shadow-sm">
-            <div className="mb-4 grid gap-3 sm:grid-cols-2">
-              <label className="space-y-1">
-                <span className="text-xs font-bold uppercase tracking-wider text-muted">Edit existing</span>
-                <select
-                  value={selectedSlug}
-                  onChange={async (e) => {
-                    const next = e.target.value;
-                    setSelectedSlug(next);
-                    if (next) await loadPost(next);
-                  }}
-                  className="w-full rounded-md border border-border bg-page px-3 py-2 text-sm"
-                >
-                  <option value="">Select a published post…</option>
-                  {existing
-                    .filter((p) => !!p.published_at)
-                    .map((p) => (
-                      <option key={p.slug} value={p.slug}>
-                        {p.title}
-                      </option>
-                    ))}
-                </select>
-              </label>
-              <div className="flex items-end">
-                <button
-                  type="button"
-                  onClick={() => {
-                    setSelectedSlug("");
-                    setTitle("");
-                    setSlug("");
-                    setExcerpt("");
-                    setTags("teaching, research");
-                    setPublishedAt("");
-                    setCoverUrl("");
-                    setContent("# New post\n\nWrite in Markdown.");
-                    setStatus("");
-                  }}
-                  className="w-full rounded-full border border-border bg-page px-4 py-2 text-sm font-semibold text-ink hover:bg-neutral-hover"
-                >
-                  New post
-                </button>
-              </div>
+            <div className="mb-4 flex items-center justify-between gap-3">
+              <p className="text-xs font-bold uppercase tracking-wider text-muted">Post details</p>
+              <button
+                type="button"
+                onClick={() => {
+                  setTitle("");
+                  setSlug("");
+                  setTags("teaching, research");
+                  setPublishedAt("");
+                  setCoverUrl("");
+                  setContent("# New post\n\nWrite in Markdown.");
+                  setStatus("");
+                }}
+                className="rounded-full border border-border bg-page px-4 py-2 text-xs font-semibold text-ink hover:bg-neutral-hover"
+              >
+                New post
+              </button>
             </div>
 
             <div className="grid gap-3 sm:grid-cols-2">
@@ -226,28 +171,6 @@ export default function BlogEditor({ adminKey }: Props) {
                 />
               </label>
               <label className="space-y-1">
-                <span className="text-xs font-bold uppercase tracking-wider text-muted">Slug</span>
-                <input
-                  value={slug}
-                  onChange={(e) => setSlug(e.target.value)}
-                  className="w-full rounded-md border border-border bg-page px-3 py-2 text-sm"
-                  placeholder="e.g. formative-assessment-notes"
-                />
-              </label>
-            </div>
-
-            <label className="mt-3 block space-y-1">
-              <span className="text-xs font-bold uppercase tracking-wider text-muted">Excerpt</span>
-              <textarea
-                value={excerpt}
-                onChange={(e) => setExcerpt(e.target.value)}
-                className="w-full min-h-[70px] rounded-md border border-border bg-page px-3 py-2 text-sm"
-                placeholder="Short description shown on the Blog list."
-              />
-            </label>
-
-            <div className="mt-3 grid gap-3 sm:grid-cols-2">
-              <label className="space-y-1">
                 <span className="text-xs font-bold uppercase tracking-wider text-muted">Tags</span>
                 <input
                   value={tags}
@@ -256,13 +179,25 @@ export default function BlogEditor({ adminKey }: Props) {
                   placeholder="comma,separated,tags"
                 />
               </label>
+            </div>
+
+            <div className="mt-3 grid gap-3 sm:grid-cols-2">
               <label className="space-y-1">
-                <span className="text-xs font-bold uppercase tracking-wider text-muted">Publish time</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-muted">Date</span>
                 <input
                   type="datetime-local"
                   value={publishedAt}
                   onChange={(e) => setPublishedAt(e.target.value)}
                   className="w-full rounded-md border border-border bg-page px-3 py-2 text-sm"
+                />
+              </label>
+              <label className="space-y-1">
+                <span className="text-xs font-bold uppercase tracking-wider text-muted">Slug (optional)</span>
+                <input
+                  value={slug}
+                  onChange={(e) => setSlug(e.target.value)}
+                  className="w-full rounded-md border border-border bg-page px-3 py-2 text-sm"
+                  placeholder="auto from title"
                 />
               </label>
             </div>
@@ -339,59 +274,6 @@ export default function BlogEditor({ adminKey }: Props) {
             />
             <p className="mt-2 text-xs text-muted">
               If you opened this page with <code className="rounded bg-page px-1.5 py-0.5">?key=...</code>, it will prefill automatically.
-            </p>
-
-            <div className="flex items-center justify-between gap-3">
-              <p className="font-serif text-xl font-semibold text-ink">Blog calendar</p>
-              <div className="flex items-center gap-2">
-                <button
-                  type="button"
-                  onClick={() => setMonthOffset((x) => x - 1)}
-                  className="rounded-full border border-border bg-page px-3 py-1.5 text-xs font-semibold text-ink hover:bg-neutral-hover"
-                >
-                  ←
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setMonthOffset((x) => (x === 0 ? 0 : x + 1))}
-                  className="rounded-full border border-border bg-page px-3 py-1.5 text-xs font-semibold text-ink hover:bg-neutral-hover"
-                >
-                  →
-                </button>
-              </div>
-            </div>
-            <p className="mt-2 text-sm text-muted">
-              {new Date(cal.year, cal.month, 1).toLocaleDateString("en-GB", { year: "numeric", month: "long" })}
-            </p>
-
-            <div className="mt-4 grid grid-cols-7 gap-2 text-center text-xs font-semibold text-muted">
-              {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((d) => (
-                <div key={d}>{d}</div>
-              ))}
-            </div>
-
-            <div className="mt-2 grid grid-cols-7 gap-2 text-center text-sm">
-              {cal.cells.map((c) => {
-                if (!c.day) return <div key={c.key} className="h-9" />;
-                const key = `${cal.year}-${String(cal.month + 1).padStart(2, "0")}-${String(c.day).padStart(2, "0")}`;
-                const hasPost = postDates.has(key);
-                return (
-                  <div
-                    key={c.key}
-                    className={[
-                      "h-9 rounded-lg border text-sm grid place-items-center",
-                      hasPost ? "border-primary/40 bg-primary-faint text-ink" : "border-border bg-page text-ink/80",
-                    ].join(" ")}
-                    title={hasPost ? "Blog post published" : ""}
-                  >
-                    {c.day}
-                  </div>
-                );
-              })}
-            </div>
-
-            <p className="mt-4 text-xs text-muted">
-              Highlighted dates have published posts.
             </p>
           </div>
         </div>

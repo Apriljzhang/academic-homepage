@@ -5,17 +5,20 @@ type Props = {
   adminHref?: string;
   /** Simple password required to redirect (per user request) */
   password?: string;
+  /** Published posts for rendering edit buttons after unlock */
+  posts?: Array<{ slug: string; title: string; published_at: string }>;
 };
 
 function pad2(n: number) {
   return String(n).padStart(2, "0");
 }
 
-export default function BlogCalendarGate({ adminHref = "/blog/admin/", password = "199044" }: Props) {
+export default function BlogCalendarGate({ adminHref = "/blog/admin/", password = "199044", posts = [] }: Props) {
   const [monthOffset, setMonthOffset] = useState(0);
   const [postDates, setPostDates] = useState<Set<string>>(new Set());
   const [input, setInput] = useState("");
   const [msg, setMsg] = useState<string>("");
+  const [unlocked, setUnlocked] = useState(false);
 
   const supabaseUrl = useMemo(() => {
     const u = (import.meta as any).env?.PUBLIC_SUPABASE_URL as string | undefined;
@@ -116,7 +119,7 @@ export default function BlogCalendarGate({ adminHref = "/blog/admin/", password 
 
       <div className="rounded-xl border border-border bg-surface p-5 shadow-sm">
         <p className="font-serif text-xl font-semibold text-ink">Admin key</p>
-        <p className="mt-2 text-sm text-muted">Enter the password to open the editor.</p>
+        <p className="mt-2 text-sm text-muted">Enter the password to unlock edit buttons.</p>
         <div className="mt-4 flex gap-2">
           <input
             type="password"
@@ -133,14 +136,51 @@ export default function BlogCalendarGate({ adminHref = "/blog/admin/", password 
                 setMsg("Incorrect password.");
                 return;
               }
-              const url = `${adminHref}?key=${encodeURIComponent(password)}`;
-              window.location.href = url;
+              setUnlocked(true);
+              setMsg("");
             }}
           >
-            Open
+            Unlock
           </button>
         </div>
         {msg ? <p className="mt-3 text-sm text-muted">{msg}</p> : null}
+
+        {unlocked ? (
+          <div className="mt-6">
+            <p className="text-xs font-bold uppercase tracking-wider text-muted">Edit published posts</p>
+            <div className="mt-3 space-y-2">
+              <a
+                className="inline-flex w-full items-center justify-center rounded-full border border-border bg-page px-4 py-2 text-sm font-semibold text-ink hover:bg-neutral-hover no-underline"
+                href={`${adminHref}?key=${encodeURIComponent(password)}`}
+              >
+                New post
+              </a>
+
+              {posts.length === 0 ? (
+                <p className="text-sm text-muted">No published posts yet.</p>
+              ) : (
+                <div className="space-y-2">
+                  {posts.map((p) => (
+                    <div key={p.slug} className="flex items-center justify-between gap-3 rounded-xl border border-border bg-page px-3 py-2">
+                      <div className="min-w-0">
+                        <p className="truncate text-sm font-semibold text-ink">{p.title}</p>
+                        <p className="text-xs text-muted">
+                          {new Date(p.published_at).toLocaleDateString("en-GB", { year: "numeric", month: "short", day: "2-digit" })}
+                        </p>
+                      </div>
+                      <a
+                        className="shrink-0 rounded-full bg-primary px-3 py-1.5 text-xs font-semibold text-white hover:bg-secondary hover:text-ink no-underline"
+                        href={`${adminHref}?key=${encodeURIComponent(password)}&slug=${encodeURIComponent(p.slug)}`}
+                      >
+                        Edit
+                      </a>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        ) : null}
       </div>
     </div>
   );
