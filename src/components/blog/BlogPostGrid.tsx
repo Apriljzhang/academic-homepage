@@ -71,6 +71,17 @@ export default function BlogPostGrid({ initialPosts = [] }: Props) {
         </p>
       ) : null}
 
+      {isAdmin ? (
+        <div className="mb-4 flex items-center justify-end">
+          <a
+            href="/blog/admin/"
+            className="rounded-full bg-primary px-4 py-2 text-sm font-semibold text-white no-underline hover:bg-secondary hover:text-ink"
+          >
+            New post
+          </a>
+        </div>
+      ) : null}
+
       <div className="grid gap-4">
         {posts.length === 0 ? (
           <p className="text-sm text-muted">
@@ -81,7 +92,7 @@ export default function BlogPostGrid({ initialPosts = [] }: Props) {
             <div key={p.id} className="border-l-4 border-primary pl-4">
               <div className="flex items-start justify-between gap-3">
                 <a href={`/blog/${p.slug}/`} className="min-w-0 no-underline">
-                  <p className="text-pretty font-serif text-lg font-semibold text-ink sm:text-xl">{p.title}</p>
+                  <p className="text-pretty text-base font-semibold text-ink sm:text-lg">{p.title}</p>
                 </a>
 
                 {isAdmin ? (
