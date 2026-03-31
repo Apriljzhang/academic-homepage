@@ -73,8 +73,9 @@ export default function VisitsDashboard({ countsUrl = "", collaboratorRoutes, ho
           dots={dots}
           routes={collaboratorRoutes}
           home={home}
-          visitorColor="#659dbd"
-          collaboratorColor="#c9492a"
+          visitorColor="#6fa4c2"
+          collaboratorColor="#c94d2c"
+          homeColor="#8fb791"
         />
       </div>
       <div className="space-y-4">

@@ -26,6 +26,7 @@ type Props = {
   home?: HomeDot;
   visitorColor?: string;
   collaboratorColor?: string;
+  homeColor?: string;
 };
 
 function createCurvedPath(start: { x: number; y: number }, end: { x: number; y: number }, h: number) {
@@ -40,6 +41,7 @@ export default function WorldMap({
   home,
   visitorColor = "#659dbd",
   collaboratorColor = "#c9492a",
+  homeColor = "#8fb791",
 }: Props) {
   const svgRef = useRef<SVGSVGElement>(null);
 
@@ -186,8 +188,8 @@ export default function WorldMap({
           {projected.home ? (() => {
             return (
               <g key="home-dot">
-                <circle cx={projected.home.x} cy={projected.home.y} r="2.1" fill="#2f9e44" opacity={0.96} />
-                <circle cx={projected.home.x} cy={projected.home.y} r="2.1" fill="#2f9e44" opacity={0.2}>
+                <circle cx={projected.home.x} cy={projected.home.y} r="2.1" fill={homeColor} opacity={0.96} />
+                <circle cx={projected.home.x} cy={projected.home.y} r="2.1" fill={homeColor} opacity={0.2}>
                   <animate attributeName="r" from="2.1" to="5.6" dur="2.8s" begin="0s" repeatCount="indefinite" />
                   <animate attributeName="opacity" from="0.2" to="0" dur="2.8s" begin="0s" repeatCount="indefinite" />
                 </circle>
