@@ -27,14 +27,23 @@ export default function BlogCalendarGate({ adminHref = "/blog/admin/", password 
   useEffect(() => {
     (async () => {
       if (!supabaseUrl || !supabaseAnon) return;
-      const url =
-        `${supabaseUrl}/rest/v1/blog_posts?select=published_at` +
-        `&published_at=not.is.null&order=published_at.desc&limit=1000`;
-      const res = await fetch(url, {
-        headers: { apikey: supabaseAnon, authorization: `Bearer ${supabaseAnon}` },
-      });
-      if (!res.ok) return;
-      const rows = (await res.json()) as Array<{ published_at: string }>;
+      const rows: Array<{ published_at: string }> = [];
+      const pageSize = 200;
+      let offset = 0;
+      for (;;) {
+        const url =
+          `${supabaseUrl}/rest/v1/blog_posts?select=published_at` +
+          `&published_at=not.is.null&order=published_at.desc&limit=${pageSize}&offset=${offset}`;
+        const res = await fetch(url, {
+          headers: { apikey: supabaseAnon, authorization: `Bearer ${supabaseAnon}` },
+        });
+        if (!res.ok) return;
+        const chunk = (await res.json()) as Array<{ published_at: string }>;
+        rows.push(...chunk);
+        if (chunk.length < pageSize) break;
+        offset += pageSize;
+        if (offset > 10000) break;
+      }
       const s = new Set<string>();
       for (const r of rows) {
         const d = new Date(r.published_at);

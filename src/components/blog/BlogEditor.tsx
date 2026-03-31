@@ -8,25 +8,32 @@ type Props = {
 type UploadResult = { ok: true; publicUrl: string } | { ok: false; error: string };
 type UpsertResult = { ok: true } | { ok: false; error: string };
 
-function slugify(input: string) {
-  return input
-    .toLowerCase()
-    .trim()
-    .replace(/['"]/g, "")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+function ymdFromLocalValue(v: string): string {
+  const m = v.match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (m) return `${m[1]}${m[2]}${m[3]}`;
+  const d = new Date();
+  return `${d.getFullYear()}${String(d.getMonth() + 1).padStart(2, "0")}${String(d.getDate()).padStart(2, "0")}`;
 }
 
-async function slugExists(supabaseUrl: string, supabaseAnon: string, slugToCheck: string) {
+async function nextDateSlug(supabaseUrl: string, supabaseAnon: string, ymd: string) {
   const url =
-    `${supabaseUrl}/rest/v1/blog_posts?select=id` +
-    `&slug=eq.${encodeURIComponent(slugToCheck)}&limit=1`;
+    `${supabaseUrl}/rest/v1/blog_posts?select=slug` +
+    `&slug=like.${encodeURIComponent(`${ymd}-%`)}` +
+    `&limit=1000`;
   const res = await fetch(url, {
     headers: { apikey: supabaseAnon, authorization: `Bearer ${supabaseAnon}` },
   });
-  if (!res.ok) return false;
-  const data = (await res.json()) as Array<{ id: string }>;
-  return data.length > 0;
+  if (!res.ok) return `${ymd}-1`;
+  const data = (await res.json()) as Array<{ slug: string }>;
+  let maxN = 0;
+  const re = new RegExp(`^${ymd}-(\\d+)$`);
+  for (const row of data) {
+    const m = row.slug?.match(re);
+    if (!m) continue;
+    const n = Number.parseInt(m[1], 10);
+    if (!Number.isNaN(n) && n > maxN) maxN = n;
+  }
+  return `${ymd}-${maxN + 1}`;
 }
 
 export default function BlogEditor({ adminKey }: Props) {
@@ -151,20 +158,13 @@ export default function BlogEditor({ adminKey }: Props) {
     if (!supabaseUrl || !supabaseAnon) return { ok: false, error: "Missing Supabase public config." };
     const iso = publishedAtLocal ? new Date(publishedAtLocal).toISOString() : new Date().toISOString();
     const editingExisting = originalSlug.trim().length > 0;
-    const baseSlug = (slug.trim() || slugify(title)).trim();
-    if (!baseSlug) return { ok: false, error: "Missing slug." };
-
-    let finalSlug = baseSlug;
-    // For NEW posts, always ensure a unique slug to prevent accidental overwrite/collision.
+    let finalSlug = slug.trim();
     if (!editingExisting) {
-      let attempt = 2;
-      while (await slugExists(supabaseUrl, supabaseAnon, finalSlug)) {
-        finalSlug = `${baseSlug}-${attempt}`;
-        attempt += 1;
-        if (attempt > 200) return { ok: false, error: "Could not generate a unique slug." };
-      }
-      // Keep UI in sync with the actual slug sent to backend.
+      const ymd = ymdFromLocalValue(publishedAtLocal);
+      finalSlug = await nextDateSlug(supabaseUrl, supabaseAnon, ymd);
       setSlug(finalSlug);
+    } else if (!finalSlug) {
+      finalSlug = originalSlug.trim();
     }
 
     const payload = {
@@ -242,7 +242,6 @@ export default function BlogEditor({ adminKey }: Props) {
                   value={title}
                   onChange={(e) => {
                     setTitle(e.target.value);
-                    if (!slug) setSlug(slugify(e.target.value));
                   }}
                   className="w-full rounded-md border border-border bg-page px-3 py-2 text-sm"
                   placeholder="Post title"

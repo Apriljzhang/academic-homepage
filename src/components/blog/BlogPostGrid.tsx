@@ -53,16 +53,25 @@ export default function BlogPostGrid({ initialPosts = [] }: Props) {
       }
       setStatus("loading");
       try {
-        const url =
-          `${supabaseUrl}/rest/v1/blog_posts?select=id,slug,title,excerpt,cover_image_url,tags,published_at` +
-          `&published_at=not.is.null&published_at=lte.${encodeURIComponent(new Date().toISOString())}` +
-          `&order=published_at.desc&limit=1000`;
-        const res = await fetch(url, {
-          headers: { apikey: supabaseAnon, authorization: `Bearer ${supabaseAnon}` },
-        });
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const data = (await res.json()) as Post[];
-        setPosts(data.sort((a, b) => postTime(b) - postTime(a)));
+        const all: Post[] = [];
+        const pageSize = 200;
+        let offset = 0;
+        for (;;) {
+          const url =
+            `${supabaseUrl}/rest/v1/blog_posts?select=id,slug,title,excerpt,cover_image_url,tags,published_at` +
+            `&published_at=not.is.null&published_at=lte.${encodeURIComponent(new Date().toISOString())}` +
+            `&order=published_at.desc&limit=${pageSize}&offset=${offset}`;
+          const res = await fetch(url, {
+            headers: { apikey: supabaseAnon, authorization: `Bearer ${supabaseAnon}` },
+          });
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          const chunk = (await res.json()) as Post[];
+          all.push(...chunk);
+          if (chunk.length < pageSize) break;
+          offset += pageSize;
+          if (offset > 10000) break;
+        }
+        setPosts(all.sort((a, b) => postTime(b) - postTime(a)));
         setStatus("idle");
       } catch {
         setStatus("error");

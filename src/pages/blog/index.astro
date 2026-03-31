@@ -25,12 +25,21 @@ type Post = {
 
 let posts: Post[] = [];
 if (SUPABASE_URL) {
-  const url =
-    `${SUPABASE_URL}/rest/v1/blog_posts?select=id,slug,title,excerpt,cover_image_url,tags,published_at` +
-    `&published_at=not.is.null&published_at=lte.${encodeURIComponent(new Date().toISOString())}` +
-    `&order=published_at.desc`;
-  const res = await fetch(url, { headers: { ...supabaseRestHeaders() } });
-  if (res.ok) posts = (await res.json()) as Post[];
+  const pageSize = 200;
+  let offset = 0;
+  for (;;) {
+    const url =
+      `${SUPABASE_URL}/rest/v1/blog_posts?select=id,slug,title,excerpt,cover_image_url,tags,published_at` +
+      `&published_at=not.is.null&published_at=lte.${encodeURIComponent(new Date().toISOString())}` +
+      `&order=published_at.desc&limit=${pageSize}&offset=${offset}`;
+    const res = await fetch(url, { headers: { ...supabaseRestHeaders() } });
+    if (!res.ok) break;
+    const chunk = (await res.json()) as Post[];
+    posts.push(...chunk);
+    if (chunk.length < pageSize) break;
+    offset += pageSize;
+    if (offset > 10000) break;
+  }
 }
 ---
 
