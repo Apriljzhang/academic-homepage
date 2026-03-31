@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
+import { copyBlogCitation } from "../../utils/blogCitation";
 
 type Post = {
   id: string;
@@ -277,8 +278,22 @@ export default function BlogPostGrid({ initialPosts = [], countsUrl = "" }: Prop
                   <p className="text-pretty text-base font-semibold text-ink sm:text-lg">{p.title}</p>
                 </a>
 
-                {isAdmin ? (
-                  <div className="shrink-0 flex items-center gap-2">
+                <div className="shrink-0 flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={async () => {
+                      try {
+                        await copyBlogCitation(p.title, p.published_at, p.slug);
+                        window.alert("Citation copied.");
+                      } catch {
+                        window.alert("Could not copy citation.");
+                      }
+                    }}
+                    className="rounded-full border border-border bg-page px-3 py-1 text-xs font-semibold text-muted hover:bg-neutral-hover hover:text-ink"
+                  >
+                    Cite
+                  </button>
+                  {isAdmin ? (
                     <a
                       href={`/blog/admin/?slug=${encodeURIComponent(p.slug)}`}
                       className="rounded-full border border-border bg-page px-3 py-1 text-xs font-semibold text-muted no-underline hover:bg-neutral-hover hover:text-ink"
@@ -293,8 +308,8 @@ export default function BlogPostGrid({ initialPosts = [], countsUrl = "" }: Prop
                     >
                       {busySlug === p.slug ? "Deleting…" : "Delete"}
                     </button>
-                  </div>
-                ) : null}
+                  ) : null}
+                </div>
               </div>
 
               <div className="mt-1 flex flex-wrap gap-x-3 gap-y-1 text-sm text-muted">

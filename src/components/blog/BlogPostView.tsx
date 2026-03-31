@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { marked } from "marked";
+import { copyBlogCitation } from "../../utils/blogCitation";
 
 type Post = {
   slug: string;
@@ -122,6 +123,20 @@ export default function BlogPostView() {
       <a href="/blog/" className="text-sm font-semibold text-primary no-underline hover:underline">
         ← Back to Blog
       </a>
+      <button
+        type="button"
+        onClick={async () => {
+          try {
+            await copyBlogCitation(post.title, post.published_at, post.slug);
+            window.alert("Citation copied.");
+          } catch {
+            window.alert("Could not copy citation.");
+          }
+        }}
+        className="ml-3 rounded-full border border-border bg-page px-3 py-1 text-xs font-semibold text-muted hover:bg-neutral-hover hover:text-ink"
+      >
+        Cite
+      </button>
       {isAdmin ? (
         <a
           href={`/blog/admin/?slug=${encodeURIComponent(post.slug)}`}
