@@ -170,7 +170,7 @@ export const professionalMemberships: ProfessionalMembership[] = [
   { name: 'UK Association for Language Testing and Assessment (UKALTA)', href: 'https://www.ukalta.org/' },
   { name: 'China Association for Language Testing and Assessment (CALTA)' },
   {
-    name: 'International TESOL Union',
+    name: 'International TESOL Union (ITU)',
     href: 'https://www.tesol.org/',
   },
 ];
