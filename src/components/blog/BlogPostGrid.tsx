@@ -279,20 +279,6 @@ export default function BlogPostGrid({ initialPosts = [], countsUrl = "" }: Prop
                 </a>
 
                 <div className="shrink-0 flex items-center gap-2">
-                  <button
-                    type="button"
-                    onClick={async () => {
-                      try {
-                        await copyBlogCitation(p.title, p.published_at, p.slug);
-                        window.alert("Citation copied via BibTeX.");
-                      } catch {
-                        window.alert("Could not copy citation.");
-                      }
-                    }}
-                    className="rounded-full border border-border bg-page px-3 py-1 text-xs font-semibold text-muted hover:bg-neutral-hover hover:text-ink"
-                  >
-                    Cite
-                  </button>
                   {isAdmin ? (
                     <>
                       <a
@@ -328,6 +314,20 @@ export default function BlogPostGrid({ initialPosts = [], countsUrl = "" }: Prop
                 <span className="inline-flex min-w-7 items-center justify-center rounded-full border border-border bg-page px-2 py-0.5 text-xs font-semibold text-ink">
                   {viewCounts[p.slug] ?? 0}
                 </span>
+                <button
+                  type="button"
+                  onClick={async () => {
+                    try {
+                      await copyBlogCitation(p.title, p.published_at, p.slug);
+                      window.alert("Citation copied via BibTeX.");
+                    } catch {
+                      window.alert("Could not copy citation.");
+                    }
+                  }}
+                  className="rounded-full border border-border bg-page px-2 py-0.5 text-xs font-semibold text-muted hover:bg-neutral-hover hover:text-ink"
+                >
+                  Cite
+                </button>
               </div>
 
               {p.excerpt ? <p className="mt-2 text-pretty text-sm leading-relaxed text-muted">{p.excerpt}</p> : null}
