@@ -17,28 +17,40 @@ Deno.serve(async (req) => {
     const serviceKey = Deno.env.get("SERVICE_ROLE_KEY") ?? Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
     if (!url || !serviceKey) throw new Error("missing_supabase_env");
 
-    // Aggregate in SQL via RPC-like REST call to PostgREST is non-trivial; use a SQL view in production.
-    // Here we do a lightweight approach: fetch recent rows (max_rows=1000) and aggregate in function.
-    // For higher traffic, replace with a database view + service-role select.
+    // Aggregate in function: page through recent rows and merge counts in-memory.
     const sinceDays = 30;
     const since = new Date(Date.now() - sinceDays * 24 * 60 * 60 * 1000).toISOString();
-
-    const fetchUrl =
-      `${url}/rest/v1/visit_events?select=country,region,city,lat,lng,occurred_at` +
-      `&occurred_at=gte.${encodeURIComponent(since)}` +
-      `&limit=1000`;
-
-    const res = await fetch(fetchUrl, {
-      headers: { apikey: serviceKey, authorization: `Bearer ${serviceKey}` },
-    });
-    if (!res.ok) throw new Error(`fetch_failed:${res.status}:${await res.text()}`);
-    const rows = (await res.json()) as Array<{
+    const rows: Array<{
       country: string | null;
       region: string | null;
       city: string | null;
       lat: number | null;
       lng: number | null;
-    }>;
+    }> = [];
+    const pageSize = 500;
+    let offset = 0;
+    for (;;) {
+      const fetchUrl =
+        `${url}/rest/v1/visit_events?select=country,region,city,lat,lng,occurred_at` +
+        `&occurred_at=gte.${encodeURIComponent(since)}` +
+        `&order=occurred_at.desc&limit=${pageSize}&offset=${offset}`;
+
+      const res = await fetch(fetchUrl, {
+        headers: { apikey: serviceKey, authorization: `Bearer ${serviceKey}` },
+      });
+      if (!res.ok) throw new Error(`fetch_failed:${res.status}:${await res.text()}`);
+      const chunk = (await res.json()) as Array<{
+        country: string | null;
+        region: string | null;
+        city: string | null;
+        lat: number | null;
+        lng: number | null;
+      }>;
+      rows.push(...chunk);
+      if (chunk.length < pageSize) break;
+      offset += pageSize;
+      if (offset > 50000) break;
+    }
 
     const map = new Map<string, Row>();
     for (const r of rows) {

@@ -26,16 +26,24 @@ export default function VisitsDashboard({ countsUrl = "", collaboratorRoutes, ho
   const [status, setStatus] = useState<"idle" | "loading" | "error">("idle");
 
   async function load() {
-    if (!countsUrl) return;
+    if (!countsUrl) {
+      setStatus("error");
+      return;
+    }
     setStatus((s) => (s === "idle" ? "loading" : s));
     try {
       const res = await fetch(countsUrl, { headers: { accept: "application/json" } });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const json = (await res.json()) as { ok: boolean; data?: CountRow[] };
-      if (json.ok && Array.isArray(json.data)) setRows(json.data);
-      setStatus("idle");
+      if (json.ok && Array.isArray(json.data)) {
+        setRows(json.data);
+        setStatus("idle");
+        return;
+      }
+      throw new Error("invalid_payload");
     } catch {
-      setStatus("error");
+      // Keep the last successful snapshot on-screen.
+      setStatus((prev) => (rows.length > 0 ? "idle" : "error"));
     }
   }
 
@@ -98,7 +106,11 @@ export default function VisitsDashboard({ countsUrl = "", collaboratorRoutes, ho
               </li>
             ))}
           </ol>
-          {status === "error" ? <p className="mt-3 text-xs text-muted">Could not refresh visits right now.</p> : null}
+          {status === "error" ? (
+            <p className="mt-3 text-xs text-muted">
+              Could not refresh visits right now. Check `PUBLIC_SUPABASE_VISIT_COUNTS_URL` and deployed function env vars.
+            </p>
+          ) : null}
         </div>
       </div>
     </div>

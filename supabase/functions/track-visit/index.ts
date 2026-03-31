@@ -15,6 +15,12 @@ function getClientIp(req: Request): string | null {
   return first || null;
 }
 
+function getCountryHint(req: Request): string | null {
+  const cf = req.headers.get("cf-ipcountry")?.trim();
+  if (cf && cf.length > 0 && cf !== "XX") return cf;
+  return null;
+}
+
 async function sha256Hex(input: string): Promise<string> {
   const data = new TextEncoder().encode(input);
   const digest = await crypto.subtle.digest("SHA-256", data);
@@ -34,9 +40,13 @@ type IpApiResponse = {
 async function lookupGeo(ip: string): Promise<IpApiResponse | null> {
   // No-key, best-effort lookup. If this fails, we still record an event without geo.
   const url = `https://ipapi.co/${encodeURIComponent(ip)}/json/`;
-  const res = await fetch(url, { headers: { "User-Agent": "apriljzhang.com visits tracker" } });
-  if (!res.ok) return null;
-  return (await res.json()) as IpApiResponse;
+  try {
+    const res = await fetch(url, { headers: { "User-Agent": "apriljzhang.com visits tracker" } });
+    if (!res.ok) return null;
+    return (await res.json()) as IpApiResponse;
+  } catch {
+    return null;
+  }
 }
 
 async function insertVisit(opts: {
@@ -112,13 +122,14 @@ Deno.serve(async (req) => {
       });
     }
 
+    const countryHint = getCountryHint(req);
     const salt = Deno.env.get("IP_HASH_SALT") ?? "change-me";
     const ipHash = await sha256Hex(`${salt}:${ip}`);
 
     const geo = await lookupGeo(ip);
     const result = await insertVisit({
       ipHash,
-      country: geo?.country_name,
+      country: geo?.country_name ?? countryHint ?? undefined,
       region: geo?.region,
       city: geo?.city,
       lat: geo?.latitude,
