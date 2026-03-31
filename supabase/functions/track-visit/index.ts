@@ -85,18 +85,25 @@ function isAllowedHost(host: string | null, allowedHosts: string[]): boolean {
   return allowedHosts.some((allowed) => host === allowed || host.endsWith(`.${allowed}`));
 }
 
+function parseCsvEnv(name: string): string[] {
+  return (Deno.env.get(name) ?? "")
+    .split(",")
+    .map((s) => s.trim())
+    .filter(Boolean);
+}
+
 function shouldIgnoreVisit(req: Request, ip: string): string | null {
   if (isPrivateOrReservedIp(ip)) return "private_or_reserved_ip";
+
+  const excludedIps = parseCsvEnv("VISIT_EXCLUDED_IPS");
+  if (excludedIps.includes(ip.trim())) return "excluded_ip";
 
   const ua = req.headers.get("user-agent")?.trim() ?? "";
   if (!ua) return "missing_ua";
   if (isLikelyBotUserAgent(ua)) return "bot_ua";
 
   const defaultHosts = ["apriljzhang.com", "www.apriljzhang.com", "localhost"];
-  const configuredHosts = (Deno.env.get("VISIT_ALLOWED_HOSTS") ?? "")
-    .split(",")
-    .map((s) => s.trim().toLowerCase())
-    .filter(Boolean);
+  const configuredHosts = parseCsvEnv("VISIT_ALLOWED_HOSTS").map((s) => s.toLowerCase());
   const allowedHosts = configuredHosts.length > 0 ? configuredHosts : defaultHosts;
 
   const originHost = parseHost(req.headers.get("origin"));

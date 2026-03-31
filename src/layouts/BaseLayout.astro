@@ -87,6 +87,16 @@ const jsonLd = {
     <script is:inline define:vars={{ trackVisitUrl }}>
       (() => {
         try {
+          const optOutKey = 'visit-tracking-disabled-v1';
+          const params = new URLSearchParams(window.location.search);
+          const trackingParam = (params.get('tracking') || '').toLowerCase();
+          if (trackingParam === 'off') {
+            localStorage.setItem(optOutKey, '1');
+          } else if (trackingParam === 'on') {
+            localStorage.removeItem(optOutKey);
+          }
+          if (localStorage.getItem(optOutKey) === '1') return;
+
           const key = 'visit-tracked-v1';
           if (sessionStorage.getItem(key)) return;
           sessionStorage.setItem(key, '1');
