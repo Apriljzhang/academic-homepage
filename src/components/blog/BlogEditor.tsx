@@ -17,6 +17,18 @@ function slugify(input: string) {
     .replace(/^-+|-+$/g, "");
 }
 
+async function slugExists(supabaseUrl: string, supabaseAnon: string, slugToCheck: string) {
+  const url =
+    `${supabaseUrl}/rest/v1/blog_posts?select=id` +
+    `&slug=eq.${encodeURIComponent(slugToCheck)}&limit=1`;
+  const res = await fetch(url, {
+    headers: { apikey: supabaseAnon, authorization: `Bearer ${supabaseAnon}` },
+  });
+  if (!res.ok) return false;
+  const data = (await res.json()) as Array<{ id: string }>;
+  return data.length > 0;
+}
+
 export default function BlogEditor({ adminKey }: Props) {
   const [adminKeyLocal, setAdminKeyLocal] = useState(adminKey ?? "");
   const [title, setTitle] = useState("");
@@ -136,11 +148,29 @@ export default function BlogEditor({ adminKey }: Props) {
 
   async function upsertPost(): Promise<UpsertResult> {
     if (!functionsBase) return { ok: false, error: "Missing PUBLIC_SUPABASE_URL (cannot reach functions)" };
+    if (!supabaseUrl || !supabaseAnon) return { ok: false, error: "Missing Supabase public config." };
     const iso = publishedAtLocal ? new Date(publishedAtLocal).toISOString() : new Date().toISOString();
+    const editingExisting = originalSlug.trim().length > 0;
+    const baseSlug = (slug.trim() || slugify(title)).trim();
+    if (!baseSlug) return { ok: false, error: "Missing slug." };
+
+    let finalSlug = baseSlug;
+    // For NEW posts, always ensure a unique slug to prevent accidental overwrite/collision.
+    if (!editingExisting) {
+      let attempt = 2;
+      while (await slugExists(supabaseUrl, supabaseAnon, finalSlug)) {
+        finalSlug = `${baseSlug}-${attempt}`;
+        attempt += 1;
+        if (attempt > 200) return { ok: false, error: "Could not generate a unique slug." };
+      }
+      // Keep UI in sync with the actual slug sent to backend.
+      setSlug(finalSlug);
+    }
+
     const payload = {
       title: title.trim(),
-      slug: (slug.trim() || slugify(title)).trim(),
-      original_slug: originalSlug.trim() || null,
+      slug: finalSlug,
+      original_slug: editingExisting ? originalSlug.trim() : null,
       content_md: content,
       published_at: iso,
       tags: tags
