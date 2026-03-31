@@ -21,6 +21,93 @@ function getCountryHint(req: Request): string | null {
   return null;
 }
 
+function parseHost(value: string | null): string | null {
+  if (!value) return null;
+  try {
+    return new URL(value).host.toLowerCase();
+  } catch {
+    return null;
+  }
+}
+
+function isPrivateOrReservedIp(ip: string): boolean {
+  const raw = ip.trim();
+  const lower = raw.toLowerCase();
+  if (!raw) return true;
+  if (lower === "localhost" || lower === "::1") return true;
+  if (raw.startsWith("fc") || raw.startsWith("fd")) return true; // IPv6 ULA
+
+  const m = raw.match(/^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/);
+  if (!m) return false;
+  const a = Number(m[1]);
+  const b = Number(m[2]);
+  if (a === 10) return true;
+  if (a === 127) return true;
+  if (a === 0) return true;
+  if (a === 169 && b === 254) return true;
+  if (a === 172 && b >= 16 && b <= 31) return true;
+  if (a === 192 && b === 168) return true;
+  if (a >= 224) return true; // multicast/reserved
+  return false;
+}
+
+function isLikelyBotUserAgent(ua: string): boolean {
+  const s = ua.toLowerCase();
+  const botHints = [
+    "bot",
+    "spider",
+    "crawler",
+    "slurp",
+    "bingpreview",
+    "headless",
+    "lighthouse",
+    "pagespeed",
+    "uptimerobot",
+    "curl/",
+    "wget/",
+    "python-requests",
+    "go-http-client",
+    "node-fetch",
+    "axios/",
+    "facebookexternalhit",
+    "whatsapp",
+    "telegrambot",
+    "slackbot",
+    "discordbot",
+    "twitterbot",
+    "linkedinbot",
+  ];
+  return botHints.some((h) => s.includes(h));
+}
+
+function isAllowedHost(host: string | null, allowedHosts: string[]): boolean {
+  if (!host) return false;
+  return allowedHosts.some((allowed) => host === allowed || host.endsWith(`.${allowed}`));
+}
+
+function shouldIgnoreVisit(req: Request, ip: string): string | null {
+  if (isPrivateOrReservedIp(ip)) return "private_or_reserved_ip";
+
+  const ua = req.headers.get("user-agent")?.trim() ?? "";
+  if (!ua) return "missing_ua";
+  if (isLikelyBotUserAgent(ua)) return "bot_ua";
+
+  const defaultHosts = ["apriljzhang.com", "www.apriljzhang.com", "localhost"];
+  const configuredHosts = (Deno.env.get("VISIT_ALLOWED_HOSTS") ?? "")
+    .split(",")
+    .map((s) => s.trim().toLowerCase())
+    .filter(Boolean);
+  const allowedHosts = configuredHosts.length > 0 ? configuredHosts : defaultHosts;
+
+  const originHost = parseHost(req.headers.get("origin"));
+  const refererHost = parseHost(req.headers.get("referer"));
+  const hasAllowedOrigin = isAllowedHost(originHost, allowedHosts);
+  const hasAllowedReferer = isAllowedHost(refererHost, allowedHosts);
+  if (!hasAllowedOrigin && !hasAllowedReferer) return "foreign_or_missing_origin";
+
+  return null;
+}
+
 async function sha256Hex(input: string): Promise<string> {
   const data = new TextEncoder().encode(input);
   const digest = await crypto.subtle.digest("SHA-256", data);
@@ -117,6 +204,14 @@ Deno.serve(async (req) => {
     const ip = getClientIp(req);
     if (!ip) {
       return new Response(JSON.stringify({ ok: false, reason: "no_ip" }), {
+        status: 200,
+        headers: { ...corsHeaders, "content-type": "application/json" },
+      });
+    }
+
+    const ignoreReason = shouldIgnoreVisit(req, ip);
+    if (ignoreReason) {
+      return new Response(JSON.stringify({ ok: true, inserted: false, reason: ignoreReason }), {
         status: 200,
         headers: { ...corsHeaders, "content-type": "application/json" },
       });
