@@ -60,7 +60,7 @@ export default function BlogCalendarGate({ adminHref = "/blog/admin/", password 
   }, [monthOffset]);
 
   return (
-    <div>
+    <div className="w-full">
       <div className="rounded-xl border border-border bg-surface p-5 shadow-sm">
         <div className="flex items-center justify-between gap-3">
           <p className="font-serif text-xl font-semibold text-ink">Calendar</p>
