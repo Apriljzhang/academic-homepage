@@ -15,6 +15,7 @@ export default function BlogPostView() {
   const [post, setPost] = useState<Post | null>(null);
   const [status, setStatus] = useState<"loading" | "missing" | "error" | "ready">("loading");
   const [isAdmin, setIsAdmin] = useState(false);
+  const [adminKey, setAdminKey] = useState("");
 
   const supabaseUrl = useMemo(() => {
     const u = (import.meta as any).env?.PUBLIC_SUPABASE_URL as string | undefined;
@@ -32,8 +33,11 @@ export default function BlogPostView() {
 
   useEffect(() => {
     try {
-      setIsAdmin(window.sessionStorage.getItem("BLOG_ADMIN_KEY") === "199044");
+      const key = (window.sessionStorage.getItem("BLOG_ADMIN_KEY") ?? "").trim();
+      setAdminKey(key);
+      setIsAdmin(key.length > 0);
     } catch {
+      setAdminKey("");
       setIsAdmin(false);
     }
   }, []);
@@ -99,7 +103,11 @@ export default function BlogPostView() {
       </a>
       {isAdmin ? (
         <a
-          href={`/blog/admin/?slug=${encodeURIComponent(post.slug)}`}
+          href={
+            adminKey
+              ? `/blog/admin/?slug=${encodeURIComponent(post.slug)}&key=${encodeURIComponent(adminKey)}`
+              : `/blog/admin/?slug=${encodeURIComponent(post.slug)}`
+          }
           className="ml-3 text-sm font-semibold text-muted no-underline hover:underline"
         >
           Edit

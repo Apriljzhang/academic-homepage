@@ -113,7 +113,11 @@ const replyTo = `mailto:${contact.cityu}?subject=${encodeURIComponent(`Reply: ${
     const a = document.getElementById("blog-edit-link");
     if (!(a instanceof HTMLAnchorElement)) return;
     try {
-      if (window.sessionStorage.getItem("BLOG_ADMIN_KEY") === "199044") {
+      const key = (window.sessionStorage.getItem("BLOG_ADMIN_KEY") ?? "").trim();
+      if (key.length > 0) {
+        const url = new URL(a.href, window.location.origin);
+        url.searchParams.set("key", key);
+        a.href = url.pathname + url.search;
         a.classList.remove("hidden");
       }
     } catch {}

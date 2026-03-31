@@ -23,6 +23,7 @@ export default function BlogPostGrid({ initialPosts = [] }: Props) {
   const [posts, setPosts] = useState<Post[]>(initialPosts);
   const [status, setStatus] = useState<"idle" | "loading" | "error">("idle");
   const [isAdmin, setIsAdmin] = useState(false);
+  const [adminKey, setAdminKey] = useState("");
   const [selectedTag, setSelectedTag] = useState<string>("all");
   const [selectedMonth, setSelectedMonth] = useState<string>("all");
   const [selectedDate, setSelectedDate] = useState<string>("");
@@ -71,8 +72,11 @@ export default function BlogPostGrid({ initialPosts = [] }: Props) {
 
   useEffect(() => {
     try {
-      setIsAdmin(window.sessionStorage.getItem("BLOG_ADMIN_KEY") === "199044");
+      const key = (window.sessionStorage.getItem("BLOG_ADMIN_KEY") ?? "").trim();
+      setAdminKey(key);
+      setIsAdmin(key.length > 0);
     } catch {
+      setAdminKey("");
       setIsAdmin(false);
     }
   }, []);
@@ -132,7 +136,7 @@ export default function BlogPostGrid({ initialPosts = [] }: Props) {
 
     let adminKey = "";
     try {
-      adminKey = window.sessionStorage.getItem("BLOG_ADMIN_KEY") ?? "";
+      adminKey = (window.sessionStorage.getItem("BLOG_ADMIN_KEY") ?? "").trim();
     } catch {}
     if (!adminKey) {
       window.alert("Missing admin key. Please unlock admin mode again.");
@@ -192,7 +196,7 @@ export default function BlogPostGrid({ initialPosts = [] }: Props) {
             Exit admin mode
           </button>
           <a
-            href="/blog/admin/"
+            href={adminKey ? `/blog/admin/?key=${encodeURIComponent(adminKey)}` : "/blog/admin/"}
             className="rounded-full bg-primary px-4 py-2 text-sm font-semibold text-white no-underline hover:bg-secondary hover:text-ink"
           >
             New post
@@ -240,7 +244,11 @@ export default function BlogPostGrid({ initialPosts = [] }: Props) {
                 {isAdmin ? (
                   <div className="shrink-0 flex items-center gap-2">
                     <a
-                      href={`/blog/admin/?slug=${encodeURIComponent(p.slug)}`}
+                      href={
+                        adminKey
+                          ? `/blog/admin/?slug=${encodeURIComponent(p.slug)}&key=${encodeURIComponent(adminKey)}`
+                          : `/blog/admin/?slug=${encodeURIComponent(p.slug)}`
+                      }
                       className="rounded-full border border-border bg-page px-3 py-1 text-xs font-semibold text-muted no-underline hover:bg-neutral-hover hover:text-ink"
                     >
                       Edit
