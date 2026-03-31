@@ -67,6 +67,7 @@ if (!post) {
 
 const title = `${post.title} · Blog · ${person.fullDisplayName}`;
 const description = post.excerpt ?? `Blog post — ${person.fullDisplayName}.`;
+const trackBlogVisitUrl = (import.meta.env.PUBLIC_SUPABASE_TRACK_BLOG_VISIT_URL as string | undefined) ?? '';
 
 const html = marked.parse(post.content_md);
 const replyTo = `mailto:${contact.cityu}?subject=${encodeURIComponent(`Reply: ${post.title}`)}`;
@@ -133,7 +134,7 @@ const replyTo = `mailto:${contact.cityu}?subject=${encodeURIComponent(`Reply: ${
   <SiteFooter />
 </BaseLayout>
 
-<script>
+<script define:vars={{ trackBlogVisitUrl, postSlug: post.slug }}>
   (() => {
     const a = document.getElementById("blog-edit-link");
     if (!(a instanceof HTMLAnchorElement)) return;
@@ -142,6 +143,23 @@ const replyTo = `mailto:${contact.cityu}?subject=${encodeURIComponent(`Reply: ${
       if (key.length > 0) {
         a.classList.remove("hidden");
       }
+    } catch {}
+  })();
+
+  (() => {
+    try {
+      const fn = trackBlogVisitUrl || "";
+      const slug = postSlug || "";
+      if (!fn || !slug) return;
+      const key = `blog-visit-tracked-v1:${slug}`;
+      if (window.sessionStorage.getItem(key)) return;
+      window.sessionStorage.setItem(key, "1");
+      fetch(fn, {
+        method: "POST",
+        mode: "cors",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ slug }),
+      }).catch(() => {});
     } catch {}
   })();
 </script>

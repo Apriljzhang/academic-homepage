@@ -12,6 +12,7 @@ import { SUPABASE_URL, supabaseRestHeaders } from '../../utils/supabasePublic';
 
 const title = `Blog · ${person.fullDisplayName}`;
 const description = `Educational and research notes — ${person.fullDisplayName}.`;
+const blogViewCountsUrl = (import.meta.env.PUBLIC_SUPABASE_BLOG_VIEW_COUNTS_URL as string | undefined) ?? '';
 
 type Post = {
   id: string;
@@ -59,7 +60,7 @@ if (SUPABASE_URL) {
               <BlogCalendarGate client:load posts={posts} />
             </div>
             <div class="order-1 lg:order-2">
-              <BlogPostGrid client:load initialPosts={posts} />
+              <BlogPostGrid client:load initialPosts={posts} countsUrl={blogViewCountsUrl} />
             </div>
           </div>
         </div>

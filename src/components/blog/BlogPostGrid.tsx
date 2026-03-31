@@ -12,6 +12,7 @@ type Post = {
 
 type Props = {
   initialPosts?: Post[];
+  countsUrl?: string;
 };
 
 function postTime(p: Post): number {
@@ -19,8 +20,14 @@ function postTime(p: Post): number {
   return Number.isNaN(t) ? 0 : t;
 }
 
-export default function BlogPostGrid({ initialPosts = [] }: Props) {
+type CountRow = {
+  slug: string;
+  count: number;
+};
+
+export default function BlogPostGrid({ initialPosts = [], countsUrl = "" }: Props) {
   const [posts, setPosts] = useState<Post[]>(initialPosts);
+  const [viewCounts, setViewCounts] = useState<Record<string, number>>({});
   const [status, setStatus] = useState<"idle" | "loading" | "error">("idle");
   const [isAdmin, setIsAdmin] = useState(false);
   const [adminKey, setAdminKey] = useState("");
@@ -78,6 +85,26 @@ export default function BlogPostGrid({ initialPosts = [] }: Props) {
       }
     })();
   }, [supabaseUrl, supabaseAnon, initialPosts.length]);
+
+  useEffect(() => {
+    (async () => {
+      if (!countsUrl) return;
+      try {
+        const res = await fetch(countsUrl, { headers: { accept: "application/json" } });
+        if (!res.ok) return;
+        const json = (await res.json()) as { ok: boolean; data?: CountRow[] };
+        if (!json.ok || !Array.isArray(json.data)) return;
+        const next: Record<string, number> = {};
+        for (const row of json.data) {
+          if (!row?.slug) continue;
+          next[row.slug] = Number.isFinite(row.count) ? row.count : 0;
+        }
+        setViewCounts(next);
+      } catch {
+        // Non-fatal: cards render without counts.
+      }
+    })();
+  }, [countsUrl]);
 
   useEffect(() => {
     try {
@@ -280,6 +307,8 @@ export default function BlogPostGrid({ initialPosts = [] }: Props) {
                 </span>
                 {p.tags?.length ? <span className="text-muted/70">·</span> : null}
                 {p.tags?.length ? <span>{p.tags.slice(0, 5).join(", ")}</span> : null}
+                <span className="text-muted/70">·</span>
+                <span>{viewCounts[p.slug] ?? 0} clicks</span>
               </div>
 
               {p.excerpt ? <p className="mt-2 text-pretty text-sm leading-relaxed text-muted">{p.excerpt}</p> : null}

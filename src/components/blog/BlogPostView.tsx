@@ -25,6 +25,10 @@ export default function BlogPostView() {
     () => (import.meta as any).env?.PUBLIC_SUPABASE_ANON_KEY as string | undefined,
     [],
   );
+  const trackBlogVisitUrl = useMemo(
+    () => (import.meta as any).env?.PUBLIC_SUPABASE_TRACK_BLOG_VISIT_URL as string | undefined,
+    [],
+  );
 
   const slug = useMemo(() => {
     if (typeof window === "undefined") return "";
@@ -79,6 +83,23 @@ export default function BlogPostView() {
       }
     })();
   }, [slug, supabaseUrl, supabaseAnon]);
+
+  useEffect(() => {
+    if (!post?.slug || !trackBlogVisitUrl) return;
+    try {
+      const key = `blog-visit-tracked-v1:${post.slug}`;
+      if (window.sessionStorage.getItem(key)) return;
+      window.sessionStorage.setItem(key, "1");
+      fetch(trackBlogVisitUrl, {
+        method: "POST",
+        mode: "cors",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ slug: post.slug }),
+      }).catch(() => {});
+    } catch {
+      // Ignore storage/network errors.
+    }
+  }, [post?.slug, trackBlogVisitUrl]);
 
   if (status === "loading") return <p className="text-sm text-muted">Loading post…</p>;
   if (status === "error") {
