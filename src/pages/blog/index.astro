@@ -3,7 +3,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import PageShell from '../../components/PageShell.astro';
-import MainWithAside from '../../components/MainWithAside.astro';
 import BlogCalendarGate from '../../components/blog/BlogCalendarGate';
 import BlogPostGrid from '../../components/blog/BlogPostGrid';
 import { person } from '../../data/cv';
@@ -38,24 +37,21 @@ if (SUPABASE_URL) {
   <main id="main-content" class="min-h-[50vh] w-full bg-page">
     <PageShell accentBar>
       <h1 class="font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">Blog</h1>
-      <MainWithAside asideLabel="Blog">
-        <div>
-          <p class="mt-4 max-w-3xl text-pretty text-lg leading-relaxed text-muted lg:text-xl">
-            Educational and research notes. I believe learning is a shared dialogue—I value your voice in this space. To share your
-            thoughts or start a conversation, please use the email link at the end of each post.
-          </p>
+      <div>
+        <p class="mt-4 max-w-3xl text-pretty text-lg leading-relaxed text-muted lg:text-xl">
+          Educational and research notes. I believe learning is a shared dialogue—I value your voice in this space. To share your
+          thoughts or start a conversation, please use the email link at the end of each post.
+        </p>
 
-          <div class="mt-6 grid gap-6 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] lg:items-start">
-            <div class="order-1">
-              <BlogCalendarGate client:load posts={posts} />
-            </div>
-            <div class="order-2">
-              <BlogPostGrid client:load initialPosts={posts} />
-            </div>
+        <div class="mt-6 grid gap-6 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] lg:items-start">
+          <div class="order-1">
+            <BlogCalendarGate client:load posts={posts} />
+          </div>
+          <div class="order-2">
+            <BlogPostGrid client:load initialPosts={posts} />
           </div>
         </div>
-        <div slot="aside" class="hidden lg:block" />
-      </MainWithAside>
+      </div>
     </PageShell>
   </main>
   <SiteFooter />
