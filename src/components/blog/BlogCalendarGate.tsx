@@ -29,7 +29,7 @@ export default function BlogCalendarGate({ adminHref = "/blog/admin/", password 
       if (!supabaseUrl || !supabaseAnon) return;
       const url =
         `${supabaseUrl}/rest/v1/blog_posts?select=published_at` +
-        `&published_at=not.is.null&order=published_at.desc&limit=300`;
+        `&published_at=not.is.null&order=published_at.desc&limit=1000`;
       const res = await fetch(url, {
         headers: { apikey: supabaseAnon, authorization: `Bearer ${supabaseAnon}` },
       });

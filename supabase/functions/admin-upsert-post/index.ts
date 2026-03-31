@@ -3,6 +3,7 @@ import { corsHeaders } from "../_shared/cors.ts";
 type UpsertPayload = {
   title: string;
   slug: string;
+  original_slug?: string | null;
   excerpt?: string;
   content_md: string;
   published_at?: string | null;
@@ -43,12 +44,11 @@ Deno.serve(async (req) => {
     const serviceKey = Deno.env.get("SERVICE_ROLE_KEY") ?? Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
     if (!url || !serviceKey) throw new Error("missing_supabase_env");
 
-    const upsertUrl = `${url}/rest/v1/blog_posts?on_conflict=slug`;
     const headers = {
       apikey: serviceKey,
       authorization: `Bearer ${serviceKey}`,
       "content-type": "application/json",
-      Prefer: "return=representation,resolution=merge-duplicates",
+      Prefer: "return=representation",
     };
 
     const body = {
@@ -61,11 +61,25 @@ Deno.serve(async (req) => {
       cover_image_url: payload.cover_image_url ?? null,
     };
 
-    const res = await fetch(upsertUrl, {
-      method: "POST",
-      headers,
-      body: JSON.stringify(body),
-    });
+    let res: Response;
+    // Editing existing post: update only that row (do not overwrite unrelated rows).
+    if (payload.original_slug && payload.original_slug.trim().length > 0) {
+      const original = encodeURIComponent(payload.original_slug.trim());
+      const updateUrl = `${url}/rest/v1/blog_posts?slug=eq.${original}`;
+      res = await fetch(updateUrl, {
+        method: "PATCH",
+        headers,
+        body: JSON.stringify(body),
+      });
+    } else {
+      // New publish: insert a new row. Duplicate slug returns an error instead of overwriting.
+      const insertUrl = `${url}/rest/v1/blog_posts`;
+      res = await fetch(insertUrl, {
+        method: "POST",
+        headers,
+        body: JSON.stringify(body),
+      });
+    }
 
     if (!res.ok) {
       const txt = await res.text();

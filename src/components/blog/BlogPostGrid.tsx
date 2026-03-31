@@ -14,6 +14,11 @@ type Props = {
   initialPosts?: Post[];
 };
 
+function postTime(p: Post): number {
+  const t = new Date(p.published_at).getTime();
+  return Number.isNaN(t) ? 0 : t;
+}
+
 export default function BlogPostGrid({ initialPosts = [] }: Props) {
   const [posts, setPosts] = useState<Post[]>(initialPosts);
   const [status, setStatus] = useState<"idle" | "loading" | "error">("idle");
@@ -50,13 +55,13 @@ export default function BlogPostGrid({ initialPosts = [] }: Props) {
         const url =
           `${supabaseUrl}/rest/v1/blog_posts?select=id,slug,title,excerpt,cover_image_url,tags,published_at` +
           `&published_at=not.is.null&published_at=lte.${encodeURIComponent(new Date().toISOString())}` +
-          `&order=published_at.desc&limit=200`;
+          `&order=published_at.desc&limit=1000`;
         const res = await fetch(url, {
           headers: { apikey: supabaseAnon, authorization: `Bearer ${supabaseAnon}` },
         });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = (await res.json()) as Post[];
-        setPosts(data);
+        setPosts(data.sort((a, b) => postTime(b) - postTime(a)));
         setStatus("idle");
       } catch {
         setStatus("error");
@@ -118,7 +123,7 @@ export default function BlogPostGrid({ initialPosts = [] }: Props) {
         return key === selectedDate;
       });
     }
-    return arr;
+    return [...arr].sort((a, b) => postTime(b) - postTime(a));
   }, [posts, selectedTag, selectedMonth, selectedDate]);
 
   async function deletePost(slug: string) {

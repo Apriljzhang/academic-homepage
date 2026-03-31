@@ -38,7 +38,7 @@ export default function BlogFiltersAside({ initialPosts = [] }: Props) {
       const url =
         `${supabaseUrl}/rest/v1/blog_posts?select=id,tags,published_at` +
         `&published_at=not.is.null&published_at=lte.${encodeURIComponent(new Date().toISOString())}` +
-        `&order=published_at.desc&limit=200`;
+        `&order=published_at.desc&limit=1000`;
       const res = await fetch(url, {
         headers: { apikey: supabaseAnon, authorization: `Bearer ${supabaseAnon}` },
       });

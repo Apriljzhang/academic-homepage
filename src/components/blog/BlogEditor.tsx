@@ -21,6 +21,7 @@ export default function BlogEditor({ adminKey }: Props) {
   const [adminKeyLocal, setAdminKeyLocal] = useState(adminKey ?? "");
   const [title, setTitle] = useState("");
   const [slug, setSlug] = useState("");
+  const [originalSlug, setOriginalSlug] = useState("");
   const [tags, setTags] = useState("");
   const [publishedAtLocal, setPublishedAtLocal] = useState<string>(() => {
     const d = new Date();
@@ -90,6 +91,7 @@ export default function BlogEditor({ adminKey }: Props) {
     if (!p) return;
     setTitle(p.title ?? "");
     setSlug(p.slug ?? "");
+    setOriginalSlug(p.slug ?? "");
     setContent(p.content_md ?? "");
     setCoverUrl(p.cover_image_url ?? "");
     setTags((p.tags ?? []).join(", "));
@@ -138,6 +140,7 @@ export default function BlogEditor({ adminKey }: Props) {
     const payload = {
       title: title.trim(),
       slug: (slug.trim() || slugify(title)).trim(),
+      original_slug: originalSlug.trim() || null,
       content_md: content,
       published_at: iso,
       tags: tags
@@ -187,6 +190,7 @@ export default function BlogEditor({ adminKey }: Props) {
                 onClick={() => {
                   setTitle("");
                   setSlug("");
+                  setOriginalSlug("");
                   setTags("");
                   const now = new Date();
                   setPublishedAtLocal(new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().slice(0, 16));
@@ -301,7 +305,14 @@ export default function BlogEditor({ adminKey }: Props) {
                   }
                   setStatus("Saving…");
                   const r = await upsertPost();
-                  setStatus(r.ok ? "Saved. Refresh /blog to see it." : `Save failed: ${r.error}`);
+                  if (r.ok) {
+                    try {
+                      window.sessionStorage.setItem("BLOG_ADMIN_KEY", adminKeyLocal.trim());
+                    } catch {}
+                    window.location.href = "/blog/";
+                    return;
+                  }
+                  setStatus(`Save failed: ${r.error}`);
                 }}
                 className={[
                   "inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold transition-colors",
