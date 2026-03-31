@@ -13,7 +13,7 @@ function isActive(href: string): boolean {
   const target = normPath(new URL(href, Astro.url).pathname);
   if (target === '/') return current === '/';
 
-  for (const section of ['/research', '/teaching', '/service', '/blog', '/visits'] as const) {
+  for (const section of ['/research', '/teaching', '/service', '/blog', '/networking'] as const) {
     const root = normPath(withBase(section));
     if (target === root) {
       return current === root || current.startsWith(`${root}/`);
