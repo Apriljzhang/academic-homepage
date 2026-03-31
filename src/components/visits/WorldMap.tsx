@@ -179,7 +179,7 @@ export default function WorldMap({
           {projected.routeEnds.map((endPt, i) => {
             return (
               <g key={`route-endpoints-${i}`}>
-                <circle cx={endPt.x} cy={endPt.y} r="1.05" fill={collaboratorColor} opacity={0.95} />
+                <circle cx={endPt.x} cy={endPt.y} r="0.85" fill={collaboratorColor} opacity={0.95} />
               </g>
             );
           })}
@@ -188,9 +188,9 @@ export default function WorldMap({
           {projected.home ? (() => {
             return (
               <g key="home-dot">
-                <circle cx={projected.home.x} cy={projected.home.y} r="2.1" fill={homeColor} opacity={0.96} />
-                <circle cx={projected.home.x} cy={projected.home.y} r="2.1" fill={homeColor} opacity={0.2}>
-                  <animate attributeName="r" from="2.1" to="5.6" dur="2.8s" begin="0s" repeatCount="indefinite" />
+                <circle cx={projected.home.x} cy={projected.home.y} r="1.25" fill={homeColor} opacity={0.96} />
+                <circle cx={projected.home.x} cy={projected.home.y} r="1.25" fill={homeColor} opacity={0.18}>
+                  <animate attributeName="r" from="1.25" to="3.4" dur="2.8s" begin="0s" repeatCount="indefinite" />
                   <animate attributeName="opacity" from="0.2" to="0" dur="2.8s" begin="0s" repeatCount="indefinite" />
                 </circle>
               </g>
