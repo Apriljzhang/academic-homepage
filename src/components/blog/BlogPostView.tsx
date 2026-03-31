@@ -103,11 +103,7 @@ export default function BlogPostView() {
       </a>
       {isAdmin ? (
         <a
-          href={
-            adminKey
-              ? `/blog/admin/?slug=${encodeURIComponent(post.slug)}&key=${encodeURIComponent(adminKey)}`
-              : `/blog/admin/?slug=${encodeURIComponent(post.slug)}`
-          }
+          href={`/blog/admin/?slug=${encodeURIComponent(post.slug)}`}
           className="ml-3 text-sm font-semibold text-muted no-underline hover:underline"
         >
           Edit

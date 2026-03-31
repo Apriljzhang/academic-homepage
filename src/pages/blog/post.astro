@@ -6,6 +6,7 @@ import PageShell from '../../components/PageShell.astro';
 import MainWithAside from '../../components/MainWithAside.astro';
 import CrystalCard from '../../components/CrystalCard.astro';
 import BlogPostView from '../../components/blog/BlogPostView';
+import BlogPostAside from '../../components/blog/BlogPostAside';
 import { person } from '../../data/cv';
 import { contact } from '../../data/contact';
 
@@ -29,10 +30,7 @@ const replyTo = `mailto:${contact.cityu}?subject=${encodeURIComponent('Reply: Bl
             Reply by email →
           </a>
         </CrystalCard>
-        <div slot="aside" class="text-sm text-muted">
-          <p class="text-xs font-bold uppercase tracking-wider text-muted">Blog</p>
-          <p class="mt-3">Open posts from the main blog list.</p>
-        </div>
+        <BlogPostAside slot="aside" client:load />
       </MainWithAside>
     </PageShell>
   </main>

@@ -236,6 +236,23 @@ export default function BlogEditor({ adminKey }: Props) {
             </div>
 
             <div className="grid gap-3 sm:grid-cols-2">
+              <label className="space-y-1 sm:col-span-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-muted">Admin key</span>
+                <input
+                  type="password"
+                  value={adminKeyLocal}
+                  onChange={(e) => {
+                    const next = e.target.value;
+                    setAdminKeyLocal(next);
+                    try {
+                      if (next.trim()) window.sessionStorage.setItem("BLOG_ADMIN_KEY", next.trim());
+                    } catch {}
+                  }}
+                  className="w-full rounded-md border border-border bg-page px-3 py-2 text-sm"
+                  placeholder="Enter admin key"
+                  autoComplete="off"
+                />
+              </label>
               <label className="space-y-1">
                 <span className="text-xs font-bold uppercase tracking-wider text-muted">Title</span>
                 <input
@@ -329,7 +346,7 @@ export default function BlogEditor({ adminKey }: Props) {
                 disabled={!canSubmit}
                 onClick={async () => {
                   if (!adminKeyLocal.trim()) {
-                    setStatus("Missing admin key. Open this page via the Blog admin gate so the key is included in the link.");
+                    setStatus("Missing admin key. Enter the admin key above before publishing.");
                     return;
                   }
                   setStatus("Saving…");

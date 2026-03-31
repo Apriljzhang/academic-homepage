@@ -205,7 +205,7 @@ export default function BlogPostGrid({ initialPosts = [] }: Props) {
             Exit admin mode
           </button>
           <a
-            href={adminKey ? `/blog/admin/?key=${encodeURIComponent(adminKey)}` : "/blog/admin/"}
+            href="/blog/admin/"
             className="rounded-full bg-primary px-4 py-2 text-sm font-semibold text-white no-underline hover:bg-secondary hover:text-ink"
           >
             New post
@@ -253,11 +253,7 @@ export default function BlogPostGrid({ initialPosts = [] }: Props) {
                 {isAdmin ? (
                   <div className="shrink-0 flex items-center gap-2">
                     <a
-                      href={
-                        adminKey
-                          ? `/blog/admin/?slug=${encodeURIComponent(p.slug)}&key=${encodeURIComponent(adminKey)}`
-                          : `/blog/admin/?slug=${encodeURIComponent(p.slug)}`
-                      }
+                      href={`/blog/admin/?slug=${encodeURIComponent(p.slug)}`}
                       className="rounded-full border border-border bg-page px-3 py-1 text-xs font-semibold text-muted no-underline hover:bg-neutral-hover hover:text-ink"
                     >
                       Edit
