@@ -294,20 +294,22 @@ export default function BlogPostGrid({ initialPosts = [], countsUrl = "" }: Prop
                     Cite
                   </button>
                   {isAdmin ? (
-                    <a
-                      href={`/blog/admin/?slug=${encodeURIComponent(p.slug)}`}
-                      className="rounded-full border border-border bg-page px-3 py-1 text-xs font-semibold text-muted no-underline hover:bg-neutral-hover hover:text-ink"
-                    >
-                      Edit
-                    </a>
-                    <button
-                      type="button"
-                      onClick={() => deletePost(p.slug)}
-                      disabled={busySlug === p.slug}
-                      className="rounded-full border border-primary/40 bg-primary-faint px-3 py-1 text-xs font-semibold text-primary hover:bg-primary hover:text-white disabled:cursor-not-allowed disabled:opacity-60"
-                    >
-                      {busySlug === p.slug ? "Deleting…" : "Delete"}
-                    </button>
+                    <>
+                      <a
+                        href={`/blog/admin/?slug=${encodeURIComponent(p.slug)}`}
+                        className="rounded-full border border-border bg-page px-3 py-1 text-xs font-semibold text-muted no-underline hover:bg-neutral-hover hover:text-ink"
+                      >
+                        Edit
+                      </a>
+                      <button
+                        type="button"
+                        onClick={() => deletePost(p.slug)}
+                        disabled={busySlug === p.slug}
+                        className="rounded-full border border-primary/40 bg-primary-faint px-3 py-1 text-xs font-semibold text-primary hover:bg-primary hover:text-white disabled:cursor-not-allowed disabled:opacity-60"
+                      >
+                        {busySlug === p.slug ? "Deleting…" : "Delete"}
+                      </button>
+                    </>
                   ) : null}
                 </div>
               </div>
