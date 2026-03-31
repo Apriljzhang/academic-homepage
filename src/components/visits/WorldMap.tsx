@@ -44,7 +44,10 @@ export default function WorldMap({
   homeColor = "#8fb791",
 }: Props) {
   const svgRef = useRef<SVGSVGElement>(null);
-  const [zoom, setZoom] = useState(1);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [view, setView] = useState({ scale: 1, tx: 0, ty: 0 });
+  const [isPanning, setIsPanning] = useState(false);
+  const panStartRef = useRef<{ x: number; y: number; tx: number; ty: number } | null>(null);
 
   const { svgMap, projected, viewBox } = useMemo(() => {
     // Use dotted-map's own projection (mercator by default) for accurate pin placement.
@@ -103,21 +106,66 @@ export default function WorldMap({
     return { svgMap: svg, projected: out, viewBox: { w, h } };
   }, [dots, routes, home]);
 
+  function clampTranslate(scale: number, tx: number, ty: number, width: number, height: number) {
+    if (scale <= 1) return { tx: 0, ty: 0 };
+    const minTx = width - width * scale;
+    const minTy = height - height * scale;
+    return {
+      tx: Math.max(minTx, Math.min(0, tx)),
+      ty: Math.max(minTy, Math.min(0, ty)),
+    };
+  }
+
   return (
     <div className="w-full overflow-hidden rounded-xl border border-border bg-surface shadow-sm">
       <div
+        ref={containerRef}
         className="relative w-full overflow-hidden"
         onWheel={(e) => {
           e.preventDefault();
-          const delta = e.deltaY > 0 ? -0.12 : 0.12;
-          setZoom((z) => Math.min(3, Math.max(1, Number((z + delta).toFixed(2)))));
+          const container = containerRef.current;
+          if (!container) return;
+          const rect = container.getBoundingClientRect();
+          const pointerX = e.clientX - rect.left;
+          const pointerY = e.clientY - rect.top;
+          const zoomFactor = e.deltaY > 0 ? 0.9 : 1.1;
+
+          setView((v) => {
+            const nextScale = Math.min(8, Math.max(1, Number((v.scale * zoomFactor).toFixed(3))));
+            const contentX = (pointerX - v.tx) / v.scale;
+            const contentY = (pointerY - v.ty) / v.scale;
+            let nextTx = pointerX - contentX * nextScale;
+            let nextTy = pointerY - contentY * nextScale;
+            const clamped = clampTranslate(nextScale, nextTx, nextTy, rect.width, rect.height);
+            nextTx = clamped.tx;
+            nextTy = clamped.ty;
+            return { scale: nextScale, tx: nextTx, ty: nextTy };
+          });
         }}
+        onMouseDown={(e) => {
+          if (view.scale <= 1) return;
+          setIsPanning(true);
+          panStartRef.current = { x: e.clientX, y: e.clientY, tx: view.tx, ty: view.ty };
+        }}
+        onMouseMove={(e) => {
+          if (!isPanning || !panStartRef.current || !containerRef.current) return;
+          const rect = containerRef.current.getBoundingClientRect();
+          const dx = e.clientX - panStartRef.current.x;
+          const dy = e.clientY - panStartRef.current.y;
+          const tx = panStartRef.current.tx + dx;
+          const ty = panStartRef.current.ty + dy;
+          const clamped = clampTranslate(view.scale, tx, ty, rect.width, rect.height);
+          setView((v) => ({ ...v, tx: clamped.tx, ty: clamped.ty }));
+        }}
+        onMouseUp={() => setIsPanning(false)}
+        onMouseLeave={() => setIsPanning(false)}
+        style={{ cursor: view.scale > 1 ? (isPanning ? "grabbing" : "grab") : "default" }}
       >
         <div
-          className="origin-center"
+          className="origin-top-left"
           style={{
-            transform: `scale(${zoom})`,
-            transition: "transform 120ms ease-out",
+            transform: `translate(${view.tx}px, ${view.ty}px) scale(${view.scale})`,
+            transition: isPanning ? "none" : "transform 120ms ease-out",
           }}
         >
           <img
@@ -214,7 +262,7 @@ export default function WorldMap({
           </svg>
         </div>
         <div className="pointer-events-none absolute right-3 top-3 rounded-full border border-border bg-page/90 px-2.5 py-1 text-xs font-semibold text-ink">
-          Zoom {Math.round(zoom * 100)}%
+          Zoom {Math.round(view.scale * 100)}%
         </div>
       </div>
     </div>
