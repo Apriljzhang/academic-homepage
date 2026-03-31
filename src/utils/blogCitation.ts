@@ -35,7 +35,7 @@ export function formatApa7BlogCitation(title: string, publishedAt: string, postU
   const datePart = Number.isNaN(d.getTime())
     ? "n.d."
     : d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
-  return `Zhang, A. J. (${datePart}). ${title}. ${BLOG_NAME}. ${postUrl}`;
+  return `Zhang, A. J. (${datePart}). ${title} [Blog post]. ${BLOG_NAME}. ${postUrl}`;
 }
 
 export function formatBibTexBlogCitation(title: string, publishedAt: string, slug: string, postUrl: string): string {
@@ -45,7 +45,7 @@ export function formatBibTexBlogCitation(title: string, publishedAt: string, slu
   const day = Number.isNaN(d.getTime()) ? "1" : String(d.getDate());
   const key = `zhang${year}${safeKeyPart(slug)}`;
   return [
-    `@misc{${key},`,
+    `@online{${key},`,
     `  author = {Zhang, April Jiawei},`,
     `  title = {${escapeBibTex(title)}},`,
     `  year = {${year}},`,

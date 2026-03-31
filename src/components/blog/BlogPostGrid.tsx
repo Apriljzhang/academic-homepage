@@ -284,7 +284,7 @@ export default function BlogPostGrid({ initialPosts = [], countsUrl = "" }: Prop
                     onClick={async () => {
                       try {
                         await copyBlogCitation(p.title, p.published_at, p.slug);
-                        window.alert("Citation copied.");
+                        window.alert("Citation copied via BibTeX.");
                       } catch {
                         window.alert("Could not copy citation.");
                       }

@@ -7,8 +7,8 @@ import VisitsDashboard from '../../components/visits/VisitsDashboard';
 import { person } from '../../data/cv';
 import { getCollaborators } from '../../data/collaborators';
 
-const title = `Networking · ${person.fullDisplayName}`;
-const description = `Networking map and regional visits for ${person.fullDisplayName}.`;
+const title = `Hello, World. · ${person.fullDisplayName}`;
+const description = `Hello to collaborators and visitors — map and regional visits for ${person.fullDisplayName}.`;
 
 const countsUrl = (import.meta.env.PUBLIC_SUPABASE_VISIT_COUNTS_URL as string | undefined) ?? '';
 
@@ -27,7 +27,7 @@ const collaboratorRoutes = collaborators
   <SiteHeader />
   <main id="main-content" class="min-h-[50vh] w-full bg-page">
     <PageShell accentBar>
-      <h1 class="font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">Networking</h1>
+      <h1 class="font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">Hello to collaborators and visitors</h1>
       <VisitsDashboard client:load countsUrl={countsUrl} collaboratorRoutes={collaboratorRoutes} home={macau} />
     </PageShell>
   </main>

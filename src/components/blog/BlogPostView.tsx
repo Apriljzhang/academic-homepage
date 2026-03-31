@@ -128,7 +128,7 @@ export default function BlogPostView() {
         onClick={async () => {
           try {
             await copyBlogCitation(post.title, post.published_at, post.slug);
-            window.alert("Citation copied.");
+            window.alert("Citation copied via BibTeX.");
           } catch {
             window.alert("Could not copy citation.");
           }

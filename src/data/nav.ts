@@ -6,5 +6,5 @@ export const navItems = [
   { href: withBase('/teaching'), label: 'Teaching' },
   { href: withBase('/service'), label: 'Service' },
   { href: withBase('/blog'), label: 'Blog' },
-  { href: withBase('/networking'), label: 'Networking' },
+  { href: withBase('/networking'), label: 'Hello, World.' },
 ] as const;

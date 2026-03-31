@@ -183,14 +183,14 @@ const replyTo = `mailto:${contact.cityu}?subject=${encodeURIComponent(`Reply: ${
           ? "n.d."
           : d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
         const postUrl = `${origin}/blog/${encodeURIComponent(slug)}/`;
-        const apa = `Zhang, A. J. (${datePart}). ${title}. Reflexivity in Research, Learning, and Teaching-AJZ. ${postUrl}`;
+        const apa = `Zhang, A. J. (${datePart}). ${title} [Blog post]. Reflexivity in Research, Learning, and Teaching-AJZ. ${postUrl}`;
         const year = Number.isNaN(d.getTime()) ? "n.d." : String(d.getFullYear());
         const months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
         const month = Number.isNaN(d.getTime()) ? "jan" : months[d.getMonth()];
         const day = Number.isNaN(d.getTime()) ? "1" : String(d.getDate());
         const keyPart = slug.toLowerCase().replace(/[^a-z0-9]+/g, "").slice(0, 24) || "post";
         const bib = [
-          `@misc{zhang${year}${keyPart},`,
+          `@online{zhang${year}${keyPart},`,
           `  author = {Zhang, April Jiawei},`,
           `  title = {${title.replace(/\\/g, "\\\\").replace(/\{/g, "\\{").replace(/\}/g, "\\}")}},`,
           `  year = {${year}},`,
@@ -201,7 +201,7 @@ const replyTo = `mailto:${contact.cityu}?subject=${encodeURIComponent(`Reply: ${
           `}`,
         ].join("\n");
         await navigator.clipboard.writeText(`APA 7th\n${apa}\n\nBibTeX\n${bib}`);
-        window.alert("Citation copied.");
+        window.alert("Citation copied via BibTeX.");
       } catch {
         window.alert("Could not copy citation.");
       }
