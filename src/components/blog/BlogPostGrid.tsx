@@ -19,6 +19,7 @@ export default function BlogPostGrid({ initialPosts = [] }: Props) {
   const [status, setStatus] = useState<"idle" | "loading" | "error">("idle");
   const [isAdmin, setIsAdmin] = useState(false);
   const [selectedTag, setSelectedTag] = useState<string>("all");
+  const [selectedMonth, setSelectedMonth] = useState<string>("all");
   const [selectedDate, setSelectedDate] = useState<string>("");
   const [busySlug, setBusySlug] = useState<string>("");
 
@@ -79,25 +80,35 @@ export default function BlogPostGrid({ initialPosts = [] }: Props) {
     window.addEventListener("blog-date-filter", onDateFilter as EventListener);
     return () => window.removeEventListener("blog-date-filter", onDateFilter as EventListener);
   }, []);
-
-  const tagCounts = useMemo(() => {
-    const m = new Map<string, number>();
-    for (const p of posts) {
-      for (const t of p.tags ?? []) {
-        const key = String(t || "").trim();
-        if (!key) continue;
-        m.set(key, (m.get(key) ?? 0) + 1);
-      }
-    }
-    return Array.from(m.entries())
-      .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
-      .map(([tag, count]) => ({ tag, count }));
-  }, [posts]);
+  useEffect(() => {
+    const onTagFilter = (ev: Event) => {
+      const e = ev as CustomEvent<{ tag?: string }>;
+      setSelectedTag(e.detail?.tag ?? "all");
+    };
+    window.addEventListener("blog-tag-filter", onTagFilter as EventListener);
+    return () => window.removeEventListener("blog-tag-filter", onTagFilter as EventListener);
+  }, []);
+  useEffect(() => {
+    const onMonthFilter = (ev: Event) => {
+      const e = ev as CustomEvent<{ month?: string }>;
+      setSelectedMonth(e.detail?.month ?? "all");
+    };
+    window.addEventListener("blog-month-filter", onMonthFilter as EventListener);
+    return () => window.removeEventListener("blog-month-filter", onMonthFilter as EventListener);
+  }, []);
 
   const filtered = useMemo(() => {
     let arr = posts;
     if (selectedTag !== "all") {
       arr = arr.filter((p) => (p.tags ?? []).includes(selectedTag));
+    }
+    if (selectedMonth !== "all") {
+      arr = arr.filter((p) => {
+        const d = new Date(p.published_at);
+        if (Number.isNaN(d.getTime())) return false;
+        const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
+        return key === selectedMonth;
+      });
     }
     if (selectedDate) {
       arr = arr.filter((p) => {
@@ -108,7 +119,7 @@ export default function BlogPostGrid({ initialPosts = [] }: Props) {
       });
     }
     return arr;
-  }, [posts, selectedTag, selectedDate]);
+  }, [posts, selectedTag, selectedMonth, selectedDate]);
 
   async function deletePost(slug: string) {
     const ok = window.confirm("Delete this post permanently?");
@@ -211,9 +222,7 @@ export default function BlogPostGrid({ initialPosts = [] }: Props) {
           <p className="text-sm text-muted">
             {status === "loading"
               ? "Loading…"
-              : selectedTag === "all"
-                ? "No published posts yet."
-                : `No posts for “${selectedTag}”.`}
+              : "No posts for current filters."}
           </p>
         ) : (
           filtered.map((p) => (
@@ -261,41 +270,6 @@ export default function BlogPostGrid({ initialPosts = [] }: Props) {
         )}
       </div>
 
-      {tagCounts.length ? (
-        <div className="mt-10">
-          <p className="text-xs font-bold uppercase tracking-wider text-muted">Browse by tag</p>
-          <div className="mt-3 flex flex-wrap gap-2">
-            <button
-              type="button"
-              className={[
-                "rounded-full border px-3 py-1.5 text-sm font-semibold transition-colors",
-                selectedTag === "all"
-                  ? "border-page/40 bg-secondary text-white"
-                  : "border-border bg-page text-muted hover:bg-neutral-hover hover:text-ink",
-              ].join(" ")}
-              onClick={() => setSelectedTag("all")}
-            >
-              All ({posts.length})
-            </button>
-            {tagCounts.map(({ tag, count }) => (
-              <button
-                key={tag}
-                type="button"
-                className={[
-                  "rounded-full border px-3 py-1.5 text-sm font-semibold transition-colors",
-                  selectedTag === tag
-                    ? "border-page/40 bg-secondary text-white"
-                    : "border-border bg-page text-muted hover:bg-neutral-hover hover:text-ink",
-                ].join(" ")}
-                onClick={() => setSelectedTag(tag)}
-                title={`${count} post${count === 1 ? "" : "s"}`}
-              >
-                {tag} ({count})
-              </button>
-            ))}
-          </div>
-        </div>
-      ) : null}
     </div>
   );
 }
