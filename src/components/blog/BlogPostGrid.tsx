@@ -308,7 +308,9 @@ export default function BlogPostGrid({ initialPosts = [], countsUrl = "" }: Prop
                 {p.tags?.length ? <span className="text-muted/70">·</span> : null}
                 {p.tags?.length ? <span>{p.tags.slice(0, 5).join(", ")}</span> : null}
                 <span className="text-muted/70">·</span>
-                <span>{viewCounts[p.slug] ?? 0} clicks</span>
+                <span className="inline-flex min-w-7 items-center justify-center rounded-full border border-border bg-page px-2 py-0.5 text-xs font-semibold text-ink">
+                  {viewCounts[p.slug] ?? 0}
+                </span>
               </div>
 
               {p.excerpt ? <p className="mt-2 text-pretty text-sm leading-relaxed text-muted">{p.excerpt}</p> : null}
