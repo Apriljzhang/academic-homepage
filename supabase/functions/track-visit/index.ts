@@ -92,7 +92,84 @@ function parseCsvEnv(name: string): string[] {
     .filter(Boolean);
 }
 
-function shouldIgnoreVisit(req: Request, ip: string): string | null {
+function hasHumanSignalHeaders(req: Request): boolean {
+  const secFetchSite = req.headers.get("sec-fetch-site")?.trim();
+  const secFetchMode = req.headers.get("sec-fetch-mode")?.trim();
+  const secFetchDest = req.headers.get("sec-fetch-dest")?.trim();
+  return Boolean(secFetchSite && secFetchMode && secFetchDest);
+}
+
+function isClearlyAutomationUa(ua: string): boolean {
+  const s = ua.toLowerCase();
+  const botHints = [
+    "bot",
+    "spider",
+    "crawler",
+    "slurp",
+    "bingpreview",
+    "headless",
+    "lighthouse",
+    "pagespeed",
+    "uptimerobot",
+    "curl/",
+    "wget/",
+    "python-requests",
+    "go-http-client",
+    "node-fetch",
+    "axios/",
+    "facebookexternalhit",
+    "whatsapp",
+    "telegrambot",
+    "slackbot",
+    "discordbot",
+    "twitterbot",
+    "linkedinbot",
+  ];
+  return botHints.some((h) => s.includes(h));
+}
+
+function looksLikeBrowserUa(ua: string): boolean {
+  const s = ua.toLowerCase();
+  const browserHints = ["mozilla/", "applewebkit/", "chrome/", "safari/", "firefox/", "edg/", "crios/", "fxios/"];
+  return browserHints.some((h) => s.includes(h));
+}
+
+function isDeniedDataCenterOrg(geo: IpApiResponse | null): boolean {
+  const source = `${geo?.org ?? ""} ${geo?.asn_org ?? ""}`.toLowerCase();
+  if (!source.trim()) return false;
+  const configured = parseCsvEnv("VISIT_DENYLIST_ORG_PATTERNS").map((s) => s.toLowerCase());
+  const defaults = [
+    "amazon",
+    "aws",
+    "google cloud",
+    "microsoft",
+    "azure",
+    "digitalocean",
+    "linode",
+    "vultr",
+    "oracle cloud",
+    "cloudflare",
+    "fastly",
+    "akamai",
+    "tencent cloud",
+    "alibaba cloud",
+    "hetzner",
+    "ovh",
+    "choopa",
+    "scaleway",
+  ];
+  const patterns = configured.length > 0 ? configured : defaults;
+  return patterns.some((p) => source.includes(p));
+}
+
+function isDeniedAsn(geo: IpApiResponse | null): boolean {
+  const asn = (geo?.asn ?? "").toUpperCase().trim();
+  if (!asn) return false;
+  const denied = new Set(parseCsvEnv("VISIT_DENYLIST_ASNS").map((s) => s.toUpperCase()));
+  return denied.has(asn);
+}
+
+function shouldIgnoreVisit(req: Request, ip: string, geo: IpApiResponse | null): string | null {
   if (isPrivateOrReservedIp(ip)) return "private_or_reserved_ip";
 
   const excludedIps = parseCsvEnv("VISIT_EXCLUDED_IPS");
@@ -100,7 +177,11 @@ function shouldIgnoreVisit(req: Request, ip: string): string | null {
 
   const ua = req.headers.get("user-agent")?.trim() ?? "";
   if (!ua) return "missing_ua";
-  if (isLikelyBotUserAgent(ua)) return "bot_ua";
+  if (isLikelyBotUserAgent(ua) || isClearlyAutomationUa(ua)) return "bot_ua";
+  if (!looksLikeBrowserUa(ua)) return "non_browser_ua";
+  if (!hasHumanSignalHeaders(req)) return "missing_human_headers";
+  if (isDeniedDataCenterOrg(geo)) return "denylisted_org";
+  if (isDeniedAsn(geo)) return "denylisted_asn";
 
   const defaultHosts = ["apriljzhang.com", "www.apriljzhang.com", "localhost"];
   const configuredHosts = parseCsvEnv("VISIT_ALLOWED_HOSTS").map((s) => s.toLowerCase());
@@ -129,6 +210,9 @@ type IpApiResponse = {
   city?: string;
   latitude?: number;
   longitude?: number;
+  asn?: string;
+  org?: string;
+  asn_org?: string;
 };
 
 async function lookupGeo(ip: string): Promise<IpApiResponse | null> {
@@ -216,7 +300,8 @@ Deno.serve(async (req) => {
       });
     }
 
-    const ignoreReason = shouldIgnoreVisit(req, ip);
+    const geo = await lookupGeo(ip);
+    const ignoreReason = shouldIgnoreVisit(req, ip, geo);
     if (ignoreReason) {
       return new Response(JSON.stringify({ ok: true, inserted: false, reason: ignoreReason }), {
         status: 200,
@@ -228,7 +313,6 @@ Deno.serve(async (req) => {
     const salt = Deno.env.get("IP_HASH_SALT") ?? "change-me";
     const ipHash = await sha256Hex(`${salt}:${ip}`);
 
-    const geo = await lookupGeo(ip);
     const result = await insertVisit({
       ipHash,
       country: geo?.country_name ?? countryHint ?? undefined,
