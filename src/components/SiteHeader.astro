@@ -24,7 +24,6 @@ function isActive(href: string): boolean {
 }
 
 const homeHref = withBase('/');
-const logoSrc = `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}images/ajz-logo-transparent.png`;
 ---
 
 <header class="sticky top-0 z-40 w-full border-b border-secondary/35 bg-secondary">
@@ -35,9 +34,8 @@ const logoSrc = `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}images/ajz-logo
     <p class="font-serif text-xl font-semibold tracking-tight text-ink">
       <a
         href={homeHref}
-        class="inline-flex items-center gap-2 text-white no-underline transition-colors hover:text-page"
+        class="text-white no-underline transition-colors hover:text-page"
       >
-        <img src={logoSrc} alt="" class="h-6 w-6 rounded-sm object-contain" loading="eager" />
         April Jiawei Zhang 張家維
       </a>
     </p>
