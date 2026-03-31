@@ -1,4 +1,4 @@
-import React, { useMemo, useRef } from "react";
+import React, { useMemo, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import DottedMap from "dotted-map";
 
@@ -44,6 +44,7 @@ export default function WorldMap({
   homeColor = "#8fb791",
 }: Props) {
   const svgRef = useRef<SVGSVGElement>(null);
+  const [zoom, setZoom] = useState(1);
 
   const { svgMap, projected, viewBox } = useMemo(() => {
     // Use dotted-map's own projection (mercator by default) for accurate pin placement.
@@ -104,19 +105,33 @@ export default function WorldMap({
 
   return (
     <div className="w-full overflow-hidden rounded-xl border border-border bg-surface shadow-sm">
-      <div className="relative w-full">
-        <img
-          src={`data:image/svg+xml;utf8,${encodeURIComponent(svgMap)}`}
-          className="h-auto w-full pointer-events-none select-none object-cover [mask-image:linear-gradient(to_bottom,transparent,white_10%,white_90%,transparent)]"
-          alt="world map"
-          draggable={false}
-        />
-        <svg
-          ref={svgRef}
-          viewBox={`0 0 ${viewBox.w} ${viewBox.h}`}
-          className="absolute inset-0 h-full w-full select-none"
-          preserveAspectRatio="xMidYMid meet"
+      <div
+        className="relative w-full overflow-hidden"
+        onWheel={(e) => {
+          e.preventDefault();
+          const delta = e.deltaY > 0 ? -0.12 : 0.12;
+          setZoom((z) => Math.min(3, Math.max(1, Number((z + delta).toFixed(2)))));
+        }}
+      >
+        <div
+          className="origin-center"
+          style={{
+            transform: `scale(${zoom})`,
+            transition: "transform 120ms ease-out",
+          }}
         >
+          <img
+            src={`data:image/svg+xml;utf8,${encodeURIComponent(svgMap)}`}
+            className="h-auto w-full pointer-events-none select-none object-cover [mask-image:linear-gradient(to_bottom,transparent,white_10%,white_90%,transparent)]"
+            alt="world map"
+            draggable={false}
+          />
+          <svg
+            ref={svgRef}
+            viewBox={`0 0 ${viewBox.w} ${viewBox.h}`}
+            className="absolute inset-0 h-full w-full select-none"
+            preserveAspectRatio="xMidYMid meet"
+          >
           <defs>
             <linearGradient id="path-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="0%" stopColor="white" stopOpacity="0" />
@@ -196,7 +211,11 @@ export default function WorldMap({
               </g>
             );
           })() : null}
-        </svg>
+          </svg>
+        </div>
+        <div className="pointer-events-none absolute right-3 top-3 rounded-full border border-border bg-page/90 px-2.5 py-1 text-xs font-semibold text-ink">
+          Zoom {Math.round(zoom * 100)}%
+        </div>
       </div>
     </div>
   );
