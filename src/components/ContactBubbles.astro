@@ -8,38 +8,42 @@ interface Props {
 
 const { className = '' } = Astro.props;
 
+/** w-full min-w-0 lets grid columns shrink so text wraps instead of overflowing */
 const bubbleClass =
-  'inline-flex min-h-9 items-center justify-center rounded-full border border-border bg-page px-3 py-1.5 text-sm font-semibold text-primary no-underline transition-colors hover:bg-neutral-hover hover:text-ink';
+  'flex w-full min-w-0 items-center justify-center rounded-2xl border border-border bg-page px-3 py-2 text-center text-sm font-semibold text-primary no-underline transition-colors hover:bg-neutral-hover hover:text-ink break-words text-pretty';
+
+const mailBubbleClass = `${bubbleClass} flex-col gap-2 text-xs sm:flex-row sm:gap-2 sm:text-sm`;
+
+const mailIconClass = 'h-3.5 w-3.5 shrink-0 text-primary';
+
+const mailTextClass = 'min-w-0 w-full max-w-full text-center leading-snug sm:flex-1';
 ---
 
-<div class:list={['grid items-stretch gap-2 sm:grid-cols-2 lg:grid-cols-[minmax(0,1.22fr)_minmax(0,1.62fr)_minmax(0,0.66fr)_minmax(0,0.86fr)_minmax(0,0.66fr)_minmax(0,0.72fr)]', className]}>
-  <a
-    class={`${bubbleClass} gap-1.5 text-center text-xs sm:text-sm lg:row-span-2 lg:min-h-14`}
-    href={`mailto:${contact.cityu}`}
-    title={contact.cityu}
-  >
-    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<div
+  class:list={[
+    'grid items-stretch gap-2 sm:grid-cols-2 lg:grid-cols-[minmax(0,1.22fr)_minmax(0,1.62fr)_minmax(0,0.66fr)_minmax(0,0.86fr)_minmax(0,0.66fr)_minmax(0,0.72fr)]',
+    className,
+  ]}
+>
+  <a class={mailBubbleClass} href={`mailto:${contact.cityu}`} title={contact.cityu}>
+    <svg class={mailIconClass} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
       <polyline points="22,6 12,13 2,6" />
     </svg>
-    <span class="inline-flex flex-col leading-tight">
-      <span class="whitespace-nowrap">Professional (CityU Macau)</span>
-      <span class="whitespace-nowrap">Primary institutional contact</span>
+    <span class:list={[mailTextClass, 'flex flex-col gap-0.5']}>
+      <span>Professional (CityU Macau)</span>
+      <span class="text-xs font-medium sm:text-sm">Primary institutional contact</span>
     </span>
   </a>
 
-  <a
-    class={`${bubbleClass} gap-1.5 text-center text-xs sm:text-sm`}
-    href={`mailto:${contact.gmail}`}
-    title={contact.gmail}
-  >
-    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <a class={mailBubbleClass} href={`mailto:${contact.gmail}`} title={contact.gmail}>
+    <svg class={mailIconClass} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
       <polyline points="22,6 12,13 2,6" />
     </svg>
-    <span class="inline-flex flex-col leading-tight">
-      <span class="whitespace-nowrap">Academic and personal via Gmail</span>
-      <span class="whitespace-nowrap">International access</span>
+    <span class:list={[mailTextClass, 'flex flex-col gap-0.5']}>
+      <span>Academic and personal via Gmail</span>
+      <span class="text-xs font-medium sm:text-sm">International access</span>
     </span>
   </a>
 
@@ -56,18 +60,14 @@ const bubbleClass =
     Web of Science
   </a>
 
-  <a
-    class={`${bubbleClass} gap-1.5 text-center text-xs sm:text-sm lg:col-start-2`}
-    href={`mailto:${contact.outlook}`}
-    title={contact.outlook}
-  >
-    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <a class:list={[mailBubbleClass, 'lg:col-start-2']} href={`mailto:${contact.outlook}`} title={contact.outlook}>
+    <svg class={mailIconClass} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
       <polyline points="22,6 12,13 2,6" />
     </svg>
-    <span class="inline-flex flex-col leading-tight">
-      <span class="whitespace-nowrap">Academic and personal via Outlook</span>
-      <span class="whitespace-nowrap">Mainland China access</span>
+    <span class:list={[mailTextClass, 'flex flex-col gap-0.5']}>
+      <span>Academic and personal via Outlook</span>
+      <span class="text-xs font-medium sm:text-sm">Mainland China access</span>
     </span>
   </a>
   <a href={academicIds.googleScholar.href} target="_blank" rel="noopener noreferrer" class={bubbleClass}>
