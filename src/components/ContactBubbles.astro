@@ -17,6 +17,9 @@ const mailBubbleClass = `${bubbleClass} flex-col gap-2 text-xs sm:flex-row sm:ga
 const mailIconClass = 'h-3.5 w-3.5 shrink-0 text-primary';
 
 const mailTextClass = 'min-w-0 w-full max-w-full text-center leading-snug sm:flex-1';
+
+/** Spans both contact rows on large screens; stay column-stacked and vertically centred inside the tall cell */
+const institutionalBubbleClass = `${mailBubbleClass} lg:row-span-2 lg:h-full lg:min-h-0 lg:flex-col lg:justify-center lg:gap-3`;
 ---
 
 <div
@@ -25,7 +28,7 @@ const mailTextClass = 'min-w-0 w-full max-w-full text-center leading-snug sm:fle
     className,
   ]}
 >
-  <a class={mailBubbleClass} href={`mailto:${contact.cityu}`} title={contact.cityu}>
+  <a class={institutionalBubbleClass} href={`mailto:${contact.cityu}`} title={contact.cityu}>
     <svg class={mailIconClass} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
       <polyline points="22,6 12,13 2,6" />
