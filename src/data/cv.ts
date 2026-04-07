@@ -137,11 +137,6 @@ export const researchThemesDetailed: readonly ResearchThemeDetailed[] = [
       {
         status: 'In preparation',
         citationHtml:
-          '<em>Breaking the fourth wall in Chinese EFL: Stakeholder perceptions of situated learning “in the wild” with young learners</em>.',
-      },
-      {
-        status: 'In preparation',
-        citationHtml:
           '<em>Interplay between personality traits, vocabulary learning strategy and achievement in English language courses in EMI</em>.',
       },
     ],
@@ -183,6 +178,10 @@ export type PublicationItem = {
 
 /** Peer-reviewed work and doctoral dissertation, newest first. */
 export const publications: PublicationItem[] = [
+  {
+    citationHtml:
+      'Zhang, A. J., & Chen, Z. (2026). Breaking the fourth wall in Chinese EFL: Stakeholder perceptions of situated learning "in the wild" with young learners. <em>TESOL International Association Applied Linguistics Forum</em>, <em>46</em>(1), 1-6.',
+  },
   {
     citationHtml:
       'Ji, T., & Zhang, J. (2025). Demotivation in English learning of Chinese medical students: Insights from situated expectancy-value theory. <em>Acta Psychologica</em>, <em>253</em>, Article 104716.',

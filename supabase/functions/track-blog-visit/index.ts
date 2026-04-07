@@ -78,13 +78,6 @@ function looksLikeBrowserUa(ua: string): boolean {
   return browserHints.some((h) => s.includes(h));
 }
 
-function hasHumanSignalHeaders(req: Request): boolean {
-  const secFetchSite = req.headers.get("sec-fetch-site")?.trim();
-  const secFetchMode = req.headers.get("sec-fetch-mode")?.trim();
-  const secFetchDest = req.headers.get("sec-fetch-dest")?.trim();
-  return Boolean(secFetchSite && secFetchMode && secFetchDest);
-}
-
 function isDeniedDataCenterOrg(geo: IpApiResponse | null): boolean {
   const source = `${geo?.org ?? ""} ${geo?.asn_org ?? ""}`.toLowerCase();
   if (!source.trim()) return false;
@@ -129,7 +122,6 @@ function shouldIgnore(req: Request, ip: string, geo: IpApiResponse | null): stri
   if (!ua) return "missing_ua";
   if (isLikelyBotUserAgent(ua)) return "bot_ua";
   if (!looksLikeBrowserUa(ua)) return "non_browser_ua";
-  if (!hasHumanSignalHeaders(req)) return "missing_human_headers";
   if (isDeniedDataCenterOrg(geo)) return "denylisted_org";
   if (isDeniedAsn(geo)) return "denylisted_asn";
 

@@ -13,6 +13,7 @@ export type Collaborator = {
  */
 export const collaboratorAffiliations: Record<string, string> = {
   'Bai, W.': 'Nanjing, CN',
+  'Chen, Z.': 'Oxford, UK',
   'Ji, T.': 'Zhuhai, CN',
   'Lu, Y.': 'Nottingham, UK',
   'Wright, C.': 'Leeds, UK',
@@ -22,6 +23,7 @@ export const collaboratorAffiliations: Record<string, string> = {
 
 export const collaboratorLocations: Record<string, { lat: number; lng: number }> = {
   'Bai, W.': { lat: 32.0603, lng: 118.7969 }, // Nanjing
+  'Chen, Z.': { lat: 51.752, lng: -1.2577 }, // Oxford
   'Ji, T.': { lat: 22.2707, lng: 113.5767 }, // Zhuhai
   'Lu, Y.': { lat: 52.9548, lng: -1.1581 }, // Nottingham
   'Wright, C.': { lat: 53.8008, lng: -1.5491 }, // Leeds
