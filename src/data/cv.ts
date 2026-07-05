@@ -180,6 +180,11 @@ export type PublicationItem = {
 export const publications: PublicationItem[] = [
   {
     citationHtml:
+      'Hou, Y., Ouyang, B., Liu, J. E., Zhang, A. J., & Sun, Z. (2026). A case study of high school graduates\' reflections on career education: Insights from high-stakes context. <em>The Career Development Quarterly</em>, Advance online publication, Article cdq.70033.',
+    doiUrl: 'https://doi.org/10.1002/cdq.70033',
+  },
+  {
+    citationHtml:
       'Zhang, A. J., & Chen, Z. (2026). Breaking the fourth wall in Chinese EFL: Stakeholder perceptions of situated learning "in the wild" with young learners. <em>TESOL International Association Applied Linguistics Forum</em>, <em>46</em>(1), 1-6.',
   },
   {
