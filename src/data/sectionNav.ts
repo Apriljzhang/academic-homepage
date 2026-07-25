@@ -11,6 +11,7 @@ export const teachingSubnav = [
   { href: withBase('/teaching'), label: 'Overview' },
   { href: withBase('/teaching/approach'), label: 'Approach & experience' },
   { href: withBase('/teaching/supervision'), label: 'Supervision' },
+  { href: withBase('/teaching/assessment-for-as-learning-ai'), label: 'Interactive workshop' },
 ] as const;
 
 export const serviceSubnav = [

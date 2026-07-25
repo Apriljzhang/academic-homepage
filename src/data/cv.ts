@@ -185,7 +185,7 @@ export const publications: PublicationItem[] = [
   },
   {
     citationHtml:
-      'Zhang, A. J., & Chen, Z. (2026). Breaking the fourth wall in Chinese EFL: Stakeholder perceptions of situated learning "in the wild" with young learners. <em>TESOL International Association Applied Linguistics Forum</em>, <em>46</em>(1), 1-6.',
+      'Zhang, A. J., & Chen, Z. (2026). Breaking the fourth wall in Chinese EFL: Stakeholder perceptions of situated learning "in the wild" with young learners. <em>TESOL International Association Applied Linguistics Forum</em>, <em>46</em>(1), 1–6.',
   },
   {
     citationHtml:

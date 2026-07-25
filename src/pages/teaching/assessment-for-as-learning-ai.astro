@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import PageShell from '../../components/PageShell.astro';
+import SectionSubnav from '../../components/SectionSubnav.astro';
+import AssessmentForLearningWorkshop from '../../components/teaching/AssessmentForLearningWorkshop';
+import { teachingSubnav } from '../../data/sectionNav';
+import { person } from '../../data/cv';
+
+const title = `Assessment for/as Learning in the Age of AI · ${person.fullDisplayName}`;
+const description =
+  'A 150-minute interactive workshop on using Assessment for Learning and Assessment as Learning to sustain active learning in the age of generative AI.';
+---
+
+<BaseLayout {title} {description}>
+  <SiteHeader />
+  <main id="main-content" class="min-h-0 w-full bg-page">
+    <PageShell accentBar>
+      <SectionSubnav ariaLabel="Teaching section" items={teachingSubnav} />
+      <AssessmentForLearningWorkshop client:load />
+    </PageShell>
+  </main>
+  <SiteFooter />
+</BaseLayout>
+
+<style is:global>
+  .afl-workshop button,
+  .afl-workshop a,
+  .afl-workshop select {
+    touch-action: manipulation;
+  }
+
+  @media print {
+    body > header,
+    body > footer,
+    nav,
+    .print\:hidden {
+      display: none !important;
+    }
+
+    .afl-workshop {
+      margin: 0 !important;
+    }
+
+    .afl-workshop section,
+    .afl-workshop article {
+      break-inside: avoid;
+      box-shadow: none !important;
+    }
+
+    .afl-workshop textarea,
+    .afl-workshop select {
+      border-color: #8c8174 !important;
+    }
+  }
+</style>
