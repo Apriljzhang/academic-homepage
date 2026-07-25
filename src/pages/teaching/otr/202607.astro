@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import SiteHeader from '../../../components/SiteHeader.astro';
+import SiteFooter from '../../../components/SiteFooter.astro';
+import PageShell from '../../../components/PageShell.astro';
+import SectionSubnav from '../../../components/SectionSubnav.astro';
+import AssessmentForLearningDeck from '../../../components/teaching/AssessmentForLearningDeck';
+import { teachingSubnav } from '../../../data/sectionNav';
+import { person } from '../../../data/cv';
+
+const title = `Assessment for/as Learning in the Age of AI · Open Teaching Resources · ${person.fullDisplayName}`;
+const description =
+  'A 150-minute interactive slide deck on using Assessment for Learning and Assessment as Learning to sustain active learning in the age of generative AI.';
+---
+
+<BaseLayout {title} {description}>
+  <SiteHeader />
+  <main id="main-content" class="min-h-0 w-full bg-page">
+    <PageShell accentBar>
+      <SectionSubnav ariaLabel="Teaching section" items={teachingSubnav} />
+      <AssessmentForLearningDeck client:load />
+    </PageShell>
+  </main>
+  <SiteFooter />
+</BaseLayout>
+
+<style is:global>
+  .otr-deck button,
+  .otr-deck a,
+  .otr-deck select {
+    touch-action: manipulation;
+  }
+
+  @media print {
+    body > header,
+    body > footer,
+    nav {
+      display: none !important;
+    }
+
+    .otr-deck > div > div {
+      height: auto !important;
+      min-height: 0 !important;
+      overflow: visible !important;
+      box-shadow: none !important;
+    }
+  }
+</style>
