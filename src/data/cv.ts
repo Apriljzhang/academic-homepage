@@ -215,7 +215,7 @@ export const publications: PublicationItem[] = [
 /** Teaching page — narrative only (no job-by-job list). British English. */
 export const teachingNarrativeParagraphs = [
   'Earlier work was in the United Kingdom: English for Academic Purposes with international undergraduates and postgraduates, plus primary school partnership teaching while I completed my doctorate at Sheffield on formative assessment and young language learners.',
-  'I am now Assistant Professor in the School of Education at City University of Macau. I teach research methods, assessment, and language- and education-focused modules at master’s and doctoral level, and I supervise MEd and PhD students. Seminars draw on English alongside Chinese and on higher education in Macau and the Greater Bay Area, without treating any single system as the default.',
+  'I am now Assistant Professor in the School of Education at City University of Macau. I teach research methods, assessment, and language- and education-focused modules at master’s and doctoral level, and I supervise master’s and PhD students. Seminars draw on English alongside Chinese and on higher education in Macau and the Greater Bay Area, without treating any single system as the default.',
 ] as const;
 
 /**
@@ -370,7 +370,7 @@ export const homeSectionCards = [
     title: 'Teaching',
     kicker: 'Philosophy & supervision',
     description:
-      'Approach and trajectory across the UK and China / Macau, plus MEd and doctoral supervision.',
+      'Approach and trajectory across the UK and China / Macau, plus master’s and doctoral supervision.',
     accent: 'blue' as const,
   },
   {

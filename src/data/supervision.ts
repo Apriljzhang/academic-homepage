@@ -16,72 +16,63 @@ export type SupervisionBlock = {
   cohorts: SupervisionCohort[];
 };
 
-/** Programme blocks: doctoral first, then MEd, then prior MA. Newest cohort first within each block. */
+/** Degree-level blocks: doctoral dissertations first, then all master theses. */
 export const supervisionBlocks: SupervisionBlock[] = [
   {
-    title: 'Doctor of Philosophy (Education)',
+    title: 'PhD Dissertations',
     subtitle: '',
     cohorts: [
       {
         cohort: '2025',
         status: 'In progress',
         topics: [
-          'Evaluative judgement in AI-enabled English language teaching: think-aloud process study with doctoral-level participants',
+          'Developmental Trajectories of Evaluative Judgement in AI-Assisted EFL Academic Writing Revision: A Longitudinal Mixed-Methods Study of Rubric-Based Intervention',
           'Informal digital learning of English and self-regulation among medium-achieving students in secondary school (mixed methods)',
         ],
       },
       {
         cohort: '2024',
         status: 'In progress',
-        topics: ['Online formative assessment, psychological capital, and self-regulated learning'],
+        topics: [
+          'The Impact of Implementing Online Formative Assessment for Students’ Psychological Capital and Self-Regulated Learning',
+          'Evaluating the Efficacy of Informal Digital Learning of English on Language Proficiency: A Mixed-Methods Study in Huizhou, China',
+        ],
       },
       {
         cohort: '2023',
-        status: 'In progress',
+        status: 'Completed',
         topics: [
-          'Mechanisms linking formative assessment to classroom academic emotions in university English courses',
+          'A Study on the Influence Mechanism of Formative Assessment on Student’s Classroom Academic Emotions in English Class of Chinese Universities',
         ],
       },
     ],
   },
   {
-    title: 'Master of Education',
+    title: 'Master Theses',
     subtitle: '',
     cohorts: [
       {
         cohort: '2026',
         status: 'In progress',
-        topics: ['Several MEd dissertation projects underway; topics to be confirmed on programme records.'],
+        topics: ['Several master thesis projects underway; topics to be confirmed on programme records.'],
       },
       {
         cohort: '2025',
-        status: 'In progress',
+        status: 'Completed',
         topics: [
-          'AI-assisted evaluation and peer assessment in primary school Chinese writing',
-          'Generative AI affordances for oral English teaching in primary schools',
-          'Acceptance and uptake of peer assessment and AI-based assessment in junior secondary English writing (UTAUT-based mixed methods)',
-          'Informal digital learning of English on social platforms and self-regulated learning',
-          'Teachers’ acceptance of gamified EFL and primary pupils’ achievement emotions (mixed methods)',
-          'Further MEd dissertation in development',
+          'A Mixed-Methods Study on Oral Communication Teaching and Social-Emotional Competence Development in a Township Boarding School',
+          'A Study on the Application of AI-Assisted Assessment and Peer Review in Primary School Chinese Writing Classes',
+          'Informal Digital Learning of English on Rednote: A Study on Self-regulated Learning, Student Engagement and Their Relationships Among Non-English Major Undergraduates',
+          'The Role of Gamification in Enhancing English Learning Motivation, Effectiveness, and Emotional Experience among Primary School Students',
+          'Exploring Interactions and Motivation Among Chinese EFL Learners Engaging with TikTok Refugees on Xiaohongshu',
+          'Peer vs. AI Assessment in Junior High School EFL Writing',
         ],
       },
       {
         cohort: '2024',
         status: 'Completed',
         topics: [
-          'K–12 online English private tutoring in mainland China: difficulties, countermeasures, and narrative inquiry into interactive online teaching',
-        ],
-      },
-    ],
-  },
-  {
-    title: 'MA (English)',
-    subtitle: '',
-    cohorts: [
-      {
-        cohort: '2024',
-        status: 'Completed',
-        topics: [
+          'The Difficulties and Countermeasures of K-12 Online English Private Tutoring in Chinese Mainland',
           'AI chatbot–mediated English learning versus traditional instruction: flow, emotions, and oral proficiency among adolescent EFL learners',
           'Peer feedback in kindergarten language education: teacher observations and concerns',
         ],
