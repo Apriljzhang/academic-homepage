@@ -1,47 +1,41 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import SiteHeader from '../../../components/SiteHeader.astro';
-import SiteFooter from '../../../components/SiteFooter.astro';
-import PageShell from '../../../components/PageShell.astro';
-import SectionSubnav from '../../../components/SectionSubnav.astro';
 import OtrProtectedDeck from '../../../components/teaching/OtrProtectedDeck';
-import { teachingSubnav } from '../../../data/sectionNav';
 import { person } from '../../../data/cv';
 
 const title = `Assessment for/as Learning in the Age of AI · Open Teaching Resources · ${person.fullDisplayName}`;
 const description =
-  'A password-protected 150-minute information deck for Capital Normal University students on Assessment for/as Learning and learner agency in the age of generative AI.';
+  'A password-protected full-window information deck for Capital Normal University students on Assessment for/as Learning and learner agency in the age of generative AI.';
 ---
 
 <BaseLayout {title} {description}>
-  <SiteHeader />
-  <main id="main-content" class="min-h-0 w-full bg-page">
-    <PageShell accentBar>
-      <SectionSubnav ariaLabel="Teaching section" items={teachingSubnav} />
-      <OtrProtectedDeck client:load />
-    </PageShell>
+  <main id="main-content" class="h-dvh min-h-dvh w-full overflow-hidden bg-page">
+    <OtrProtectedDeck client:load />
   </main>
-  <SiteFooter />
 </BaseLayout>
 
 <style is:global>
+  html,
+  body {
+    height: 100%;
+    overflow: hidden;
+  }
+
   .otr-deck button,
   .otr-deck a {
     touch-action: manipulation;
   }
 
   @media print {
-    body > header,
-    body > footer,
-    nav {
-      display: none !important;
+    html,
+    body {
+      height: auto;
+      overflow: visible;
     }
 
-    .otr-deck > div > div {
+    .otr-deck {
       height: auto !important;
       min-height: 0 !important;
-      overflow: visible !important;
-      box-shadow: none !important;
     }
   }
 </style>

@@ -1,7 +1,7 @@
 import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 
 const STORAGE_KEY = "OTR_ACCESS_202607";
-const ACCESS_PASSWORD = "20260727";
+const ACCESS_PASSWORD = "202607";
 
 type Props = {
   children: ReactNode;
@@ -36,7 +36,7 @@ export default function OtrAccessGate({ children }: Props) {
 
   if (!ready) {
     return (
-      <div className="grid min-h-[24rem] place-items-center rounded-2xl border border-border bg-surface p-8">
+      <div className="grid h-dvh min-h-dvh place-items-center bg-page px-6">
         <p className="text-sm text-muted">Loading resource…</p>
       </div>
     );
@@ -44,8 +44,8 @@ export default function OtrAccessGate({ children }: Props) {
 
   if (!unlocked) {
     return (
-      <div className="mx-auto max-w-lg py-10">
-        <div className="rounded-2xl border border-border bg-surface p-6 shadow-sm sm:p-8">
+      <div className="grid h-dvh min-h-dvh place-items-center bg-page px-4 py-8">
+        <div className="w-full max-w-lg rounded-2xl border border-border bg-surface p-6 shadow-sm sm:p-8">
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">Open Teaching Resources</p>
           <h1 className="mt-2 font-serif text-3xl font-semibold text-ink">Password required</h1>
           <p className="mt-3 text-sm leading-relaxed text-muted">

@@ -23,6 +23,7 @@ import {
   takeaways,
   whyFormativeMatters,
 } from "../../data/aflWorkshop";
+import { withBase } from "../../utils/paths";
 
 function Frame({
   eyebrow,
@@ -443,120 +444,124 @@ export default function AssessmentForLearningDeck() {
   }
 
   return (
-    <div className="otr-deck -mx-4 sm:-mx-6 lg:-mx-8">
-      <div className="mx-auto max-w-7xl px-4 pb-8 pt-5 sm:px-6 lg:px-8">
-        <header className="mb-4 flex flex-wrap items-center justify-between gap-3">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">
-              Open Teaching Resources · 2026/07 · Capital Normal University
-            </p>
-            <h1 className="mt-1 max-w-4xl font-serif text-2xl font-semibold text-ink sm:text-3xl">{sessionTitle}</h1>
-          </div>
+    <div className="otr-deck flex h-dvh min-h-dvh flex-col bg-page text-ink">
+      <header className="flex shrink-0 flex-wrap items-center justify-between gap-3 border-b border-border bg-surface px-4 py-3 sm:px-6 lg:px-8">
+        <div className="min-w-0">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">
+            Open Teaching Resources · 2026/07 · Capital Normal University
+          </p>
+          <h1 className="mt-0.5 truncate font-serif text-lg font-semibold text-ink sm:text-xl">{sessionTitle}</h1>
+        </div>
+        <div className="flex flex-wrap items-center gap-2">
           {slideIndex >= 0 && (
             <button
               type="button"
               onClick={showOverview}
-              className="min-h-11 rounded-lg border border-border bg-surface px-4 py-2 text-sm font-bold text-ink hover:border-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
+              className="min-h-11 rounded-lg border border-border bg-page px-4 py-2 text-sm font-bold text-ink hover:border-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
             >
               Overview
             </button>
           )}
-        </header>
-
-        <div className="flex h-[calc(100dvh-13rem)] min-h-[34rem] flex-col overflow-hidden rounded-2xl border border-border bg-surface shadow-sm">
-          {slideIndex < 0 ? (
-            <div className="min-h-0 flex-1 overflow-y-auto p-5 sm:p-7">
-              <div className="grid gap-5 lg:grid-cols-[0.85fr_1.15fr]">
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-secondary">
-                    150-minute information deck
-                  </p>
-                  <h2 className="mt-2 text-pretty font-serif text-3xl font-semibold leading-tight text-ink sm:text-4xl">
-                    {sessionQuestion}
-                  </h2>
-                  <p className="mt-4 text-base leading-relaxed text-muted">
-                    A lecture resource for Capital Normal University students on using{" "}
-                    <strong className="text-ink">Assessment for Learning</strong> and{" "}
-                    <strong className="text-ink">Assessment as Learning</strong> to keep thinking, judgement, and agency
-                    with learners when generative AI can complete the task.
-                  </p>
-                  <div className="mt-5 rounded-xl border border-primary/30 bg-primary-faint p-4">
-                    <p className="text-xs font-bold uppercase tracking-wide text-primary">Core trace</p>
-                    <p className="mt-2 font-serif text-xl font-semibold text-ink">
-                      Clarify → Elicit → Feedback → Peers → Ownership
-                    </p>
-                  </div>
-                  <p className="mt-4 text-xs leading-relaxed text-muted">
-                    Click a slide to begin. Use on-screen controls, ← / →, Page Up / Page Down, or Escape to return to
-                    this overview. This deck is information-only—no responses are collected.
-                  </p>
-                </div>
-                <ol className="grid gap-2 sm:grid-cols-2">
-                  {slides.map((slide, index) => (
-                    <li key={slide.id}>
-                      <button
-                        type="button"
-                        onClick={() => goTo(index)}
-                        className="group grid min-h-24 w-full grid-cols-[2.75rem_1fr] rounded-xl border border-border bg-page p-3 text-left transition-transform hover:-translate-y-0.5 hover:border-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary motion-reduce:transform-none"
-                      >
-                        <span className="font-mono text-sm font-bold text-primary">{slide.number}</span>
-                        <span>
-                          <span className="block font-serif text-lg font-semibold text-ink group-hover:text-primary">
-                            {slide.title}
-                          </span>
-                          <span className="mt-1 block text-xs text-muted">
-                            {slide.time} · {slide.subtitle}
-                          </span>
-                        </span>
-                      </button>
-                    </li>
-                  ))}
-                </ol>
-              </div>
-            </div>
-          ) : (
-            <>
-              <div className="min-h-0 flex-1 p-5 sm:p-7">{renderSlide()}</div>
-              <nav
-                aria-label="Slide controls"
-                className="flex shrink-0 items-center gap-3 border-t border-border bg-page px-4 py-3"
-              >
-                <button
-                  type="button"
-                  onClick={() => (slideIndex === 0 ? showOverview() : goTo(slideIndex - 1))}
-                  className="min-h-11 rounded-lg border border-border bg-surface px-4 text-sm font-bold text-ink hover:border-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
-                >
-                  ← Previous
-                </button>
-                <div className="min-w-0 flex-1">
-                  <div className="flex justify-between text-xs font-bold uppercase tracking-wide text-muted">
-                    <span className="truncate">{slides[slideIndex].title}</span>
-                    <span>
-                      {slideIndex + 1} / {slides.length}
-                    </span>
-                  </div>
-                  <div className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-secondary-faint">
-                    <div
-                      className="h-full rounded-full bg-primary transition-[width] motion-reduce:transition-none"
-                      style={{ width: `${((slideIndex + 1) / slides.length) * 100}%` }}
-                    />
-                  </div>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => (slideIndex === slides.length - 1 ? showOverview() : goTo(slideIndex + 1))}
-                  className="min-h-11 rounded-lg bg-ink px-4 text-sm font-bold text-white hover:bg-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
-                >
-                  {slideIndex === slides.length - 1 ? "Overview" : "Next →"}
-                </button>
-              </nav>
-            </>
-          )}
+          <a
+            href={withBase("/teaching/otr")}
+            className="min-h-11 rounded-lg border border-border bg-page px-4 py-2 text-sm font-semibold text-muted no-underline hover:border-secondary hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
+          >
+            Exit
+          </a>
         </div>
+      </header>
 
-        <p className="mt-3 text-center text-xs text-muted">
-          Information deck for classroom presentation and self-study. No accounts, submissions, or analytics.
-        </p>
+      <div className="flex min-h-0 flex-1 flex-col bg-surface">
+        {slideIndex < 0 ? (
+          <div className="min-h-0 flex-1 overflow-y-auto px-4 py-5 sm:px-8 sm:py-7 lg:px-12">
+            <div className="mx-auto grid h-full max-w-[90rem] gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-secondary">
+                  150-minute information deck
+                </p>
+                <h2 className="mt-2 text-pretty font-serif text-3xl font-semibold leading-tight text-ink sm:text-4xl lg:text-5xl">
+                  {sessionQuestion}
+                </h2>
+                <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+                  A lecture resource for Capital Normal University students on using{" "}
+                  <strong className="text-ink">Assessment for Learning</strong> and{" "}
+                  <strong className="text-ink">Assessment as Learning</strong> to keep thinking, judgement, and agency
+                  with learners when generative AI can complete the task.
+                </p>
+                <div className="mt-5 rounded-xl border border-primary/30 bg-primary-faint p-4">
+                  <p className="text-xs font-bold uppercase tracking-wide text-primary">Core trace</p>
+                  <p className="mt-2 font-serif text-xl font-semibold text-ink sm:text-2xl">
+                    Clarify → Elicit → Feedback → Peers → Ownership
+                  </p>
+                </div>
+                <p className="mt-4 text-xs leading-relaxed text-muted">
+                  Click a slide to begin. Use ← / →, Page Up / Page Down, or Escape for overview. Full-window presentation
+                  mode—information only.
+                </p>
+              </div>
+              <ol className="grid gap-2 sm:grid-cols-2">
+                {slides.map((slide, index) => (
+                  <li key={slide.id}>
+                    <button
+                      type="button"
+                      onClick={() => goTo(index)}
+                      className="group grid min-h-24 w-full grid-cols-[2.75rem_1fr] rounded-xl border border-border bg-page p-3 text-left transition-transform hover:-translate-y-0.5 hover:border-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary motion-reduce:transform-none"
+                    >
+                      <span className="font-mono text-sm font-bold text-primary">{slide.number}</span>
+                      <span>
+                        <span className="block font-serif text-lg font-semibold text-ink group-hover:text-primary">
+                          {slide.title}
+                        </span>
+                        <span className="mt-1 block text-xs text-muted">
+                          {slide.time} · {slide.subtitle}
+                        </span>
+                      </span>
+                    </button>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
+        ) : (
+          <>
+            <div className="min-h-0 flex-1 overflow-hidden px-4 py-4 sm:px-8 sm:py-6 lg:px-12">
+              <div className="mx-auto h-full max-w-[90rem]">{renderSlide()}</div>
+            </div>
+            <nav
+              aria-label="Slide controls"
+              className="flex shrink-0 items-center gap-3 border-t border-border bg-page px-4 py-3 sm:px-8 lg:px-12"
+            >
+              <button
+                type="button"
+                onClick={() => (slideIndex === 0 ? showOverview() : goTo(slideIndex - 1))}
+                className="min-h-11 rounded-lg border border-border bg-surface px-4 text-sm font-bold text-ink hover:border-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
+              >
+                ← Previous
+              </button>
+              <div className="min-w-0 flex-1">
+                <div className="flex justify-between text-xs font-bold uppercase tracking-wide text-muted">
+                  <span className="truncate">{slides[slideIndex].title}</span>
+                  <span>
+                    {slideIndex + 1} / {slides.length}
+                  </span>
+                </div>
+                <div className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-secondary-faint">
+                  <div
+                    className="h-full rounded-full bg-primary transition-[width] motion-reduce:transition-none"
+                    style={{ width: `${((slideIndex + 1) / slides.length) * 100}%` }}
+                  />
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => (slideIndex === slides.length - 1 ? showOverview() : goTo(slideIndex + 1))}
+                className="min-h-11 rounded-lg bg-ink px-4 text-sm font-bold text-white hover:bg-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
+              >
+                {slideIndex === slides.length - 1 ? "Overview" : "Next →"}
+              </button>
+            </nav>
+          </>
+        )}
       </div>
     </div>
   );
