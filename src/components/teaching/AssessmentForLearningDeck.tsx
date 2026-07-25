@@ -1,58 +1,26 @@
-import { useEffect, useMemo, useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import {
-  agenda,
+  annotatedCases,
   assessmentPurposes,
-  disciplinePrompts,
-  fiveMoves,
+  contrastTriad,
+  criteriaExamples,
+  criteriaFramework,
+  elicitationTools,
+  feedbackLevels,
+  feedbackPrinciples,
+  formativeDefinition,
   formativeStrategies,
+  genaiUses,
+  humanNonNegotiables,
+  paradigmShift,
+  peerSelfPractices,
+  practitionerInsights,
   references,
-  strategyScenarios,
-  workSamples,
+  sessionQuestion,
+  sessionTitle,
+  slides,
+  takeaways,
 } from "../../data/aflWorkshop";
-
-type Purpose = "of" | "for" | "as";
-type Discipline = keyof typeof disciplinePrompts;
-type Planner = {
-  discipline: Discipline;
-  learningGoal: string;
-  task: string;
-  moves: Record<(typeof fiveMoves)[number]["key"], string>;
-};
-type ExitTicket = { stop: string; start: string; evidence: string };
-type SavedState = {
-  purposeAnswers: Record<string, Purpose>;
-  strategyAnswers: Record<string, boolean>;
-  sampleChoice: string;
-  sampleRevealed: boolean;
-  dialogueChoice: string;
-  planner: Planner;
-  exitTicket: ExitTicket;
-};
-
-const STORAGE_KEY = "ajz-afl-workshop-v2";
-
-const emptyPlanner: Planner = {
-  discipline: "Education",
-  learningGoal: "",
-  task: "",
-  moves: { think: "", compare: "", judge: "", improve: "", reflect: "" },
-};
-
-const emptyExit: ExitTicket = { stop: "", start: "", evidence: "" };
-
-const slides = [
-  { id: "opening", number: "01", time: "00–12", title: "Did learning happen?", subtitle: "Product or evidence?" },
-  { id: "ownership", number: "02", time: "12–28", title: "The ownership problem", subtitle: "Completion is not learning" },
-  { id: "purposes", number: "03", time: "28–48", title: "Of, for & as learning", subtitle: "3 purposes, 1 task" },
-  { id: "strategies", number: "04", time: "48–68", title: "5 formative strategies", subtitle: "Keep cognition with learners" },
-  { id: "diagnosis", number: "05", time: "68–78", title: "Rapid diagnosis", subtitle: "Formative—or theatre?" },
-  { id: "break", number: "06", time: "78–88", title: "Pause", subtitle: "10-minute break" },
-  { id: "judgement", number: "07", time: "88–108", title: "Learn to judge quality", subtitle: "Compare before criteria" },
-  { id: "dialogue", number: "08", time: "108–125", title: "AI as a dialogue partner", subtitle: "Do not outsource judgement" },
-  { id: "redesign", number: "09", time: "125–143", title: "Redesign an assessment", subtitle: "Build a 5-move loop" },
-  { id: "share", number: "10", time: "143–148", title: "60-second share", subtitle: "Test the design" },
-  { id: "exit", number: "11", time: "148–150", title: "Commit to 1 change", subtitle: "Stop · start · evidence" },
-] as const;
 
 function Frame({
   eyebrow,
@@ -83,80 +51,14 @@ function Frame({
   );
 }
 
-function Choice({
-  active,
-  onClick,
-  children,
-  tone = "blue",
-}: {
-  active: boolean;
-  onClick: () => void;
-  children: ReactNode;
-  tone?: "blue" | "red" | "green";
-}) {
-  const style = {
-    blue: active ? "border-secondary bg-secondary text-white" : "border-border bg-surface hover:border-secondary",
-    red: active ? "border-primary bg-primary text-white" : "border-border bg-surface hover:border-primary",
-    green: active ? "border-accent-purple bg-accent-purple text-ink" : "border-border bg-surface hover:border-accent-purple",
-  };
-  return (
-    <button
-      type="button"
-      aria-pressed={active}
-      onClick={onClick}
-      className={`min-h-11 rounded-lg border px-3 py-2 text-left text-sm font-semibold text-ink transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary ${style[tone]}`}
-    >
-      {children}
-    </button>
-  );
-}
-
 export default function AssessmentForLearningDeck() {
   const [slideIndex, setSlideIndex] = useState(-1);
-  const [purposeAnswers, setPurposeAnswers] = useState<Record<string, Purpose>>({});
-  const [strategyAnswers, setStrategyAnswers] = useState<Record<string, boolean>>({});
-  const [sampleChoice, setSampleChoice] = useState("");
-  const [sampleRevealed, setSampleRevealed] = useState(false);
-  const [dialogueChoice, setDialogueChoice] = useState("");
-  const [planner, setPlanner] = useState<Planner>(emptyPlanner);
-  const [exitTicket, setExitTicket] = useState<ExitTicket>(emptyExit);
-  const [loaded, setLoaded] = useState(false);
-  const [status, setStatus] = useState("");
 
   useEffect(() => {
     const hash = window.location.hash.replace("#slide-", "");
     const index = slides.findIndex(({ id }) => id === hash);
     if (index >= 0) setSlideIndex(index);
-    try {
-      const raw = window.localStorage.getItem(STORAGE_KEY);
-      if (raw) {
-        const saved = JSON.parse(raw) as Partial<SavedState>;
-        if (saved.purposeAnswers) setPurposeAnswers(saved.purposeAnswers);
-        if (saved.strategyAnswers) setStrategyAnswers(saved.strategyAnswers);
-        if (saved.sampleChoice) setSampleChoice(saved.sampleChoice);
-        if (saved.sampleRevealed) setSampleRevealed(saved.sampleRevealed);
-        if (saved.dialogueChoice) setDialogueChoice(saved.dialogueChoice);
-        if (saved.planner) setPlanner({ ...emptyPlanner, ...saved.planner });
-        if (saved.exitTicket) setExitTicket({ ...emptyExit, ...saved.exitTicket });
-      }
-    } finally {
-      setLoaded(true);
-    }
   }, []);
-
-  useEffect(() => {
-    if (!loaded) return;
-    const state: SavedState = {
-      purposeAnswers,
-      strategyAnswers,
-      sampleChoice,
-      sampleRevealed,
-      dialogueChoice,
-      planner,
-      exitTicket,
-    };
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-  }, [dialogueChoice, exitTicket, loaded, planner, purposeAnswers, sampleChoice, sampleRevealed, strategyAnswers]);
 
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
@@ -177,23 +79,6 @@ export default function AssessmentForLearningDeck() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [slideIndex]);
 
-  const summary = useMemo(
-    () =>
-      [
-        "ASSESSMENT FOR/AS LEARNING DESIGN",
-        `Discipline: ${planner.discipline}`,
-        `Learning goal: ${planner.learningGoal || "—"}`,
-        `Current task: ${planner.task || "—"}`,
-        "",
-        ...fiveMoves.flatMap(({ key, title }) => [`${title}: ${planner.moves[key] || "—"}`]),
-        "",
-        `Stop: ${exitTicket.stop || "—"}`,
-        `Start: ${exitTicket.start || "—"}`,
-        `Evidence: ${exitTicket.evidence || "—"}`,
-      ].join("\n"),
-    [exitTicket, planner],
-  );
-
   function goTo(index: number) {
     setSlideIndex(index);
     window.history.replaceState(null, "", `#slide-${slides[index].id}`);
@@ -204,138 +89,112 @@ export default function AssessmentForLearningDeck() {
     window.history.replaceState(null, "", window.location.pathname);
   }
 
-  function updateMove(key: (typeof fiveMoves)[number]["key"], value: string) {
-    setPlanner((current) => ({ ...current, moves: { ...current.moves, [key]: value } }));
-  }
-
-  async function copySummary() {
-    try {
-      await navigator.clipboard.writeText(summary);
-      setStatus("Design summary copied.");
-    } catch {
-      setStatus("Copy was blocked. Use Print or save as PDF instead.");
-    }
-  }
-
-  function clearProgress() {
-    if (!window.confirm("Clear all workshop answers saved on this device?")) return;
-    window.localStorage.removeItem(STORAGE_KEY);
-    setPurposeAnswers({});
-    setStrategyAnswers({});
-    setSampleChoice("");
-    setSampleRevealed(false);
-    setDialogueChoice("");
-    setPlanner(emptyPlanner);
-    setExitTicket(emptyExit);
-    setStatus("Local answers cleared.");
-  }
-
   function renderSlide() {
     const slide = slides[slideIndex];
     if (!slide) return null;
 
-    if (slide.id === "opening") {
+    if (slide.id === "why-change") {
       return (
-        <Frame eyebrow="Opening provocation" title="The product is finished. Did learning happen?" time="12 min">
-          <p className="max-w-3xl text-base leading-relaxed text-muted">
-            Choose the submission that gives a teacher more usable evidence of learning.
+        <Frame eyebrow="Opening" title="Why assessment must change in the age of AI" time="10 min">
+          <p className="max-w-3xl font-serif text-xl leading-relaxed text-ink sm:text-2xl">
+            For future teachers, the first question is no longer only whether a product looks finished. It is whether
+            assessment still makes thinking, judgement, and agency visible.
           </p>
-          <div className="mt-5 grid gap-4 lg:grid-cols-2">
-            {Object.entries(workSamples).map(([key, sample]) => (
-              <article key={key} className="rounded-xl border border-border bg-page p-4">
-                <p className="text-xs font-bold uppercase tracking-wide text-secondary">{sample.label}</p>
-                <blockquote className="mt-2 font-serif text-lg leading-relaxed text-ink">“{sample.text}”</blockquote>
-                <ul className="mt-3 space-y-1 text-sm text-muted">
-                  {sample.evidence.slice(0, 3).map((item) => (
-                    <li key={item}>— {item}</li>
-                  ))}
-                </ul>
-                <Choice active={sampleChoice === key} onClick={() => setSampleChoice(key)} tone="red">
-                  Choose {sample.label.split(" · ")[0]}
-                </Choice>
+          <div className="mt-5 grid gap-3 md:grid-cols-3">
+            {contrastTriad.map((item) => (
+              <article key={item.label} className="rounded-xl border border-border bg-page p-4">
+                <p className="text-xs font-bold uppercase tracking-wide text-primary">{item.label}</p>
+                <p className="mt-2 font-semibold text-ink">{item.text}</p>
+                <p className="mt-2 text-sm leading-relaxed text-muted">{item.note}</p>
               </article>
             ))}
           </div>
-          {sampleChoice && (
-            <p className="mt-4 rounded-xl border border-primary/30 bg-primary-faint p-4 text-sm leading-relaxed text-ink">
-              <strong>Sample B exposes a change in understanding.</strong> A polished product is evidence of a product;
-              a learning trace makes thinking and revision available for the next move.
-            </p>
-          )}
+          <p className="mt-5 rounded-xl border border-secondary/35 bg-secondary-faint p-4 text-sm leading-relaxed text-ink">
+            Guiding proposition: <strong>Assessment is the bridge between teaching and learning.</strong> When GenAI can
+            generate polished products, the bridge must carry evidence of thinking—not only completion.
+          </p>
         </Frame>
       );
     }
 
-    if (slide.id === "ownership") {
+    if (slide.id === "paradigm") {
       return (
-        <Frame eyebrow="The core problem" title="AI makes completion cheap. Learning still costs thought." time="16 min">
-          <div className="grid gap-4 lg:grid-cols-[1fr_0.9fr]">
-            <p className="font-serif text-2xl leading-relaxed text-ink sm:text-3xl">
-              The key question is not only <em>whether</em> a student used AI. It is whether the assessment still requires
-              the learner to think, judge, monitor and change.
-            </p>
-            <div className="space-y-3">
-              {[
-                ["Completion", "Was something submitted?"],
-                ["Participation", "Did the learner do something visible?"],
-                ["Active learning", "Did the learner make decisions that changed the work?"],
-              ].map(([label, question], index) => (
-                <div
-                  key={label}
-                  className={`rounded-xl border p-4 ${index === 2 ? "border-primary/40 bg-primary-faint" : "border-border bg-page"}`}
-                >
-                  <p className="text-xs font-bold uppercase tracking-wide text-secondary">{label}</p>
-                  <p className="mt-1 font-semibold text-ink">{question}</p>
+        <Frame eyebrow="Paradigm shift" title="From high-stakes testing to learning-oriented assessment" time="15 min">
+          <div className="grid gap-3">
+            {paradigmShift.map((item) => (
+              <article key={item.from} className="grid gap-2 rounded-xl border border-border bg-page p-4 sm:grid-cols-[1fr_auto_1fr]">
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-wide text-muted">From</p>
+                  <p className="mt-1 font-serif text-lg font-semibold text-ink">{item.from}</p>
                 </div>
-              ))}
-            </div>
+                <p className="hidden place-self-center text-primary sm:block" aria-hidden="true">
+                  →
+                </p>
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-wide text-primary">Toward</p>
+                  <p className="mt-1 font-serif text-lg font-semibold text-ink">{item.to}</p>
+                </div>
+                <p className="text-sm leading-relaxed text-muted sm:col-span-3">{item.point}</p>
+              </article>
+            ))}
           </div>
+          <p className="mt-5 border-l-2 border-primary pl-4 text-sm leading-relaxed text-muted">
+            High-quality assessment supports high-quality instruction when learning goals, learning processes, and
+            assessment evidence stay aligned.
+          </p>
         </Frame>
       );
     }
 
     if (slide.id === "purposes") {
       return (
-        <Frame eyebrow="Concept lab" title="Assessment of, for & as learning" time="20 min">
-          <div className="grid gap-3 sm:grid-cols-3">
-            {[
-              ["OF", "Summarise attainment"],
-              ["FOR", "Use evidence for the next move"],
-              ["AS", "Learn through judging & regulating"],
-            ].map(([label, text]) => (
-              <div key={label} className="rounded-xl border border-border bg-page p-3">
-                <p className="font-serif text-xl font-semibold text-primary">{label}</p>
-                <p className="mt-1 text-sm text-muted">{text}</p>
-              </div>
+        <Frame eyebrow="Concept map" title="Assessment of, for & as learning" time="15 min">
+          <p className="mb-4 max-w-3xl text-sm leading-relaxed text-muted">
+            Think of assessment as a journey: destination, current position, and the route the learner chooses next.
+          </p>
+          <div className="grid gap-3 lg:grid-cols-3">
+            {assessmentPurposes.map((item) => (
+              <article key={item.label} className="rounded-xl border border-border bg-page p-4">
+                <p className="font-serif text-2xl font-semibold text-primary">{item.label}</p>
+                <p className="mt-2 text-xs font-bold uppercase tracking-wide text-secondary">{item.journey}</p>
+                <p className="mt-3 text-sm font-semibold text-ink">{item.focus}</p>
+                <p className="mt-3 text-sm leading-relaxed text-muted">{item.example}</p>
+              </article>
             ))}
           </div>
-          <div className="mt-4 grid gap-3 lg:grid-cols-2">
-            {assessmentPurposes.map((item) => {
-              const answer = purposeAnswers[item.id];
-              return (
-                <fieldset key={item.id} className="rounded-xl border border-border bg-page p-3">
-                  <legend className="px-1 text-sm font-semibold leading-relaxed text-ink">{item.prompt}</legend>
-                  <div className="mt-2 flex flex-wrap gap-2">
-                    {(["of", "for", "as"] as Purpose[]).map((option) => (
-                      <Choice
-                        key={option}
-                        active={answer === option}
-                        onClick={() => setPurposeAnswers((current) => ({ ...current, [item.id]: option }))}
-                        tone={option === "of" ? "blue" : option === "for" ? "red" : "green"}
-                      >
-                        {option}
-                      </Choice>
-                    ))}
-                  </div>
-                  {answer && (
-                    <p className="mt-2 text-xs leading-relaxed text-muted">
-                      <strong className="text-ink">{answer === item.answer ? "Yes. " : `This is ${item.answer}. `}</strong>
-                      {item.explanation}
-                    </p>
-                  )}
-                </fieldset>
-              );
-            })}
+        </Frame>
+      );
+    }
+
+    if (slide.id === "alignment") {
+      return (
+        <Frame eyebrow="Constructive alignment" title="Make quality visible before work begins" time="15 min">
+          <div className="grid gap-3 sm:grid-cols-2">
+            {criteriaFramework.map((item) => (
+              <article key={item.label} className="rounded-xl border border-border bg-page p-4">
+                <p className="font-serif text-lg font-semibold text-ink">{item.label}</p>
+                <p className="mt-2 text-sm leading-relaxed text-muted">{item.meaning}</p>
+              </article>
+            ))}
+          </div>
+          <div className="mt-5 grid gap-3 lg:grid-cols-2">
+            {criteriaExamples.map((example) => (
+              <article key={example.title} className="rounded-xl border border-secondary/30 bg-secondary-faint p-4">
+                <p className="text-xs font-bold uppercase tracking-wide text-primary">{example.title}</p>
+                <p className="mt-3 text-xs font-bold uppercase tracking-wide text-ink">Product criteria</p>
+                <ul className="mt-1 space-y-1 text-sm text-muted">
+                  {example.product.map((line) => (
+                    <li key={line}>— {line}</li>
+                  ))}
+                </ul>
+                <p className="mt-3 text-xs font-bold uppercase tracking-wide text-ink">Performance criteria</p>
+                <ul className="mt-1 space-y-1 text-sm text-muted">
+                  {example.performance.map((line) => (
+                    <li key={line}>— {line}</li>
+                  ))}
+                </ul>
+              </article>
+            ))}
           </div>
         </Frame>
       );
@@ -343,75 +202,36 @@ export default function AssessmentForLearningDeck() {
 
     if (slide.id === "strategies") {
       return (
-        <Frame eyebrow="Assessment for Learning" title="5 strategies that keep cognition with the learner" time="20 min">
-          <ol className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
-            {formativeStrategies.map((strategy, index) => (
-              <li key={strategy.label} className="rounded-xl border border-border bg-page p-4">
+        <Frame eyebrow="Assessment for Learning" title="Five strategies that keep cognition with the learner" time="20 min">
+          <ol className="grid gap-3 lg:grid-cols-5">
+            {formativeStrategies.map((strategy) => (
+              <li key={strategy.number} className="rounded-xl border border-border bg-page p-4">
                 <span className="grid size-8 place-items-center rounded-full bg-secondary-faint font-serif font-bold text-secondary">
-                  {index + 1}
+                  {strategy.number}
                 </span>
                 <p className="mt-3 font-serif text-lg font-semibold text-ink">{strategy.label}</p>
                 <p className="mt-1 text-xs font-bold uppercase tracking-wide text-primary">{strategy.question}</p>
                 <p className="mt-2 text-sm leading-relaxed text-muted">{strategy.action}</p>
+                <p className="mt-3 text-xs leading-relaxed text-ink">{strategy.role}</p>
               </li>
             ))}
           </ol>
-          <p className="mt-5 border-l-2 border-primary pl-4 text-sm leading-relaxed text-muted">
-            Assessment becomes formative through the <strong className="text-ink">use of evidence</strong>, not through a
-            particular quiz, app or feedback tool.
+          <p className="mt-5 text-sm leading-relaxed text-muted">
+            Map roles clearly: the teacher designs and diagnoses; peers supply alternative perspectives; the learner
+            owns monitoring and revision.
           </p>
-        </Frame>
-      );
-    }
-
-    if (slide.id === "diagnosis") {
-      return (
-        <Frame eyebrow="Rapid diagnosis" title="Formative—or merely formative-looking?" time="10 min">
-          <div className="grid gap-3 lg:grid-cols-2">
-            {strategyScenarios.map((scenario) => {
-              const answer = strategyAnswers[scenario.id];
-              const answered = typeof answer === "boolean";
-              return (
-                <article key={scenario.id} className="rounded-xl border border-border bg-page p-4">
-                  <p className="text-sm font-semibold leading-relaxed text-ink">{scenario.prompt}</p>
-                  <div className="mt-3 flex gap-2">
-                    <Choice
-                      active={answer === true}
-                      onClick={() => setStrategyAnswers((current) => ({ ...current, [scenario.id]: true }))}
-                      tone="green"
-                    >
-                      Formative
-                    </Choice>
-                    <Choice
-                      active={answer === false}
-                      onClick={() => setStrategyAnswers((current) => ({ ...current, [scenario.id]: false }))}
-                      tone="red"
-                    >
-                      Not yet
-                    </Choice>
-                  </div>
-                  {answered && (
-                    <p className="mt-3 text-xs leading-relaxed text-muted">
-                      <strong className="text-ink">{answer === scenario.isFormative ? "Sound diagnosis. " : "Reconsider. "}</strong>
-                      {scenario.explanation}
-                    </p>
-                  )}
-                </article>
-              );
-            })}
-          </div>
         </Frame>
       );
     }
 
     if (slide.id === "break") {
       return (
-        <Frame eyebrow="Pause" title="Take 10 minutes." time="78–88">
+        <Frame eyebrow="Pause" title="Take 10 minutes." time="75–85">
           <div className="grid min-h-64 place-items-center rounded-2xl border border-dashed border-secondary bg-secondary-faint p-8 text-center">
             <div>
-              <p className="font-serif text-4xl font-semibold text-ink sm:text-5xl">Bring back 1 example</p>
+              <p className="font-serif text-4xl font-semibold text-ink sm:text-5xl">Hold one classroom image</p>
               <p className="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-muted">
-                Think of feedback you received but never used. What stopped it from becoming learning?
+                Think of feedback you once received but never used. What would have made that feedback formative?
               </p>
             </div>
           </div>
@@ -419,226 +239,177 @@ export default function AssessmentForLearningDeck() {
       );
     }
 
-    if (slide.id === "judgement") {
+    if (slide.id === "evidence") {
       return (
-        <Frame eyebrow="Assessment as Learning" title="Judge first. Then meet the criteria." time="20 min">
-          <div className="grid gap-4 lg:grid-cols-2">
-            {[
-              ["Response 1", "AI feedback is useful because it is immediate, detailed and available at any time."],
-              [
-                "Response 2",
-                "Immediacy may help, but feedback supports learning only when the learner interprets it, judges its relevance and uses it to revise.",
-              ],
-            ].map(([label, text]) => (
-              <article key={label} className="rounded-xl border border-border bg-page p-4">
-                <p className="text-xs font-bold uppercase tracking-wide text-secondary">{label}</p>
-                <blockquote className="mt-2 font-serif text-lg leading-relaxed text-ink">“{text}”</blockquote>
+        <Frame eyebrow="Responsive teaching" title="Formative only when evidence changes the next move" time="15 min">
+          <blockquote className="rounded-xl border border-primary/30 bg-primary-faint p-4 font-serif text-lg leading-relaxed text-ink">
+            {formativeDefinition.core}{" "}
+            <span className="text-base text-muted">{formativeDefinition.blackWiliam}</span>
+          </blockquote>
+          <div className="mt-4 grid gap-3 md:grid-cols-2">
+            <article className="rounded-xl border border-border bg-page p-4">
+              <p className="text-xs font-bold uppercase tracking-wide text-secondary">Planned elicitation</p>
+              <ul className="mt-2 space-y-1 text-sm text-muted">
+                {elicitationTools.planned.map((item) => (
+                  <li key={item}>— {item}</li>
+                ))}
+              </ul>
+            </article>
+            <article className="rounded-xl border border-border bg-page p-4">
+              <p className="text-xs font-bold uppercase tracking-wide text-secondary">Contingent elicitation</p>
+              <ul className="mt-2 space-y-1 text-sm text-muted">
+                {elicitationTools.contingent.map((item) => (
+                  <li key={item}>— {item}</li>
+                ))}
+              </ul>
+            </article>
+          </div>
+          <div className="mt-4 grid gap-3 lg:grid-cols-2">
+            {annotatedCases.map((item) => (
+              <article key={item.title} className="rounded-xl border border-border bg-page p-4">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <p className="font-serif text-lg font-semibold text-ink">{item.title}</p>
+                  <span
+                    className={`rounded-full px-2.5 py-1 text-xs font-bold ${
+                      item.verdict === "Formative"
+                        ? "bg-accent-purple-faint text-ink"
+                        : "bg-primary-faint text-primary"
+                    }`}
+                  >
+                    {item.verdict}
+                  </span>
+                </div>
+                <p className="mt-2 text-sm leading-relaxed text-muted">{item.scenario}</p>
+                <p className="mt-2 text-sm font-semibold leading-relaxed text-ink">{item.why}</p>
               </article>
             ))}
           </div>
-          <div className="mt-4 flex flex-wrap gap-2">
-            {["Response 1", "Response 2", "It depends"].map((choice) => (
-              <Choice
-                key={choice}
-                active={sampleChoice === choice}
-                onClick={() => {
-                  setSampleChoice(choice);
-                  setSampleRevealed(false);
-                }}
-                tone={choice === "Response 2" ? "green" : "blue"}
-              >
-                {choice}
-              </Choice>
-            ))}
-            {sampleChoice && (
-              <button
-                type="button"
-                onClick={() => setSampleRevealed(true)}
-                className="min-h-11 rounded-lg bg-ink px-4 py-2 text-sm font-bold text-white hover:bg-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
-              >
-                Reveal quality lens
-              </button>
-            )}
-          </div>
-          {sampleRevealed && (
-            <div className="mt-4 grid gap-3 rounded-xl border border-accent-purple/40 bg-accent-purple-faint p-4 sm:grid-cols-3">
-              <p><strong>Claim:</strong> precise & qualified?</p>
-              <p><strong>Reason:</strong> explains how or why?</p>
-              <p><strong>Action:</strong> supports a next move?</p>
-            </div>
-          )}
         </Frame>
       );
     }
 
-    if (slide.id === "dialogue") {
+    if (slide.id === "feedback") {
       return (
-        <Frame eyebrow="AI & feedback literacy" title="Do not outsource the judgement" time="17 min">
-          <div className="grid gap-4 lg:grid-cols-2">
-            {[
-              {
-                key: "answer",
-                title: "Answer machine",
-                prompt: "Improve this essay and give me the final version.",
-                note: "AI performs the judgement and revision.",
-                tone: "red" as const,
-              },
-              {
-                key: "dialogue",
-                title: "Assessment dialogue",
-                prompt:
-                  "Ask me for my criterion first. Offer 1 counter-example. Do not rewrite. Ask me to justify what I use, adapt or reject.",
-                note: "AI supplies contrast; the learner keeps the decisions.",
-                tone: "green" as const,
-              },
-            ].map((item) => (
-              <button
-                key={item.key}
-                type="button"
-                aria-pressed={dialogueChoice === item.key}
-                onClick={() => setDialogueChoice(item.key)}
-                className={`rounded-xl border p-5 text-left transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary ${
-                  dialogueChoice === item.key
-                    ? item.tone === "green"
-                      ? "border-accent-purple bg-accent-purple-faint"
-                      : "border-primary bg-primary-faint"
-                    : "border-border bg-page hover:border-secondary"
-                }`}
-              >
-                <p className="text-xs font-bold uppercase tracking-wide text-primary">{item.title}</p>
-                <p className="mt-3 font-mono text-sm leading-relaxed text-ink">“{item.prompt}”</p>
-                <p className="mt-4 text-sm text-muted">{item.note}</p>
-              </button>
+        <Frame eyebrow="Feedback literacy" title="Feedback that moves learning forward" time="15 min">
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {feedbackLevels.map((item) => (
+              <article key={item.level} className="rounded-xl border border-border bg-page p-4">
+                <p className="font-serif text-xl font-semibold text-primary">{item.level}</p>
+                <p className="mt-2 text-sm leading-relaxed text-muted">{item.focus}</p>
+              </article>
             ))}
           </div>
-          <p className="mt-5 rounded-xl border border-secondary/40 bg-secondary-faint p-4 text-sm leading-relaxed text-ink">
-            Ask AI for a <strong>question, contrast, hint, critique or counter-example</strong>—not the performance you
-            intend to assess.
+          <div className="mt-5 rounded-xl border border-border bg-page p-4">
+            <p className="text-xs font-bold uppercase tracking-wide text-secondary">Principles for formative feedback</p>
+            <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+              {feedbackPrinciples.map((principle) => (
+                <li key={principle} className="text-sm leading-relaxed text-muted">
+                  — {principle}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <p className="mt-4 rounded-xl border border-secondary/35 bg-secondary-faint p-4 text-sm leading-relaxed text-ink">
+            Delivery is not enough. Feedback becomes formative only when learners interpret it, judge its relevance, and
+            use it to revise something visible.
           </p>
         </Frame>
       );
     }
 
-    if (slide.id === "redesign") {
+    if (slide.id === "peers") {
       return (
-        <Frame eyebrow="Design studio" title="Build a 5-move assessment loop" time="18 min">
-          <div className="grid gap-4 lg:grid-cols-[0.7fr_1.3fr]">
-            <div className="space-y-3 rounded-xl border border-border bg-page p-4">
-              <label className="block text-xs font-bold uppercase tracking-wide text-secondary">
-                Disciplinary lens
-                <select
-                  name="discipline"
-                  autoComplete="off"
-                  value={planner.discipline}
-                  onChange={(event) =>
-                    setPlanner((current) => ({ ...current, discipline: event.target.value as Discipline }))
-                  }
-                  className="mt-2 min-h-11 w-full rounded-lg border border-border bg-surface px-3 text-sm text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
-                >
-                  {Object.keys(disciplinePrompts).map((discipline) => <option key={discipline}>{discipline}</option>)}
-                </select>
-              </label>
-              <p className="text-sm leading-relaxed text-muted">{disciplinePrompts[planner.discipline]}</p>
-              {[
-                ["learningGoal", "Learning goal", "What should learners do independently?"],
-                ["task", "Current task", "What do students currently produce?"],
-              ].map(([key, label, placeholder]) => (
-                <label key={key} className="block text-sm font-semibold text-ink">
-                  {label}
-                  <textarea
-                    name={key}
-                    autoComplete="off"
-                    value={planner[key as "learningGoal" | "task"]}
-                    onChange={(event) => setPlanner((current) => ({ ...current, [key]: event.target.value }))}
-                    rows={2}
-                    placeholder={placeholder}
-                    className="mt-1 w-full rounded-lg border border-border bg-surface p-2 font-normal text-ink placeholder:text-muted/70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
-                  />
-                </label>
-              ))}
-            </div>
-            <div className="grid gap-3 sm:grid-cols-2">
-              {fiveMoves.map((move, index) => (
-                <label key={move.key} className="rounded-xl border border-border bg-page p-3">
-                  <span className="font-serif text-lg font-semibold text-ink">{index + 1}. {move.title}</span>
-                  <span className="mt-1 block text-xs leading-relaxed text-muted">{move.prompt}</span>
-                  <textarea
-                    name={`move-${move.key}`}
-                    autoComplete="off"
-                    value={planner.moves[move.key]}
-                    onChange={(event) => updateMove(move.key, event.target.value)}
-                    rows={2}
-                    placeholder="Learner action + visible evidence…"
-                    className="mt-2 w-full rounded-lg border border-border bg-surface p-2 text-sm text-ink placeholder:text-muted/70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
-                  />
-                </label>
-              ))}
-            </div>
+        <Frame eyebrow="Assessment as Learning" title="Peers, evaluative judgement, and self-regulation" time="13 min">
+          <div className="grid gap-3 sm:grid-cols-2">
+            {peerSelfPractices.map((item) => (
+              <article key={item.label} className="rounded-xl border border-border bg-page p-4">
+                <p className="font-serif text-lg font-semibold text-ink">{item.label}</p>
+                <p className="mt-2 text-sm leading-relaxed text-muted">{item.text}</p>
+              </article>
+            ))}
+          </div>
+          <p className="mt-5 text-sm leading-relaxed text-muted">
+            When students learn to judge quality, give focused peer feedback, and set revision goals, assessment builds
+            ownership, self-efficacy, and motivation—not only a record of scores.
+          </p>
+        </Frame>
+      );
+    }
+
+    if (slide.id === "genai") {
+      return (
+        <Frame eyebrow="GenAI tools" title="Use GenAI across the formative cycle—without outsourcing judgement" time="14 min">
+          <p className="mb-4 max-w-3xl text-sm leading-relaxed text-muted">
+            GenAI can provide contrast, diagnosis, scaffolding, and draft feedback. It should not replace the learner’s
+            quality decisions or the teacher’s pedagogical interpretation.
+          </p>
+          <div className="grid gap-3 lg:grid-cols-2">
+            {genaiUses.map((item) => (
+              <article key={item.name} className="rounded-xl border border-border bg-page p-4">
+                <div className="flex flex-wrap items-baseline justify-between gap-2">
+                  <p className="font-serif text-lg font-semibold text-ink">{item.name}</p>
+                  <p className="text-xs font-bold uppercase tracking-wide text-primary">{item.role}</p>
+                </div>
+                <p className="mt-3 font-mono text-xs leading-relaxed text-ink">“{item.prompt}”</p>
+                <p className="mt-3 text-sm leading-relaxed text-muted">{item.caution}</p>
+              </article>
+            ))}
           </div>
         </Frame>
       );
     }
 
-    if (slide.id === "share") {
-      return (
-        <Frame eyebrow="60-second share" title="Test the design with 3 questions" time="5 min">
-          <ol className="grid gap-4 md:grid-cols-3">
-            {[
-              "Must the learner think before receiving an answer?",
-              "Must the learner make & justify a quality judgement?",
-              "Must the learner use feedback to improve something visible?",
-            ].map((question, index) => (
-              <li key={question} className="rounded-xl border border-secondary/30 bg-secondary-faint p-5">
-                <span className="text-xs font-bold uppercase tracking-wide text-primary">Check {index + 1}</span>
-                <p className="mt-2 font-serif text-2xl font-semibold leading-snug text-ink">{question}</p>
-              </li>
-            ))}
-          </ol>
-          <p className="mt-6 text-center font-serif text-xl text-muted">If any answer is “no”, revise the assessment loop.</p>
-        </Frame>
-      );
-    }
-
     return (
-      <Frame eyebrow="Exit ticket" title="Commit to 1 assessable change" time="2 min">
-        <div className="grid gap-4 md:grid-cols-3">
-          {[
-            ["stop", "I will stop…", "A practice that rewards completion without revealing learning"],
-            ["start", "I will start…", "1 AfL or AaL move learners must perform"],
-            ["evidence", "I will look for…", "A visible sign of thinking, judgement or improvement"],
-          ].map(([key, label, placeholder]) => (
-            <label key={key} className="rounded-xl border border-border bg-page p-4 text-sm font-semibold text-ink">
-              {label}
-              <textarea
-                name={`exit-${key}`}
-                autoComplete="off"
-                value={exitTicket[key as keyof ExitTicket]}
-                onChange={(event) => setExitTicket((current) => ({ ...current, [key]: event.target.value }))}
-                rows={4}
-                placeholder={placeholder}
-                className="mt-3 w-full rounded-lg border border-border bg-surface p-3 font-normal text-ink placeholder:text-muted/70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
-              />
-            </label>
+      <Frame eyebrow="Synthesis" title="Human non-negotiables when GenAI enters assessment" time="8 min">
+        <div className="grid gap-3 lg:grid-cols-2">
+          {humanNonNegotiables.map((item) => (
+            <article key={item.label} className="rounded-xl border border-border bg-page p-4">
+              <p className="font-serif text-xl font-semibold text-primary">{item.label}</p>
+              <ul className="mt-3 space-y-2 text-sm leading-relaxed text-muted">
+                <li>
+                  <strong className="text-ink">Teacher:</strong> {item.teacher}
+                </li>
+                <li>
+                  <strong className="text-ink">Learner:</strong> {item.learner}
+                </li>
+                <li>
+                  <strong className="text-ink">GenAI:</strong> {item.genai}
+                </li>
+              </ul>
+            </article>
           ))}
         </div>
-        <div className="mt-5 flex flex-wrap gap-2">
-          <button type="button" onClick={copySummary} className="min-h-11 rounded-lg bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary">
-            Copy Design Summary
-          </button>
-          <button type="button" onClick={() => window.print()} className="min-h-11 rounded-lg border border-border bg-page px-4 py-2 text-sm font-bold text-ink hover:border-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary">
-            Print / Save as PDF
-          </button>
-          <button type="button" onClick={clearProgress} className="min-h-11 rounded-lg border border-border bg-surface px-4 py-2 text-sm font-semibold text-muted hover:border-primary hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary">
-            Clear This Device
-          </button>
+        <div className="mt-5 grid gap-3 md:grid-cols-2">
+          <article className="rounded-xl border border-accent-purple/35 bg-accent-purple-faint p-4">
+            <p className="text-xs font-bold uppercase tracking-wide text-ink">What practitioners often discover</p>
+            <ul className="mt-2 space-y-2 text-sm leading-relaxed text-muted">
+              {practitionerInsights.aha.map((line) => (
+                <li key={line}>— {line}</li>
+              ))}
+            </ul>
+          </article>
+          <article className="rounded-xl border border-border bg-page p-4">
+            <p className="text-xs font-bold uppercase tracking-wide text-primary">Tensions that remain</p>
+            <ul className="mt-2 space-y-2 text-sm leading-relaxed text-muted">
+              {practitionerInsights.tensions.map((line) => (
+                <li key={line}>— {line}</li>
+              ))}
+            </ul>
+          </article>
         </div>
-        <p className="mt-3 text-sm text-muted" aria-live="polite">
-          {status || "Answers stay in this browser. Nothing is submitted or tracked."}
-        </p>
+        <ul className="mt-5 space-y-2 rounded-xl border border-secondary/35 bg-secondary-faint p-4">
+          {takeaways.map((line) => (
+            <li key={line} className="font-serif text-lg font-semibold leading-snug text-ink">
+              {line}
+            </li>
+          ))}
+        </ul>
         <details className="mt-4 rounded-xl border border-border bg-page p-4">
-          <summary className="cursor-pointer font-semibold text-ink">Conceptual Foundations</summary>
+          <summary className="cursor-pointer font-semibold text-ink">Conceptual foundations</summary>
           <ul className="mt-3 space-y-2 text-xs leading-relaxed text-muted">
-            {references.map((reference) => <li key={reference}>{reference}</li>)}
+            {references.map((reference) => (
+              <li key={reference}>{reference}</li>
+            ))}
           </ul>
         </details>
       </Frame>
@@ -650,13 +421,17 @@ export default function AssessmentForLearningDeck() {
       <div className="mx-auto max-w-7xl px-4 pb-8 pt-5 sm:px-6 lg:px-8">
         <header className="mb-4 flex flex-wrap items-center justify-between gap-3">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">Open Teaching Resources · 2026/07</p>
-            <h1 className="mt-1 font-serif text-2xl font-semibold text-ink sm:text-3xl">
-              Assessment for/as Learning in the Age of AI
-            </h1>
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">
+              Open Teaching Resources · 2026/07 · Capital Normal University
+            </p>
+            <h1 className="mt-1 max-w-4xl font-serif text-2xl font-semibold text-ink sm:text-3xl">{sessionTitle}</h1>
           </div>
           {slideIndex >= 0 && (
-            <button type="button" onClick={showOverview} className="min-h-11 rounded-lg border border-border bg-surface px-4 py-2 text-sm font-bold text-ink hover:border-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary">
+            <button
+              type="button"
+              onClick={showOverview}
+              className="min-h-11 rounded-lg border border-border bg-surface px-4 py-2 text-sm font-bold text-ink hover:border-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
+            >
               Overview
             </button>
           )}
@@ -665,26 +440,29 @@ export default function AssessmentForLearningDeck() {
         <div className="flex h-[calc(100dvh-13rem)] min-h-[34rem] flex-col overflow-hidden rounded-2xl border border-border bg-surface shadow-sm">
           {slideIndex < 0 ? (
             <div className="min-h-0 flex-1 overflow-y-auto p-5 sm:p-7">
-              <div className="grid gap-5 lg:grid-cols-[0.8fr_1.2fr]">
+              <div className="grid gap-5 lg:grid-cols-[0.85fr_1.15fr]">
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-secondary">150-minute interactive deck</p>
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-secondary">
+                    150-minute information deck
+                  </p>
                   <h2 className="mt-2 text-pretty font-serif text-3xl font-semibold leading-tight text-ink sm:text-4xl">
-                    Who owns the learning when AI can complete the task?
+                    {sessionQuestion}
                   </h2>
                   <p className="mt-4 text-base leading-relaxed text-muted">
-                    Use <strong className="text-ink">Assessment for Learning</strong> and{" "}
-                    <strong className="text-ink">Assessment as Learning</strong> to keep students thinking, judging,
-                    monitoring and improving.
+                    A lecture resource for Capital Normal University students on using{" "}
+                    <strong className="text-ink">Assessment for Learning</strong> and{" "}
+                    <strong className="text-ink">Assessment as Learning</strong> to keep thinking, judgement, and agency
+                    with learners when generative AI can complete the task.
                   </p>
                   <div className="mt-5 rounded-xl border border-primary/30 bg-primary-faint p-4">
-                    <p className="text-xs font-bold uppercase tracking-wide text-primary">Learning trace</p>
+                    <p className="text-xs font-bold uppercase tracking-wide text-primary">Core trace</p>
                     <p className="mt-2 font-serif text-xl font-semibold text-ink">
-                      Think first → Compare → Judge → Improve → Reflect
+                      Clarify → Elicit → Feedback → Peers → Ownership
                     </p>
                   </div>
                   <p className="mt-4 text-xs leading-relaxed text-muted">
-                    Click a slide to begin. Use the on-screen controls, ← / → keys, Page Up / Page Down, or Escape to
-                    return to this overview.
+                    Click a slide to begin. Use on-screen controls, ← / →, Page Up / Page Down, or Escape to return to
+                    this overview. This deck is information-only—no responses are collected.
                   </p>
                 </div>
                 <ol className="grid gap-2 sm:grid-cols-2">
@@ -697,8 +475,12 @@ export default function AssessmentForLearningDeck() {
                       >
                         <span className="font-mono text-sm font-bold text-primary">{slide.number}</span>
                         <span>
-                          <span className="block font-serif text-lg font-semibold text-ink group-hover:text-primary">{slide.title}</span>
-                          <span className="mt-1 block text-xs text-muted">{slide.time} · {slide.subtitle}</span>
+                          <span className="block font-serif text-lg font-semibold text-ink group-hover:text-primary">
+                            {slide.title}
+                          </span>
+                          <span className="mt-1 block text-xs text-muted">
+                            {slide.time} · {slide.subtitle}
+                          </span>
                         </span>
                       </button>
                     </li>
@@ -709,7 +491,10 @@ export default function AssessmentForLearningDeck() {
           ) : (
             <>
               <div className="min-h-0 flex-1 p-5 sm:p-7">{renderSlide()}</div>
-              <nav aria-label="Slide controls" className="flex shrink-0 items-center gap-3 border-t border-border bg-page px-4 py-3">
+              <nav
+                aria-label="Slide controls"
+                className="flex shrink-0 items-center gap-3 border-t border-border bg-page px-4 py-3"
+              >
                 <button
                   type="button"
                   onClick={() => (slideIndex === 0 ? showOverview() : goTo(slideIndex - 1))}
@@ -720,10 +505,15 @@ export default function AssessmentForLearningDeck() {
                 <div className="min-w-0 flex-1">
                   <div className="flex justify-between text-xs font-bold uppercase tracking-wide text-muted">
                     <span className="truncate">{slides[slideIndex].title}</span>
-                    <span>{slideIndex + 1} / {slides.length}</span>
+                    <span>
+                      {slideIndex + 1} / {slides.length}
+                    </span>
                   </div>
                   <div className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-secondary-faint">
-                    <div className="h-full rounded-full bg-primary transition-[width] motion-reduce:transition-none" style={{ width: `${((slideIndex + 1) / slides.length) * 100}%` }} />
+                    <div
+                      className="h-full rounded-full bg-primary transition-[width] motion-reduce:transition-none"
+                      style={{ width: `${((slideIndex + 1) / slides.length) * 100}%` }}
+                    />
                   </div>
                 </div>
                 <button
@@ -739,7 +529,7 @@ export default function AssessmentForLearningDeck() {
         </div>
 
         <p className="mt-3 text-center text-xs text-muted">
-          Private by design: responses remain on this device. No account, submission or analytics.
+          Information deck for classroom presentation and self-study. No accounts, submissions, or analytics.
         </p>
       </div>
     </div>
