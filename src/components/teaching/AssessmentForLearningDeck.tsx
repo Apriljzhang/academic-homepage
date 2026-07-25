@@ -16,10 +16,12 @@ import {
   peerSelfPractices,
   practitionerInsights,
   references,
+  roleShifts,
   sessionQuestion,
   sessionTitle,
   slides,
   takeaways,
+  whyFormativeMatters,
 } from "../../data/aflWorkshop";
 
 function Frame({
@@ -138,10 +140,14 @@ export default function AssessmentForLearningDeck() {
               </article>
             ))}
           </div>
-          <p className="mt-5 border-l-2 border-primary pl-4 text-sm leading-relaxed text-muted">
-            High-quality assessment supports high-quality instruction when learning goals, learning processes, and
-            assessment evidence stay aligned.
-          </p>
+          <div className="mt-5 rounded-xl border border-border bg-page p-4">
+            <p className="text-xs font-bold uppercase tracking-wide text-secondary">Why formative assessment matters</p>
+            <ul className="mt-3 space-y-2 text-sm leading-relaxed text-muted">
+              {whyFormativeMatters.map((line) => (
+                <li key={line}>— {line}</li>
+              ))}
+            </ul>
+          </div>
         </Frame>
       );
     }
@@ -203,7 +209,7 @@ export default function AssessmentForLearningDeck() {
     if (slide.id === "strategies") {
       return (
         <Frame eyebrow="Assessment for Learning" title="Five strategies that keep cognition with the learner" time="20 min">
-          <ol className="grid gap-3 lg:grid-cols-5">
+          <ol className="grid gap-3 lg:grid-cols-2 xl:grid-cols-3">
             {formativeStrategies.map((strategy) => (
               <li key={strategy.number} className="rounded-xl border border-border bg-page p-4">
                 <span className="grid size-8 place-items-center rounded-full bg-secondary-faint font-serif font-bold text-secondary">
@@ -212,14 +218,15 @@ export default function AssessmentForLearningDeck() {
                 <p className="mt-3 font-serif text-lg font-semibold text-ink">{strategy.label}</p>
                 <p className="mt-1 text-xs font-bold uppercase tracking-wide text-primary">{strategy.question}</p>
                 <p className="mt-2 text-sm leading-relaxed text-muted">{strategy.action}</p>
-                <p className="mt-3 text-xs leading-relaxed text-ink">{strategy.role}</p>
+                <p className="mt-2 text-xs font-semibold leading-relaxed text-ink">{strategy.role}</p>
+                <ul className="mt-3 space-y-1 text-xs leading-relaxed text-muted">
+                  {strategy.examples.map((example) => (
+                    <li key={example}>— {example}</li>
+                  ))}
+                </ul>
               </li>
             ))}
           </ol>
-          <p className="mt-5 text-sm leading-relaxed text-muted">
-            Map roles clearly: the teacher designs and diagnoses; peers supply alternative perspectives; the learner
-            owns monitoring and revision.
-          </p>
         </Frame>
       );
     }
@@ -300,11 +307,13 @@ export default function AssessmentForLearningDeck() {
             ))}
           </div>
           <div className="mt-5 rounded-xl border border-border bg-page p-4">
-            <p className="text-xs font-bold uppercase tracking-wide text-secondary">Principles for formative feedback</p>
-            <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+            <p className="text-xs font-bold uppercase tracking-wide text-secondary">
+              Formative feedback guidelines (Shute, 2008)
+            </p>
+            <ul className="mt-3 grid gap-3 sm:grid-cols-2">
               {feedbackPrinciples.map((principle) => (
-                <li key={principle} className="text-sm leading-relaxed text-muted">
-                  — {principle}
+                <li key={principle.title} className="text-sm leading-relaxed text-muted">
+                  <strong className="text-ink">{principle.title}.</strong> {principle.detail}
                 </li>
               ))}
             </ul>
@@ -351,7 +360,13 @@ export default function AssessmentForLearningDeck() {
                   <p className="text-xs font-bold uppercase tracking-wide text-primary">{item.role}</p>
                 </div>
                 <p className="mt-3 font-mono text-xs leading-relaxed text-ink">“{item.prompt}”</p>
-                <p className="mt-3 text-sm leading-relaxed text-muted">{item.caution}</p>
+                <p className="mt-3 text-xs leading-relaxed text-muted">
+                  <strong className="text-ink">Teacher:</strong> {item.teacherHelp}
+                </p>
+                <p className="mt-1 text-xs leading-relaxed text-muted">
+                  <strong className="text-ink">Learner:</strong> {item.learnerHelp}
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-muted">{item.caution}</p>
               </article>
             ))}
           </div>
@@ -361,6 +376,17 @@ export default function AssessmentForLearningDeck() {
 
     return (
       <Frame eyebrow="Synthesis" title="Human non-negotiables when GenAI enters assessment" time="8 min">
+        <div className="mb-4 grid gap-3 md:grid-cols-2">
+          {roleShifts.map((item) => (
+            <article key={item.who} className="rounded-xl border border-secondary/30 bg-secondary-faint p-4">
+              <p className="text-xs font-bold uppercase tracking-wide text-primary">{item.who}</p>
+              <p className="mt-2 font-serif text-lg font-semibold text-ink">
+                {item.from} → {item.to}
+              </p>
+              <p className="mt-2 text-sm leading-relaxed text-muted">{item.point}</p>
+            </article>
+          ))}
+        </div>
         <div className="grid gap-3 lg:grid-cols-2">
           {humanNonNegotiables.map((item) => (
             <article key={item.label} className="rounded-xl border border-border bg-page p-4">
