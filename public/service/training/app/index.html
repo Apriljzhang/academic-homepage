@@ -36,7 +36,8 @@
       <label>Session code</label>
       <input id="codeInput" type="text" value="202607" maxlength="20">
       <button class="btn primary" id="joinBtn" style="width:100%; margin-top:14px">Login with my name</button>
-      <p class="figure-caption" style="margin-top:12px">Type your name, then press this button (or Enter). Do not skip with arrow keys — login must succeed first.</p>
+      <button class="btn" id="clearLoginBtn" type="button" style="width:100%; margin-top:8px" hidden>Clear saved name on this device</button>
+      <p class="figure-caption" style="margin-top:12px">Type your real name, then press Login. A previous test name on this browser is not used until you login again.</p>
     </div>
   </section>
 
@@ -453,8 +454,8 @@
   <button class="btn" id="dashBtn">Dashboard</button>
 </nav>
 
-<script src="./config.js?v=5"></script>
-<script src="./store.js?v=5"></script>
-<script src="./student.js?v=5"></script>
+<script src="./config.js?v=6"></script>
+<script src="./store.js?v=6"></script>
+<script src="./student.js?v=6"></script>
 </body>
 </html>

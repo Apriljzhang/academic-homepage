@@ -134,17 +134,18 @@
     return Boolean(state.studentId && state.name);
   }
 
-  function showPage(index) {
-    // Never leave the login screen until name login succeeds.
-    if (!isJoined()) index = 0;
+  function showPage(index, { forceJoin = false } = {}) {
+    // Never leave the login screen until name login succeeds this visit.
+    if (forceJoin) index = 0;
+    else if (!isJoined()) index = 0;
     else if (PAGES[index] === "join") index = 1;
     state.pageIndex = Math.max(0, Math.min(index, PAGES.length - 1));
     const page = PAGES[state.pageIndex];
     $$(".screen").forEach((el) => el.classList.toggle("active", el.dataset.page === page));
     $("#pageLabel").textContent = `${Math.max(1, state.pageIndex)} / ${PAGES.length - 1}`;
-    const joined = isJoined();
-    $("#navdock").hidden = !joined || page === "join";
-    if (joined && page !== "join") sendEvent("page_view", { page });
+    const joined = isJoined() && page !== "join";
+    $("#navdock").hidden = !joined;
+    if (isJoined() && page !== "join") sendEvent("page_view", { page });
     if (page === "dashboard") refreshMe();
   }
 
@@ -162,11 +163,52 @@
     }
   }
 
+  function clearSavedLogin() {
+    [
+      "lttc_student_id",
+      "lttc_name",
+      "lttc_session",
+      "lttc_device",
+      "lttc_answered",
+      "lttc_votes",
+      "lttc_transfer",
+      "lttc_ican",
+    ].forEach((k) => localStorage.removeItem(k));
+    ["s1", "s2", "s3", "s4", "s5"].forEach((s) => localStorage.removeItem(`lttc_share_${s}`));
+    state.studentId = "";
+    state.name = "";
+    state.session = "202607";
+    state.answered = {};
+    state.votes = {};
+    if ($("#nameInput")) $("#nameInput").value = "";
+    if ($("#codeInput")) $("#codeInput").value = "202607";
+    if ($("#whoLabel")) $("#whoLabel").textContent = "Not joined — enter your name";
+    const clearBtn = $("#clearLoginBtn");
+    if (clearBtn) clearBtn.hidden = true;
+    showPage(0);
+    $("#nameInput")?.focus();
+  }
+
   async function join() {
     const name = $("#nameInput").value.trim();
     const session_code = ($("#codeInput").value.trim() || "202607").toUpperCase();
     if (!name) {
       alert("Please enter your name.");
+      return;
+    }
+    const prevId = localStorage.getItem("lttc_student_id") || "";
+    const prevName = localStorage.getItem("lttc_name") || "";
+    const prevSession = (localStorage.getItem("lttc_session") || "").toUpperCase();
+    // Reuse this browser session only when the same name + code are submitted again.
+    if (prevId && prevName === name && prevSession === session_code) {
+      state.studentId = prevId;
+      state.name = prevName;
+      state.session = prevSession;
+      $("#whoLabel").textContent = `${state.name} · ${state.session}`;
+      const clearBtn = $("#clearLoginBtn");
+      if (clearBtn) clearBtn.hidden = true;
+      showPage(1);
+      refreshMe();
       return;
     }
     $("#joinBtn").disabled = true;
@@ -184,6 +226,8 @@
       localStorage.setItem("lttc_name", state.name);
       localStorage.setItem("lttc_session", state.session);
       $("#whoLabel").textContent = `${state.name} · ${state.session}`;
+      const clearBtn = $("#clearLoginBtn");
+      if (clearBtn) clearBtn.hidden = true;
       showPage(1);
     } catch (e) {
       alert("Could not join. Please try again, or clear this site’s data for apriljzhang.com and reload.");
@@ -390,11 +434,21 @@
   }
 
   $("#joinBtn").onclick = join;
+  $("#clearLoginBtn")?.addEventListener("click", clearSavedLogin);
   $("#nameInput")?.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
       join();
     }
+  });
+  // Click the top name line to return to login and change name.
+  $("#whoLabel")?.addEventListener("click", () => {
+    showPage(0, { forceJoin: true });
+    if ($("#nameInput")) $("#nameInput").value = state.name || "";
+    if ($("#codeInput")) $("#codeInput").value = state.session || "202607";
+    const clearBtn = $("#clearLoginBtn");
+    if (clearBtn) clearBtn.hidden = !localStorage.getItem("lttc_name");
+    $("#nameInput")?.focus();
   });
   $("#saveTransfer").onclick = () => {
     const text = $("#transferBox").innerText.trim();
@@ -415,20 +469,24 @@
   setupShares();
   setupNav();
 
-  // Drop incomplete sessions (id without name) so login always shows.
+  // Do not auto-resume a previous visit — always require Login on this page load.
+  // (Old name "a" on this laptop came from localStorage after an earlier test.)
   if (state.studentId && !state.name) {
     localStorage.removeItem("lttc_student_id");
-    state.studentId = "";
   }
+  state.studentId = "";
+  state.name = "";
+  state.session = localStorage.getItem("lttc_session") || "202607";
 
-  if (isJoined()) {
-    $("#whoLabel").textContent = `${state.name} · ${state.session}`;
-    $("#nameInput").value = state.name;
-    $("#codeInput").value = state.session;
-    showPage(1);
-    refreshMe();
-  } else {
-    showPage(0);
-    $("#nameInput")?.focus();
+  if ($("#nameInput")) $("#nameInput").value = "";
+  if ($("#codeInput")) $("#codeInput").value = state.session || "202607";
+  if ($("#whoLabel")) {
+    $("#whoLabel").textContent = "Not joined — enter your name";
+    $("#whoLabel").title = "Click to change name after login";
+    $("#whoLabel").style.cursor = "pointer";
   }
+  const clearBtn = $("#clearLoginBtn");
+  if (clearBtn) clearBtn.hidden = !(localStorage.getItem("lttc_name") || localStorage.getItem("lttc_student_id"));
+  showPage(0, { forceJoin: true });
+  $("#nameInput")?.focus();
 })();
