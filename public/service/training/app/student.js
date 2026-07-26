@@ -130,13 +130,19 @@
     });
   }
 
+  function isJoined() {
+    return Boolean(state.studentId && state.name);
+  }
+
   function showPage(index) {
-    if (PAGES[index] === "join" && state.studentId) index = 1;
+    // Never leave the login screen until name login succeeds.
+    if (!isJoined()) index = 0;
+    else if (PAGES[index] === "join") index = 1;
     state.pageIndex = Math.max(0, Math.min(index, PAGES.length - 1));
     const page = PAGES[state.pageIndex];
     $$(".screen").forEach((el) => el.classList.toggle("active", el.dataset.page === page));
     $("#pageLabel").textContent = `${Math.max(1, state.pageIndex)} / ${PAGES.length - 1}`;
-    const joined = Boolean(state.studentId);
+    const joined = isJoined();
     $("#navdock").hidden = !joined || page === "join";
     if (joined && page !== "join") sendEvent("page_view", { page });
     if (page === "dashboard") refreshMe();
@@ -352,11 +358,21 @@
   }
 
   function setupNav() {
-    $("#prevBtn").onclick = () => showPage(state.pageIndex - 1);
-    $("#nextBtn").onclick = () => showPage(state.pageIndex + 1);
-    $("#dashBtn").onclick = () => showPage(PAGES.indexOf("dashboard"));
+    $("#prevBtn").onclick = () => {
+      if (!isJoined()) return;
+      showPage(state.pageIndex - 1);
+    };
+    $("#nextBtn").onclick = () => {
+      if (!isJoined()) return;
+      showPage(state.pageIndex + 1);
+    };
+    $("#dashBtn").onclick = () => {
+      if (!isJoined()) return;
+      showPage(PAGES.indexOf("dashboard"));
+    };
     window.addEventListener("keydown", (e) => {
       if (e.target && (e.target.isContentEditable || ["INPUT", "TEXTAREA", "SELECT"].includes(e.target.tagName))) return;
+      if (!isJoined()) return;
       if (e.key === "ArrowRight" || e.key === " ") {
         e.preventDefault();
         showPage(state.pageIndex + 1);
@@ -374,6 +390,12 @@
   }
 
   $("#joinBtn").onclick = join;
+  $("#nameInput")?.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      join();
+    }
+  });
   $("#saveTransfer").onclick = () => {
     const text = $("#transferBox").innerText.trim();
     localStorage.setItem("lttc_transfer", text);
@@ -393,7 +415,13 @@
   setupShares();
   setupNav();
 
-  if (state.studentId && state.name) {
+  // Drop incomplete sessions (id without name) so login always shows.
+  if (state.studentId && !state.name) {
+    localStorage.removeItem("lttc_student_id");
+    state.studentId = "";
+  }
+
+  if (isJoined()) {
     $("#whoLabel").textContent = `${state.name} · ${state.session}`;
     $("#nameInput").value = state.name;
     $("#codeInput").value = state.session;
@@ -401,5 +429,6 @@
     refreshMe();
   } else {
     showPage(0);
+    $("#nameInput")?.focus();
   }
 })();
