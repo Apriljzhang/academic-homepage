@@ -171,50 +171,51 @@ export const professionalMemberships: ProfessionalMembership[] = [
 ];
 
 export type PublicationItem = {
+  /** Full reference in APA 7th edition (HTML for italics). */
   citationHtml: string;
-  /** Full DOI or retrieval URL (shown below citation in APA style). */
+  /** Optional DOI/URL used elsewhere (e.g. map/collaborators); prefer embedding in citationHtml. */
   doiUrl?: string;
   /** Site-hosted PDF under /publications/ (from 代表作), when available. */
   pdfPath?: string;
 };
 
-/** Peer-reviewed work and doctoral dissertation, newest first. */
+/** Peer-reviewed work and doctoral dissertation, newest first. APA 7th. */
 export const publications: PublicationItem[] = [
   {
     citationHtml:
-      'Hou, Y., Ouyang, B., Liu, J. E., Zhang, A. J., & Sun, Z. (2026). A case study of high school graduates\' reflections on career education: Insights from high-stakes context. <em>The Career Development Quarterly</em>, Advance online publication, Article cdq.70033.',
+      'Hou, Y., Ouyang, B., Liu, J. E., Zhang, A. J., & Sun, Z. (2026). A case study of high school graduates\' reflections on career education: Insights from high-stakes context. <em>The Career Development Quarterly</em>. Advance online publication. <a href="https://doi.org/10.1002/cdq.70033" target="_blank" rel="noopener noreferrer">https://doi.org/10.1002/cdq.70033</a>',
     doiUrl: 'https://doi.org/10.1002/cdq.70033',
     pdfPath: '/publications/2026-career-education.pdf',
   },
   {
     citationHtml:
-      'Zhang, A. J., & Chen, Z. (2026). Breaking the fourth wall in Chinese EFL: Stakeholder perceptions of situated learning "in the wild" with young learners. <em>TESOL International Association Applied Linguistics Forum</em>, <em>46</em>(1), 1–6.',
+      'Zhang, A. J., & Chen, Z. (2026). Breaking the fourth wall in Chinese EFL: Stakeholder perceptions of situated learning “in the wild” with young learners. <em>TESOL International Association Applied Linguistics Forum, 46</em>(1), 1–6.',
     pdfPath: '/publications/2026-breaking-fourth-wall-efl.pdf',
   },
   {
     citationHtml:
-      'Ji, T., & Zhang, A. J. (2025). Demotivation in English learning of Chinese medical students: Insights from situated expectancy-value theory. <em>Acta Psychologica</em>, <em>253</em>, Article 104716.',
+      'Ji, T., & Zhang, A. J. (2025). Demotivation in English learning of Chinese medical students: Insights from situated expectancy-value theory. <em>Acta Psychologica, 253</em>, Article 104716. <a href="https://doi.org/10.1016/j.actpsy.2025.104716" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.actpsy.2025.104716</a>',
     doiUrl: 'https://doi.org/10.1016/j.actpsy.2025.104716',
   },
   {
     citationHtml:
-      'Wright, C., Lu, Y., Zhang, A. J., Zhang, L., & Zheng, Y. (2022). Tests of learning or testing for learning? An exploratory study of motivation and language learning strategies among HSK level 1–3 test-takers in UK. <em>International Journal of Chinese Language Teaching</em>, <em>3</em>(3), 1–19.',
+      'Wright, C., Lu, Y., Zhang, A. J., Zhang, L., & Zheng, Y. (2022). Tests of learning or testing for learning? An exploratory study of motivation and language learning strategies among HSK level 1–3 test-takers in UK. <em>International Journal of Chinese Language Teaching, 3</em>(3), 1–19. <a href="https://doi.org/10.46451/ijclt.2022.03.01" target="_blank" rel="noopener noreferrer">https://doi.org/10.46451/ijclt.2022.03.01</a>',
     doiUrl: 'https://doi.org/10.46451/ijclt.2022.03.01',
     pdfPath: '/publications/2022-tests-of-learning-hsk.pdf',
   },
   {
     citationHtml:
-      'Zheng, Y., Zheng, Y., & Zhang, A. J. (2021). HSK 试卷架构对 1–3 级考生成绩的影响：以英语母语者为例. <em>国际汉语教学研究 International Chinese Language Education</em>, <em>6</em>(3), 50–59.',
+      'Zheng, Y., Zheng, Y., & Zhang, A. J. (2021). HSK试卷架构对1–3级考生成绩的影响：以英语母语者为例 [The impact of HSK test structure on Level 1–3 test-taker performance: Evidence from English L1 speakers]. <em>国际汉语教学研究 [International Chinese Language Education], 6</em>(3), 50–59.',
     pdfPath: '/publications/2021-hsk-test-structure.pdf',
   },
   {
     citationHtml:
-      'Bai, W., & Zhang, A. J. (2021). Developing key competencies via formative assessment in primary school English classrooms: Teacher education perspective. <em>Journal of Nanjing Xiaozhuang University</em>, <em>37</em>(4), 22–27.',
+      'Bai, W., & Zhang, A. J. (2021). Developing key competencies via formative assessment in primary school English classrooms: Teacher education perspective. <em>Journal of Nanjing Xiaozhuang University, 37</em>(4), 22–27.',
     pdfPath: '/publications/2021-formative-assessment-teacher-education.pdf',
   },
   {
     citationHtml:
-      'Zhang, A. J. (2018). <em>The impact of formative assessment on young English learners’ motivation and achievement in China</em> [Doctoral dissertation, University of Sheffield]. White Rose eTheses Online.',
+      'Zhang, A. J. (2018). <em>The impact of formative assessment on young English learners’ motivation and achievement in China</em> [Doctoral dissertation, University of Sheffield]. White Rose eTheses Online. <a href="https://etheses.whiterose.ac.uk/id/eprint/21497" target="_blank" rel="noopener noreferrer">https://etheses.whiterose.ac.uk/id/eprint/21497</a>',
     doiUrl: 'https://etheses.whiterose.ac.uk/id/eprint/21497',
   },
 ];
