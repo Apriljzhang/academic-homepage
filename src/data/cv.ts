@@ -229,6 +229,24 @@ export const teachingPhilosophyParagraphs = [
 /** Service — AALA 2026 co-chair (see also talks list). */
 export const aalaConferenceUrl = 'https://aalaconference.com/' as const;
 
+export type EditorialRole = {
+  role: string;
+  journal: string;
+  specialIssue: string;
+  href: string;
+  years?: string;
+};
+
+export const editorialRoles: EditorialRole[] = [
+  {
+    role: 'Guest editor',
+    journal: 'Language Testing in Asia',
+    specialIssue: 'A Humanistic Approach to Assessment, Standards, Innovation, and Accountability',
+    href: 'https://link.springer.com/collections/hfddgecgfa',
+    years: '2026 – 2028',
+  },
+];
+
 export const grants = [
   {
     title: 'Implementation and Implication of Co-creating Rubric and Peer Assessment in EFL Courses',
@@ -377,7 +395,8 @@ export const homeSectionCards = [
     slug: 'service' as const,
     title: 'Service',
     kicker: 'Conferences & engagement',
-    description: 'AALA 2026 organisation, conference presentations, and related professional service.',
+    description:
+      'AALA 2026 organisation, journal editorship, conference presentations, and related professional service.',
     accent: 'purple' as const,
   },
 ] as const;

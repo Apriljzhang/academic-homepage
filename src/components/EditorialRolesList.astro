@@ -1,0 +1,30 @@
+---
+import { editorialRoles } from '../data/cv';
+---
+
+<ul class="mt-6 space-y-4">
+  {
+    editorialRoles.map((role) => (
+      <li class="border-l-2 border-primary/40 pl-4">
+        <p class="text-base font-medium leading-snug text-ink">{role.role}</p>
+        <p class="mt-1 text-sm text-muted">
+          <em>{role.specialIssue}</em>
+        </p>
+        <p class="mt-0.5 text-sm text-muted">
+          {role.journal}
+          {role.years ? ` · ${role.years}` : ''}
+        </p>
+        <p class="mt-2">
+          <a
+            href={role.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-sm font-semibold text-primary no-underline hover:underline"
+          >
+            Special issue collection →
+          </a>
+        </p>
+      </li>
+    ))
+  }
+</ul>

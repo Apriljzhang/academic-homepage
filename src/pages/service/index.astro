@@ -11,7 +11,7 @@ import { person } from '../../data/cv';
 import { withBase } from '../../utils/paths';
 
 const title = `Service · ${person.fullDisplayName}`;
-const description = `Professional service, conference organisation, and presentations — ${person.fullDisplayName}.`;
+const description = `Professional service, conference organisation, journal editorship, and presentations — ${person.fullDisplayName}.`;
 ---
 
 <BaseLayout {title} {description}>
@@ -22,8 +22,8 @@ const description = `Professional service, conference organisation, and presenta
       <MainWithAside asideLabel="Service menu">
         <div>
           <p class="mt-4 max-w-3xl text-pretty text-lg leading-relaxed text-muted lg:text-xl">
-            Conference leadership, scholarly networks, and selected presentations in language assessment and language
-            education.
+            Conference leadership, journal editorship, scholarly networks, and selected presentations in language
+            assessment and language education.
           </p>
           <SectionSubnav ariaLabel="Service section" items={serviceSubnav} />
 
@@ -39,12 +39,32 @@ const description = `Professional service, conference organisation, and presenta
             </li>
             <li class="rounded-xl border border-border bg-surface p-5">
               <a
+                href={withBase('/service/journal-editor')}
+                class="font-serif text-lg font-semibold text-ink no-underline hover:text-primary"
+              >
+                Journal editor →
+              </a>
+              <p class="mt-2 text-sm text-muted">
+                Guest editor for a <em>Language Testing in Asia</em> special issue on humanistic approaches to assessment.
+              </p>
+            </li>
+            <li class="rounded-xl border border-border bg-surface p-5">
+              <a
                 href={withBase('/service/presentations')}
                 class="font-serif text-lg font-semibold text-ink no-underline hover:text-primary"
               >
                 Presentations →
               </a>
               <p class="mt-2 text-sm text-muted">Selected conference talks and forums.</p>
+            </li>
+            <li class="rounded-xl border border-border bg-surface p-5">
+              <a
+                href={withBase('/service/memberships')}
+                class="font-serif text-lg font-semibold text-ink no-underline hover:text-primary"
+              >
+                Professional memberships →
+              </a>
+              <p class="mt-2 text-sm text-muted">Learned societies and professional networks in language assessment.</p>
             </li>
           </ul>
         </div>
