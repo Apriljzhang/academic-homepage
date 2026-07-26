@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found</title>
+<script>
+(function () {
+  var path = location.pathname.replace(/\/+$/, "");
+  if (/\/training\/202607\/host(\.html)?$/.test(path) ||
+      /\/service\/training\/app\/host(\.html)?$/.test(path)) {
+    location.replace("/service/training/app/host/" + location.search + location.hash);
+    return;
+  }
+  if (/\/training\/202607$/.test(path)) {
+    location.replace("/service/training/app/" + location.search + location.hash);
+    return;
+  }
+})();
+</script>
+</head>
+<body style="font-family: system-ui, sans-serif; padding: 2rem;">
+  <p>Page not found.</p>
+  <p><a href="/service/training/">Training</a> · <a href="/">Home</a></p>
+</body>
+</html>
