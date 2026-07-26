@@ -21,10 +21,18 @@
     s5: "Strategy 5 · Owners of learning",
   };
 
+  function lsGet(key, fallback = "") {
+    try {
+      return localStorage.getItem(key) || localStorage.getItem(key.replace(/^ittc_/, "lttc_")) || fallback;
+    } catch {
+      return fallback;
+    }
+  }
+
   const state = {
-    studentId: localStorage.getItem("lttc_student_id") || "",
-    name: localStorage.getItem("lttc_name") || "",
-    session: localStorage.getItem("lttc_session") || "202607",
+    studentId: lsGet("ittc_student_id"),
+    name: lsGet("ittc_name"),
+    session: lsGet("ittc_session", "202607"),
     pageIndex: 0,
     stats: {
       translate_clicks: 0,
@@ -35,8 +43,8 @@
       share_ideas: 0,
       scenario_votes: 0,
     },
-    answered: JSON.parse(localStorage.getItem("lttc_answered") || "{}"),
-    votes: JSON.parse(localStorage.getItem("lttc_votes") || "{}"),
+    answered: JSON.parse(lsGet("ittc_answered", "{}")),
+    votes: JSON.parse(lsGet("ittc_votes", "{}")),
   };
 
   const $ = (sel) => document.querySelector(sel);
@@ -52,8 +60,8 @@
     const student_id = uid();
     const session_code = (body.session_code || "202607").trim().toUpperCase();
     const name = body.name || "Student";
-    const roomKey = "lttc_room_v1";
-    const db = JSON.parse(localStorage.getItem(roomKey) || "{}");
+    const roomKey = "ittc_room_v1";
+    const db = JSON.parse(localStorage.getItem(roomKey) || localStorage.getItem("lttc_room_v1") || "{}");
     db[session_code] ||= { students: {}, events: [] };
     db[session_code].students[student_id] = {
       id: student_id,
@@ -68,8 +76,8 @@
 
   async function apiEvent(body) {
     if (window.TrainingStore?.postEvent) return window.TrainingStore.postEvent(body);
-    const roomKey = "lttc_room_v1";
-    const db = JSON.parse(localStorage.getItem(roomKey) || "{}");
+    const roomKey = "ittc_room_v1";
+    const db = JSON.parse(localStorage.getItem(roomKey) || localStorage.getItem("lttc_room_v1") || "{}");
     let code = null;
     for (const [c, room] of Object.entries(db)) {
       if (room.students?.[body.student_id]) {
@@ -155,7 +163,7 @@
       const data = await apiMe(state.studentId);
       state.stats = data.stats;
       renderStats();
-      const note = localStorage.getItem("lttc_transfer") || "";
+      const note = lsGet("ittc_transfer");
       $("#transferOut").textContent = note || "No reflection yet.";
       if (note && $("#transferBox")) $("#transferBox").innerText = note;
     } catch (e) {
@@ -165,6 +173,14 @@
 
   function clearSavedLogin() {
     [
+      "ittc_student_id",
+      "ittc_name",
+      "ittc_session",
+      "ittc_device",
+      "ittc_answered",
+      "ittc_votes",
+      "ittc_transfer",
+      "ittc_ican",
       "lttc_student_id",
       "lttc_name",
       "lttc_session",
@@ -174,7 +190,10 @@
       "lttc_transfer",
       "lttc_ican",
     ].forEach((k) => localStorage.removeItem(k));
-    ["s1", "s2", "s3", "s4", "s5"].forEach((s) => localStorage.removeItem(`lttc_share_${s}`));
+    ["s1", "s2", "s3", "s4", "s5"].forEach((s) => {
+      localStorage.removeItem(`ittc_share_${s}`);
+      localStorage.removeItem(`lttc_share_${s}`);
+    });
     state.studentId = "";
     state.name = "";
     state.session = "202607";
@@ -196,9 +215,9 @@
       alert("Please enter your name.");
       return;
     }
-    const prevId = localStorage.getItem("lttc_student_id") || "";
-    const prevName = localStorage.getItem("lttc_name") || "";
-    const prevSession = (localStorage.getItem("lttc_session") || "").toUpperCase();
+    const prevId = lsGet("ittc_student_id");
+    const prevName = lsGet("ittc_name");
+    const prevSession = (lsGet("ittc_session") || "").toUpperCase();
     // Reuse this browser session only when the same name + code are submitted again.
     if (prevId && prevName === name && prevSession === session_code) {
       state.studentId = prevId;
@@ -216,15 +235,15 @@
       const data = await apiJoin({
         name,
         session_code,
-        device_id: localStorage.getItem("lttc_device") || uid(),
+        device_id: lsGet("ittc_device") || uid(),
       });
-      localStorage.setItem("lttc_device", data.student_id.slice(0, 8));
+      localStorage.setItem("ittc_device", data.student_id.slice(0, 8));
       state.studentId = data.student_id;
       state.name = data.name;
       state.session = data.session_code;
-      localStorage.setItem("lttc_student_id", state.studentId);
-      localStorage.setItem("lttc_name", state.name);
-      localStorage.setItem("lttc_session", state.session);
+      localStorage.setItem("ittc_student_id", state.studentId);
+      localStorage.setItem("ittc_name", state.name);
+      localStorage.setItem("ittc_session", state.session);
       $("#whoLabel").textContent = `${state.name} · ${state.session}`;
       const clearBtn = $("#clearLoginBtn");
       if (clearBtn) clearBtn.hidden = true;
@@ -265,7 +284,7 @@
         });
         if (!correct) btn.classList.add("wrong");
         state.answered[quizId] = btn.dataset.answer;
-        localStorage.setItem("lttc_answered", JSON.stringify(state.answered));
+        localStorage.setItem("ittc_answered", JSON.stringify(state.answered));
         const result = $(`#qr_${quizId}`);
         if (result) {
           result.hidden = false;
@@ -289,7 +308,7 @@
         group.forEach((b) => b.classList.remove("selected", "correct", "wrong"));
         btn.classList.add("selected");
         state.votes[sid] = vote;
-        localStorage.setItem("lttc_votes", JSON.stringify(state.votes));
+        localStorage.setItem("ittc_votes", JSON.stringify(state.votes));
         sendEvent("scenario_vote", { scenario_id: sid, vote });
       });
     });
@@ -379,12 +398,12 @@
         if (data) {
           const saved = $(`.share-saved[data-strategy="${strategy}"]`);
           if (saved) saved.classList.add("show");
-          localStorage.setItem(`lttc_share_${strategy}`, text);
+          localStorage.setItem(`ittc_share_${strategy}`, text);
         }
       });
     });
     $$(".share-input").forEach((el) => {
-      const saved = localStorage.getItem(`lttc_share_${el.dataset.strategy}`);
+      const saved = lsGet(`ittc_share_${el.dataset.strategy}`);
       if (saved) el.value = saved;
     });
 
@@ -392,11 +411,11 @@
     if (icanBtn) {
       icanBtn.onclick = () => {
         const text = ($("#icanDraft").value || "").trim();
-        localStorage.setItem("lttc_ican", text);
+        localStorage.setItem("ittc_ican", text);
         $("#icanSaved").classList.add("show");
         sendEvent("choice", { kind: "ican_draft", text });
       };
-      const prev = localStorage.getItem("lttc_ican");
+      const prev = lsGet("ittc_ican");
       if (prev) $("#icanDraft").value = prev;
     }
   }
@@ -430,7 +449,7 @@
       alert("Please login with your name first.");
       return;
     }
-    window.open(`./portfolio.html?v=5&sid=${encodeURIComponent(state.studentId)}`, "_blank");
+    window.open(`./portfolio.html?v=7&sid=${encodeURIComponent(state.studentId)}`, "_blank");
   }
 
   $("#joinBtn").onclick = join;
@@ -447,12 +466,12 @@
     if ($("#nameInput")) $("#nameInput").value = state.name || "";
     if ($("#codeInput")) $("#codeInput").value = state.session || "202607";
     const clearBtn = $("#clearLoginBtn");
-    if (clearBtn) clearBtn.hidden = !localStorage.getItem("lttc_name");
+    if (clearBtn) clearBtn.hidden = !lsGet("ittc_name");
     $("#nameInput")?.focus();
   });
   $("#saveTransfer").onclick = () => {
     const text = $("#transferBox").innerText.trim();
-    localStorage.setItem("lttc_transfer", text);
+    localStorage.setItem("ittc_transfer", text);
     $("#transferSaved").hidden = false;
     sendEvent("choice", { kind: "transfer_note", text });
     $("#transferOut").textContent = text || "No reflection yet.";
@@ -472,11 +491,11 @@
   // Do not auto-resume a previous visit — always require Login on this page load.
   // (Old name "a" on this laptop came from localStorage after an earlier test.)
   if (state.studentId && !state.name) {
-    localStorage.removeItem("lttc_student_id");
+    localStorage.removeItem("ittc_student_id");
   }
   state.studentId = "";
   state.name = "";
-  state.session = localStorage.getItem("lttc_session") || "202607";
+  state.session = lsGet("ittc_session", "202607");
 
   if ($("#nameInput")) $("#nameInput").value = "";
   if ($("#codeInput")) $("#codeInput").value = state.session || "202607";
@@ -486,7 +505,7 @@
     $("#whoLabel").style.cursor = "pointer";
   }
   const clearBtn = $("#clearLoginBtn");
-  if (clearBtn) clearBtn.hidden = !(localStorage.getItem("lttc_name") || localStorage.getItem("lttc_student_id"));
+  if (clearBtn) clearBtn.hidden = !(lsGet("ittc_name") || lsGet("ittc_student_id"));
   showPage(0, { forceJoin: true });
   $("#nameInput")?.focus();
 })();

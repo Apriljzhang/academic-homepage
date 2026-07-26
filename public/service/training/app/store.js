@@ -5,7 +5,13 @@
   const SB_KEY = cfg.supabaseAnonKey || "";
   const USE_SB = Boolean(SB_URL && SB_KEY);
 
-  const LOCAL_KEY = "lttc_room_v1";
+  const LOCAL_KEY = "ittc_room_v1";
+  // One-time migrate from former LTTC localStorage keys.
+  try {
+    if (!localStorage.getItem(LOCAL_KEY) && localStorage.getItem("lttc_room_v1")) {
+      localStorage.setItem(LOCAL_KEY, localStorage.getItem("lttc_room_v1"));
+    }
+  } catch {}
 
   function uuid() {
     return crypto.randomUUID ? crypto.randomUUID() : `id-${Date.now()}-${Math.random().toString(16).slice(2)}`;
@@ -342,7 +348,7 @@
   }
 
   async function reset(session_code, token) {
-    if (token !== "lttc-host") throw new Error("forbidden");
+    if (token !== "ittc-host" && token !== "lttc-host") throw new Error("forbidden");
     const code = session_code.trim().toUpperCase();
     if (USE_SB) {
       try {

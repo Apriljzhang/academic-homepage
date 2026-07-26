@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My FA materials PDF · LTTC</title>
+<title>My FA materials PDF · ITTC</title>
 <link href="https://fonts.googleapis.com/css2?family=Carlito:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./styles.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.2/html2pdf.bundle.min.js"></script>
-<script src="./config.js?v=5"></script>
-<script src="./store.js?v=5"></script>
+<script src="./config.js?v=7"></script>
+<script src="./store.js?v=7"></script>
 <style>
   body {
     padding-bottom: 24px;
@@ -125,7 +125,7 @@
 <body>
 <div class="toolbar no-print">
   <div>
-    <div class="brand">LTTC · City University of Macau</div>
+    <div class="brand" title="International Training and Testing Centre">ITTC · City University of Macau</div>
     <div class="status" id="status">Loading workshop pages…</div>
   </div>
   <div class="actions">
@@ -140,16 +140,16 @@
 <script>
 (() => {
   const params = new URLSearchParams(location.search);
-  const studentId = params.get("sid") || localStorage.getItem("lttc_student_id") || "";
-  const localName = localStorage.getItem("lttc_name") || "";
-  const localSession = localStorage.getItem("lttc_session") || "202607";
-  const localVotes = JSON.parse(localStorage.getItem("lttc_votes") || "{}");
-  const localAnswered = JSON.parse(localStorage.getItem("lttc_answered") || "{}");
-  const localTransfer = localStorage.getItem("lttc_transfer") || "";
-  const localIcan = localStorage.getItem("lttc_ican") || "";
+  const studentId = params.get("sid") || localStorage.getItem("ittc_student_id") || localStorage.getItem("lttc_student_id") || "";
+  const localName = localStorage.getItem("ittc_name") || localStorage.getItem("lttc_name") || "";
+  const localSession = localStorage.getItem("ittc_session") || localStorage.getItem("lttc_session") || "202607";
+  const localVotes = JSON.parse(localStorage.getItem("ittc_votes") || localStorage.getItem("lttc_votes") || "{}");
+  const localAnswered = JSON.parse(localStorage.getItem("ittc_answered") || localStorage.getItem("lttc_answered") || "{}");
+  const localTransfer = localStorage.getItem("ittc_transfer") || localStorage.getItem("lttc_transfer") || "";
+  const localIcan = localStorage.getItem("ittc_ican") || localStorage.getItem("lttc_ican") || "";
   const localShares = {};
   ["s1", "s2", "s3", "s4", "s5"].forEach((s) => {
-    const t = localStorage.getItem(`lttc_share_${s}`);
+    const t = localStorage.getItem(`ittc_share_${s}`) || localStorage.getItem(`lttc_share_${s}`);
     if (t) localShares[s] = t;
   });
 
@@ -331,7 +331,7 @@
 
     let html;
     try {
-      const res = await fetch("./index.html?v=5", { cache: "no-store" });
+      const res = await fetch("./index.html?v=7", { cache: "no-store" });
       if (!res.ok) throw new Error("index missing");
       html = await res.text();
     } catch (err) {
@@ -352,7 +352,7 @@
     const cover = document.createElement("section");
     cover.className = "pack-cover";
     cover.innerHTML = `
-      <div class="meta" style="color:#6B5E48;font-size:12px;margin-bottom:8px">LTTC · City University of Macau</div>
+      <div class="meta" style="color:#6B5E48;font-size:12px;margin-bottom:8px">International Training and Testing Centre (ITTC) · City University of Macau</div>
       <h1>Formative Assessment Frameworks & GenAI</h1>
       <p>Personal materials pack — same pages as the workshop HTML, with your inputs filled in.</p>
       <p><strong>Student:</strong> ${esc(student.name)}<br>
@@ -384,7 +384,7 @@
       // Temporarily simplify page-break rules that make html2pdf emit blank pages.
       const opt = {
         margin: [8, 8, 8, 8],
-        filename: `LTTC_FA_${safeName}_pack.pdf`,
+        filename: `ITTC_FA_${safeName}_pack.pdf`,
         image: { type: "jpeg", quality: 0.95 },
         html2canvas: {
           scale: 2,

@@ -190,12 +190,12 @@
     if (!confirm("Clear all student data for this session?")) return;
     const session_code = ($("#codeInput").value || "202607").trim().toUpperCase();
     if (window.TrainingStore?.reset) {
-      await window.TrainingStore.reset(session_code, "lttc-host");
+      await window.TrainingStore.reset(session_code, "ittc-host");
     } else {
       await fetch("/api/reset", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ session_code, token: "lttc-host" }),
+        body: JSON.stringify({ session_code, token: "ittc-host" }),
       });
     }
     await fetchSnapshot();
