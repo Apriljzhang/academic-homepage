@@ -42,21 +42,67 @@
   const $ = (sel) => document.querySelector(sel);
   const $$ = (sel) => Array.from(document.querySelectorAll(sel));
 
-  async function api(path, opts = {}) {
-    const res = await fetch(path, {
-      headers: { "Content-Type": "application/json" },
-      ...opts,
+  function uid() {
+    return crypto.randomUUID ? crypto.randomUUID() : `id-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+  }
+
+  async function apiJoin(body) {
+    if (window.TrainingStore?.join) return window.TrainingStore.join(body);
+    // Fallback: pure local join (no network)
+    const student_id = uid();
+    const session_code = (body.session_code || "202607").trim().toUpperCase();
+    const name = body.name || "Student";
+    const roomKey = "lttc_room_v1";
+    const db = JSON.parse(localStorage.getItem(roomKey) || "{}");
+    db[session_code] ||= { students: {}, events: [] };
+    db[session_code].students[student_id] = {
+      id: student_id,
+      name,
+      device_id: body.device_id,
+      joined_at: Date.now() / 1000,
+      session_code,
+    };
+    localStorage.setItem(roomKey, JSON.stringify(db));
+    return { student_id, session_code, name };
+  }
+
+  async function apiEvent(body) {
+    if (window.TrainingStore?.postEvent) return window.TrainingStore.postEvent(body);
+    const roomKey = "lttc_room_v1";
+    const db = JSON.parse(localStorage.getItem(roomKey) || "{}");
+    let code = null;
+    for (const [c, room] of Object.entries(db)) {
+      if (room.students?.[body.student_id]) {
+        code = c;
+        break;
+      }
+    }
+    if (!code) throw new Error("unknown student");
+    db[code].events.push({
+      student_id: body.student_id,
+      event_type: body.event_type,
+      payload: body.payload || {},
+      created_at: Date.now() / 1000,
     });
-    if (!res.ok) throw new Error(await res.text());
-    return res.json();
+    localStorage.setItem(roomKey, JSON.stringify(db));
+    return { ok: true, stats: state.stats };
+  }
+
+  async function apiMe(studentId) {
+    if (window.TrainingStore?.me) return window.TrainingStore.me(studentId);
+    return {
+      student: { id: studentId, name: state.name, session_code: state.session },
+      stats: state.stats,
+    };
   }
 
   async function sendEvent(event_type, payload = {}) {
     if (!state.studentId) return null;
     try {
-      const data = await api("/api/event", {
-        method: "POST",
-        body: JSON.stringify({ student_id: state.studentId, event_type, payload }),
+      const data = await apiEvent({
+        student_id: state.studentId,
+        event_type,
+        payload,
       });
       if (data.stats) {
         state.stats = data.stats;
@@ -99,7 +145,7 @@
   async function refreshMe() {
     if (!state.studentId) return;
     try {
-      const data = await api(`/api/me/${state.studentId}`);
+      const data = await apiMe(state.studentId);
       state.stats = data.stats;
       renderStats();
       const note = localStorage.getItem("lttc_transfer") || "";
@@ -119,13 +165,10 @@
     }
     $("#joinBtn").disabled = true;
     try {
-      const data = await api("/api/join", {
-        method: "POST",
-        body: JSON.stringify({
-          name,
-          session_code,
-          device_id: localStorage.getItem("lttc_device") || crypto.randomUUID(),
-        }),
+      const data = await apiJoin({
+        name,
+        session_code,
+        device_id: localStorage.getItem("lttc_device") || uid(),
       });
       localStorage.setItem("lttc_device", data.student_id.slice(0, 8));
       state.studentId = data.student_id;
@@ -137,7 +180,7 @@
       $("#whoLabel").textContent = `${state.name} · ${state.session}`;
       showPage(1);
     } catch (e) {
-      alert("Could not join. Is the server running?");
+      alert("Could not join. Please try again, or clear this site’s data for apriljzhang.com and reload.");
       console.error(e);
     } finally {
       $("#joinBtn").disabled = false;

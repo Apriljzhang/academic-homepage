@@ -148,8 +148,13 @@
 
   async function fetchSnapshot() {
     const code = ($("#codeInput").value || "202607").trim().toUpperCase();
-    const res = await fetch(`/api/host/${code}`);
-    const snap = await res.json();
+    let snap;
+    if (window.TrainingStore?.hostSnapshot) {
+      snap = await window.TrainingStore.hostSnapshot(code);
+    } else {
+      const res = await fetch(`/api/host/${code}`);
+      snap = await res.json();
+    }
     renderSnapshot(snap);
     return code;
   }
@@ -184,11 +189,15 @@
   $("#resetBtn").onclick = async () => {
     if (!confirm("Clear all student data for this session?")) return;
     const session_code = ($("#codeInput").value || "202607").trim().toUpperCase();
-    await fetch("/api/reset", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ session_code, token: "lttc-host" }),
-    });
+    if (window.TrainingStore?.reset) {
+      await window.TrainingStore.reset(session_code, "lttc-host");
+    } else {
+      await fetch("/api/reset", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ session_code, token: "lttc-host" }),
+      });
+    }
     await fetchSnapshot();
   };
 
