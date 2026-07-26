@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My FA materials PDF · LTTC</title>
+<link href="https://fonts.googleapis.com/css2?family=Carlito:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.2/html2pdf.bundle.min.js"></script>
+<script src="./config.js"></script>
+<script src="./store.js"></script>
+<style>
+  :root {
+    --paper: #F5E6C8;
+    --box: #FFF8E8;
+    --ink: #2C2416;
+    --muted: #6B5E48;
+    --line: #8B7355;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: Calibri, Carlito, "Segoe UI", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .toolbar {
+    position: sticky; top: 0; z-index: 10;
+    display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between;
+    padding: 12px 16px;
+    background: var(--paper);
+    border-bottom: 1.5px dashed var(--line);
+  }
+  .brand { font-weight: 700; }
+  button {
+    font-family: inherit; font-weight: 700;
+    border: 1.5px dashed var(--line);
+    background: #6B5344; color: #FFF8E8;
+    border-radius: 999px; padding: 10px 16px; cursor: pointer;
+  }
+  button.secondary { background: var(--box); color: var(--ink); }
+  #pack { max-width: 800px; margin: 0 auto; padding: 16px; }
+  .slide {
+    background: var(--box);
+    border: 1.5px dashed var(--line);
+    border-radius: 4px;
+    padding: 18px;
+    margin: 0 0 16px;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  h1 { font-size: 1.4rem; margin: 0 0 8px; }
+  h2 { font-size: 1.15rem; margin: 0 0 8px; }
+  h3 { font-size: 1rem; margin: 12px 0 6px; }
+  .meta { color: var(--muted); font-size: 12px; margin-bottom: 10px; }
+  .mine {
+    margin-top: 10px; padding: 10px;
+    border: 1.5px dashed var(--line);
+    background: #F0DDB0;
+  }
+  .mine strong { display: block; margin-bottom: 4px; }
+  img { max-width: 100%; height: auto; border: 1.5px dashed var(--line); }
+  ul { margin: 6px 0; padding-left: 1.2em; }
+  .status { color: var(--muted); font-size: 13px; }
+  @media print {
+    .toolbar { display: none !important; }
+    body { background: white; }
+    .slide { break-after: page; }
+  }
+</style>
+</head>
+<body>
+<div class="toolbar no-print">
+  <div>
+    <div class="brand">LTTC · City University of Macau</div>
+    <div class="status" id="status">Loading your materials…</div>
+  </div>
+  <div style="display:flex; gap:8px; flex-wrap:wrap;">
+    <button type="button" class="secondary" onclick="window.location.href='/'">Back to workshop</button>
+    <button type="button" id="pdfBtn">Download PDF</button>
+  </div>
+</div>
+
+<div id="pack"></div>
+
+<script>
+(() => {
+  const params = new URLSearchParams(location.search);
+  const studentId = params.get("sid") || localStorage.getItem("lttc_student_id") || "";
+  const localVotes = JSON.parse(localStorage.getItem("lttc_votes") || "{}");
+  const localAnswered = JSON.parse(localStorage.getItem("lttc_answered") || "{}");
+  const localTransfer = localStorage.getItem("lttc_transfer") || "";
+  const localIcan = localStorage.getItem("lttc_ican") || "";
+  const localShares = {};
+  ["s1","s2","s3","s4","s5"].forEach((s) => {
+    const t = localStorage.getItem(`lttc_share_${s}`);
+    if (t) localShares[s] = t;
+  });
+
+  const SCENARIO_TEXT = {
+    sc1: "History draft → tutor comments → revise before final",
+    sc2: "Mid-term scores posted; no reteaching/revision",
+    sc3: "Exit ticket used to reshape tomorrow’s seminar",
+    sc4: "Final comments after term ends; no next assignment",
+  };
+  const SCENARIO_KEY = { sc1: "YES", sc2: "NO", sc3: "YES", sc4: "NO" };
+  const QUIZ_LABELS = {
+    q_criteria: "Product vs performance criteria",
+    q_elicit: "Eliciting evidence during learning",
+    q_fbstyle: "Most formative feedback",
+    q_hattie: "Where to next? = Feed Forward",
+    q_level: "Feedback level (process)",
+    q_shute: "Improve vague peer feedback",
+  };
+
+  function esc(s) {
+    return String(s ?? "")
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;");
+  }
+
+  function mine(title, body) {
+    if (!body) return "";
+    return `<div class="mine"><strong>Your input · ${esc(title)}</strong>${esc(body)}</div>`;
+  }
+
+  function slide(title, html) {
+    return `<section class="slide"><h2>${esc(title)}</h2>${html}</section>`;
+  }
+
+  async function load() {
+    if (!studentId) {
+      document.getElementById("status").textContent = "Please login on the workshop page first.";
+      return;
+    }
+    let data;
+    try {
+      const res = await fetch(`/api/me/${studentId}/portfolio`);
+      if (!res.ok) throw new Error("not found");
+      data = await res.json();
+    } catch (e) {
+      document.getElementById("status").textContent = "Could not load portfolio. Login again on the workshop page.";
+      return;
+    }
+    const st = data.stats || {};
+    const name = data.student.name;
+    const session = data.student.session_code;
+    const votes = { ...localVotes, ...(st.scenario_map || {}) };
+    const shares = { ...localShares, ...(st.share_by_strategy || {}) };
+    const quizzes = st.quiz_answers || [];
+    const quizMap = {};
+    quizzes.forEach((q) => { quizMap[q.quiz_id] = q; });
+    Object.entries(localAnswered).forEach(([id, ans]) => {
+      if (!quizMap[id]) quizMap[id] = { quiz_id: id, answer: ans, correct: null };
+    });
+    const match = st.match_latest;
+    const transfer = localTransfer ||
+      (st.choice_items || []).filter((c) => c.kind === "transfer_note").map((c) => c.text).pop() || "";
+    const ican = localIcan ||
+      (st.choice_items || []).filter((c) => c.kind === "ican_draft").map((c) => c.text).pop() || "";
+
+    document.getElementById("status").textContent = `${name} · ${session} · ready to download`;
+
+    const quizHtml = Object.keys(QUIZ_LABELS).map((id) => {
+      const q = quizMap[id];
+      if (!q) return `<li>${esc(QUIZ_LABELS[id])}: <em>not answered</em></li>`;
+      const mark = q.correct === true ? "correct" : q.correct === false ? "incorrect" : "answered";
+      return `<li>${esc(QUIZ_LABELS[id])}: chose <strong>${esc(q.answer)}</strong> (${mark})</li>`;
+    }).join("");
+
+    const voteHtml = Object.keys(SCENARIO_TEXT).map((id) => {
+      const v = votes[id] || "—";
+      const key = SCENARIO_KEY[id];
+      return `<li>${esc(SCENARIO_TEXT[id])}<br>Your vote: <strong>${esc(v)}</strong> · key: ${key}</li>`;
+    }).join("");
+
+    const shareHtml = ["s1","s2","s3","s4","s5"].map((s) =>
+      `<li><strong>${s.toUpperCase()}:</strong> ${esc(shares[s] || "(no idea shared)")}</li>`
+    ).join("");
+
+    const pack = document.getElementById("pack");
+    pack.innerHTML = [
+      slide("Cover", `
+        <div class="meta">LTTC · City University of Macau</div>
+        <h1>Formative Assessment Frameworks & GenAI</h1>
+        <p>Personal learning pack</p>
+        <p><strong>Student:</strong> ${esc(name)}<br>
+        <strong>Session:</strong> ${esc(session)}<br>
+        <strong>Generated:</strong> ${esc(new Date().toLocaleString())}</p>
+        <p class="meta">全球視野與創新發展 · 新時代全球化與教育新視野</p>
+      `),
+      slide("Opening · Why this workshop", `
+        <p>We walk Wiliam’s five formative strategies: meaning, techniques, and GenAI support. After Strategy 3 we deepen with Hattie & Timperley’s feedback model, then return to peers and ownership of learning.</p>
+        <p><strong>Performance summary:</strong> pages ${st.pages_viewed || 0} · quizzes ${st.quiz_correct || 0}/${st.quiz_attempted || 0} · shares ${st.share_ideas || 0} · votes ${st.scenario_votes || 0}</p>
+      `),
+      slide("Activity 1 · Is it formative?", `
+        <p>Assessment is formative when evidence changes the next learning step (Black & Wiliam, 1998).</p>
+        <ul>${voteHtml}</ul>
+      `),
+      slide("Why formative assessment matters", `
+        <ul>
+          <li>Feedback is among the strongest influences on achievement when it is usable (Hattie, 2009).</li>
+          <li>FA closes the gap between current work and a goal (Black & Wiliam).</li>
+          <li>Self-regulation grows from criteria + evidence + action.</li>
+        </ul>
+      `),
+      slide("Wiliam · Five key strategies", `
+        <p>Three questions: Where going? Where now? How to get there? — across teacher, peer, and learner roles.</p>
+        <img src="./assets/five-key-strategies.png" alt="Five key strategies">
+        ${match ? mine("Activity 2 match", `Score ${match.score}/${match.total}` + (match.correct ? " · all correct" : "")) : mine("Activity 2 match", "Not submitted")}
+      `),
+      slide("Strategy 1 · Intentions & success criteria", `
+        <p><strong>Rationale:</strong> Learners cannot aim at excellence they cannot see. Decode briefs into “I can…” criteria; distinguish product vs performance criteria (Andrade & Heritage, 2017).</p>
+        <p><strong>Techniques:</strong> brief deconstruction · co-created checklists · exemplars</p>
+        <p><strong>GenAI:</strong> Success Criteria Translator</p>
+        ${mine("I can… draft", ican)}
+        ${mine("Creative GenAI idea", shares.s1)}
+        ${mine("Quiz q_criteria", quizMap.q_criteria ? `Answer ${quizMap.q_criteria.answer}` : "—")}
+      `),
+      slide("Strategy 2 · Eliciting evidence", `
+        <p><strong>Rationale:</strong> Misunderstandings must surface early. Planned and contingent tools (Lin, 2019) make thinking visible.</p>
+        <p><strong>Techniques:</strong> Think–Pair–Share · exit tickets · mini polls · planned vs contingent checks</p>
+        <p><strong>GenAI:</strong> Pre-Mortem Plan</p>
+        ${mine("Creative GenAI idea", shares.s2)}
+        ${mine("Quiz q_elicit", quizMap.q_elicit ? `Answer ${quizMap.q_elicit.answer}` : "—")}
+      `),
+      slide("Strategy 3 · Feedback that moves forward", `
+        <p><strong>Rationale:</strong> Feedback is formative only when it enables a better next step. Prefer one-criterion, next-step comments.</p>
+        <p><strong>Techniques:</strong> one-criterion focus · next-steps feedback · multimodal notes</p>
+        <p><strong>GenAI:</strong> Focused Feedback Generator</p>
+        ${mine("Creative GenAI idea", shares.s3)}
+        ${mine("Quiz q_fbstyle", quizMap.q_fbstyle ? `Answer ${quizMap.q_fbstyle.answer}` : "—")}
+      `),
+      slide("Hattie & Timperley (2007) feedback model", `
+        <p>Feed Up / Feed Back / Feed Forward; levels Task · Process · Self-regulation · Self. Prefer process-level next steps over empty praise.</p>
+        <img src="./assets/hattie-timperley-feedback.jpg" alt="Hattie model">
+        ${mine("Quiz Feed Forward", quizMap.q_hattie ? `Answer ${quizMap.q_hattie.answer}` : "—")}
+        ${mine("Quiz level", quizMap.q_level ? `Answer ${quizMap.q_level.answer}` : "—")}
+      `),
+      slide("Shute (2008) formative feedback guidelines", `
+        <ul>
+          <li>Focus on the task, not the person</li>
+          <li>Elaborate what / how / why</li>
+          <li>Be specific; avoid overload</li>
+          <li>Actionable next steps</li>
+          <li>Support learner agency</li>
+        </ul>
+        ${mine("Quiz q_shute", quizMap.q_shute ? `Answer ${quizMap.q_shute.answer}` : "—")}
+      `),
+      slide("Strategy 4 · Peers as resources", `
+        <p><strong>Rationale:</strong> Structured protocols (TAG; Two Stars & a Wish) turn peer talk into usable, criterion-based feedback.</p>
+        <img src="./assets/peer-feedback-tag.jpg" alt="TAG">
+        <img src="./assets/two-stars-wish.jpg" alt="Two Stars" style="margin-top:8px">
+        ${mine("Creative GenAI idea", shares.s4)}
+      `),
+      slide("Strategy 5 · Owners of learning", `
+        <p><strong>Rationale:</strong> Internalise the three questions through self-assessment, SMART goals, and portfolio reflection.</p>
+        <img src="./assets/self-assessment-checklist.png" alt="Self-assessment">
+        ${mine("Creative GenAI idea", shares.s5)}
+      `),
+      slide("What must stay human", `
+        <p>Judgment · Empathy · Design · Agency. GenAI can accelerate practice; you set direction and protect integrity.</p>
+        <img src="./assets/human-ai-boat.png" alt="Human direction">
+      `),
+      slide("Your quiz & GenAI summary", `
+        <h3>Quizzes</h3><ul>${quizHtml}</ul>
+        <h3>GenAI ideas by strategy</h3><ul>${shareHtml}</ul>
+        ${mine("Exit reflection", transfer)}
+      `),
+      slide("Closing", `
+        <p>GenAI = power and pace. You = direction and judgment. Formative assessment remains a human conversation about growth.</p>
+        <p>Dr April Jiawei Zhang · City University of Macau · aprilzhang@cityu.edu.mo</p>
+      `),
+    ].join("");
+
+    document.getElementById("pdfBtn").onclick = () => {
+      const opt = {
+        margin: [10, 10, 10, 10],
+        filename: `LTTC_FA_${name.replace(/\s+/g, "_")}_pack.pdf`,
+        image: { type: "jpeg", quality: 0.92 },
+        html2canvas: { scale: 2, useCORS: true, backgroundColor: "#F5E6C8" },
+        jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+        pagebreak: { mode: ["css", "legacy"] },
+      };
+      document.getElementById("status").textContent = "Generating PDF…";
+      html2pdf().set(opt).from(pack).save().then(() => {
+        document.getElementById("status").textContent = `${name} · PDF downloaded`;
+      }).catch(() => {
+        document.getElementById("status").textContent = "PDF failed — try Print → Save as PDF.";
+        window.print();
+      });
+    };
+  }
+
+  load();
+})();
+</script>
+</body>
+</html>

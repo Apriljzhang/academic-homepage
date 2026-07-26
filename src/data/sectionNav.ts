@@ -19,4 +19,5 @@ export const serviceSubnav = [
   { href: withBase('/service/journal-editor'), label: 'Journal editor' },
   { href: withBase('/service/presentations'), label: 'Presentations' },
   { href: withBase('/service/memberships'), label: 'Professional memberships' },
+  { href: withBase('/service/training'), label: 'Training' },
 ] as const;

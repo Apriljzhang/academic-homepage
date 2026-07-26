@@ -22,8 +22,8 @@ const description = `Professional service, conference organisation, journal edit
       <MainWithAside asideLabel="Service menu">
         <div>
           <p class="mt-4 max-w-3xl text-pretty text-lg leading-relaxed text-muted lg:text-xl">
-            Conference leadership, journal editorship, scholarly networks, and selected presentations in language
-            assessment and language education.
+            Conference leadership, journal editorship, scholarly networks, training workshops, and selected presentations
+            in language assessment and language education.
           </p>
           <SectionSubnav ariaLabel="Service section" items={serviceSubnav} />
 
@@ -65,6 +65,17 @@ const description = `Professional service, conference organisation, journal edit
                 Professional memberships →
               </a>
               <p class="mt-2 text-sm text-muted">Learned societies and professional networks in language assessment.</p>
+            </li>
+            <li class="rounded-xl border border-border bg-surface p-5 md:col-span-2">
+              <a
+                href={withBase('/service/training')}
+                class="font-serif text-lg font-semibold text-ink no-underline hover:text-primary"
+              >
+                Training →
+              </a>
+              <p class="mt-2 text-sm text-muted">
+                July 2026 · Formative Assessment Frameworks & GenAI (interactive HTML workshop; access by code).
+              </p>
             </li>
           </ul>
         </div>
