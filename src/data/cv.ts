@@ -174,6 +174,8 @@ export type PublicationItem = {
   citationHtml: string;
   /** Full DOI or retrieval URL (shown below citation in APA style). */
   doiUrl?: string;
+  /** Site-hosted PDF under /publications/ (from 代表作), when available. */
+  pdfPath?: string;
 };
 
 /** Peer-reviewed work and doctoral dissertation, newest first. */
@@ -182,10 +184,12 @@ export const publications: PublicationItem[] = [
     citationHtml:
       'Hou, Y., Ouyang, B., Liu, J. E., Zhang, A. J., & Sun, Z. (2026). A case study of high school graduates\' reflections on career education: Insights from high-stakes context. <em>The Career Development Quarterly</em>, Advance online publication, Article cdq.70033.',
     doiUrl: 'https://doi.org/10.1002/cdq.70033',
+    pdfPath: '/publications/2026-career-education.pdf',
   },
   {
     citationHtml:
       'Zhang, A. J., & Chen, Z. (2026). Breaking the fourth wall in Chinese EFL: Stakeholder perceptions of situated learning "in the wild" with young learners. <em>TESOL International Association Applied Linguistics Forum</em>, <em>46</em>(1), 1–6.',
+    pdfPath: '/publications/2026-breaking-fourth-wall-efl.pdf',
   },
   {
     citationHtml:
@@ -196,14 +200,17 @@ export const publications: PublicationItem[] = [
     citationHtml:
       'Wright, C., Lu, Y., Zhang, A. J., Zhang, L., & Zheng, Y. (2022). Tests of learning or testing for learning? An exploratory study of motivation and language learning strategies among HSK level 1–3 test-takers in UK. <em>International Journal of Chinese Language Teaching</em>, <em>3</em>(3), 1–19.',
     doiUrl: 'https://doi.org/10.46451/ijclt.2022.03.01',
+    pdfPath: '/publications/2022-tests-of-learning-hsk.pdf',
   },
   {
     citationHtml:
       'Zheng, Y., Zheng, Y., & Zhang, A. J. (2021). HSK 试卷架构对 1–3 级考生成绩的影响：以英语母语者为例. <em>国际汉语教学研究 International Chinese Language Education</em>, <em>6</em>(3), 50–59.',
+    pdfPath: '/publications/2021-hsk-test-structure.pdf',
   },
   {
     citationHtml:
       'Bai, W., & Zhang, A. J. (2021). Developing key competencies via formative assessment in primary school English classrooms: Teacher education perspective. <em>Journal of Nanjing Xiaozhuang University</em>, <em>37</em>(4), 22–27.',
+    pdfPath: '/publications/2021-formative-assessment-teacher-education.pdf',
   },
   {
     citationHtml:
