@@ -2,14 +2,15 @@ import { publications } from './cv';
 
 export type Collaborator = {
   name: string;
+  /** City/region used as the map endpoint for red collaborator lines. */
   affiliation?: string;
   lat?: number;
   lng?: number;
 };
 
 /**
- * OPTIONAL: fill in known affiliations for co-authors here.
- * Keys should match the name extracted from citations (surname + initials).
+ * Known affiliations for publication co-authors.
+ * Keys must match names parsed from citation author lists (Surname, Initials.).
  */
 export const collaboratorAffiliations: Record<string, string> = {
   'Bai, W.': 'Nanjing, CN',
@@ -21,14 +22,15 @@ export const collaboratorAffiliations: Record<string, string> = {
   'Zheng, Y.': 'Southampton, UK',
 };
 
-export const collaboratorLocations: Record<string, { lat: number; lng: number }> = {
-  'Bai, W.': { lat: 32.0603, lng: 118.7969 }, // Nanjing
-  'Chen, Z.': { lat: 51.752, lng: -1.2577 }, // Oxford
-  'Ji, T.': { lat: 22.2707, lng: 113.5767 }, // Zhuhai
-  'Lu, Y.': { lat: 52.9548, lng: -1.1581 }, // Nottingham
-  'Wright, C.': { lat: 53.8008, lng: -1.5491 }, // Leeds
-  'Zhang, L.': { lat: 34.7657, lng: 113.7532 }, // Zhengzhou (Henan)
-  'Zheng, Y.': { lat: 50.9097, lng: -1.4044 }, // Southampton
+/** Map coordinates keyed by affiliation label (not by person). */
+export const affiliationLocations: Record<string, { lat: number; lng: number }> = {
+  'Nanjing, CN': { lat: 32.0603, lng: 118.7969 },
+  'Oxford, UK': { lat: 51.752, lng: -1.2577 },
+  'Zhuhai, CN': { lat: 22.2707, lng: 113.5767 },
+  'Nottingham, UK': { lat: 52.9548, lng: -1.1581 },
+  'Leeds, UK': { lat: 53.8008, lng: -1.5491 },
+  'Henan, CN': { lat: 34.7657, lng: 113.7532 },
+  'Southampton, UK': { lat: 50.9097, lng: -1.4044 },
 };
 
 function stripHtml(input: string): string {
@@ -56,20 +58,55 @@ function parseAuthors(citationHtml: string): string[] {
   return out;
 }
 
+function isSelfAuthor(name: string): boolean {
+  // Publications use "Zhang, A. J."; older forms may appear as "Zhang, J." / "Zhang, J. W.".
+  return /^Zhang,\s*(A\.?\s*)?J(\.|$|\s)/i.test(name);
+}
+
+/** Publication co-authors only (self excluded). Location comes from affiliation when known. */
 export function getCollaborators(): Collaborator[] {
   const allAuthors = publications.flatMap((p) => parseAuthors(p.citationHtml));
-  const unique = Array.from(new Set(allAuthors));
+  const unique = Array.from(new Set(allAuthors)).filter((n) => !isSelfAuthor(n));
 
-  // Exclude self entries (any Zhang, J. / Zhang, J. W. variants).
-  const filtered = unique.filter((n) => !/^Zhang,\s*J(\.|$)/.test(n) && !/^Zhang,\s*J\w*\./.test(n));
-
-  return filtered
-    .map((name) => ({
-      name,
-      affiliation: collaboratorAffiliations[name],
-      lat: collaboratorLocations[name]?.lat,
-      lng: collaboratorLocations[name]?.lng,
-    }))
+  return unique
+    .map((name) => {
+      const affiliation = collaboratorAffiliations[name];
+      const loc = affiliation ? affiliationLocations[affiliation] : undefined;
+      return {
+        name,
+        affiliation,
+        lat: loc?.lat,
+        lng: loc?.lng,
+      };
+    })
     .sort((a, b) => a.name.localeCompare(b.name));
 }
 
+export type CollaboratorRoute = {
+  start: { lat: number; lng: number; label?: string };
+  end: { lat: number; lng: number; label?: string };
+};
+
+/**
+ * Red map lines: only publication co-authors who have a known affiliation location.
+ * Visitor dots are never included here.
+ */
+export function getCollaboratorRoutes(home: {
+  lat: number;
+  lng: number;
+  label?: string;
+}): CollaboratorRoute[] {
+  return getCollaborators()
+    .filter(
+      (c): c is Collaborator & { affiliation: string; lat: number; lng: number } =>
+        Boolean(c.affiliation) && typeof c.lat === 'number' && typeof c.lng === 'number',
+    )
+    .map((c) => ({
+      start: home,
+      end: {
+        lat: c.lat,
+        lng: c.lng,
+        label: `${c.name} (${c.affiliation})`,
+      },
+    }));
+}

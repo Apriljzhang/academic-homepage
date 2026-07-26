@@ -87,10 +87,12 @@ export default function WorldMap({
     const points = projector.getPoints();
     const out = {
       dots: [] as Array<{ x: number; y: number; dot: VisitDot }>,
-      routeStarts: [] as Array<{ x: number; y: number; route: Route }>,
-      routeEnds: [] as Array<{ x: number; y: number; route: Route }>,
+      routeStarts: [] as Array<{ x: number; y: number; route: Route } | undefined>,
+      routeEnds: [] as Array<{ x: number; y: number; route: Route } | undefined>,
       home: undefined as undefined | { x: number; y: number },
     };
+    out.routeStarts = new Array(routes.length);
+    out.routeEnds = new Array(routes.length);
 
     for (const p of points) {
       const id = p.data?.id as string | undefined;
@@ -98,8 +100,9 @@ export default function WorldMap({
       const m = keyById.get(id);
       if (!m) continue;
       if (m.kind === "dot") out.dots.push({ x: p.x, y: p.y, dot: dots[m.idx] });
-      if (m.kind === "route-start") out.routeStarts.push({ x: p.x, y: p.y, route: routes[m.idx] });
-      if (m.kind === "route-end") out.routeEnds.push({ x: p.x, y: p.y, route: routes[m.idx] });
+      // Index by route id so start/end stay paired (getPoints() order is not reliable).
+      if (m.kind === "route-start") out.routeStarts[m.idx] = { x: p.x, y: p.y, route: routes[m.idx] };
+      if (m.kind === "route-end") out.routeEnds[m.idx] = { x: p.x, y: p.y, route: routes[m.idx] };
       if (m.kind === "home") out.home = { x: p.x, y: p.y };
     }
 
@@ -191,7 +194,7 @@ export default function WorldMap({
 
           {projected.routeStarts.map((startPt, i) => {
             const endPt = projected.routeEnds[i];
-            if (!endPt) return null;
+            if (!startPt || !endPt) return null;
             const d = createCurvedPath(
               { x: startPt.x, y: startPt.y },
               { x: endPt.x, y: endPt.y },
@@ -240,6 +243,7 @@ export default function WorldMap({
 
           {/* collaborator endpoints as dots (line color) */}
           {projected.routeEnds.map((endPt, i) => {
+            if (!endPt) return null;
             return (
               <g key={`route-endpoints-${i}`}>
                 <circle cx={endPt.x} cy={endPt.y} r="0.85" fill={collaboratorColor} opacity={0.95} />
