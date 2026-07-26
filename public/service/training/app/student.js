@@ -386,7 +386,7 @@
       alert("Please login with your name first.");
       return;
     }
-    window.open(`./portfolio.html?sid=${encodeURIComponent(state.studentId)}`, "_blank");
+    window.open(`./portfolio.html?v=5&sid=${encodeURIComponent(state.studentId)}`, "_blank");
   }
 
   $("#joinBtn").onclick = join;
