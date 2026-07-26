@@ -174,41 +174,57 @@
     return text ? JSON.parse(text) : null;
   }
 
+  function joinLocal({ name, session_code, device_id, student_id, joined_at }) {
+    const code = session_code;
+    const db = loadLocal();
+    const room = ensureSession(db, code);
+    room.students[student_id] = { id: student_id, name, device_id, joined_at, session_code: code };
+    saveLocal(db);
+  }
+
   async function join({ name, session_code, device_id }) {
     const code = (session_code || "202607").trim().toUpperCase();
     const student_id = uuid();
     const joined_at = Date.now() / 1000;
     if (USE_SB) {
-      await sb("training_students", {
-        method: "POST",
-        body: JSON.stringify({ id: student_id, session_code: code, name, device_id, joined_at }),
-      });
-    } else {
-      const db = loadLocal();
-      const room = ensureSession(db, code);
-      room.students[student_id] = { id: student_id, name, device_id, joined_at, session_code: code };
-      saveLocal(db);
+      try {
+        await sb("training_students", {
+          method: "POST",
+          body: JSON.stringify({ id: student_id, session_code: code, name, device_id, joined_at }),
+        });
+        return { student_id, session_code: code, name, mode: "supabase" };
+      } catch (err) {
+        console.warn("Supabase join failed; using local mode.", err);
+      }
     }
-    return { student_id, session_code: code, name };
+    joinLocal({ name, session_code: code, device_id, student_id, joined_at });
+    return { student_id, session_code: code, name, mode: "local" };
   }
 
   async function postEvent({ student_id, event_type, payload }) {
     if (USE_SB) {
-      const rows = await sb("training_students?select=session_code,name&id=eq." + encodeURIComponent(student_id));
-      if (!rows?.[0]) throw new Error("unknown student");
-      const session_code = rows[0].session_code;
-      await sb("training_events", {
-        method: "POST",
-        body: JSON.stringify({
-          student_id,
-          session_code,
-          event_type,
-          payload: payload || {},
-          created_at: Date.now() / 1000,
-        }),
-      });
-      const stats = await meStats(student_id);
-      return { ok: true, stats };
+      try {
+        const rows = await sb(
+          "training_students?select=session_code,name&id=eq." + encodeURIComponent(student_id)
+        );
+        if (rows?.[0]) {
+          const session_code = rows[0].session_code;
+          await sb("training_events", {
+            method: "POST",
+            body: JSON.stringify({
+              student_id,
+              session_code,
+              event_type,
+              payload: payload || {},
+              created_at: Date.now() / 1000,
+            }),
+          });
+          const stats = await meStats(student_id);
+          return { ok: true, stats };
+        }
+      } catch (err) {
+        console.warn("Supabase event failed; using local mode.", err);
+      }
     }
     const db = loadLocal();
     let found = null;
@@ -220,32 +236,48 @@
         break;
       }
     }
-    if (!found) throw new Error("unknown student");
-    const room = ensureSession(db, code);
-    room.events.push({
-      id: room.events.length + 1,
+    if (!found) {
+      // Recover: recreate student locally so login never blocks later events
+      code = "202607";
+      joinLocal({
+        name: "Student",
+        session_code: code,
+        device_id: "",
+        student_id,
+        joined_at: Date.now() / 1000,
+      });
+    }
+    const room = ensureSession(loadLocal(), code);
+    const db2 = loadLocal();
+    ensureSession(db2, code);
+    db2[code].events.push({
+      id: (db2[code].events.length || 0) + 1,
       student_id,
       session_code: code,
       event_type,
       payload: payload || {},
       created_at: Date.now() / 1000,
     });
-    saveLocal(db);
-    return { ok: true, stats: computeStats(room.events, student_id) };
+    saveLocal(db2);
+    return { ok: true, stats: computeStats(db2[code].events, student_id) };
   }
 
   async function meStats(student_id) {
     if (USE_SB) {
-      const ev = await sb(
-        `training_events?student_id=eq.${encodeURIComponent(student_id)}&select=event_type,payload,created_at&order=id.asc`
-      );
-      const events = (ev || []).map((e) => ({
-        event_type: e.event_type,
-        payload: e.payload,
-        created_at: e.created_at,
-        student_id,
-      }));
-      return computeStats(events, student_id);
+      try {
+        const ev = await sb(
+          `training_events?student_id=eq.${encodeURIComponent(student_id)}&select=event_type,payload,created_at&order=id.asc`
+        );
+        const events = (ev || []).map((e) => ({
+          event_type: e.event_type,
+          payload: e.payload,
+          created_at: e.created_at,
+          student_id,
+        }));
+        return computeStats(events, student_id);
+      } catch (err) {
+        console.warn("Supabase meStats failed; using local mode.", err);
+      }
     }
     const db = loadLocal();
     for (const room of Object.values(db)) {
@@ -256,11 +288,14 @@
 
   async function me(student_id) {
     if (USE_SB) {
-      const rows = await sb(
-        `training_students?id=eq.${encodeURIComponent(student_id)}&select=id,name,session_code,joined_at`
-      );
-      if (!rows?.[0]) throw new Error("unknown student");
-      return { student: rows[0], stats: await meStats(student_id) };
+      try {
+        const rows = await sb(
+          `training_students?id=eq.${encodeURIComponent(student_id)}&select=id,name,session_code,joined_at`
+        );
+        if (rows?.[0]) return { student: rows[0], stats: await meStats(student_id) };
+      } catch (err) {
+        console.warn("Supabase me failed; using local mode.", err);
+      }
     }
     const db = loadLocal();
     for (const room of Object.values(db)) {
@@ -268,28 +303,41 @@
         return { student: room.students[student_id], stats: computeStats(room.events, student_id) };
       }
     }
-    throw new Error("unknown student");
+    return {
+      student: { id: student_id, name: "Student", session_code: "202607" },
+      stats: computeStats([], student_id),
+    };
   }
 
   async function hostSnapshot(session_code) {
     const code = session_code.trim().toUpperCase();
-    if (!USE_SB) return hostSnapshotLocal(code);
-
-    const students = await sb(
-      `training_students?session_code=eq.${encodeURIComponent(code)}&select=id,name,joined_at&order=joined_at.asc`
-    );
-    const events = await sb(
-      `training_events?session_code=eq.${encodeURIComponent(code)}&select=student_id,event_type,payload,created_at&order=id.asc`
-    );
-    // reuse local aggregator shape
-    const db = { [code]: { students: {}, events: [] } };
-    for (const s of students || []) {
-      db[code].students[s.id] = { ...s, session_code: code };
+    if (USE_SB) {
+      try {
+        const students = await sb(
+          `training_students?session_code=eq.${encodeURIComponent(code)}&select=id,name,joined_at&order=joined_at.asc`
+        );
+        const events = await sb(
+          `training_events?session_code=eq.${encodeURIComponent(code)}&select=student_id,event_type,payload,created_at&order=id.asc`
+        );
+        const db = { [code]: { students: {}, events: [] } };
+        for (const s of students || []) {
+          db[code].students[s.id] = { ...s, session_code: code };
+        }
+        for (const e of events || []) {
+          db[code].events.push({ ...e, payload: e.payload || {} });
+        }
+        // Merge with any local-only students from this browser
+        const local = loadLocal()[code];
+        if (local) {
+          Object.assign(db[code].students, local.students || {});
+          db[code].events = db[code].events.concat(local.events || []);
+        }
+        saveLocal(db);
+        return hostSnapshotLocal(code);
+      } catch (err) {
+        console.warn("Supabase hostSnapshot failed; using local mode.", err);
+      }
     }
-    for (const e of events || []) {
-      db[code].events.push({ ...e, payload: e.payload || {} });
-    }
-    saveLocal(db); // cache
     return hostSnapshotLocal(code);
   }
 
@@ -297,13 +345,22 @@
     if (token !== "lttc-host") throw new Error("forbidden");
     const code = session_code.trim().toUpperCase();
     if (USE_SB) {
-      await sb(`training_events?session_code=eq.${encodeURIComponent(code)}`, { method: "DELETE", prefer: "return=minimal" });
-      await sb(`training_students?session_code=eq.${encodeURIComponent(code)}`, { method: "DELETE", prefer: "return=minimal" });
-    } else {
-      const db = loadLocal();
-      delete db[code];
-      saveLocal(db);
+      try {
+        await sb(`training_events?session_code=eq.${encodeURIComponent(code)}`, {
+          method: "DELETE",
+          prefer: "return=minimal",
+        });
+        await sb(`training_students?session_code=eq.${encodeURIComponent(code)}`, {
+          method: "DELETE",
+          prefer: "return=minimal",
+        });
+      } catch (err) {
+        console.warn("Supabase reset failed; clearing local room.", err);
+      }
     }
+    const db = loadLocal();
+    delete db[code];
+    saveLocal(db);
     return { ok: true };
   }
 
