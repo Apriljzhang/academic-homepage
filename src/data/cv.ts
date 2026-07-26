@@ -196,6 +196,7 @@ export const publications: PublicationItem[] = [
     citationHtml:
       'Ji, T., & Zhang, A. J. (2025). Demotivation in English learning of Chinese medical students: Insights from situated expectancy-value theory. <em>Acta Psychologica, 253</em>, Article 104716. <a href="https://doi.org/10.1016/j.actpsy.2025.104716" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.actpsy.2025.104716</a>',
     doiUrl: 'https://doi.org/10.1016/j.actpsy.2025.104716',
+    pdfPath: '/publications/2025-demotivation-medical-students.pdf',
   },
   {
     citationHtml:
