@@ -59,7 +59,7 @@ const hostPath = withBase('/service/training/app/host');
                     type="text"
                     inputmode="text"
                     autocomplete="off"
-                    placeholder="202607 or 202607host"
+                    value="202607"
                     class="mt-1 w-full rounded-md border border-border bg-page px-3 py-2 font-normal text-ink"
                   />
                 </label>
@@ -71,9 +71,7 @@ const hostPath = withBase('/service/training/app/host');
                   Open with code
                 </button>
               </div>
-              <p id="trainingHint" class="mt-2 text-xs text-muted">
-                Student code <code>202607</code> · host code <code>202607host</code>
-              </p>
+              <p id="trainingHint" class="mt-2 text-xs text-muted" hidden></p>
             </li>
           </ul>
         </div>
@@ -99,7 +97,8 @@ const hostPath = withBase('/service/training/app/host');
           return;
         }
         if (hint) {
-          hint.textContent = 'Unrecognised code. Use 202607 (students) or 202607host (instructor).';
+          hint.hidden = false;
+          hint.textContent = 'Unrecognised code.';
           hint.style.color = '#a65d4a';
         }
       }
