@@ -5,6 +5,27 @@
     "break", "s4", "s5", "human", "dashboard", "end",
   ];
 
+  /** Short titles for the bottom page scroller (skip login). */
+  const PAGE_LABELS = {
+    open: "Opening",
+    a1: "Activity 1 · Is this formative?",
+    why: "Why FA matters",
+    wiliam: "Five key strategies",
+    a2: "Activity 2 · Match strategies",
+    s1: "Strategy 1 · Intentions & criteria",
+    s2: "Strategy 2 · Eliciting evidence",
+    s3: "Strategy 3 · Feedback forward",
+    hattie: "Hattie & Timperley",
+    hattie_quiz: "Feedback practice",
+    shute: "Shute guidelines",
+    break: "Break",
+    s4: "Strategy 4 · Peers as resources",
+    s5: "Strategy 5 · Owners of learning",
+    human: "What must stay human",
+    dashboard: "Your dashboard",
+    end: "Thank you",
+  };
+
   const MATCH_KEY = {
     s1: "Know what excellence looks like before drafting",
     s2: "Surface misunderstandings early with quick checks",
@@ -142,6 +163,52 @@
     return Boolean(state.studentId && state.name);
   }
 
+  function navPages() {
+    return PAGES.map((id, index) => ({ id, index, label: PAGE_LABELS[id] })).filter((p) => p.label);
+  }
+
+  function buildPageScroller() {
+    const scroller = $("#pageScroller");
+    if (!scroller || scroller.dataset.built === "1") return;
+    scroller.innerHTML = "";
+    navPages().forEach((p, i) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "page-chip";
+      btn.dataset.page = p.id;
+      btn.dataset.index = String(p.index);
+      btn.setAttribute("role", "listitem");
+      btn.innerHTML = `<span class="n">${String(i + 1).padStart(2, "0")}</span>${p.label}`;
+      btn.onclick = () => {
+        if (!isJoined()) return;
+        showPage(p.index);
+      };
+      scroller.appendChild(btn);
+    });
+    scroller.dataset.built = "1";
+  }
+
+  function syncPageScroller() {
+    const scroller = $("#pageScroller");
+    if (!scroller) return;
+    const page = PAGES[state.pageIndex];
+    let active = null;
+    scroller.querySelectorAll(".page-chip").forEach((btn) => {
+      const on = btn.dataset.page === page;
+      btn.classList.toggle("active", on);
+      btn.setAttribute("aria-current", on ? "page" : "false");
+      if (on) active = btn;
+    });
+    if (active) {
+      const left = active.offsetLeft - (scroller.clientWidth - active.offsetWidth) / 2;
+      scroller.scrollTo({ left: Math.max(0, left), behavior: "smooth" });
+    }
+    const prev = $("#prevBtn");
+    const next = $("#nextBtn");
+    if (prev) prev.disabled = state.pageIndex <= 1;
+    if (next) next.disabled = state.pageIndex >= PAGES.length - 1;
+  }
+
   function showPage(index, { forceJoin = false } = {}) {
     // Never leave the login screen until name login succeeds this visit.
     if (forceJoin) index = 0;
@@ -150,9 +217,12 @@
     state.pageIndex = Math.max(0, Math.min(index, PAGES.length - 1));
     const page = PAGES[state.pageIndex];
     $$(".screen").forEach((el) => el.classList.toggle("active", el.dataset.page === page));
-    $("#pageLabel").textContent = `${Math.max(1, state.pageIndex)} / ${PAGES.length - 1}`;
     const joined = isJoined() && page !== "join";
     $("#navdock").hidden = !joined;
+    if (joined) {
+      buildPageScroller();
+      syncPageScroller();
+    }
     if (isJoined() && page !== "join") sendEvent("page_view", { page });
     if (page === "dashboard") refreshMe();
   }
@@ -421,6 +491,7 @@
   }
 
   function setupNav() {
+    buildPageScroller();
     $("#prevBtn").onclick = () => {
       if (!isJoined()) return;
       showPage(state.pageIndex - 1);
@@ -428,10 +499,6 @@
     $("#nextBtn").onclick = () => {
       if (!isJoined()) return;
       showPage(state.pageIndex + 1);
-    };
-    $("#dashBtn").onclick = () => {
-      if (!isJoined()) return;
-      showPage(PAGES.indexOf("dashboard"));
     };
     window.addEventListener("keydown", (e) => {
       if (e.target && (e.target.isContentEditable || ["INPUT", "TEXTAREA", "SELECT"].includes(e.target.tagName))) return;

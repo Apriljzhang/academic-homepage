@@ -37,20 +37,21 @@ export const researchFramework = {
   who: [
     'Children and young learners (kindergarten and primary)',
     'Undergraduates, postgraduates, and teacher educators',
-    'Multilingual cohorts in Macau and transnational contexts',
+    'Multilingual cohorts in local, global, and transnational contexts',
   ],
   what: [
     'Assessment for learning and formative classroom practice',
-    'English and Chinese in multilingual / Macau higher education',
-    'Motivation, social–emotional learning, and learner experience',
     'Generative AI and technology in language learning and assessment',
+    'English and Chinese in multilingual contexts',
+    'Motivation, social–emotional learning, and learner experience',
     'Pedagogy and tools that support teachers and learners',
   ],
   how: [
     'Mixed-methods designs (quantitative and qualitative)',
-    'SPSS and Python for survey and achievement data; NVivo for coding',
-    'Questionnaires, interviews, journals, classroom observation',
-    'Longitudinal work, reviews, think-aloud, and stimulated recall',
+    'Longitudinal and cross-sectional studies',
+    'Python, SPSS, and AMOS for quantitative data; NVivo for qualitative data',
+    'Quantitative methods: questionnaires, rating scales, and achievement data',
+    'Qualitative methods: interviews, journals, observation, think-aloud, and stimulated recall',
   ],
 } as const;
 

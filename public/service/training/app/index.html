@@ -447,15 +447,14 @@
   </section>
 </main>
 
-<nav class="navdock" id="navdock" hidden>
-  <button class="btn" id="prevBtn">Back</button>
-  <span class="page-label" id="pageLabel">1 / 1</span>
-  <button class="btn primary" id="nextBtn">Next</button>
-  <button class="btn" id="dashBtn">Dashboard</button>
+<nav class="navdock" id="navdock" hidden aria-label="Workshop pages">
+  <button class="btn navdock-step" id="prevBtn" type="button" aria-label="Previous page">Back</button>
+  <div class="page-scroller" id="pageScroller" role="list"></div>
+  <button class="btn primary navdock-step" id="nextBtn" type="button" aria-label="Next page">Next</button>
 </nav>
 
-<script src="./config.js?v=7"></script>
-<script src="./store.js?v=7"></script>
-<script src="./student.js?v=7"></script>
+<script src="./config.js?v=8"></script>
+<script src="./store.js?v=8"></script>
+<script src="./student.js?v=8"></script>
 </body>
 </html>
