@@ -3,10 +3,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import PageShell from '../../components/PageShell.astro';
+import SectionSubnav from '../../components/SectionSubnav.astro';
 import MainWithAside from '../../components/MainWithAside.astro';
 import ResearchSectionAside from '../../components/ResearchSectionAside.astro';
 import ResearchMap from '../../components/ResearchMap.astro';
+import { researchSubnav } from '../../data/sectionNav';
 import { person } from '../../data/cv';
+import { withBase } from '../../utils/paths';
 
 const title = `Research · ${person.fullDisplayName}`;
 const description = `Research interests, publications, and funded projects — ${person.fullDisplayName}.`;
@@ -20,6 +23,37 @@ const description = `Research interests, publications, and funded projects — $
       <MainWithAside asideLabel="Research menu" wide>
         <div>
           <ResearchMap class="mt-4" />
+          <SectionSubnav ariaLabel="Research section" items={researchSubnav} />
+
+          <ul class="mt-10 grid gap-4 md:grid-cols-2">
+            <li class="rounded-xl border border-border bg-surface p-5">
+              <a
+                href={withBase('/research/themes')}
+                class="font-serif text-lg font-semibold text-ink no-underline hover:text-primary"
+              >
+                Research interests →
+              </a>
+              <p class="mt-2 text-sm text-muted">Themes spanning language assessment, motivation, and education.</p>
+            </li>
+            <li class="rounded-xl border border-border bg-surface p-5">
+              <a
+                href={withBase('/research/publications')}
+                class="font-serif text-lg font-semibold text-ink no-underline hover:text-primary"
+              >
+                Publications →
+              </a>
+              <p class="mt-2 text-sm text-muted">Selected journal articles, chapters, and other outputs.</p>
+            </li>
+            <li class="rounded-xl border border-border bg-surface p-5 md:col-span-2">
+              <a
+                href={withBase('/research/funding')}
+                class="font-serif text-lg font-semibold text-ink no-underline hover:text-primary"
+              >
+                Funded projects →
+              </a>
+              <p class="mt-2 text-sm text-muted">Competitive grants and commissioned research.</p>
+            </li>
+          </ul>
         </div>
         <ResearchSectionAside slot="aside" />
       </MainWithAside>
