@@ -12,7 +12,7 @@ import { person } from '../../data/cv';
 import { withBase } from '../../utils/paths';
 
 const title = `Research · ${person.fullDisplayName}`;
-const description = `Research interests, publications, and funded projects — ${person.fullDisplayName}.`;
+const description = `Upcoming works, publications, and funded projects — ${person.fullDisplayName}.`;
 ---
 
 <BaseLayout {title} {description}>
@@ -22,8 +22,8 @@ const description = `Research interests, publications, and funded projects — $
       <h1 class="font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">Research</h1>
       <MainWithAside asideLabel="Research menu" wide>
         <div>
-          <ResearchMap class="mt-4" />
           <SectionSubnav ariaLabel="Research section" items={researchSubnav} />
+          <ResearchMap class="mt-8" />
 
           <ul class="mt-10 grid gap-4 md:grid-cols-2">
             <li class="rounded-xl border border-border bg-surface p-5">
@@ -31,9 +31,9 @@ const description = `Research interests, publications, and funded projects — $
                 href={withBase('/research/themes')}
                 class="font-serif text-lg font-semibold text-ink no-underline hover:text-primary"
               >
-                Research interests →
+                Upcoming works →
               </a>
-              <p class="mt-2 text-sm text-muted">Themes spanning language assessment, motivation, and education.</p>
+              <p class="mt-2 text-sm text-muted">Manuscripts in preparation across core research themes.</p>
             </li>
             <li class="rounded-xl border border-border bg-surface p-5">
               <a
