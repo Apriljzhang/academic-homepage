@@ -30,11 +30,28 @@ export const aboutNarrativeParagraphs = [
 
 /** Four-quadrant summary on the Research overview (ResearchMap.astro). */
 export const researchFramework = {
-  why: 'I want to understand how people can learn languages and academic content happily, effectively, and wisely—so that assessment and pedagogy support wellbeing as well as attainment. That motive runs from early language classrooms through to postgraduate study and professional education.',
-  who: 'My work engages children and young learners in kindergarten and primary school; undergraduates and postgraduates in higher education, including trainee teachers and in-service educators; and multilingual cohorts in Macau and transnational contexts.',
-  what:
-    'Substantively, the portfolio turns on how assessment for learning and formative practices shape language classrooms; how English and Chinese figure in multilingual education, including universities in Macau; how motivation, social–emotional learning, and learner experience unfold in early years or higher education study; how generative AI and other technologies mediate language learning, assessment, and research practice; and how pedagogy, tools, and language development support teachers and learners in those environments. A single study often braids several of these strands rather than isolating one. The Research interests page uses five headings for clarity, but the boundaries are porous by design.',
-  how: 'I use mixed-methods designs that combine quantitative and qualitative evidence. Common tools include SPSS and Python for survey and achievement data, and NVivo for qualitative coding. Methods span questionnaires and rating scales, semi-structured interviews, reflective journals, classroom-based inquiry and observation, ethnographic perspectives where appropriate, longitudinal designs when tracking change over time, systematic and scoping reviews to synthesise fields, and process-oriented techniques such as think-aloud and stimulated recall interview. The exact bundle depends on the research question and context.',
+  why: [
+    'How people learn languages and academic content happily, effectively, and wisely',
+    'Assessment and pedagogy that support wellbeing as well as attainment',
+  ],
+  who: [
+    'Children and young learners (kindergarten and primary)',
+    'Undergraduates, postgraduates, and teacher educators',
+    'Multilingual cohorts in Macau and transnational contexts',
+  ],
+  what: [
+    'Assessment for learning and formative classroom practice',
+    'English and Chinese in multilingual / Macau higher education',
+    'Motivation, social–emotional learning, and learner experience',
+    'Generative AI and technology in language learning and assessment',
+    'Pedagogy and tools that support teachers and learners',
+  ],
+  how: [
+    'Mixed-methods designs (quantitative and qualitative)',
+    'SPSS and Python for survey and achievement data; NVivo for coding',
+    'Questionnaires, interviews, journals, classroom observation',
+    'Longitudinal work, reviews, think-aloud, and stimulated recall',
+  ],
 } as const;
 
 export type ResearchThemeUpcoming = {

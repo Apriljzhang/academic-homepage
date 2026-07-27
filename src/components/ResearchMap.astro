@@ -11,22 +11,22 @@ const quadrants = [
   {
     key: 'why',
     label: 'Why',
-    body: researchFramework.why,
+    items: researchFramework.why,
   },
   {
     key: 'who',
     label: 'Who',
-    body: researchFramework.who,
+    items: researchFramework.who,
   },
   {
     key: 'what',
     label: 'What',
-    body: researchFramework.what,
+    items: researchFramework.what,
   },
   {
     key: 'how',
     label: 'How',
-    body: researchFramework.how,
+    items: researchFramework.how,
   },
 ] as const;
 ---
@@ -40,7 +40,11 @@ const quadrants = [
         quadrants.map((q) => (
           <article class="rounded-2xl border border-border bg-surface p-6 shadow-sm">
             <p class="font-serif text-3xl font-semibold text-ink">{q.label}</p>
-            <p class="mt-3 text-base leading-relaxed text-ink/90">{q.body}</p>
+            <ul class="mt-3 list-disc space-y-1.5 pl-5 text-base leading-snug text-ink/90">
+              {q.items.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
           </article>
         ))
       }
