@@ -50,8 +50,8 @@ export const researchFramework = {
     'Mixed-methods designs (quantitative and qualitative)',
     'Longitudinal and cross-sectional studies',
     'Python, SPSS, and AMOS for quantitative data; NVivo for qualitative data',
-    'Quantitative methods: questionnaires, rating scales, and achievement data',
-    'Qualitative methods: interviews, journals, observation, think-aloud, and stimulated recall',
+    'Survey questionnaires, rating scales, and achievement data',
+    'Interviews, reflective journals, observation, think-aloud, and stimulated recall',
   ],
 } as const;
 
