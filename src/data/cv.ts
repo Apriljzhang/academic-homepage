@@ -12,13 +12,13 @@ export const person = {
 } as const;
 
 /** Short strapline under the name (home hero), in the spirit of faculty landing pages. */
-export const siteTagline = 'Teaching, learning & assessment in technology assisted language education';
+export const siteTagline = 'Teaching, learning & assessment in technology-assisted language education';
 
 /** Single site-wide biography — shown only on the home hero. */
 export const summaryHtml =
-  '<p>I serve as an Assistant Professor in the School of Education at the City University of Macau, where I look beyond the mechanics of language testing to explore the human side of <span class="font-semibold text-primary">language pedagogy</span> and <span class="font-semibold text-primary">educational assessment</span>. My scholarly work is driven by a fundamental belief that <span class="font-semibold text-primary">Assessment <em>for</em> Learning (A<em>f</em>L)</span> and formative practices should do more than measure progress. Instead, I am interested in how these tools can be used both within and beyond the classroom to foster a genuine sense of well-being and engagement, ensuring that the educational journey is as fulfilling as the final result.</p>' +
-  '<p class="mt-5">My path to this point has been shaped by a transition from the practical world of English for Academic Purposes (EAP) in the UK and China to my current role as a <span class="font-semibold text-primary">teacher-researcher</span>. This journey has allowed me to remain a lifelong advocate for the <span class="font-semibold text-primary">student experience</span>. Starting with my doctoral research at the University of Sheffield, where I examined the motivational dynamics of <span class="font-semibold text-primary">young learners</span> in formative assessment practices, my work has grown into a broader portfolio. I now explore how we can empower students through GenAI and peer-mediated feedback and co-constructed rubrics, always seeking to understand the lived reality of those navigating multilingual settings.</p>' +
-  '<p class="mt-5">In my current projects, I am increasingly focused on the evolving role of <span class="font-semibold text-primary">technology-assisted education</span>. I am curious about how <span class="font-semibold text-primary">GenAI</span> and <span class="font-semibold text-primary">informal digital tools</span> can be integrated thoughtfully into our teaching and assessment to support rather than replace human enquiry. Whether I am investigating the place of English within <span class="font-semibold text-primary">young learners</span> or looking at how <span class="font-semibold text-primary">emotions</span> play out in digital spaces, my goal is to bridge the gap between traditional structures and the needs of the modern learner. By bringing an empathetic and reflective lens to my research, I hope to contribute to an academic landscape where every student feels supported to reach their full potential.</p>';
+  '<p>I am an Assistant Professor in the School of Education at City University of Macau, where I explore the human dimensions of <span class="font-semibold text-primary">language pedagogy</span> and <span class="font-semibold text-primary">educational assessment</span>. My work is grounded in the belief that <span class="font-semibold text-primary">Assessment <em>for</em> Learning (A<em>f</em>L)</span> and formative practices should do more than measure progress. Used thoughtfully, they can support wellbeing and engagement both within and beyond the classroom.</p>' +
+  '<p class="mt-5">My move from English for Academic Purposes (EAP) teaching in the UK and China to my current role as a <span class="font-semibold text-primary">teacher-researcher</span> has sustained my commitment to the <span class="font-semibold text-primary">student experience</span>. My doctoral research at the University of Sheffield examined motivation among <span class="font-semibold text-primary">young learners</span> engaged in formative assessment. Since then, my work has broadened to include GenAI, peer-mediated feedback, co-constructed rubrics, and multilingual educational settings.</p>' +
+  '<p class="mt-5">My current projects examine <span class="font-semibold text-primary">technology-assisted education</span>, including how <span class="font-semibold text-primary">GenAI</span> and <span class="font-semibold text-primary">informal digital tools</span> can support teaching and assessment without replacing human judgement. I also study language learning among <span class="font-semibold text-primary">young learners</span> and the role of <span class="font-semibold text-primary">emotion</span> in digital spaces. Across these areas, I aim to connect established educational practices with the needs of contemporary learners.</p>';
 
 /** About page — narrative only (no photo). British English. */
 export const aboutNarrativeParagraphs = [
@@ -407,7 +407,7 @@ export const homeSectionCards = [
     slug: 'research' as const,
     title: 'Research',
     kicker: 'Themes, outputs, funding',
-    description: 'Research themes, peer-reviewed outputs, and funded projects—organised in subpages.',
+    description: 'Research themes, peer-reviewed outputs, and funded projects, organised across dedicated pages.',
     accent: 'green' as const,
   },
   {
@@ -415,7 +415,7 @@ export const homeSectionCards = [
     title: 'Teaching',
     kicker: 'Philosophy & supervision',
     description:
-      'Approach and trajectory across the UK and China / Macau, master’s and doctoral supervision, and training resources.',
+      'Teaching philosophy and experience across the UK, China, and Macau, master’s and doctoral supervision, and training resources.',
     accent: 'blue' as const,
   },
   {
@@ -423,7 +423,7 @@ export const homeSectionCards = [
     title: 'Service',
     kicker: 'Conferences & engagement',
     description:
-      'AALA 2026 organisation, journal editorship, the APRIL academic-writing skill, and conference presentations.',
+      'AALA 2026 conference leadership, journal editorship, the APRIL academic-writing skill, and conference presentations.',
     accent: 'red' as const,
   },
 ] as const;

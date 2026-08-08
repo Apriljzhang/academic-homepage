@@ -16,10 +16,10 @@ export type SupervisionBlock = {
   cohorts: SupervisionCohort[];
 };
 
-/** Degree-level blocks: doctoral dissertations first, then all master theses. */
+/** Degree-level blocks: doctoral theses first, then all master’s dissertations. */
 export const supervisionBlocks: SupervisionBlock[] = [
   {
-    title: 'PhD Dissertations',
+    title: 'Doctoral theses',
     subtitle: '',
     cohorts: [
       {
@@ -48,13 +48,13 @@ export const supervisionBlocks: SupervisionBlock[] = [
     ],
   },
   {
-    title: 'Master Theses',
+    title: 'Master’s dissertations',
     subtitle: '',
     cohorts: [
       {
         cohort: '2026',
         status: 'In progress',
-        topics: ['Several master thesis projects underway; topics to be confirmed on programme records.'],
+        topics: ['Several master’s dissertation projects are under way; topics will be confirmed in programme records.'],
       },
       {
         cohort: '2025',

@@ -49,7 +49,7 @@ export default function BlogEditor({ adminKey }: Props) {
   });
   const [coverUrl, setCoverUrl] = useState<string>("");
   const [fileInputsKey, setFileInputsKey] = useState<number>(0);
-  const [content, setContent] = useState<string>("# New post\n\nWrite in Markdown.");
+  const [content, setContent] = useState<string>("# New post\n\nWrite in British English using Markdown.");
   const [status, setStatus] = useState<string>("");
 
   const canSubmit = title.trim().length > 0 && content.trim().length > 0;
@@ -225,7 +225,7 @@ export default function BlogEditor({ adminKey }: Props) {
                   const now = new Date();
                   setPublishedAtLocal(new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().slice(0, 16));
                   setCoverUrl("");
-                  setContent("# New post\n\nWrite in Markdown.");
+                  setContent("# New post\n\nWrite in British English using Markdown.");
                   setStatus("");
                   setFileInputsKey((x) => x + 1);
                 }}
@@ -385,4 +385,3 @@ export default function BlogEditor({ adminKey }: Props) {
     </div>
   );
 }
-

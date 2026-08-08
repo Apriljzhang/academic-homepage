@@ -2,7 +2,7 @@ import { withBase } from '../utils/paths';
 
 export const researchSubnav = [
   { href: withBase('/research'), label: 'Overview' },
-  { href: withBase('/research/themes'), label: 'Upcoming works' },
+  { href: withBase('/research/themes'), label: 'Work in progress' },
   { href: withBase('/research/publications'), label: 'Publications' },
   { href: withBase('/research/funding'), label: 'Funded projects' },
 ] as const;
@@ -16,7 +16,7 @@ export const teachingSubnav = [
 
 export const serviceSubnav = [
   { href: withBase('/service'), label: 'Overview' },
-  { href: withBase('/service/organisation'), label: 'Conference Organizer' },
+  { href: withBase('/service/organisation'), label: 'Conference Organiser' },
   { href: withBase('/service/journal-editor'), label: 'Journal editor' },
   { href: withBase('/service/april'), label: 'APRIL skill' },
   { href: withBase('/service/presentations'), label: 'Presentations' },

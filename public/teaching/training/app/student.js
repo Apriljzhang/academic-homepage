@@ -513,7 +513,7 @@
 
   function openPortfolioPdf() {
     if (!state.studentId) {
-      alert("Please login with your name first.");
+      alert("Please log in with your name first.");
       return;
     }
     window.open(`./portfolio.html?v=7&sid=${encodeURIComponent(state.studentId)}`, "_blank");
