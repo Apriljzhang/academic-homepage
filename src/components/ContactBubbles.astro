@@ -4,12 +4,13 @@ import { academicIds } from '../data/profiles';
 
 interface Props {
   className?: string;
+  stackAtLarge?: boolean;
 }
 
-const { className = '' } = Astro.props;
+const { className = '', stackAtLarge = false } = Astro.props;
 
 const bubbleClass =
-  'inline-flex min-h-11 w-fit max-w-full items-center justify-center whitespace-nowrap rounded-md border border-border bg-surface px-3 py-1.5 text-center text-sm font-semibold leading-none text-primary no-underline transition-colors duration-[var(--dur-micro)] ease-[var(--ease-out)] hover:bg-neutral-hover hover:text-ink focus-visible:outline-offset-2 active:translate-y-px';
+  `inline-flex min-h-11 w-fit max-w-full items-center justify-center whitespace-nowrap rounded-md border border-border bg-surface px-3 py-1.5 text-center text-sm font-semibold leading-none text-primary no-underline transition-colors duration-[var(--dur-micro)] ease-[var(--ease-out)] hover:bg-neutral-hover hover:text-ink focus-visible:outline-offset-2 active:translate-y-px ${stackAtLarge ? 'xl:w-full xl:justify-start' : ''}`;
 
 const mailBubbleClass = `${bubbleClass} gap-2`;
 
@@ -20,6 +21,7 @@ const mailIconClass = 'h-3.5 w-3.5 shrink-0 text-primary';
 <div
   class:list={[
     'flex flex-wrap items-center gap-2',
+    stackAtLarge && 'xl:flex-col xl:items-stretch',
     className,
   ]}
 >
