@@ -34,23 +34,32 @@ const sectionClass =
   <p class:list={['max-w-3xl text-sm leading-relaxed text-muted', variant === 'page' ? 'mt-4' : 'mt-3']}>
     Membership of learned societies and language-assessment networks connects my work to wider academic communities.
   </p>
-  <ul class:list={['flex flex-col gap-3', variant === 'page' ? 'mt-6' : 'mt-4']}>
+  <ul
+    class:list={[
+      'grid gap-3 sm:grid-cols-2 xl:grid-cols-3',
+      variant === 'page' ? 'mt-6' : 'mt-4',
+    ]}
+  >
     {
       professionalMemberships.map((m) => (
-        <li class="list-none">
+        <li class="min-w-0 list-none">
           {m.href ? (
             <CrystalCard
               as="a"
               href={m.href}
-              padding="md"
+              padding="sm"
               hoverLift
-              class="block h-full no-underline"
+              class="flex h-full min-h-20 items-center no-underline"
             >
-              <span class="block text-sm font-semibold leading-snug text-ink">{m.name}</span>
+              <span class="block break-words text-sm font-semibold leading-snug text-ink">
+                {m.name}
+              </span>
             </CrystalCard>
           ) : (
-            <CrystalCard as="div" padding="md" class="h-full">
-              <span class="block text-sm font-semibold leading-snug text-ink">{m.name}</span>
+            <CrystalCard as="div" padding="sm" class="flex h-full min-h-20 items-center">
+              <span class="block break-words text-sm font-semibold leading-snug text-ink">
+                {m.name}
+              </span>
             </CrystalCard>
           )}
         </li>
