@@ -20,10 +20,10 @@ const borderRotate = ['border-l-primary', 'border-l-secondary', 'border-l-accent
         <p class="mt-3 max-w-3xl text-pretty text-base leading-relaxed text-muted sm:text-lg">{theme.description}</p>
         {theme.upcoming.length > 0 ? (
           <div class="mt-5">
-            <h3 class="text-xs font-bold uppercase tracking-wider text-secondary">Upcoming manuscripts</h3>
+            <h3 class="text-xs font-bold uppercase tracking-wider text-main">Upcoming manuscripts</h3>
             <ul class="mt-3 space-y-4">
               {theme.upcoming.map((u) => (
-                <li class="border-l-2 border-secondary/50 pl-4">
+                <li class="border-l-2 border-main/50 pl-4">
                   <p class="text-xs font-semibold uppercase tracking-wide text-muted">{u.status}</p>
                   <p
                     class="mt-1 text-pretty text-base leading-relaxed text-ink/95 [&_em]:font-serif [&_em]:italic [&_em]:text-primary"

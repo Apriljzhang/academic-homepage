@@ -6,7 +6,7 @@
 
   60-30-10 rule (60% 主色 / 30% 辅助色 / 10% 强调色):
   · 60% — page ground: pale cream & shell (#FBEEC1 + #F8F5F2 family) — largest areas
-  · 30% — structure: muted blue #659DBD (Panera) — headers, bands, nav fills, table heads
+  · 30% — structure: deep green #557D61 — headers, bands, nav fills, table heads
   · 10% — emphasis: warm terracotta #DF744A (Greetabl) — links, kicker labels, key borders
 
   Tertiary stripe (decorative): harmonious green aligned with the home-dot cue.
@@ -23,7 +23,11 @@
   --color-ink: #1d2731;
   --color-muted: #534c45;
 
-  /* 30% — secondary (structure) */
+  /* Main site identity — an accessible deep version of the research green */
+  --color-main: #557d61;
+  --color-main-faint: #edf6f0;
+
+  /* Teaching blue */
   --color-secondary: #659dbd;
   --color-secondary-faint: #e7f1f7;
 

@@ -27,7 +27,7 @@ function isCurrent(href: string): boolean {
               aria-current={isCurrent(href) ? 'page' : undefined}
               class:list={[
                 'block rounded-md px-2 py-1 no-underline transition-colors',
-                isCurrent(href) ? 'bg-secondary-faint font-semibold text-ink' : 'text-muted hover:bg-neutral-hover hover:text-ink',
+                isCurrent(href) ? 'bg-primary-faint font-semibold text-ink' : 'text-muted hover:bg-neutral-hover hover:text-ink',
               ]}
             >
               {label}
