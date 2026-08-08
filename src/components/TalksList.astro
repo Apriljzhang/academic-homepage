@@ -2,20 +2,26 @@
 import { talks } from '../data/cv';
 ---
 
-<ul class="mt-6 space-y-4">
-  {
-    talks.map((t) => (
-      <li class="border-l-2 border-primary/40 pl-4">
-        {t.paperTitle ? (
-          <p class="type-card-title">{t.paperTitle}</p>
-        ) : null}
-        <p class:list={[t.paperTitle ? 'type-meta mt-1' : 'type-card-title']}>
-          {t.event}
-        </p>
-        <p class="type-meta mt-0.5">
-          {t.place} · {t.date}
-        </p>
-      </li>
-    ))
-  }
-</ul>
+<section class="mt-8" aria-labelledby="conference-presentations-heading">
+  <h2 id="conference-presentations-heading" class="type-label text-secondary">
+    Selected conference presentations
+  </h2>
+
+  <ul class="mt-4 space-y-6">
+    {
+      talks.map((talk) => (
+        <li class="border-l-2 border-main/50 pl-4">
+          <p class="text-xs font-semibold uppercase tracking-wide text-muted">{talk.event}</p>
+          {talk.paperTitle ? (
+            <p class="mt-1 text-pretty text-base italic leading-relaxed text-primary">
+              {talk.paperTitle}
+            </p>
+          ) : null}
+          <p class="type-meta mt-1.5">
+            {talk.place} · {talk.date}
+          </p>
+        </li>
+      ))
+    }
+  </ul>
+</section>
