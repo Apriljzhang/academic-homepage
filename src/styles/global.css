@@ -31,14 +31,14 @@
   --color-primary: #c9492a;
   --color-primary-faint: #fbf0eb;
 
-  /* Decorative third hue — soft green (for tertiary strips / small accents) */
+  /* Soft green — the lead colour for decorative ribbons and small accents */
   --color-accent-purple: #78ab86;
   --color-accent-purple-faint: #edf6f0;
 
-  /* Decorative page-strip trio */
-  --color-strip-1: #c94d2c;
-  --color-strip-2: #6fa4c2;
-  --color-strip-3: #8fb791;
+  /* Decorative page-strip trio: green-led, with no blue ribbon */
+  --color-strip-1: #8fb791;
+  --color-strip-2: #c94d2c;
+  --color-strip-3: #78ab86;
 
   --color-border: #d4cabb;
   --color-neutral-hover: #f5f0e8;
