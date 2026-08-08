@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import PageShell from '../../components/PageShell.astro';
+import SectionSubnav from '../../components/SectionSubnav.astro';
+import MainWithAside from '../../components/MainWithAside.astro';
+import ServiceSectionAside from '../../components/ServiceSectionAside.astro';
+import { serviceSubnav } from '../../data/sectionNav';
+import { person } from '../../data/cv';
+
+const title = `APRIL academic-writing skill · ${person.fullDisplayName}`;
+const description = `APRIL — an open-source Codex skill suite for academic paper research, writing, review, and revision.`;
+const aprilRepository = 'https://github.com/Apriljzhang/APRIL';
+---
+
+<BaseLayout {title} {description}>
+  <SiteHeader />
+  <main id="main-content" class="min-h-[50vh] w-full bg-page">
+    <PageShell accentBar>
+      <p class="text-xs font-bold uppercase tracking-[0.2em] text-primary">Coding &amp; academic tools</p>
+      <h1 class="mt-2 font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">
+        APRIL
+      </h1>
+      <p class="mt-2 font-serif text-xl text-main sm:text-2xl">Academic Paper Research &amp; Inquiry Lab</p>
+
+      <MainWithAside asideLabel="Service menu">
+        <div>
+          <SectionSubnav ariaLabel="Service section" items={serviceSubnav} />
+
+          <div class="mt-8 max-w-3xl space-y-5 text-pretty text-lg leading-relaxed text-muted lg:text-xl">
+            <p>
+              I develop lightweight academic tools that turn complex research and writing processes into transparent,
+              reusable workflows. APRIL is my actively maintained Codex skill suite for planning, writing, and revising
+              academic journal papers.
+            </p>
+            <p>
+              Rather than asking an agent to generate a paper in one pass, APRIL separates the work into focused stages
+              so that evidence, methodological choices, interpretation, language, and reporting can each be reviewed by
+              the researcher.
+            </p>
+          </div>
+
+          <section class="mt-10" aria-labelledby="april-support-heading">
+            <h2 id="april-support-heading" class="font-serif text-2xl font-semibold text-ink sm:text-3xl">
+              What APRIL supports
+            </h2>
+            <ul class="mt-5 grid gap-4 sm:grid-cols-2">
+              <li class="rounded-xl border border-border bg-surface p-5 text-sm leading-relaxed text-muted">
+                Research problems, purposes, contributions, and research questions
+              </li>
+              <li class="rounded-xl border border-border bg-surface p-5 text-sm leading-relaxed text-muted">
+                Literature synthesis using Zotero records and traceable local PDF evidence
+              </li>
+              <li class="rounded-xl border border-border bg-surface p-5 text-sm leading-relaxed text-muted">
+                Methodology design, method-specific analysis guidance, and findings
+              </li>
+              <li class="rounded-xl border border-border bg-surface p-5 text-sm leading-relaxed text-muted">
+                Discussion, framing, British English language editing, and submission formatting
+              </li>
+              <li class="rounded-xl border border-border bg-surface p-5 text-sm leading-relaxed text-muted sm:col-span-2">
+                Editor-style review, reporting checks, revision planning, and responses to reviewers
+              </li>
+            </ul>
+          </section>
+
+          <section class="mt-10 rounded-xl border border-primary/30 bg-primary-faint p-6" aria-labelledby="april-service-heading">
+            <h2 id="april-service-heading" class="font-serif text-2xl font-semibold text-ink">
+              Why this belongs under Service
+            </h2>
+            <p class="mt-3 max-w-3xl text-base leading-relaxed text-muted">
+              APRIL shares practical academic-writing infrastructure with other researchers and educators. Publishing the
+              skill openly also makes its guidance inspectable, adaptable, and easier to improve through use and feedback.
+            </p>
+            <a
+              href={aprilRepository}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-5 inline-flex rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white no-underline hover:opacity-95"
+            >
+              View APRIL on GitHub ↗
+            </a>
+          </section>
+        </div>
+        <ServiceSectionAside slot="aside" />
+      </MainWithAside>
+    </PageShell>
+  </main>
+  <SiteFooter />
+</BaseLayout>

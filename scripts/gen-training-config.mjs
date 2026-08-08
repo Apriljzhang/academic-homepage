@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const outs = [
-  join(__dirname, "..", "public", "service", "training", "app", "config.js"),
+  join(__dirname, "..", "public", "teaching", "training", "app", "config.js"),
   join(__dirname, "..", "public", "training", "202607", "config.js"),
 ];
 

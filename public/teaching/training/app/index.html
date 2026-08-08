@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FA Frameworks + GenAI | ITTC · City University of Macau</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./styles.css">
+<style>
+  :root {
+    --font-display: Calibri, Carlito, "Segoe UI", sans-serif;
+    --font-body: Calibri, Carlito, "Segoe UI", sans-serif;
+    --font-mono: Calibri, Carlito, "Segoe UI", sans-serif;
+  }
+  body, button, input, textarea, select { font-family: Calibri, Carlito, "Segoe UI", sans-serif; }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div>
+    <div class="brand" title="International Training and Testing Centre">ITTC · City University of Macau</div>
+    <div class="who" id="whoLabel">Not joined — enter your name</div>
+  </div>
+  <div class="theme">全球視野與創新發展 · 新時代全球化與教育新視野</div>
+</header>
+
+<main class="shell">
+  <section class="screen active" data-page="join">
+    <div class="join-box panel">
+      <div class="phase"><span class="phase-num">00</span><span class="phase-label">Login</span></div>
+      <h1>Formative Assessment Frameworks & GenAI</h1>
+      <p class="lead">2.5-hour interactive workshop for Capital Normal University students. Login with your <strong>real name</strong> so your instructor can track your learning on the live dashboard.</p>
+      <label>Your name (required)</label>
+      <input id="nameInput" type="text" placeholder="e.g., Li Ming" maxlength="40" autocomplete="name">
+      <label>Session code</label>
+      <input id="codeInput" type="text" value="202607" maxlength="20">
+      <button class="btn primary" id="joinBtn" style="width:100%; margin-top:14px">Login with my name</button>
+      <button class="btn" id="clearLoginBtn" type="button" style="width:100%; margin-top:8px" hidden>Clear saved name on this device</button>
+      <p class="figure-caption" style="margin-top:12px">Type your real name, then press Login. A previous test name on this browser is not used until you login again.</p>
+    </div>
+  </section>
+
+  <section class="screen" data-page="open">
+    <div class="phase"><span class="phase-num">01</span><span class="phase-label">Opening</span></div>
+    <h1>How formative assessment frameworks help you learn — with GenAI</h1>
+    <div class="panel bilingual">
+      <button class="tr-btn" data-tr="t_open">中文</button>
+      <p class="detail">Today we treat formative assessment (FA) as a research-based way of learning, not only as something teachers do to you. We walk Dylan Wiliam’s five strategies one by one: what each strategy means, why it matters for university study across majors, which concrete techniques you can use (for example TAG in peer feedback), and how GenAI can support the strategy without replacing your thinking. After Strategy 3 (feedback), we deepen with Hattie & Timperley’s model of feedback — its structure, levels, and impact — before returning to peer learning and ownership of learning.</p>
+      <div class="zh" data-tr-panel="t_open">今天我们把形成性评价视为有研究依据的学习方式，而不只是教师“对你做的事”。我们将逐一学习 Wiliam 的五项策略：每项含义、为何对跨专业大学生重要、可用的具体技巧（如同伴反馈中的 TAG），以及 GenAI 如何支持策略使用而不取代思考。在第 3 项（反馈）之后，我们深入 Hattie & Timperley 的反馈模型（结构、层面与影响），再回到同伴学习与学习主人翁。</div>
+    </div>
+    <div class="grid-2">
+      <div class="panel soft"><h3>Part 1</h3><p>What counts as formative · five strategies · feedback framework</p></div>
+      <div class="panel soft"><h3>Part 2</h3><p>Peers · ownership · human judgment · download your PDF pack</p></div>
+    </div>
+  </section>
+
+  <section class="screen" data-page="a1">
+    <div class="phase"><span class="phase-num">02</span><span class="phase-label">Activity 1</span></div>
+    <h2>Is this formative?</h2>
+    <div class="panel bilingual">
+      <button class="tr-btn" data-tr="t_a1">中文</button>
+      <p class="detail">Black & Wiliam (1998) argue that assessment becomes formative only when evidence about learning is actually used to adapt what happens next — teaching, studying, or revising. A score, a comment, or a quiz is not automatically formative. Ask: Did this information change the next learning step? Vote Yes or No for each university scenario. Your votes appear on the instructor dashboard under your name.</p>
+      <div class="zh" data-tr-panel="t_a1">Black & Wiliam（1998）指出：只有当关于学习的证据被真正用来调整下一步（教、学或修改）时，评价才是形成性的。分数、评语或测验本身并不自动等于形成性评价。请追问：这些信息是否改变了下一步学习？请投票；你的姓名会出现在教师看板中。</div>
+    </div>
+    <div class="scenario" data-scenario="sc1">
+      <p><strong>1.</strong> In a History seminar, you submit a draft. The tutor comments on your argument structure; you revise before the final submission.</p>
+      <div class="vote-row">
+        <button class="choice vote" data-scenario="sc1" data-vote="YES">Yes — formative</button>
+        <button class="choice vote" data-scenario="sc1" data-vote="NO">No — not formative</button>
+      </div>
+    </div>
+    <div class="scenario" data-scenario="sc2">
+      <p><strong>2.</strong> Mid-term scores are posted. The class moves on; there is no reteaching or revision chance.</p>
+      <div class="vote-row">
+        <button class="choice vote" data-scenario="sc2" data-vote="YES">Yes — formative</button>
+        <button class="choice vote" data-scenario="sc2" data-vote="NO">No — not formative</button>
+      </div>
+    </div>
+    <div class="scenario" data-scenario="sc3">
+      <p><strong>3.</strong> After a lecture, students answer a 2-minute exit ticket. Tomorrow’s seminar starts by addressing the most common confusion.</p>
+      <div class="vote-row">
+        <button class="choice vote" data-scenario="sc3" data-vote="YES">Yes — formative</button>
+        <button class="choice vote" data-scenario="sc3" data-vote="NO">No — not formative</button>
+      </div>
+    </div>
+    <div class="scenario" data-scenario="sc4">
+      <p><strong>4.</strong> Final comments and a grade arrive after the term ends. There is no next assignment in the course.</p>
+      <div class="vote-row">
+        <button class="choice vote" data-scenario="sc4" data-vote="YES">Yes — formative</button>
+        <button class="choice vote" data-scenario="sc4" data-vote="NO">No — not formative</button>
+      </div>
+    </div>
+    <div class="panel warm" id="a1Key" hidden>
+      <h3>Key</h3>
+      <p class="detail">1 YES · 2 NO · 3 YES · 4 NO. Scenarios 1 and 3 change what happens next; 2 and 4 record performance without adapting learning.</p>
+    </div>
+    <button class="btn" id="revealA1Key">Reveal answer key</button>
+  </section>
+
+  <section class="screen" data-page="why">
+    <div class="phase"><span class="phase-num">03</span><span class="phase-label">Why FA</span></div>
+    <h2>Why formative assessment matters</h2>
+    <div class="panel bilingual">
+      <button class="tr-btn" data-tr="t_why">中文</button>
+      <p class="detail">Large syntheses of educational research (e.g., Hattie, 2009) consistently place feedback among the strongest influences on achievement — but only when learners can use it. Black & Wiliam show that FA works by closing the gap between current performance and a valued goal. Nicol & Macfarlane-Dick and Heritage emphasise that students become more self-regulated when they understand success criteria, see evidence of where they are, and act on next steps. For university students in any major, FA is how you turn assignments, seminars, labs, and studios into cycles of improvement rather than one-shot grading events.</p>
+      <ul class="clean">
+        <li>Feedback is powerful when it is usable, timely, and tied to criteria.</li>
+        <li>The “gap” between now and the goal is the engine of formative practice.</li>
+        <li>Self-regulation grows from criteria + evidence + action — not from grades alone.</li>
+      </ul>
+      <div class="zh" data-tr-panel="t_why">教育研究综合表明反馈是影响成就的最强因素之一（如 Hattie, 2009），但前提是学习者能使用它。Black & Wiliam 指出形成性评价通过缩小“现状与目标”的差距发挥作用。Nicol、Heritage 等强调：当学生理解成功标准、看见证据并采取下一步时，自我调节才会增强。对任何专业的大学生而言，形成性评价把作业与课堂变成改进循环，而不是一次性打分。</div>
+    </div>
+  </section>
+
+  <section class="screen" data-page="wiliam">
+    <div class="phase"><span class="phase-num">04</span><span class="phase-label">Framework</span></div>
+    <h2>Five key strategies of formative assessment</h2>
+    <div class="panel bilingual">
+      <button class="tr-btn" data-tr="t_wiliam">中文</button>
+      <p class="detail">Wiliam organises classroom formative assessment around three questions — <strong>Where is the learner going?</strong> <strong>Where is the learner now?</strong> <strong>How to get there?</strong> — and shows how teachers, peers, and learners each contribute. The famous five strategies are practical answers to those questions: clarify intentions and criteria; elicit evidence; provide forward-moving feedback; activate peers as resources; activate learners as owners of their learning. Today we emphasise peer and learner moves you can own in university courses, then ask how GenAI can support each move without replacing judgment.</p>
+      <div class="zh" data-tr-panel="t_wiliam">Wiliam 用三个问题组织形成性评价——学习者要去哪里？现在在哪里？如何到达？——并说明教师、同伴与学习者各自的角色。五项策略是对这些问题的实践回答。今天我们强调大学生可主动使用的同伴与自我行动，并追问 GenAI 如何支持这些行动而不取代判断。</div>
+    </div>
+    <div class="panel">
+      <img class="figure" src="./assets/five-key-strategies.png" alt="Five key strategies of formative assessment">
+      <p class="figure-caption">Wiliam’s five key strategies matrix.</p>
+    </div>
+  </section>
+
+  <section class="screen" data-page="a2">
+    <div class="phase"><span class="phase-num">05</span><span class="phase-label">Activity 2</span></div>
+    <h2>Match each strategy</h2>
+    <div class="panel bilingual">
+      <button class="tr-btn" data-tr="t_a2">中文</button>
+      <p class="detail">Before we unpack techniques, check that you can map each strategy to its student-facing purpose. Matching builds a mental map you will reuse when designing GenAI prompts later. Submit when all five are set — your instructor can see match accuracy by student.</p>
+      <div class="zh" data-tr-panel="t_a2">在展开技巧前，先确认你能把每项策略对应到学生学习目标。匹配完成后提交；教师可以看到每位学生的正确率。</div>
+    </div>
+    <div class="match-board" id="matchBoard"></div>
+    <button class="btn primary" id="submitMatch" style="margin-top:12px">Check my matches</button>
+    <div class="quiz-result" id="matchResult" hidden></div>
+  </section>
+
+  <section class="screen" data-page="s1">
+    <div class="phase"><span class="phase-num">06</span><span class="phase-label">Strategy 1</span></div>
+    <h2>Clarifying learning intentions & success criteria</h2>
+    <div class="panel bilingual">
+      <button class="tr-btn" data-tr="t_s1">中文</button>
+      <p class="detail"><strong>Rationale.</strong> Learners cannot aim at excellence they cannot see. Strategy 1 asks us to make learning intentions and success criteria public, shared, and usable — before work begins. Andrade & Heritage (2017) distinguish <em>product criteria</em> (qualities of the finished work) from <em>performance criteria</em> (qualities of the process or skills). In university settings this means decoding assignment briefs and rubrics into “I can…” statements, comparing exemplars, and knowing what “good enough” and “excellent” look like in your discipline — history essays, lab reports, lesson plans, performances, or code.</p>
+      <p class="detail"><strong>Your move:</strong> Before drafting, turn the brief/rubric into checkable criteria. If you cannot explain excellence in one sentence, you are not ready to draft.</p>
+      <div class="zh" data-tr-panel="t_s1"><strong>原理：</strong>看不见“优秀”，就无法瞄准优秀。策略 1 要求在开始任务前把学习意图与成功标准公开、共享、可用。Andrade & Heritage 区分“作品标准”与“表现/过程标准”。对大学生而言，意味着把作业说明与评分量表转成“我能够……”语句，对照范例，弄清本专业中“合格”与“优秀”的样子。<br><br><strong>你的行动：</strong>动笔前完成标准解码；若无法用一句话说明优秀，就还没准备好动笔。</div>
+    </div>
+    <h3>Techniques</h3>
+    <div class="tech-strip">
+      <div class="tech"><strong>Brief deconstruction</strong><span>Underline verbs, constraints, and deliverables in the prompt.</span></div>
+      <div class="tech"><strong>Co-created checklists</strong><span>Turn rubrics into shared “I can…” lines with peers.</span></div>
+      <div class="tech"><strong>Exemplars</strong><span>Compare strong vs weak work against the same criteria.</span></div>
+    </div>
+    <div class="panel soft">
+      <h3>Activity 3 · Product vs performance criteria</h3>
+      <p class="detail">Product criteria describe the artefact (structure, evidence, accuracy). Performance criteria describe how you work (time management, collaboration, rehearsal habits). Both matter; confuse them and feedback becomes vague.</p>
+      <p>Which is a <strong>product</strong> criterion?</p>
+      <button class="choice" data-quiz="q_criteria" data-answer="A" data-correct="true">A. The essay includes two counter-arguments with sources</button>
+      <button class="choice" data-quiz="q_criteria" data-answer="B" data-correct="false">B. I manage my drafting time across three evenings</button>
+      <button class="choice" data-quiz="q_criteria" data-answer="C" data-correct="false">C. I stay curious during peer discussion</button>
+      <div class="quiz-result" id="qr_q_criteria" hidden></div>
+      <label style="margin-top:14px">Draft one “I can…” criterion for your major</label>
+      <textarea id="icanDraft" maxlength="200" placeholder="I can…"></textarea>
+      <button class="btn" id="saveIcan" style="margin-top:8px">Save criterion</button>
+      <div class="share-box"><div class="saved" id="icanSaved">Saved.</div></div>
+    </div>
+    <div class="panel">
+      <h3>GenAI support · Success Criteria Translator</h3>
+      <p class="detail">Use GenAI to accelerate decoding — then verify against your tutor’s rubric. You remain responsible for accuracy and integrity.</p>
+      <div class="prompt"><span class="label">Starter prompt</span>Turn this assignment brief into: (A) five “I can” statements, (B) one self-check question before I draft, (C) a 10-word summary of excellence. Brief: [paste]</div>
+      <label>Creative share — how else could GenAI support Strategy 1 in your major?</label>
+      <textarea class="share-input" data-strategy="s1" maxlength="400" placeholder="One concrete idea…"></textarea>
+      <button class="btn primary share-btn" data-strategy="s1" style="margin-top:8px">Share to class wall</button>
+      <div class="share-box"><div class="saved share-saved" data-strategy="s1">Shared under your name.</div></div>
+    </div>
+  </section>
+
+  <section class="screen" data-page="s2">
+    <div class="phase"><span class="phase-num">07</span><span class="phase-label">Strategy 2</span></div>
+    <h2>Eliciting evidence of learning</h2>
+    <div class="panel bilingual">
+      <button class="tr-btn" data-tr="t_s2">中文</button>
+      <p class="detail"><strong>Rationale.</strong> If you only discover misunderstandings on the final exam, the cost is too high. Strategy 2 is about engineering opportunities — planned and in-the-moment — to make thinking visible. Lin (2019) distinguishes planned tools (quizzes, homework, portfolios) from contingent tools (oral questioning, observation, responsive checks). As a university student you can also elicit evidence for yourself: mini self-quizzes, explaining a concept aloud, exit tickets after lectures, or practice items that reveal which idea you still confuse.</p>
+      <p class="detail"><strong>Your move:</strong> Build quick checks into study and seminars so gaps surface early enough to act.</p>
+      <div class="zh" data-tr-panel="t_s2"><strong>原理：</strong>若只在期末才发现误解，代价过高。策略 2 强调设计机会（计划的与即时的）让思维可见。Lin（2019）区分计划性工具与情境性工具。大学生也可以为自己“提取证据”：自测、口头讲解、出门条、练习题。<br><br><strong>你的行动：</strong>把快速检查嵌入学习与研讨，让差距尽早暴露。</div>
+    </div>
+    <h3>Techniques</h3>
+    <div class="tech-strip">
+      <div class="tech"><strong>Think–Pair–Share</strong><span>Think alone, discuss, then share one idea with the group.</span></div>
+      <div class="tech"><strong>Exit tickets</strong><span>2-minute write: muddiest point + one takeaway.</span></div>
+      <div class="tech"><strong>Mini polls / quizzes</strong><span>Low-stakes checks that can reshape the next 15 minutes.</span></div>
+      <div class="tech"><strong>Planned vs contingent</strong><span>Some checks are scheduled; some respond to what just happened.</span></div>
+    </div>
+    <div class="panel soft">
+      <h3>Quick check</h3>
+      <p>Which move best elicits evidence <em>during</em> learning?</p>
+      <button class="choice" data-quiz="q_elicit" data-answer="A" data-correct="false">A. Waiting for the final exam to discover gaps</button>
+      <button class="choice" data-quiz="q_elicit" data-answer="B" data-correct="true">B. A mid-seminar poll that reshapes the next 15 minutes</button>
+      <button class="choice" data-quiz="q_elicit" data-answer="C" data-correct="false">C. Recording attendance only</button>
+      <div class="quiz-result" id="qr_q_elicit" hidden></div>
+    </div>
+    <div class="panel">
+      <h3>GenAI support · Pre-Mortem Plan</h3>
+      <div class="prompt"><span class="label">Starter prompt</span>Based on this concept/lecture note, list 3 likely misconceptions and design 2-minute no-tech checks for each. Notes: [paste]</div>
+      <label>Creative share — how else could GenAI support Strategy 2 in your major?</label>
+      <textarea class="share-input" data-strategy="s2" maxlength="400" placeholder="One concrete idea…"></textarea>
+      <button class="btn primary share-btn" data-strategy="s2" style="margin-top:8px">Share to class wall</button>
+      <div class="share-box"><div class="saved share-saved" data-strategy="s2">Shared under your name.</div></div>
+    </div>
+  </section>
+
+  <section class="screen" data-page="s3">
+    <div class="phase"><span class="phase-num">08</span><span class="phase-label">Strategy 3</span></div>
+    <h2>Feedback that moves learners forward</h2>
+    <div class="panel bilingual">
+      <button class="tr-btn" data-tr="t_s3">中文</button>
+      <p class="detail"><strong>Rationale.</strong> Feedback is formative only when it helps the learner take a better next step. Praise without information, or exhaustive error marking without priority, rarely improves the next draft. Effective practice often focuses on one criterion at a time, combines descriptive strength with an actionable next step, and may use multimodal forms (written, audio, annotated). The next screens deepen this with Hattie & Timperley’s framework and Shute’s guidelines — because Strategy 3 is the bridge into a fuller theory of feedback.</p>
+      <p class="detail"><strong>Your move:</strong> Seek next-step feedback on one criterion, then revise. If no action follows, it was not formative for you.</p>
+      <div class="zh" data-tr-panel="t_s3"><strong>原理：</strong>只有帮助学习者迈出更好下一步的反馈才是形成性的。没有信息的赞美，或没有重点的全批全改，很少改进下一稿。有效做法常是一次聚焦一个标准，把描述性优点与可执行下一步结合。接下来我们将用 Hattie & Timperley 与 Shute 深化这一点。<br><br><strong>你的行动：</strong>针对一个标准寻求下一步反馈并修改；若没有行动，对你而言就不算形成性。</div>
+    </div>
+    <h3>Techniques</h3>
+    <div class="tech-strip">
+      <div class="tech"><strong>One-criterion focus</strong><span>Structure OR evidence OR method — reduce cognitive load.</span></div>
+      <div class="tech"><strong>Next-steps feedback</strong><span>What is working + how to improve next.</span></div>
+      <div class="tech"><strong>Multimodal notes</strong><span>30-sec audio: one strength + one next step.</span></div>
+    </div>
+    <div class="panel soft">
+      <h3>Quick check</h3>
+      <p>Which feedback is most formative?</p>
+      <button class="choice" data-quiz="q_fbstyle" data-answer="A" data-correct="false">A. “Good job!” + a final grade</button>
+      <button class="choice" data-quiz="q_fbstyle" data-answer="B" data-correct="true">B. “Your claim is clear. Next: add one counter-argument in paragraph 3.”</button>
+      <button class="choice" data-quiz="q_fbstyle" data-answer="C" data-correct="false">C. Circling every grammar error with no priority</button>
+      <div class="quiz-result" id="qr_q_fbstyle" hidden></div>
+    </div>
+    <div class="panel">
+      <h3>GenAI support · Focused Feedback Generator</h3>
+      <div class="prompt"><span class="label">Starter prompt</span>Review my draft. Focus ONLY on [one criterion]. Ignore other errors. Give one sentence of descriptive praise and one actionable next step.</div>
+      <label>Creative share — how else could GenAI support Strategy 3 in your major?</label>
+      <textarea class="share-input" data-strategy="s3" maxlength="400" placeholder="One concrete idea…"></textarea>
+      <button class="btn primary share-btn" data-strategy="s3" style="margin-top:8px">Share to class wall</button>
+      <div class="share-box"><div class="saved share-saved" data-strategy="s3">Shared under your name.</div></div>
+    </div>
+  </section>
+
+  <section class="screen" data-page="hattie">
+    <div class="phase"><span class="phase-num">09</span><span class="phase-label">Feedback framework</span></div>
+    <h2>Hattie & Timperley (2007): the power of feedback</h2>
+    <div class="panel bilingual">
+      <button class="tr-btn" data-tr="t_hattie">中文</button>
+      <p class="detail"><strong>Structure.</strong> Hattie & Timperley model feedback as information that reduces the discrepancy between current performance and a goal. It should help learners answer three questions: <strong>Feed Up</strong> — Where am I going? (goals/criteria); <strong>Feed Back</strong> — How am I going? (progress relative to the goal); <strong>Feed Forward</strong> — Where to next? (activities that close the gap).</p>
+      <p class="detail"><strong>Levels & impact.</strong> Feedback can operate at Task, Process, Self-regulation, or Self levels. Task/process/self-regulation feedback typically supports improvement; person-level praise (“You’re smart”) often has little effect on the next draft and can even undermine productive struggle. When you ask GenAI for feedback, request process-level next steps — then verify with your own judgment and course criteria.</p>
+      <div class="zh" data-tr-panel="t_hattie"><strong>结构：</strong>Hattie & Timperley 把反馈视为缩小“当前表现与目标差距”的信息，并回答三个问题：Feed Up（去哪里）、Feed Back（现在如何）、Feed Forward（下一步去哪）。<br><br><strong>层面与影响：</strong>反馈可作用于任务、过程、自我调节或自我层面。前三者更利于改进；人格赞美对下一稿帮助有限。向 GenAI 要反馈时，优先要过程层面的下一步，再用自己的判断与课程标准核实。</div>
+    </div>
+    <div class="panel">
+      <img class="figure" src="./assets/hattie-timperley-feedback.jpg" alt="Hattie and Timperley 2007 feedback model">
+      <p class="figure-caption">Hattie & Timperley’s (2007) model of feedback.</p>
+    </div>
+  </section>
+
+  <section class="screen" data-page="hattie_quiz">
+    <div class="phase"><span class="phase-num">10</span><span class="phase-label">Feedback practice</span></div>
+    <h2>Map the three questions & levels</h2>
+    <div class="panel">
+      <h3>“Where to next?” is also called…</h3>
+      <button class="choice" data-quiz="q_hattie" data-answer="A" data-correct="false">A. Feed Up</button>
+      <button class="choice" data-quiz="q_hattie" data-answer="B" data-correct="false">B. Feed Back</button>
+      <button class="choice" data-quiz="q_hattie" data-answer="C" data-correct="true">C. Feed Forward</button>
+      <div class="quiz-result" id="qr_q_hattie" hidden></div>
+    </div>
+    <div class="panel">
+      <h3>Which level is this feedback?</h3>
+      <p>“Add two more sources that contradict your claim, then explain how you respond.”</p>
+      <button class="choice" data-quiz="q_level" data-answer="task" data-correct="false">Task level only</button>
+      <button class="choice" data-quiz="q_level" data-answer="process" data-correct="true">Process / strategy level (how to improve the work)</button>
+      <button class="choice" data-quiz="q_level" data-answer="self" data-correct="false">Self level (person praise)</button>
+      <div class="quiz-result" id="qr_q_level" hidden></div>
+    </div>
+  </section>
+
+  <section class="screen" data-page="shute">
+    <div class="phase"><span class="phase-num">11</span><span class="phase-label">Material · Shute</span></div>
+    <h2>Formative feedback guidelines (Shute, 2008)</h2>
+    <div class="panel bilingual">
+      <button class="tr-btn" data-tr="t_shute">中文</button>
+      <p class="detail">Shute’s review translates research into practical prescriptions for formative feedback. Use these as a checklist when you give peer feedback, ask tutors for comments, or prompt GenAI.</p>
+      <ul class="clean">
+        <li>Focus on the task / criteria, not the person’s worth</li>
+        <li>Elaborate with what / how / why — not only right/wrong</li>
+        <li>Be specific and clear; avoid cognitive overload</li>
+        <li>Offer actionable next steps in manageable units</li>
+        <li>Support learner agency: feedback to use, not a final verdict</li>
+      </ul>
+      <div class="zh" data-tr-panel="t_shute">Shute（2008）把研究转化为形成性反馈处方。给你同伴反馈、向教师要意见、或提示 GenAI 时，可用作检查清单：聚焦任务、提供 elaboration、具体清晰、可执行下一步、支持学习者主动使用反馈。</div>
+    </div>
+    <div class="panel soft">
+      <h3>Scenario</h3>
+      <p>A peer writes: “You’re amazing! Maybe fix some stuff.” What should you ask them to revise toward Shute’s guidelines?</p>
+      <button class="choice" data-quiz="q_shute" data-answer="A" data-correct="true">A. Name one strength on a criterion + one concrete next step</button>
+      <button class="choice" data-quiz="q_shute" data-answer="B" data-correct="false">B. Add more praise so it feels kinder</button>
+      <button class="choice" data-quiz="q_shute" data-answer="C" data-correct="false">C. List every error with no priority</button>
+      <div class="quiz-result" id="qr_q_shute" hidden></div>
+    </div>
+  </section>
+
+  <section class="screen" data-page="break">
+    <div class="break-hero">
+      <div class="phase" style="justify-content:center"><span class="phase-num">—</span><span class="phase-label">Mid-session</span></div>
+      <h1>Break</h1>
+      <p class="lead">10–15 minutes</p>
+      <p>After the break: Strategy 4 (peers · TAG) · Strategy 5 (ownership) · human judgment · download your materials.</p>
+    </div>
+  </section>
+
+  <section class="screen" data-page="s4">
+    <div class="phase"><span class="phase-num">12</span><span class="phase-label">Strategy 4</span></div>
+    <h2>Peers as instructional resources</h2>
+    <div class="panel bilingual">
+      <button class="tr-btn" data-tr="t_s4">中文</button>
+      <p class="detail"><strong>Rationale.</strong> Peers can provide more frequent, criterion-based comments than any single tutor can. But unstructured peer talk often stays vague (“nice!”). Strategy 4 therefore uses protocols that force specificity. Two widely used techniques: <strong>TAG</strong> (Tell something you like · Ask a question · Give a suggestion) and <strong>Two Stars and a Wish</strong> (two strengths + one improvement). Keep reviews focused on one or two shared criteria so cognitive load stays manageable and feedback stays usable.</p>
+      <p class="detail"><strong>Your move:</strong> Give and receive structured peer feedback on shared criteria — one focused review task at a time.</p>
+      <div class="zh" data-tr-panel="t_s4"><strong>原理：</strong>同伴可以提供比单一教师更频繁、基于标准的意见，但无结构的闲聊往往空泛。策略 4 使用协议逼出具体性：TAG（喜欢的一点 / 一个问题 / 一个建议）与“两颗星一个愿望”。一次只聚焦 1–2 个共同标准。<br><br><strong>你的行动：</strong>基于共同标准做结构化同伴反馈。</div>
+    </div>
+    <h3>Techniques</h3>
+    <div class="tech-strip">
+      <div class="tech"><strong>TAG</strong><span>Tell · Ask · Give — three moves, always on criteria.</span></div>
+      <div class="tech"><strong>Two Stars & a Wish</strong><span>Two strengths + one improvement wish.</span></div>
+      <div class="tech"><strong>Focused peer review</strong><span>Review only 1–2 criteria, not everything.</span></div>
+    </div>
+    <div class="grid-2">
+      <div class="panel">
+        <img class="figure" src="./assets/peer-feedback-tag.jpg" alt="Peer feedback TAG template">
+        <p class="figure-caption">TAG peer-feedback structure.</p>
+      </div>
+      <div class="panel">
+        <img class="figure" src="./assets/two-stars-wish.jpg" alt="Two Stars and a Wish template">
+        <p class="figure-caption">Two Stars & a Wish.</p>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>GenAI support · Targeted Peer Review Builder</h3>
+      <div class="prompt"><span class="label">Starter prompt</span>Create a peer-review form for university students focusing only on [Criterion 1] and [Criterion 2]. Include three sentence stems and a 1–5 scale.</div>
+      <label>Creative share — how else could GenAI support Strategy 4 in your major?</label>
+      <textarea class="share-input" data-strategy="s4" maxlength="400" placeholder="One concrete idea…"></textarea>
+      <button class="btn primary share-btn" data-strategy="s4" style="margin-top:8px">Share to class wall</button>
+      <div class="share-box"><div class="saved share-saved" data-strategy="s4">Shared under your name.</div></div>
+    </div>
+  </section>
+
+  <section class="screen" data-page="s5">
+    <div class="phase"><span class="phase-num">13</span><span class="phase-label">Strategy 5</span></div>
+    <h2>Owners of your own learning</h2>
+    <div class="panel bilingual">
+      <button class="tr-btn" data-tr="t_s5">中文</button>
+      <p class="detail"><strong>Rationale.</strong> The long-term aim of formative assessment is that learners internalise the three questions: Where am I going? Where am I now? How do I get there? Strategy 5 develops ownership through self-assessment checklists, SMART goals after feedback, portfolios, and reflection across assignments. GenAI can help you rephrase feedback into a plan — but you choose the goal, the resource, and the honesty of the self-check.</p>
+      <p class="detail"><strong>Your move:</strong> Self-assess against criteria before submit; after feedback, set one SMART goal and track it to the next task.</p>
+      <div class="zh" data-tr-panel="t_s5"><strong>原理：</strong>形成性评价的长远目标是让学习者内化三个问题。策略 5 通过自评清单、SMART 目标、档案袋与跨作业反思培养主人翁意识。GenAI 可帮助把反馈改写成计划，但目标、资源与诚实自评必须由你负责。<br><br><strong>你的行动：</strong>提交前对照标准自评；收到反馈后设定一个 SMART 目标并追踪到下一次任务。</div>
+    </div>
+    <h3>Techniques</h3>
+    <div class="tech-strip">
+      <div class="tech"><strong>Self-assessment checklist</strong><span>Yes / Not yet against criteria before submit.</span></div>
+      <div class="tech"><strong>SMART goals</strong><span>Specific, Measurable, Achievable, Relevant, Time-bound.</span></div>
+      <div class="tech"><strong>Portfolio reflection</strong><span>Keep evidence of growth across tasks.</span></div>
+    </div>
+    <div class="panel">
+      <img class="figure" src="./assets/self-assessment-checklist.png" alt="Self-assessment checklist example">
+      <p class="figure-caption">Example self-assessment checklist — recreate with your university criteria.</p>
+    </div>
+    <div class="panel">
+      <h3>GenAI support · Learning Reflection Planner</h3>
+      <div class="prompt"><span class="label">Starter prompt</span>Here is feedback on my last assignment: [paste]. Write: (A) the single most important fix, (B) a SMART goal for the next task, (C) one resource I will use.</div>
+      <label>Creative share — how else could GenAI support Strategy 5 in your major?</label>
+      <textarea class="share-input" data-strategy="s5" maxlength="400" placeholder="One concrete idea…"></textarea>
+      <button class="btn primary share-btn" data-strategy="s5" style="margin-top:8px">Share to class wall</button>
+      <div class="share-box"><div class="saved share-saved" data-strategy="s5">Shared under your name.</div></div>
+    </div>
+  </section>
+
+  <section class="screen" data-page="human">
+    <div class="phase"><span class="phase-num">14</span><span class="phase-label">Human core</span></div>
+    <h2>What must stay human</h2>
+    <div class="panel bilingual">
+      <button class="tr-btn" data-tr="t_human">中文</button>
+      <p class="detail">GenAI can accelerate practice, draft stems, and cluster misconceptions. You still set direction, judge truth against criteria, offer empathy in peer feedback, design the checks you need, and protect academic integrity. Practise and revise with GenAI — do not outsource authorship. Spontaneous formative moments in class still need human noticing that no prompt can fully replace.</p>
+      <div class="zh" data-tr-panel="t_human">GenAI 可以加速练习与草稿，但方向、判断、共情、设计检查与学术诚信必须由人把握。用 GenAI 练习与修改——不要外包作者身份。课堂上即时的形成性时刻仍需要人类的察觉。</div>
+    </div>
+    <div class="tech-strip">
+      <div class="tech"><strong>Judgment</strong><span>Decide what feedback is true for your work.</span></div>
+      <div class="tech"><strong>Empathy</strong><span>Peer feedback stays respectful and useful.</span></div>
+      <div class="tech"><strong>Design</strong><span>You design the checks and criteria you need.</span></div>
+      <div class="tech"><strong>Agency</strong><span>You choose the next action after feedback.</span></div>
+    </div>
+    <div class="panel">
+      <img class="figure" src="./assets/human-ai-boat.png" alt="Human direction with AI support">
+      <p class="figure-caption">You set direction; GenAI can power practice — judgment stays human.</p>
+    </div>
+  </section>
+
+  <section class="screen" data-page="dashboard">
+    <div class="phase"><span class="phase-num">15</span><span class="phase-label">Your dashboard</span></div>
+    <h2>Personal session dashboard</h2>
+    <p class="detail">These totals are also visible to your instructor under your login name.</p>
+    <div class="stat-grid">
+      <div class="stat"><div class="n" id="st_tr">0</div><div class="l">Translation clicks</div></div>
+      <div class="stat"><div class="n" id="st_q">0</div><div class="l">Quiz answers</div></div>
+      <div class="stat"><div class="n" id="st_c">0</div><div class="l">Correct</div></div>
+      <div class="stat"><div class="n" id="st_p">0</div><div class="l">Pages viewed</div></div>
+      <div class="stat"><div class="n" id="st_share">0</div><div class="l">Ideas shared</div></div>
+      <div class="stat"><div class="n" id="st_vote">0</div><div class="l">Scenario votes</div></div>
+    </div>
+    <div class="panel bilingual">
+      <button class="tr-btn" data-tr="t_dash">中文</button>
+      <h3>Exit reflection</h3>
+      <p>Write: (1) one strategy you will use, (2) one GenAI idea, (3) one non-negotiable you will protect.</p>
+      <div class="zh" data-tr-panel="t_dash">写下：（1）你将使用的一项策略；（2）一个 GenAI 想法；（3）你要守护的一个原则。</div>
+      <div id="transferBox" contenteditable="true" class="panel" style="min-height:100px; margin-top:10px;" role="textbox" aria-label="Exit reflection"></div>
+      <button class="btn primary" id="saveTransfer" style="margin-top:10px">Save reflection</button>
+      <p class="figure-caption" id="transferSaved" hidden>Saved.</p>
+      <p class="figure-caption" style="margin-top:12px"><strong>Your note:</strong> <span id="transferOut">No reflection yet.</span></p>
+    </div>
+    <div class="panel download-banner">
+      <div>
+        <h3 style="margin:0">Download your materials (PDF)</h3>
+        <p class="figure-caption" style="margin:6px 0 0">All session slides plus your votes, quiz choices, GenAI ideas, and reflection.</p>
+      </div>
+      <button class="btn primary" id="downloadPdfBtn">Download PDF pack</button>
+    </div>
+  </section>
+
+  <section class="screen" data-page="end">
+    <div class="phase"><span class="phase-num">16</span><span class="phase-label">Close</span></div>
+    <h1>Thank you</h1>
+    <div class="panel soft">
+      <p class="lead">GenAI = power and pace. You = direction and judgment. Formative assessment remains a human conversation about growth.</p>
+      <p>Dr April Jiawei Zhang · City University of Macau · aprilzhang@cityu.edu.mo</p>
+    </div>
+    <div class="panel download-banner">
+      <div>
+        <h3 style="margin:0">Optional: take your pack home</h3>
+        <p class="figure-caption" style="margin:6px 0 0">Download a PDF of the training slides with your personal inputs and choices.</p>
+      </div>
+      <button class="btn primary" id="downloadPdfBtnEnd">Download PDF pack</button>
+    </div>
+  </section>
+</main>
+
+<nav class="navdock" id="navdock" hidden aria-label="Workshop pages">
+  <button class="btn navdock-step" id="prevBtn" type="button" aria-label="Previous page">Back</button>
+  <div class="page-scroller" id="pageScroller" role="list"></div>
+  <button class="btn primary navdock-step" id="nextBtn" type="button" aria-label="Next page">Next</button>
+</nav>
+
+<script src="./config.js?v=8"></script>
+<script src="./store.js?v=8"></script>
+<script src="./student.js?v=8"></script>
+</body>
+</html>

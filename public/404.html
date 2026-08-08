@@ -8,12 +8,12 @@
 (function () {
   var path = location.pathname.replace(/\/+$/, "");
   if (/\/training\/202607\/host(\.html)?$/.test(path) ||
-      /\/service\/training\/app\/host(\.html)?$/.test(path)) {
-    location.replace("/service/training/app/host/" + location.search + location.hash);
+      /\/(service|teaching)\/training\/app\/host(\.html)?$/.test(path)) {
+    location.replace("/teaching/training/app/host/" + location.search + location.hash);
     return;
   }
   if (/\/training\/202607$/.test(path)) {
-    location.replace("/service/training/app/" + location.search + location.hash);
+    location.replace("/teaching/training/app/" + location.search + location.hash);
     return;
   }
 })();
@@ -21,6 +21,6 @@
 </head>
 <body style="font-family: system-ui, sans-serif; padding: 2rem;">
   <p>Page not found.</p>
-  <p><a href="/service/training/">Training</a> · <a href="/">Home</a></p>
+  <p><a href="/teaching/training/">Training</a> · <a href="/">Home</a></p>
 </body>
 </html>

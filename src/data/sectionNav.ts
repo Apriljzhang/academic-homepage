@@ -11,13 +11,13 @@ export const teachingSubnav = [
   { href: withBase('/teaching'), label: 'Overview' },
   { href: withBase('/teaching/approach'), label: 'Approach & experience' },
   { href: withBase('/teaching/supervision'), label: 'Supervision' },
+  { href: withBase('/teaching/training'), label: 'Training' },
 ] as const;
 
 export const serviceSubnav = [
   { href: withBase('/service'), label: 'Overview' },
   { href: withBase('/service/organisation'), label: 'Conference organisation' },
   { href: withBase('/service/journal-editor'), label: 'Journal editor' },
+  { href: withBase('/service/april'), label: 'APRIL skill' },
   { href: withBase('/service/presentations'), label: 'Presentations' },
-  { href: withBase('/service/memberships'), label: 'Professional memberships' },
-  { href: withBase('/service/training'), label: 'Training' },
 ] as const;

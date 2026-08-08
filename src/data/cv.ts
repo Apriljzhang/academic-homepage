@@ -12,7 +12,7 @@ export const person = {
 } as const;
 
 /** Short strapline under the name (home hero), in the spirit of faculty landing pages. */
-export const siteTagline = 'Teaching, learning & assessment in language education';
+export const siteTagline = 'Teaching, learning & assessment in technology assisted language education';
 
 /** Single site-wide biography — shown only on the home hero. */
 export const summaryHtml =
@@ -415,7 +415,7 @@ export const homeSectionCards = [
     title: 'Teaching',
     kicker: 'Philosophy & supervision',
     description:
-      'Approach and trajectory across the UK and China / Macau, plus master’s and doctoral supervision.',
+      'Approach and trajectory across the UK and China / Macau, master’s and doctoral supervision, and training resources.',
     accent: 'blue' as const,
   },
   {
@@ -423,7 +423,7 @@ export const homeSectionCards = [
     title: 'Service',
     kicker: 'Conferences & engagement',
     description:
-      'AALA 2026 organisation, journal editorship, conference presentations, and related professional service.',
+      'AALA 2026 organisation, journal editorship, the APRIL academic-writing skill, and conference presentations.',
     accent: 'red' as const,
   },
 ] as const;

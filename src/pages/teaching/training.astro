@@ -1,0 +1,112 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import PageShell from '../../components/PageShell.astro';
+import SectionSubnav from '../../components/SectionSubnav.astro';
+import MainWithAside from '../../components/MainWithAside.astro';
+import TeachingSectionAside from '../../components/TeachingSectionAside.astro';
+import { teachingSubnav } from '../../data/sectionNav';
+import { person } from '../../data/cv';
+import { withBase } from '../../utils/paths';
+
+const title = `Training · ${person.fullDisplayName}`;
+const description = `Interactive formative assessment training materials — ${person.fullDisplayName}.`;
+const studentPath = withBase('/teaching/training/app/');
+const hostPath = withBase('/teaching/training/app/host');
+---
+
+<BaseLayout {title} {description}>
+  <SiteHeader />
+  <main id="main-content" class="min-h-[50vh] w-full bg-page">
+    <PageShell accentBar>
+      <h1 class="font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">Training</h1>
+      <MainWithAside asideLabel="Teaching menu">
+        <div>
+          <SectionSubnav ariaLabel="Teaching section" items={teachingSubnav} />
+
+          <p class="mt-8 max-w-3xl text-pretty text-lg leading-relaxed text-muted lg:text-xl">
+            Selected interactive workshops and professional development materials. Enter the access code to open a
+            training room.
+          </p>
+
+          <ul class="mt-10 space-y-4">
+            <li class="rounded-xl border border-border bg-surface p-5">
+              <p class="text-xs font-bold uppercase tracking-wider text-muted">July 2026</p>
+              <h2 class="mt-1 font-serif text-xl font-semibold text-ink">
+                Formative Assessment Frameworks & GenAI
+              </h2>
+              <p class="mt-2 text-sm text-muted">
+                International Training and Testing Centre (ITTC) summer training · Capital Normal University
+              </p>
+              <div class="mt-4 flex flex-wrap gap-3">
+                <a
+                  href={studentPath}
+                  class="inline-flex rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white no-underline hover:opacity-95"
+                >
+                  Open workshop
+                </a>
+                <a
+                  href={hostPath}
+                  class="inline-flex rounded-full border border-border bg-page px-5 py-2.5 text-sm font-semibold text-ink no-underline hover:bg-surface"
+                >
+                  Instructor dashboard
+                </a>
+              </div>
+              <div class="mt-5 flex flex-col gap-3 sm:flex-row sm:items-end">
+                <label class="block flex-1 text-sm font-semibold text-ink">
+                  Or enter access code
+                  <input
+                    id="trainingCode"
+                    type="text"
+                    inputmode="text"
+                    autocomplete="off"
+                    class="mt-1 w-full rounded-md border border-border bg-page px-3 py-2 font-normal text-ink"
+                  />
+                </label>
+                <button
+                  id="trainingOpen"
+                  type="button"
+                  class="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white no-underline hover:opacity-95"
+                >
+                  Open with code
+                </button>
+              </div>
+              <p id="trainingHint" class="mt-2 text-xs text-muted" hidden></p>
+            </li>
+          </ul>
+        </div>
+        <TeachingSectionAside slot="aside" />
+      </MainWithAside>
+    </PageShell>
+  </main>
+  <SiteFooter />
+
+  <script is:inline define:vars={{ studentPath, hostPath }}>
+    (function () {
+      const input = document.getElementById('trainingCode');
+      const btn = document.getElementById('trainingOpen');
+      const hint = document.getElementById('trainingHint');
+      function open() {
+        const code = (input?.value || '').trim().toLowerCase();
+        if (code === '202607') {
+          window.location.href = studentPath;
+          return;
+        }
+        if (code === '202607host') {
+          window.location.href = hostPath;
+          return;
+        }
+        if (hint) {
+          hint.hidden = false;
+          hint.textContent = 'Unrecognised code.';
+          hint.style.color = '#a65d4a';
+        }
+      }
+      btn?.addEventListener('click', open);
+      input?.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') open();
+      });
+    })();
+  </script>
+</BaseLayout>

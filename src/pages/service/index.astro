@@ -11,7 +11,7 @@ import { person } from '../../data/cv';
 import { withBase } from '../../utils/paths';
 
 const title = `Service · ${person.fullDisplayName}`;
-const description = `Professional service, conference organisation, journal editorship, and presentations — ${person.fullDisplayName}.`;
+const description = `Professional service, conference organisation, journal editorship, open academic tools, and presentations — ${person.fullDisplayName}.`;
 ---
 
 <BaseLayout {title} {description}>
@@ -22,8 +22,8 @@ const description = `Professional service, conference organisation, journal edit
       <MainWithAside asideLabel="Service menu">
         <div>
           <p class="mt-4 max-w-3xl text-pretty text-lg leading-relaxed text-muted lg:text-xl">
-            Conference leadership, journal editorship, scholarly networks, training workshops, and selected presentations
-            in language assessment and language education.
+            Conference leadership, journal editorship, open academic tools, and selected presentations in language
+            assessment and language education.
           </p>
           <SectionSubnav ariaLabel="Service section" items={serviceSubnav} />
 
@@ -50,32 +50,23 @@ const description = `Professional service, conference organisation, journal edit
             </li>
             <li class="rounded-xl border border-border bg-surface p-5">
               <a
+                href={withBase('/service/april')}
+                class="font-serif text-lg font-semibold text-ink no-underline hover:text-primary"
+              >
+                APRIL skill →
+              </a>
+              <p class="mt-2 text-sm text-muted">
+                An open-source Codex skill suite for planning, writing, reviewing, and revising academic journal papers.
+              </p>
+            </li>
+            <li class="rounded-xl border border-border bg-surface p-5">
+              <a
                 href={withBase('/service/presentations')}
                 class="font-serif text-lg font-semibold text-ink no-underline hover:text-primary"
               >
                 Presentations →
               </a>
               <p class="mt-2 text-sm text-muted">Selected conference talks and forums.</p>
-            </li>
-            <li class="rounded-xl border border-border bg-surface p-5">
-              <a
-                href={withBase('/service/memberships')}
-                class="font-serif text-lg font-semibold text-ink no-underline hover:text-primary"
-              >
-                Professional memberships →
-              </a>
-              <p class="mt-2 text-sm text-muted">Learned societies and professional networks in language assessment.</p>
-            </li>
-            <li class="rounded-xl border border-border bg-surface p-5 md:col-span-2">
-              <a
-                href={withBase('/service/training')}
-                class="font-serif text-lg font-semibold text-ink no-underline hover:text-primary"
-              >
-                Training →
-              </a>
-              <p class="mt-2 text-sm text-muted">
-                July 2026 · International Training and Testing Centre (ITTC) summer training · Capital Normal University
-              </p>
             </li>
           </ul>
         </div>
