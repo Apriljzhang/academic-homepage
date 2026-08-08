@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
   <title id="title">AJZ monogram</title>
-  <rect x="4" y="4" width="120" height="120" rx="26" fill="#1f5141"/>
+  <rect x="4" y="4" width="120" height="120" rx="26" fill="#7c9a6b"/>
 
   <!-- A -->
   <path
@@ -21,5 +21,5 @@
     d="M82 38h35v10L97.5 79H117v10H81V79l19.7-31H82V38Z"
   />
 
-  <rect x="81" y="98" width="36" height="7" rx="3.5" fill="#e86454"/>
+  <rect x="81" y="98" width="36" height="7" rx="3.5" fill="#a3493f"/>
 </svg>

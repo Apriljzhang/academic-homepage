@@ -26,7 +26,7 @@ Existing information architecture and component ownership remain unchanged.
 - Sage identity: `oklch(65.09% 0.0754 134.57)`.
 - Blush anchor: `oklch(84.40% 0.0410 58.70)`.
 
-Green is the dominant site colour: deep sage carries navigation and primary structure, while the original sage identifies April. Dark brown carries long-form text, brick occupies a smaller emphasis role, and blush carries the page. The original green-and-cream AJZ favicon remains unchanged as a separate, established brand asset.
+Green is the dominant site colour: deep sage carries navigation and primary structure, while the original sage identifies April. Dark brown carries long-form text, brick occupies a smaller emphasis role, and blush carries the page. The AJZ favicon uses the same sage, cream, and brick-red palette as the website.
 
 ## Typography
 
@@ -164,4 +164,4 @@ The canonical source is [`tokens.css`](tokens.css).
 
 ## Provenance
 
-The palette was sampled from user-selected colour swatches and refined into accessible functional roles for an academic personal website. The favicon remains the established original green-and-cream AJZ mark. Structure, content, typography, and imagery are original to this website.
+The palette was sampled from user-selected colour swatches and refined into accessible functional roles for an academic personal website. The established AJZ mark retains its original construction while adopting the website's sage, cream, and brick-red palette. Structure, content, typography, and imagery are original to this website.
