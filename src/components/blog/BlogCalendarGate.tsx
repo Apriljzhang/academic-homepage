@@ -72,7 +72,7 @@ export default function BlogCalendarGate({ adminHref = "/blog/admin/", password 
     <div className="w-full">
       <div className="rounded-xl border border-border bg-surface p-5 shadow-sm">
         <div className="flex items-center justify-between gap-3">
-          <p className="font-serif text-xl font-semibold text-ink">Calendar</p>
+          <p className="type-section-title">Calendar</p>
           <div className="flex items-center gap-2">
             <button
               type="button"
@@ -114,7 +114,7 @@ export default function BlogCalendarGate({ adminHref = "/blog/admin/", password 
                 className={[
                   "h-9 rounded-lg border text-sm grid place-items-center transition-colors",
                   selectedDate === key
-                    ? "border-secondary/70 bg-secondary text-white"
+                    ? "border-secondary/70 bg-secondary text-page"
                     : hasPost
                       ? "border-primary/40 bg-primary-faint text-ink hover:bg-primary-faint/80"
                       : "border-border bg-page text-ink/80 hover:bg-neutral-hover",
@@ -139,4 +139,3 @@ export default function BlogCalendarGate({ adminHref = "/blog/admin/", password 
     </div>
   );
 }
-

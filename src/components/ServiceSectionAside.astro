@@ -17,7 +17,7 @@ function isCurrent(href: string): boolean {
 
 <nav class="space-y-6 text-sm" aria-label="Service subsection">
   <div>
-    <p class="mb-2 text-xs font-bold uppercase tracking-wider text-main">Service</p>
+    <p class="type-label mb-2 text-secondary">Service</p>
     <ul class="flex flex-col gap-1.5">
       {
         serviceSubnav.map(({ href, label }) => (
@@ -27,7 +27,7 @@ function isCurrent(href: string): boolean {
               aria-current={isCurrent(href) ? 'page' : undefined}
               class:list={[
                 'block rounded-md px-2 py-1 no-underline transition-colors',
-                isCurrent(href) ? 'bg-main-faint font-semibold text-main' : 'text-muted hover:bg-neutral-hover hover:text-ink',
+                isCurrent(href) ? 'bg-main-faint font-semibold text-secondary' : 'text-muted hover:bg-neutral-hover hover:text-ink',
               ]}
             >
               {label}
@@ -38,7 +38,7 @@ function isCurrent(href: string): boolean {
     </ul>
   </div>
   <div>
-    <p class="mb-2 text-xs font-bold uppercase tracking-wider text-muted">AALA 2026</p>
+    <p class="type-label mb-2 text-muted">AALA 2026</p>
     <a
       href={aalaConferenceUrl}
       target="_blank"

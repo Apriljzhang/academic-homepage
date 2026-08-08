@@ -6,9 +6,9 @@ import { grants } from '../data/cv';
   {
     grants.map((g) => (
       <div class="border-l-2 border-primary/25 pl-5">
-        <p class="text-pretty text-lg font-medium leading-relaxed text-ink">{g.title}</p>
-        <p class="mt-2 text-base text-muted">{g.role} · {g.years}</p>
-        <p class="mt-1 text-base leading-relaxed text-muted">{g.institution}</p>
+        <p class="type-card-title text-pretty">{g.title}</p>
+        <p class="type-meta mt-2">{g.role} · {g.years}</p>
+        <p class="type-meta mt-1">{g.institution}</p>
       </div>
     ))
   }

@@ -102,7 +102,7 @@ export default function BlogFiltersAside({ initialPosts = [] }: Props) {
   return (
     <nav className="space-y-6 text-sm" aria-label="Blog filters">
       <div>
-        <p className="mb-2 text-xs font-bold uppercase tracking-wider text-muted">Blog</p>
+        <p className="type-label mb-2 text-muted">Blog</p>
         <ul className="flex flex-col gap-1.5">
           <li>
             <button
@@ -139,7 +139,7 @@ export default function BlogFiltersAside({ initialPosts = [] }: Props) {
       </div>
 
       <div>
-        <p className="mb-2 text-xs font-bold uppercase tracking-wider text-muted">Tags</p>
+        <p className="type-label mb-2 text-muted">Tags</p>
         <ul className="flex flex-col gap-1.5">
           <li>
             <button
@@ -177,4 +177,3 @@ export default function BlogFiltersAside({ initialPosts = [] }: Props) {
     </nav>
   );
 }
-

@@ -6,11 +6,11 @@ import { editorialRoles } from '../data/cv';
   {
     editorialRoles.map((role) => (
       <li class="border-l-2 border-primary/40 pl-4">
-        <p class="text-base font-medium leading-snug text-ink">{role.role}</p>
-        <p class="mt-1 text-sm text-muted">
+        <p class="type-card-title">{role.role}</p>
+        <p class="type-meta mt-1">
           <em>{role.specialIssue}</em>
         </p>
-        <p class="mt-0.5 text-sm text-muted">
+        <p class="type-meta mt-0.5">
           {role.journal}
           {role.years ? ` · ${role.years}` : ''}
         </p>

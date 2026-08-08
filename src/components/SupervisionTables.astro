@@ -4,7 +4,7 @@ import { supervisionIntroParagraphs, supervisionBlocks } from '../data/supervisi
 
 {
   supervisionIntroParagraphs.length ? (
-    <div class="mt-6 max-w-3xl space-y-4 text-pretty text-base leading-relaxed text-ink/95 sm:text-lg">
+    <div class="type-body mt-6 space-y-4 text-pretty text-ink/95">
       {supervisionIntroParagraphs.map((p) => <p>{p}</p>)}
     </div>
   ) : null
@@ -14,12 +14,12 @@ import { supervisionIntroParagraphs, supervisionBlocks } from '../data/supervisi
   {
     supervisionBlocks.map((block) => (
       <section>
-        <h2 class="font-serif text-xl font-semibold text-ink sm:text-2xl">{block.title}</h2>
-        {block.subtitle ? <p class="mt-1 text-sm text-muted sm:text-base">{block.subtitle}</p> : null}
+        <h2 class="type-section-title">{block.title}</h2>
+        {block.subtitle ? <p class="type-meta mt-1">{block.subtitle}</p> : null}
         <div class="mt-4 space-y-6 border-l-2 border-primary pl-4">
           {block.cohorts.map((c) => (
             <div>
-              <h3 class="text-sm font-bold uppercase tracking-wider text-secondary">
+              <h3 class="type-label text-secondary">
                 {c.cohort} · {c.status}
               </h3>
               <ul class="mt-2 list-disc space-y-1.5 pl-5 text-sm text-ink/90 sm:text-base">

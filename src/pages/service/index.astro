@@ -22,7 +22,7 @@ const description = `Professional service, conference leadership, journal editor
       <h1 class="font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">Service</h1>
       <MainWithAside asideLabel="Service menu">
         <div>
-          <p class="mt-4 max-w-3xl text-pretty text-base leading-relaxed text-muted lg:text-lg">
+          <p class="type-intro mt-4 text-pretty">
             Conference leadership, journal editorship, open academic tools, and selected presentations in language
             assessment and language education.
           </p>
@@ -32,7 +32,7 @@ const description = `Professional service, conference leadership, journal editor
             <li class="rounded-xl border border-border bg-surface p-5">
               <a
                 href={withBase('/service/organisation')}
-                class="font-serif text-lg font-semibold text-ink no-underline hover:text-primary"
+                class="type-card-title no-underline hover:text-primary"
               >
                 Conference Organiser →
               </a>
@@ -41,7 +41,7 @@ const description = `Professional service, conference leadership, journal editor
             <li class="rounded-xl border border-border bg-surface p-5">
               <a
                 href={withBase('/service/journal-editor')}
-                class="font-serif text-lg font-semibold text-ink no-underline hover:text-primary"
+                class="type-card-title no-underline hover:text-primary"
               >
                 Journal editor →
               </a>
@@ -51,23 +51,23 @@ const description = `Professional service, conference leadership, journal editor
             </li>
             <li class="rounded-xl border border-border bg-surface p-5">
               <a
+                href={withBase('/service/presentations')}
+                class="type-card-title no-underline hover:text-primary"
+              >
+                Conference Presenter →
+              </a>
+              <p class="mt-2 text-sm text-muted">Selected conference talks and forums.</p>
+            </li>
+            <li class="rounded-xl border border-border bg-surface p-5">
+              <a
                 href={withBase('/service/april')}
-                class="font-serif text-lg font-semibold text-ink no-underline hover:text-primary"
+                class="type-card-title no-underline hover:text-primary"
               >
                 APRIL skill →
               </a>
               <p class="mt-2 text-sm text-muted">
                 An open-source Codex skill suite for planning, writing, reviewing, and revising academic journal papers.
               </p>
-            </li>
-            <li class="rounded-xl border border-border bg-surface p-5">
-              <a
-                href={withBase('/service/presentations')}
-                class="font-serif text-lg font-semibold text-ink no-underline hover:text-primary"
-              >
-                Conference Presenter →
-              </a>
-              <p class="mt-2 text-sm text-muted">Selected conference talks and forums.</p>
             </li>
           </ul>
           <ProfessionalMembershipsContent variant="inline" />

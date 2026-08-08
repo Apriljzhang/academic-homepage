@@ -183,7 +183,7 @@ export default function WorldMap({
             className="absolute inset-0 h-full w-full select-none"
             preserveAspectRatio="xMidYMid meet"
             role="img"
-            aria-label="World map showing April Zhang, published co-authors, and visitors"
+            aria-label="World map showing AJZ, published co-authors, and visitors"
           >
           <defs>
             <linearGradient id="path-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -257,7 +257,7 @@ export default function WorldMap({
             );
           })}
 
-          {/* April's Macau marker uses a ring, distinct from both data series. */}
+          {/* AJZ's Macau marker uses a ring, distinct from both data series. */}
           {projected.home ? (() => {
             return (
               <g key="home-dot">
@@ -271,7 +271,7 @@ export default function WorldMap({
         <div className="pointer-events-none absolute bottom-3 left-3 flex max-w-[calc(100%-1.5rem)] flex-wrap items-center gap-x-4 gap-y-2 rounded-lg border border-border bg-page/95 px-3 py-2 text-xs font-semibold text-ink shadow-sm">
           <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
             <span className="h-3 w-3 rounded-full border-[3px] border-main bg-page" aria-hidden="true" />
-            April Zhang
+            AJZ
           </span>
           <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
             <span className="h-2.5 w-2.5 rotate-45 bg-accent-purple" aria-hidden="true" />

@@ -1,6 +1,6 @@
 /**
- * Update institutional and Outlook addresses here if you do not use env vars.
- * Optional: PUBLIC_CITYU_EMAIL, PUBLIC_OUTLOOK_EMAIL in `.env` for CI.
+ * Update the institutional address here if you do not use an environment variable.
+ * Optional: PUBLIC_CITYU_EMAIL in `.env` for CI.
  */
 function fromEnv(name: string): string | undefined {
   const v = import.meta.env[name];
@@ -11,5 +11,4 @@ export const contact = {
   /** Primary — City University of Macau */
   cityu: fromEnv('PUBLIC_CITYU_EMAIL') ?? 'aprilzhang@cityu.edu.mo',
   gmail: 'apriljzhang@gmail.com',
-  outlook: fromEnv('PUBLIC_OUTLOOK_EMAIL') ?? 'apriljzhang@outlook.com',
 } as const;

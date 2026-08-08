@@ -88,14 +88,14 @@ export default function VisitsDashboard({ countsUrl = "", collaboratorRoutes, ho
       </div>
       <div className="space-y-4">
         <div className="rounded-xl border border-border bg-surface p-5 shadow-sm">
-          <p className="text-xs font-bold uppercase tracking-wider text-muted">Visits (live)</p>
+          <p className="type-label text-muted">Visits (live)</p>
           <div className="mt-4 flex items-center justify-between gap-3">
             <p className="text-sm font-semibold text-ink">Total</p>
             <span className="shrink-0 rounded-full border border-border bg-page px-2 py-1 text-xs font-semibold text-ink">
               {totalListed}
             </span>
           </div>
-          <p className="mt-4 text-xs font-bold uppercase tracking-wider text-muted">Top regions</p>
+          <p className="type-label mt-4 text-muted">Top regions</p>
           <ol className="mt-4 space-y-2 text-sm">
             {listedRows.map((r, i) => (
               <li key={`${r.city ?? ""}-${r.region ?? ""}-${r.country ?? ""}-${i}`} className="flex items-start justify-between gap-3">

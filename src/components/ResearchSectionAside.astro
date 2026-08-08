@@ -23,7 +23,7 @@ const { themeAnchors } = Astro.props;
 
 <nav class="space-y-6 text-sm">
   <div>
-    <p class="mb-2 text-xs font-bold uppercase tracking-wider text-muted">Research</p>
+    <p class="type-label mb-2 text-muted">Research</p>
     <ul class="flex flex-col gap-1.5">
       {
         researchSubnav.map(({ href, label }) => (
@@ -46,7 +46,7 @@ const { themeAnchors } = Astro.props;
   {
     themeAnchors && themeAnchors.length > 0 ? (
       <div>
-        <p class="mb-2 text-xs font-bold uppercase tracking-wider text-muted">Themes on this page</p>
+        <p class="type-label mb-2 text-muted">Themes on this page</p>
         <ul class="flex flex-col gap-1.5">
           {themeAnchors.map(({ id, label }) => (
             <li>

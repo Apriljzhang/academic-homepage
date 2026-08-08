@@ -7,12 +7,12 @@ import { talks } from '../data/cv';
     talks.map((t) => (
       <li class="border-l-2 border-primary/40 pl-4">
         {t.paperTitle ? (
-          <p class="text-base font-medium leading-snug text-ink">{t.paperTitle}</p>
+          <p class="type-card-title">{t.paperTitle}</p>
         ) : null}
-        <p class:list={[t.paperTitle ? 'mt-1 text-sm text-muted' : 'text-base font-medium text-ink']}>
+        <p class:list={[t.paperTitle ? 'type-meta mt-1' : 'type-card-title']}>
           {t.event}
         </p>
-        <p class="mt-0.5 text-sm text-muted">
+        <p class="type-meta mt-0.5">
           {t.place} · {t.date}
         </p>
       </li>

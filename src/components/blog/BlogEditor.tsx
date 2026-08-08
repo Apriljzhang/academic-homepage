@@ -214,7 +214,7 @@ export default function BlogEditor({ adminKey }: Props) {
         <div className="lg:col-span-3 space-y-4">
           <div className="rounded-xl border border-border bg-surface p-5 shadow-sm">
             <div className="mb-4 flex items-center justify-between gap-3">
-              <p className="text-xs font-bold uppercase tracking-wider text-muted">Post details</p>
+              <p className="type-label text-muted">Post details</p>
               <button
                 type="button"
                 onClick={() => {
@@ -237,7 +237,7 @@ export default function BlogEditor({ adminKey }: Props) {
 
             <div className="grid gap-3 sm:grid-cols-2">
               <label className="space-y-1 sm:col-span-2">
-                <span className="text-xs font-bold uppercase tracking-wider text-muted">Admin key</span>
+                <span className="type-label text-muted">Admin key</span>
                 <input
                   type="password"
                   value={adminKeyLocal}
@@ -254,7 +254,7 @@ export default function BlogEditor({ adminKey }: Props) {
                 />
               </label>
               <label className="space-y-1">
-                <span className="text-xs font-bold uppercase tracking-wider text-muted">Title</span>
+                <span className="type-label text-muted">Title</span>
                 <input
                   value={title}
                   onChange={(e) => {
@@ -265,7 +265,7 @@ export default function BlogEditor({ adminKey }: Props) {
                 />
               </label>
               <label className="space-y-1">
-                <span className="text-xs font-bold uppercase tracking-wider text-muted">Tags</span>
+                <span className="type-label text-muted">Tags</span>
                 <input
                   value={tags}
                   onChange={(e) => setTags(e.target.value)}
@@ -277,7 +277,7 @@ export default function BlogEditor({ adminKey }: Props) {
 
             <div className="mt-3 grid gap-3 sm:grid-cols-2">
               <label className="space-y-1">
-                <span className="text-xs font-bold uppercase tracking-wider text-muted">Publish time</span>
+                <span className="type-label text-muted">Publish time</span>
                 <input
                   type="datetime-local"
                   value={publishedAtLocal}
@@ -362,7 +362,7 @@ export default function BlogEditor({ adminKey }: Props) {
                 }}
                 className={[
                   "inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold transition-colors",
-                  canSubmit ? "bg-primary text-page hover:bg-main hover:text-page" : "bg-neutral-hover text-muted cursor-not-allowed",
+                  canSubmit ? "bg-primary text-page hover:bg-main hover:text-main-ink" : "bg-neutral-hover text-muted cursor-not-allowed",
                 ].join(" ")}
               >
                 Publish / Update
@@ -373,7 +373,7 @@ export default function BlogEditor({ adminKey }: Props) {
           </div>
 
           <div className="rounded-xl border border-border bg-surface p-5 shadow-sm">
-            <p className="text-xs font-bold uppercase tracking-wider text-muted">Markdown</p>
+            <p className="type-label text-muted">Markdown</p>
             <textarea
               value={content}
               onChange={(e) => setContent(e.target.value)}

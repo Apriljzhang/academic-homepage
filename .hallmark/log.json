@@ -7,6 +7,16 @@
     "theme_axes": "light / roman-serif / chromatic-green",
     "vibe": "sage-led earthy scholarly restrained",
     "enrichment": "existing portrait only",
+    "brief": "Standardise page titles, section headings, card titles, introductions, body copy, labels, and metadata across the full site"
+  },
+  {
+    "date": "2026-08-08",
+    "scope": "app",
+    "macrostructure": "Marquee Hero / Long Document / Workbench",
+    "theme": "custom",
+    "theme_axes": "light / roman-serif / chromatic-green",
+    "vibe": "sage-led earthy scholarly restrained",
+    "enrichment": "existing portrait only",
     "brief": "Restore green as the dominant site colour while retaining the earthy palette and original AJZ favicon"
   },
   {

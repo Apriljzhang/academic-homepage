@@ -32,14 +32,14 @@ const quadrants = [
 ---
 
 <div class:list={[className ?? 'mt-6']}>
-  <h2 class="font-serif text-xl font-semibold text-ink sm:text-2xl">Research framework</h2>
+  <h2 class="type-section-title">Research framework</h2>
 
   <div class="mt-4" role="img" aria-label="Research framework: why, who, what, how">
     <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
       {
         quadrants.map((q) => (
           <article class="rounded-lg border border-border bg-surface p-5">
-            <p class="font-serif text-2xl font-semibold text-ink">{q.label}</p>
+            <p class="type-card-title">{q.label}</p>
             <ul class="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-ink/90 sm:text-base">
               {q.items.map((item) => (
                 <li>{item}</li>

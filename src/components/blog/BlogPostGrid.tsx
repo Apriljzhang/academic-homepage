@@ -234,7 +234,7 @@ export default function BlogPostGrid({ initialPosts = [], countsUrl = "" }: Prop
           </button>
           <a
             href="/blog/admin/"
-            className="rounded-full bg-primary px-4 py-2 text-sm font-semibold text-page no-underline hover:bg-main hover:text-page"
+            className="rounded-full bg-primary px-4 py-2 text-sm font-semibold text-page no-underline hover:bg-main hover:text-main-ink"
           >
             New post
           </a>
@@ -275,7 +275,7 @@ export default function BlogPostGrid({ initialPosts = [], countsUrl = "" }: Prop
             <div key={p.id} className="border-l-4 border-primary pl-4">
               <div className="flex items-start justify-between gap-3">
                 <a href={`/blog/post/?slug=${encodeURIComponent(p.slug)}`} className="min-w-0 no-underline">
-                  <p className="text-pretty text-base font-semibold text-ink sm:text-lg">{p.title}</p>
+                  <p className="type-card-title text-pretty">{p.title}</p>
                 </a>
 
                 <div className="shrink-0 flex items-center gap-2">

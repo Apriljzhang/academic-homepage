@@ -44,7 +44,7 @@ export default function BlogPostAside({ limit = 8 }: Props) {
 
   return (
     <div className="text-sm text-muted">
-      <p className="text-xs font-bold uppercase tracking-wider text-muted">Other posts</p>
+      <p className="type-label text-muted">Other posts</p>
       {visible.length === 0 ? (
         <p className="mt-3">No other posts yet.</p>
       ) : (

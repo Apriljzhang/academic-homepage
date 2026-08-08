@@ -8,7 +8,7 @@ import { withBase } from '../utils/paths';
     publications.map((item) => (
       <div class="flex items-start gap-3">
         <p
-          class="min-w-0 flex-1 pl-8 -indent-8 text-pretty text-base leading-relaxed text-ink/95 sm:text-lg [&_em]:font-serif [&_em]:italic [&_a]:font-medium [&_a]:text-primary [&_a]:no-underline hover:[&_a]:underline"
+          class="min-w-0 flex-1 pl-8 -indent-8 text-pretty text-base leading-relaxed text-ink/95 [&_em]:italic [&_a]:font-medium [&_a]:text-primary [&_a]:no-underline hover:[&_a]:underline"
           set:html={item.citationHtml}
         />
         {item.pdfPath ? (

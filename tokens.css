@@ -18,7 +18,8 @@
   --color-rule: oklch(62% 0.055 71.84);
   --color-rule-2: oklch(56% 0.06 55);
   --color-forest: var(--color-sage);
-  --color-forest-2: oklch(41% 0.08 134.57);
+  --color-sage-text: oklch(54% 0.0754 134.57);
+  --color-sage-ink: oklch(27% 0.03 134.57);
   --color-forest-soft: oklch(88% 0.035 134.57);
   --color-coral: var(--color-brick);
   --color-coral-strong: var(--color-brick);

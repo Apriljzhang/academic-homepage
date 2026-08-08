@@ -20,13 +20,15 @@ Existing information architecture and component ownership remain unchanged.
 - Paper: `oklch(97.64% 0.0208 79.10)`, the clean cream used in the AJZ favicon.
 - Surface: `oklch(98.70% 0.0107 76.60)`.
 - Ink: `oklch(35.93% 0.0641 28.98)` (dark brown).
-- Main green: `oklch(41% 0.08 134.57)` (deep sage for navigation and primary structure).
+- Main green: `oklch(65.09% 0.0754 134.57)` (sage for navigation and primary structure).
+- Sage text: `oklch(54% 0.0754 134.57)` (a readable mid-sage for text on cream).
+- Sage ink: `oklch(27% 0.03 134.57)` (used only for text placed directly on sage surfaces).
 - Brick emphasis: `oklch(51.93% 0.1215 28.38)`.
 - Tan structure: `oklch(79.60% 0.0673 71.84)` with a `oklch(62% 0.055 71.84)` functional rule.
 - Sage identity: `oklch(65.09% 0.0754 134.57)`.
 - Blush anchor: `oklch(84.40% 0.0410 58.70)`.
 
-Green is the dominant site colour: deep sage carries navigation and primary structure, while the original sage identifies April. Dark brown carries long-form text, brick occupies a smaller emphasis role, and clean cream carries the page; blush remains a secondary supporting tint. The AJZ favicon uses the same sage, cream, and brick-red palette as the website.
+Green is the dominant site colour: sage carries navigation, primary structure, and AJZ's identity. A very dark green is reserved only for readable text placed directly on sage; it is never used as a large surface. Dark brown carries long-form text, brick occupies a smaller emphasis role, and clean cream carries the page; blush remains a secondary supporting tint. The AJZ favicon uses the same sage, cream, and brick-red palette as the website.
 
 ## Typography
 
@@ -35,6 +37,11 @@ Green is the dominant site colour: deep sage carries navigation and primary stru
 - Display tracking: tight only at large sizes.
 - Page-title scale: `clamp(1.9rem, 2vw + 1rem, 2.6rem)`.
 - Home-title scale: `clamp(2rem, 2.25vw + 1.25rem, 2.65rem)`.
+- Section title: Source Sans 3 semibold at `1.25rem`.
+- Card title and introduction: Source Sans 3 at `1.125rem`; card titles are semibold.
+- Body: Source Sans 3 regular at `1rem` with `1.6` line height.
+- Metadata: Source Sans 3 regular at `0.875rem`; labels at `0.75rem` uppercase.
+- Serif is reserved for page-level display titles and the site name; content headings and titles use the body family.
 - Body measure: approximately 45–75 characters.
 
 ## Spacing and motion
@@ -45,11 +52,11 @@ Green is the dominant site colour: deep sage carries navigation and primary stru
 
 ## Component voice
 
-- Header and footer: deep sage green with clean cream text.
+- Header and footer: sage green with deep-green text.
 - Links and primary actions: brick; hover returns to dark brown.
 - Cards: light cream surfaces, tan-derived rules, minimal or no shadow, and tighter radii.
 - Page motif: one restrained sage bar; it never represents a section category.
-- “Hello, World.”: April = sage ring, published co-authors = brick routes and diamonds, visitors = dark-brown circles.
+- “Hello, World.”: AJZ = sage ring, published co-authors = brick routes and diamonds, visitors = dark-brown circles.
 
 ## Accessibility
 
@@ -72,6 +79,9 @@ The canonical source is [`tokens.css`](tokens.css).
   --color-ink-2: oklch(43% 0.05 35);
   --color-muted: oklch(43% 0.05 35);
   --color-rule: oklch(62% 0.055 71.84);
+  --color-sage: oklch(65.09% 0.0754 134.57);
+  --color-sage-text: oklch(54% 0.0754 134.57);
+  --color-sage-ink: oklch(27% 0.03 134.57);
   --color-accent: oklch(51.93% 0.1215 28.38);
   --color-accent-ink: oklch(98.70% 0.0107 76.60);
   --color-focus: oklch(35.93% 0.0641 28.98);
@@ -112,7 +122,8 @@ The canonical source is [`tokens.css`](tokens.css).
   --color-surface: var(--color-paper-2);
   --color-ink: var(--color-ink);
   --color-muted: var(--color-muted);
-  --color-main: var(--color-forest-2);
+  --color-main: var(--color-sage);
+  --color-main-ink: var(--color-sage-ink);
   --color-primary: var(--color-brick);
   --color-border: var(--color-rule);
   --font-serif: var(--font-display);
@@ -132,6 +143,8 @@ The canonical source is [`tokens.css`](tokens.css).
     "brick": { "$value": "oklch(51.93% 0.1215 28.38)", "$type": "color" },
     "tan": { "$value": "oklch(79.60% 0.0673 71.84)", "$type": "color" },
     "sage": { "$value": "oklch(65.09% 0.0754 134.57)", "$type": "color" },
+    "sage-text": { "$value": "oklch(54% 0.0754 134.57)", "$type": "color" },
+    "sage-ink": { "$value": "oklch(27% 0.03 134.57)", "$type": "color" },
     "blush": { "$value": "oklch(84.40% 0.0410 58.70)", "$type": "color" },
     "visitor": { "$value": "oklch(35.93% 0.0641 28.98)", "$type": "color" }
   },
@@ -153,7 +166,7 @@ The canonical source is [`tokens.css`](tokens.css).
   --primary: 51.93% 0.1215 28.38;
   --primary-foreground: 98.70% 0.0107 76.60;
   --secondary: 88% 0.035 134.57;
-  --secondary-foreground: 41% 0.08 134.57;
+  --secondary-foreground: 54% 0.0754 134.57;
   --muted: 94.12% 0.0255 78.92;
   --muted-foreground: 43% 0.05 35;
   --border: 62% 0.055 71.84;
