@@ -18,13 +18,14 @@ const aprilRepository = 'https://github.com/Apriljzhang/APRIL';
   <SiteHeader />
   <main id="main-content" class="min-h-[50vh] w-full bg-page">
     <PageShell accentBar>
-      <p class="type-label text-secondary">Coding &amp; academic tools</p>
-      <h1 class="mt-2 font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">
+      <h1 class="font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">
         APRIL
+        <span class="ml-2 whitespace-nowrap align-baseline font-sans text-sm font-medium tracking-normal text-secondary sm:text-base lg:text-lg">
+          Academic Paper Research &amp; Inquiry Lab
+        </span>
       </h1>
-      <p class="type-intro mt-2 text-secondary">Academic Paper Research &amp; Inquiry Lab</p>
 
-      <MainWithAside asideLabel="Service menu">
+      <MainWithAside asideLabel="Service menu" wide>
         <div>
           <SectionSubnav ariaLabel="Service section" items={serviceSubnav} />
 

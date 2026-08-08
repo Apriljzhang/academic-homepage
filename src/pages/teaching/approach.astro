@@ -19,12 +19,12 @@ const description = `Master’s and doctoral courses at City University of Macau
 
 <BaseLayout {title} {description}>
   <SiteHeader />
-  <main id="main-content" class="min-h-0 w-full bg-page">
+  <main id="main-content" class="min-h-[50vh] w-full bg-page">
     <PageShell accentBar>
       <h1 class="font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">
         CityU courses
       </h1>
-      <MainWithAside asideLabel="Teaching menu">
+      <MainWithAside asideLabel="Teaching menu" wide>
         <div>
           <SectionSubnav ariaLabel="Teaching section" items={teachingSubnav} />
 

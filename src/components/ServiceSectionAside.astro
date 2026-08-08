@@ -1,6 +1,5 @@
 ---
 import { serviceSubnav } from '../data/sectionNav';
-import { aalaConferenceUrl } from '../data/cv';
 
 function normPath(pathname: string): string {
   const x = pathname.replace(/\/$/, '') || '/';
@@ -36,16 +35,5 @@ function isCurrent(href: string): boolean {
         ))
       }
     </ul>
-  </div>
-  <div>
-    <p class="type-label mb-2 text-muted">AALA 2026</p>
-    <a
-      href={aalaConferenceUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="block rounded-md px-2 py-1 text-muted no-underline hover:bg-neutral-hover hover:text-ink"
-    >
-      Conference website →
-    </a>
   </div>
 </nav>
