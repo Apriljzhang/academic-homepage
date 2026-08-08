@@ -35,10 +35,11 @@
   --color-accent-purple: #78ab86;
   --color-accent-purple-faint: #edf6f0;
 
-  /* Decorative page-strip trio: green-led, with no blue ribbon */
+  /* Decorative page-strip trio follows the primary navigation order:
+     Research (green), Teaching (blue), Service (red). */
   --color-strip-1: #8fb791;
-  --color-strip-2: #c94d2c;
-  --color-strip-3: #78ab86;
+  --color-strip-2: #6fa4c2;
+  --color-strip-3: #c94d2c;
 
   --color-border: #d4cabb;
   --color-neutral-hover: #f5f0e8;
