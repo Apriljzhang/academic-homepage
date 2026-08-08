@@ -44,6 +44,7 @@
     @apply bg-page text-ink font-sans antialiased;
     overflow-x: clip;
     line-height: 1.6;
+    padding-bottom: calc(2.25rem + env(safe-area-inset-bottom));
   }
 
   :where(h1, h2, h3) {

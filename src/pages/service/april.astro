@@ -59,28 +59,23 @@ const aprilRepository = 'https://github.com/Apriljzhang/APRIL';
               <li class="rounded-xl border border-border bg-surface p-5 text-sm leading-relaxed text-muted">
                 Discussion, framing, British English language editing, and submission formatting
               </li>
-              <li class="rounded-xl border border-border bg-surface p-5 text-sm leading-relaxed text-muted sm:col-span-2">
+              <li class="rounded-xl border border-border bg-surface p-5 text-sm leading-relaxed text-muted">
                 Editor-style review, reporting checks, revision planning, and responses to reviewers
               </li>
+              <li class="rounded-xl border border-primary bg-primary p-5">
+                <a
+                  href={aprilRepository}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="type-card-title text-page no-underline hover:text-page hover:underline"
+                >
+                  View APRIL on GitHub ↗
+                </a>
+                <p class="mt-2 text-sm leading-relaxed text-page/90">
+                  Explore the open-source skill suite, documentation, and current development.
+                </p>
+              </li>
             </ul>
-          </section>
-
-          <section class="mt-10 rounded-xl border border-main/30 bg-main-faint p-6" aria-labelledby="april-service-heading">
-            <h2 id="april-service-heading" class="type-section-title">
-              Why this belongs under Service
-            </h2>
-            <p class="type-body mt-3 !max-w-none text-muted">
-              APRIL shares practical academic-writing infrastructure with other researchers and educators. Publishing the
-              skill openly also makes its guidance inspectable, adaptable, and easier to improve through use and feedback.
-            </p>
-            <a
-              href={aprilRepository}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="mt-5 inline-flex rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white no-underline hover:opacity-95"
-            >
-              View APRIL on GitHub ↗
-            </a>
           </section>
         </div>
         <ServiceSectionAside slot="aside" />
