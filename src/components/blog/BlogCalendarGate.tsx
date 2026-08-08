@@ -70,7 +70,7 @@ export default function BlogCalendarGate({ adminHref = "/blog/admin/", password 
 
   return (
     <div className="w-full">
-      <div className="rounded-xl border border-border bg-surface p-5 shadow-sm">
+      <div className="rounded-xl border border-border bg-surface p-4 shadow-sm">
         <div className="flex items-center justify-between gap-3">
           <p className="type-section-title">Calendar</p>
           <div className="flex items-center gap-2">
@@ -96,15 +96,15 @@ export default function BlogCalendarGate({ adminHref = "/blog/admin/", password 
           {new Date(cal.year, cal.month, 1).toLocaleDateString("en-GB", { year: "numeric", month: "long" })}
         </p>
 
-        <div className="mt-4 grid grid-cols-7 gap-2 text-center text-xs font-semibold text-muted">
+        <div className="mt-4 grid grid-cols-7 gap-1 text-center text-xs font-semibold text-muted">
           {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((d) => (
             <div key={d}>{d}</div>
           ))}
         </div>
 
-        <div className="mt-2 grid grid-cols-7 gap-2 text-center text-sm">
+        <div className="mt-1.5 grid grid-cols-7 gap-1 text-center text-sm">
           {cal.cells.map((c) => {
-            if (!c.day) return <div key={c.key} className="h-9" />;
+            if (!c.day) return <div key={c.key} className="h-8" />;
             const key = `${cal.year}-${pad2(cal.month + 1)}-${pad2(c.day)}`;
             const hasPost = postDates.has(key);
             return (
@@ -112,7 +112,7 @@ export default function BlogCalendarGate({ adminHref = "/blog/admin/", password 
                 type="button"
                 key={c.key}
                 className={[
-                  "h-9 rounded-lg border text-sm grid place-items-center transition-colors",
+                  "h-8 min-h-0 rounded-md border text-sm grid place-items-center transition-colors",
                   selectedDate === key
                     ? "border-secondary/70 bg-secondary text-page"
                     : hasPost

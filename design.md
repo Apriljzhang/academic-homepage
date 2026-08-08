@@ -52,7 +52,7 @@ Green is the dominant site colour: sage carries navigation, primary structure, a
 
 ## Component voice
 
-- Header and footer: sage green with deep-green text.
+- Header and footer: mid-sage green with cream text for a lighter, clearer ribbon treatment.
 - Links and primary actions: brick; hover returns to dark brown.
 - Cards: light cream surfaces, tan-derived rules, minimal or no shadow, and tighter radii.
 - Page motif: one restrained sage bar; it never represents a section category.

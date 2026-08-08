@@ -13,8 +13,8 @@ import {
   teachingCoursesDoctoralCityU,
 } from '../../data/cv';
 
-const title = `Teaching approach · ${person.fullDisplayName}`;
-const description = `Teaching philosophy and experience — ${person.fullDisplayName}.`;
+const title = `CityU courses · ${person.fullDisplayName}`;
+const description = `Master’s and doctoral courses at City University of Macau — ${person.fullDisplayName}.`;
 ---
 
 <BaseLayout {title} {description}>
@@ -22,14 +22,13 @@ const description = `Teaching philosophy and experience — ${person.fullDisplay
   <main id="main-content" class="min-h-0 w-full bg-page">
     <PageShell accentBar>
       <h1 class="font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">
-        Approach &amp; experience
+        CityU courses
       </h1>
       <MainWithAside asideLabel="Teaching menu">
         <div>
           <SectionSubnav ariaLabel="Teaching section" items={teachingSubnav} />
 
-          <h2 class="type-section-title mt-6">Current courses (CityU)</h2>
-          <div class="mt-4 grid max-w-4xl gap-8 lg:grid-cols-2 lg:gap-10">
+          <div class="mt-6 grid max-w-4xl gap-8 lg:grid-cols-2 lg:gap-10">
             <div>
               <h3 class="type-label text-secondary">Master’s courses</h3>
               <ul class="mt-3 flex flex-col gap-2">
@@ -58,35 +57,6 @@ const description = `Teaching philosophy and experience — ${person.fullDisplay
             </div>
           </div>
 
-          <h2 class="type-section-title mt-8">Teaching philosophy</h2>
-          <div class="type-body mt-4 space-y-3 text-pretty text-ink/95">
-            <p>
-              My teaching sits at the intersection of language education and applied linguistics, with Assessment for Learning
-              (AfL) at the centre of my practice. I treat learning as a social, co-constructed process, so my sessions combine concise
-              input with practical workshops and research-led discussion. Students contribute actively to shared academic enquiry.
-            </p>
-            <p>
-              I use guided inquiry to help students identify patterns in educational theory and practice. Assessment is made
-              transparent through co-constructed rubrics and structured peer assessment. This collaborative approach helps students
-              understand criteria, monitor their learning, and use feedback to develop both their work and their scholarly identity.
-            </p>
-          </div>
-
-          <h2 class="type-section-title mt-8">Professional experience</h2>
-          <div class="type-body mt-4 space-y-3 text-pretty text-ink/95">
-            <p>
-              I began my academic teaching in the United Kingdom, specialising in English for Academic Purposes (EAP) with
-              international undergraduate and postgraduate students. I also taught through primary-school partnerships while
-              completing my doctorate at the University of Sheffield. My PhD research on formative assessment and young language
-              learners continues to inform my evidence-based approach to teaching.
-            </p>
-            <p>
-              I am now an Assistant Professor in the School of Education at City University of Macau, where I teach advanced
-              modules in research methods, assessment, and language education at master’s and doctoral level. I supervise master’s
-              dissertations and doctoral research, and aim to create an inclusive, intellectually demanding environment that honours
-              students’ varied academic and linguistic backgrounds.
-            </p>
-          </div>
         </div>
         <TeachingSectionAside slot="aside" />
       </MainWithAside>

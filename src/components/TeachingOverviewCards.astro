@@ -1,0 +1,19 @@
+---
+import { teachingOverviewCards } from '../data/cv';
+---
+
+<section class="mt-10" aria-labelledby="teaching-overview-heading">
+  <h2 id="teaching-overview-heading" class="type-section-title">Teaching philosophy &amp; professional experience</h2>
+
+  <div class="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
+    {
+      teachingOverviewCards.map((card) => (
+        <article class="rounded-lg border border-border bg-surface p-5">
+          <p class="type-label text-secondary">{card.group}</p>
+          <h3 class="type-card-title mt-2">{card.title}</h3>
+          <p class="type-body mt-3 text-pretty text-ink/90">{card.text}</p>
+        </article>
+      ))
+    }
+  </div>
+</section>

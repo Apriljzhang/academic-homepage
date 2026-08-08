@@ -9,7 +9,7 @@ export const researchSubnav = [
 
 export const teachingSubnav = [
   { href: withBase('/teaching'), label: 'Overview' },
-  { href: withBase('/teaching/approach'), label: 'Approach & experience' },
+  { href: withBase('/teaching/approach'), label: 'CityU courses' },
   { href: withBase('/teaching/supervision'), label: 'Supervision' },
   { href: withBase('/teaching/training'), label: 'Training' },
 ] as const;

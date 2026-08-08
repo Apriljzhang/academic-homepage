@@ -26,15 +26,14 @@ function isActive(href: string): boolean {
 const homeHref = withBase('/');
 ---
 
-<header class="sticky top-0 z-40 w-full border-b border-page/25 bg-main">
-  <div class="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-primary/70" aria-hidden="true" />
+<header class="sticky top-0 z-40 w-full border-b border-page/25 bg-secondary">
   <div
     class="relative mx-auto flex w-full max-w-[96rem] flex-wrap items-center justify-between gap-x-5 gap-y-2 px-5 py-3 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24"
   >
-    <p class="font-serif text-lg font-semibold tracking-[-0.015em] text-main-ink">
+    <p class="font-serif text-lg font-semibold tracking-[-0.015em] text-page">
       <a
         href={homeHref}
-        class="text-main-ink no-underline hover:underline"
+        class="text-page no-underline hover:text-page hover:underline"
       >
         April Jiawei Zhang 張家維
       </a>
@@ -51,10 +50,10 @@ const homeHref = withBase('/');
                 href={href}
                 aria-current={isActive(href) ? 'page' : undefined}
                 class:list={[
-                  'inline-flex items-center whitespace-nowrap border-b-2 border-transparent px-2.5 py-1 no-underline transition-colors duration-[var(--dur-micro)] focus-visible:outline-main-ink',
+                  'inline-flex items-center whitespace-nowrap border-b-2 border-transparent px-2.5 py-1 no-underline transition-colors duration-[var(--dur-micro)] focus-visible:outline-page',
                   isActive(href)
-                    ? 'border-main-ink bg-page/15 text-main-ink'
-                    : 'text-main-ink hover:border-main-ink/45',
+                    ? 'border-page bg-page/10 text-page'
+                    : 'text-page hover:border-page/60 hover:text-page',
                 ]}
               >
                 {label}
@@ -63,7 +62,7 @@ const homeHref = withBase('/');
               <button
                 type="button"
                 data-blog-admin-trigger
-                class="pointer-events-none absolute right-0 top-full z-50 mt-2 hidden min-h-0 items-center whitespace-nowrap rounded-sm border border-main-ink/30 bg-main px-2.5 py-1.5 text-xs font-semibold leading-none text-main-ink shadow-sm opacity-0 transition-opacity duration-[var(--dur-short)] group-hover:pointer-events-auto group-hover:flex group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:flex group-focus-within:opacity-100"
+                class="pointer-events-none absolute right-0 top-full z-50 mt-2 hidden min-h-0 items-center whitespace-nowrap rounded-sm border border-page/40 bg-secondary px-2.5 py-1.5 text-xs font-semibold leading-none text-page shadow-sm opacity-0 transition-opacity duration-[var(--dur-short)] group-hover:pointer-events-auto group-hover:flex group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:flex group-focus-within:opacity-100"
               >
                 Admin
               </button>
@@ -73,10 +72,10 @@ const homeHref = withBase('/');
               href={href}
               aria-current={isActive(href) ? 'page' : undefined}
               class:list={[
-                'inline-flex items-center whitespace-nowrap border-b-2 border-transparent px-2.5 py-1 no-underline transition-colors duration-[var(--dur-micro)] focus-visible:outline-main-ink',
+                'inline-flex items-center whitespace-nowrap border-b-2 border-transparent px-2.5 py-1 no-underline transition-colors duration-[var(--dur-micro)] focus-visible:outline-page',
                 isActive(href)
-                  ? 'border-main-ink bg-page/15 text-main-ink'
-                  : 'text-main-ink hover:border-main-ink/45',
+                  ? 'border-page bg-page/10 text-page'
+                  : 'text-page hover:border-page/60 hover:text-page',
               ]}
             >
               {label}
