@@ -10,15 +10,15 @@ import TalksList from '../../components/TalksList.astro';
 import { serviceSubnav } from '../../data/sectionNav';
 import { person } from '../../data/cv';
 
-const title = `Presentations · ${person.fullDisplayName}`;
-const description = `Conference presentations — ${person.fullDisplayName}.`;
+const title = `Conference Presenter · ${person.fullDisplayName}`;
+const description = `Conference presenter and selected presentations — ${person.fullDisplayName}.`;
 ---
 
 <BaseLayout {title} {description}>
   <SiteHeader />
   <main id="main-content" class="min-h-[50vh] w-full bg-page">
     <PageShell accentBar>
-      <h1 class="font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">Presentations</h1>
+      <h1 class="font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">Conference Presenter</h1>
       <MainWithAside asideLabel="Service menu">
         <div>
           <SectionSubnav ariaLabel="Service section" items={serviceSubnav} />
