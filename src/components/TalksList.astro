@@ -11,15 +11,15 @@ import { talks } from '../data/cv';
     {
       talks.map((talk) => (
         <li class="border-l-2 border-main/50 pl-4">
-          <p class="text-xs font-semibold uppercase tracking-wide text-muted">{talk.event}</p>
+          <p class="text-sm font-semibold tracking-wide text-secondary">
+            {talk.date} <span aria-hidden="true">📍</span>{talk.place.replace(/,\s*/g, ' ')}
+          </p>
+          <p class="mt-1 text-sm font-semibold leading-relaxed text-ink">{talk.event}</p>
           {talk.paperTitle ? (
             <p class="mt-1 text-pretty text-base italic leading-relaxed text-primary">
               {talk.paperTitle}
             </p>
           ) : null}
-          <p class="type-meta mt-1.5">
-            {talk.place} · {talk.date}
-          </p>
         </li>
       ))
     }
