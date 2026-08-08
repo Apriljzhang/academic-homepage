@@ -9,9 +9,12 @@ import { teachingOverviewCards } from '../data/cv';
     {
       teachingOverviewCards.map((card) => (
         <article class="rounded-lg border border-border bg-surface p-5">
-          <p class="type-label text-secondary">{card.group}</p>
-          <h3 class="type-card-title mt-2">{card.title}</h3>
-          <p class="type-body mt-3 text-pretty text-ink/90">{card.text}</p>
+          <h3 class="type-card-title text-secondary">{card.title}</h3>
+          <div class="mt-3 space-y-4">
+            {card.paragraphs.map((paragraph) => (
+              <p class="type-body !max-w-none text-pretty text-ink/90">{paragraph}</p>
+            ))}
+          </div>
         </article>
       ))
     }

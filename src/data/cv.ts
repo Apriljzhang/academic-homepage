@@ -239,27 +239,21 @@ export const publications: PublicationItem[] = [
   },
 ];
 
-/** Teaching overview — four cards on the main Teaching page. British English. */
+/** Teaching overview — two cards on the main Teaching page. British English. */
 export const teachingOverviewCards = [
   {
-    group: 'Teaching philosophy',
-    title: 'Learning as a shared process',
-    text: 'My teaching sits at the intersection of language education and applied linguistics, with Assessment for Learning (AfL) at the centre of my practice. I treat learning as a social, co-constructed process, so my sessions combine concise input with practical workshops and research-led discussion. Students contribute actively to shared academic enquiry.',
+    title: 'Teaching philosophy',
+    paragraphs: [
+      'My teaching sits at the intersection of language education and applied linguistics, with Assessment for Learning (AfL) at the centre of my practice. I treat learning as a social, co-constructed process, so my sessions combine concise input with practical workshops and research-led discussion. Students contribute actively to shared academic enquiry.',
+      'I use guided inquiry to help students identify patterns in educational theory and practice. Assessment is made transparent through co-constructed rubrics and structured peer assessment. This collaborative approach helps students understand criteria, monitor their learning, and use feedback to develop both their work and their scholarly identity.',
+    ],
   },
   {
-    group: 'Teaching philosophy',
-    title: 'Transparent assessment',
-    text: 'I use guided inquiry to help students identify patterns in educational theory and practice. Assessment is made transparent through co-constructed rubrics and structured peer assessment. This collaborative approach helps students understand criteria, monitor their learning, and use feedback to develop both their work and their scholarly identity.',
-  },
-  {
-    group: 'Professional experience',
-    title: 'United Kingdom',
-    text: 'I began my academic teaching in the United Kingdom, specialising in English for Academic Purposes (EAP) with international undergraduate and postgraduate students. I also taught through primary-school partnerships while completing my doctorate at the University of Sheffield. My PhD research on formative assessment and young language learners continues to inform my evidence-based approach to teaching.',
-  },
-  {
-    group: 'Professional experience',
-    title: 'City University of Macau',
-    text: 'I am now an Assistant Professor in the School of Education at City University of Macau, where I teach advanced modules in research methods, assessment, and language education at master’s and doctoral level. I supervise master’s dissertations and doctoral research, and aim to create an inclusive, intellectually demanding environment that honours students’ varied academic and linguistic backgrounds.',
+    title: 'Professional experience',
+    paragraphs: [
+      'I began my academic teaching in the United Kingdom, specialising in English for Academic Purposes (EAP) with international undergraduate and postgraduate students. I also taught through primary-school partnerships while completing my doctorate at the University of Sheffield. My PhD research on formative assessment and young language learners continues to inform my evidence-based approach to teaching.',
+      'I am now an Assistant Professor in the School of Education at City University of Macau, where I teach advanced modules in research methods, assessment, and language education at master’s and doctoral level. I supervise master’s dissertations and doctoral research, and aim to create an inclusive, intellectually demanding environment that honours students’ varied academic and linguistic backgrounds.',
+    ],
   },
 ] as const;
 
