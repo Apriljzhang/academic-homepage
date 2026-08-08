@@ -16,9 +16,8 @@ const { accentBar = false } = Astro.props;
 >
   {
     accentBar ? (
-      <div class="mb-4 flex items-center gap-2" aria-hidden="true">
-        <span class="h-1.5 w-12 rounded-full bg-strip-1" />
-        <span class="h-1.5 w-6 rounded-full bg-strip-2" />
+      <div class="mb-4" aria-hidden="true">
+        <span class="block h-1.5 w-16 rounded-full bg-strip-1" />
       </div>
     ) : null
   }

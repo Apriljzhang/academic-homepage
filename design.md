@@ -1,7 +1,7 @@
 <!-- Hallmark · genre: editorial · design-system: custom earthy editorial · source: user-selected swatches -->
 # Design — April Jiawei Zhang
 
-A unified system for the personal academic website. Every route uses the same warm blush paper, deep-sage structure, dark-brown text, brick emphasis, tan rules, and established serif–sans typography.
+A unified system for the personal academic website. Every route uses the same clean cream paper, deep-sage structure, dark-brown text, brick emphasis, tan rules, and established serif–sans typography.
 
 ## Genre
 
@@ -17,8 +17,8 @@ Existing information architecture and component ownership remain unchanged.
 
 ## Theme
 
-- Paper: `oklch(94% 0.023 58.70)`, a lightened blush derived from the selected palette.
-- Surface: `oklch(97% 0.014 58.70)`.
+- Paper: `oklch(97.64% 0.0208 79.10)`, the clean cream used in the AJZ favicon.
+- Surface: `oklch(98.70% 0.0107 76.60)`.
 - Ink: `oklch(35.93% 0.0641 28.98)` (dark brown).
 - Main green: `oklch(41% 0.08 134.57)` (deep sage for navigation and primary structure).
 - Brick emphasis: `oklch(51.93% 0.1215 28.38)`.
@@ -26,7 +26,7 @@ Existing information architecture and component ownership remain unchanged.
 - Sage identity: `oklch(65.09% 0.0754 134.57)`.
 - Blush anchor: `oklch(84.40% 0.0410 58.70)`.
 
-Green is the dominant site colour: deep sage carries navigation and primary structure, while the original sage identifies April. Dark brown carries long-form text, brick occupies a smaller emphasis role, and blush carries the page. The AJZ favicon uses the same sage, cream, and brick-red palette as the website.
+Green is the dominant site colour: deep sage carries navigation and primary structure, while the original sage identifies April. Dark brown carries long-form text, brick occupies a smaller emphasis role, and clean cream carries the page; blush remains a secondary supporting tint. The AJZ favicon uses the same sage, cream, and brick-red palette as the website.
 
 ## Typography
 
@@ -45,15 +45,15 @@ Green is the dominant site colour: deep sage carries navigation and primary stru
 
 ## Component voice
 
-- Header and footer: deep sage green with light blush text.
+- Header and footer: deep sage green with clean cream text.
 - Links and primary actions: brick; hover returns to dark brown.
-- Cards: light blush surfaces, tan-derived rules, minimal or no shadow, and tighter radii.
-- Page motif: one sage bar with one shorter brick bar; it never represents a section category.
+- Cards: light cream surfaces, tan-derived rules, minimal or no shadow, and tighter radii.
+- Page motif: one restrained sage bar; it never represents a section category.
 - “Hello, World.”: April = sage ring, published co-authors = brick routes and diamonds, visitors = dark-brown circles.
 
 ## Accessibility
 
-- Body text and functional colours meet WCAG AA contrast on blush paper.
+- Body text and functional colours meet WCAG AA contrast on cream paper.
 - Map meaning is communicated by shape and labels as well as colour.
 - Focus uses the functional coral token.
 
@@ -65,15 +65,15 @@ The canonical source is [`tokens.css`](tokens.css).
 
 ```css
 :root {
-  --color-paper: oklch(94% 0.023 58.70);
-  --color-paper-2: oklch(97% 0.014 58.70);
-  --color-paper-3: oklch(89% 0.035 58.70);
+  --color-paper: oklch(97.64% 0.0208 79.10);
+  --color-paper-2: oklch(98.70% 0.0107 76.60);
+  --color-paper-3: oklch(94.12% 0.0255 78.92);
   --color-ink: oklch(35.93% 0.0641 28.98);
   --color-ink-2: oklch(43% 0.05 35);
   --color-muted: oklch(43% 0.05 35);
   --color-rule: oklch(62% 0.055 71.84);
   --color-accent: oklch(51.93% 0.1215 28.38);
-  --color-accent-ink: oklch(97% 0.014 58.70);
+  --color-accent-ink: oklch(98.70% 0.0107 76.60);
   --color-focus: oklch(35.93% 0.0641 28.98);
   --font-display: "Source Serif 4", ui-serif, serif;
   --font-body: "Source Sans 3", ui-sans-serif, sans-serif;
@@ -126,8 +126,8 @@ The canonical source is [`tokens.css`](tokens.css).
 {
   "$schema": "https://design-tokens.github.io/community-group/format/",
   "color": {
-    "paper": { "$value": "oklch(94% 0.023 58.70)", "$type": "color" },
-    "paper-2": { "$value": "oklch(97% 0.014 58.70)", "$type": "color" },
+    "paper": { "$value": "oklch(97.64% 0.0208 79.10)", "$type": "color" },
+    "paper-2": { "$value": "oklch(98.70% 0.0107 76.60)", "$type": "color" },
     "ink": { "$value": "oklch(35.93% 0.0641 28.98)", "$type": "color" },
     "brick": { "$value": "oklch(51.93% 0.1215 28.38)", "$type": "color" },
     "tan": { "$value": "oklch(79.60% 0.0673 71.84)", "$type": "color" },
@@ -146,15 +146,15 @@ The canonical source is [`tokens.css`](tokens.css).
 
 ```css
 :root {
-  --background: 94% 0.023 58.70;
+  --background: 97.64% 0.0208 79.10;
   --foreground: 35.93% 0.0641 28.98;
-  --card: 97% 0.014 58.70;
+  --card: 98.70% 0.0107 76.60;
   --card-foreground: 35.93% 0.0641 28.98;
   --primary: 51.93% 0.1215 28.38;
-  --primary-foreground: 97% 0.014 58.70;
+  --primary-foreground: 98.70% 0.0107 76.60;
   --secondary: 88% 0.035 134.57;
   --secondary-foreground: 41% 0.08 134.57;
-  --muted: 89% 0.035 58.70;
+  --muted: 94.12% 0.0255 78.92;
   --muted-foreground: 43% 0.05 35;
   --border: 62% 0.055 71.84;
   --ring: 35.93% 0.0641 28.98;
@@ -164,4 +164,4 @@ The canonical source is [`tokens.css`](tokens.css).
 
 ## Provenance
 
-The palette was sampled from user-selected colour swatches and refined into accessible functional roles for an academic personal website. The established AJZ mark retains its original construction while adopting the website's sage, cream, and brick-red palette. Structure, content, typography, and imagery are original to this website.
+The palette was sampled from user-selected colour swatches and refined into accessible functional roles for an academic personal website. The page paper now uses the AJZ mark's clean cream, while the established mark retains its original construction and the shared sage, cream, and brick-red palette. Structure, content, typography, and imagery are original to this website.

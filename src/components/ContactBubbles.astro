@@ -8,25 +8,22 @@ interface Props {
 
 const { className = '' } = Astro.props;
 
-/** w-full min-w-0 lets grid columns shrink so text wraps instead of overflowing */
 const bubbleClass =
-  'flex min-h-11 w-full min-w-0 items-center justify-center whitespace-nowrap rounded-md border border-border bg-surface px-3 py-2 text-center text-sm font-semibold text-primary no-underline transition-colors duration-[var(--dur-micro)] ease-[var(--ease-out)] hover:bg-neutral-hover hover:text-ink focus-visible:outline-offset-2';
+  'inline-flex min-h-11 w-fit max-w-full items-center justify-center whitespace-nowrap rounded-md border border-border bg-surface px-3 py-1.5 text-center text-sm font-semibold leading-none text-primary no-underline transition-colors duration-[var(--dur-micro)] ease-[var(--ease-out)] hover:bg-neutral-hover hover:text-ink focus-visible:outline-offset-2 active:translate-y-px';
 
 const mailBubbleClass = `${bubbleClass} gap-2`;
 
 const mailIconClass = 'h-3.5 w-3.5 shrink-0 text-primary';
 
-/** Mail links span two columns on large screens so every label remains a single-line affordance. */
-const institutionalBubbleClass = `${mailBubbleClass} lg:col-span-2 lg:h-full lg:min-h-0 lg:justify-center`;
 ---
 
 <div
   class:list={[
-    'grid items-stretch gap-2 sm:grid-cols-2 lg:grid-cols-4',
+    'flex flex-wrap items-center gap-2',
     className,
   ]}
 >
-  <a class={institutionalBubbleClass} href={`mailto:${contact.cityu}`} title={contact.cityu}>
+  <a class={mailBubbleClass} href={`mailto:${contact.cityu}`} title={contact.cityu}>
     <svg class={mailIconClass} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
       <polyline points="22,6 12,13 2,6" />
@@ -34,7 +31,7 @@ const institutionalBubbleClass = `${mailBubbleClass} lg:col-span-2 lg:h-full lg:
     <span>CityU email</span>
   </a>
 
-  <a class:list={[mailBubbleClass, 'lg:col-span-2']} href={`mailto:${contact.gmail}`} title={contact.gmail}>
+  <a class={mailBubbleClass} href={`mailto:${contact.gmail}`} title={contact.gmail}>
     <svg class={mailIconClass} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
       <polyline points="22,6 12,13 2,6" />
@@ -55,7 +52,7 @@ const institutionalBubbleClass = `${mailBubbleClass} lg:col-span-2 lg:h-full lg:
     Web of Science
   </a>
 
-  <a class:list={[mailBubbleClass, 'lg:col-span-2']} href={`mailto:${contact.outlook}`} title={contact.outlook}>
+  <a class={mailBubbleClass} href={`mailto:${contact.outlook}`} title={contact.outlook}>
     <svg class={mailIconClass} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
       <polyline points="22,6 12,13 2,6" />
