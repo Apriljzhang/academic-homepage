@@ -1,7 +1,7 @@
 <!-- Hallmark · genre: editorial · design-system: custom earthy editorial · source: user-selected swatches -->
 # Design — April Jiawei Zhang
 
-A unified system for the personal academic website. Every route uses the same warm blush paper, dark-brown structure, brick emphasis, sage identity markers, tan rules, and established serif–sans typography.
+A unified system for the personal academic website. Every route uses the same warm blush paper, deep-sage structure, dark-brown text, brick emphasis, tan rules, and established serif–sans typography.
 
 ## Genre
 
@@ -19,13 +19,14 @@ Existing information architecture and component ownership remain unchanged.
 
 - Paper: `oklch(94% 0.023 58.70)`, a lightened blush derived from the selected palette.
 - Surface: `oklch(97% 0.014 58.70)`.
-- Ink and navigation: `oklch(35.93% 0.0641 28.98)` (dark brown).
+- Ink: `oklch(35.93% 0.0641 28.98)` (dark brown).
+- Main green: `oklch(41% 0.08 134.57)` (deep sage for navigation and primary structure).
 - Brick emphasis: `oklch(51.93% 0.1215 28.38)`.
 - Tan structure: `oklch(79.60% 0.0673 71.84)` with a `oklch(62% 0.055 71.84)` functional rule.
 - Sage identity: `oklch(65.09% 0.0754 134.57)`.
 - Blush anchor: `oklch(84.40% 0.0410 58.70)`.
 
-Brick occupies a small footprint. Brown carries navigation and text; sage identifies April; blush carries the page. The original green-and-cream AJZ favicon remains unchanged as a separate, established brand asset.
+Green is the dominant site colour: deep sage carries navigation and primary structure, while the original sage identifies April. Dark brown carries long-form text, brick occupies a smaller emphasis role, and blush carries the page. The original green-and-cream AJZ favicon remains unchanged as a separate, established brand asset.
 
 ## Typography
 
@@ -44,7 +45,7 @@ Brick occupies a small footprint. Brown carries navigation and text; sage identi
 
 ## Component voice
 
-- Header and footer: dark brown with light blush text.
+- Header and footer: deep sage green with light blush text.
 - Links and primary actions: brick; hover returns to dark brown.
 - Cards: light blush surfaces, tan-derived rules, minimal or no shadow, and tighter radii.
 - Page motif: one sage bar with one shorter brick bar; it never represents a section category.
@@ -111,7 +112,7 @@ The canonical source is [`tokens.css`](tokens.css).
   --color-surface: var(--color-paper-2);
   --color-ink: var(--color-ink);
   --color-muted: var(--color-muted);
-  --color-main: var(--color-brown);
+  --color-main: var(--color-forest-2);
   --color-primary: var(--color-brick);
   --color-border: var(--color-rule);
   --font-serif: var(--font-display);
