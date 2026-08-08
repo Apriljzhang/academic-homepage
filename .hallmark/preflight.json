@@ -1,0 +1,8 @@
+{
+  "date": "2026-08-08",
+  "framework": "Astro 6 with Tailwind CSS 4",
+  "fonts": ["Source Serif 4", "Source Sans 3"],
+  "palette_source": "src/styles/global.css and tokens.css",
+  "motion": "Framer Motion on interactive map only",
+  "spacing": "Tailwind utilities with a four-point semantic token scale"
+}

@@ -1,5 +1,5 @@
 import React, { useMemo, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import DottedMap from "dotted-map";
 
 export type VisitDot = {
@@ -39,10 +39,11 @@ export default function WorldMap({
   dots,
   routes = [],
   home,
-  visitorColor = "#659dbd",
-  collaboratorColor = "#c9492a",
-  homeColor = "#8fb791",
+  visitorColor = "var(--color-visitor)",
+  collaboratorColor = "var(--color-coral)",
+  homeColor = "var(--color-forest)",
 }: Props) {
+  const reduceMotion = useReducedMotion();
   const svgRef = useRef<SVGSVGElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [view, setView] = useState({ scale: 1, tx: 0, ty: 0 });
@@ -54,9 +55,9 @@ export default function WorldMap({
     const baseMap = new DottedMap({ height: 100, grid: "diagonal" });
     const svg = baseMap.getSVG({
       radius: 0.22,
-      color: "#00000030",
+      color: "var(--color-forest)",
       shape: "circle",
-      backgroundColor: "white",
+      backgroundColor: "transparent",
     });
     const vb = svg.match(/viewBox=\"([^"]+)\"/);
     const parts = vb?.[1]?.split(" ").map((x) => Number(x)) ?? [0, 0, 198, 100];
@@ -120,7 +121,7 @@ export default function WorldMap({
   }
 
   return (
-    <div className="w-full overflow-hidden rounded-xl border border-border bg-surface shadow-sm">
+    <div className="relative w-full overflow-hidden rounded-xl border border-border bg-surface shadow-sm">
       <div
         ref={containerRef}
         className="relative w-full overflow-hidden"
@@ -171,24 +172,25 @@ export default function WorldMap({
             transition: isPanning ? "none" : "transform 120ms ease-out",
           }}
         >
-          <img
-            src={`data:image/svg+xml;utf8,${encodeURIComponent(svgMap)}`}
-            className="h-auto w-full pointer-events-none select-none object-cover [mask-image:linear-gradient(to_bottom,transparent,white_10%,white_90%,transparent)]"
-            alt="world map"
-            draggable={false}
+          <div
+            className="pointer-events-none h-auto w-full select-none object-cover [mask-image:linear-gradient(to_bottom,transparent,white_10%,white_90%,transparent)] [&_svg]:h-auto [&_svg]:w-full [&_svg_circle]:opacity-[0.18]"
+            aria-hidden="true"
+            dangerouslySetInnerHTML={{ __html: svgMap }}
           />
           <svg
             ref={svgRef}
             viewBox={`0 0 ${viewBox.w} ${viewBox.h}`}
             className="absolute inset-0 h-full w-full select-none"
             preserveAspectRatio="xMidYMid meet"
+            role="img"
+            aria-label="World map showing April Zhang, published co-authors, and visitors"
           >
           <defs>
             <linearGradient id="path-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="white" stopOpacity="0" />
+              <stop offset="0%" stopColor="var(--color-paper)" stopOpacity="0" />
               <stop offset="10%" stopColor={collaboratorColor} stopOpacity="0.9" />
               <stop offset="90%" stopColor={collaboratorColor} stopOpacity="0.9" />
-              <stop offset="100%" stopColor="white" stopOpacity="0" />
+              <stop offset="100%" stopColor="var(--color-paper)" stopOpacity="0" />
             </linearGradient>
           </defs>
 
@@ -207,16 +209,16 @@ export default function WorldMap({
                   fill="none"
                   stroke="url(#path-gradient)"
                   strokeWidth="0.75"
-                  initial={{ pathLength: 0, opacity: 0.6 }}
+                  initial={reduceMotion ? false : { pathLength: 0, opacity: 0.6 }}
                   animate={{ pathLength: 1, opacity: 0.85 }}
-                  transition={{ duration: 1.6, ease: "easeInOut", delay: 0.15 * i }}
+                  transition={{ duration: reduceMotion ? 0 : 1.6, ease: "easeInOut", delay: reduceMotion ? 0 : 0.15 * i }}
                 />
                 <motion.circle
                   r="0.9"
                   fill={collaboratorColor}
-                  initial={{ offsetDistance: "0%", opacity: 0 }}
-                  animate={{ offsetDistance: "100%", opacity: [0, 0.95, 0] }}
-                  transition={{ duration: 1.6, ease: "easeInOut", delay: 0.15 * i }}
+                  initial={reduceMotion ? false : { offsetDistance: "0%", opacity: 0 }}
+                  animate={reduceMotion ? { opacity: 0 } : { offsetDistance: "100%", opacity: [0, 0.95, 0] }}
+                  transition={{ duration: reduceMotion ? 0 : 1.6, ease: "easeInOut", delay: reduceMotion ? 0 : 0.15 * i }}
                   style={{ offsetPath: `path('${d}')` } as any}
                 />
               </g>
@@ -229,41 +231,60 @@ export default function WorldMap({
               <g key={dot.label}>
                 <motion.g
                   whileHover={{ scale: 1.15 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 18 }}
+                  transition={{ duration: 0.15, ease: [0.16, 1, 0.3, 1] }}
                 >
                   <circle cx={x} cy={y} r={r} fill={visitorColor} opacity={0.92} />
-                  <circle cx={x} cy={y} r={r} fill={visitorColor} opacity={0.22}>
-                    <animate attributeName="r" from={r} to={r * 1.75} dur="2.8s" begin="0s" repeatCount="indefinite" />
-                    <animate attributeName="opacity" from="0.22" to="0" dur="2.8s" begin="0s" repeatCount="indefinite" />
-                  </circle>
                 </motion.g>
               </g>
             );
           })}
 
-          {/* collaborator endpoints as dots (line color) */}
+          {/* Published co-author endpoints use diamonds, distinct from visitor circles. */}
           {projected.routeEnds.map((endPt, i) => {
             if (!endPt) return null;
             return (
               <g key={`route-endpoints-${i}`}>
-                <circle cx={endPt.x} cy={endPt.y} r="0.85" fill={collaboratorColor} opacity={0.95} />
+                <rect
+                  x={endPt.x - 0.7}
+                  y={endPt.y - 0.7}
+                  width="1.4"
+                  height="1.4"
+                  fill={collaboratorColor}
+                  opacity={0.95}
+                  transform={`rotate(45 ${endPt.x} ${endPt.y})`}
+                />
               </g>
             );
           })}
 
-          {/* home dot (Macau) */}
+          {/* April's Macau marker uses a ring, distinct from both data series. */}
           {projected.home ? (() => {
             return (
               <g key="home-dot">
-                <circle cx={projected.home.x} cy={projected.home.y} r="1.25" fill={homeColor} opacity={0.96} />
-                <circle cx={projected.home.x} cy={projected.home.y} r="1.25" fill={homeColor} opacity={0.18}>
-                  <animate attributeName="r" from="1.25" to="3.4" dur="2.8s" begin="0s" repeatCount="indefinite" />
-                  <animate attributeName="opacity" from="0.2" to="0" dur="2.8s" begin="0s" repeatCount="indefinite" />
-                </circle>
+                <circle cx={projected.home.x} cy={projected.home.y} r="1.55" fill={homeColor} opacity={0.98} />
+                <circle cx={projected.home.x} cy={projected.home.y} r="0.62" fill="var(--color-paper)" />
               </g>
             );
           })() : null}
           </svg>
+        </div>
+        <div className="pointer-events-none absolute bottom-3 left-3 flex max-w-[calc(100%-1.5rem)] flex-wrap items-center gap-x-4 gap-y-2 rounded-lg border border-border bg-page/95 px-3 py-2 text-xs font-semibold text-ink shadow-sm">
+          <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
+            <span className="h-3 w-3 rounded-full border-[3px] border-main bg-page" aria-hidden="true" />
+            April Zhang
+          </span>
+          <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
+            <span className="h-2.5 w-2.5 rotate-45 bg-accent-purple" aria-hidden="true" />
+            Published co-authors
+          </span>
+          <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
+            <span
+              className="h-2.5 w-2.5 rounded-full"
+              style={{ backgroundColor: visitorColor }}
+              aria-hidden="true"
+            />
+            Visitors
+          </span>
         </div>
         <div className="pointer-events-none absolute right-3 top-3 rounded-full border border-border bg-page/90 px-2.5 py-1 text-xs font-semibold text-ink">
           Zoom {Math.round(view.scale * 100)}%
@@ -272,4 +293,3 @@ export default function WorldMap({
     </div>
   );
 }
-

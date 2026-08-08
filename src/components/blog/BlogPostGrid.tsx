@@ -234,7 +234,7 @@ export default function BlogPostGrid({ initialPosts = [], countsUrl = "" }: Prop
           </button>
           <a
             href="/blog/admin/"
-            className="rounded-full bg-primary px-4 py-2 text-sm font-semibold text-white no-underline hover:bg-secondary hover:text-ink"
+            className="rounded-full bg-primary px-4 py-2 text-sm font-semibold text-page no-underline hover:bg-main hover:text-page"
           >
             New post
           </a>
@@ -291,7 +291,7 @@ export default function BlogPostGrid({ initialPosts = [], countsUrl = "" }: Prop
                         type="button"
                         onClick={() => deletePost(p.slug)}
                         disabled={busySlug === p.slug}
-                        className="rounded-full border border-primary/40 bg-primary-faint px-3 py-1 text-xs font-semibold text-primary hover:bg-primary hover:text-white disabled:cursor-not-allowed disabled:opacity-60"
+                        className="rounded-full border border-primary/40 bg-primary-faint px-3 py-1 text-xs font-semibold text-primary hover:bg-primary hover:text-page disabled:cursor-not-allowed disabled:opacity-60"
                       >
                         {busySlug === p.slug ? "Deleting…" : "Delete"}
                       </button>
@@ -339,4 +339,3 @@ export default function BlogPostGrid({ initialPosts = [], countsUrl = "" }: Prop
     </div>
   );
 }
-

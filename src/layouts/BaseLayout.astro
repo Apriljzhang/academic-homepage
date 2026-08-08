@@ -53,14 +53,18 @@ const jsonLd = {
     />
     <!-- Theme tokens: fallback if main stylesheet is slow or blocked so layout is never plain white-on-black. -->
     <style is:inline>
+      :root {
+        --critical-page: oklch(97.64% 0.0208 79.1);
+        --critical-ink: oklch(29.3% 0.0365 169.33);
+      }
       html {
-        background-color: #fff8ed;
+        background-color: var(--critical-page);
       }
       body {
         margin: 0;
         min-height: 100vh;
-        background-color: #fff8ed;
-        color: #1d2731;
+        background-color: var(--critical-page);
+        color: var(--critical-ink);
         font-family:
           'Source Sans 3',
           system-ui,
@@ -71,9 +75,9 @@ const jsonLd = {
       }
     </style>
     <meta name="description" content={description} />
-    <link rel="icon" type="image/svg+xml" href={`${assetBase}favicon.svg?v=2`} />
-    <link rel="icon" type="image/png" sizes="32x32" href={`${assetBase}favicon-32x32.png?v=2`} />
-    <link rel="apple-touch-icon" sizes="180x180" href={`${assetBase}apple-touch-icon.png?v=2`} />
+    <link rel="icon" type="image/svg+xml" href={`${assetBase}favicon.svg?v=3`} />
+    <link rel="icon" type="image/png" sizes="32x32" href={`${assetBase}favicon-32x32.png?v=3`} />
+    <link rel="apple-touch-icon" sizes="180x180" href={`${assetBase}apple-touch-icon.png?v=3`} />
     <meta name="generator" content={Astro.generator} />
     <link rel="canonical" href={canonicalURL} />
     <title>{title}</title>

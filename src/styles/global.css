@@ -1,57 +1,36 @@
+/* Hallmark · pre-emit critique: P5 H4 E5 S5 R5 V4
+ * genre: editorial · design-system: design.md · theme: studied-DNA (source: image)
+ * contrast: pass (40–41) · nav: N9 · footer: Ft2 · tokens: pass (48) · mobile: pass (34, 49–57)
+ */
 @import "tailwindcss";
+@import "../../tokens.css";
 
-/*
-  Palette synthesised from your reference boards (Panera “Land of Clean”, Greetabl,
-  Van Gogh Museum, Klimt, jellyfish, La poire, Little Flyers, etc.).
-
-  60-30-10 rule (60% 主色 / 30% 辅助色 / 10% 强调色):
-  · 60% — page ground: pale cream & shell (#FBEEC1 + #F8F5F2 family) — largest areas
-  · 30% — structure: deep green #557D61 — headers, bands, nav fills, table heads
-  · 10% — emphasis: warm terracotta #DF744A (Greetabl) — links, kicker labels, key borders
-
-  Tertiary stripe (decorative): harmonious green aligned with the home-dot cue.
-  Ink leans on Klimt ivory black #1D2731 for readable body type on cream.
-*/
 @theme {
-  --font-serif: "Source Serif 4", ui-serif, Georgia, "Times New Roman", serif;
-  --font-sans: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-display);
+  --font-sans: var(--font-body);
 
-  /* 60% — dominant surfaces */
-  --color-page: #fff8ed;
-  --color-surface: #fcfbf8;
-
-  --color-ink: #1d2731;
-  --color-muted: #534c45;
-
-  /* Main site identity — an accessible deep version of the research green */
-  --color-main: #557d61;
-  --color-main-faint: #edf6f0;
-
-  /* Teaching blue */
-  --color-secondary: #659dbd;
-  --color-secondary-faint: #e7f1f7;
-
-  /* 10% — accent (CTAs, links, primary emphasis) */
-  --color-primary: #c9492a;
-  --color-primary-faint: #fbf0eb;
-
-  /* Soft green — the lead colour for decorative ribbons and small accents */
-  --color-accent-purple: #78ab86;
-  --color-accent-purple-faint: #edf6f0;
-
-  /* Decorative page-strip trio follows the primary navigation order:
-     Research (green), Teaching (blue), Service (red). */
-  --color-strip-1: #8fb791;
-  --color-strip-2: #6fa4c2;
-  --color-strip-3: #c94d2c;
-
-  --color-border: #d4cabb;
-  --color-neutral-hover: #f5f0e8;
+  --color-page: var(--color-paper);
+  --color-surface: var(--color-paper-2);
+  --color-ink: oklch(29.3% 0.0365 169.33);
+  --color-muted: oklch(44.51% 0.0225 56.78);
+  --color-main: var(--color-forest);
+  --color-main-faint: var(--color-forest-soft);
+  --color-secondary: var(--color-forest-2);
+  --color-secondary-faint: var(--color-forest-soft);
+  --color-primary: var(--color-coral-strong);
+  --color-primary-faint: var(--color-coral-soft);
+  --color-accent-purple: var(--color-coral);
+  --color-accent-purple-faint: var(--color-coral-soft);
+  --color-strip-1: var(--color-forest);
+  --color-strip-2: var(--color-coral);
+  --color-border: var(--color-rule);
+  --color-neutral-hover: var(--color-paper-3);
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: clip;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -62,9 +41,10 @@
 
   body {
     @apply bg-page text-ink font-sans antialiased;
+    overflow-x: clip;
   }
 
   a {
-    @apply text-primary underline-offset-2 decoration-primary/40 hover:text-secondary hover:decoration-secondary transition-colors;
+    @apply text-primary underline-offset-2 decoration-primary/40 hover:text-main hover:decoration-main transition-colors;
   }
 }

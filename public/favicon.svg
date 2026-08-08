@@ -1,25 +1,25 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
   <title id="title">AJZ monogram</title>
-  <rect x="4" y="4" width="120" height="120" rx="26" fill="#8fb791"/>
+  <rect x="4" y="4" width="120" height="120" rx="26" fill="#1f5141"/>
 
   <!-- A -->
   <path
-    fill="#fff8ed"
+    fill="#fff6e8"
     fill-rule="evenodd"
     d="M11 89 29 38h11l18 51H46l-3.5-11H26.8L23 89H11Zm19-22h9l-4.4-14-4.6 14Z"
   />
 
   <!-- J -->
   <path
-    fill="#fff8ed"
+    fill="#fff6e8"
     d="M50 38h31v10h-9v26c0 10.5-6.4 17-16 17-6 0-10.7-2.3-14.2-6.8l7.5-7.1c2 2.6 4 3.9 6.3 3.9 3.5 0 5.4-2.5 5.4-7.2V48H50V38Z"
   />
 
   <!-- Z -->
   <path
-    fill="#fff8ed"
+    fill="#fff6e8"
     d="M82 38h35v10L97.5 79H117v10H81V79l19.7-31H82V38Z"
   />
 
-  <rect x="81" y="98" width="36" height="7" rx="3.5" fill="#c9492a"/>
+  <rect x="81" y="98" width="36" height="7" rx="3.5" fill="#e86454"/>
 </svg>

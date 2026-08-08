@@ -362,7 +362,7 @@ export default function BlogEditor({ adminKey }: Props) {
                 }}
                 className={[
                   "inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold transition-colors",
-                  canSubmit ? "bg-primary text-white hover:bg-secondary hover:text-ink" : "bg-neutral-hover text-muted cursor-not-allowed",
+                  canSubmit ? "bg-primary text-page hover:bg-main hover:text-page" : "bg-neutral-hover text-muted cursor-not-allowed",
                 ].join(" ")}
               >
                 Publish / Update

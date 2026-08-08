@@ -16,10 +16,9 @@ const { accentBar = false } = Astro.props;
 >
   {
     accentBar ? (
-      <div class="mb-5 flex flex-wrap items-center gap-2" aria-hidden="true">
-        <span class="h-2 w-14 rounded-full" style="background-color:var(--color-strip-1);" />
-        <span class="h-2 w-10 rounded-full" style="background-color:var(--color-strip-2);" />
-        <span class="h-2 w-10 rounded-full" style="background-color:var(--color-strip-3);" />
+      <div class="mb-5 flex items-center gap-2" aria-hidden="true">
+        <span class="h-2 w-16 rounded-full bg-main" />
+        <span class="h-2 w-8 rounded-full bg-accent-purple" />
       </div>
     ) : null
   }

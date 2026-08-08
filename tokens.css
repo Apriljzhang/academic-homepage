@@ -1,0 +1,53 @@
+/* Hallmark · pre-emit critique: P5 H4 E5 S5 R5 V4 */
+:root {
+  --color-paper: oklch(97.64% 0.0208 79.1);
+  --color-paper-2: oklch(99.2% 0.0073 80.72);
+  --color-paper-3: oklch(94.94% 0.017 76.11);
+  --color-ink: oklch(29.3% 0.0365 169.33);
+  --color-ink-2: oklch(44.51% 0.0225 56.78);
+  --color-muted: oklch(44.51% 0.0225 56.78);
+  --color-rule: oklch(84.76% 0.0296 77.52);
+  --color-forest: oklch(39.56% 0.0607 169.28);
+  --color-forest-2: oklch(48.44% 0.0725 168.1);
+  --color-forest-soft: oklch(95% 0.0116 162.04);
+  --color-coral: oklch(66.48% 0.1672 29.23);
+  --color-coral-strong: oklch(55.06% 0.1497 27.97);
+  --color-coral-soft: oklch(94.86% 0.0183 34.3);
+  --color-visitor: oklch(51.92% 0.0626 227.63);
+  --color-accent-ink: oklch(99.2% 0.0073 80.72);
+  --color-focus: oklch(55.06% 0.1497 27.97);
+
+  --font-display: "Source Serif 4", ui-serif, Georgia, "Times New Roman", serif;
+  --font-body: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4.5rem;
+  --space-3xl: 7rem;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-md: 1.125rem;
+  --text-lg: 1.375rem;
+  --text-xl: 1.75rem;
+  --text-2xl: 2.25rem;
+  --text-display: clamp(2.75rem, 5vw + 1rem, 5.25rem);
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms;
+  --dur-short: 220ms;
+  --dur-long: 420ms;
+
+  --rule-hair: 1px;
+  --rule-fine: 2px;
+  --radius-card: 0.75rem;
+  --radius-pill: 999px;
+  --radius-input: 0.375rem;
+}
