@@ -27,10 +27,13 @@ const sectionClass =
   {
     variant !== 'page' ? (
       <h2 id="memberships-heading" class="font-serif text-xl font-semibold text-ink sm:text-2xl">
-        Professional affiliations
+        Scholarly communities
       </h2>
     ) : null
   }
+  <p class:list={['max-w-3xl text-sm leading-relaxed text-muted', variant === 'page' ? 'mt-4' : 'mt-3']}>
+    Membership in learned societies and language-assessment networks connects my work to wider academic communities.
+  </p>
   <ul class:list={['flex flex-col gap-3', variant === 'page' ? 'mt-6' : 'mt-4']}>
     {
       professionalMemberships.map((m) => (

@@ -6,6 +6,7 @@ import PageShell from '../../components/PageShell.astro';
 import SectionSubnav from '../../components/SectionSubnav.astro';
 import MainWithAside from '../../components/MainWithAside.astro';
 import ServiceSectionAside from '../../components/ServiceSectionAside.astro';
+import ProfessionalMembershipsContent from '../../components/ProfessionalMembershipsContent.astro';
 import { serviceSubnav } from '../../data/sectionNav';
 import { person } from '../../data/cv';
 import { withBase } from '../../utils/paths';
@@ -69,6 +70,7 @@ const description = `Professional service, conference organisation, journal edit
               <p class="mt-2 text-sm text-muted">Selected conference talks and forums.</p>
             </li>
           </ul>
+          <ProfessionalMembershipsContent variant="inline" />
         </div>
         <ServiceSectionAside slot="aside" />
       </MainWithAside>
