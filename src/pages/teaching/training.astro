@@ -39,7 +39,7 @@ const hostPath = withBase('/teaching/training/app/host');
               <p class="mt-2 text-sm text-muted">
                 International Training and Testing Centre (ITTC) summer training · Capital Normal University
               </p>
-              <div class="mt-4 flex flex-wrap gap-3">
+              <div class="mt-4 flex flex-wrap items-center gap-3">
                 <a
                   href={studentPath}
                   class="inline-flex rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white no-underline hover:opacity-95"
@@ -52,18 +52,15 @@ const hostPath = withBase('/teaching/training/app/host');
                 >
                   Instructor dashboard
                 </a>
-              </div>
-              <div class="mt-5 flex flex-col gap-3 sm:flex-row sm:items-end">
-                <label class="block flex-1 text-sm font-semibold text-ink">
-                  Or enter access code
-                  <input
-                    id="trainingCode"
-                    type="text"
-                    inputmode="text"
-                    autocomplete="off"
-                    class="mt-1 w-full rounded-md border border-border bg-page px-3 py-2 font-normal text-ink"
-                  />
-                </label>
+                <label for="trainingCode" class="sr-only">Enter access code</label>
+                <input
+                  id="trainingCode"
+                  type="text"
+                  inputmode="text"
+                  autocomplete="off"
+                  placeholder="Enter access code"
+                  class="w-52 rounded-full border border-border bg-page px-4 py-2 text-sm font-normal text-ink"
+                />
                 <button
                   id="trainingOpen"
                   type="button"

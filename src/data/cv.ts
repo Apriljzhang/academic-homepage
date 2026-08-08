@@ -308,7 +308,7 @@ export const grants = [
 export const talks = [
   {
     paperTitle:
-      'Interplay between personality traits, vocabulary learning strategy, and achievement in Chinese EFL classes (with L. Zong)',
+      'Interplay between personality traits, vocabulary learning strategy, and achievement in Chinese EFL classes',
     event: 'BERA Conference 2024',
     place: 'Manchester, UK',
     date: 'Sep 2024',

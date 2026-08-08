@@ -26,22 +26,22 @@ const profileSrc = `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}images/profi
       <p class="mt-2 max-w-[70ch] font-serif text-lg leading-snug text-secondary sm:text-xl lg:max-w-none lg:whitespace-nowrap">{siteTagline}</p>
     </div>
 
-    <div class="mt-5 grid gap-7 lg:grid-cols-[minmax(0,1fr)_16rem] lg:items-start lg:gap-8 xl:grid-cols-[minmax(0,1fr)_18rem_15rem] 2xl:grid-cols-[minmax(0,1fr)_20rem_16rem]">
-      <div class="min-w-0">
-      <div
-        class="type-body !max-w-none text-pretty text-ink/95"
-        set:html={summaryHtml}
-      />
+    <div class="mt-5 grid gap-7 lg:grid-cols-[minmax(0,1fr)_16rem] lg:items-start lg:gap-8 xl:grid-cols-[minmax(0,1fr)_18rem_15rem] xl:items-stretch 2xl:grid-cols-[minmax(0,1fr)_20rem_16rem]">
+      <div class="min-w-0 xl:h-full">
+        <div
+          class="type-body !max-w-none text-pretty text-ink/95 xl:flex xl:h-full xl:flex-col xl:justify-between"
+          set:html={summaryHtml}
+        />
       </div>
 
-      <div class="mx-auto w-52 shrink-0 sm:w-60 lg:mx-0 lg:w-full">
-        <div class="overflow-hidden rounded-lg border border-border bg-surface">
+      <div class="mx-auto w-52 shrink-0 sm:w-60 lg:mx-0 lg:w-full xl:h-full">
+        <div class="h-full overflow-hidden rounded-lg border border-border bg-surface">
           <img
             src={profileSrc}
             alt="April Jiawei Zhang 張家維"
             width="640"
             height="800"
-            class="h-auto w-full object-cover"
+            class="h-auto w-full object-cover xl:h-full"
             loading="eager"
             fetchpriority="high"
           />
@@ -50,10 +50,10 @@ const profileSrc = `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}images/profi
 
       <div
         id="contact"
-        class="w-full scroll-mt-24 border-t border-border pt-5 lg:col-span-2 xl:col-span-1 xl:border-l xl:border-t-0 xl:pl-5 xl:pt-1"
+        class="w-full scroll-mt-24 border-t border-border pt-5 lg:col-span-2 xl:col-span-1 xl:h-full xl:border-l xl:border-t-0 xl:pl-5 xl:pt-0"
       >
-        <p class="type-label text-primary">Contact</p>
-        <ContactBubbles className="mt-3" stackAtLarge />
+        <p class="type-label text-primary xl:sr-only">Contact</p>
+        <ContactBubbles className="mt-3 xl:mt-0 xl:h-full xl:justify-between" stackAtLarge />
       </div>
     </div>
   </div>
