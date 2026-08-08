@@ -1,5 +1,6 @@
-/* Hallmark · pre-emit critique: P5 H4 E5 S5 R5 V4
- * genre: editorial · design-system: design.md · theme: studied-DNA (source: image)
+/* Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V4
+ * genre: editorial · macrostructure: Marquee Hero / Long Document / Workbench
+ * tone: restrained · anchor hue: warm red-brown · design-system: design.md · theme: custom earthy editorial
  * contrast: pass (40–41) · nav: N9 · footer: Ft2 · tokens: pass (48) · mobile: pass (34, 49–57)
  */
 @import "tailwindcss";
@@ -11,10 +12,10 @@
 
   --color-page: var(--color-paper);
   --color-surface: var(--color-paper-2);
-  --color-ink: oklch(29.3% 0.0365 169.33);
-  --color-muted: oklch(44.51% 0.0225 56.78);
-  --color-main: var(--color-forest);
-  --color-main-faint: var(--color-forest-soft);
+  --color-ink: oklch(35.93% 0.0641 28.98);
+  --color-muted: oklch(43% 0.05 35);
+  --color-main: var(--color-brown);
+  --color-main-faint: var(--color-blush);
   --color-secondary: var(--color-forest-2);
   --color-secondary-faint: var(--color-forest-soft);
   --color-primary: var(--color-coral-strong);
@@ -42,9 +43,75 @@
   body {
     @apply bg-page text-ink font-sans antialiased;
     overflow-x: clip;
+    line-height: 1.6;
+  }
+
+  :where(h1, h2, h3) {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    font-style: normal;
   }
 
   a {
     @apply text-primary underline-offset-2 decoration-primary/40 hover:text-main hover:decoration-main transition-colors;
+    transition-duration: var(--dur-micro);
+    transition-timing-function: var(--ease-out);
+  }
+
+  a:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 3px;
+  }
+
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid var(--color-paper-2);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px var(--color-focus);
+  }
+
+  button {
+    min-height: 2.75rem;
+  }
+
+  button:active {
+    transform: translateY(1px);
+  }
+
+  :where(button, input, select, textarea):disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
+
+  :where(input, select, textarea) {
+    min-height: 2.75rem;
+    border-width: 1px;
+    outline: 2px solid transparent;
+    outline-offset: 1px;
+  }
+}
+
+@layer utilities {
+  .page-shell > h1 {
+    max-width: 30ch;
+    font-size: var(--text-page-title) !important;
+    line-height: 1.08 !important;
+    letter-spacing: -0.025em !important;
+  }
+
+  .page-shell :where(.rounded-xl, .rounded-2xl) {
+    border-radius: var(--radius-card);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 150ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 150ms !important;
   }
 }

@@ -146,7 +146,7 @@ export default function BlogPostView() {
         </a>
       ) : null}
 
-      <h1 className="mt-4 font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl">{post.title}</h1>
+      <h1 className="mt-4 font-serif text-2xl font-semibold tracking-tight text-ink sm:text-3xl">{post.title}</h1>
       <p className="mt-2 text-sm text-muted">
         {new Date(post.published_at).toLocaleDateString("en-GB", {
           year: "numeric",

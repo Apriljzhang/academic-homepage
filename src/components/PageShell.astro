@@ -10,15 +10,15 @@ const { accentBar = false } = Astro.props;
 
 <div
   class:list={[
-    'w-full px-5 py-8 sm:px-8 sm:py-10 md:px-12 lg:px-16 xl:px-20 2xl:px-24',
+    'page-shell mx-auto w-full max-w-[96rem] px-5 py-7 sm:px-8 sm:py-9 md:px-12 lg:px-16 xl:px-20 2xl:px-24',
     Astro.props.class,
   ]}
 >
   {
     accentBar ? (
-      <div class="mb-5 flex items-center gap-2" aria-hidden="true">
-        <span class="h-2 w-16 rounded-full bg-main" />
-        <span class="h-2 w-8 rounded-full bg-accent-purple" />
+      <div class="mb-4 flex items-center gap-2" aria-hidden="true">
+        <span class="h-1.5 w-12 rounded-full bg-strip-1" />
+        <span class="h-1.5 w-6 rounded-full bg-strip-2" />
       </div>
     ) : null
   }

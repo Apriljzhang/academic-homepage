@@ -90,7 +90,7 @@ const replyTo = `mailto:${contact.cityu}?subject=${encodeURIComponent(`Reply: ${
           <a id="blog-edit-link" href={`/blog/admin/?slug=${encodeURIComponent(post.slug)}`} class="ml-3 hidden text-sm font-semibold text-muted no-underline hover:underline">
             Edit
           </a>
-          <h1 class="mt-4 font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl">{post.title}</h1>
+          <h1 class="mt-4 font-serif text-2xl font-semibold tracking-tight text-ink sm:text-3xl">{post.title}</h1>
           <p class="mt-2 text-sm text-muted">
             {new Date(post.published_at).toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: '2-digit' })}
           </p>

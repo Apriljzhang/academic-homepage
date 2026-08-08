@@ -1,21 +1,32 @@
-/* Hallmark · pre-emit critique: P5 H4 E5 S5 R5 V4 */
+/* Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V4 */
 :root {
-  --color-paper: oklch(97.64% 0.0208 79.1);
-  --color-paper-2: oklch(99.2% 0.0073 80.72);
-  --color-paper-3: oklch(94.94% 0.017 76.11);
-  --color-ink: oklch(29.3% 0.0365 169.33);
-  --color-ink-2: oklch(44.51% 0.0225 56.78);
-  --color-muted: oklch(44.51% 0.0225 56.78);
-  --color-rule: oklch(84.76% 0.0296 77.52);
-  --color-forest: oklch(39.56% 0.0607 169.28);
-  --color-forest-2: oklch(48.44% 0.0725 168.1);
-  --color-forest-soft: oklch(95% 0.0116 162.04);
-  --color-coral: oklch(66.48% 0.1672 29.23);
-  --color-coral-strong: oklch(55.06% 0.1497 27.97);
-  --color-coral-soft: oklch(94.86% 0.0183 34.3);
-  --color-visitor: oklch(51.92% 0.0626 227.63);
-  --color-accent-ink: oklch(99.2% 0.0073 80.72);
-  --color-focus: oklch(55.06% 0.1497 27.97);
+  /* User-selected anchor swatches. */
+  --color-brick: oklch(51.93% 0.1215 28.38);
+  --color-tan: oklch(79.6% 0.0673 71.84);
+  --color-sage: oklch(65.09% 0.0754 134.57);
+  --color-blush: oklch(84.4% 0.041 58.7);
+  --color-brown: oklch(35.93% 0.0641 28.98);
+
+  /* Accessible functional roles derived from the five anchors. */
+  --color-paper: oklch(94% 0.023 58.7);
+  --color-paper-2: oklch(97% 0.014 58.7);
+  --color-paper-3: oklch(89% 0.035 58.7);
+  --color-ink: var(--color-brown);
+  --color-ink-2: oklch(43% 0.05 35);
+  --color-muted: oklch(43% 0.05 35);
+  --color-neutral: oklch(39% 0.055 32);
+  --color-rule: oklch(62% 0.055 71.84);
+  --color-rule-2: oklch(56% 0.06 55);
+  --color-forest: var(--color-sage);
+  --color-forest-2: oklch(41% 0.08 134.57);
+  --color-forest-soft: oklch(88% 0.035 134.57);
+  --color-coral: var(--color-brick);
+  --color-coral-strong: var(--color-brick);
+  --color-coral-soft: oklch(89% 0.035 28.38);
+  --color-brown-soft: oklch(84% 0.035 40);
+  --color-visitor: var(--color-brown);
+  --color-accent-ink: var(--color-paper-2);
+  --color-focus: var(--color-brown);
 
   --font-display: "Source Serif 4", ui-serif, Georgia, "Times New Roman", serif;
   --font-body: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
@@ -32,11 +43,13 @@
 
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
+  --text-base: 1rem;
   --text-md: 1.125rem;
-  --text-lg: 1.375rem;
-  --text-xl: 1.75rem;
-  --text-2xl: 2.25rem;
-  --text-display: clamp(2.75rem, 5vw + 1rem, 5.25rem);
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 1.875rem;
+  --text-page-title: clamp(1.9rem, 2vw + 1rem, 2.6rem);
+  --text-display: clamp(2rem, 2.25vw + 1.25rem, 2.65rem);
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
@@ -47,7 +60,7 @@
 
   --rule-hair: 1px;
   --rule-fine: 2px;
-  --radius-card: 0.75rem;
+  --radius-card: 0.5rem;
   --radius-pill: 999px;
   --radius-input: 0.375rem;
 }

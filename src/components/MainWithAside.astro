@@ -18,12 +18,12 @@ const { asideLabel = 'Section menu', wide = false } = Astro.props;
     wide ? 'max-w-7xl 2xl:max-w-[min(100%,90rem)]' : 'max-w-6xl',
   ]}
 >
-  <div class="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-10 xl:gap-12">
+  <div class="flex flex-col gap-7 lg:flex-row lg:items-start lg:gap-9 xl:gap-10">
     <div class="min-w-0 flex-1">
       <slot />
     </div>
     <aside
-      class="w-full shrink-0 border-t border-border pt-6 lg:sticky lg:top-28 lg:w-56 lg:self-start lg:border-l lg:border-t-0 lg:pl-8 lg:pt-1 xl:w-64"
+      class="w-full shrink-0 border-t border-border pt-5 lg:sticky lg:top-24 lg:w-56 lg:self-start lg:border-l lg:border-t-0 lg:pl-7 lg:pt-1 xl:w-64"
       aria-label={asideLabel}
     >
       <slot name="aside" />

@@ -3,6 +3,16 @@
     "date": "2026-08-08",
     "scope": "app",
     "macrostructure": "Marquee Hero / Long Document / Workbench",
+    "theme": "custom",
+    "theme_axes": "light / roman-serif / warm",
+    "vibe": "earthy scholarly restrained tactile",
+    "enrichment": "existing portrait only",
+    "brief": "Refine the full site with the selected brick, tan, sage, blush, and brown palette; reduce the type scale; preserve the original AJZ favicon"
+  },
+  {
+    "date": "2026-08-08",
+    "scope": "app",
+    "macrostructure": "Marquee Hero / Long Document / Workbench",
     "theme": "studied-DNA",
     "enrichment": "none",
     "brief": "Unify the academic website with forest, coral, and cream; reserve slate blue for visitors"

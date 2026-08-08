@@ -1,7 +1,7 @@
-<!-- Hallmark · genre: editorial · design-system: studied-DNA · source: user-attached reference -->
+<!-- Hallmark · genre: editorial · design-system: custom earthy editorial · source: user-selected swatches -->
 # Design — April Jiawei Zhang
 
-A unified system for the personal academic website. Every route uses the same warm cream paper, forest structure, coral emphasis, and established serif–sans typography.
+A unified system for the personal academic website. Every route uses the same warm blush paper, dark-brown structure, brick emphasis, sage identity markers, tan rules, and established serif–sans typography.
 
 ## Genre
 
@@ -17,21 +17,23 @@ Existing information architecture and component ownership remain unchanged.
 
 ## Theme
 
-- Paper: `oklch(97.64% 0.0208 79.10)`
-- Surface: `oklch(99.20% 0.0073 80.72)`
-- Ink: `oklch(29.30% 0.0365 169.33)`
-- Forest: `oklch(39.56% 0.0607 169.28)`
-- Coral: `oklch(66.48% 0.1672 29.23)`
-- Functional coral: `oklch(55.06% 0.1497 27.97)`
-- Visitor slate blue: `oklch(51.92% 0.0626 227.63)`, restricted to visitor data on “Hello, World.”
+- Paper: `oklch(94% 0.023 58.70)`, a lightened blush derived from the selected palette.
+- Surface: `oklch(97% 0.014 58.70)`.
+- Ink and navigation: `oklch(35.93% 0.0641 28.98)` (dark brown).
+- Brick emphasis: `oklch(51.93% 0.1215 28.38)`.
+- Tan structure: `oklch(79.60% 0.0673 71.84)` with a `oklch(62% 0.055 71.84)` functional rule.
+- Sage identity: `oklch(65.09% 0.0754 134.57)`.
+- Blush anchor: `oklch(84.40% 0.0410 58.70)`.
 
-Coral occupies a small footprint. Forest carries navigation and structure; cream carries the page.
+Brick occupies a small footprint. Brown carries navigation and text; sage identifies April; blush carries the page. The original green-and-cream AJZ favicon remains unchanged as a separate, established brand asset.
 
 ## Typography
 
 - Display: Source Serif 4, weight 600, normal style.
 - Body: Source Sans 3, weights 400–600.
 - Display tracking: tight only at large sizes.
+- Page-title scale: `clamp(1.9rem, 2vw + 1rem, 2.6rem)`.
+- Home-title scale: `clamp(2rem, 2.25vw + 1.25rem, 2.65rem)`.
 - Body measure: approximately 45–75 characters.
 
 ## Spacing and motion
@@ -42,15 +44,15 @@ Coral occupies a small footprint. Forest carries navigation and structure; cream
 
 ## Component voice
 
-- Header and footer: forest with cream text.
-- Links and primary actions: functional coral; hover returns to forest.
-- Cards: warm-white surfaces, warm rules, restrained shadows.
-- Page motif: one forest bar with one shorter coral bar; it never represents a section category.
-- “Hello, World.”: April = green ring, published co-authors = coral routes and diamonds, visitors = slate-blue circles.
+- Header and footer: dark brown with light blush text.
+- Links and primary actions: brick; hover returns to dark brown.
+- Cards: light blush surfaces, tan-derived rules, minimal or no shadow, and tighter radii.
+- Page motif: one sage bar with one shorter brick bar; it never represents a section category.
+- “Hello, World.”: April = sage ring, published co-authors = brick routes and diamonds, visitors = dark-brown circles.
 
 ## Accessibility
 
-- Body text and functional colours meet WCAG AA contrast on cream.
+- Body text and functional colours meet WCAG AA contrast on blush paper.
 - Map meaning is communicated by shape and labels as well as colour.
 - Focus uses the functional coral token.
 
@@ -60,6 +62,47 @@ Coral occupies a small footprint. Forest carries navigation and structure; cream
 
 The canonical source is [`tokens.css`](tokens.css).
 
+```css
+:root {
+  --color-paper: oklch(94% 0.023 58.70);
+  --color-paper-2: oklch(97% 0.014 58.70);
+  --color-paper-3: oklch(89% 0.035 58.70);
+  --color-ink: oklch(35.93% 0.0641 28.98);
+  --color-ink-2: oklch(43% 0.05 35);
+  --color-muted: oklch(43% 0.05 35);
+  --color-rule: oklch(62% 0.055 71.84);
+  --color-accent: oklch(51.93% 0.1215 28.38);
+  --color-accent-ink: oklch(97% 0.014 58.70);
+  --color-focus: oklch(35.93% 0.0641 28.98);
+  --font-display: "Source Serif 4", ui-serif, serif;
+  --font-body: "Source Sans 3", ui-sans-serif, sans-serif;
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.125rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 1.875rem;
+  --text-page-title: clamp(1.9rem, 2vw + 1rem, 2.6rem);
+  --text-display: clamp(2rem, 2.25vw + 1.25rem, 2.65rem);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms;
+  --dur-short: 220ms;
+  --dur-long: 420ms;
+  --radius-card: 0.5rem;
+  --radius-input: 0.375rem;
+}
+```
+
 ### Tailwind v4
 
 ```css
@@ -68,8 +111,8 @@ The canonical source is [`tokens.css`](tokens.css).
   --color-surface: var(--color-paper-2);
   --color-ink: var(--color-ink);
   --color-muted: var(--color-muted);
-  --color-main: var(--color-forest);
-  --color-primary: var(--color-coral-strong);
+  --color-main: var(--color-brown);
+  --color-primary: var(--color-brick);
   --color-border: var(--color-rule);
   --font-serif: var(--font-display);
   --font-sans: var(--font-body);
@@ -82,11 +125,14 @@ The canonical source is [`tokens.css`](tokens.css).
 {
   "$schema": "https://design-tokens.github.io/community-group/format/",
   "color": {
-    "paper": { "$value": "oklch(97.64% 0.0208 79.10)", "$type": "color" },
-    "ink": { "$value": "oklch(29.30% 0.0365 169.33)", "$type": "color" },
-    "forest": { "$value": "oklch(39.56% 0.0607 169.28)", "$type": "color" },
-    "coral": { "$value": "oklch(66.48% 0.1672 29.23)", "$type": "color" },
-    "visitor": { "$value": "oklch(51.92% 0.0626 227.63)", "$type": "color" }
+    "paper": { "$value": "oklch(94% 0.023 58.70)", "$type": "color" },
+    "paper-2": { "$value": "oklch(97% 0.014 58.70)", "$type": "color" },
+    "ink": { "$value": "oklch(35.93% 0.0641 28.98)", "$type": "color" },
+    "brick": { "$value": "oklch(51.93% 0.1215 28.38)", "$type": "color" },
+    "tan": { "$value": "oklch(79.60% 0.0673 71.84)", "$type": "color" },
+    "sage": { "$value": "oklch(65.09% 0.0754 134.57)", "$type": "color" },
+    "blush": { "$value": "oklch(84.40% 0.0410 58.70)", "$type": "color" },
+    "visitor": { "$value": "oklch(35.93% 0.0641 28.98)", "$type": "color" }
   },
   "font": {
     "display": { "$value": "Source Serif 4, ui-serif, serif", "$type": "fontFamily" },
@@ -99,22 +145,22 @@ The canonical source is [`tokens.css`](tokens.css).
 
 ```css
 :root {
-  --background: 97.64% 0.0208 79.10;
-  --foreground: 29.30% 0.0365 169.33;
-  --card: 99.20% 0.0073 80.72;
-  --card-foreground: 29.30% 0.0365 169.33;
-  --primary: 55.06% 0.1497 27.97;
-  --primary-foreground: 99.20% 0.0073 80.72;
-  --secondary: 95% 0.0116 162.04;
-  --secondary-foreground: 39.56% 0.0607 169.28;
-  --muted: 94.94% 0.017 76.11;
-  --muted-foreground: 44.51% 0.0225 56.78;
-  --border: 84.76% 0.0296 77.52;
-  --ring: 55.06% 0.1497 27.97;
-  --radius: 0.75rem;
+  --background: 94% 0.023 58.70;
+  --foreground: 35.93% 0.0641 28.98;
+  --card: 97% 0.014 58.70;
+  --card-foreground: 35.93% 0.0641 28.98;
+  --primary: 51.93% 0.1215 28.38;
+  --primary-foreground: 97% 0.014 58.70;
+  --secondary: 88% 0.035 134.57;
+  --secondary-foreground: 41% 0.08 134.57;
+  --muted: 89% 0.035 58.70;
+  --muted-foreground: 43% 0.05 35;
+  --border: 62% 0.055 71.84;
+  --ring: 35.93% 0.0641 28.98;
+  --radius: 0.5rem;
 }
 ```
 
 ## Provenance
 
-The palette was adapted from a user-attached public design reference and refined for an academic personal website. Structure, content, typography, and imagery are original to this website.
+The palette was sampled from user-selected colour swatches and refined into accessible functional roles for an academic personal website. The favicon remains the established original green-and-cream AJZ mark. Structure, content, typography, and imagery are original to this website.

@@ -10,13 +10,13 @@ interface Props {
 const { as = 'div', href, class: className, padding = 'md', hoverLift = false } = Astro.props;
 
 const base =
-  'rounded-xl border border-border bg-surface shadow-sm text-ink';
+  'rounded-lg border border-border bg-surface text-ink';
 
 const pad =
-  padding === 'sm' ? 'p-4' : padding === 'lg' ? 'p-6' : 'p-5';
+  padding === 'sm' ? 'p-3.5' : padding === 'lg' ? 'p-5' : 'p-4';
 
 const hover = hoverLift
-  ? 'transition-[transform,box-shadow] duration-[var(--dur-short)] ease-[var(--ease-out)] hover:-translate-y-0.5 hover:shadow-md'
+  ? 'transition-transform duration-[var(--dur-short)] ease-[var(--ease-out)] hover:-translate-y-px active:translate-y-0'
   : '';
 ---
 

@@ -10,21 +10,19 @@ const { className = '' } = Astro.props;
 
 /** w-full min-w-0 lets grid columns shrink so text wraps instead of overflowing */
 const bubbleClass =
-  'flex w-full min-w-0 items-center justify-center rounded-2xl border border-border bg-page px-3 py-2 text-center text-sm font-semibold text-primary no-underline transition-colors hover:bg-neutral-hover hover:text-ink break-words text-pretty';
+  'flex min-h-11 w-full min-w-0 items-center justify-center whitespace-nowrap rounded-md border border-border bg-surface px-3 py-2 text-center text-sm font-semibold text-primary no-underline transition-colors duration-[var(--dur-micro)] ease-[var(--ease-out)] hover:bg-neutral-hover hover:text-ink focus-visible:outline-offset-2';
 
-const mailBubbleClass = `${bubbleClass} flex-col gap-2 text-xs sm:flex-row sm:gap-2 sm:text-sm`;
+const mailBubbleClass = `${bubbleClass} gap-2`;
 
 const mailIconClass = 'h-3.5 w-3.5 shrink-0 text-primary';
 
-const mailTextClass = 'min-w-0 w-full max-w-full text-center leading-snug sm:flex-1';
-
-/** Spans both contact rows on large screens; stay column-stacked and vertically centred inside the tall cell */
-const institutionalBubbleClass = `${mailBubbleClass} lg:row-span-2 lg:h-full lg:min-h-0 lg:flex-col lg:justify-center lg:gap-3`;
+/** Mail links span two columns on large screens so every label remains a single-line affordance. */
+const institutionalBubbleClass = `${mailBubbleClass} lg:col-span-2 lg:h-full lg:min-h-0 lg:justify-center`;
 ---
 
 <div
   class:list={[
-    'grid items-stretch gap-2 sm:grid-cols-2 lg:grid-cols-[minmax(0,1.22fr)_minmax(0,1.62fr)_minmax(0,0.66fr)_minmax(0,0.86fr)_minmax(0,0.66fr)_minmax(0,0.72fr)]',
+    'grid items-stretch gap-2 sm:grid-cols-2 lg:grid-cols-4',
     className,
   ]}
 >
@@ -33,21 +31,15 @@ const institutionalBubbleClass = `${mailBubbleClass} lg:row-span-2 lg:h-full lg:
       <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
       <polyline points="22,6 12,13 2,6" />
     </svg>
-    <span class:list={[mailTextClass, 'flex flex-col gap-0.5']}>
-      <span>Professional (CityU Macau)</span>
-      <span class="text-xs font-medium sm:text-sm">Primary institutional contact</span>
-    </span>
+    <span>CityU email</span>
   </a>
 
-  <a class={mailBubbleClass} href={`mailto:${contact.gmail}`} title={contact.gmail}>
+  <a class:list={[mailBubbleClass, 'lg:col-span-2']} href={`mailto:${contact.gmail}`} title={contact.gmail}>
     <svg class={mailIconClass} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
       <polyline points="22,6 12,13 2,6" />
     </svg>
-    <span class:list={[mailTextClass, 'flex flex-col gap-0.5']}>
-      <span>Academic and personal via Gmail</span>
-      <span class="text-xs font-medium sm:text-sm">International access</span>
-    </span>
+    <span>Gmail</span>
   </a>
 
   <a href={academicIds.cityuProfile.href} target="_blank" rel="noopener noreferrer" class={bubbleClass}>
@@ -63,15 +55,12 @@ const institutionalBubbleClass = `${mailBubbleClass} lg:row-span-2 lg:h-full lg:
     Web of Science
   </a>
 
-  <a class:list={[mailBubbleClass, 'lg:col-start-2']} href={`mailto:${contact.outlook}`} title={contact.outlook}>
+  <a class:list={[mailBubbleClass, 'lg:col-span-2']} href={`mailto:${contact.outlook}`} title={contact.outlook}>
     <svg class={mailIconClass} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
       <polyline points="22,6 12,13 2,6" />
     </svg>
-    <span class:list={[mailTextClass, 'flex flex-col gap-0.5']}>
-      <span>Academic and personal via Outlook</span>
-      <span class="text-xs font-medium sm:text-sm">Mainland China access</span>
-    </span>
+    <span>Outlook</span>
   </a>
   <a href={academicIds.googleScholar.href} target="_blank" rel="noopener noreferrer" class={bubbleClass}>
     Google Scholar
