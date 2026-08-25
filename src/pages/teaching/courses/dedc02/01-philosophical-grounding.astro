@@ -155,6 +155,52 @@ const exitQuestions = [
       </div>
     </section>
 
+    <section class="slide" data-title="Ontological positions" aria-hidden="true">
+      <div class="slide-inner">
+        <p class="eyebrow" data-en="Ontology · question first" data-zh="本體論 · 先問問題">Ontology · question first</p>
+        <h2 data-en="What is real in this situation?" data-zh="在這個情境中，甚麼是真實的？">What is real in this situation?</h2>
+        <div class="problem-strip" data-en="Before reading the positions, decide: Is absence only an observable count? Does it have different meanings for different people? Could both the event and those experiences be real?" data-zh="閱讀各種立場前，先判斷：缺席只是可觀察的數字嗎？它對不同的人有不同意義嗎？事件本身與這些經驗能否同時是真實的？">Before reading the positions, decide: Is absence only an observable count? Does it have different meanings for different people? Could both the event and those experiences be real?</div>
+        <div class="three-explanations">
+          <article>
+            <h3 data-en="Realism" data-zh="現實主義">Realism</h3>
+            <p data-en="Attendance and absence are real phenomena that exist independently of any one person’s perception of them." data-zh="出席與缺席是真實現象，並不依賴任何一個人的感知而存在。">Attendance and absence are real phenomena that exist independently of any one person’s perception of them.</p>
+          </article>
+          <article>
+            <h3 data-en="Relativism" data-zh="相對主義">Relativism</h3>
+            <p data-en="Reality is multiple: absence can carry different meanings for students, teachers and administrators, shaped by experience and context." data-zh="現實是多重的：缺席對學生、教師與管理者可有不同意義，並由經驗與情境形塑。">Reality is multiple: absence can carry different meanings for students, teachers and administrators, shaped by experience and context.</p>
+          </article>
+          <article>
+            <h3 data-en="Critical realism" data-zh="批判現實主義">Critical realism</h3>
+            <p data-en="What we observe may arise from real but layered mechanisms—such as work, health, transport or course design—that need to be investigated." data-zh="我們所觀察到的現象，可能源自真實但分層的機制，例如工作、健康、交通或課程設計，因而需要研究。">What we observe may arise from real but layered mechanisms—such as work, health, transport or course design—that need to be investigated.</p>
+          </article>
+        </div>
+        <p class="instruction" data-en="These are ways of reasoning about reality, not labels to attach before you have considered the problem." data-zh="這些是思考現實的方式，而不是在仔細考慮問題前便套用的標籤。">These are ways of reasoning about reality, not labels to attach before you have considered the problem.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Epistemological positions" aria-hidden="true">
+      <div class="slide-inner">
+        <p class="eyebrow" data-en="Epistemology · question first" data-zh="知識論 · 先問問題">Epistemology · question first</p>
+        <h2 data-en="What should count as credible knowledge?" data-zh="甚麼應算作可信的知識？">What should count as credible knowledge?</h2>
+        <div class="problem-strip" data-en="Before reading the positions, decide: Could an attendance record alone tell us why students were absent? What evidence would persuade you? Who should help judge whether an explanation is credible?" data-zh="閱讀各種立場前，先判斷：單靠出席紀錄能否說明學生為何缺席？甚麼證據能說服你？誰應參與判斷一個解釋是否可信？">Before reading the positions, decide: Could an attendance record alone tell us why students were absent? What evidence would persuade you? Who should help judge whether an explanation is credible?</div>
+        <div class="three-explanations">
+          <article>
+            <h3 data-en="Objectivist" data-zh="客觀主義">Objectivist</h3>
+            <p data-en="Credible knowledge is discovered through systematic observation, measurement and testing." data-zh="可信知識透過系統性的觀察、測量與檢驗而被發現。">Credible knowledge is discovered through systematic observation, measurement and testing.</p>
+          </article>
+          <article>
+            <h3 data-en="Subjectivist" data-zh="主觀主義">Subjectivist</h3>
+            <p data-en="Knowledge is constructed through experience, interpretation and social interaction; accounts need to be understood in context." data-zh="知識透過經驗、詮釋與社會互動而建構；敘述需要在其情境中理解。">Knowledge is constructed through experience, interpretation and social interaction; accounts need to be understood in context.</p>
+          </article>
+          <article>
+            <h3 data-en="Pragmatist" data-zh="實用主義">Pragmatist</h3>
+            <p data-en="Knowledge is provisional and is judged partly by whether it helps address the problem in a particular context." data-zh="知識是暫時的，並部分按它能否在特定情境中協助處理問題來判斷。">Knowledge is provisional and is judged partly by whether it helps address the problem in a particular context.</p>
+          </article>
+        </div>
+        <p class="instruction" data-en="A position guides what counts as evidence; it does not mechanically choose a method for you." data-zh="研究立場引導甚麼算作證據；它不會機械地替你選擇研究方法。">A position guides what counts as evidence; it does not mechanically choose a method for you.</p>
+      </div>
+    </section>
+
     <section class="slide" data-title="Can research be value-free?" aria-hidden="true">
       <div class="slide-inner">
         <p class="eyebrow" data-en="Values continuum" data-zh="價值連續線">Values continuum</p>
@@ -424,9 +470,11 @@ const exitQuestions = [
   .simple-checklist { display: grid; grid-template-columns: 1fr 1fr; gap: .55rem 2rem; margin: 0; padding: 0; list-style: none; }
   .simple-checklist li { padding: .7rem 0 .7rem 1.6rem; border-bottom: 1px solid #dcebe2; color: var(--dark); }
   .simple-checklist li::before { content: '✓'; float: left; margin-left: -1.6rem; color: var(--green); font-weight: 700; }
-  .continuum { max-width: 900px; padding: 1rem; border: 1px solid var(--line); border-radius: .35rem; }
+  .continuum { width: 100%; max-width: none; padding: 1rem; border: 1px solid var(--line); border-radius: .35rem; }
   .continuum label { display: flex; justify-content: space-between; color: var(--green); font-weight: 700; }
-  .continuum input { width: 100%; accent-color: var(--green); }
+  .continuum input { display: block; width: 100%; height: .45rem; margin-top: .9rem; accent-color: var(--green); }
+  .continuum input::-webkit-slider-runnable-track { height: .35rem; }
+  .continuum input::-moz-range-track { height: .35rem; }
   .plain-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: .6rem; }
   .plain-row div { display: flex; min-height: 7rem; flex-direction: column; justify-content: flex-end; padding: .8rem; border-top: .25rem solid var(--green); background: var(--soft); }
   .plain-row b { color: var(--dark); }
