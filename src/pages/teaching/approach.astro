@@ -12,6 +12,7 @@ import {
   teachingCoursesMastersCityU,
   teachingCoursesDoctoralCityU,
 } from '../../data/cv';
+import { withBase } from '../../utils/paths';
 
 const title = `CityU courses · ${person.fullDisplayName}`;
 const description = `Master’s and doctoral courses at City University of Macau — ${person.fullDisplayName}.`;
@@ -48,8 +49,22 @@ const description = `Master’s and doctoral courses at City University of Macau
                 {
                   teachingCoursesDoctoralCityU.map((c) => (
                     <li class="rounded-lg border border-border bg-surface px-3 py-2 text-sm">
-                      <span class="font-mono font-semibold text-primary">{c.code}</span>
-                      <span class="text-ink"> — {c.name}</span>
+                      {c.code === 'DEDC02' ? (
+                        <a
+                          href={withBase('/teaching/courses/dedc02')}
+                          class="block no-underline hover:text-secondary"
+                          aria-label="Open DEDC02 Advanced Research Method course materials"
+                        >
+                          <span class="font-mono font-semibold text-primary">{c.code}</span>
+                          <span class="text-ink"> — {c.name}</span>
+                          <span class="ml-1 text-secondary" aria-hidden="true">→</span>
+                        </a>
+                      ) : (
+                        <>
+                          <span class="font-mono font-semibold text-primary">{c.code}</span>
+                          <span class="text-ink"> — {c.name}</span>
+                        </>
+                      )}
                     </li>
                   ))
                 }

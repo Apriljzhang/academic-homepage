@@ -1,0 +1,804 @@
+---
+import CourseSlideLayout from '../../../../layouts/CourseSlideLayout.astro';
+import { withBase } from '../../../../utils/paths';
+
+const title = '1. Philosophical Grounding · DEDC02';
+const description = 'An interactive lesson on the philosophical foundations of educational research.';
+const courseHref = withBase('/teaching/courses/dedc02');
+const diagramSrc = withBase('/teaching/courses/dedc02/assets/philosophical-grounding-diagrams.png');
+---
+
+<CourseSlideLayout {title} {description}>
+  <main class="deck" aria-label="Philosophical Grounding slide deck">
+    <section class="slide is-active" data-title="Philosophical Grounding" aria-hidden="false">
+      <div class="slide-inner title-slide">
+        <header class="slide-header">
+          <span class="eyebrow">DEDC02 · Advanced Research Method</span>
+          <button class="translate-button" type="button" aria-pressed="false">中文</button>
+        </header>
+        <div class="title-rule"></div>
+        <div class="language-panel" data-language="en">
+          <p class="chapter">1</p>
+          <h1>Philosophical<br />Grounding</h1>
+          <p class="lead">How assumptions about reality, knowledge and values shape every research decision.</p>
+        </div>
+        <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
+          <p class="chapter">1</p>
+          <h1>研究的<br />哲學基礎</h1>
+          <p class="lead">關於現實、知識與價值的假設，如何形塑每一項研究決策。</p>
+        </div>
+        <div class="title-meta">
+          <span>Week 1</span><span>Interactive seminar</span><span>90 minutes</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Learning outcomes" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header">
+          <span class="eyebrow">Where we are going</span>
+          <button class="translate-button" type="button" aria-pressed="false">中文</button>
+        </header>
+        <div class="language-panel" data-language="en">
+          <h2>By the end, you can…</h2>
+          <ol class="number-list">
+            <li><strong>Explain</strong> ontology, epistemology, axiology, methodology and methods in accessible language.</li>
+            <li><strong>Trace</strong> how assumptions influence questions, designs, evidence and claims.</li>
+            <li><strong>Compare</strong> different ways of investigating the same educational problem.</li>
+            <li><strong>Diagnose</strong> misalignment in a research proposal.</li>
+            <li><strong>Use AI critically</strong> to locate information, then verify it independently.</li>
+          </ol>
+        </div>
+        <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
+          <h2>完成本課後，你能夠……</h2>
+          <ol class="number-list">
+            <li>以清晰易懂的語言<strong>解釋</strong>本體論、知識論、價值論、方法論與研究方法。</li>
+            <li><strong>追溯</strong>哲學假設如何影響研究問題、設計、證據與主張。</li>
+            <li><strong>比較</strong>研究同一教育問題的不同方式。</li>
+            <li><strong>診斷</strong>研究計劃中的不一致。</li>
+            <li><strong>批判地使用 AI</strong> 尋找資料，並獨立核實。</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="The research chain" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header">
+          <span class="eyebrow">A framework to keep visible</span>
+          <button class="translate-button" type="button" aria-pressed="false">中文</button>
+        </header>
+        <div class="language-panel" data-language="en">
+          <h2>Research decisions form a chain</h2>
+          <p class="lead compact">Select each link. A defensible study makes the connections explicit.</p>
+          <div class="chain" role="list">
+            <details><summary>Problem</summary><p>What needs to be understood?</p></details>
+            <details><summary>Ontology</summary><p>What is the nature of the reality?</p></details>
+            <details><summary>Epistemology</summary><p>What can be known, and how?</p></details>
+            <details><summary>Axiology</summary><p>Whose values and interests matter?</p></details>
+            <details><summary>Methodology</summary><p>What logic guides the inquiry?</p></details>
+            <details><summary>Methods</summary><p>What procedures produce evidence?</p></details>
+            <details><summary>Claims</summary><p>What can the evidence support?</p></details>
+          </div>
+        </div>
+        <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
+          <h2>研究決策構成一條鏈</h2>
+          <p class="lead compact">點選每個環節。可辯護的研究會清楚說明各環節之間的連繫。</p>
+          <div class="chain" role="list">
+            <details><summary>研究問題</summary><p>需要理解甚麼？</p></details>
+            <details><summary>本體論</summary><p>所研究現實的本質是甚麼？</p></details>
+            <details><summary>知識論</summary><p>甚麼可以被認識？如何認識？</p></details>
+            <details><summary>價值論</summary><p>誰的價值與利益重要？</p></details>
+            <details><summary>方法論</summary><p>甚麼整體邏輯引導研究？</p></details>
+            <details><summary>研究方法</summary><p>甚麼程序可產生證據？</p></details>
+            <details><summary>研究主張</summary><p>證據能合理支持甚麼？</p></details>
+          </div>
+        </div>
+        <figure class="visual-crop crop-sequence">
+          <img src={diagramSrc} alt="Diagram linking ontology, epistemology, theoretical perspective, methodology, methods and sources" />
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide" data-title="One event, different realities" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header">
+          <span class="eyebrow">Opening inquiry · 10 minutes</span>
+          <button class="translate-button" type="button" aria-pressed="false">中文</button>
+        </header>
+        <div class="language-panel" data-language="en">
+          <h2>One event. Different realities.</h2>
+          <blockquote>“Ten students were absent from yesterday’s research methods class.”</blockquote>
+          <div class="prompt-grid">
+            <p>What do we <strong>know</strong>?</p><p>What do we <strong>not know</strong>?</p>
+            <p>Does “absence” have one objective meaning?</p><p>Whose account is authoritative?</p>
+            <p>What evidence would explain it?</p><p>Is absence necessarily a problem?</p>
+          </div>
+          <p class="instruction"><strong>Think → pair → share.</strong> Mark one question as ontological, epistemological or axiological.</p>
+        </div>
+        <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
+          <h2>同一事件，不同現實</h2>
+          <blockquote>「昨天的研究方法課有十名學生缺席。」</blockquote>
+          <div class="prompt-grid">
+            <p>我們<strong>知道</strong>甚麼？</p><p>我們<strong>不知道</strong>甚麼？</p>
+            <p>「缺席」只有一個客觀意義嗎？</p><p>誰的說法最具權威？</p>
+            <p>需要甚麼證據來解釋？</p><p>缺席一定是問題嗎？</p>
+          </div>
+          <p class="instruction"><strong>思考 → 配對 → 分享。</strong>把一條問題標為本體論、知識論或價值論問題。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Philosophy as a tree" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header">
+          <span class="eyebrow">Illustration</span>
+          <button class="translate-button" type="button" aria-pressed="false">中文</button>
+        </header>
+        <div class="split-layout visual-split">
+          <div>
+            <div class="language-panel" data-language="en">
+              <h2>Roots, stance, strategy, tools</h2>
+              <dl class="definition-list">
+                <div><dt>Ontology</dt><dd>How we understand the world.</dd></div>
+                <div><dt>Epistemology</dt><dd>How we can investigate and know it.</dd></div>
+                <div><dt>Methodology</dt><dd>The logic of how inquiry should proceed.</dd></div>
+                <div><dt>Methods</dt><dd>The specific procedures used to collect and analyse data.</dd></div>
+              </dl>
+              <p class="instruction">Roots do not dictate one tool—but the parts should grow coherently.</p>
+            </div>
+            <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
+              <h2>根基、立場、策略、工具</h2>
+              <dl class="definition-list">
+                <div><dt>本體論</dt><dd>我們如何理解世界。</dd></div>
+                <div><dt>知識論</dt><dd>我們如何研究並認識世界。</dd></div>
+                <div><dt>方法論</dt><dd>研究應如何推進的整體邏輯。</dd></div>
+                <div><dt>研究方法</dt><dd>收集與分析資料的具體程序。</dd></div>
+              </dl>
+              <p class="instruction">根基不會指定唯一工具，但各部分應連貫地生長。</p>
+            </div>
+          </div>
+          <figure class="visual-crop crop-tree">
+            <img src={diagramSrc} alt="Tree analogy showing ontology as roots, epistemology as trunk, and methodology and methods as branches" />
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="AI concept jigsaw" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header">
+          <span class="eyebrow">Group inquiry · 15 minutes</span>
+          <button class="translate-button" type="button" aria-pressed="false">中文</button>
+        </header>
+        <div class="language-panel" data-language="en">
+          <h2>AI-supported concept jigsaw</h2>
+          <div class="four-grid">
+            <article><span>01</span><h3>Ontology</h3></article>
+            <article><span>02</span><h3>Epistemology</h3></article>
+            <article><span>03</span><h3>Axiology</h3></article>
+            <article><span>04</span><h3>Methodology + methods</h3></article>
+          </div>
+          <p class="instruction">Your group becomes the class expert. Use AI to begin—not to finish—the inquiry.</p>
+          <div class="timer" data-seconds="900" aria-label="15-minute activity timer">
+            <output>15:00</output><button type="button" data-action="start">Start</button><button type="button" data-action="reset">Reset</button>
+          </div>
+        </div>
+        <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
+          <h2>AI 輔助的概念拼圖</h2>
+          <div class="four-grid">
+            <article><span>01</span><h3>本體論</h3></article>
+            <article><span>02</span><h3>知識論</h3></article>
+            <article><span>03</span><h3>價值論</h3></article>
+            <article><span>04</span><h3>方法論與研究方法</h3></article>
+          </div>
+          <p class="instruction">你的小組將成為該概念的課堂專家。用 AI 開始探究，而非代替探究。</p>
+          <div class="timer" data-seconds="900" aria-label="15分鐘活動計時器">
+            <output>15:00</output><button type="button" data-action="start">開始</button><button type="button" data-action="reset">重設</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Prompt critically" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header">
+          <span class="eyebrow">Prompt → inspect → verify</span>
+          <button class="translate-button" type="button" aria-pressed="false">中文</button>
+        </header>
+        <div class="language-panel" data-language="en">
+          <h2>A prompt is a starting hypothesis</h2>
+          <div class="prompt-box">
+            In educational research, define <strong>[concept]</strong> in no more than 80 words. Distinguish it from the other philosophical layers. Give one example, one non-example, one misconception and two academic sources for verification. Identify contested points.
+            <button class="copy-button" type="button" data-copy="In educational research, define [concept] in no more than 80 words. Distinguish it from ontology, epistemology, axiology, methodology and methods. Give one educational research example, one non-example, one common misconception and two academic sources for verification. Clearly identify contested points.">Copy prompt</button>
+          </div>
+          <div class="check-row"><span>Does the source exist?</span><span>Does it support the claim?</span><span>What did AI omit?</span></div>
+        </div>
+        <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
+          <h2>提示詞只是初步假設</h2>
+          <div class="prompt-box">
+            在教育研究語境中，用不多於 80 字定義<strong>［概念］</strong>。把它與其他哲學層次區分，並提供一個例子、一個反例、一個常見誤解及兩項可供核實的學術來源；指出有爭議之處。
+          </div>
+          <div class="check-row"><span>來源真的存在嗎？</span><span>來源支持該主張嗎？</span><span>AI 遺漏了甚麼？</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Build a concept card" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header">
+          <span class="eyebrow">Expected product</span>
+          <button class="translate-button" type="button" aria-pressed="false">中文</button>
+        </header>
+        <div class="language-panel" data-language="en">
+          <h2>Build one verified concept card</h2>
+          <div class="card-template">
+            <div><small>PLAIN DEFINITION</small><p>In our own words…</p></div>
+            <div><small>BOUNDARY</small><p>It is… / It is not…</p></div>
+            <div><small>TEST</small><p>One example + one non-example</p></div>
+            <div><small>MISCONCEPTION</small><p>A beginner might think…</p></div>
+            <div><small>VERIFICATION</small><p>One source that supports the claim</p></div>
+            <div class="accent-card"><small>HUMAN REVISION</small><p>We corrected or qualified AI by…</p></div>
+          </div>
+        </div>
+        <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
+          <h2>製作一張經核實的概念卡</h2>
+          <div class="card-template">
+            <div><small>簡明定義</small><p>用自己的語言……</p></div>
+            <div><small>概念邊界</small><p>它是……／它不是……</p></div>
+            <div><small>測試</small><p>一個例子＋一個反例</p></div>
+            <div><small>常見誤解</small><p>初學者可能以為……</p></div>
+            <div><small>核實</small><p>一項支持主張的來源</p></div>
+            <div class="accent-card"><small>人類修訂</small><p>我們如何修正或限定 AI 的答案……</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Can research be value-free?" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header">
+          <span class="eyebrow">Values continuum · 10 minutes</span>
+          <button class="translate-button" type="button" aria-pressed="false">中文</button>
+        </header>
+        <div class="language-panel" data-language="en">
+          <h2>“Good research should be completely objective and value-free.”</h2>
+          <div class="continuum">
+            <label for="values-range-en"><span>Strongly disagree</span><span>Strongly agree</span></label>
+            <input id="values-range-en" type="range" min="0" max="100" value="50" />
+            <output>Place your position, then explain why.</output>
+          </div>
+          <div class="prompt-grid small">
+            <p>Who chose the problem?</p><p>Whose interests does it serve?</p>
+            <p>Who defines “regular attendance”?</p><p>Is neutrality itself a position?</p>
+          </div>
+        </div>
+        <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
+          <h2>「好的研究應完全客觀，並且不受價值影響。」</h2>
+          <div class="continuum">
+            <label for="values-range-zh"><span>非常不同意</span><span>非常同意</span></label>
+            <input id="values-range-zh" type="range" min="0" max="100" value="50" />
+            <output>選擇你的位置，然後說明原因。</output>
+          </div>
+          <div class="prompt-grid small">
+            <p>誰選擇這個問題？</p><p>研究服務誰的利益？</p>
+            <p>誰定義「規律出席」？</p><p>中立本身也是一種立場嗎？</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Axiology across the study" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header">
+          <span class="eyebrow">Beyond ethical approval</span>
+          <button class="translate-button" type="button" aria-pressed="false">中文</button>
+        </header>
+        <div class="language-panel" data-language="en">
+          <h2>Axiology runs through the whole study</h2>
+          <div class="process-line">
+            <div><span>01</span><strong>Priorities</strong><small>What deserves study?</small></div>
+            <div><span>02</span><strong>Position</strong><small>How am I implicated?</small></div>
+            <div><span>03</span><strong>Power</strong><small>Whose voice counts?</small></div>
+            <div><span>04</span><strong>Consequences</strong><small>Who benefits or loses?</small></div>
+          </div>
+          <p class="takeaway">Values can be made transparent and examined. They cannot simply be switched off.</p>
+        </div>
+        <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
+          <h2>價值論貫穿整項研究</h2>
+          <div class="process-line">
+            <div><span>01</span><strong>優先次序</strong><small>甚麼值得研究？</small></div>
+            <div><span>02</span><strong>研究者位置</strong><small>我如何牽涉其中？</small></div>
+            <div><span>03</span><strong>權力</strong><small>誰的聲音被重視？</small></div>
+            <div><span>04</span><strong>後果</strong><small>誰受益或受損？</small></div>
+          </div>
+          <p class="takeaway">價值可以被透明呈現與檢視，卻不能被簡單關掉。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Same problem, different studies" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header">
+          <span class="eyebrow">Teacher synthesis</span>
+          <button class="translate-button" type="button" aria-pressed="false">中文</button>
+        </header>
+        <div class="language-panel" data-language="en">
+          <h2>One problem can become different studies</h2>
+          <div class="three-grid">
+            <article><h3>Measure behaviour</h3><p>Which variables predict absence?</p><small>Look for patterns and probabilistic explanation.</small></article>
+            <article><h3>Interpret meaning</h3><p>How do students understand absence?</p><small>Look for situated accounts and multiple realities.</small></article>
+            <article><h3>Critique policy</h3><p>Whom do attendance rules privilege?</p><small>Look for power, exclusion and possibilities for change.</small></article>
+          </div>
+          <p class="instruction">The methods follow from the assumptions and intended claim—not from habit.</p>
+        </div>
+        <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
+          <h2>同一問題可以形成不同研究</h2>
+          <div class="three-grid">
+            <article><h3>測量行為</h3><p>哪些變項能預測缺席？</p><small>尋找規律與概率性的解釋。</small></article>
+            <article><h3>詮釋意義</h3><p>學生如何理解缺席？</p><small>尋找情境化敘述與多重現實。</small></article>
+            <article><h3>批判政策</h3><p>出席規定偏向哪些人？</p><small>檢視權力、排斥與改變的可能。</small></article>
+          </div>
+          <p class="instruction">方法應源自哲學假設與預期主張，而非個人習慣。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Misconception check" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header">
+          <span class="eyebrow">Quick check · reveal each answer</span>
+          <button class="translate-button" type="button" aria-pressed="false">中文</button>
+        </header>
+        <div class="language-panel" data-language="en">
+          <h2>Methods do not announce a paradigm</h2>
+          <div class="misconception-grid">
+            <details><summary>Interviews make a study constructivist.</summary><p><strong>Misconception.</strong> The same method can serve different methodological logics.</p></details>
+            <details><summary>Statistics make a study positivist.</summary><p><strong>Misconception.</strong> Look at assumptions, purpose and intended claim.</p></details>
+            <details><summary>A questionnaire is a methodology.</summary><p><strong>Misconception.</strong> It is a method—a specific procedure.</p></details>
+            <details><summary>Mixed methods automatically means pragmatism.</summary><p><strong>Misconception.</strong> Integration alone does not establish the philosophical stance.</p></details>
+            <details><summary>Axiology means research ethics.</summary><p><strong>Too narrow.</strong> It also includes priorities, power and positionality.</p></details>
+            <details><summary>Methodology is a sophisticated word for methods.</summary><p><strong>Misconception.</strong> Methodology is the strategy and logic of inquiry.</p></details>
+          </div>
+        </div>
+        <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
+          <h2>研究方法本身不會宣告研究範式</h2>
+          <div class="misconception-grid">
+            <details><summary>訪談令研究自動成為建構主義研究。</summary><p><strong>誤解。</strong>同一方法可服務不同的方法論邏輯。</p></details>
+            <details><summary>統計令研究自動成為實證主義研究。</summary><p><strong>誤解。</strong>應檢視假設、目的與預期主張。</p></details>
+            <details><summary>問卷是一種方法論。</summary><p><strong>誤解。</strong>問卷是具體的研究方法。</p></details>
+            <details><summary>混合方法必然等於實用主義。</summary><p><strong>誤解。</strong>整合方法本身不能確立哲學立場。</p></details>
+            <details><summary>價值論就是研究倫理。</summary><p><strong>過於狹窄。</strong>它亦涵蓋優先次序、權力與研究者位置。</p></details>
+            <details><summary>方法論只是「研究方法」的高級說法。</summary><p><strong>誤解。</strong>方法論是研究的整體策略與邏輯。</p></details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Design studio" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header">
+          <span class="eyebrow">Design studio · 20 minutes</span>
+          <button class="translate-button" type="button" aria-pressed="false">中文</button>
+        </header>
+        <div class="split-layout visual-split">
+          <div>
+            <div class="language-panel" data-language="en">
+              <h2>One problem, four studies</h2>
+              <blockquote>Why do some university students regularly miss scheduled classes?</blockquote>
+              <p class="instruction">Move from purpose and assumptions to methodology, methods, evidence and claims.</p>
+              <div class="timer" data-seconds="1200" aria-label="20-minute activity timer">
+                <output>20:00</output><button type="button" data-action="start">Start</button><button type="button" data-action="reset">Reset</button>
+              </div>
+            </div>
+            <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
+              <h2>同一問題，四種研究</h2>
+              <blockquote>為甚麼部分大學生經常缺席既定課堂？</blockquote>
+              <p class="instruction">從研究目的與假設，推進至方法論、方法、證據與主張。</p>
+              <div class="timer" data-seconds="1200" aria-label="20分鐘活動計時器">
+                <output>20:00</output><button type="button" data-action="start">開始</button><button type="button" data-action="reset">重設</button>
+              </div>
+            </div>
+          </div>
+          <figure class="visual-crop crop-framework">
+            <img src={diagramSrc} alt="Research design frame linking purpose, paradigm, research questions, methodology, methods, data analysis and claims" />
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Four orientations" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header">
+          <span class="eyebrow">Choose your group · open each orientation</span>
+          <button class="translate-button" type="button" aria-pressed="false">中文</button>
+        </header>
+        <div class="language-panel" data-language="en">
+          <h2>Four defensible starting orientations</h2>
+          <div class="orientation-grid">
+            <details><summary><span>01</span>Postpositivist</summary><p>Which individual, course and institutional factors predict absence? What degree of certainty is possible?</p></details>
+            <details><summary><span>02</span>Interpretive / constructivist</summary><p>How do students understand and explain decisions to attend or miss class? What context is needed?</p></details>
+            <details><summary><span>03</span>Critical / transformative</summary><p>How do attendance policies affect different groups? Whose voices and interests are excluded?</p></details>
+            <details><summary><span>04</span>Pragmatist</summary><p>Which feasible interventions work, for whom and under what circumstances? What evidence supports action?</p></details>
+          </div>
+        </div>
+        <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
+          <h2>四種可辯護的起始取向</h2>
+          <div class="orientation-grid">
+            <details><summary><span>01</span>後實證主義</summary><p>哪些個人、課程與院校因素能預測缺席？可能達到何種確定程度？</p></details>
+            <details><summary><span>02</span>詮釋／建構主義</summary><p>學生如何理解和解釋出席或缺席的決定？需要甚麼情境資料？</p></details>
+            <details><summary><span>03</span>批判／轉化取向</summary><p>出席政策如何影響不同群體？哪些聲音與利益被排除？</p></details>
+            <details><summary><span>04</span>實用主義</summary><p>哪些可行介入對誰有效，並在甚麼情況下有效？甚麼證據支持行動？</p></details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Alignment canvas" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header">
+          <span class="eyebrow">Complete as a group</span>
+          <button class="translate-button" type="button" aria-pressed="false">中文</button>
+        </header>
+        <div class="language-panel" data-language="en">
+          <h2>Research Design Alignment Canvas</h2>
+          <div class="canvas-grid">
+            <div><b>Purpose</b><span>What should the study accomplish?</span></div><div><b>Claim</b><span>Describe, explain, critique, change or evaluate?</span></div>
+            <div><b>Ontology</b><span>What is assumed about reality?</span></div><div><b>Epistemology</b><span>What counts as credible knowledge?</span></div>
+            <div><b>Axiology</b><span>Which values, interests and positions matter?</span></div><div><b>Methodology</b><span>What overall strategy fits?</span></div>
+            <div><b>Methods</b><span>What procedures produce evidence?</span></div><div><b>Participants / data</b><span>Whose knowledge is required?</span></div>
+            <div><b>Quality</b><span>How will quality be judged?</span></div><div><b>Limitation</b><span>What will this design not reveal?</span></div>
+          </div>
+        </div>
+        <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
+          <h2>研究設計一致性畫布</h2>
+          <div class="canvas-grid">
+            <div><b>目的</b><span>研究要達成甚麼？</span></div><div><b>主張</b><span>描述、解釋、批判、改變或評估？</span></div>
+            <div><b>本體論</b><span>對現實有甚麼假設？</span></div><div><b>知識論</b><span>甚麼算可信知識？</span></div>
+            <div><b>價值論</b><span>哪些價值、利益與位置重要？</span></div><div><b>方法論</b><span>哪種整體策略合適？</span></div>
+            <div><b>研究方法</b><span>甚麼程序產生證據？</span></div><div><b>參與者／資料</b><span>需要誰的知識？</span></div>
+            <div><b>質量</b><span>如何判斷研究質量？</span></div><div><b>限制</b><span>此設計無法揭示甚麼？</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Gallery walk" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header">
+          <span class="eyebrow">Peer challenge · 10 minutes</span>
+          <button class="translate-button" type="button" aria-pressed="false">中文</button>
+        </header>
+        <div class="language-panel" data-language="en">
+          <h2>Test the alignment—not the group</h2>
+          <div class="feedback-stems">
+            <p>“The strongest alignment is…”</p><p>“A possible contradiction is…”</p>
+            <p>“Your methodological choice assumes…”</p><p>“Your methods reveal…, but not…”</p>
+            <p>“Your claim may be too strong because…”</p><p>“If your ontology changed, you might change…”</p>
+          </div>
+          <p class="takeaway">Return to your design. Make one visible revision and explain why.</p>
+        </div>
+        <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
+          <h2>檢驗一致性，而非評判小組</h2>
+          <div class="feedback-stems">
+            <p>「最一致之處是……」</p><p>「一個可能的矛盾是……」</p>
+            <p>「你們的方法論選擇假設……」</p><p>「你們的方法揭示……但不能揭示……」</p>
+            <p>「你們的主張可能過強，因為……」</p><p>「若本體論改變，可能也要改變……」</p>
+          </div>
+          <p class="takeaway">回到設計，作出一項清晰可見的修訂，並說明原因。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Exit ticket" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header">
+          <span class="eyebrow">Individual reflection · 5 minutes</span>
+          <button class="translate-button" type="button" aria-pressed="false">中文</button>
+        </header>
+        <div class="language-panel" data-language="en">
+          <h2>Exit ticket</h2>
+          <div class="exit-grid">
+            <label>Ontology concerns…<textarea data-save="ontology" rows="2"></textarea></label>
+            <label>Epistemology concerns…<textarea data-save="epistemology" rows="2"></textarea></label>
+            <label>Axiology matters because…<textarea data-save="axiology" rows="2"></textarea></label>
+            <label>Methodology differs from methods because…<textarea data-save="methodology" rows="2"></textarea></label>
+            <label>One assumption influencing my research is…<textarea data-save="assumption" rows="2"></textarea></label>
+            <label>The weakest alignment in my plan may be…<textarea data-save="alignment" rows="2"></textarea></label>
+          </div>
+          <p class="save-note">Your notes stay only in this browser.</p>
+        </div>
+        <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
+          <h2>離堂小結</h2>
+          <div class="exit-grid">
+            <label>本體論關注……<textarea data-save="ontology-zh" rows="2"></textarea></label>
+            <label>知識論關注……<textarea data-save="epistemology-zh" rows="2"></textarea></label>
+            <label>價值論重要，因為……<textarea data-save="axiology-zh" rows="2"></textarea></label>
+            <label>方法論與研究方法不同，因為……<textarea data-save="methodology-zh" rows="2"></textarea></label>
+            <label>影響我研究的一項假設是……<textarea data-save="assumption-zh" rows="2"></textarea></label>
+            <label>我的計劃中最弱的一致性可能是……<textarea data-save="alignment-zh" rows="2"></textarea></label>
+          </div>
+          <p class="save-note">你的筆記只會保存在此瀏覽器。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Use AI, keep judgement" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header">
+          <span class="eyebrow">Closing principle</span>
+          <button class="translate-button" type="button" aria-pressed="false">中文</button>
+        </header>
+        <div class="language-panel" data-language="en">
+          <h2>Use AI. Keep methodological judgement.</h2>
+          <div class="do-dont">
+            <div><h3>AI may help you…</h3><ul><li>retrieve preliminary definitions</li><li>generate examples and non-examples</li><li>compare terminology</li><li>suggest sources to verify</li><li>surface alternative interpretations</li></ul></div>
+            <div><h3>AI may not replace…</h3><ul><li>reference verification</li><li>paradigm classification</li><li>alignment reasoning</li><li>evaluation of contested claims</li><li>your methodological defence</li></ul></div>
+          </div>
+          <p class="closing-line">Assumptions → choices → evidence → claims. Make every link visible.</p>
+        </div>
+        <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
+          <h2>使用 AI，但保留方法論判斷</h2>
+          <div class="do-dont">
+            <div><h3>AI 可以協助你……</h3><ul><li>取得初步定義</li><li>產生例子與反例</li><li>比較術語</li><li>建議待核實來源</li><li>提出其他詮釋</li></ul></div>
+            <div><h3>AI 不可取代……</h3><ul><li>核實參考資料</li><li>判定研究範式</li><li>推理研究一致性</li><li>評估具爭議的主張</li><li>你的方法論答辯</li></ul></div>
+          </div>
+          <p class="closing-line">假設 → 選擇 → 證據 → 主張。讓每個環節清晰可見。</p>
+        </div>
+        <a class="course-return" href={courseHref}>Return to DEDC02 course materials →</a>
+      </div>
+    </section>
+  </main>
+
+  <nav class="deck-controls" aria-label="Slide controls">
+    <a class="home-button" href={courseHref} aria-label="Back to DEDC02 course materials">DEDC02</a>
+    <button type="button" data-nav="previous" aria-label="Previous slide">←</button>
+    <button class="slide-count" type="button" data-overview aria-label="Open slide overview"><span>1</span> / <span data-slide-total>18</span></button>
+    <button type="button" data-nav="next" aria-label="Next slide">→</button>
+    <button type="button" data-fullscreen aria-label="Enter full screen">⛶</button>
+    <span class="progress-track" aria-hidden="true"><span></span></span>
+  </nav>
+
+  <dialog class="overview-dialog" aria-labelledby="overview-title">
+    <div class="overview-head"><h2 id="overview-title">Slides</h2><button type="button" data-close-overview aria-label="Close overview">×</button></div>
+    <ol></ol>
+    <p>Keyboard: ← → navigate · O overview · F full screen</p>
+  </dialog>
+</CourseSlideLayout>
+
+<style>
+  :root { --green: #1f6b45; --green-dark: #153c2b; --green-soft: #eaf4ee; --line: #a7c7b4; --muted: #597466; }
+  * { box-sizing: border-box; }
+  .deck { position: relative; height: 100dvh; background: #fff; }
+  .slide { position: absolute; inset: 0; display: none; overflow-y: auto; padding: clamp(1rem, 3vw, 2.4rem) clamp(1rem, 5vw, 5rem) 5.5rem; background: #fff; }
+  .slide.is-active { display: block; animation: enter 260ms ease-out; }
+  .slide-inner { width: min(1120px, 100%); min-height: calc(100dvh - 8rem); margin: 0 auto; display: flex; flex-direction: column; justify-content: center; }
+  .slide-header { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: clamp(1.2rem, 3vh, 2.3rem); padding-bottom: .8rem; border-bottom: 1px solid var(--line); }
+  .eyebrow { color: var(--green); font-size: .78rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+  .translate-button { min-height: 2rem; border: 1px solid var(--green); border-radius: 999px; padding: .35rem .75rem; background: #fff; color: var(--green); font: inherit; font-size: .78rem; font-weight: 700; cursor: pointer; }
+  .translate-button:hover, .translate-button[aria-pressed="true"] { background: var(--green); color: #fff; }
+  h1, h2, h3, p { margin-top: 0; }
+  h1, h2 { color: var(--green-dark); font-family: 'Source Serif 4', Georgia, serif; }
+  h1 { max-width: 12ch; margin-bottom: 1.2rem; font-size: clamp(3.3rem, 9vw, 7.8rem); line-height: .86; letter-spacing: -.055em; }
+  h2 { max-width: 19ch; margin-bottom: clamp(1.2rem, 2.5vh, 2rem); font-size: clamp(2.1rem, 5vw, 4.4rem); line-height: .98; letter-spacing: -.035em; }
+  h3 { color: var(--green-dark); font-size: 1.08rem; }
+  .lead { max-width: 58ch; color: var(--muted); font-size: clamp(1.08rem, 2vw, 1.45rem); line-height: 1.5; }
+  .lead.compact { margin-top: -1rem; margin-bottom: 1.3rem; }
+  .title-slide { align-items: flex-start; }
+  .title-slide .slide-header { width: 100%; }
+  .title-rule { width: 4.5rem; height: .35rem; margin-bottom: clamp(1.5rem, 4vh, 3rem); border-radius: 1rem; background: var(--green); }
+  .chapter { position: absolute; right: 8vw; top: 18vh; color: var(--green-soft); font: 600 clamp(10rem, 28vw, 25rem)/1 'Source Serif 4', serif; z-index: 0; }
+  .title-slide .language-panel { position: relative; z-index: 1; }
+  .title-meta { display: flex; flex-wrap: wrap; gap: 1rem 2rem; margin-top: 2rem; color: var(--green); font-size: .9rem; font-weight: 600; }
+  .number-list { max-width: 980px; margin: 0; padding: 0; counter-reset: outcome; display: grid; gap: .65rem; list-style: none; }
+  .number-list li { counter-increment: outcome; display: grid; grid-template-columns: 2.2rem 1fr; gap: .8rem; align-items: start; padding: .7rem 0; border-bottom: 1px solid #dcebe2; font-size: clamp(1rem, 1.7vw, 1.28rem); }
+  .number-list li::before { content: counter(outcome, decimal-leading-zero); color: var(--green); font-weight: 700; }
+  .chain { display: grid; grid-template-columns: repeat(7, 1fr); gap: .35rem; }
+  .chain details { position: relative; min-height: 8rem; border: 1px solid var(--line); border-radius: .4rem; background: #fff; }
+  .chain details::after { content: '→'; position: absolute; right: -.65rem; top: 1rem; z-index: 2; color: var(--green); font-weight: 700; }
+  .chain details:last-child::after { display: none; }
+  .chain summary { padding: .9rem .55rem; color: var(--green); font-size: .82rem; font-weight: 700; cursor: pointer; list-style: none; }
+  .chain p { padding: 0 .55rem .7rem; color: var(--muted); font-size: .78rem; line-height: 1.35; }
+  .visual-crop { margin: 1.1rem 0 0; overflow: hidden; border: 1px solid var(--line); border-radius: .5rem; background: #fff; }
+  .visual-crop img { display: block; max-width: none; }
+  .crop-sequence { height: clamp(7rem, 18vh, 10rem); }
+  .crop-sequence img { width: 160%; transform: translateY(-17%); }
+  blockquote { max-width: 28ch; margin: .4rem 0 1.7rem; padding-left: 1.2rem; border-left: .35rem solid var(--green); color: var(--green-dark); font: 600 clamp(1.45rem, 3vw, 2.5rem)/1.3 'Source Serif 4', serif; }
+  .prompt-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .65rem; }
+  .prompt-grid p { margin: 0; padding: 1rem; border: 1px solid var(--line); border-radius: .4rem; color: var(--green-dark); font-size: 1rem; }
+  .prompt-grid.small { grid-template-columns: repeat(4, 1fr); margin-top: 1.3rem; }
+  .instruction, .takeaway { margin: 1.2rem 0 0; padding: .85rem 1rem; border-left: .3rem solid var(--green); background: var(--green-soft); color: var(--green-dark); }
+  .split-layout { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.3rem, 4vw, 4rem); align-items: center; }
+  .definition-list { display: grid; gap: .6rem; margin: 0; }
+  .definition-list div { display: grid; grid-template-columns: 8rem 1fr; gap: .8rem; padding-bottom: .55rem; border-bottom: 1px solid #dcebe2; }
+  .definition-list dt { color: var(--green); font-weight: 700; }
+  .definition-list dd { margin: 0; color: var(--muted); }
+  .crop-tree { height: min(60vh, 540px); margin: 0; }
+  .crop-tree img { width: 170%; transform: translate(-42%, -1%); }
+  .four-grid, .three-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: .75rem; }
+  .four-grid article, .three-grid article { min-height: 9rem; padding: 1rem; border: 1px solid var(--line); border-radius: .4rem; }
+  .four-grid span { color: var(--green); font-size: .75rem; font-weight: 700; }
+  .three-grid { grid-template-columns: repeat(3, 1fr); }
+  .three-grid p { color: var(--green); font-size: 1.15rem; font-weight: 600; }
+  .three-grid small { color: var(--muted); line-height: 1.4; }
+  .timer { display: flex; align-items: center; gap: .5rem; margin-top: 1.2rem; }
+  .timer output { min-width: 6ch; color: var(--green); font: 600 1.6rem/1 'Source Serif 4', serif; }
+  .timer button, .copy-button { min-height: 2.2rem; border: 1px solid var(--green); border-radius: .35rem; padding: .35rem .7rem; background: #fff; color: var(--green); font-weight: 700; cursor: pointer; }
+  .prompt-box { position: relative; max-width: 900px; padding: 1.4rem 1.4rem 3.6rem; border: 1px solid var(--green); border-radius: .5rem; background: var(--green-soft); font: 1.1rem/1.55 ui-monospace, SFMono-Regular, Menlo, monospace; }
+  .copy-button { position: absolute; right: .7rem; bottom: .7rem; background: var(--green); color: #fff; }
+  .check-row { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.2rem; }
+  .check-row span { padding: .55rem .75rem; border: 1px solid var(--line); border-radius: 999px; color: var(--green-dark); }
+  .card-template { display: grid; grid-template-columns: repeat(3, 1fr); gap: .7rem; }
+  .card-template > div { min-height: 7.5rem; padding: 1rem; border: 1px solid var(--line); border-radius: .4rem; }
+  .card-template small { color: var(--green); font-weight: 700; letter-spacing: .08em; }
+  .card-template p { margin: .8rem 0 0; color: var(--muted); }
+  .card-template .accent-card { background: var(--green); }
+  .card-template .accent-card small, .card-template .accent-card p { color: #fff; }
+  .continuum { max-width: 900px; padding: 1.2rem; border: 1px solid var(--line); border-radius: .5rem; }
+  .continuum label { display: flex; justify-content: space-between; color: var(--green); font-weight: 700; }
+  .continuum input { width: 100%; accent-color: var(--green); }
+  .continuum output { display: block; color: var(--muted); text-align: center; }
+  .process-line { display: grid; grid-template-columns: repeat(4, 1fr); gap: .7rem; }
+  .process-line div { display: flex; min-height: 11rem; flex-direction: column; padding: 1rem; border-top: .3rem solid var(--green); background: var(--green-soft); }
+  .process-line span { color: var(--green); font-size: .78rem; font-weight: 700; }
+  .process-line strong { margin: auto 0 .5rem; color: var(--green-dark); font-size: 1.2rem; }
+  .process-line small { color: var(--muted); }
+  .misconception-grid, .orientation-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: .7rem; }
+  .misconception-grid details, .orientation-grid details { border: 1px solid var(--line); border-radius: .4rem; }
+  .misconception-grid summary, .orientation-grid summary { padding: .85rem 1rem; color: var(--green-dark); font-weight: 600; cursor: pointer; }
+  .misconception-grid details p, .orientation-grid details p { margin: 0; padding: .85rem 1rem; border-top: 1px solid var(--line); background: var(--green-soft); color: var(--muted); }
+  .crop-framework { height: min(54vh, 440px); margin: 0; }
+  .crop-framework img { width: 160%; transform: translate(-1%, -40%); }
+  .orientation-grid summary span { margin-right: .8rem; color: var(--green); font-size: .75rem; }
+  .canvas-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: .55rem; }
+  .canvas-grid > div { min-height: 7.5rem; padding: .75rem; border: 1px solid var(--line); border-radius: .35rem; }
+  .canvas-grid b { display: block; margin-bottom: .5rem; color: var(--green); }
+  .canvas-grid span { color: var(--muted); font-size: .84rem; line-height: 1.35; }
+  .feedback-stems { display: grid; grid-template-columns: repeat(2, 1fr); gap: .7rem; }
+  .feedback-stems p { margin: 0; padding: 1rem; border-bottom: 1px solid var(--line); color: var(--green-dark); font: 600 1.12rem/1.35 'Source Serif 4', serif; }
+  .exit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: .7rem 1rem; }
+  .exit-grid label { color: var(--green-dark); font-size: .86rem; font-weight: 600; }
+  .exit-grid textarea { width: 100%; min-height: 3.1rem; margin-top: .25rem; resize: vertical; border: 1px solid var(--line); border-radius: .35rem; padding: .5rem; background: #fff; color: var(--green-dark); font: inherit; }
+  .save-note { margin-top: .6rem; color: var(--muted); font-size: .78rem; }
+  .do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .do-dont > div { padding: 1.2rem; border: 1px solid var(--line); border-radius: .45rem; }
+  .do-dont > div:last-child { background: var(--green-soft); }
+  .do-dont ul { margin-bottom: 0; padding-left: 1.2rem; color: var(--muted); }
+  .closing-line { margin-top: 1.4rem; color: var(--green); font: 600 clamp(1.2rem, 2.3vw, 1.8rem)/1.3 'Source Serif 4', serif; }
+  .course-return { display: inline-flex; margin-top: 1rem; color: var(--green); font-weight: 700; }
+  .deck-controls { position: fixed; left: 50%; bottom: max(.8rem, env(safe-area-inset-bottom)); z-index: 20; display: flex; align-items: center; gap: .25rem; transform: translateX(-50%); border: 1px solid var(--line); border-radius: 999px; padding: .3rem; background: rgba(255,255,255,.96); box-shadow: 0 .45rem 1.5rem rgba(21,60,43,.12); }
+  .deck-controls button, .home-button { display: grid; min-width: 2.35rem; min-height: 2.35rem; place-items: center; border: 0; border-radius: 999px; padding: 0 .65rem; background: transparent; color: var(--green); font: 700 .86rem/1 'Source Sans 3', sans-serif; text-decoration: none; cursor: pointer; }
+  .deck-controls button:hover, .home-button:hover { background: var(--green-soft); }
+  .slide-count { min-width: 4.5rem !important; }
+  .progress-track { position: absolute; right: .8rem; bottom: -.36rem; left: .8rem; height: 2px; overflow: hidden; background: #dcebe2; }
+  .progress-track span { display: block; width: 5.88%; height: 100%; background: var(--green); transition: width 220ms ease; }
+  .overview-dialog { width: min(780px, 92vw); max-height: 82vh; border: 1px solid var(--line); border-radius: .6rem; padding: 1.2rem; background: #fff; color: var(--green-dark); }
+  .overview-dialog::backdrop { background: rgba(21,60,43,.35); }
+  .overview-head { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); }
+  .overview-head h2 { margin: 0 0 .7rem; font-size: 2rem; }
+  .overview-head button { border: 0; background: transparent; color: var(--green); font-size: 2rem; cursor: pointer; }
+  .overview-dialog ol { display: grid; grid-template-columns: repeat(2, 1fr); gap: .45rem; padding: 0; list-style-position: inside; }
+  .overview-dialog li button { width: calc(100% - 2rem); border: 0; padding: .55rem; background: transparent; color: var(--green-dark); text-align: left; cursor: pointer; }
+  .overview-dialog li.is-current { background: var(--green-soft); }
+  .overview-dialog > p { color: var(--muted); font-size: .8rem; }
+  @keyframes enter { from { opacity: 0; transform: translateX(10px); } to { opacity: 1; transform: none; } }
+  @media (max-width: 800px) {
+    .slide { padding: 1rem 1rem 5.5rem; }
+    .slide-inner { min-height: auto; justify-content: flex-start; }
+    .slide-header { margin-bottom: 1.1rem; }
+    .chapter { display: none; }
+    .chain, .four-grid, .three-grid, .process-line, .canvas-grid { grid-template-columns: repeat(2, 1fr); }
+    .chain details::after { display: none; }
+    .prompt-grid, .prompt-grid.small, .split-layout, .card-template, .do-dont { grid-template-columns: 1fr; }
+    .visual-split { align-items: start; }
+    .crop-tree, .crop-framework { height: 280px; }
+    .misconception-grid, .orientation-grid, .feedback-stems, .exit-grid { grid-template-columns: 1fr; }
+    .home-button, [data-fullscreen] { display: none; }
+  }
+  @media (max-width: 480px) {
+    .four-grid, .three-grid, .process-line, .canvas-grid { grid-template-columns: 1fr; }
+    .overview-dialog ol { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) { .slide.is-active { animation: none; } }
+</style>
+
+<script>
+  const slides = Array.from(document.querySelectorAll<HTMLElement>('.slide'));
+  const currentLabel = document.querySelector<HTMLElement>('.slide-count span');
+  const totalLabel = document.querySelector<HTMLElement>('[data-slide-total]');
+  const progress = document.querySelector<HTMLElement>('.progress-track span');
+  const overview = document.querySelector<HTMLDialogElement>('.overview-dialog');
+  const overviewList = overview?.querySelector('ol');
+  let current = 0;
+  if (totalLabel) totalLabel.textContent = String(slides.length);
+
+  function showSlide(index: number) {
+    current = Math.max(0, Math.min(slides.length - 1, index));
+    slides.forEach((slide, i) => {
+      const active = i === current;
+      slide.classList.toggle('is-active', active);
+      slide.setAttribute('aria-hidden', String(!active));
+    });
+    if (currentLabel) currentLabel.textContent = String(current + 1);
+    if (progress) progress.style.width = `${((current + 1) / slides.length) * 100}%`;
+    overviewList?.querySelectorAll('li').forEach((li, i) => li.classList.toggle('is-current', i === current));
+    history.replaceState(null, '', `#slide-${current + 1}`);
+  }
+
+  document.querySelectorAll<HTMLElement>('[data-nav]').forEach((button) => {
+    button.addEventListener('click', () => showSlide(current + (button.dataset.nav === 'next' ? 1 : -1)));
+  });
+
+  document.querySelectorAll<HTMLButtonElement>('.translate-button').forEach((button) => {
+    button.addEventListener('click', () => {
+      const slide = button.closest('.slide');
+      if (!slide) return;
+      const toChinese = button.getAttribute('aria-pressed') !== 'true';
+      button.setAttribute('aria-pressed', String(toChinese));
+      button.textContent = toChinese ? 'English' : '中文';
+      slide.querySelectorAll<HTMLElement>('[data-language="en"]').forEach((x) => x.hidden = toChinese);
+      slide.querySelectorAll<HTMLElement>('[data-language="zh"]').forEach((x) => x.hidden = !toChinese);
+    });
+  });
+
+  if (overviewList) {
+    slides.forEach((slide, i) => {
+      const item = document.createElement('li');
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.textContent = slide.dataset.title || `Slide ${i + 1}`;
+      button.addEventListener('click', () => { showSlide(i); overview?.close(); });
+      item.append(button);
+      overviewList.append(item);
+    });
+  }
+  document.querySelector('[data-overview]')?.addEventListener('click', () => overview?.showModal());
+  document.querySelector('[data-close-overview]')?.addEventListener('click', () => overview?.close());
+  document.querySelector('[data-fullscreen]')?.addEventListener('click', () => document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen());
+
+  document.querySelectorAll<HTMLButtonElement>('.copy-button').forEach((button) => {
+    button.addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(button.dataset.copy || ''); button.textContent = 'Copied'; }
+      catch { button.textContent = 'Select and copy'; }
+      setTimeout(() => button.textContent = 'Copy prompt', 1400);
+    });
+  });
+
+  document.querySelectorAll<HTMLElement>('.timer').forEach((timer) => {
+    const initial = Number(timer.dataset.seconds || 0);
+    let remaining = initial;
+    let interval = 0;
+    const output = timer.querySelector('output');
+    const start = timer.querySelector<HTMLButtonElement>('[data-action="start"]');
+    const paint = () => { if (output) output.textContent = `${String(Math.floor(remaining / 60)).padStart(2, '0')}:${String(remaining % 60).padStart(2, '0')}`; };
+    start?.addEventListener('click', () => {
+      if (interval) { window.clearInterval(interval); interval = 0; start.textContent = start.textContent === '暫停' ? '開始' : 'Start'; return; }
+      start.textContent = start.textContent === '開始' ? '暫停' : 'Pause';
+      interval = window.setInterval(() => { remaining = Math.max(0, remaining - 1); paint(); if (!remaining) { window.clearInterval(interval); interval = 0; start.textContent = 'Done'; } }, 1000);
+    });
+    timer.querySelector('[data-action="reset"]')?.addEventListener('click', () => { window.clearInterval(interval); interval = 0; remaining = initial; if (start) start.textContent = start.closest('[lang="zh-Hant"]') ? '開始' : 'Start'; paint(); });
+  });
+
+  document.querySelectorAll<HTMLTextAreaElement>('textarea[data-save]').forEach((field) => {
+    const key = `dedc02-w1-${field.dataset.save}`;
+    try { field.value = localStorage.getItem(key) || ''; } catch {}
+    field.addEventListener('input', () => { try { localStorage.setItem(key, field.value); } catch {} });
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement) return;
+    if (event.key === 'ArrowRight' || event.key === 'PageDown' || event.key === ' ') { event.preventDefault(); showSlide(current + 1); }
+    if (event.key === 'ArrowLeft' || event.key === 'PageUp') { event.preventDefault(); showSlide(current - 1); }
+    if (event.key === 'Home') showSlide(0);
+    if (event.key === 'End') showSlide(slides.length - 1);
+    if (event.key.toLowerCase() === 'o') overview?.showModal();
+    if (event.key.toLowerCase() === 'f') document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen();
+  });
+
+  let touchX = 0;
+  document.addEventListener('touchstart', (event) => { touchX = event.changedTouches[0]?.clientX || 0; }, { passive: true });
+  document.addEventListener('touchend', (event) => { const dx = (event.changedTouches[0]?.clientX || 0) - touchX; if (Math.abs(dx) > 70) showSlide(current + (dx < 0 ? 1 : -1)); }, { passive: true });
+
+  const initialHash = Number(location.hash.replace('#slide-', ''));
+  showSlide(Number.isFinite(initialHash) && initialHash > 0 ? initialHash - 1 : 0);
+</script>

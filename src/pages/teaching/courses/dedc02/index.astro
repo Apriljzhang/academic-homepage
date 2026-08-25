@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import SiteHeader from '../../../../components/SiteHeader.astro';
+import SiteFooter from '../../../../components/SiteFooter.astro';
+import PageShell from '../../../../components/PageShell.astro';
+import { person } from '../../../../data/cv';
+import { withBase } from '../../../../utils/paths';
+
+const title = `DEDC02 · ${person.fullDisplayName}`;
+const description = 'Interactive materials for DEDC02 Advanced Research Method at City University of Macau.';
+const lessonHref = withBase('/teaching/courses/dedc02/01-philosophical-grounding');
+---
+
+<BaseLayout {title} {description}>
+  <SiteHeader />
+  <main id="main-content" class="min-h-[50vh] w-full bg-page">
+    <PageShell accentBar>
+      <p class="type-label text-secondary">Doctoral course · DEDC02</p>
+      <h1 class="mt-2 font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">
+        Advanced Research Method
+      </h1>
+      <p class="type-intro mt-4">
+        Interactive lesson materials on research design, philosophical assumptions, evidence and defensible claims.
+      </p>
+
+      <div class="mt-8 max-w-4xl border-t border-border pt-6">
+        <h2 class="type-label text-secondary">Course materials</h2>
+        <ol class="mt-4 grid gap-3">
+          <li>
+            <a
+              href={lessonHref}
+              class="group flex items-center justify-between gap-5 rounded-lg border border-border bg-white px-5 py-4 no-underline transition hover:border-secondary hover:bg-main-faint"
+            >
+              <span>
+                <span class="block text-xs font-semibold uppercase tracking-[0.12em] text-secondary">Week 1</span>
+                <span class="mt-1 block text-lg font-semibold text-ink group-hover:text-secondary">
+                  1. Philosophical Grounding
+                </span>
+                <span class="mt-1 block text-sm text-muted">
+                  Ontology, epistemology, axiology, methodology, methods, evidence and claims
+                </span>
+              </span>
+              <span class="shrink-0 text-2xl text-secondary" aria-hidden="true">→</span>
+            </a>
+          </li>
+        </ol>
+        <p class="mt-5 text-sm text-muted">Further lesson decks will be added here as the course develops.</p>
+      </div>
+
+      <a href={withBase('/teaching/approach')} class="mt-8 inline-flex text-sm font-semibold">
+        ← Back to CityU courses
+      </a>
+    </PageShell>
+  </main>
+  <SiteFooter />
+</BaseLayout>

@@ -1,0 +1,42 @@
+---
+import '../styles/global.css';
+import '@fontsource/source-serif-4/400.css';
+import '@fontsource/source-serif-4/600.css';
+import '@fontsource/source-sans-3/400.css';
+import '@fontsource/source-sans-3/500.css';
+import '@fontsource/source-sans-3/600.css';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#1f6b45" />
+    <link rel="canonical" href={canonicalURL} />
+    <title>{title}</title>
+  </head>
+  <body class="course-slide-page">
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  body.course-slide-page {
+    margin: 0;
+    min-height: 100vh;
+    overflow: hidden;
+    padding: 0;
+    background: #ffffff;
+    color: #153c2b;
+  }
+</style>
