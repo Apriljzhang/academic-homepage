@@ -6,6 +6,7 @@ const title = '1. Philosophical Grounding · DEDC02';
 const description = 'An interactive lesson on the philosophical foundations of educational research.';
 const courseHref = withBase('/teaching/courses/dedc02');
 const treeSrc = withBase('/teaching/courses/dedc02/assets/methodology-tree.png');
+const thinkingMapSrc = withBase('/teaching/courses/dedc02/assets/research-design-thinking-map.png');
 
 const outcomes = [
   ['Explain ontology, epistemology, axiology, methodology and methods in accessible language.', '以清晰易懂的語言解釋本體論、知識論、價值論、方法論與研究方法。'],
@@ -369,20 +370,20 @@ const exitQuestions = [
     </section>
 
     <section class="slide" data-title="Alignment canvas" aria-hidden="true">
-      <div class="slide-inner">
-        <p class="eyebrow" data-en="Research Design Alignment Canvas" data-zh="研究設計一致性畫布">Research Design Alignment Canvas</p>
-        <div class="problem-strip" data-en="Research problem: Why do some university students regularly miss scheduled classes?" data-zh="研究問題：為甚麼部分大學生經常缺席既定課堂？">Research problem: Why do some university students regularly miss scheduled classes?</div>
+      <div class="slide-inner design-walkthrough">
+        <p class="eyebrow" data-en="Researcher thinking through a design" data-zh="研究者逐步思考研究設計">Researcher thinking through a design</p>
+        <div class="problem-strip" data-en="Research problem: Ten students were absent from yesterday’s research methods class." data-zh="研究問題：昨天的研究方法課有十名學生缺席。">Research problem: Ten students were absent from yesterday’s research methods class.</div>
         <h2 data-en="Make every connection visible" data-zh="讓每個連繫清晰可見">Make every connection visible</h2>
-        <div class="canvas-list">
-          <div><b data-en="Purpose" data-zh="目的">Purpose</b><span data-en="What should the study accomplish?" data-zh="研究要達成甚麼？">What should the study accomplish?</span></div>
-          <div><b data-en="Research question" data-zh="研究問題">Research question</b><span data-en="What exactly will be asked?" data-zh="研究具體要問甚麼？">What exactly will be asked?</span></div>
-          <div><b data-en="Ontology" data-zh="本體論">Ontology</b><span data-en="What is assumed about reality?" data-zh="對現實有甚麼假設？">What is assumed about reality?</span></div>
-          <div><b data-en="Epistemology" data-zh="知識論">Epistemology</b><span data-en="What counts as knowledge?" data-zh="甚麼算知識？">What counts as knowledge?</span></div>
-          <div><b data-en="Axiology" data-zh="價值論">Axiology</b><span data-en="Which values and positions matter?" data-zh="哪些價值與位置重要？">Which values and positions matter?</span></div>
-          <div><b data-en="Methodology" data-zh="方法論">Methodology</b><span data-en="What overall strategy fits?" data-zh="哪種整體策略合適？">What overall strategy fits?</span></div>
-          <div><b data-en="Methods" data-zh="研究方法">Methods</b><span data-en="What procedures will be used?" data-zh="將使用甚麼程序？">What procedures will be used?</span></div>
-          <div><b data-en="Evidence" data-zh="證據">Evidence</b><span data-en="What evidence will the methods produce?" data-zh="方法將產生甚麼證據？">What evidence will the methods produce?</span></div>
-          <div><b data-en="Intended claim" data-zh="預期主張">Intended claim</b><span data-en="What can the evidence reasonably support?" data-zh="證據能合理支持甚麼？">What can the evidence reasonably support?</span></div>
+        <div class="design-walkthrough-grid">
+          <figure class="thinking-map"><img src={thinkingMapSrc} alt="Research design thinking map showing purpose, paradigm, design and frame" /><figcaption data-en="A research design is a chain of connected decisions, not a set of separate boxes." data-zh="研究設計是一連串彼此相連的決策，而不是一組分開的方格。">A research design is a chain of connected decisions, not a set of separate boxes.</figcaption></figure>
+          <ol class="thinker-steps">
+            <li><b data-en="Purpose" data-zh="目的">Purpose</b><p data-en="‘First, I need to understand whether yesterday’s absences were unusual and what may be shaping them.’" data-zh="「首先，我需要了解昨天的缺席是否不尋常，以及甚麼因素可能形塑它。」">‘First, I need to understand whether yesterday’s absences were unusual and what may be shaping them.’</p></li>
+            <li><b data-en="Paradigm" data-zh="典範">Paradigm</b><p data-en="‘The absences are observable, but students may experience their causes differently. I need both patterns and accounts.’" data-zh="「缺席是可觀察的，但學生可能以不同方式經驗其原因。我需要規律和敘述兩方面的證據。」">‘The absences are observable, but students may experience their causes differently. I need both patterns and accounts.’</p></li>
+            <li><b data-en="Refined question" data-zh="聚焦後的問題">Refined question</b><p data-en="‘How do timetable, workload and student circumstances combine to shape absence from this class?’" data-zh="「時間表、工作量與學生處境如何共同形塑這節課的缺席？」">‘How do timetable, workload and student circumstances combine to shape absence from this class?’</p></li>
+            <li><b data-en="Design" data-zh="設計">Design</b><p data-en="‘A small mixed-methods case study can first identify attendance patterns, then explore how students explain them.’" data-zh="「小型混合方法個案研究可先辨識出席規律，再探究學生如何解釋它們。」">‘A small mixed-methods case study can first identify attendance patterns, then explore how students explain them.’</p></li>
+            <li><b data-en="Methods" data-zh="研究方法">Methods</b><p data-en="‘I will examine several weeks of records, invite an anonymous questionnaire, and interview volunteers without treating absence as misconduct.’" data-zh="「我會檢視數週的紀錄，邀請學生填寫匿名問卷，並訪談自願者；不把缺席預設為違規。」">‘I will examine several weeks of records, invite an anonymous questionnaire, and interview volunteers without treating absence as misconduct.’</p></li>
+            <li><b data-en="Analysis and claims" data-zh="分析與主張">Analysis and claims</b><p data-en="‘I will compare patterns with students’ accounts and make a cautious claim about this class—not a universal causal claim.’" data-zh="「我會把規律與學生敘述作比較，並對這個班級提出審慎主張，而不是提出普遍的因果主張。」">‘I will compare patterns with students’ accounts and make a cautious claim about this class—not a universal causal claim.’</p></li>
+          </ol>
         </div>
       </div>
     </section>
@@ -605,10 +606,16 @@ const exitQuestions = [
   .match-label { position: absolute; top: 50%; right: .55rem; max-width: 7.4rem; transform: translateY(-50%); color: var(--green); font-size: .7rem; font-weight: 700; line-height: 1.2; text-align: right; }
   .matching-feedback { min-height: 2.25rem; margin-top: .75rem; padding: .55rem .75rem; border-left: .25rem solid var(--line); background: var(--soft); color: var(--muted); font-size: .9rem; }
   .matching-feedback strong { color: var(--green); }
-  .canvas-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: .55rem; }
-  .canvas-list div { min-height: 5.5rem; padding: .7rem; border: 1px solid var(--line); border-radius: .3rem; }
-  .canvas-list b { display: block; margin-bottom: .35rem; color: var(--green); }
-  .canvas-list span { color: var(--muted); font-size: .9rem; }
+  .design-walkthrough h2 { margin-bottom: .75rem; font-size: clamp(2.4rem, 4.4vw, 4.25rem); }
+  .design-walkthrough-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 1.2rem; align-items: start; }
+  .thinking-map { margin: 0; padding: .55rem; border: 1px solid var(--line); border-radius: .35rem; background: var(--soft); }
+  .thinking-map img { display: block; width: 100%; height: auto; }
+  .thinking-map figcaption { margin-top: .55rem; color: var(--muted); font-size: .8rem; line-height: 1.35; }
+  .thinker-steps { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: thinking-step; }
+  .thinker-steps li { min-height: 5.7rem; padding: .65rem .7rem .65rem 2.35rem; border: 1px solid var(--line); border-radius: .3rem; counter-increment: thinking-step; }
+  .thinker-steps li::before { display: grid; width: 1.35rem; height: 1.35rem; margin: .05rem 0 0 -1.7rem; float: left; place-items: center; border-radius: 50%; background: var(--green); color: #fff; content: counter(thinking-step); font-size: .65rem; font-weight: 700; }
+  .thinker-steps b { color: var(--green); font-size: .84rem; text-transform: uppercase; }
+  .thinker-steps p { margin: .25rem 0 0; color: var(--dark); font-size: .85rem; line-height: 1.35; }
   .exit-slide { justify-content: flex-start; }
   .exit-head { display: flex; align-items: end; justify-content: space-between; gap: 1rem; }
   .exit-head h2 { margin-bottom: .8rem; }
@@ -656,7 +663,7 @@ const exitQuestions = [
     .slide { padding: 5rem 1rem 5.5rem; }
     .slide-inner { min-height: auto; justify-content: flex-start; }
     .slide-tools { right: .55rem; top: .55rem; }
-    .outcome-list, .split-simple, .question-list, .question-list.compact, .three-explanations, .position-quiz, .steps, .study-list, .position-list, .misconceptions, .matching-activity, .canvas-list, .exit-grid, .response-card dl, .activity-steps, .paradigm-workspace, .combined-values, .combined-values .question-list.compact { grid-template-columns: 1fr; }
+    .outcome-list, .split-simple, .question-list, .question-list.compact, .three-explanations, .position-quiz, .steps, .study-list, .position-list, .misconceptions, .matching-activity, .design-walkthrough-grid, .thinker-steps, .exit-grid, .response-card dl, .activity-steps, .paradigm-workspace, .combined-values, .combined-values .question-list.compact { grid-template-columns: 1fr; }
     .paradigm-bank { min-height: 0; }
     .quadrant-stage { min-height: 18.5rem; padding-right: 3.8rem; padding-left: 3.8rem; }
     .layer-list, .plain-row { grid-template-columns: 1fr 1fr; }
