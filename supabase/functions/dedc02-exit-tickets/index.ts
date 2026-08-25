@@ -90,7 +90,7 @@ Deno.serve(async (req: Request) => {
 
   if (action === 'list') {
     const accessCode = String(body.accessCode || '').trim();
-    if (accessCode.length < 24) return json(req, 401, { error: 'Teacher access code not recognised' });
+    if (!/^\d{6}$/.test(accessCode)) return json(req, 401, { error: 'Teacher access code not recognised' });
     const codeHash = await sha256(accessCode);
     const { data: keyRow, error: keyError } = await supabase
       .from('dedc02_dashboard_keys')
