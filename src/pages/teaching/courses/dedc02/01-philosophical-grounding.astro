@@ -24,14 +24,6 @@ const layers = [
   ['Claims', 'What can the evidence support?', '研究主張', '證據能合理支持甚麼？'],
 ];
 
-const positions = [
-  ['Positivism', 'A single reality can be observed and measured. Research seeks patterns, causes and general laws.', '實證主義', '現實是單一、可觀察和測量的；研究尋找規律、原因與一般法則。'],
-  ['Postpositivism', 'A real world exists, but our knowledge is always fallible. Claims remain probabilistic and open to revision.', '後實證主義', '真實世界存在，但人的知識總有局限；研究主張是概率性的，並可被修正。'],
-  ['Interpretivism / constructivism', 'People construct meanings through experience and interaction. Multiple, situated realities are expected.', '詮釋主義／建構主義', '人們透過經驗與互動建構意義，因此可能存在多重且情境化的現實。'],
-  ['Critical / transformative', 'Knowledge and power are connected. Research examines inequality and may seek social or institutional change.', '批判／轉化取向', '知識與權力互相關連；研究檢視不平等，並可能追求社會或制度改變。'],
-  ['Pragmatism', 'The research problem and practical consequences guide the inquiry. Different forms of evidence may be combined.', '實用主義', '研究問題與實際後果引導探究；可結合不同形式的證據。'],
-];
-
 const exitQuestions = [
   ['ontology', 'Ontology concerns…', '本體論關注……'],
   ['epistemology', 'Epistemology concerns…', '知識論關注……'],
@@ -317,29 +309,26 @@ const exitQuestions = [
       </div>
     </section>
 
-    <section class="slide" data-title="Can research be value-free?" aria-hidden="true">
-      <div class="slide-inner">
-        <p class="eyebrow" data-en="Values continuum" data-zh="價值連續線">Values continuum</p>
-        <div class="problem-strip" data-en="Research problem: Ten students were absent from yesterday’s research methods class." data-zh="研究問題：昨天的研究方法課有十名學生缺席。">Research problem: Ten students were absent from yesterday’s research methods class.</div>
-        <h2 data-en="Good research should be completely objective and value-free." data-zh="好的研究應完全客觀，並且不受價值影響。">Good research should be completely objective and value-free.</h2>
-        <div class="continuum">
-          <label><span data-en="Strongly disagree" data-zh="非常不同意">Strongly disagree</span><span data-en="Strongly agree" data-zh="非常同意">Strongly agree</span></label>
-          <input type="range" min="0" max="100" value="50" aria-label="Position on values continuum" />
-        </div>
-        <div class="question-list compact">
-          <p data-en="Who decided that absence is a problem?" data-zh="誰決定缺席是一個問題？">Who decided that absence is a problem?</p>
-          <p data-en="Whose interests would the study serve?" data-zh="研究會服務誰的利益？">Whose interests would the study serve?</p>
-          <p data-en="Could the researcher’s position affect interpretation?" data-zh="研究者的位置會影響詮釋嗎？">Could the researcher’s position affect interpretation?</p>
-          <p data-en="Is attempting neutrality itself a value position?" data-zh="嘗試保持中立本身也是一種價值立場嗎？">Is attempting neutrality itself a value position?</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide" data-title="Axiology throughout research" aria-hidden="true">
+    <section class="slide combined-axiology" data-title="Axiology and values" aria-hidden="true">
       <div class="slide-inner">
         <p class="eyebrow" data-en="Beyond ethical approval" data-zh="超越倫理審批">Beyond ethical approval</p>
         <div class="problem-strip" data-en="Research problem: Ten students were absent from yesterday’s research methods class." data-zh="研究問題：昨天的研究方法課有十名學生缺席。">Research problem: Ten students were absent from yesterday’s research methods class.</div>
         <h2 data-en="Axiology runs through the whole study" data-zh="價值論貫穿整項研究">Axiology runs through the whole study</h2>
+        <div class="combined-values">
+          <div class="continuum-reflection">
+            <h3 data-en="Good research should be completely objective and value-free." data-zh="好的研究應完全客觀，並且不受價值影響。">Good research should be completely objective and value-free.</h3>
+            <div class="continuum">
+              <label><span data-en="Strongly disagree" data-zh="非常不同意">Strongly disagree</span><span data-en="Strongly agree" data-zh="非常同意">Strongly agree</span></label>
+              <input type="range" min="0" max="100" value="50" aria-label="Position on values continuum" />
+            </div>
+          </div>
+          <div class="question-list compact">
+            <p data-en="Who decided that absence is a problem?" data-zh="誰決定缺席是一個問題？">Who decided that absence is a problem?</p>
+            <p data-en="Whose interests would the study serve?" data-zh="研究會服務誰的利益？">Whose interests would the study serve?</p>
+            <p data-en="Could the researcher’s position affect interpretation?" data-zh="研究者的位置會影響詮釋嗎？">Could the researcher’s position affect interpretation?</p>
+            <p data-en="Is attempting neutrality itself a value position?" data-zh="嘗試保持中立本身也是一種價值立場嗎？">Is attempting neutrality itself a value position?</p>
+          </div>
+        </div>
         <div class="plain-row">
           <div><b data-en="Priorities" data-zh="優先次序">Priorities</b><span data-en="What deserves study?" data-zh="甚麼值得研究？">What deserves study?</span></div>
           <div><b data-en="Position" data-zh="研究者位置">Position</b><span data-en="How am I implicated?" data-zh="我如何牽涉其中？">How am I implicated?</span></div>
@@ -347,19 +336,6 @@ const exitQuestions = [
           <div><b data-en="Consequences" data-zh="後果">Consequences</b><span data-en="Who benefits or loses?" data-zh="誰受益或受損？">Who benefits or loses?</span></div>
         </div>
         <p class="instruction" data-en="Values can be made transparent and examined. They cannot simply be switched off." data-zh="價值可以被透明呈現與檢視，卻不能被簡單關掉。">Values can be made transparent and examined. They cannot simply be switched off.</p>
-        <div class="axiology-positions">
-          <p class="eyebrow" data-en="Research positions" data-zh="研究立場">Research positions</p>
-          <h3 data-en="Five ways of seeing and knowing" data-zh="五種理解現實與知識的方式">Five ways of seeing and knowing</h3>
-          <div class="position-list">
-            {positions.map(([enTitle, enText, zhTitle, zhText], index) => (
-              <details>
-                <summary><span>{String(index + 1).padStart(2, '0')}</span><b data-en={enTitle} data-zh={zhTitle}>{enTitle}</b></summary>
-                <p data-en={enText} data-zh={zhText}>{enText}</p>
-              </details>
-            ))}
-          </div>
-          <p class="note" data-en="These labels simplify complex and contested traditions. Use them as starting points, not boxes." data-zh="這些標籤簡化了複雜且具爭議的傳統；應把它們視為起點，而不是固定框架。">These labels simplify complex and contested traditions. Use them as starting points, not boxes.</p>
-        </div>
       </div>
     </section>
 
@@ -585,9 +561,13 @@ const exitQuestions = [
   .plain-row div { display: flex; min-height: 7rem; flex-direction: column; justify-content: flex-end; padding: .8rem; border-top: .25rem solid var(--green); background: var(--soft); }
   .plain-row b { color: var(--dark); }
   .plain-row span { color: var(--muted); font-size: .9rem; }
-  .axiology-positions { margin-top: 1rem; padding-top: .85rem; border-top: 1px solid var(--line); }
-  .axiology-positions .eyebrow { margin-bottom: .35rem; }
-  .axiology-positions h3 { margin: 0 0 .65rem; color: var(--dark); font-family: 'Source Serif 4', Georgia, serif; font-size: 1.55rem; font-weight: 600; }
+  .combined-axiology h2 { margin-bottom: .8rem; font-size: clamp(2.5rem, 4.6vw, 4.5rem); }
+  .combined-values { display: grid; grid-template-columns: .95fr 1.35fr; gap: .7rem; margin-bottom: .8rem; }
+  .continuum-reflection { padding: .8rem; border: 1px solid var(--line); border-radius: .35rem; }
+  .continuum-reflection h3 { margin: 0 0 .7rem; color: var(--dark); font-family: 'Source Serif 4', Georgia, serif; font-size: 1.25rem; font-weight: 600; line-height: 1.15; }
+  .combined-values .continuum { padding: 0; border: 0; }
+  .combined-values .question-list.compact { grid-template-columns: 1fr 1fr; gap: .5rem; }
+  .combined-values .question-list p { display: flex; align-items: center; padding: .65rem .7rem; font-size: .9rem; line-height: 1.3; }
   .study-list { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; }
   .study-list div { padding: .8rem; border: 1px solid var(--line); border-radius: .35rem; }
   .study-list b { color: var(--green); }
@@ -654,7 +634,7 @@ const exitQuestions = [
     .slide { padding: 5rem 1rem 5.5rem; }
     .slide-inner { min-height: auto; justify-content: flex-start; }
     .slide-tools { right: .55rem; top: .55rem; }
-    .outcome-list, .split-simple, .question-list, .question-list.compact, .three-explanations, .position-quiz, .steps, .study-list, .position-list, .misconceptions, .question-starters, .canvas-list, .exit-grid, .response-card dl, .activity-steps, .paradigm-workspace { grid-template-columns: 1fr; }
+    .outcome-list, .split-simple, .question-list, .question-list.compact, .three-explanations, .position-quiz, .steps, .study-list, .position-list, .misconceptions, .question-starters, .canvas-list, .exit-grid, .response-card dl, .activity-steps, .paradigm-workspace, .combined-values, .combined-values .question-list.compact { grid-template-columns: 1fr; }
     .paradigm-bank { min-height: 0; }
     .quadrant-stage { min-height: 18.5rem; padding-right: 3.8rem; padding-left: 3.8rem; }
     .layer-list, .plain-row { grid-template-columns: 1fr 1fr; }
