@@ -339,19 +339,32 @@ const exitQuestions = [
       </div>
     </section>
 
-    <section class="slide" data-title="Question starters by position" aria-hidden="true">
+    <section class="slide" data-title="Match paradigms and questions" aria-hidden="true">
       <div class="slide-inner">
-        <p class="eyebrow" data-en="Question starters" data-zh="研究問題起點">Question starters</p>
-        <div class="problem-strip" data-en="Research problem: Why do some university students regularly miss scheduled classes?" data-zh="研究問題：為甚麼部分大學生經常缺席既定課堂？">Research problem: Why do some university students regularly miss scheduled classes?</div>
-        <h2 data-en="Use the position to reshape the question" data-zh="運用研究立場重塑問題">Use the position to reshape the question</h2>
-        <div class="question-starters">
-          <div><b data-en="Positivist" data-zh="實證主義">Positivist</b><p data-en="What observable factors cause student absence?" data-zh="哪些可觀察因素導致學生缺席？">What observable factors cause student absence?</p></div>
-          <div><b data-en="Postpositivist" data-zh="後實證主義">Postpositivist</b><p data-en="Which factors predict absence, and how confidently?" data-zh="哪些因素能預測缺席？可信程度如何？">Which factors predict absence, and how confidently?</p></div>
-          <div><b data-en="Interpretive / constructivist" data-zh="詮釋／建構主義">Interpretive / constructivist</b><p data-en="How do students understand their decisions to miss class?" data-zh="學生如何理解自己的缺席決定？">How do students understand their decisions to miss class?</p></div>
-          <div><b data-en="Critical / transformative" data-zh="批判／轉化取向">Critical / transformative</b><p data-en="How do attendance policies advantage or disadvantage different students?" data-zh="出席政策如何使不同學生受益或受損？">How do attendance policies advantage or disadvantage different students?</p></div>
-          <div><b data-en="Pragmatist" data-zh="實用主義">Pragmatist</b><p data-en="Which feasible response improves attendance, for whom and under what conditions?" data-zh="哪些可行回應能改善出席？對誰有效？在甚麼條件下有效？">Which feasible response improves attendance, for whom and under what conditions?</p></div>
+        <p class="eyebrow" data-en="Matching activity" data-zh="配對活動">Matching activity</p>
+        <div class="problem-strip" data-en="Research problem: Ten students were absent from yesterday’s research methods class." data-zh="研究問題：昨天的研究方法課有十名學生缺席。">Research problem: Ten students were absent from yesterday’s research methods class.</div>
+        <h2 data-en="Match each paradigm to its research question" data-zh="把每個典範配對到其研究問題">Match each paradigm to its research question</h2>
+        <p class="note matching-note" data-en="Choose a paradigm on the left, then choose the question on the right that best follows from its assumptions." data-zh="先在左側選擇一個典範，再在右側選擇最能體現其假設的研究問題。">Choose a paradigm on the left, then choose the question on the right that best follows from its assumptions.</p>
+        <div class="matching-activity" data-matching-activity>
+          <div class="matching-column">
+            <h3 data-en="Paradigms" data-zh="典範">Paradigms</h3>
+            <button type="button" class="match-paradigm" data-match-paradigm="positivism" data-en="Positivism" data-zh="實證主義">Positivism</button>
+            <button type="button" class="match-paradigm" data-match-paradigm="postpositivism" data-en="Post-Positivism" data-zh="後實證主義">Post-Positivism</button>
+            <button type="button" class="match-paradigm" data-match-paradigm="interpretivism" data-en="Interpretivism / Constructivism" data-zh="解釋主義／建構主義">Interpretivism / Constructivism</button>
+            <button type="button" class="match-paradigm" data-match-paradigm="critical-realism" data-en="Critical Realism" data-zh="批判現實主義">Critical Realism</button>
+            <button type="button" class="match-paradigm" data-match-paradigm="pragmatism" data-en="Pragmatism" data-zh="實用主義">Pragmatism</button>
+          </div>
+          <div class="matching-column matching-questions">
+            <h3 data-en="Research questions" data-zh="研究問題">Research questions</h3>
+            <button type="button" class="match-question" data-match-question="pragmatism" data-en="Which feasible response improves attendance, for whom and under what conditions?" data-zh="哪些可行回應能改善出席？對誰有效？在甚麼條件下有效？">Which feasible response improves attendance, for whom and under what conditions?</button>
+            <button type="button" class="match-question" data-match-question="interpretivism" data-en="How do students understand and explain their decisions to miss this class?" data-zh="學生如何理解和解釋自己缺席這節課的決定？">How do students understand and explain their decisions to miss this class?</button>
+            <button type="button" class="match-question" data-match-question="postpositivism" data-en="Which factors predict absence, and how confidently can we make that claim?" data-zh="哪些因素能預測缺席？我們能以多大把握提出這個主張？">Which factors predict absence, and how confidently can we make that claim?</button>
+            <button type="button" class="match-question" data-match-question="critical-realism" data-en="What underlying conditions and mechanisms may be producing these absences?" data-zh="哪些深層條件與機制可能產生這些缺席？">What underlying conditions and mechanisms may be producing these absences?</button>
+            <button type="button" class="match-question" data-match-question="positivism" data-en="Which measurable factors are associated with absence in this class?" data-zh="哪些可測量因素與這節課的缺席有關？">Which measurable factors are associated with absence in this class?</button>
+          </div>
         </div>
-        <p class="instruction" data-en="Do not copy a starter unchanged. Revise it so the assumptions and intended claim are clear." data-zh="不要直接照抄。請修訂問題，使其假設與預期主張清晰可見。">Do not copy a starter unchanged. Revise it so the assumptions and intended claim are clear.</p>
+        <div class="matching-feedback" data-matching-feedback aria-live="polite"></div>
+        <button type="button" class="reset-position" data-matching-reset data-en="Reset matches" data-zh="重設配對">Reset matches</button>
       </div>
     </section>
 
@@ -578,11 +591,20 @@ const exitQuestions = [
   .misconceptions { display: grid; grid-template-columns: 1fr 1fr; gap: .55rem; }
   .misconceptions summary { padding: .75rem; color: var(--dark); font-weight: 600; }
   .misconceptions p { margin: 0; padding: .7rem; border-top: 1px solid var(--line); background: var(--soft); color: var(--muted); }
-  .question-starters { display: grid; grid-template-columns: 1fr 1fr; gap: .55rem; }
-  .question-starters div { padding: .7rem; border-bottom: 1px solid var(--line); }
-  .question-starters div:last-child { grid-column: 1 / -1; }
-  .question-starters b { color: var(--green); }
-  .question-starters p { margin: .25rem 0 0; color: var(--dark); }
+  .matching-note { margin: -.45rem 0 .9rem; }
+  .matching-activity { display: grid; grid-template-columns: .75fr 1.45fr; gap: .8rem; }
+  .matching-column { display: grid; align-content: start; gap: .5rem; padding: .75rem; border: 1px solid var(--line); border-radius: .35rem; }
+  .matching-column h3 { margin: 0 0 .1rem; color: var(--green); font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; }
+  .match-paradigm, .match-question { position: relative; width: 100%; border: 1px solid #dcebe2; border-radius: .3rem; padding: .7rem .8rem; background: #fff; color: var(--dark); font: inherit; line-height: 1.35; text-align: left; cursor: pointer; }
+  .match-paradigm { color: var(--green); font-weight: 700; }
+  .match-paradigm:hover, .match-paradigm:focus-visible, .match-paradigm.is-selected { border-color: var(--green); outline: none; background: var(--green); color: #fff; }
+  .match-question:hover, .match-question:focus-visible { border-color: var(--green); outline: none; }
+  .match-question.is-matched { padding-right: 8.5rem; border-color: var(--green); background: var(--soft); }
+  .match-question.is-correct { box-shadow: inset .25rem 0 0 var(--green); }
+  .match-question.is-incorrect { border-color: #a1493d; box-shadow: inset .25rem 0 0 #a1493d; }
+  .match-label { position: absolute; top: 50%; right: .55rem; max-width: 7.4rem; transform: translateY(-50%); color: var(--green); font-size: .7rem; font-weight: 700; line-height: 1.2; text-align: right; }
+  .matching-feedback { min-height: 2.25rem; margin-top: .75rem; padding: .55rem .75rem; border-left: .25rem solid var(--line); background: var(--soft); color: var(--muted); font-size: .9rem; }
+  .matching-feedback strong { color: var(--green); }
   .canvas-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: .55rem; }
   .canvas-list div { min-height: 5.5rem; padding: .7rem; border: 1px solid var(--line); border-radius: .3rem; }
   .canvas-list b { display: block; margin-bottom: .35rem; color: var(--green); }
@@ -634,11 +656,11 @@ const exitQuestions = [
     .slide { padding: 5rem 1rem 5.5rem; }
     .slide-inner { min-height: auto; justify-content: flex-start; }
     .slide-tools { right: .55rem; top: .55rem; }
-    .outcome-list, .split-simple, .question-list, .question-list.compact, .three-explanations, .position-quiz, .steps, .study-list, .position-list, .misconceptions, .question-starters, .canvas-list, .exit-grid, .response-card dl, .activity-steps, .paradigm-workspace, .combined-values, .combined-values .question-list.compact { grid-template-columns: 1fr; }
+    .outcome-list, .split-simple, .question-list, .question-list.compact, .three-explanations, .position-quiz, .steps, .study-list, .position-list, .misconceptions, .matching-activity, .canvas-list, .exit-grid, .response-card dl, .activity-steps, .paradigm-workspace, .combined-values, .combined-values .question-list.compact { grid-template-columns: 1fr; }
     .paradigm-bank { min-height: 0; }
     .quadrant-stage { min-height: 18.5rem; padding-right: 3.8rem; padding-left: 3.8rem; }
     .layer-list, .plain-row { grid-template-columns: 1fr 1fr; }
-    .position-list details:last-child, .question-starters div:last-child { grid-column: auto; }
+    .position-list details:last-child { grid-column: auto; }
     .tree-illustration img { max-height: 360px; }
     .exit-head { align-items: start; flex-direction: column; }
     .identity-row, .dashboard-controls { grid-template-columns: 1fr; }

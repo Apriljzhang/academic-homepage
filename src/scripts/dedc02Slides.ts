@@ -126,6 +126,60 @@ function renderParadigmActivities(slide?: HTMLElement) {
     .forEach(renderParadigmActivity);
 }
 
+function renderMatchingActivity(activity: HTMLElement) {
+  const slide = activity.closest<HTMLElement>('.slide');
+  const language = slide?.dataset.language === 'zh' ? 'zh' : 'en';
+  const activeParadigm = activity.dataset.activeMatch || '';
+  const paradigms = Array.from(activity.querySelectorAll<HTMLButtonElement>('[data-match-paradigm]'));
+  const questions = Array.from(activity.querySelectorAll<HTMLButtonElement>('[data-match-question]'));
+  const feedback = slide?.querySelector<HTMLElement>('[data-matching-feedback]');
+  const matched = questions.filter((question) => question.dataset.matchedParadigm);
+  const allMatched = matched.length === questions.length;
+  const correct = matched.filter((question) => question.dataset.matchedParadigm === question.dataset.matchQuestion).length;
+
+  paradigms.forEach((paradigm) => {
+    const isSelected = paradigm.dataset.matchParadigm === activeParadigm;
+    paradigm.classList.toggle('is-selected', isSelected);
+    paradigm.setAttribute('aria-pressed', String(isSelected));
+  });
+  questions.forEach((question) => {
+    question.querySelector('.match-label')?.remove();
+    const matchedParadigm = question.dataset.matchedParadigm;
+    question.classList.toggle('is-matched', Boolean(matchedParadigm));
+    question.classList.toggle('is-correct', allMatched && matchedParadigm === question.dataset.matchQuestion);
+    question.classList.toggle('is-incorrect', allMatched && matchedParadigm !== question.dataset.matchQuestion);
+    if (!matchedParadigm) return;
+    const paradigm = paradigms.find((item) => item.dataset.matchParadigm === matchedParadigm);
+    if (!paradigm) return;
+    const label = document.createElement('span');
+    label.className = 'match-label';
+    label.textContent = paradigm.dataset[language] || paradigm.textContent || '';
+    question.append(label);
+  });
+
+  if (!feedback) return;
+  feedback.replaceChildren();
+  const title = document.createElement('strong');
+  const detail = document.createElement('span');
+  if (allMatched) {
+    title.textContent = language === 'zh' ? `完成：${correct}/5 配對正確。` : `Complete: ${correct}/5 matches are correct.`;
+    detail.textContent = language === 'zh' ? ' 檢視標示，並討論每個問題背後對現實與知識的假設。' : ' Review the markings and discuss the assumptions about reality and knowledge behind each question.';
+  } else if (activeParadigm) {
+    const label = paradigms.find((item) => item.dataset.matchParadigm === activeParadigm)?.dataset[language] || '';
+    title.textContent = language === 'zh' ? `已選擇：${label}` : `Selected: ${label}`;
+    detail.textContent = language === 'zh' ? ' 現在選擇右側最合適的研究問題。' : ' Now choose the best-fitting research question on the right.';
+  } else {
+    title.textContent = language === 'zh' ? `已完成 ${matched.length}/5 個配對。` : `${matched.length}/5 matches made.`;
+    detail.textContent = language === 'zh' ? ' 選擇左側一個典範，然後選擇右側一個問題。' : ' Choose a paradigm on the left, then a question on the right.';
+  }
+  feedback.append(title, detail);
+}
+
+function renderMatchingActivities(slide?: HTMLElement) {
+  Array.from(slide?.querySelectorAll<HTMLElement>('[data-matching-activity]') || document.querySelectorAll<HTMLElement>('[data-matching-activity]'))
+    .forEach(renderMatchingActivity);
+}
+
 function setTextLanguage(slide: HTMLElement, language: 'en' | 'zh') {
   slide.dataset.language = language;
   slide.querySelectorAll<HTMLElement>('[data-en][data-zh]').forEach((element) => {
@@ -133,6 +187,7 @@ function setTextLanguage(slide: HTMLElement, language: 'en' | 'zh') {
   });
   renderPositionResults(slide);
   renderParadigmActivities(slide);
+  renderMatchingActivities(slide);
 }
 
 function syncTranslateButton() {
@@ -317,6 +372,40 @@ document.querySelectorAll<HTMLButtonElement>('[data-paradigm-reset]').forEach((b
       .sort((a, b) => (a.dataset.paradigmCard || '').localeCompare(b.dataset.paradigmCard || ''))
       .forEach((card) => { clearParadigmCardPosition(card); bank.append(card); });
     renderParadigmActivity(activity);
+  });
+});
+
+document.querySelectorAll<HTMLButtonElement>('[data-match-paradigm]').forEach((paradigm) => {
+  paradigm.addEventListener('click', () => {
+    const activity = paradigm.closest<HTMLElement>('[data-matching-activity]');
+    if (!activity) return;
+    activity.dataset.activeMatch = paradigm.dataset.matchParadigm || '';
+    renderMatchingActivity(activity);
+  });
+});
+
+document.querySelectorAll<HTMLButtonElement>('[data-match-question]').forEach((question) => {
+  question.addEventListener('click', () => {
+    const activity = question.closest<HTMLElement>('[data-matching-activity]');
+    const selectedParadigm = activity?.dataset.activeMatch;
+    if (!activity || !selectedParadigm) return;
+    activity.querySelectorAll<HTMLButtonElement>('[data-match-question]').forEach((item) => {
+      if (item.dataset.matchedParadigm === selectedParadigm) delete item.dataset.matchedParadigm;
+    });
+    question.dataset.matchedParadigm = selectedParadigm;
+    delete activity.dataset.activeMatch;
+    renderMatchingActivity(activity);
+  });
+});
+
+document.querySelectorAll<HTMLButtonElement>('[data-matching-reset]').forEach((button) => {
+  button.addEventListener('click', () => {
+    const slide = button.closest<HTMLElement>('.slide');
+    const activity = slide?.querySelector<HTMLElement>('[data-matching-activity]');
+    if (!activity) return;
+    delete activity.dataset.activeMatch;
+    activity.querySelectorAll<HTMLButtonElement>('[data-match-question]').forEach((question) => delete question.dataset.matchedParadigm);
+    renderMatchingActivity(activity);
   });
 });
 
