@@ -46,6 +46,20 @@ const positionMessages = {
       zh: ['實用主義', '你目前傾向於把有助於在情境中回應問題的知識視為重要。'],
     },
   },
+  methodology: {
+    positivist: {
+      en: ['Positivist / postpositivist approach', 'You currently lean towards testing measurable patterns and explaining them through systematic design, measurement and analysis.'],
+      zh: ['實證／後實證取向', '你目前傾向於透過系統性設計、測量與分析，檢驗可測量的規律並加以解釋。'],
+    },
+    interpretive: {
+      en: ['Interpretive / constructivist approach', 'You currently lean towards understanding meanings, experiences and context through close, situated inquiry.'],
+      zh: ['詮釋／建構主義取向', '你目前傾向於透過深入且情境化的探究，理解意義、經驗與脈絡。'],
+    },
+    pragmaticCritical: {
+      en: ['Pragmatist / critical-realist approach', 'You currently lean towards a mixed or layered design that links explanation of conditions with useful action.'],
+      zh: ['實用／批判現實主義取向', '你目前傾向於採取混合或分層設計，把對條件的解釋與有用的行動連繫起來。'],
+    },
+  },
 } as const;
 
 type PositionDomain = keyof typeof positionMessages;
