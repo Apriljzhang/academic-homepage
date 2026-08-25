@@ -104,12 +104,38 @@ function renderPositionResults(slide?: HTMLElement) {
   domains.forEach((result) => renderPositionResult(result.dataset.positionResult as PositionDomain));
 }
 
+let selectedParadigmCard: HTMLButtonElement | null = null;
+
+function renderParadigmActivity(activity: HTMLElement) {
+  const slide = activity.closest<HTMLElement>('.slide');
+  const status = activity.querySelector<HTMLElement>('[data-paradigm-status]');
+  const reveal = activity.querySelector<HTMLButtonElement>('[data-paradigm-reference]');
+  const total = activity.querySelectorAll<HTMLButtonElement>('[data-paradigm-card]').length;
+  const placed = Array.from(activity.querySelectorAll<HTMLElement>('[data-quadrant-zone]'))
+    .reduce((count, zone) => count + zone.querySelectorAll('[data-paradigm-card]').length, 0);
+  const language = slide?.dataset.language === 'zh' ? 'zh' : 'en';
+  const remaining = total - placed;
+
+  if (status) {
+    status.textContent = remaining > 0
+      ? (language === 'zh' ? `尚有 ${remaining} 個典範需要放置。` : `${remaining} paradigm${remaining === 1 ? '' : 's'} still to place.`)
+      : (language === 'zh' ? '七個典範都已放置。現在可以查看參考位置。' : 'All seven paradigms are placed. You can now reveal the reference placement.');
+  }
+  if (reveal) reveal.disabled = remaining > 0;
+}
+
+function renderParadigmActivities(slide?: HTMLElement) {
+  Array.from(slide?.querySelectorAll<HTMLElement>('[data-paradigm-activity]') || document.querySelectorAll<HTMLElement>('[data-paradigm-activity]'))
+    .forEach(renderParadigmActivity);
+}
+
 function setTextLanguage(slide: HTMLElement, language: 'en' | 'zh') {
   slide.dataset.language = language;
   slide.querySelectorAll<HTMLElement>('[data-en][data-zh]').forEach((element) => {
     element.textContent = element.dataset[language] || '';
   });
   renderPositionResults(slide);
+  renderParadigmActivities(slide);
 }
 
 function syncTranslateButton() {
@@ -195,6 +221,99 @@ document.querySelectorAll<HTMLButtonElement>('[data-position-reset]').forEach((b
       choice.setAttribute('aria-pressed', 'false');
     });
     renderPositionResult(domain);
+  });
+});
+
+function moveParadigmCard(card: HTMLButtonElement, destination: HTMLElement) {
+  const activity = card.closest<HTMLElement>('[data-paradigm-activity]');
+  destination.append(card);
+  card.classList.remove('is-selected', 'is-dragging');
+  card.setAttribute('aria-pressed', 'false');
+  selectedParadigmCard = null;
+  if (activity) renderParadigmActivity(activity);
+}
+
+document.querySelectorAll<HTMLButtonElement>('[data-paradigm-card]').forEach((card) => {
+  card.setAttribute('aria-pressed', 'false');
+  card.addEventListener('dragstart', (event) => {
+    event.dataTransfer?.setData('text/plain', card.dataset.paradigmCard || '');
+    if (event.dataTransfer) event.dataTransfer.effectAllowed = 'move';
+    card.classList.add('is-dragging');
+  });
+  card.addEventListener('dragend', () => card.classList.remove('is-dragging'));
+  card.addEventListener('click', (event) => {
+    event.stopPropagation();
+    const isSelected = selectedParadigmCard === card;
+    document.querySelectorAll<HTMLButtonElement>('[data-paradigm-card]').forEach((item) => {
+      item.classList.remove('is-selected');
+      item.setAttribute('aria-pressed', 'false');
+    });
+    selectedParadigmCard = isSelected ? null : card;
+    if (!isSelected) {
+      card.classList.add('is-selected');
+      card.setAttribute('aria-pressed', 'true');
+    }
+  });
+});
+
+function setupParadigmDropTarget(target: HTMLElement) {
+  target.addEventListener('dragover', (event) => {
+    event.preventDefault();
+    event.dataTransfer!.dropEffect = 'move';
+    target.classList.add('is-drop-target');
+  });
+  target.addEventListener('dragleave', () => target.classList.remove('is-drop-target'));
+  target.addEventListener('drop', (event) => {
+    event.preventDefault();
+    target.classList.remove('is-drop-target');
+    const id = event.dataTransfer?.getData('text/plain');
+    const card = id ? document.querySelector<HTMLButtonElement>(`[data-paradigm-card="${id}"]`) : null;
+    if (card) moveParadigmCard(card, target);
+  });
+}
+
+document.querySelectorAll<HTMLElement>('[data-quadrant-zone], [data-paradigm-bank]').forEach(setupParadigmDropTarget);
+document.querySelectorAll<HTMLElement>('[data-quadrant-zone]').forEach((zone) => {
+  const useSelectedCard = () => { if (selectedParadigmCard) moveParadigmCard(selectedParadigmCard, zone); };
+  zone.addEventListener('click', useSelectedCard);
+  zone.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); useSelectedCard(); }
+  });
+});
+
+document.querySelectorAll<HTMLButtonElement>('[data-paradigm-reference]').forEach((button) => {
+  button.addEventListener('click', () => {
+    const activity = button.closest<HTMLElement>('[data-paradigm-activity]');
+    const studentPanel = activity?.querySelector<HTMLElement>('.student-map-panel');
+    const referencePanel = activity?.querySelector<HTMLElement>('.reference-map-panel');
+    if (!activity || button.disabled || !studentPanel || !referencePanel) return;
+    studentPanel.hidden = true;
+    referencePanel.hidden = false;
+    renderParadigmActivity(activity);
+  });
+});
+
+document.querySelectorAll<HTMLButtonElement>('[data-paradigm-back]').forEach((button) => {
+  button.addEventListener('click', () => {
+    const activity = button.closest<HTMLElement>('[data-paradigm-activity]');
+    const studentPanel = activity?.querySelector<HTMLElement>('.student-map-panel');
+    const referencePanel = activity?.querySelector<HTMLElement>('.reference-map-panel');
+    if (!studentPanel || !referencePanel) return;
+    referencePanel.hidden = true;
+    studentPanel.hidden = false;
+  });
+});
+
+document.querySelectorAll<HTMLButtonElement>('[data-paradigm-reset]').forEach((button) => {
+  button.addEventListener('click', () => {
+    const activity = button.closest<HTMLElement>('[data-paradigm-activity]');
+    const bank = activity?.querySelector<HTMLElement>('[data-paradigm-bank]');
+    if (!activity || !bank) return;
+    Array.from(activity.querySelectorAll<HTMLButtonElement>('[data-paradigm-card]'))
+      .sort((a, b) => (a.dataset.paradigmCard || '').localeCompare(b.dataset.paradigmCard || ''))
+      .forEach((card) => bank.append(card));
+    selectedParadigmCard = null;
+    renderParadigmActivity(activity);
   });
 });
 

@@ -259,6 +259,69 @@ const exitQuestions = [
       </div>
     </section>
 
+    <section class="slide" data-title="Map research paradigms" aria-hidden="true">
+      <div class="slide-inner">
+        <p class="eyebrow" data-en="Ontology × epistemology · inquiry activity" data-zh="本體論 × 知識論 · 探究活動">Ontology × epistemology · inquiry activity</p>
+        <h2 data-en="Where might these paradigms sit?" data-zh="這些典範可能位於哪裡？">Where might these paradigms sit?</h2>
+        <ol class="activity-steps">
+          <li><b data-en="1. Ask AI" data-zh="1. 問 AI">1. Ask AI</b><span data-en="Ask an AI assistant for a concise explanation of each paradigm’s view of reality and knowledge. Compare its answer with your notes; do not treat its first answer as final." data-zh="請 AI 助手簡要說明每個典範如何看待現實與知識。把它的回應與你的筆記比較；不要把第一個答案當作定論。">Ask an AI assistant for a concise explanation of each paradigm’s view of reality and knowledge. Compare its answer with your notes; do not treat its first answer as final.</span></li>
+          <li><b data-en="2. Map your understanding" data-zh="2. 繪製你的理解">2. Map your understanding</b><span data-en="Drag each paradigm into the quadrant that currently makes most sense to you. Positions are approximate, not fixed boxes." data-zh="把每個典範拖到你目前認為最合適的象限。位置只是大致取向，並非固定分類。">Drag each paradigm into the quadrant that currently makes most sense to you. Positions are approximate, not fixed boxes.</span></li>
+        </ol>
+        <div class="paradigm-activity" data-paradigm-activity>
+          <div class="student-map-panel">
+            <div class="paradigm-workspace">
+              <div class="paradigm-bank" data-paradigm-bank aria-label="Paradigms to place">
+                <p data-en="Drag from here" data-zh="從這裡拖曳">Drag from here</p>
+                <button type="button" draggable="true" class="paradigm-card" data-paradigm-card="positivism" data-en="Positivism" data-zh="實證主義">Positivism</button>
+                <button type="button" draggable="true" class="paradigm-card" data-paradigm-card="postpositivism" data-en="Post-Positivism" data-zh="後實證主義">Post-Positivism</button>
+                <button type="button" draggable="true" class="paradigm-card" data-paradigm-card="constructivism" data-en="Constructivism" data-zh="建構主義">Constructivism</button>
+                <button type="button" draggable="true" class="paradigm-card" data-paradigm-card="social-constructionism" data-en="Social Constructionism" data-zh="社會建構主義">Social Constructionism</button>
+                <button type="button" draggable="true" class="paradigm-card" data-paradigm-card="interpretivism" data-en="Interpretivism" data-zh="解釋主義">Interpretivism</button>
+                <button type="button" draggable="true" class="paradigm-card" data-paradigm-card="pragmatism" data-en="Pragmatism" data-zh="實用主義">Pragmatism</button>
+                <button type="button" draggable="true" class="paradigm-card" data-paradigm-card="critical-realism" data-en="Critical Realism" data-zh="批判現實主義">Critical Realism</button>
+              </div>
+              <div class="quadrant-stage">
+                <div class="quadrant-axis axis-top"><strong data-en="Epistemology" data-zh="知識論">Epistemology</strong><span data-en="Objectivist" data-zh="客觀主義">Objectivist</span></div>
+                <div class="quadrant-axis axis-bottom"><strong data-en="Epistemology" data-zh="知識論">Epistemology</strong><span data-en="Interpretivist / Subjectivist" data-zh="解釋主義／主觀主義">Interpretivist / Subjectivist</span></div>
+                <div class="quadrant-axis axis-left"><strong data-en="Ontology" data-zh="本體論">Ontology</strong><span data-en="Relativist" data-zh="相對主義">Relativist</span></div>
+                <div class="quadrant-axis axis-right"><strong data-en="Ontology" data-zh="本體論">Ontology</strong><span data-en="Realist" data-zh="現實主義">Realist</span></div>
+                <div class="quadrant-grid" aria-label="Ontology and epistemology quadrant map">
+                  <div class="quadrant-zone" data-quadrant-zone="top-left" tabindex="0" role="button" aria-label="Objectivist and relativist quadrant"></div>
+                  <div class="quadrant-zone" data-quadrant-zone="top-right" tabindex="0" role="button" aria-label="Objectivist and realist quadrant"></div>
+                  <div class="quadrant-zone" data-quadrant-zone="bottom-left" tabindex="0" role="button" aria-label="Interpretivist and relativist quadrant"></div>
+                  <div class="quadrant-zone" data-quadrant-zone="bottom-right" tabindex="0" role="button" aria-label="Interpretivist and realist quadrant"></div>
+                </div>
+              </div>
+            </div>
+            <p class="paradigm-status" data-paradigm-status aria-live="polite"></p>
+            <div class="paradigm-actions">
+              <button type="button" class="primary-button" data-paradigm-reference disabled data-en="Reveal reference placement" data-zh="顯示參考位置">Reveal reference placement</button>
+              <button type="button" class="reset-position" data-paradigm-reset data-en="Reset map" data-zh="重設地圖">Reset map</button>
+            </div>
+          </div>
+          <div class="reference-map-panel" hidden>
+            <p class="reference-note" data-en="Reference placement — a teaching simplification. Paradigms are internally diverse and may sit differently in particular studies." data-zh="參考位置——這是教學上的簡化。不同典範內部本身多樣，在特定研究中也可能位於不同位置。">Reference placement — a teaching simplification. Paradigms are internally diverse and may sit differently in particular studies.</p>
+            <div class="quadrant-stage reference-stage">
+              <div class="quadrant-axis axis-top"><strong data-en="Epistemology" data-zh="知識論">Epistemology</strong><span data-en="Positivist / Objectivist" data-zh="實證主義／客觀主義">Positivist / Objectivist</span></div>
+              <div class="quadrant-axis axis-bottom"><strong data-en="Epistemology" data-zh="知識論">Epistemology</strong><span data-en="Interpretivist / Subjectivist" data-zh="解釋主義／主觀主義">Interpretivist / Subjectivist</span></div>
+              <div class="quadrant-axis axis-left"><strong data-en="Ontology" data-zh="本體論">Ontology</strong><span data-en="Relativist" data-zh="相對主義">Relativist</span></div>
+              <div class="quadrant-axis axis-right"><strong data-en="Ontology" data-zh="本體論">Ontology</strong><span data-en="Realist" data-zh="現實主義">Realist</span></div>
+              <div class="reference-quadrant-map" aria-label="Reference placement of research paradigms">
+                <span class="reference-paradigm ref-positivism" data-en="Positivism" data-zh="實證主義">Positivism</span>
+                <span class="reference-paradigm ref-critical-realism" data-en="Critical Realism" data-zh="批判現實主義">Critical Realism</span>
+                <span class="reference-paradigm ref-postpositivism" data-en="Post-Positivism" data-zh="後實證主義">Post-Positivism</span>
+                <span class="reference-paradigm ref-pragmatism" data-en="Pragmatism" data-zh="實用主義">Pragmatism</span>
+                <span class="reference-paradigm ref-social-constructionism" data-en="Social Constructionism" data-zh="社會建構主義">Social Constructionism</span>
+                <span class="reference-paradigm ref-constructivism" data-en="Constructivism" data-zh="建構主義">Constructivism</span>
+                <span class="reference-paradigm ref-interpretivism" data-en="Interpretivism" data-zh="解釋主義">Interpretivism</span>
+              </div>
+            </div>
+            <button type="button" class="reset-position" data-paradigm-back data-en="Return to my map" data-zh="返回我的地圖">Return to my map</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="slide" data-title="Can research be value-free?" aria-hidden="true">
       <div class="slide-inner">
         <p class="eyebrow" data-en="Values continuum" data-zh="價值連續線">Values continuum</p>
@@ -508,6 +571,47 @@ const exitQuestions = [
   .position-result p { margin: .25rem 0 0; color: var(--muted); }
   .position-result strong { color: var(--green); font-size: 1.1rem; }
   .reset-position { margin-top: .65rem; border: 0; padding: 0; background: transparent; color: var(--green); font: inherit; font-size: .9rem; font-weight: 700; text-decoration: underline; cursor: pointer; }
+  .activity-steps { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem 1rem; margin: -.35rem 0 1rem; padding: 0; list-style: none; }
+  .activity-steps li { display: grid; grid-template-columns: max-content 1fr; gap: .55rem; padding: .7rem .8rem; border-left: .25rem solid var(--green); background: var(--soft); color: var(--muted); font-size: .9rem; line-height: 1.35; }
+  .activity-steps b { color: var(--dark); }
+  .paradigm-activity { margin-top: .2rem; }
+  .paradigm-workspace { display: grid; grid-template-columns: 12rem minmax(0, 1fr); gap: 1.1rem; align-items: stretch; }
+  .paradigm-bank { display: flex; min-height: 17.5rem; align-content: flex-start; align-items: flex-start; flex-wrap: wrap; gap: .45rem; padding: .75rem; border: 1px solid var(--line); border-radius: .35rem; background: var(--soft); }
+  .paradigm-bank.is-drop-target { outline: 2px solid var(--green); outline-offset: 2px; }
+  .paradigm-bank > p { width: 100%; margin: 0 0 .1rem; color: var(--green); font-size: .78rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+  .paradigm-card { border: 1px solid var(--green); border-radius: 999px; padding: .42rem .65rem; background: #fff; color: var(--dark); font: 700 .8rem/1.2 'Source Sans 3', sans-serif; cursor: grab; }
+  .paradigm-card:hover, .paradigm-card:focus-visible, .paradigm-card.is-selected { background: var(--green); color: #fff; outline: none; }
+  .paradigm-card.is-dragging { opacity: .35; }
+  .quadrant-stage { position: relative; min-height: 17.5rem; padding: 1.75rem 4.6rem 1.7rem; }
+  .quadrant-axis { position: absolute; z-index: 2; display: flex; gap: .35rem; color: var(--dark); font-size: .78rem; line-height: 1.1; }
+  .quadrant-axis strong { color: var(--green); }
+  .axis-top, .axis-bottom { left: 50%; align-items: baseline; transform: translateX(-50%); white-space: nowrap; }
+  .axis-top { top: .15rem; }
+  .axis-bottom { bottom: .1rem; }
+  .axis-left, .axis-right { top: 50%; flex-direction: column; transform: translateY(-50%); }
+  .axis-left { left: 0; text-align: left; }
+  .axis-right { right: 0; text-align: right; }
+  .quadrant-grid, .reference-quadrant-map { position: relative; display: grid; min-height: 14rem; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; overflow: hidden; border: 1px solid #82b764; background: linear-gradient(#fff 0 50%, #edf6e8 50% 100%); }
+  .quadrant-grid::before, .reference-quadrant-map::before { position: absolute; z-index: 1; top: 0; bottom: 0; left: 50%; width: .2rem; background: #9ac87d; content: ''; transform: translateX(-50%); pointer-events: none; }
+  .quadrant-grid::after, .reference-quadrant-map::after { position: absolute; z-index: 1; right: 0; bottom: 50%; left: 0; height: .2rem; background: #9ac87d; content: ''; transform: translateY(50%); pointer-events: none; }
+  .quadrant-zone { position: relative; z-index: 2; display: flex; align-content: flex-start; align-items: flex-start; flex-wrap: wrap; gap: .35rem; min-width: 0; min-height: 0; padding: .65rem; outline: none; }
+  .quadrant-zone.is-drop-target, .quadrant-zone:focus-visible { box-shadow: inset 0 0 0 2px var(--green); background: rgba(255,255,255,.55); }
+  .quadrant-zone .paradigm-card { max-width: 100%; }
+  .paradigm-status { min-height: 1.25rem; margin: .7rem 0 0; color: var(--muted); font-size: .86rem; }
+  .paradigm-actions { display: flex; align-items: center; gap: .9rem; }
+  .paradigm-actions .reset-position { margin-top: 0; }
+  .reference-map-panel { margin-top: .25rem; }
+  .reference-note { margin: 0 0 .35rem; color: var(--muted); font-size: .88rem; }
+  .reference-stage { max-width: 860px; margin: 0 auto; }
+  .reference-quadrant-map { display: block; }
+  .reference-paradigm { position: absolute; z-index: 2; color: var(--dark); font-size: clamp(.73rem, 1.45vw, 1rem); font-weight: 700; line-height: 1.15; white-space: nowrap; transform: translate(-50%, -50%); }
+  .ref-positivism { left: 78%; top: 24%; }
+  .ref-critical-realism { left: 77%; top: 38%; }
+  .ref-postpositivism { left: 61%; top: 49%; }
+  .ref-pragmatism { left: 50%; top: 52%; }
+  .ref-social-constructionism { left: 28%; top: 64%; }
+  .ref-constructivism { left: 30%; top: 76%; }
+  .ref-interpretivism { left: 24%; top: 88%; }
   .split-simple { display: grid; grid-template-columns: 1.15fr .85fr; gap: 3rem; align-items: center; }
   .plain-definitions { margin: 0; }
   .plain-definitions div { display: grid; grid-template-columns: 8rem 1fr; gap: 1rem; padding: .6rem 0; border-bottom: 1px solid #dcebe2; }
@@ -600,7 +704,9 @@ const exitQuestions = [
     .slide { padding: 5rem 1rem 5.5rem; }
     .slide-inner { min-height: auto; justify-content: flex-start; }
     .slide-tools { right: .55rem; top: .55rem; }
-    .outcome-list, .split-simple, .question-list, .question-list.compact, .three-explanations, .position-quiz, .steps, .study-list, .position-list, .misconceptions, .question-starters, .canvas-list, .exit-grid, .response-card dl { grid-template-columns: 1fr; }
+    .outcome-list, .split-simple, .question-list, .question-list.compact, .three-explanations, .position-quiz, .steps, .study-list, .position-list, .misconceptions, .question-starters, .canvas-list, .exit-grid, .response-card dl, .activity-steps, .paradigm-workspace { grid-template-columns: 1fr; }
+    .paradigm-bank { min-height: 0; }
+    .quadrant-stage { min-height: 18.5rem; padding-right: 3.8rem; padding-left: 3.8rem; }
     .layer-list, .plain-row { grid-template-columns: 1fr 1fr; }
     .position-list details:last-child, .question-starters div:last-child { grid-column: auto; }
     .tree-illustration img { max-height: 360px; }
