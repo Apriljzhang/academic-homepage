@@ -265,32 +265,27 @@ const exitQuestions = [
         <h2 data-en="Where might these paradigms sit?" data-zh="這些典範可能位於哪裡？">Where might these paradigms sit?</h2>
         <ol class="activity-steps">
           <li><b data-en="1. Ask AI" data-zh="1. 問 AI">1. Ask AI</b><span data-en="Ask an AI assistant for a concise explanation of each paradigm’s view of reality and knowledge. Compare its answer with your notes; do not treat its first answer as final." data-zh="請 AI 助手簡要說明每個典範如何看待現實與知識。把它的回應與你的筆記比較；不要把第一個答案當作定論。">Ask an AI assistant for a concise explanation of each paradigm’s view of reality and knowledge. Compare its answer with your notes; do not treat its first answer as final.</span></li>
-          <li><b data-en="2. Map your understanding" data-zh="2. 繪製你的理解">2. Map your understanding</b><span data-en="Drag each paradigm into the quadrant that currently makes most sense to you. Positions are approximate, not fixed boxes." data-zh="把每個典範拖到你目前認為最合適的象限。位置只是大致取向，並非固定分類。">Drag each paradigm into the quadrant that currently makes most sense to you. Positions are approximate, not fixed boxes.</span></li>
+          <li><b data-en="2. Map your understanding" data-zh="2. 繪製你的理解">2. Map your understanding</b><span data-en="Drag each paradigm anywhere on the map — including directly onto the horizontal or vertical axis when that fits your understanding. Drop near an axis to snap it into place. Positions are approximate, not fixed boxes." data-zh="把每個典範拖到地圖上的任何位置——如果符合你的理解，也可以直接放在水平或垂直軸上。在軸線附近放開便會自動對齊。位置只是大致取向，並非固定分類。">Drag each paradigm anywhere on the map — including directly onto the horizontal or vertical axis when that fits your understanding. Drop near an axis to snap it into place. Positions are approximate, not fixed boxes.</span></li>
         </ol>
         <div class="paradigm-activity" data-paradigm-activity>
           <div class="student-map-panel">
             <div class="paradigm-workspace">
               <div class="paradigm-bank" data-paradigm-bank aria-label="Paradigms to place">
                 <p data-en="Drag from here" data-zh="從這裡拖曳">Drag from here</p>
-                <button type="button" draggable="true" class="paradigm-card" data-paradigm-card="positivism" data-en="Positivism" data-zh="實證主義">Positivism</button>
-                <button type="button" draggable="true" class="paradigm-card" data-paradigm-card="postpositivism" data-en="Post-Positivism" data-zh="後實證主義">Post-Positivism</button>
-                <button type="button" draggable="true" class="paradigm-card" data-paradigm-card="constructivism" data-en="Constructivism" data-zh="建構主義">Constructivism</button>
-                <button type="button" draggable="true" class="paradigm-card" data-paradigm-card="social-constructionism" data-en="Social Constructionism" data-zh="社會建構主義">Social Constructionism</button>
-                <button type="button" draggable="true" class="paradigm-card" data-paradigm-card="interpretivism" data-en="Interpretivism" data-zh="解釋主義">Interpretivism</button>
-                <button type="button" draggable="true" class="paradigm-card" data-paradigm-card="pragmatism" data-en="Pragmatism" data-zh="實用主義">Pragmatism</button>
-                <button type="button" draggable="true" class="paradigm-card" data-paradigm-card="critical-realism" data-en="Critical Realism" data-zh="批判現實主義">Critical Realism</button>
+                <button type="button" class="paradigm-card" data-paradigm-card="positivism" data-en="Positivism" data-zh="實證主義">Positivism</button>
+                <button type="button" class="paradigm-card" data-paradigm-card="postpositivism" data-en="Post-Positivism" data-zh="後實證主義">Post-Positivism</button>
+                <button type="button" class="paradigm-card" data-paradigm-card="constructivism" data-en="Constructivism" data-zh="建構主義">Constructivism</button>
+                <button type="button" class="paradigm-card" data-paradigm-card="social-constructionism" data-en="Social Constructionism" data-zh="社會建構主義">Social Constructionism</button>
+                <button type="button" class="paradigm-card" data-paradigm-card="interpretivism" data-en="Interpretivism" data-zh="解釋主義">Interpretivism</button>
+                <button type="button" class="paradigm-card" data-paradigm-card="pragmatism" data-en="Pragmatism" data-zh="實用主義">Pragmatism</button>
+                <button type="button" class="paradigm-card" data-paradigm-card="critical-realism" data-en="Critical Realism" data-zh="批判現實主義">Critical Realism</button>
               </div>
               <div class="quadrant-stage">
                 <div class="quadrant-axis axis-top"><strong data-en="Epistemology" data-zh="知識論">Epistemology</strong><span data-en="Objectivist" data-zh="客觀主義">Objectivist</span></div>
                 <div class="quadrant-axis axis-bottom"><strong data-en="Epistemology" data-zh="知識論">Epistemology</strong><span data-en="Interpretivist / Subjectivist" data-zh="解釋主義／主觀主義">Interpretivist / Subjectivist</span></div>
                 <div class="quadrant-axis axis-left"><strong data-en="Ontology" data-zh="本體論">Ontology</strong><span data-en="Relativist" data-zh="相對主義">Relativist</span></div>
                 <div class="quadrant-axis axis-right"><strong data-en="Ontology" data-zh="本體論">Ontology</strong><span data-en="Realist" data-zh="現實主義">Realist</span></div>
-                <div class="quadrant-grid" aria-label="Ontology and epistemology quadrant map">
-                  <div class="quadrant-zone" data-quadrant-zone="top-left" tabindex="0" role="button" aria-label="Objectivist and relativist quadrant"></div>
-                  <div class="quadrant-zone" data-quadrant-zone="top-right" tabindex="0" role="button" aria-label="Objectivist and realist quadrant"></div>
-                  <div class="quadrant-zone" data-quadrant-zone="bottom-left" tabindex="0" role="button" aria-label="Interpretivist and relativist quadrant"></div>
-                  <div class="quadrant-zone" data-quadrant-zone="bottom-right" tabindex="0" role="button" aria-label="Interpretivist and realist quadrant"></div>
-                </div>
+                <div class="coordinate-plane" data-paradigm-plane aria-label="Free-position ontology and epistemology map"></div>
               </div>
             </div>
             <p class="paradigm-status" data-paradigm-status aria-live="polite"></p>
@@ -352,71 +347,19 @@ const exitQuestions = [
           <div><b data-en="Consequences" data-zh="後果">Consequences</b><span data-en="Who benefits or loses?" data-zh="誰受益或受損？">Who benefits or loses?</span></div>
         </div>
         <p class="instruction" data-en="Values can be made transparent and examined. They cannot simply be switched off." data-zh="價值可以被透明呈現與檢視，卻不能被簡單關掉。">Values can be made transparent and examined. They cannot simply be switched off.</p>
-      </div>
-    </section>
-
-    <section class="slide" data-title="Research positions" aria-hidden="true">
-      <div class="slide-inner">
-        <p class="eyebrow" data-en="Research positions" data-zh="研究立場">Research positions</p>
-        <h2 data-en="Five ways of seeing and knowing" data-zh="五種理解現實與知識的方式">Five ways of seeing and knowing</h2>
-        <div class="position-list">
-          {positions.map(([enTitle, enText, zhTitle, zhText], index) => (
-            <details>
-              <summary><span>{String(index + 1).padStart(2, '0')}</span><b data-en={enTitle} data-zh={zhTitle}>{enTitle}</b></summary>
-              <p data-en={enText} data-zh={zhText}>{enText}</p>
-            </details>
-          ))}
+        <div class="axiology-positions">
+          <p class="eyebrow" data-en="Research positions" data-zh="研究立場">Research positions</p>
+          <h3 data-en="Five ways of seeing and knowing" data-zh="五種理解現實與知識的方式">Five ways of seeing and knowing</h3>
+          <div class="position-list">
+            {positions.map(([enTitle, enText, zhTitle, zhText], index) => (
+              <details>
+                <summary><span>{String(index + 1).padStart(2, '0')}</span><b data-en={enTitle} data-zh={zhTitle}>{enTitle}</b></summary>
+                <p data-en={enText} data-zh={zhText}>{enText}</p>
+              </details>
+            ))}
+          </div>
+          <p class="note" data-en="These labels simplify complex and contested traditions. Use them as starting points, not boxes." data-zh="這些標籤簡化了複雜且具爭議的傳統；應把它們視為起點，而不是固定框架。">These labels simplify complex and contested traditions. Use them as starting points, not boxes.</p>
         </div>
-        <p class="note" data-en="These labels simplify complex and contested traditions. Use them as starting points, not boxes." data-zh="這些標籤簡化了複雜且具爭議的傳統；應把它們視為起點，而不是固定框架。">These labels simplify complex and contested traditions. Use them as starting points, not boxes.</p>
-      </div>
-    </section>
-
-    <section class="slide" data-title="AI position lab" aria-hidden="true">
-      <div class="slide-inner">
-        <p class="eyebrow" data-en="AI-supported position lab" data-zh="AI 輔助研究立場實驗室">AI-supported position lab</p>
-        <div class="problem-strip" data-en="Research problem: Ten students were absent from yesterday’s research methods class." data-zh="研究問題：昨天的研究方法課有十名學生缺席。">Research problem: Ten students were absent from yesterday’s research methods class.</div>
-        <h2 data-en="Investigate one position, then challenge AI" data-zh="探究一種立場，然後挑戰 AI">Investigate one position, then challenge AI</h2>
-        <ol class="steps short">
-          <li data-en="Choose or receive one research position." data-zh="選擇或獲分配一種研究立場。">Choose or receive one research position.</li>
-          <li data-en="Use the prompt. Record the AI tool and your exact prompt." data-zh="使用提示詞，並記錄 AI 工具與完整提示詞。">Use the prompt. Record the AI tool and your exact prompt.</li>
-          <li data-en="Verify the two sources and identify one weak or contested claim." data-zh="核實兩項來源，並找出一項薄弱或具爭議的主張。">Verify the two sources and identify one weak or contested claim.</li>
-          <li data-en="Rewrite the absence question from that position and explain the assumptions behind it." data-zh="從該立場重寫缺席問題，並解釋背後假設。">Rewrite the absence question from that position and explain the assumptions behind it.</li>
-        </ol>
-        <div class="prompt-box">
-          <p data-en="Act as a cautious educational research tutor. Explain [POSITION] through: (1) ontology, (2) epistemology, (3) axiology, (4) suitable methodology, and (5) defensible claims. Apply it to: ‘Ten students were absent from yesterday’s research methods class.’ Propose one research question, suitable methods, one likely limitation and two real scholarly sources with DOI or stable links. Mark contested points and do not invent references." data-zh="請以審慎的教育研究導師身份，從以下方面解釋［研究立場］：(1) 本體論、(2) 知識論、(3) 價值論、(4) 合適的方法論、(5) 可辯護的主張。把它應用於「昨天的研究方法課有十名學生缺席」，提出一條研究問題、合適方法、一項可能限制，以及兩項附 DOI 或穩定連結的真實學術來源。標明具爭議之處，切勿虛構文獻。">Act as a cautious educational research tutor. Explain [POSITION] through: (1) ontology, (2) epistemology, (3) axiology, (4) suitable methodology, and (5) defensible claims. Apply it to: ‘Ten students were absent from yesterday’s research methods class.’ Propose one research question, suitable methods, one likely limitation and two real scholarly sources with DOI or stable links. Mark contested points and do not invent references.</p>
-          <button type="button" class="copy-button" data-copy-prompt data-en="Copy prompt" data-zh="複製提示詞">Copy prompt</button>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide" data-title="Misconception check" aria-hidden="true">
-      <div class="slide-inner">
-        <p class="eyebrow" data-en="Misconception check" data-zh="誤解檢查">Misconception check</p>
-        <h2 data-en="Methods do not announce a position" data-zh="研究方法本身不會宣告研究立場">Methods do not announce a position</h2>
-        <div class="misconceptions">
-          <details><summary data-en="Interviews automatically make a study constructivist." data-zh="訪談會令研究自動成為建構主義研究。">Interviews automatically make a study constructivist.</summary><p data-en="No. The same method can serve different methodological logics." data-zh="不會。同一方法可服務不同的方法論邏輯。">No. The same method can serve different methodological logics.</p></details>
-          <details><summary data-en="Statistics automatically make a study positivist." data-zh="統計會令研究自動成為實證主義研究。">Statistics automatically make a study positivist.</summary><p data-en="No. Examine the assumptions, purpose and intended claim." data-zh="不會。應檢視假設、目的與預期主張。">No. Examine the assumptions, purpose and intended claim.</p></details>
-          <details><summary data-en="A questionnaire is a methodology." data-zh="問卷是一種方法論。">A questionnaire is a methodology.</summary><p data-en="No. A questionnaire is a specific method." data-zh="不是。問卷是一種具體研究方法。">No. A questionnaire is a specific method.</p></details>
-          <details><summary data-en="Mixed methods automatically means pragmatism." data-zh="混合方法必然等於實用主義。">Mixed methods automatically means pragmatism.</summary><p data-en="No. Combining methods does not establish the philosophical position." data-zh="不是。結合方法本身不能確立哲學立場。">No. Combining methods does not establish the philosophical position.</p></details>
-          <details><summary data-en="Axiology means only research ethics." data-zh="價值論只等於研究倫理。">Axiology means only research ethics.</summary><p data-en="Too narrow. It also includes priorities, power and researcher position." data-zh="過於狹窄。它亦涵蓋優先次序、權力與研究者位置。">Too narrow. It also includes priorities, power and researcher position.</p></details>
-          <details><summary data-en="Methodology is another word for methods." data-zh="方法論只是研究方法的另一種說法。">Methodology is another word for methods.</summary><p data-en="No. Methodology is the overall strategy and logic of inquiry." data-zh="不是。方法論是探究的整體策略與邏輯。">No. Methodology is the overall strategy and logic of inquiry.</p></details>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide" data-title="Design studio instructions" aria-hidden="true">
-      <div class="slide-inner">
-        <p class="eyebrow" data-en="Design studio" data-zh="研究設計工作室">Design studio</p>
-        <div class="problem-strip" data-en="Research problem: Why do some university students regularly miss scheduled classes?" data-zh="研究問題：為甚麼部分大學生經常缺席既定課堂？">Research problem: Why do some university students regularly miss scheduled classes?</div>
-        <h2 data-en="Design one coherent study" data-zh="設計一項連貫研究">Design one coherent study</h2>
-        <ol class="steps">
-          <li data-en="Each group takes one position: positivist, postpositivist, interpretive/constructivist, critical/transformative, or pragmatist." data-zh="每組採用一種立場：實證主義、後實證主義、詮釋／建構主義、批判／轉化取向或實用主義。">Each group takes one position: positivist, postpositivist, interpretive/constructivist, critical/transformative, or pragmatist.</li>
-          <li data-en="Write one research question that follows from that position." data-zh="寫出一條符合該立場的研究問題。">Write one research question that follows from that position.</li>
-          <li data-en="State the ontological, epistemological and axiological assumptions behind the question." data-zh="說明問題背後的本體論、知識論與價值論假設。">State the ontological, epistemological and axiological assumptions behind the question.</li>
-          <li data-en="Choose a methodology and methods that can produce relevant evidence." data-zh="選擇能產生相關證據的方法論與研究方法。">Choose a methodology and methods that can produce relevant evidence.</li>
-          <li data-en="State the claim the evidence could support—and what it could not support." data-zh="說明證據可以支持與不能支持的主張。">State the claim the evidence could support—and what it could not support.</li>
-          <li data-en="Prepare to defend the alignment between every decision." data-zh="準備為各項決策之間的一致性作出答辯。">Prepare to defend the alignment between every decision.</li>
-        </ol>
       </div>
     </section>
 
@@ -579,10 +522,11 @@ const exitQuestions = [
   .paradigm-bank { display: flex; min-height: 17.5rem; align-content: flex-start; align-items: flex-start; flex-wrap: wrap; gap: .45rem; padding: .75rem; border: 1px solid var(--line); border-radius: .35rem; background: var(--soft); }
   .paradigm-bank.is-drop-target { outline: 2px solid var(--green); outline-offset: 2px; }
   .paradigm-bank > p { width: 100%; margin: 0 0 .1rem; color: var(--green); font-size: .78rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
-  .paradigm-card { border: 1px solid var(--green); border-radius: 999px; padding: .42rem .65rem; background: #fff; color: var(--dark); font: 700 .8rem/1.2 'Source Sans 3', sans-serif; cursor: grab; }
+  .paradigm-card { border: 1px solid var(--green); border-radius: 999px; padding: .42rem .65rem; background: #fff; color: var(--dark); font: 700 .8rem/1.2 'Source Sans 3', sans-serif; cursor: grab; touch-action: none; }
   .paradigm-card:hover, .paradigm-card:focus-visible, .paradigm-card.is-selected { background: var(--green); color: #fff; outline: none; }
   .paradigm-card.is-dragging { opacity: .35; }
-  .quadrant-stage { position: relative; min-height: 17.5rem; padding: 1.75rem 4.6rem 1.7rem; }
+  .paradigm-card.is-pointer-dragging { position: fixed; z-index: 50; margin: 0; cursor: grabbing; pointer-events: none; transform: none; }
+  .quadrant-stage { position: relative; min-height: 20rem; padding: 1.75rem 4.6rem 1.7rem; }
   .quadrant-axis { position: absolute; z-index: 2; display: flex; gap: .35rem; color: var(--dark); font-size: .78rem; line-height: 1.1; }
   .quadrant-axis strong { color: var(--green); }
   .axis-top, .axis-bottom { left: 50%; align-items: baseline; transform: translateX(-50%); white-space: nowrap; }
@@ -591,12 +535,11 @@ const exitQuestions = [
   .axis-left, .axis-right { top: 50%; flex-direction: column; transform: translateY(-50%); }
   .axis-left { left: 0; text-align: left; }
   .axis-right { right: 0; text-align: right; }
-  .quadrant-grid, .reference-quadrant-map { position: relative; display: grid; min-height: 14rem; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; overflow: hidden; border: 1px solid #82b764; background: linear-gradient(#fff 0 50%, #edf6e8 50% 100%); }
-  .quadrant-grid::before, .reference-quadrant-map::before { position: absolute; z-index: 1; top: 0; bottom: 0; left: 50%; width: .2rem; background: #9ac87d; content: ''; transform: translateX(-50%); pointer-events: none; }
-  .quadrant-grid::after, .reference-quadrant-map::after { position: absolute; z-index: 1; right: 0; bottom: 50%; left: 0; height: .2rem; background: #9ac87d; content: ''; transform: translateY(50%); pointer-events: none; }
-  .quadrant-zone { position: relative; z-index: 2; display: flex; align-content: flex-start; align-items: flex-start; flex-wrap: wrap; gap: .35rem; min-width: 0; min-height: 0; padding: .65rem; outline: none; }
-  .quadrant-zone.is-drop-target, .quadrant-zone:focus-visible { box-shadow: inset 0 0 0 2px var(--green); background: rgba(255,255,255,.55); }
-  .quadrant-zone .paradigm-card { max-width: 100%; }
+  .coordinate-plane, .reference-quadrant-map { position: relative; min-height: 16.5rem; overflow: hidden; border: 1px solid #82b764; background: linear-gradient(#fff 0 50%, #edf6e8 50% 100%); }
+  .coordinate-plane::before, .reference-quadrant-map::before { position: absolute; z-index: 1; top: 0; bottom: 0; left: 50%; width: .2rem; background: #9ac87d; content: ''; transform: translateX(-50%); pointer-events: none; }
+  .coordinate-plane::after, .reference-quadrant-map::after { position: absolute; z-index: 1; right: 0; bottom: 50%; left: 0; height: .2rem; background: #9ac87d; content: ''; transform: translateY(50%); pointer-events: none; }
+  .coordinate-plane { cursor: crosshair; }
+  .coordinate-plane .paradigm-card { position: absolute; z-index: 2; max-width: 42%; margin: 0; transform: translate(-50%, -50%); }
   .paradigm-status { min-height: 1.25rem; margin: .7rem 0 0; color: var(--muted); font-size: .86rem; }
   .paradigm-actions { display: flex; align-items: center; gap: .9rem; }
   .paradigm-actions .reset-position { margin-top: 0; }
@@ -631,13 +574,19 @@ const exitQuestions = [
   .simple-checklist li::before { content: '✓'; float: left; margin-left: -1.6rem; color: var(--green); font-weight: 700; }
   .continuum { width: 100%; max-width: none; padding: 1rem; border: 1px solid var(--line); border-radius: .35rem; }
   .continuum label { display: flex; justify-content: space-between; color: var(--green); font-weight: 700; }
-  .continuum input { display: block; width: 100%; height: .45rem; margin-top: .9rem; accent-color: var(--green); }
-  .continuum input::-webkit-slider-runnable-track { height: .35rem; }
-  .continuum input::-moz-range-track { height: .35rem; }
+  .continuum input { display: block; width: 100%; height: 1.3rem; margin-top: .7rem; appearance: none; background: transparent; cursor: pointer; }
+  .continuum input::-webkit-slider-runnable-track { height: .35rem; border: 1px solid #9fb5a9; border-radius: 999px; background: linear-gradient(to right, var(--green) 0 50%, #fff 50% 100%); }
+  .continuum input::-webkit-slider-thumb { width: 1.25rem; height: 1.25rem; margin-top: -.5rem; appearance: none; border: 0; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 2px #fff; }
+  .continuum input::-moz-range-track { height: .35rem; border: 1px solid #9fb5a9; border-radius: 999px; background: #fff; }
+  .continuum input::-moz-range-progress { height: .35rem; border-radius: 999px; background: var(--green); }
+  .continuum input::-moz-range-thumb { width: 1.25rem; height: 1.25rem; border: 0; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 2px #fff; }
   .plain-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: .6rem; }
   .plain-row div { display: flex; min-height: 7rem; flex-direction: column; justify-content: flex-end; padding: .8rem; border-top: .25rem solid var(--green); background: var(--soft); }
   .plain-row b { color: var(--dark); }
   .plain-row span { color: var(--muted); font-size: .9rem; }
+  .axiology-positions { margin-top: 1rem; padding-top: .85rem; border-top: 1px solid var(--line); }
+  .axiology-positions .eyebrow { margin-bottom: .35rem; }
+  .axiology-positions h3 { margin: 0 0 .65rem; color: var(--dark); font-family: 'Source Serif 4', Georgia, serif; font-size: 1.55rem; font-weight: 600; }
   .study-list { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; }
   .study-list div { padding: .8rem; border: 1px solid var(--line); border-radius: .35rem; }
   .study-list b { color: var(--green); }

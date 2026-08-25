@@ -104,15 +104,12 @@ function renderPositionResults(slide?: HTMLElement) {
   domains.forEach((result) => renderPositionResult(result.dataset.positionResult as PositionDomain));
 }
 
-let selectedParadigmCard: HTMLButtonElement | null = null;
-
 function renderParadigmActivity(activity: HTMLElement) {
   const slide = activity.closest<HTMLElement>('.slide');
   const status = activity.querySelector<HTMLElement>('[data-paradigm-status]');
   const reveal = activity.querySelector<HTMLButtonElement>('[data-paradigm-reference]');
   const total = activity.querySelectorAll<HTMLButtonElement>('[data-paradigm-card]').length;
-  const placed = Array.from(activity.querySelectorAll<HTMLElement>('[data-quadrant-zone]'))
-    .reduce((count, zone) => count + zone.querySelectorAll('[data-paradigm-card]').length, 0);
+  const placed = activity.querySelector<HTMLElement>('[data-paradigm-plane]')?.querySelectorAll('[data-paradigm-card]').length || 0;
   const language = slide?.dataset.language === 'zh' ? 'zh' : 'en';
   const remaining = total - placed;
 
@@ -224,60 +221,67 @@ document.querySelectorAll<HTMLButtonElement>('[data-position-reset]').forEach((b
   });
 });
 
-function moveParadigmCard(card: HTMLButtonElement, destination: HTMLElement) {
-  const activity = card.closest<HTMLElement>('[data-paradigm-activity]');
-  destination.append(card);
-  card.classList.remove('is-selected', 'is-dragging');
-  card.setAttribute('aria-pressed', 'false');
-  selectedParadigmCard = null;
-  if (activity) renderParadigmActivity(activity);
+function clearParadigmCardPosition(card: HTMLButtonElement) {
+  card.classList.remove('is-pointer-dragging');
+  card.style.removeProperty('position');
+  card.style.removeProperty('left');
+  card.style.removeProperty('top');
+  card.style.removeProperty('width');
+  card.style.removeProperty('transform');
+}
+
+function placeParadigmCard(card: HTMLButtonElement, plane: HTMLElement, clientX: number, clientY: number) {
+  const rect = plane.getBoundingClientRect();
+  const rawX = Math.max(5, Math.min(95, ((clientX - rect.left) / rect.width) * 100));
+  const rawY = Math.max(7, Math.min(93, ((clientY - rect.top) / rect.height) * 100));
+  const x = Math.abs(rawX - 50) < 4 ? 50 : rawX;
+  const y = Math.abs(rawY - 50) < 4 ? 50 : rawY;
+  clearParadigmCardPosition(card);
+  plane.append(card);
+  card.style.left = `${x}%`;
+  card.style.top = `${y}%`;
+  renderParadigmActivity(plane.closest<HTMLElement>('[data-paradigm-activity]')!);
 }
 
 document.querySelectorAll<HTMLButtonElement>('[data-paradigm-card]').forEach((card) => {
-  card.setAttribute('aria-pressed', 'false');
-  card.addEventListener('dragstart', (event) => {
-    event.dataTransfer?.setData('text/plain', card.dataset.paradigmCard || '');
-    if (event.dataTransfer) event.dataTransfer.effectAllowed = 'move';
-    card.classList.add('is-dragging');
-  });
-  card.addEventListener('dragend', () => card.classList.remove('is-dragging'));
-  card.addEventListener('click', (event) => {
-    event.stopPropagation();
-    const isSelected = selectedParadigmCard === card;
-    document.querySelectorAll<HTMLButtonElement>('[data-paradigm-card]').forEach((item) => {
-      item.classList.remove('is-selected');
-      item.setAttribute('aria-pressed', 'false');
-    });
-    selectedParadigmCard = isSelected ? null : card;
-    if (!isSelected) {
-      card.classList.add('is-selected');
-      card.setAttribute('aria-pressed', 'true');
-    }
-  });
-});
+  card.addEventListener('pointerdown', (event) => {
+    if (event.button !== 0) return;
+    const activity = card.closest<HTMLElement>('[data-paradigm-activity]');
+    const plane = activity?.querySelector<HTMLElement>('[data-paradigm-plane]');
+    const bank = activity?.querySelector<HTMLElement>('[data-paradigm-bank]');
+    if (!activity || !plane || !bank) return;
 
-function setupParadigmDropTarget(target: HTMLElement) {
-  target.addEventListener('dragover', (event) => {
     event.preventDefault();
-    event.dataTransfer!.dropEffect = 'move';
-    target.classList.add('is-drop-target');
-  });
-  target.addEventListener('dragleave', () => target.classList.remove('is-drop-target'));
-  target.addEventListener('drop', (event) => {
-    event.preventDefault();
-    target.classList.remove('is-drop-target');
-    const id = event.dataTransfer?.getData('text/plain');
-    const card = id ? document.querySelector<HTMLButtonElement>(`[data-paradigm-card="${id}"]`) : null;
-    if (card) moveParadigmCard(card, target);
-  });
-}
+    const cardRect = card.getBoundingClientRect();
+    const offsetX = event.clientX - cardRect.left;
+    const offsetY = event.clientY - cardRect.top;
+    card.classList.add('is-pointer-dragging');
+    card.style.width = `${cardRect.width}px`;
+    card.style.left = `${cardRect.left}px`;
+    card.style.top = `${cardRect.top}px`;
+    document.body.append(card);
 
-document.querySelectorAll<HTMLElement>('[data-quadrant-zone], [data-paradigm-bank]').forEach(setupParadigmDropTarget);
-document.querySelectorAll<HTMLElement>('[data-quadrant-zone]').forEach((zone) => {
-  const useSelectedCard = () => { if (selectedParadigmCard) moveParadigmCard(selectedParadigmCard, zone); };
-  zone.addEventListener('click', useSelectedCard);
-  zone.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); useSelectedCard(); }
+    const move = (moveEvent: PointerEvent) => {
+      card.style.left = `${moveEvent.clientX - offsetX}px`;
+      card.style.top = `${moveEvent.clientY - offsetY}px`;
+    };
+    const finish = (finishEvent: PointerEvent) => {
+      const planeRect = plane.getBoundingClientRect();
+      const isOnPlane = finishEvent.clientX >= planeRect.left && finishEvent.clientX <= planeRect.right
+        && finishEvent.clientY >= planeRect.top && finishEvent.clientY <= planeRect.bottom;
+      if (isOnPlane) placeParadigmCard(card, plane, finishEvent.clientX, finishEvent.clientY);
+      else {
+        clearParadigmCardPosition(card);
+        bank.append(card);
+        renderParadigmActivity(activity);
+      }
+      window.removeEventListener('pointermove', move);
+      window.removeEventListener('pointerup', finish);
+      window.removeEventListener('pointercancel', finish);
+    };
+    window.addEventListener('pointermove', move);
+    window.addEventListener('pointerup', finish, { once: true });
+    window.addEventListener('pointercancel', finish, { once: true });
   });
 });
 
@@ -311,8 +315,7 @@ document.querySelectorAll<HTMLButtonElement>('[data-paradigm-reset]').forEach((b
     if (!activity || !bank) return;
     Array.from(activity.querySelectorAll<HTMLButtonElement>('[data-paradigm-card]'))
       .sort((a, b) => (a.dataset.paradigmCard || '').localeCompare(b.dataset.paradigmCard || ''))
-      .forEach((card) => bank.append(card));
-    selectedParadigmCard = null;
+      .forEach((card) => { clearParadigmCardPosition(card); bank.append(card); });
     renderParadigmActivity(activity);
   });
 });
