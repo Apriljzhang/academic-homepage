@@ -310,6 +310,18 @@ const exitQuestions = [
       </div>
     </section>
 
+    <section class="slide" data-title="Video: paradigms in research" aria-hidden="true">
+      <div class="slide-inner paradigm-video-slide">
+        <p class="eyebrow" data-en="Watch after mapping" data-zh="繪圖後觀看">Watch after mapping</p>
+        <h2 data-en="Ontology, epistemology, and research paradigms" data-zh="本體論、知識論與研究典範">Ontology, epistemology, and research paradigms</h2>
+        <p class="lead small" data-en="Use this short video to revisit the connections you just mapped. As you watch, ask: which claims about reality and knowledge does each paradigm make?" data-zh="用這段短片重溫剛才繪製的連繫。觀看時請追問：每一個典範對現實與知識作出了甚麼主張？">Use this short video to revisit the connections you just mapped. As you watch, ask: which claims about reality and knowledge does each paradigm make?</p>
+        <div class="video-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/hkcqGU7l_zU?rel=0" title="Ontology, epistemology, and research paradigm" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <p class="note" data-en="If the embedded video does not load, open it on YouTube." data-zh="若內嵌影片未能載入，請在 YouTube 開啟。"><a href="https://www.youtube.com/watch?v=hkcqGU7l_zU" target="_blank" rel="noreferrer" data-en="If the embedded video does not load, open it on YouTube." data-zh="若內嵌影片未能載入，請在 YouTube 開啟。">If the embedded video does not load, open it on YouTube.</a></p>
+      </div>
+    </section>
+
     <section class="slide combined-axiology" data-title="Axiology and values" aria-hidden="true">
       <div class="slide-inner">
         <p class="eyebrow" data-en="Beyond ethical approval" data-zh="超越倫理審批">Beyond ethical approval</p>
@@ -545,6 +557,11 @@ const exitQuestions = [
   .ref-social-constructionism { left: 28%; top: 64%; }
   .ref-constructivism { left: 30%; top: 76%; }
   .ref-interpretivism { left: 24%; top: 88%; }
+  .paradigm-video-slide { align-items: center; }
+  .paradigm-video-slide > * { width: min(100%, 960px); }
+  .paradigm-video-slide .eyebrow, .paradigm-video-slide h2, .paradigm-video-slide .lead, .paradigm-video-slide .note { align-self: flex-start; }
+  .video-frame { position: relative; aspect-ratio: 16 / 9; margin-top: .55rem; overflow: hidden; border: 1px solid var(--line); border-radius: .4rem; background: var(--soft); }
+  .video-frame iframe { position: absolute; width: 100%; height: 100%; border: 0; inset: 0; }
   .split-simple { display: grid; grid-template-columns: 1.15fr .85fr; gap: 3rem; align-items: center; }
   .plain-definitions { margin: 0; }
   .plain-definitions div { display: grid; grid-template-columns: 8rem 1fr; gap: 1rem; padding: .6rem 0; border-bottom: 1px solid #dcebe2; }
