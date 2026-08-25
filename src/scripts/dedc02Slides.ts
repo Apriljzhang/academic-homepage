@@ -17,11 +17,85 @@ const answerLabels: Record<string, string> = {
   methodology: 'Methodology and methods', assumption: 'My assumption', alignment: 'Weakest alignment',
 };
 
+const positionMessages = {
+  ontology: {
+    realism: {
+      en: ['Realism', 'You currently lean towards a reality that exists independently of individual interpretations.'],
+      zh: ['現實主義', '你目前傾向於認為，現實獨立於個人的詮釋而存在。'],
+    },
+    relativism: {
+      en: ['Relativism', 'You currently lean towards multiple realities shaped through experience and interpretation.'],
+      zh: ['相對主義', '你目前傾向於認為，現實是多重的，並透過經驗與詮釋而形塑。'],
+    },
+    criticalRealism: {
+      en: ['Critical realism', 'You currently lean towards a real but layered reality, in which observable events may have deeper causes.'],
+      zh: ['批判現實主義', '你目前傾向於認為，現實是真實但分層的；可觀察事件可能有更深層的原因。'],
+    },
+  },
+  epistemology: {
+    objectivist: {
+      en: ['Objectivist', 'You currently lean towards systematic observation, measurement and testing as bases for credible knowledge.'],
+      zh: ['客觀主義', '你目前傾向於把系統性的觀察、測量與檢驗視為可信知識的基礎。'],
+    },
+    subjectivist: {
+      en: ['Subjectivist', 'You currently lean towards experience, interpretation and context as bases for credible knowledge.'],
+      zh: ['主觀主義', '你目前傾向於把經驗、詮釋與情境視為可信知識的基礎。'],
+    },
+    pragmatist: {
+      en: ['Pragmatist', 'You currently lean towards knowledge that is useful for responding to a problem in context.'],
+      zh: ['實用主義', '你目前傾向於把有助於在情境中回應問題的知識視為重要。'],
+    },
+  },
+} as const;
+
+type PositionDomain = keyof typeof positionMessages;
+
+function renderPositionResult(domain: PositionDomain) {
+  const quiz = document.querySelector<HTMLElement>(`[data-position-quiz="${domain}"]`);
+  const result = document.querySelector<HTMLElement>(`[data-position-result="${domain}"]`);
+  const slide = quiz?.closest<HTMLElement>('.slide');
+  if (!quiz || !result || !slide) return;
+
+  const language = slide.dataset.language === 'zh' ? 'zh' : 'en';
+  const selections = Array.from(quiz.querySelectorAll<HTMLButtonElement>('.position-choice.is-selected'))
+    .map((button) => button.dataset.positionChoice || '');
+  const questionCount = quiz.querySelectorAll('fieldset[data-position-question]').length;
+  const counts = Object.fromEntries(Object.keys(positionMessages[domain]).map((position) => [position, 0])) as Record<string, number>;
+  selections.forEach((position) => { if (position in counts) counts[position] += 1; });
+
+  result.replaceChildren();
+  const title = document.createElement('strong');
+  const description = document.createElement('p');
+
+  if (!selections.length) {
+    title.textContent = language === 'zh' ? '你的目前立場將在這裡顯示' : 'Your current position will appear here';
+    description.textContent = language === 'zh' ? '先為每條問題選擇最接近你目前觀點的回應。' : 'Choose the response closest to your current view for each question.';
+  } else {
+    const highest = Math.max(...Object.values(counts));
+    const leaders = Object.keys(counts).filter((position) => counts[position] === highest);
+    if (leaders.length > 1) {
+      title.textContent = language === 'zh' ? `目前呈現混合立場（已回答 ${selections.length}/${questionCount}）` : `A mixed current position (${selections.length}/${questionCount} answered)`;
+      description.textContent = language === 'zh' ? '這不是問題；留意哪些問題讓你的假設改變。' : 'That is useful: notice which questions make your assumptions change.';
+    } else {
+      const [label, explanation] = positionMessages[domain][leaders[0] as keyof typeof positionMessages[typeof domain]][language];
+      title.textContent = language === 'zh' ? `你目前傾向：${label}（${selections.length}/${questionCount}）` : `Your current leaning: ${label} (${selections.length}/${questionCount})`;
+      description.textContent = explanation;
+    }
+  }
+  result.append(title, description);
+}
+
+function renderPositionResults(slide?: HTMLElement) {
+  const domains = Array.from(slide?.querySelectorAll<HTMLElement>('[data-position-result]') || document.querySelectorAll<HTMLElement>('[data-position-result]'));
+  domains.forEach((result) => renderPositionResult(result.dataset.positionResult as PositionDomain));
+}
+
 function setTextLanguage(slide: HTMLElement, language: 'en' | 'zh') {
   slide.dataset.language = language;
   slide.querySelectorAll<HTMLElement>('[data-en][data-zh]').forEach((element) => {
     element.textContent = element.dataset[language] || '';
   });
+  renderPositionResults(slide);
 }
 
 function syncTranslateButton() {
@@ -80,6 +154,33 @@ document.querySelectorAll<HTMLButtonElement>('[data-copy-prompt]').forEach((butt
     try { await navigator.clipboard.writeText(prompt); button.textContent = button.closest<HTMLElement>('.slide')?.dataset.language === 'zh' ? '已複製' : 'Copied'; }
     catch { button.textContent = 'Select and copy'; }
     setTimeout(() => button.textContent = original, 1200);
+  });
+});
+
+document.querySelectorAll<HTMLButtonElement>('[data-position-choice]').forEach((choice) => {
+  choice.addEventListener('click', () => {
+    const question = choice.closest<HTMLElement>('[data-position-question]');
+    const quiz = choice.closest<HTMLElement>('[data-position-quiz]');
+    const domain = quiz?.dataset.positionQuiz as PositionDomain | undefined;
+    if (!question || !domain) return;
+    question.querySelectorAll<HTMLButtonElement>('[data-position-choice]').forEach((button) => {
+      const selected = button === choice;
+      button.classList.toggle('is-selected', selected);
+      button.setAttribute('aria-pressed', String(selected));
+    });
+    renderPositionResult(domain);
+  });
+});
+
+document.querySelectorAll<HTMLButtonElement>('[data-position-reset]').forEach((button) => {
+  button.addEventListener('click', () => {
+    const domain = button.dataset.positionReset as PositionDomain | undefined;
+    if (!domain) return;
+    document.querySelectorAll<HTMLButtonElement>(`[data-position-quiz="${domain}"] [data-position-choice]`).forEach((choice) => {
+      choice.classList.remove('is-selected');
+      choice.setAttribute('aria-pressed', 'false');
+    });
+    renderPositionResult(domain);
   });
 });
 
