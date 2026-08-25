@@ -12,7 +12,6 @@ const outcomes = [
   ['Distinguish methodology from methods.', '區分方法論與研究方法。'],
   ['Explain how philosophical assumptions influence questions, designs, evidence and claims.', '解釋哲學假設如何影響研究問題、設計、證據與主張。'],
   ['Compare different ways of investigating the same educational problem.', '比較研究同一教育問題的不同方式。'],
-  ['Identify misalignment within a research proposal.', '辨識研究計劃中的不一致。'],
 ];
 
 const layers = [
@@ -105,7 +104,28 @@ const exitQuestions = [
           <p data-en="What evidence could help explain the absences?" data-zh="甚麼證據可以幫助解釋缺席？">What evidence could help explain the absences?</p>
           <p data-en="Is absence necessarily a problem?" data-zh="缺席一定是問題嗎？">Is absence necessarily a problem?</p>
         </div>
-        <p class="instruction" data-en="Choose one question. Label it Ontology if it asks what reality is, Epistemology if it asks how we can know, or Axiology if it asks whose values matter." data-zh="選擇一條問題：若它問現實是甚麼，標為本體論；若問我們如何知道，標為知識論；若問誰的價值重要，標為價值論。">Choose one question. Label it Ontology if it asks what reality is, Epistemology if it asks how we can know, or Axiology if it asks whose values matter.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Three philosophical questions" aria-hidden="true">
+      <div class="slide-inner">
+        <p class="eyebrow" data-en="Three philosophical questions" data-zh="三個哲學問題">Three philosophical questions</p>
+        <h2 data-en="What kind of question are we asking?" data-zh="我們正在提出哪一類問題？">What kind of question are we asking?</h2>
+        <div class="problem-strip" data-en="Research problem: Ten students were absent from yesterday’s research methods class." data-zh="研究問題：昨天的研究方法課有十名學生缺席。">Research problem: Ten students were absent from yesterday’s research methods class.</div>
+        <div class="three-explanations">
+          <article>
+            <h3 data-en="Ontology" data-zh="本體論">Ontology</h3>
+            <p data-en="What is the reality being studied? Is absence simply an observable event, or does it have different meanings for students, teachers and administrators?" data-zh="所研究現實的本質是甚麼？缺席只是可觀察事件，還是對學生、教師與管理者具有不同意義？">What is the reality being studied? Is absence simply an observable event, or does it have different meanings for students, teachers and administrators?</p>
+          </article>
+          <article>
+            <h3 data-en="Epistemology" data-zh="知識論">Epistemology</h3>
+            <p data-en="How can we know about that reality? Attendance records, student accounts and institutional policies offer different kinds of knowledge." data-zh="我們如何認識這個現實？出席紀錄、學生敘述與院校政策提供不同類型的知識。">How can we know about that reality? Attendance records, student accounts and institutional policies offer different kinds of knowledge.</p>
+          </article>
+          <article>
+            <h3 data-en="Axiology" data-zh="價值論">Axiology</h3>
+            <p data-en="What values and interests shape the study? Who decided that absence is a problem, whose voice matters, and who may be affected?" data-zh="哪些價值與利益形塑研究？誰決定缺席是一個問題？誰的聲音重要？誰可能受到影響？">What values and interests shape the study? Who decided that absence is a problem, whose voice matters, and who may be affected?</p>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -134,7 +154,6 @@ const exitQuestions = [
           <li data-en="Each group takes one concept." data-zh="每組負責一個概念。">Each group takes one concept.</li>
           <li data-en="Use the prompt below to generate a preliminary explanation." data-zh="使用下方提示詞產生初步解釋。">Use the prompt below to generate a preliminary explanation.</li>
           <li data-en="Verify both suggested sources. Check whether each source supports the claim." data-zh="核實兩項建議來源，並檢查來源是否支持主張。">Verify both suggested sources. Check whether each source supports the claim.</li>
-          <li data-en="Correct or qualify at least one part of the AI response." data-zh="修正或限定 AI 回答中的至少一部分。">Correct or qualify at least one part of the AI response.</li>
           <li data-en="Create a concept card and teach the concept to the class." data-zh="製作概念卡，並向全班解釋該概念。">Create a concept card and teach the concept to the class.</li>
         </ol>
         <div class="prompt-box">
@@ -357,7 +376,7 @@ const exitQuestions = [
   <nav class="deck-controls" aria-label="Slide controls">
     <a class="home-button" href={courseHref} aria-label="Back to DEDC02 course materials">DEDC02</a>
     <button type="button" data-nav="previous" aria-label="Previous slide">←</button>
-    <button class="slide-count" type="button" data-overview aria-label="Open slide overview"><span data-current-slide>1</span> / <span data-slide-total>18</span></button>
+    <button class="slide-count" type="button" data-overview aria-label="Open slide overview"><span data-current-slide>1</span> / <span data-slide-total>19</span></button>
     <button type="button" data-nav="next" aria-label="Next slide">→</button>
     <button type="button" data-fullscreen aria-label="Enter full screen">⛶</button>
     <span class="progress-track" aria-hidden="true"><span></span></span>
@@ -408,6 +427,10 @@ const exitQuestions = [
   .question-list p { margin: 0; padding: .8rem; border: 1px solid var(--line); border-radius: .35rem; color: var(--dark); }
   .question-list.compact { grid-template-columns: repeat(4, 1fr); }
   .instruction { margin: 1rem 0 0; padding: .75rem .9rem; border-left: .3rem solid var(--green); background: var(--soft); color: var(--dark); }
+  .three-explanations { display: grid; grid-template-columns: repeat(3, 1fr); gap: .7rem; }
+  .three-explanations article { padding: 1rem; border: 1px solid var(--line); border-radius: .35rem; }
+  .three-explanations h3 { margin: 0 0 .5rem; color: var(--green); }
+  .three-explanations p { margin: 0; color: var(--muted); line-height: 1.45; }
   .split-simple { display: grid; grid-template-columns: 1.15fr .85fr; gap: 3rem; align-items: center; }
   .plain-definitions { margin: 0; }
   .plain-definitions div { display: grid; grid-template-columns: 8rem 1fr; gap: 1rem; padding: .6rem 0; border-bottom: 1px solid #dcebe2; }
@@ -498,7 +521,7 @@ const exitQuestions = [
     .slide { padding: 5rem 1rem 5.5rem; }
     .slide-inner { min-height: auto; justify-content: flex-start; }
     .slide-tools { right: .55rem; top: .55rem; }
-    .outcome-list, .split-simple, .question-list, .question-list.compact, .steps, .study-list, .position-list, .misconceptions, .question-starters, .canvas-list, .exit-grid, .response-card dl { grid-template-columns: 1fr; }
+    .outcome-list, .split-simple, .question-list, .question-list.compact, .three-explanations, .steps, .study-list, .position-list, .misconceptions, .question-starters, .canvas-list, .exit-grid, .response-card dl { grid-template-columns: 1fr; }
     .layer-list, .plain-row { grid-template-columns: 1fr 1fr; }
     .position-list details:last-child, .question-starters div:last-child { grid-column: auto; }
     .tree-illustration img { max-height: 360px; }
