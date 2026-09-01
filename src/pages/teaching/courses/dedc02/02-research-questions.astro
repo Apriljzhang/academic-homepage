@@ -505,12 +505,6 @@ const comicHref = withBase('/teaching/courses/dedc02/the-claus-hypothesis.png');
               <div class="operationalization-arrow" aria-hidden="true">↓</div>
               <div class="operationalization-card refined-card"><span class="operationalization-label">Narrowed qualitative question</span><p>How do second-year undergraduate EFL learners describe their perceptions and experiences of receiving digital feedback (typed comments on drafts) in academic writing courses?</p></div>
             </div>
-            <div class="operationalization-hypotheses">
-              <p class="operationalization-label">Quantitative comparison example</p>
-              <article class="operationalization-hypothesis null-hypothesis"><h3>Null hypothesis (H₀)</h3><p>There is no significant difference in academic-writing scores between students who receive digital feedback and those who receive handwritten feedback.</p></article>
-              <article class="operationalization-hypothesis alternative-hypothesis"><h3>Alternative hypothesis (H₁)</h3><p>Students who receive digital feedback achieve significantly higher academic-writing scores than those who receive handwritten feedback.</p></article>
-              <p class="operationalization-note">Match the formulation to the design: the experience question is qualitative; H₀/H₁ require a measured outcome and a comparison.</p>
-            </div>
           </div>
         </div>
         <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
@@ -528,14 +522,7 @@ const comicHref = withBase('/teaching/courses/dedc02/the-claus-hypothesis.png');
               <div class="operationalization-arrow" aria-hidden="true">↓</div>
               <div class="operationalization-card refined-card"><span class="operationalization-label">收窄後的定性問題</span><p>大學二年級本科 EFL 學習者如何描述他們在學術寫作課程中接受數字回饋（草稿上的鍵入評語）的看法與經驗？</p></div>
             </div>
-            <div class="operationalization-hypotheses">
-              <p class="operationalization-label">定量比較例子</p>
-              <article class="operationalization-hypothesis null-hypothesis"><h3>零假設（H₀）</h3><p>接受數字回饋與手寫回饋的學生，其學術寫作分數沒有顯著差異。</p></article>
-              <article class="operationalization-hypothesis alternative-hypothesis"><h3>備擇假設（H₁）</h3><p>接受數字回饋的學生，其學術寫作分數顯著高於接受手寫回饋的學生。</p></article>
-              <p class="operationalization-note">要讓表述配合研究設計：體驗問題偏向定性探索；H₀／H₁則要求可測量的結果與比較組。</p>
-            </div>
           </div>
-          <p class="source-note">例子改編自所提供的教育學院投影片。操作化使問題中的概念變得可觀察並可研究。</p>
         </div>
       </div>
     </section>
@@ -549,6 +536,11 @@ const comicHref = withBase('/teaching/courses/dedc02/the-claus-hypothesis.png');
             <article><h3>Null hypothesis H₀</h3><p>Tests in the general population that there is no change, no relationship or no difference.</p><p class="formula">There is no difference (or relationship) between…</p></article>
             <article><h3>Alternative hypothesis H₁, H₂, H₃…</h3><p>May be true if the null is rejected; suggests a change, relationship or difference.</p><p class="formula">Higher · lower · more positive · more favourable</p></article>
           </div>
+          <h3 class="hypothesis-subtitle">Example</h3>
+          <div class="hypothesis-example">
+            <article class="hypothesis-example-null"><h3>Null hypothesis (H₀)</h3><p>There is no significant difference in academic-writing scores between students who receive digital feedback and those who receive handwritten feedback.</p></article>
+            <article class="hypothesis-example-alternative"><h3>Alternative hypothesis (H₁)</h3><p>Students who receive digital feedback achieve significantly higher academic-writing scores than those who receive handwritten feedback.</p></article>
+          </div>
           <h3 class="hypothesis-subtitle">Directional and non-directional</h3>
           <div class="hypothesis-pair hypothesis-followup">
             <article><h3>Directional alternative hypothesis</h3><p>Students who receive structured AI-literacy instruction will have <strong>higher</strong> AI-literacy scores than students who do not receive the instruction.</p></article>
@@ -560,6 +552,11 @@ const comicHref = withBase('/teaching/courses/dedc02/the-claus-hypothesis.png');
           <div class="hypothesis-pair">
             <article><h3>零假設 H₀</h3><p>在一般母體中檢驗沒有變化、沒有關係或沒有差異。</p><p class="formula">……之間沒有差異（或關係）</p></article>
             <article><h3>備擇假設 H₁、H₂、H₃……</h3><p>若零假設被拒絕，則可能成立；表示有變化、關係或差異。</p><p class="formula">較高 · 較低 · 更正面 · 更有利</p></article>
+          </div>
+          <h3 class="hypothesis-subtitle">例子</h3>
+          <div class="hypothesis-example">
+            <article class="hypothesis-example-null"><h3>零假設（H₀）</h3><p>接受數字回饋與接受手寫回饋的學生，其學術寫作分數沒有顯著差異。</p></article>
+            <article class="hypothesis-example-alternative"><h3>備擇假設（H₁）</h3><p>接受數字回饋的學生，其學術寫作分數顯著高於接受手寫回饋的學生。</p></article>
           </div>
           <h3 class="hypothesis-subtitle">方向性與非方向性</h3>
           <div class="hypothesis-pair hypothesis-followup">
@@ -1373,12 +1370,18 @@ const comicHref = withBase('/teaching/courses/dedc02/the-claus-hypothesis.png');
   .comic-figure figcaption { margin-top: .45rem; color: var(--muted); font-size: .7rem; line-height: 1.35; }
   .comic-figure a { color: var(--green-mid); font-weight: 700; }
   .hypothesis-subtitle { margin: 1rem 0 .55rem; color: var(--green); font: 700 clamp(1.15rem, 2vw, 1.5rem)/1.2 'Source Serif 4', serif; }
+  .hypothesis-example { display: grid; gap: .55rem; }
+  .hypothesis-example article { margin: 0; padding: .7rem 1rem; border-left: .35rem solid; background: var(--green-soft); }
+  .hypothesis-example-null { border-left-color: #5f9bd2; }
+  .hypothesis-example-alternative { border-left-color: #68ad3f; }
+  .hypothesis-example h3 { margin: 0 0 .25rem; font-size: 1rem; }
+  .hypothesis-example p { margin: 0; color: var(--muted); font-size: .9rem; line-height: 1.4; }
   .hypothesis-followup article { padding: .8rem 1rem; }
   .hypothesis-followup article > p:last-child { margin-bottom: 0; font-size: .9rem; }
   .formula { margin-bottom: 0; padding: .65rem; background: #fff; color: var(--green) !important; font-weight: 700; }
   .operationalization-slide h2 { margin-bottom: .55rem; font-size: clamp(2.25rem, 4.2vw, 3.8rem); }
-  .operationalization-layout { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(18rem, .92fr); gap: .8rem; align-items: start; }
-  .operationalization-example, .operationalization-hypotheses { display: grid; gap: .38rem; min-width: 0; }
+  .operationalization-layout { display: grid; grid-template-columns: 1fr; gap: .8rem; align-items: start; }
+  .operationalization-example { display: grid; gap: .38rem; min-width: 0; }
   .operationalization-card { padding: .6rem .75rem; border-top: .3rem solid var(--green-mid); background: var(--green-soft); }
   .operationalization-card.question-card { border-top-color: #5f9bd2; background: #f0f6fc; }
   .operationalization-card.refined-card { border-top-color: #68ad3f; }
@@ -1388,13 +1391,6 @@ const comicHref = withBase('/teaching/courses/dedc02/the-claus-hypothesis.png');
   .operationalization-details { display: grid; gap: .35rem; padding: .6rem .75rem; border: 1px solid var(--line); background: #fff; }
   .operationalization-details div { display: grid; grid-template-columns: 7rem minmax(0, 1fr); gap: .5rem; align-items: start; color: var(--muted); font-size: .76rem; line-height: 1.35; }
   .operationalization-details strong { color: var(--green); }
-  .operationalization-hypotheses > .operationalization-label { margin: .1rem 0 .05rem; }
-  .operationalization-hypothesis { margin: 0; padding: .7rem .75rem; border-left: .35rem solid var(--green-mid); background: var(--green-soft); }
-  .operationalization-hypothesis.null-hypothesis { border-left-color: #5f9bd2; }
-  .operationalization-hypothesis.alternative-hypothesis { border-left-color: #68ad3f; }
-  .operationalization-hypothesis h3 { margin: 0 0 .25rem; font-size: .95rem; }
-  .operationalization-hypothesis p, .operationalization-note { margin: 0; color: var(--muted); font-size: .8rem; line-height: 1.4; }
-  .operationalization-note { padding: .65rem .75rem; border: 1px solid var(--line); background: #fff; }
   .hypothesis-type-grid, .template-grid, .full-example-grid, .mistake-grid { display: grid; gap: .65rem; }
   .hypothesis-type-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .hypothesis-type-grid article, .template-grid article, .full-example-grid article, .mistake-grid article { min-width: 0; padding: .7rem .75rem; border-top: .3rem solid var(--green-mid); background: var(--green-soft); }
