@@ -401,24 +401,32 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
       <div class="slide-inner">
         <header class="slide-header"><span class="eyebrow">How-to</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
         <div class="language-panel" data-language="en">
-          <h2>How many research questions should I have?</h2>
-          <p class="lead medium">Whilst there are no hard and fast rules, a general principle is to have as few as necessary, but no fewer.</p>
-          <p class="intro-line">Research questions may comprise:</p>
-          <ul class="source-list">
-            <li>A descriptive question: What AI-literacy scores and guided AI-practice patterns are present?</li>
-            <li>A comparison or relationship question: Does structured instruction relate to guided practice and AI-literacy scores?</li>
-            <li>A “so what?” question: How should the module change if prior AI experience or device access shapes the results?</li>
-          </ul>
+          <details class="question-reveal">
+            <summary>How many research questions should I have?</summary>
+            <div class="question-reveal-content">
+              <p class="lead medium">Whilst there are no hard and fast rules, a general principle is to have as few as necessary, but no fewer.</p>
+              <p class="intro-line">Research questions may comprise:</p>
+              <ul class="source-list">
+                <li>A descriptive question: What AI-literacy scores and guided AI-practice patterns are present?</li>
+                <li>A comparison or relationship question: Does structured instruction relate to guided practice and AI-literacy scores?</li>
+                <li>A “so what?” question: How should the module change if prior AI experience or device access shapes the results?</li>
+              </ul>
+            </div>
+          </details>
         </div>
         <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
-          <h2>應該有多少條研究問題？</h2>
-          <p class="lead medium">雖然沒有硬性規定，一般原則是盡可能少，但不能更少。</p>
-          <p class="intro-line">研究問題可以包括：</p>
-          <ul class="source-list">
-            <li>描述性問題：存在哪些人工智能素養分數與引導式人工智能實作模式？</li>
-            <li>比較或關係問題：結構化教學是否與引導式實作及人工智能素養分數相關？</li>
-            <li>「那又怎樣？」問題：若先前人工智能經驗或裝置使用機會影響結果，應如何修改單元？</li>
-          </ul>
+          <details class="question-reveal">
+            <summary>應該有多少條研究問題？</summary>
+            <div class="question-reveal-content">
+              <p class="lead medium">雖然沒有硬性規定，一般原則是盡可能少，但不能更少。</p>
+              <p class="intro-line">研究問題可以包括：</p>
+              <ul class="source-list">
+                <li>描述性問題：存在哪些人工智能素養分數與引導式人工智能實作模式？</li>
+                <li>比較或關係問題：結構化教學是否與引導式實作及人工智能素養分數相關？</li>
+                <li>「那又怎樣？」問題：若先前人工智能經驗或裝置使用機會影響結果，應如何修改單元？</li>
+              </ul>
+            </div>
+          </details>
         </div>
       </div>
     </section>
@@ -1224,6 +1232,15 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
   h1 { margin-bottom: 1rem; font-size: clamp(4.2rem, 10.5vw, 8.5rem); line-height: .82; letter-spacing: -.055em; }
   h2 { max-width: min(21ch, 100%); margin-bottom: clamp(1.2rem, 2.7vh, 2rem); font-size: clamp(2.2rem, 5.2vw, 4.6rem); line-height: .96; letter-spacing: -.04em; }
   h3 { color: var(--green); font-size: 1.12rem; }
+  .question-reveal { max-width: min(21ch, 100%); }
+  .question-reveal > summary { display: flex; align-items: flex-start; justify-content: space-between; gap: .75rem; padding: 0; color: var(--green); font: 700 clamp(2.2rem, 5.2vw, 4.6rem)/.96 'Source Serif 4', Georgia, serif; letter-spacing: -.04em; list-style: none; cursor: pointer; }
+  .question-reveal > summary::-webkit-details-marker { display: none; }
+  .question-reveal > summary::after { content: '+'; flex: 0 0 auto; margin-top: .1em; color: var(--green-mid); font: 400 .62em/1 'Source Sans 3', Arial, sans-serif; }
+  .question-reveal[open] > summary::after { content: '−'; }
+  .question-reveal > summary:focus-visible { outline: .18rem solid rgba(31,107,69,.25); outline-offset: .3rem; }
+  .question-reveal-content { margin-top: clamp(1.2rem, 2.7vh, 2rem); }
+  .question-reveal-content p { padding: 0; border: 0; background: transparent; }
+  .question-reveal-content .lead { margin-bottom: .7rem; }
   .title-slide { align-items: flex-start; }
   .title-slide .slide-header { width: 100%; }
   .title-rule { width: 4rem; height: .34rem; margin: 0 0 clamp(2rem, 5vh, 3.4rem); border-radius: 1rem; background: var(--green-mid); }
