@@ -977,7 +977,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
                 <h3>Moderated relationship</h3>
                 <div class="relationship-diagram moderation-model" role="group" aria-label="A moderated relationship has Z pointing to the relationship between X and Y.">
                   <button type="button" class="role-slot z-slot" data-answer="prior-experience" data-placeholder="Z · Drop variable" data-empty-label="Moderator Z variable box" data-explanation="Z is the moderator: prior AI experience may change the strength of the instruction-to-score relationship.">Z · Drop variable</button>
-                  <span class="model-link down-link" aria-hidden="true">↓</span>
+                  <span class="model-link up-link" aria-hidden="true">↑</span>
                   <button type="button" class="role-slot x-slot" data-answer="structured-instruction" data-placeholder="X · Drop variable" data-empty-label="Predictor X variable box" data-explanation="X is the predictor: structured AI-literacy instruction is expected to affect the post-module score.">X · Drop variable</button>
                   <span class="model-link direct-link" aria-hidden="true">⟶</span>
                   <button type="button" class="role-slot y-slot" data-answer="post-score" data-placeholder="Y · Drop variable" data-empty-label="Response Y variable box" data-explanation="Y is the response: post-module AI-literacy score is the outcome being explained.">Y · Drop variable</button>
@@ -1058,7 +1058,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
                 <h3>調節關係</h3>
                 <div class="relationship-diagram moderation-model" role="group" aria-label="調節關係中，Z 指向 X 與 Y 之間的關係。">
                   <button type="button" class="role-slot z-slot" data-answer="prior-experience" data-placeholder="Z · 拖放變量" data-empty-label="調節變量 Z 方框" data-explanation="Z 是調節變量：先前人工智能經驗可能改變教學與分數之間關係的強度。">Z · 拖放變量</button>
-                  <span class="model-link down-link" aria-hidden="true">↓</span>
+                  <span class="model-link up-link" aria-hidden="true">↑</span>
                   <button type="button" class="role-slot x-slot" data-answer="structured-instruction" data-placeholder="X · 拖放變量" data-empty-label="預測因素 X 方框" data-explanation="X 是預測因素：結構化人工智能素養教學預期會影響單元後分數。">X · 拖放變量</button>
                   <span class="model-link direct-link" aria-hidden="true">⟶</span>
                   <button type="button" class="role-slot y-slot" data-answer="post-score" data-placeholder="Y · 拖放變量" data-empty-label="結果 Y 方框" data-explanation="Y 是結果：單元後人工智能素養分數是需要解釋的結果。">Y · 拖放變量</button>
@@ -1578,11 +1578,11 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
   .mediation-model .left-link, .confound-model .left-link { grid-column: 2; grid-row: 2; }
   .mediation-model .z-slot, .confound-model .z-slot { grid-column: 3; grid-row: 3; }
   .mediation-model .right-link, .confound-model .right-link { grid-column: 4; grid-row: 2; }
-  .moderation-model .z-slot { grid-column: 3; grid-row: 1; }
-  .moderation-model .down-link { grid-column: 3; grid-row: 2; }
-  .moderation-model .x-slot { grid-column: 1; grid-row: 3; }
-  .moderation-model .direct-link { grid-column: 2 / 5; grid-row: 3; }
-  .moderation-model .y-slot { grid-column: 5; grid-row: 3; }
+  .moderation-model .x-slot { grid-column: 1; grid-row: 1; }
+  .moderation-model .direct-link { grid-column: 2 / 5; grid-row: 1; }
+  .moderation-model .y-slot { grid-column: 5; grid-row: 1; }
+  .moderation-model .up-link { grid-column: 3; grid-row: 2; }
+  .moderation-model .z-slot { grid-column: 3; grid-row: 3; }
   .covariate-model .z-slot { grid-column: 1; grid-row: 3; }
   .covariate-model .right-link { grid-column: 4; grid-row: 2; }
   .related-covariate-model .related-link { grid-column: 2; grid-row: 2; }
