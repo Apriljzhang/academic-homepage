@@ -2,8 +2,8 @@
 import CourseSlideLayout from '../../../../layouts/CourseSlideLayout.astro';
 import { withBase } from '../../../../utils/paths';
 
-const title = '2. Research Questions · DEDC02';
-const description = 'An interactive lesson on research questions, hypotheses, variables and literature searching.';
+const title = '2. Research Questions, Hypotheses and Variables · DEDC02';
+const description = 'An interactive lesson that builds a research question, hypothesis, variables and literature search through one AI-literacy case.';
 const courseHref = withBase('/teaching/courses/dedc02');
 const homepageHref = withBase('/');
 const comicHref = withBase('/teaching/courses/dedc02/the-claus-hypothesis.png');
@@ -12,7 +12,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
 
 <CourseSlideLayout {title} {description}>
   <section class="pdf-cover" aria-hidden="true">
-    <span class="eyebrow">DEDC02 · Advanced Research Method</span>
+    <span class="eyebrow">DEDC02 · Advanced Research Method · Orientation</span>
     <h1>Research<br />Questions</h1>
     <div class="pdf-message-block">
       <h2>Personal message</h2>
@@ -32,92 +32,94 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
   </div>
 
   <main class="deck" aria-label="Research Questions slide deck">
-    <section class="slide is-active" data-title="Research Questions" aria-hidden="false">
+    <section class="slide is-active" data-title="Orientation · Research questions, hypotheses and variables" aria-hidden="false">
       <div class="slide-inner title-slide">
         <header class="slide-header title-header">
-          <span class="eyebrow">DEDC02 · Advanced Research Method</span>
+          <span class="eyebrow">DEDC02 · Advanced Research Method · Orientation</span>
           <button class="translate-button" type="button" aria-pressed="false">中文</button>
         </header>
         <div class="title-rule"></div>
         <div class="language-panel" data-language="en">
           <h1>Research<br />Questions</h1>
-          <p class="lead">How different research paradigms shape research questions for the same topic.</p>
+          <p class="lead">Build from a research question to hypotheses, variables and literature-search terms through one AI-literacy case.</p>
         </div>
         <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
           <h1>研究<br />問題</h1>
-          <p class="lead">不同的研究範式如何塑造同一主題的研究問題。</p>
+          <p class="lead">透過一個人工智能素養案例，從研究問題逐步建立假設、變量和文獻檢索詞。</p>
         </div>
       </div>
     </section>
 
-    <section class="slide" data-title="Learning aims" aria-hidden="true">
+    <section class="slide" data-title="Orientation · Learning aims" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Where we are going</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Orientation</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
         <div class="language-panel" data-language="en">
           <h2>By the end, you can…</h2>
           <ol class="number-list">
-            <li><span><strong>Explain</strong> a research problem.</span></li>
-            <li><span><strong>Distinguish</strong> types of research questions and hypotheses.</span></li>
-            <li><span><strong>Identify and categorise</strong> variables.</span></li>
-            <li><span><strong>Search</strong> the literature using keywords.</span></li>
+            <li><span><strong>Frame</strong> a focused research problem and question.</span></li>
+            <li><span><strong>Distinguish</strong> research questions from hypotheses and choose a claim type.</span></li>
+            <li><span><strong>Operationalise and relate</strong> variables.</span></li>
+            <li><span><strong>Build</strong> literature-search terms from a topic, question or hypothesis, and variables.</span></li>
           </ol>
+          <p class="example-line"><strong>Primary worked case:</strong> structured AI-literacy instruction → guided AI practice → AI-literacy score.</p>
         </div>
         <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
           <h2>完成本課後，你可以⋯⋯</h2>
           <ol class="number-list">
-            <li><span><strong>解釋</strong>研究課題。</span></li>
-            <li><span><strong>區分</strong>研究問題與假設的類型。</span></li>
-            <li><span><strong>識別並分類</strong>變量。</span></li>
-            <li><span><strong>使用關鍵詞</strong>檢索文獻。</span></li>
+            <li><span><strong>建構</strong>聚焦的研究課題與研究問題。</span></li>
+            <li><span><strong>區分</strong>研究問題與假設，並選擇主張類型。</span></li>
+            <li><span><strong>操作化並連結</strong>變量。</span></li>
+            <li><span><strong>從</strong>主題、研究問題或假設及變量建立文獻檢索詞。</span></li>
           </ol>
+          <p class="example-line"><strong>貫穿案例：</strong>結構化人工智能素養教學 → 引導式人工智能實作 → 人工智能素養分數。</p>
         </div>
       </div>
     </section>
 
-    <section class="slide" data-title="Research questions and paradigm" aria-hidden="true">
+    <section class="slide" data-title="Instruction · Research questions and paradigms" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Research questions and paradigm</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Instruction</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
         <div class="language-panel" data-language="en">
           <h2>Research questions and paradigm</h2>
           <blockquote>How different research paradigms shape research questions for the same topic:</blockquote>
-          <p class="topic-line">“Language learning, achievement and emotions in informal digital learning contexts”</p>
+          <p class="topic-line">“Structured AI-literacy instruction, guided AI practice and AI-literacy scores in digital education”</p>
         </div>
         <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
           <h2>研究問題與研究範式</h2>
           <blockquote>不同的研究範式如何塑造同一主題的研究問題：</blockquote>
-          <p class="topic-line">「非正式數字學習環境中的語言學習、成就和情感」</p>
+          <p class="topic-line">「數字教育中的結構化人工智能素養教學、引導式人工智能實作與人工智能素養分數」</p>
         </div>
       </div>
     </section>
 
-    <section class="slide" data-title="Three paradigm examples" aria-hidden="true">
+    <section class="slide" data-title="Example · Paradigms applied to AI literacy" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Research questions and paradigm</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Example</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
         <div class="language-panel" data-language="en">
           <h2>Three paradigms, one topic</h2>
           <div class="paradigm-three">
-            <article><h3>Positivism</h3><p class="focus">Measurable, observable, causal relationships</p><p>To what extent do self-reported emotions (e.g., enjoyment, anxiety) predict variance in achievement in informal digital learning contexts?</p></article>
-            <article><h3>Constructivism</h3><p class="focus">Learners’ meaning-making, multiple realities</p><p>How do learners construct their understanding of “achievement” when engaging in informal digital language learning?</p></article>
-            <article><h3>Pragmatism</h3><p class="focus">Practical outcomes, mixed methods</p><p>Which combination of emotional regulation strategies and digital learning practices most effectively enhance language achievement in informal contexts?</p></article>
+            <article><h3>Positivism</h3><p class="focus">Measurable, observable, causal relationships</p><p>To what extent does structured AI-literacy instruction predict AI-literacy scores through guided AI practice?</p></article>
+            <article><h3>Constructivism</h3><p class="focus">Learners’ meaning-making, multiple realities</p><p>How do students make sense of structured AI-literacy instruction and guided AI practice in a digital education course?</p></article>
+            <article><h3>Pragmatism</h3><p class="focus">Practical outcomes, mixed methods</p><p>How can evidence about AI-literacy scores and students’ experiences of guided AI practice improve a structured AI-literacy module?</p></article>
           </div>
         </div>
         <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
           <h2>三種研究範式，同一主題</h2>
           <div class="paradigm-three">
-            <article><h3>實證主義</h3><p class="focus">可測量、可觀察、因果關係</p><p>自我報告的情緒（例如愉悅、焦慮）在多大程度上預測非正式數字學習環境中的成就差異？</p></article>
-            <article><h3>建構主義</h3><p class="focus">學習者的意義建構、多重現實</p><p>學習者在進行非正式數字語言學習時，如何建構對「成就」的理解？</p></article>
-            <article><h3>實用主義</h3><p class="focus">實際結果、混合方法</p><p>哪種情緒調節策略與數字學習實踐的組合最能有效提升非正式情境中的語言成就？</p></article>
+            <article><h3>實證主義</h3><p class="focus">可測量、可觀察、因果關係</p><p>結構化人工智能素養教學在多大程度上透過引導式人工智能實作預測人工智能素養分數？</p></article>
+            <article><h3>建構主義</h3><p class="focus">學習者的意義建構、多重現實</p><p>學生如何在數字教育課程中理解結構化人工智能素養教學與引導式人工智能實作？</p></article>
+            <article><h3>實用主義</h3><p class="focus">實際結果、混合方法</p><p>如何結合人工智能素養分數與學生對引導式人工智能實作的經驗，以改進結構化人工智能素養單元？</p></article>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="slide" data-title="Research problem" aria-hidden="true">
+    <section class="slide" data-title="How-to · Identify a research problem" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Research problem</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">How-to</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
         <div class="language-panel" data-language="en">
           <h2>Research problem</h2>
-          <p class="intro-line">To locate the research problem in a study, ask yourself the following:</p>
+          <p class="intro-line">Use the shared case: it is unclear whether structured AI-literacy instruction creates enough guided AI practice to improve students’ AI-literacy scores. To locate a research problem in any study, ask:</p>
           <ul class="source-list">
             <li>What was the issue, problem or controversy that the researcher wanted to address?</li>
             <li>What controversy leads to a need for this study?</li>
@@ -127,7 +129,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
         </div>
         <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
           <h2>研究課題</h2>
-          <p class="intro-line">要找出一項研究中的研究課題，請問自己：</p>
+          <p class="intro-line">使用貫穿案例：目前尚不清楚結構化人工智能素養教學是否能帶來足夠的引導式人工智能實作，從而提升學生的人工智能素養分數。要找出任何研究中的研究課題，請問自己：</p>
           <ul class="source-list">
             <li>研究者想要處理的議題、問題或爭議是甚麼？</li>
             <li>甚麼爭議導致需要進行這項研究？</li>
@@ -138,83 +140,77 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
       </div>
     </section>
 
-    <section class="slide" data-title="Topics to avoid" aria-hidden="true">
+    <section class="slide" data-title="Check · Topics to avoid" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Topics to avoid</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Check</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
         <div class="language-panel" data-language="en">
           <h2>Topics to avoid</h2>
           <div class="avoid-grid">
-            <details><summary>Too big</summary><p>Some very large projects can be worthy and valuable to an organisation, but ask whether you have the time, experience and resources to complete them.</p></details>
-            <details><summary>Too trivial</summary><p>Ask whether the results have meaning or significance to others, not just to yourself. A project on <em>reducing paper use in a marketing department of ten people</em> may yield little value; studying recycling across an organisation—paper, printer cartridges, furniture and computers—has broader scope.</p></details>
-            <details><summary>Lacking in resource materials</summary><p>Look for warning signs: very few references to the topic in the main textbooks, practitioner journals, refereed journals or credible websites.</p></details>
-            <details><summary>Lacking in sponsorship</summary><p>Support and commitment from key people in the organisation or fieldwork setting may be important. These may include directors, senior managers, or leaders of networks and groups.</p></details>
-            <details><summary>Intractable</summary><p>Be suspicious of a problem that nobody else has been able to solve. Ask yourself: “Why me?” It may be an offer you need to refuse.</p></details>
+            <details><summary>Too big</summary><p>Do not try to design, deliver and evaluate one AI-literacy curriculum across every age group, discipline, platform and outcome. Ask whether your time, experience and resources match the scope.</p></details>
+            <details><summary>Too trivial</summary><p>Ask whether the results matter beyond yourself. Whether three students prefer one AI tool may yield little value; examining how structured instruction, guided practice and access to devices relate to AI-literacy scores has a clearer contribution.</p></details>
+            <details><summary>Lacking in resource materials</summary><p>Look for warning signs: very few references to the proposed AI-literacy construct, instructional approach or measure in textbooks, practitioner journals, refereed journals or credible websites.</p></details>
+            <details><summary>Lacking in sponsorship</summary><p>Secure support from course leaders, instructors and the people responsible for students’ access to AI tools and devices before planning the study.</p></details>
+            <details><summary>Intractable</summary><p>Be suspicious of a promise to solve every ethical, pedagogical and assessment problem created by AI. Ask what one feasible study can genuinely address.</p></details>
           </div>
         </div>
         <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
           <h2>應避免的主題</h2>
           <div class="avoid-grid">
-            <details><summary>範圍太大</summary><p>有些大型項目對組織可能值得且有價值，但要問自己是否有足夠時間、經驗與資源完成它。</p></details>
-            <details><summary>過於瑣碎</summary><p>問自己研究結果對其他人是否有意義或重要性，而不只對自己有意義。研究<strong>如何在一個十人的營銷部門減少紙張使用</strong>可能價值很少；研究<strong>整個組織的回收問題（紙張、打印機墨盒、家具、計算機等）</strong>則有更廣泛的範圍。</p></details>
-            <details><summary>缺乏資源材料</summary><p>留意警號：主要教科書、實務期刊、同儕評審期刊或可靠網站中，很少提到這個主題或提供相關參考資料。</p></details>
-            <details><summary>缺乏贊助</summary><p>研究所在的組織或實地考察環境中，關鍵人士的支持與承諾可能很重要，例如董事、高級管理人員，或網絡與群組的領袖。</p></details>
-            <details><summary>棘手的問題</summary><p>對一個其他人都未能解決的問題保持懷疑，並問自己：「為甚麼是我？」這可能是你需要拒絕的提議。</p></details>
+            <details><summary>範圍太大</summary><p>不要試圖為所有年齡層、學科、平台和結果設計、實施並評估一套人工智能素養課程。問自己時間、經驗與資源是否與研究範圍相稱。</p></details>
+            <details><summary>過於瑣碎</summary><p>問自己研究結果是否對他人也有意義，而不只對自己有意義。研究三名學生是否偏好某一人工智能工具，可能價值有限；探討結構化教學、引導式實作與裝置使用機會如何連結人工智能素養分數，則有更清晰的貢獻。</p></details>
+            <details><summary>缺乏資源材料</summary><p>留意警號：主要教科書、實務期刊、同儕評審期刊或可靠網站中，極少提到所提出的人工智能素養構念、教學方法或測量方式。</p></details>
+            <details><summary>缺乏贊助</summary><p>規劃研究前，先取得課程負責人、教師，以及負責學生使用人工智能工具和裝置的人士的支持。</p></details>
+            <details><summary>棘手的問題</summary><p>對「解決人工智能帶來的所有倫理、教學和評核問題」這類承諾保持懷疑。問自己一項可行研究真正能處理甚麼。</p></details>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="slide" data-title="Activity 1: Narrowing down" aria-hidden="true">
+    <section class="slide" data-title="Activity · Narrow a question with PICO" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Activity 1: Narrowing down</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Activity</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
         <div class="language-panel" data-language="en">
-          <h2>Narrowing down</h2>
+          <h2>Narrow an AI-literacy question with PICO</h2>
           <div class="narrowing-activity">
             <ul class="source-list compact-list">
-              <li>Technology-Enhanced Language Learning</li>
-              <li>Assessment and Feedback in Education</li>
-              <li>Motivation, Emotions, and Wellbeing in Learning</li>
-              <li>Multilingualism and Identity in Education</li>
-              <li>AI Literacy in Digital Education</li>
-              <li>Or…</li>
+              <li><strong>Primary topic:</strong> AI Literacy in Digital Education</li>
+              <li><strong>Study path:</strong> structured AI-literacy instruction → guided AI practice → AI-literacy score</li>
+              <li><strong>Additional variables:</strong> prior AI experience and access to devices</li>
             </ul>
-            <p class="intro-line">After background reading and a literature review, use PICO—Population, Intervention, Comparator and Outcome—to keep a research question focused and clinically relevant.</p>
+            <p class="intro-line">After background reading and a literature review, use PICO—Population, Intervention, Comparator and Outcome—to make a research question focused and researchable.</p>
             <div class="pico-guides">
-              <article><span class="pico-label">P</span><h3>Population</h3><p>Who is the study relevant to? <strong>Example:</strong> undergraduate students enrolled in digital education courses.</p></article>
-              <article><span class="pico-label">I</span><h3>Intervention</h3><p>What exposure, programme or treatment is examined? <strong>Example:</strong> a structured AI-literacy module that teaches students to understand, use, evaluate and ethically apply AI.</p></article>
-              <article><span class="pico-label">C</span><h3>Comparator</h3><p>What will it be compared with? <strong>Example:</strong> students receiving usual digital-education support without the module.</p></article>
-              <article><span class="pico-label">O</span><h3>Outcome</h3><p>What is expected to change or matter to participants? <strong>Example:</strong> AI-literacy questionnaire scores.</p></article>
+              <article><span class="pico-label">P</span><h3>Population</h3><p>Who is the study relevant to? <strong>Example:</strong> first-year undergraduates in a digital education course.</p></article>
+              <article><span class="pico-label">I</span><h3>Intervention</h3><p>What programme is examined? <strong>Example:</strong> a four-week structured AI-literacy module.</p></article>
+              <article><span class="pico-label">C</span><h3>Comparator</h3><p>What will it be compared with? <strong>Example:</strong> usual course activity without the module.</p></article>
+              <article><span class="pico-label">O</span><h3>Outcome</h3><p>What is expected to change? <strong>Example:</strong> post-module AI-literacy questionnaire scores.</p></article>
             </div>
-            <p class="pico-question"><strong>Worked example:</strong> Among undergraduate students enrolled in digital education courses, does a structured AI-literacy module, compared with usual digital-education support without the module, improve AI-literacy questionnaire scores?</p>
+            <p class="pico-question"><strong>Worked example:</strong> Among first-year undergraduates, does a four-week structured AI-literacy module, compared with usual course activity, improve AI-literacy scores? Later examine guided AI practice as a possible mechanism and prior AI experience or device access as additional variables.</p>
           </div>
         </div>
         <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
-          <h2>收窄主題</h2>
+          <h2>以 PICO 收窄人工智能素養問題</h2>
           <div class="narrowing-activity">
             <ul class="source-list compact-list">
-              <li>科技增強的語言學習</li>
-              <li>教育中的評估與回饋</li>
-              <li>學習中的動機、情緒與幸福感</li>
-              <li>教育中的多語言與身份認同</li>
-              <li>數字教育中的人工智能素養</li>
-              <li>或者……</li>
+              <li><strong>貫穿主題：</strong>數字教育中的人工智能素養</li>
+              <li><strong>研究路徑：</strong>結構化人工智能素養教學 → 引導式人工智能實作 → 人工智能素養分數</li>
+              <li><strong>附加變量：</strong>先前使用人工智能的經驗及裝置使用機會</li>
             </ul>
-            <p class="intro-line">完成背景閱讀與文獻綜述後，可使用 PICO——研究對象（Population）、干預（Intervention）、比較／對照（Comparator／Control）與結果（Outcome）——聚焦研究問題，並保持臨床相關性。</p>
+            <p class="intro-line">完成背景閱讀與文獻綜述後，可使用 PICO——研究對象（Population）、干預（Intervention）、比較／對照（Comparator）與結果（Outcome）——使研究問題聚焦並可研究。</p>
             <div class="pico-guides">
-              <article><span class="pico-label">P</span><h3>研究對象</h3><p>研究與誰相關？<strong>例：</strong>修讀數字教育課程的本科生。</p></article>
-              <article><span class="pico-label">I</span><h3>干預</h3><p>研究哪一種暴露、方案或治療？<strong>例：</strong>結構化人工智能素養單元，教授學生理解、使用、評估並合乎倫理地應用人工智能。</p></article>
-              <article><span class="pico-label">C</span><h3>比較／對照</h3><p>與甚麼比較？<strong>例：</strong>未接受該單元、只接受一般數字教育支援的學生。</p></article>
-              <article><span class="pico-label">O</span><h3>結果</h3><p>預期會改變或對參與者重要的是甚麼？<strong>例：</strong>人工智能素養問卷分數。</p></article>
+              <article><span class="pico-label">P</span><h3>研究對象</h3><p>研究與誰相關？<strong>例：</strong>修讀數字教育課程的一年級本科生。</p></article>
+              <article><span class="pico-label">I</span><h3>干預</h3><p>研究哪一種方案？<strong>例：</strong>為期四週的結構化人工智能素養單元。</p></article>
+              <article><span class="pico-label">C</span><h3>比較／對照</h3><p>與甚麼比較？<strong>例：</strong>沒有該單元的一般課程活動。</p></article>
+              <article><span class="pico-label">O</span><h3>結果</h3><p>預期會改變的是甚麼？<strong>例：</strong>單元後的人工智能素養問卷分數。</p></article>
             </div>
-            <p class="pico-question"><strong>例子：</strong>在修讀數字教育課程的本科生中，與只接受一般數字教育支援而未接受該單元的學生相比，結構化人工智能素養單元能否提高人工智能素養問卷分數？</p>
+            <p class="pico-question"><strong>貫穿例子：</strong>在一年級本科生中，與一般課程活動相比，為期四週的結構化人工智能素養單元能否提高人工智能素養分數？其後可考察引導式人工智能實作是否為可能機制，以及先前經驗或裝置使用機會是否為附加變量。</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="slide" data-title="Activity 2: Building up your research" aria-hidden="true">
+    <section class="slide" data-title="Activity · Build your research chain" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Activity 2: Building up your research</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Activity</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
         <div class="language-panel" data-language="en">
           <h2>Building up your research</h2>
           <div class="build-form" data-build-examples>
@@ -223,7 +219,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
               <div class="build-entry">
                 <label class="visually-hidden" for="build-topic">Topic</label>
                 <textarea id="build-topic" data-save="topic" placeholder="The broad subject matter addressed by the study."></textarea>
-                <p class="build-example" id="topic-example" hidden><strong>Example:</strong> Distance learning.</p>
+                <p class="build-example" id="topic-example" hidden><strong>Example:</strong> AI literacy in digital education.</p>
               </div>
             </div>
             <div class="build-field">
@@ -231,7 +227,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
               <div class="build-entry">
                 <label class="visually-hidden" for="build-problem">Problem</label>
                 <textarea id="build-problem" data-save="problem" placeholder="A general educational issue, concern, or controversy addressed in research that narrows the topic."></textarea>
-                <p class="build-example" id="problem-example" hidden><strong>Example:</strong> Lack of students in distance education classes.</p>
+                <p class="build-example" id="problem-example" hidden><strong>Example:</strong> It is unclear whether structured AI-literacy instruction creates enough guided AI practice to improve students’ AI-literacy scores.</p>
               </div>
             </div>
             <div class="build-field">
@@ -239,7 +235,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
               <div class="build-entry">
                 <label class="visually-hidden" for="build-purpose">Purpose</label>
                 <textarea id="build-purpose" data-save="purpose" placeholder="The major intent or objective of the study used to address the problem."></textarea>
-                <p class="build-example" id="purpose-example" hidden><strong>Example:</strong> To study why students do not attend distance education classes at a community college.</p>
+                <p class="build-example" id="purpose-example" hidden><strong>Example:</strong> To examine how structured AI-literacy instruction, guided AI practice and AI-literacy scores are related among first-year undergraduates.</p>
               </div>
             </div>
             <div class="build-field">
@@ -247,7 +243,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
               <div class="build-entry">
                 <label class="visually-hidden" for="build-question">Question</label>
                 <textarea id="build-question" data-save="question" placeholder="Research questions narrow the purpose into specific questions that the researcher would like answered or addressed in the study."></textarea>
-                <p class="build-example" id="question-example" hidden><strong>Example:</strong> Does the use of Web site technology in the classroom deter students from enrolling in a distance education class?</p>
+                <p class="build-example" id="question-example" hidden><strong>Example:</strong> Among first-year undergraduates, does structured AI-literacy instruction improve AI-literacy scores through guided AI practice, after considering prior AI experience and access to devices?</p>
               </div>
             </div>
           </div>
@@ -260,7 +256,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
               <div class="build-entry">
                 <label class="visually-hidden" for="build-topic-zh">主題</label>
                 <textarea id="build-topic-zh" data-save="topic-zh" placeholder="研究涉及的廣泛主題"></textarea>
-                <p class="build-example" id="topic-example-zh" hidden><strong>例子：</strong>遠距學習。</p>
+                <p class="build-example" id="topic-example-zh" hidden><strong>例子：</strong>數字教育中的人工智能素養。</p>
               </div>
             </div>
             <div class="build-field">
@@ -268,7 +264,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
               <div class="build-entry">
                 <label class="visually-hidden" for="build-problem-zh">研究課題</label>
                 <textarea id="build-problem-zh" data-save="problem-zh" placeholder="在縮小主題範圍的研究中解決的一般教育問題、關注點或爭議"></textarea>
-                <p class="build-example" id="problem-example-zh" hidden><strong>例子：</strong>遠程教育課程缺乏學生。</p>
+                <p class="build-example" id="problem-example-zh" hidden><strong>例子：</strong>目前尚不清楚結構化人工智能素養教學是否能帶來足夠的引導式人工智能實作，從而提升學生的人工智能素養分數。</p>
               </div>
             </div>
             <div class="build-field">
@@ -276,7 +272,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
               <div class="build-entry">
                 <label class="visually-hidden" for="build-purpose-zh">研究目的</label>
                 <textarea id="build-purpose-zh" data-save="purpose-zh" placeholder="用於解決問題的研究的主要意圖或目標"></textarea>
-                <p class="build-example" id="purpose-example-zh" hidden><strong>例子：</strong>研究為什麼學生不參加社區大學的遠程教育課程。</p>
+                <p class="build-example" id="purpose-example-zh" hidden><strong>例子：</strong>探討一年級本科生的結構化人工智能素養教學、引導式人工智能實作與人工智能素養分數如何相關。</p>
               </div>
             </div>
             <div class="build-field">
@@ -284,7 +280,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
               <div class="build-entry">
                 <label class="visually-hidden" for="build-question-zh">研究問題</label>
                 <textarea id="build-question-zh" data-save="question-zh" placeholder="研究問題將目的縮小到研究人員希望在研究中回答或解決的特定問題"></textarea>
-                <p class="build-example" id="question-example-zh" hidden><strong>例子：</strong>在課堂上使用網站技術是否會阻止學生參加遠程教育課程？</p>
+                <p class="build-example" id="question-example-zh" hidden><strong>例子：</strong>在一年級本科生中，考慮先前人工智能經驗與裝置使用機會後，結構化人工智能素養教學是否透過引導式人工智能實作提升人工智能素養分數？</p>
               </div>
             </div>
           </div>
@@ -292,141 +288,103 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
       </div>
     </section>
 
-    <section class="slide" data-title="Devising research questions" aria-hidden="true">
+    <section class="slide" data-title="How-to · Devise research questions" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Devising research questions</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">How-to</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
         <div class="language-panel" data-language="en">
           <h2>Devising research questions</h2>
           <p class="lead medium">Research questions are not the start of the research; typically they stem from the overall research purposes, objectives and design.</p>
           <p class="intro-line">A useful approach is to ask questions that start with:</p>
           <div class="word-line"><span>what</span><span>what if</span><span>who</span><span>when</span><span>where</span><span>which</span><span>whence</span><span>whither</span><span>why</span><span>how</span></div>
+          <p class="example-line"><strong>Start with the shared case:</strong> How does structured AI-literacy instruction relate to guided AI practice and AI-literacy scores among first-year undergraduates?</p>
         </div>
         <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
           <h2>擬定研究問題</h2>
           <p class="lead medium">研究問題不是研究的開始；通常它源於整體研究目的、目標與設計。</p>
           <p class="intro-line">一種有用的方法，是提出以下詞語開頭的問題：</p>
           <div class="word-line"><span>甚麼</span><span>如果</span><span>誰</span><span>何時</span><span>何地</span><span>哪一個</span><span>從何而來</span><span>去往何方</span><span>為甚麼</span><span>如何</span></div>
+          <p class="example-line"><strong>從貫穿案例開始：</strong>在一年級本科生中，結構化人工智能素養教學如何與引導式人工智能實作及人工智能素養分數相關？</p>
         </div>
       </div>
     </section>
 
-    <section class="slide" data-title="Types of research questions" aria-hidden="true">
+    <section class="slide" data-title="Instruction · Types of research questions" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Devising research questions</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Instruction</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
         <div class="language-panel" data-language="en">
           <h2>Types of research questions</h2>
           <div class="type-grid">
-            <details><summary>Descriptive</summary><p>What is happening? Describe facts, patterns or situations.</p></details>
-            <details><summary>Exploratory</summary><p>What might be going on? Explore under-researched or new areas.</p></details>
-            <details><summary>Explanatory</summary><p>Why or how does this happen? Identify causes, mechanisms or relationships.</p></details>
-            <details><summary>Comparative</summary><p>How do groups, contexts or interventions differ?</p></details>
-            <details><summary>Predictive</summary><p>What will happen? Forecast outcomes based on variables.</p></details>
-            <details><summary>Evaluative</summary><p>How effective is this? Assess quality, impact or success.</p></details>
-            <details><summary>Development-related</summary><p>How can we create or improve something? Focus on innovation/design.</p></details>
-            <details><summary>Normative</summary><p>What should be? Address values, ethics or policy.</p></details>
-            <details><summary>Emancipatory</summary><p>How can inequalities be challenged? Give voice to the marginalised.</p></details>
-            <details><summary>Empowerment</summary><p>How can people gain agency? Enable learners, teachers or communities to take control.</p></details>
+            <details><summary>Descriptive</summary><p>What is happening? Describe facts, patterns or situations. <strong>Example:</strong> What AI-literacy scores do first-year undergraduates report before the module?</p></details>
+            <details><summary>Exploratory</summary><p>What might be going on? Explore under-researched or new areas. <strong>Example:</strong> How do students describe guided AI practice during the module?</p></details>
+            <details><summary>Explanatory</summary><p>Why or how does this happen? Identify causes, mechanisms or relationships. <strong>Example:</strong> How might guided AI practice explain the link between instruction and AI-literacy scores?</p></details>
+            <details><summary>Comparative</summary><p>How do groups, contexts or interventions differ? <strong>Example:</strong> Do students receiving structured instruction differ in AI-literacy scores from those receiving usual activity?</p></details>
+            <details><summary>Predictive</summary><p>What will happen? Forecast outcomes based on variables. <strong>Example:</strong> Do prior AI experience and access to devices predict AI-literacy scores?</p></details>
+            <details><summary>Evaluative</summary><p>How effective is this? Assess quality, impact or success. <strong>Example:</strong> How effective is the module in improving AI-literacy scores?</p></details>
+            <details><summary>Development-related</summary><p>How can we create or improve something? Focus on innovation/design. <strong>Example:</strong> How can guided AI practice be redesigned to support ethical AI use?</p></details>
+            <details><summary>Normative</summary><p>What should be? Address values, ethics or policy. <strong>Example:</strong> What ethical AI-literacy outcomes should a digital education module prioritise?</p></details>
+            <details><summary>Emancipatory</summary><p>How can inequalities be challenged? Give voice to the marginalised. <strong>Example:</strong> How do unequal device access and prior opportunity shape participation in guided AI practice?</p></details>
+            <details><summary>Empowerment</summary><p>How can people gain agency? Enable learners, teachers or communities to take control. <strong>Example:</strong> How can students use AI-literacy knowledge to question and verify AI outputs?</p></details>
           </div>
         </div>
         <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
           <h2>研究問題的類型</h2>
           <div class="type-grid">
-            <details><summary>描述性</summary><p>正在發生甚麼？描述事實、模式或情況。</p></details>
-            <details><summary>探索性</summary><p>可能正在發生甚麼？探索研究不足或新的領域。</p></details>
-            <details><summary>解釋性</summary><p>為甚麼或如何發生？確定原因、機制或關係。</p></details>
-            <details><summary>比較性</summary><p>群體、情境或干預有何不同？</p></details>
-            <details><summary>預測性</summary><p>將會發生甚麼？根據變量預測結果。</p></details>
-            <details><summary>評估性</summary><p>成效如何？評估品質、影響或成功。</p></details>
-            <details><summary>發展相關</summary><p>如何創造或改進某項事物？聚焦創新／設計。</p></details>
-            <details><summary>規範性</summary><p>應該怎樣？處理價值、倫理或政策。</p></details>
-            <details><summary>解放性</summary><p>如何挑戰不平等？讓邊緣群體發聲。</p></details>
-            <details><summary>賦權性</summary><p>人們如何獲得能動性？讓學習者、教師或社群掌握主導權。</p></details>
+            <details><summary>描述性</summary><p>正在發生甚麼？描述事實、模式或情況。<strong>例子：</strong>一年級本科生在單元前報告了哪些人工智能素養分數？</p></details>
+            <details><summary>探索性</summary><p>可能正在發生甚麼？探索研究不足或新的領域。<strong>例子：</strong>學生如何描述在單元期間的引導式人工智能實作？</p></details>
+            <details><summary>解釋性</summary><p>為甚麼或如何發生？確定原因、機制或關係。<strong>例子：</strong>引導式人工智能實作如何解釋教學與人工智能素養分數之間的關係？</p></details>
+            <details><summary>比較性</summary><p>群體、情境或干預有何不同？<strong>例子：</strong>接受結構化教學的學生與接受一般活動的學生，其人工智能素養分數是否不同？</p></details>
+            <details><summary>預測性</summary><p>將會發生甚麼？根據變量預測結果。<strong>例子：</strong>先前人工智能經驗與裝置使用機會能否預測人工智能素養分數？</p></details>
+            <details><summary>評估性</summary><p>成效如何？評估品質、影響或成功。<strong>例子：</strong>該單元在提升人工智能素養分數方面有多有效？</p></details>
+            <details><summary>發展相關</summary><p>如何創造或改進某項事物？聚焦創新／設計。<strong>例子：</strong>如何重新設計引導式人工智能實作，以支持合乎倫理的人工智能使用？</p></details>
+            <details><summary>規範性</summary><p>應該怎樣？處理價值、倫理或政策。<strong>例子：</strong>數字教育單元應優先培養哪些合乎倫理的人工智能素養成果？</p></details>
+            <details><summary>解放性</summary><p>如何挑戰不平等？讓邊緣群體發聲。<strong>例子：</strong>不平等的裝置使用機會與先前接觸經驗如何塑造學生參與引導式人工智能實作？</p></details>
+            <details><summary>賦權性</summary><p>人們如何獲得能動性？讓學習者、教師或社群掌握主導權。<strong>例子：</strong>學生如何運用人工智能素養知識質疑並核實人工智能輸出？</p></details>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="slide operationalization-slide" data-title="Operationalization" aria-hidden="true">
+    <section class="slide" data-title="Check · Research questions to avoid" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">From ideas to evidence</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
-        <div class="language-panel" data-language="en">
-          <h2>Operationalization</h2>
-          <p class="lead small-lead">Operationalization turns an abstract research question or hypothesis into observable participants, conditions, measures and outcomes.</p>
-          <div class="operationalization-layout">
-            <div class="operationalization-example">
-              <div class="operationalization-card question-card"><span class="operationalization-label">Research question</span><p>How do students experience digital feedback on their writing?</p></div>
-              <div class="operationalization-arrow" aria-hidden="true">↓</div>
-              <div class="operationalization-details">
-                <div><strong>Students</strong><span>second-year undergraduate EFL learners at a university</span></div>
-                <div><strong>Experience</strong><span>learners’ perceptions, emotions and interpretations of feedback</span></div>
-                <div><strong>Digital feedback</strong><span>teacher comments through an online platform: typed comments and tracked changes</span></div>
-              </div>
-              <div class="operationalization-arrow" aria-hidden="true">↓</div>
-              <div class="operationalization-card refined-card"><span class="operationalization-label">Narrowed qualitative question</span><p>How do second-year undergraduate EFL learners describe their perceptions and experiences of receiving digital feedback (typed comments on drafts) in academic writing courses?</p></div>
-            </div>
-          </div>
-        </div>
-        <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
-          <h2>操作化</h2>
-          <p class="lead small-lead">操作化把抽象的研究問題或假設轉化為可觀察的參與者、條件、測量方式與結果。</p>
-          <div class="operationalization-layout">
-            <div class="operationalization-example">
-              <div class="operationalization-card question-card"><span class="operationalization-label">研究問題</span><p>學生如何體驗寫作中的數字回饋？</p></div>
-              <div class="operationalization-arrow" aria-hidden="true">↓</div>
-              <div class="operationalization-details">
-                <div><strong>學生</strong><span>大學二年級本科 EFL 學習者</span></div>
-                <div><strong>體驗</strong><span>學習者對回饋的看法、情緒與詮釋</span></div>
-                <div><strong>數字回饋</strong><span>透過線上平台提供的教師評語：鍵入的評語與修訂記錄</span></div>
-              </div>
-              <div class="operationalization-arrow" aria-hidden="true">↓</div>
-              <div class="operationalization-card refined-card"><span class="operationalization-label">收窄後的定性問題</span><p>大學二年級本科 EFL 學習者如何描述他們在學術寫作課程中接受數字回饋（草稿上的鍵入評語）的看法與經驗？</p></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide" data-title="Research questions to avoid" aria-hidden="true">
-      <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Research questions to avoid</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Check</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
         <div class="language-panel" data-language="en">
           <h2>Research questions to avoid</h2>
           <div class="avoid-question-grid">
-            <details><summary>Multiple questions at a time</summary><p>What are the test scores of females and males… and how can we account for such findings?</p></details>
-            <details><summary>False dichotomies</summary><p>Is a centralised university entrance examination a narrowing of the curriculum or a fair basis for comparing student performance?</p></details>
-            <details><summary>Making false assumptions</summary><p>Why do males prefer multiple-choice questions to essay questions in public English language examinations at age 16?</p></details>
-            <details><summary>Tautological questions</summary><p>Why do so many wealthy students study in elite universities?</p></details>
-            <details><summary>Too broad</summary><p>What are the effects of such-and-such an intervention on students?</p></details>
-            <details><summary>Too simple</summary><p>How are schools addressing student under-achievement?</p></details>
-            <details><summary>Biased and leading</summary><p>Avoid “can”/“how can” questions, as these are hypothetical and limitless.</p></details>
+            <details><summary>Multiple questions at a time</summary><p>Do students receiving structured AI-literacy instruction score higher, practise AI more, trust AI more and use AI more ethically?</p></details>
+            <details><summary>False dichotomies</summary><p>Should an AI-literacy module prioritise improving scores or ethical AI use?</p></details>
+            <details><summary>Making false assumptions</summary><p>Why do students with low AI literacy refuse to engage in guided AI practice?</p></details>
+            <details><summary>Tautological questions</summary><p>Why do students with high AI-literacy scores have high AI literacy?</p></details>
+            <details><summary>Too broad</summary><p>What are the effects of AI-literacy instruction on students?</p></details>
+            <details><summary>Too simple</summary><p>How are universities improving AI literacy?</p></details>
+            <details><summary>Biased and leading</summary><p>How can structured AI-literacy instruction solve students’ lack of AI literacy?</p></details>
           </div>
         </div>
         <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
           <h2>應避免的研究問題</h2>
           <div class="avoid-question-grid">
-            <details><summary>一次提出多個問題</summary><p>某國 14 歲女性和男性的國際閱讀理解測試成績是多少？我們又如何解釋這些發現？</p></details>
-            <details><summary>錯誤的二分法</summary><p>一個國家的集中式大學入學考試是收窄課程，還是公平比較學生成績的依據？</p></details>
-            <details><summary>作出錯誤假設</summary><p>為甚麼男性在 16 歲公開英語考試中更喜歡選擇題而不是論述題？</p></details>
-            <details><summary>同義反覆問題</summary><p>為甚麼那麼多富裕學生入讀頂尖大學？</p></details>
-            <details><summary>範圍過廣</summary><p>某項干預對學生有甚麼影響？</p></details>
-            <details><summary>過於簡單</summary><p>學校如何處理學生成績不佳？</p></details>
-            <details><summary>有偏見和引導性</summary><p>避免「可以／如何可以」問題，因為這些問題是假設性並且沒有界限。</p></details>
+            <details><summary>一次提出多個問題</summary><p>接受結構化人工智能素養教學的學生是否分數較高、更多使用人工智能、更加信任人工智能，並更合乎倫理地使用人工智能？</p></details>
+            <details><summary>錯誤的二分法</summary><p>人工智能素養單元應優先提升分數，還是優先培養合乎倫理的人工智能使用？</p></details>
+            <details><summary>作出錯誤假設</summary><p>為甚麼人工智能素養較低的學生拒絕參與引導式人工智能實作？</p></details>
+            <details><summary>同義反覆問題</summary><p>為甚麼人工智能素養分數高的學生具有較高的人工智能素養？</p></details>
+            <details><summary>範圍過廣</summary><p>人工智能素養教學對學生有甚麼影響？</p></details>
+            <details><summary>過於簡單</summary><p>大學如何提升人工智能素養？</p></details>
+            <details><summary>有偏見和引導性</summary><p>結構化人工智能素養教學如何能解決學生缺乏人工智能素養的問題？</p></details>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="slide" data-title="How many research questions?" aria-hidden="true">
+    <section class="slide" data-title="How-to · Scope research questions" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">How many research questions should I have?</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">How-to</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
         <div class="language-panel" data-language="en">
           <h2>How many research questions should I have?</h2>
           <p class="lead medium">Whilst there are no hard and fast rules, a general principle is to have as few as necessary, but no fewer.</p>
           <p class="intro-line">Research questions may comprise:</p>
           <ul class="source-list">
-            <li>A question that asks for descriptive data: what, who, where, when</li>
-            <li>A question that requires comparisons, differences or relations to be drawn</li>
-            <li>A question that asks “so what?”: implications and recommendations</li>
+            <li>A descriptive question: What AI-literacy scores and guided AI-practice patterns are present?</li>
+            <li>A comparison or relationship question: Does structured instruction relate to guided practice and AI-literacy scores?</li>
+            <li>A “so what?” question: How should the module change if prior AI experience or device access shapes the results?</li>
           </ul>
         </div>
         <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
@@ -434,19 +392,20 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
           <p class="lead medium">雖然沒有硬性規定，一般原則是盡可能少，但不能更少。</p>
           <p class="intro-line">研究問題可以包括：</p>
           <ul class="source-list">
-            <li>要求描述性資料的問題：甚麼、誰、何地、何時</li>
-            <li>需要比較、差異或關係的問題</li>
-            <li>追問「那又怎樣？」的問題：影響與建議</li>
+            <li>描述性問題：存在哪些人工智能素養分數與引導式人工智能實作模式？</li>
+            <li>比較或關係問題：結構化教學是否與引導式實作及人工智能素養分數相關？</li>
+            <li>「那又怎樣？」問題：若先前人工智能經驗或裝置使用機會影響結果，應如何修改單元？</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <section class="slide" data-title="Activity 3: Revise your research questions" aria-hidden="true">
+    <section class="slide" data-title="Activity · Revise research questions" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Activity 3: Building up your research</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Activity</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
         <div class="language-panel" data-language="en">
           <h2>Revise your research questions</h2>
+          <p class="intro-line">Use the AI-literacy chain as a starting point, then make the topic, problem, purpose and question fit one feasible study.</p>
           <div class="build-form">
             <label><span>Topic</span><textarea data-save="revise-topic" placeholder="The broad subject matter addressed by the study."></textarea></label>
             <label><span>Problem</span><textarea data-save="revise-problem" placeholder="A general educational issue, concern, or controversy addressed in research that narrows the topic."></textarea></label>
@@ -456,6 +415,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
         </div>
         <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
           <h2>修訂你的研究問題</h2>
+          <p class="intro-line">以人工智能素養研究鏈作起點，然後使主題、研究課題、目的和問題都適合一項可行研究。</p>
           <div class="build-form">
             <label><span>主題</span><textarea data-save="revise-topic-zh" placeholder="研究涉及的廣泛主題"></textarea></label>
             <label><span>研究課題</span><textarea data-save="revise-problem-zh" placeholder="在縮小主題範圍的研究中解決的一般教育問題、關注點或爭議"></textarea></label>
@@ -466,9 +426,9 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
       </div>
     </section>
 
-    <section class="slide" data-title="Research questions and hypotheses" aria-hidden="true">
+    <section class="slide" data-title="Instruction · Questions and hypotheses" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Research questions and hypotheses</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Instruction</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
         <div class="language-panel" data-language="en">
           <h2>Research questions and hypotheses</h2>
           <div class="compare-table">
@@ -476,6 +436,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
             <article><h3>Quantitative research</h3><ul><li>Uses hypotheses</li><li>Identifies and measures multiple variables</li><li>Tests theories that predict results from relating variables</li><li>Uses a closed-ended stance and selects instruments before the study begins</li><li>Measures differences among groups or changes over time</li></ul></article>
           </div>
           <p class="hypothesis-note">Many qualitative studies do not test hypotheses; they explore questions.</p>
+          <p class="hypothesis-note"><strong>Shared case:</strong> a qualitative study may ask how students experience structured instruction and guided AI practice; a quantitative hypothesis may test whether instruction predicts AI-literacy scores through guided practice.</p>
         </div>
         <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
           <h2>研究問題與假設</h2>
@@ -484,19 +445,21 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
             <article><h3>定量研究</h3><ul><li>使用假設</li><li>識別並測量多個變量</li><li>檢驗從變量關係預測結果的理論</li><li>採用封閉式立場，並在研究開始前選擇工具</li><li>測量群體差異或個體隨時間的變化</li></ul></article>
           </div>
           <p class="hypothesis-note">許多定性研究不檢驗假設，而是探索研究問題。</p>
+          <p class="hypothesis-note"><strong>貫穿案例：</strong>定性研究可探討學生如何體驗結構化教學與引導式人工智能實作；定量假設則可檢驗教學是否透過引導式實作預測人工智能素養分數。</p>
         </div>
       </div>
     </section>
 
-    <section class="slide" data-title="Hypothesis" aria-hidden="true">
+    <section class="slide" data-title="Instruction · What is a hypothesis?" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Hypothesis</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Instruction</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
         <div class="language-panel" data-language="en">
           <h2>Hypothesis</h2>
           <div class="hypothesis-introduction">
             <div class="hypothesis-definition">
               <p class="lead medium">A hypothesis is a precise, testable prediction about the relationship between two or more variables. It should be grounded in theory or prior evidence, and the data should be able to show that it is wrong.</p>
               <p class="lead medium">It is not simply an “educated guess”: a research question stays open, while a hypothesis commits to a specific expected pattern.</p>
+              <p class="example-line"><strong>Shared case:</strong> structured AI-literacy instruction is expected to support guided AI practice, which is expected to relate to higher AI-literacy scores.</p>
               <div class="reasoning-compare">
                 <aside class="inductive-callout"><strong>Inductive reasoning</strong><span>Moves from observations or patterns to a tentative hypothesis. It helps generate a hypothesis, but does not prove it.</span></aside>
                 <aside class="deductive-callout"><strong>Deductive reasoning</strong><span>Starts with a theory or hypothesis and derives a testable prediction. It helps test whether evidence is consistent with the hypothesis.</span></aside>
@@ -514,6 +477,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
             <div class="hypothesis-definition">
               <p class="lead medium">假設是對兩個或以上變量之間關係的精確、可檢驗預測。它應以理論或既有證據為基礎，而資料應能顯示它可能是錯的。</p>
               <p class="lead medium">假設不只是「有根據的猜測」：研究問題保持開放，而假設則承諾一種具體的預期模式。</p>
+              <p class="example-line"><strong>貫穿案例：</strong>預期結構化人工智能素養教學支持引導式人工智能實作，而後者與較高的人工智能素養分數相關。</p>
               <div class="reasoning-compare">
                 <aside class="inductive-callout"><strong>歸納推理</strong><span>從觀察或模式走向暫時性假設；有助於提出假設，但不能證明假設。</span></aside>
                 <aside class="deductive-callout"><strong>演繹推理</strong><span>從理論或假設推導可檢驗的預測；有助於檢驗證據是否與假設一致。</span></aside>
@@ -528,9 +492,9 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
       </div>
     </section>
 
-    <section class="slide" data-title="Null and alternative hypotheses" aria-hidden="true">
+    <section class="slide" data-title="Example · Null and alternative hypotheses" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">The null and alternative hypotheses</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Example</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
         <div class="language-panel" data-language="en">
           <h2>Null and alternative hypotheses</h2>
           <div class="hypothesis-pair">
@@ -539,8 +503,8 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
           </div>
           <h3 class="hypothesis-subtitle">Example</h3>
           <div class="hypothesis-example">
-            <article class="hypothesis-example-null"><h3>Null hypothesis (H₀)</h3><p>There is no significant difference in academic-writing scores between students who receive digital feedback and those who receive handwritten feedback.</p></article>
-            <article class="hypothesis-example-alternative"><h3>Alternative hypothesis (H₁)</h3><p>Students who receive digital feedback achieve significantly higher academic-writing scores than those who receive handwritten feedback.</p></article>
+            <article class="hypothesis-example-null"><h3>Null hypothesis (H₀)</h3><p>There is no significant difference in AI-literacy scores between students who receive structured AI-literacy instruction and those who receive usual course activity.</p></article>
+            <article class="hypothesis-example-alternative"><h3>Alternative hypothesis (H₁)</h3><p>Students who receive structured AI-literacy instruction achieve significantly higher AI-literacy scores than those who receive usual course activity.</p></article>
           </div>
         </div>
         <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
@@ -551,24 +515,24 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
           </div>
           <h3 class="hypothesis-subtitle">例子</h3>
           <div class="hypothesis-example">
-            <article class="hypothesis-example-null"><h3>零假設（H₀）</h3><p>接受數字回饋與接受手寫回饋的學生，其學術寫作分數沒有顯著差異。</p></article>
-            <article class="hypothesis-example-alternative"><h3>備擇假設（H₁）</h3><p>接受數字回饋的學生，其學術寫作分數顯著高於接受手寫回饋的學生。</p></article>
+            <article class="hypothesis-example-null"><h3>零假設（H₀）</h3><p>接受結構化人工智能素養教學與接受一般課程活動的學生，其人工智能素養分數沒有顯著差異。</p></article>
+            <article class="hypothesis-example-alternative"><h3>備擇假設（H₁）</h3><p>接受結構化人工智能素養教學的學生，其人工智能素養分數顯著高於接受一般課程活動的學生。</p></article>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="slide hypothesis-types-slide" data-title="Types of hypotheses" aria-hidden="true">
+    <section class="slide hypothesis-types-slide" data-title="Instruction · Types of hypotheses" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Choose the claim carefully</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Instruction</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
         <div class="language-panel" data-language="en">
           <h2>Types of hypotheses</h2>
           <p class="intro-line">First decide whether you are comparing groups or examining an association. Then decide whether prior theory or evidence justifies predicting a direction.</p>
           <div class="hypothesis-type-grid">
             <article><span class="type-kicker">Difference · non-directional</span><h3>Difference without a direction</h3><p>Compares groups but does not say which group will score higher.</p><p class="type-example"><strong>Example:</strong> AI-literacy scores differ between students who receive structured AI-literacy instruction and students who do not.</p></article>
             <article><span class="type-kicker">Difference · directional</span><h3>Difference with a direction</h3><p>Compares groups and predicts which way the outcome will differ.</p><p class="type-example"><strong>Example:</strong> Students who receive structured AI-literacy instruction will have higher AI-literacy scores than students who do not.</p></article>
-            <article><span class="type-kicker">Correlation · non-directional</span><h3>Association without a direction</h3><p>States that two measured variables are related without predicting a positive or negative pattern.</p><p class="type-example"><strong>Example:</strong> AI-literacy scores are associated with academic-writing scores.</p></article>
-            <article><span class="type-kicker">Correlation · directional</span><h3>Association with a direction</h3><p>States whether the association is positive or negative.</p><p class="type-example"><strong>Example:</strong> Higher AI-literacy scores are positively associated with higher academic-writing scores.</p></article>
+            <article><span class="type-kicker">Correlation · non-directional</span><h3>Association without a direction</h3><p>States that two measured variables are related without predicting a positive or negative pattern.</p><p class="type-example"><strong>Example:</strong> Guided AI-practice engagement is associated with AI-literacy scores.</p></article>
+            <article><span class="type-kicker">Correlation · directional</span><h3>Association with a direction</h3><p>States whether the association is positive or negative.</p><p class="type-example"><strong>Example:</strong> More guided AI practice is positively associated with higher AI-literacy scores.</p></article>
           </div>
           <p class="hypothesis-caution"><strong>Plan before seeing the data:</strong> choose a directional or non-directional form in advance. An association alone does not establish causation.</p>
           <figure class="hypothesis-types-comic">
@@ -582,8 +546,8 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
           <div class="hypothesis-type-grid">
             <article><span class="type-kicker">差異 · 非方向性</span><h3>沒有方向的差異</h3><p>比較群體，但不說明哪一個群體的分數較高。</p><p class="type-example"><strong>例子：</strong>接受結構化人工智能素養教學與未接受教學的學生，其人工智能素養分數存在差異。</p></article>
             <article><span class="type-kicker">差異 · 方向性</span><h3>有方向的差異</h3><p>比較群體，並預測結果差異的方向。</p><p class="type-example"><strong>例子：</strong>接受結構化人工智能素養教學的學生，其人工智能素養分數將高於未接受教學的學生。</p></article>
-            <article><span class="type-kicker">相關 · 非方向性</span><h3>沒有方向的關聯</h3><p>指出兩個測量變量有關聯，但不預測正向或負向模式。</p><p class="type-example"><strong>例子：</strong>人工智能素養分數與學術寫作分數相關。</p></article>
-            <article><span class="type-kicker">相關 · 方向性</span><h3>有方向的關聯</h3><p>指出關聯是正向還是負向。</p><p class="type-example"><strong>例子：</strong>人工智能素養分數越高，通常與越高的學術寫作分數呈正相關。</p></article>
+            <article><span class="type-kicker">相關 · 非方向性</span><h3>沒有方向的關聯</h3><p>指出兩個測量變量有關聯，但不預測正向或負向模式。</p><p class="type-example"><strong>例子：</strong>引導式人工智能實作的投入與人工智能素養分數相關。</p></article>
+            <article><span class="type-kicker">相關 · 方向性</span><h3>有方向的關聯</h3><p>指出關聯是正向還是負向。</p><p class="type-example"><strong>例子：</strong>更多引導式人工智能實作與較高的人工智能素養分數呈正相關。</p></article>
           </div>
           <p class="hypothesis-caution"><strong>在查看資料前先作規劃：</strong>預先選擇方向性或非方向性的表述。單憑關聯不能確立因果關係。</p>
           <figure class="hypothesis-types-comic">
@@ -594,9 +558,9 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
       </div>
     </section>
 
-    <section class="slide" data-title="How to write a hypothesis" aria-hidden="true">
+    <section class="slide" data-title="How-to · Write a hypothesis" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">A five-step process</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">How-to</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
         <div class="language-panel" data-language="en">
           <h2>How to write the hypothesis</h2>
           <ol class="hypothesis-steps">
@@ -607,6 +571,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
             <li><span>05</span><strong>Pair with a null hypothesis</strong><p>State the no-difference or no-association claim for statistical inference.</p></li>
           </ol>
           <p class="hypothesis-caution"><strong>Before analysis:</strong> record the wording and rationale so the direction is not chosen after seeing the data.</p>
+          <p class="example-line"><strong>Worked start:</strong> “Among first-year undergraduates, structured AI-literacy instruction will be associated with higher post-module AI-literacy questionnaire scores through guided AI practice.”</p>
         </div>
         <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
           <h2>如何撰寫假設</h2>
@@ -618,59 +583,60 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
             <li><span>05</span><strong>配對零假設</strong><p>為統計推論說明沒有差異或沒有關聯的主張。</p></li>
           </ol>
           <p class="hypothesis-caution"><strong>分析前：</strong>記錄措辭及其理據，避免在查看資料後才選擇方向。</p>
+          <p class="example-line"><strong>起步例子：</strong>「在一年級本科生中，結構化人工智能素養教學將透過引導式人工智能實作，與較高的單元後人工智能素養問卷分數相關。」</p>
         </div>
       </div>
     </section>
 
-    <section class="slide" data-title="Hypothesis templates" aria-hidden="true">
+    <section class="slide" data-title="How-to · Hypothesis templates" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">From question to prediction</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">How-to</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
         <div class="language-panel" data-language="en">
           <h2>Hypothesis templates</h2>
-          <p class="intro-line">Replace the brackets with your population, variables, measures and comparison. Use a direction only when theory or prior evidence supports it.</p>
+          <p class="intro-line">Replace the brackets with your population, variables, measures and comparison. The shared case supplies the terms in bold; use a direction only when theory or prior evidence supports it.</p>
           <div class="template-grid">
-            <article><span class="type-kicker">Directional difference</span><h3>Compare two groups</h3><p class="template-line">For [population] receiving [condition X], the mean [outcome] score, measured with [instrument], will be [higher/lower] than in [comparison group].</p></article>
-            <article><span class="type-kicker">Directional correlation</span><h3>Relate two variables</h3><p class="template-line">Among [population], [variable A], measured by [instrument], will be [positively/negatively] associated with [variable B], measured by [instrument].</p></article>
-            <article><span class="type-kicker">Moderation</span><h3>Specify a conditional effect</h3><p class="template-line">The relationship between [variable A] and [variable B] in [population] will be [stronger/weaker] at [level of moderator C] than at [comparison level].</p></article>
-            <article><span class="type-kicker">Null hypothesis</span><h3>State the no-effect claim</h3><p class="template-line">H₀: [outcome] will not differ between [group 1] and [group 2] in [population].</p></article>
+            <article><span class="type-kicker">Directional difference</span><h3>Compare two groups</h3><p class="template-line">For [first-year undergraduates] receiving [structured AI-literacy instruction], the mean [AI-literacy] score, measured with [a questionnaire], will be [higher/lower] than in [usual-course-activity students].</p></article>
+            <article><span class="type-kicker">Directional correlation</span><h3>Relate two variables</h3><p class="template-line">Among [first-year undergraduates], [guided AI practice], measured by [practice records], will be [positively/negatively] associated with [AI-literacy score], measured by [a questionnaire].</p></article>
+            <article><span class="type-kicker">Moderation</span><h3>Specify a conditional effect</h3><p class="template-line">The relationship between [structured AI-literacy instruction] and [guided AI practice] will be [stronger/weaker] for students with [more/less prior AI experience].</p></article>
+            <article><span class="type-kicker">Null hypothesis</span><h3>State the no-effect claim</h3><p class="template-line">H₀: [post-module AI-literacy score] will not differ between [structured-instruction students] and [usual-course-activity students].</p></article>
           </div>
           <p class="hypothesis-caution"><strong>Non-directional option:</strong> say that groups “differ” or variables “are associated” without adding higher, lower, positive or negative.</p>
         </div>
         <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
           <h2>假設模板</h2>
-          <p class="intro-line">把研究對象、變量、測量方式與比較組填入方括號。只有在理論或既有證據支持時，才加入方向。</p>
+          <p class="intro-line">把研究對象、變量、測量方式與比較組填入方括號。貫穿案例提供粗體詞語；只有在理論或既有證據支持時，才加入方向。</p>
           <div class="template-grid">
-            <article><span class="type-kicker">方向性差異</span><h3>比較兩個群體</h3><p class="template-line">對於接受［條件 X］的［研究對象］，以［工具］測量的平均［結果］分數將［高於／低於］［比較組］。</p></article>
-            <article><span class="type-kicker">方向性相關</span><h3>連結兩個變量</h3><p class="template-line">在［研究對象］中，以［工具］測量的［變量 A］將與以［工具］測量的［變量 B］呈［正／負］相關。</p></article>
-            <article><span class="type-kicker">調節作用</span><h3>說明條件性效果</h3><p class="template-line">在［研究對象］中，［變量 A］與［變量 B］的關係，在［調節變量 C 的水平］下將比［比較水平］更［強／弱］。</p></article>
-            <article><span class="type-kicker">零假設</span><h3>說明沒有作用的主張</h3><p class="template-line">H₀：在［研究對象］中，［群體 1］與［群體 2］的［結果］沒有差異。</p></article>
+            <article><span class="type-kicker">方向性差異</span><h3>比較兩個群體</h3><p class="template-line">對於接受［結構化人工智能素養教學］的［一年級本科生］，以［問卷］測量的平均［人工智能素養］分數將［高於／低於］［一般課程活動學生］。</p></article>
+            <article><span class="type-kicker">方向性相關</span><h3>連結兩個變量</h3><p class="template-line">在［一年級本科生］中，以［實作記錄］測量的［引導式人工智能實作］將與以［問卷］測量的［人工智能素養分數］呈［正／負］相關。</p></article>
+            <article><span class="type-kicker">調節作用</span><h3>說明條件性效果</h3><p class="template-line">［結構化人工智能素養教學］與［引導式人工智能實作］的關係，對［先前人工智能經驗較多／較少］的學生將更［強／弱］。</p></article>
+            <article><span class="type-kicker">零假設</span><h3>說明沒有作用的主張</h3><p class="template-line">H₀：［單元後人工智能素養分數］在［結構化教學學生］與［一般課程活動學生］之間沒有差異。</p></article>
           </div>
           <p class="hypothesis-caution"><strong>非方向性選項：</strong>說明群體「存在差異」或變量「相關」，但不加入較高、較低、正向或負向。</p>
         </div>
       </div>
     </section>
 
-    <section class="slide" data-title="Full hypothesis examples" aria-hidden="true">
+    <section class="slide" data-title="Activity · Strengthen a hypothesis" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Specific, testable, grounded</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Activity</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
         <div class="language-panel" data-language="en">
           <h2>Full hypothesis examples</h2>
           <p class="intro-line">Improve each weak hypothesis by typing a more precise, testable version. Then reveal the referenced answer and compare your wording.</p>
           <div class="full-example-grid hypothesis-practice" data-hypothesis-practice>
             <article>
               <h3>Example 1 · Difference</h3>
-              <p class="weak-version"><span>Weak version</span>AI literacy improves writing.</p>
+              <p class="weak-version"><span>Weak version</span>Structured AI-literacy instruction helps students.</p>
               <label class="hypothesis-entry"><span>Your improved hypothesis</span><textarea data-save="hypothesis-difference-en" placeholder="Include the population, comparison, outcome measure and direction."></textarea></label>
               <button type="button" class="answer-toggle" data-reveal-answer="hypothesis-answer-difference-en" data-show-label="Reveal referenced answer" data-hide-label="Hide referenced answer" aria-expanded="false">Reveal referenced answer</button>
-              <div class="referenced-answer" id="hypothesis-answer-difference-en" hidden><span>Referenced answer</span><p>Among first-year undergraduates, students assigned to a four-week AI-literacy workshop will achieve higher mean scores on a common academic-writing rubric than wait-list students at post-test.</p></div>
+              <div class="referenced-answer" id="hypothesis-answer-difference-en" hidden><span>Referenced answer</span><p>Among first-year undergraduates, students assigned to a four-week structured AI-literacy module will achieve higher mean scores on a post-module AI-literacy questionnaire than students completing usual course activity.</p></div>
               <p class="why-example"><strong>Quality check:</strong> It names the population, intervention, comparison, outcome measure and time point; the assigned comparison supports the stated causal design.</p>
             </article>
             <article>
               <h3>Example 2 · Correlation</h3>
-              <p class="weak-version"><span>Weak version</span>AI literacy is related to achievement.</p>
+              <p class="weak-version"><span>Weak version</span>Guided AI practice is related to AI literacy.</p>
               <label class="hypothesis-entry"><span>Your improved hypothesis</span><textarea data-save="hypothesis-correlation-en" placeholder="Name both measured variables and state the direction of association."></textarea></label>
               <button type="button" class="answer-toggle" data-reveal-answer="hypothesis-answer-correlation-en" data-show-label="Reveal referenced answer" data-hide-label="Hide referenced answer" aria-expanded="false">Reveal referenced answer</button>
-              <div class="referenced-answer" id="hypothesis-answer-correlation-en" hidden><span>Referenced answer</span><p>Among first-year undergraduates, AI-literacy questionnaire scores will be positively associated with academic-writing rubric scores collected in the same semester.</p></div>
+              <div class="referenced-answer" id="hypothesis-answer-correlation-en" hidden><span>Referenced answer</span><p>Among first-year undergraduates, guided AI-practice scores recorded during the module will be positively associated with post-module AI-literacy questionnaire scores.</p></div>
               <p class="why-example"><strong>Quality check:</strong> It identifies both measured variables and the direction while avoiding a causal claim.</p>
             </article>
           </div>
@@ -681,18 +647,18 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
           <div class="full-example-grid hypothesis-practice" data-hypothesis-practice>
             <article>
               <h3>例子 1 · 差異</h3>
-              <p class="weak-version"><span>較弱的表述</span>人工智能素養改善寫作。</p>
+              <p class="weak-version"><span>較弱的表述</span>結構化人工智能素養教學有助學生。</p>
               <label class="hypothesis-entry"><span>你改寫的假設</span><textarea data-save="hypothesis-difference-zh" placeholder="加入研究對象、比較組、結果測量與方向。"></textarea></label>
               <button type="button" class="answer-toggle" data-reveal-answer="hypothesis-answer-difference-zh" data-show-label="揭示參考答案" data-hide-label="隱藏參考答案" aria-expanded="false">揭示參考答案</button>
-              <div class="referenced-answer" id="hypothesis-answer-difference-zh" hidden><span>參考答案</span><p>在一年級本科生中，被分配參加為期四週人工智能素養工作坊的學生，在共同的學術寫作評分標準上的平均分數，將高於候補名單學生在後測中的分數。</p></div>
+              <div class="referenced-answer" id="hypothesis-answer-difference-zh" hidden><span>參考答案</span><p>在一年級本科生中，被分配參加為期四週結構化人工智能素養單元的學生，其單元後人工智能素養問卷平均分數將高於進行一般課程活動的學生。</p></div>
               <p class="why-example"><strong>品質檢查：</strong>它說明研究對象、干預、比較組、結果測量與時間點；分配式比較配合其因果研究設計。</p>
             </article>
             <article>
               <h3>例子 2 · 相關</h3>
-              <p class="weak-version"><span>較弱的表述</span>人工智能素養與成就有關。</p>
+              <p class="weak-version"><span>較弱的表述</span>引導式人工智能實作與人工智能素養有關。</p>
               <label class="hypothesis-entry"><span>你改寫的假設</span><textarea data-save="hypothesis-correlation-zh" placeholder="列出兩個可測量的變量，並說明關聯方向。"></textarea></label>
               <button type="button" class="answer-toggle" data-reveal-answer="hypothesis-answer-correlation-zh" data-show-label="揭示參考答案" data-hide-label="隱藏參考答案" aria-expanded="false">揭示參考答案</button>
-              <div class="referenced-answer" id="hypothesis-answer-correlation-zh" hidden><span>參考答案</span><p>在一年級本科生中，人工智能素養問卷分數將與同一學期收集的學術寫作評分標準分數呈正相關。</p></div>
+              <div class="referenced-answer" id="hypothesis-answer-correlation-zh" hidden><span>參考答案</span><p>在一年級本科生中，單元期間記錄的引導式人工智能實作分數將與單元後人工智能素養問卷分數呈正相關。</p></div>
               <p class="why-example"><strong>品質檢查：</strong>它指出兩個可測量變量及關係方向，同時避免提出因果主張。</p>
             </article>
           </div>
@@ -700,15 +666,15 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
       </div>
     </section>
 
-    <section class="slide hypothesis-avoid-slide" data-title="Hypothesis to Avoid" aria-hidden="true">
+    <section class="slide hypothesis-avoid-slide" data-title="Check · Hypotheses to avoid" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header hypothesis-avoid-header"><span class="visually-hidden">Hypothesis quality</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header hypothesis-avoid-header"><span class="eyebrow">Check</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
         <div class="language-panel" data-language="en">
           <h2>Hypothesis to Avoid</h2>
           <div class="hypothesis-avoid-grid">
             <details>
               <summary>Too many predictions</summary>
-              <p><strong>Why avoid it:</strong> Split separate outcomes into H₁, H₂ and H₃ so each claim can be tested clearly.<span class="avoid-example"><strong>Weak example:</strong> Students who receive AI-literacy instruction will have higher AI-literacy scores, write better, feel more confident and use AI responsibly.</span></p>
+              <p><strong>Why avoid it:</strong> Split separate outcomes into H₁, H₂ and H₃ so each claim can be tested clearly.<span class="avoid-example"><strong>Weak example:</strong> Students who receive AI-literacy instruction will have higher AI-literacy scores, practise AI more, feel more confident and use AI more ethically.</span></p>
             </details>
             <details>
               <summary>Not falsifiable</summary>
@@ -716,19 +682,19 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
             </details>
             <details>
               <summary>Causal language without a suitable design</summary>
-              <p><strong>Why avoid it:</strong> Use “is associated with” for correlational evidence; reserve causal claims for designs that support them.<span class="avoid-example"><strong>Weak example:</strong> AI-literacy scores cause higher academic-writing scores.</span></p>
+              <p><strong>Why avoid it:</strong> Use “is associated with” for correlational evidence; reserve causal claims for designs that support them.<span class="avoid-example"><strong>Weak example:</strong> Guided AI practice causes higher AI-literacy scores.</span></p>
             </details>
             <details>
               <summary>No literature grounding</summary>
-              <p><strong>Why avoid it:</strong> Show the logic from theory or a prior finding to an implication and then to a prediction.<span class="avoid-example"><strong>Weak example:</strong> AI literacy is important, so it will improve academic writing.</span></p>
+              <p><strong>Why avoid it:</strong> Show the logic from theory or a prior finding to an implication and then to a prediction.<span class="avoid-example"><strong>Weak example:</strong> AI literacy is important, so structured instruction will increase AI-literacy scores.</span></p>
             </details>
             <details>
               <summary>Vague outcome</summary>
-              <p><strong>Why avoid it:</strong> Specify what will change and how it will be measured.<span class="avoid-example"><strong>Weak example:</strong> AI-literacy instruction improves students’ writing.</span></p>
+              <p><strong>Why avoid it:</strong> Specify what will change and how it will be measured.<span class="avoid-example"><strong>Weak example:</strong> AI-literacy instruction improves students’ AI literacy.</span></p>
             </details>
             <details>
               <summary>Direction chosen after the data</summary>
-              <p><strong>Why avoid it:</strong> Choose directional or non-directional wording before inspecting the results.<span class="avoid-example"><strong>Weak example:</strong> Start with “AI-literacy scores will be associated with academic-writing scores,” then change it to “will be positively associated” after seeing the results.</span></p>
+              <p><strong>Why avoid it:</strong> Choose directional or non-directional wording before inspecting the results.<span class="avoid-example"><strong>Weak example:</strong> Start with “guided AI practice will be associated with AI-literacy scores,” then change it to “will be positively associated” after seeing the results.</span></p>
             </details>
           </div>
         </div>
@@ -737,7 +703,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
           <div class="hypothesis-avoid-grid">
             <details>
               <summary>一個假設有太多預測</summary>
-              <p><strong>為甚麼要避免：</strong>把不同結果分成 H₁、H₂ 與 H₃，讓每個主張都能清楚檢驗。<span class="avoid-example"><strong>較弱例子：</strong>接受人工智能素養教學的學生，人工智能素養分數較高、寫作更好、更有信心，而且更負責任地使用人工智能。</span></p>
+              <p><strong>為甚麼要避免：</strong>把不同結果分成 H₁、H₂ 與 H₃，讓每個主張都能清楚檢驗。<span class="avoid-example"><strong>較弱例子：</strong>接受人工智能素養教學的學生，人工智能素養分數較高、更多進行人工智能實作、更有信心，而且更合乎倫理地使用人工智能。</span></p>
             </details>
             <details>
               <summary>無法證偽</summary>
@@ -745,28 +711,28 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
             </details>
             <details>
               <summary>研究設計不足卻使用因果語言</summary>
-              <p><strong>為甚麼要避免：</strong>對相關性證據使用「相關」；只有研究設計支持時才提出因果主張。<span class="avoid-example"><strong>較弱例子：</strong>人工智能素養分數會造成較高的學術寫作分數。</span></p>
+              <p><strong>為甚麼要避免：</strong>對相關性證據使用「相關」；只有研究設計支持時才提出因果主張。<span class="avoid-example"><strong>較弱例子：</strong>引導式人工智能實作會造成較高的人工智能素養分數。</span></p>
             </details>
             <details>
               <summary>沒有文獻基礎</summary>
-              <p><strong>為甚麼要避免：</strong>展示由理論或既有發現到推論，再到預測的邏輯。<span class="avoid-example"><strong>較弱例子：</strong>人工智能素養很重要，所以會改善學術寫作。</span></p>
+              <p><strong>為甚麼要避免：</strong>展示由理論或既有發現到推論，再到預測的邏輯。<span class="avoid-example"><strong>較弱例子：</strong>人工智能素養很重要，所以結構化教學會提高人工智能素養分數。</span></p>
             </details>
             <details>
               <summary>結果表述含糊</summary>
-              <p><strong>為甚麼要避免：</strong>說明甚麼會改變，以及如何測量。<span class="avoid-example"><strong>較弱例子：</strong>人工智能素養教學改善學生的寫作。</span></p>
+              <p><strong>為甚麼要避免：</strong>說明甚麼會改變，以及如何測量。<span class="avoid-example"><strong>較弱例子：</strong>人工智能素養教學提升學生的人工智能素養。</span></p>
             </details>
             <details>
               <summary>看過資料後才選方向</summary>
-              <p><strong>為甚麼要避免：</strong>在查看結果前，先選擇方向性或非方向性的措辭。<span class="avoid-example"><strong>較弱例子：</strong>先寫「人工智能素養分數與學術寫作分數相關」，看到正向結果後才改成「呈正相關」。</span></p>
+              <p><strong>為甚麼要避免：</strong>在查看結果前，先選擇方向性或非方向性的措辭。<span class="avoid-example"><strong>較弱例子：</strong>先寫「引導式人工智能實作與人工智能素養分數相關」，看到正向結果後才改成「呈正相關」。</span></p>
             </details>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="slide" data-title="Concept, construct and variable" aria-hidden="true">
+    <section class="slide" data-title="Instruction · Concept, construct and variable" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">From ideas to measurement</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Instruction</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
         <div class="language-panel" data-language="en">
           <h2>Concept, construct and variable</h2>
           <div class="concept-grid">
@@ -786,11 +752,13 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
       </div>
     </section>
 
-    <section class="slide" data-title="Activity 4: The family of variables" aria-hidden="true">
+    <section class="slide" data-title="Activity · Identify the family of variables" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Activity 4: The family of variables</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Activity</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
         <div class="language-panel" data-language="en">
           <h2>The family of variables</h2>
+          <p class="activity-prompt"><strong>First try:</strong> identify possible outcomes, predictors, and controls before learning the formal labels.</p>
+          <p class="example-line"><strong>Shared case:</strong> outcome = AI-literacy score; predictor = structured AI-literacy instruction; possible controls = prior AI experience and access to devices.</p>
           <div class="variable-form">
             <label>What outcomes in my study am I trying to explain?<textarea data-save="outcomes"></textarea></label>
             <label>What variables or factors influence the outcomes?<textarea data-save="factors"></textarea></label>
@@ -799,6 +767,8 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
         </div>
         <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
           <h2>變量家族</h2>
+          <p class="activity-prompt"><strong>先試一試：</strong>在學習正式名稱前，先找出可能的結果、預測因素和控制變量。</p>
+          <p class="example-line"><strong>貫穿案例：</strong>結果＝人工智能素養分數；預測因素＝結構化人工智能素養教學；可能的控制變量＝先前人工智能經驗及裝置使用機會。</p>
           <div class="variable-form">
             <label>我的研究試圖解釋哪些結果？<textarea data-save="outcomes-zh"></textarea></label>
             <label>哪些變量或因素影響這些結果？<textarea data-save="factors-zh"></textarea></label>
@@ -808,17 +778,17 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
       </div>
     </section>
 
-    <section class="slide concept-measure-slide" data-title="From construct to variable" aria-hidden="true">
+    <section class="slide concept-measure-slide" data-title="How-to · Move from abstract to measurable" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">From ideas to measurement</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">How-to</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
         <div class="language-panel" data-language="en">
           <h2>Move from abstract to measurable</h2>
           <div class="illustration-layout">
             <figure>
-              <div class="research-plane-diagram" role="img" aria-label="Construct A and Construct B connected by a proposition on the theoretical plane, with corresponding independent and dependent variables connected by a hypothesis on the empirical plane.">
-                <div class="diagram-plane theoretical-plane"><span class="plane-label">Theoretical plane</span><span class="diagram-node">Construct A</span><span class="diagram-relation"><b>→</b><small>Proposition</small></span><span class="diagram-node">Construct B</span></div>
+              <div class="research-plane-diagram" role="img" aria-label="The constructs structured AI-literacy learning and AI literacy are connected on the theoretical plane, with structured instruction exposure and AI-literacy score connected by a hypothesis on the empirical plane.">
+                <div class="diagram-plane theoretical-plane"><span class="plane-label">Theoretical plane</span><span class="diagram-node">Structured AI-literacy learning</span><span class="diagram-relation"><b>→</b><small>Proposition</small></span><span class="diagram-node">AI literacy</span></div>
                 <div class="operational-links" aria-hidden="true"><span>↓</span><small>Operationalise</small><span>↓</span></div>
-                <div class="diagram-plane empirical-plane"><span class="plane-label">Empirical plane</span><span class="diagram-node">Independent variable</span><span class="diagram-relation"><b>→</b><small>Hypothesis</small></span><span class="diagram-node">Dependent variable</span></div>
+                <div class="diagram-plane empirical-plane"><span class="plane-label">Empirical plane</span><span class="diagram-node">Structured instruction exposure</span><span class="diagram-relation"><b>→</b><small>Hypothesis</small></span><span class="diagram-node">AI-literacy score</span></div>
               </div>
               <figcaption>Constructs become measurable variables through operational definitions.</figcaption>
             </figure>
@@ -829,8 +799,8 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
             </ol>
           </div>
           <div class="measure-examples">
-            <p><strong>Intelligence</strong> <span>construct</span> → <strong>IQ score</strong> <span>variable</span></p>
-            <p><strong>Academic achievement</strong> <span>construct</span> → <strong>GPA</strong> <span>variable</span></p>
+            <p><strong>AI literacy</strong> <span>construct</span> → <strong>post-module questionnaire score</strong> <span>variable</span></p>
+            <p><strong>Guided AI practice</strong> <span>construct</span> → <strong>practice-record or rubric score</strong> <span>variable</span></p>
           </div>
           <p class="measurement-check"><strong>Always ask:</strong> Does this variable represent the construct well?</p>
         </div>
@@ -838,10 +808,10 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
           <h2>從抽象概念走向測量</h2>
           <div class="illustration-layout">
             <figure>
-              <div class="research-plane-diagram" role="img" aria-label="理論層面的構念 A 與構念 B 由命題連接，並透過自變量與因變量在經驗層面形成可檢驗的假設。">
-                <div class="diagram-plane theoretical-plane"><span class="plane-label">理論層面</span><span class="diagram-node">構念 A</span><span class="diagram-relation"><b>→</b><small>命題</small></span><span class="diagram-node">構念 B</span></div>
+              <div class="research-plane-diagram" role="img" aria-label="理論層面的結構化人工智能素養學習與人工智能素養構念由命題連接，並透過結構化教學暴露與人工智能素養分數在經驗層面形成可檢驗的假設。">
+                <div class="diagram-plane theoretical-plane"><span class="plane-label">理論層面</span><span class="diagram-node">結構化人工智能素養學習</span><span class="diagram-relation"><b>→</b><small>命題</small></span><span class="diagram-node">人工智能素養</span></div>
                 <div class="operational-links" aria-hidden="true"><span>↓</span><small>操作化</small><span>↓</span></div>
-                <div class="diagram-plane empirical-plane"><span class="plane-label">經驗層面</span><span class="diagram-node">自變量</span><span class="diagram-relation"><b>→</b><small>假設</small></span><span class="diagram-node">因變量</span></div>
+                <div class="diagram-plane empirical-plane"><span class="plane-label">經驗層面</span><span class="diagram-node">結構化教學暴露</span><span class="diagram-relation"><b>→</b><small>假設</small></span><span class="diagram-node">人工智能素養分數</span></div>
               </div>
               <figcaption>透過操作性定義，把構念轉化為可測量的變量。</figcaption>
             </figure>
@@ -852,17 +822,61 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
             </ol>
           </div>
           <div class="measure-examples">
-            <p><strong>智力</strong> <span>構念</span> → <strong>智商分數</strong> <span>變量</span></p>
-            <p><strong>學業成就</strong> <span>構念</span> → <strong>平均績點</strong> <span>變量</span></p>
+            <p><strong>人工智能素養</strong> <span>構念</span> → <strong>單元後問卷分數</strong> <span>變量</span></p>
+            <p><strong>引導式人工智能實作</strong> <span>構念</span> → <strong>實作記錄或評分量表分數</strong> <span>變量</span></p>
           </div>
           <p class="measurement-check"><strong>始終要問：</strong>這個變量是否能良好地代表該構念？</p>
         </div>
       </div>
     </section>
 
-    <section class="slide" data-title="Types of variables" aria-hidden="true">
+    <section class="slide operationalization-slide" data-title="Instruction · Operationalization" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">The family of variables</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Instruction</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <div class="language-panel" data-language="en">
+          <h2>Operationalization</h2>
+          <p class="lead small-lead">Operationalization turns an abstract research question or hypothesis into observable participants, conditions, measures and outcomes.</p>
+          <div class="operationalization-layout">
+            <div class="operationalization-example">
+              <div class="operationalization-card question-card"><span class="operationalization-label">Research question</span><p>Among first-year undergraduates, does structured AI-literacy instruction improve AI-literacy scores through guided AI practice?</p></div>
+              <div class="operationalization-arrow" aria-hidden="true">↓</div>
+              <div class="operationalization-details">
+                <div><strong>Participants</strong><span>first-year undergraduates in a digital education course</span></div>
+                <div><strong>Instruction</strong><span>a four-week structured AI-literacy module</span></div>
+                <div><strong>Guided AI practice</strong><span>recorded and assessed tutor-supported AI tasks</span></div>
+                <div><strong>Outcome</strong><span>post-module AI-literacy questionnaire score</span></div>
+                <div><strong>Additional variables</strong><span>prior AI experience and access to devices, measured at baseline</span></div>
+              </div>
+              <div class="operationalization-arrow" aria-hidden="true">↓</div>
+              <div class="operationalization-card refined-card"><span class="operationalization-label">Operationalized hypothesis</span><p>Among first-year undergraduates, structured AI-literacy instruction will be associated with higher post-module AI-literacy questionnaire scores through guided AI practice, accounting for prior AI experience and access to devices.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
+          <h2>操作化</h2>
+          <p class="lead small-lead">操作化把抽象的研究問題或假設轉化為可觀察的參與者、條件、測量方式與結果。</p>
+          <div class="operationalization-layout">
+            <div class="operationalization-example">
+              <div class="operationalization-card question-card"><span class="operationalization-label">研究問題</span><p>在一年級本科生中，結構化人工智能素養教學是否透過引導式人工智能實作提升人工智能素養分數？</p></div>
+              <div class="operationalization-arrow" aria-hidden="true">↓</div>
+              <div class="operationalization-details">
+                <div><strong>參與者</strong><span>修讀數字教育課程的一年級本科生</span></div>
+                <div><strong>教學</strong><span>為期四週的結構化人工智能素養單元</span></div>
+                <div><strong>引導式人工智能實作</strong><span>記錄並評估教師引導的人工智能任務</span></div>
+                <div><strong>結果</strong><span>單元後人工智能素養問卷分數</span></div>
+                <div><strong>附加變量</strong><span>在基線測量的先前人工智能經驗與裝置使用機會</span></div>
+              </div>
+              <div class="operationalization-arrow" aria-hidden="true">↓</div>
+              <div class="operationalization-card refined-card"><span class="operationalization-label">操作化後的假設</span><p>在一年級本科生中，考慮先前人工智能經驗與裝置使用機會後，結構化人工智能素養教學將透過引導式人工智能實作，與較高的單元後人工智能素養問卷分數相關。</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Instruction · Types of variables" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Instruction</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
         <div class="language-panel" data-language="en">
           <h2>Types of variables</h2>
           <div class="variable-types">
@@ -870,7 +884,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
             <details><summary>Dependent Variable(s)</summary><p>The outcome a study tries to predict or explain. <strong>Example:</strong> students’ AI-literacy scores after the instructional period.</p></details>
             <details><summary>Moderating Variable(s)</summary><p>Changes the strength or direction of the relationship between the independent and dependent variables. <strong>Example:</strong> prior AI experience may alter how strongly instruction relates to AI-literacy scores.</p></details>
             <details><summary>Mediating Variable(s)</summary><p>Helps explain the pathway through which the independent variable relates to the dependent variable. <strong>Example:</strong> engagement in guided AI practice may link instruction with AI-literacy scores.</p></details>
-            <details><summary>Extraneous Variable(s)</summary><p>Not the focal independent variable, but able to affect the outcome. <strong>Example:</strong> access to devices, instructor differences or prior AI experience. Minimise or account for these; one related to both X and Y may be a confounder.</p></details>
+            <details><summary>Extraneous Variable(s)</summary><p>Not the focal independent variable, but able to affect the outcome. <strong>Example:</strong> prior AI experience or access to devices. Measure and account for these; one related to both X and Y may be a confounder.</p></details>
           </div>
         </div>
         <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
@@ -880,39 +894,57 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
             <details><summary>因變量</summary><p>研究試圖預測或解釋的結果。<strong>例子：</strong>教學期結束後學生的人工智能素養分數。</p></details>
             <details><summary>調節變量</summary><p>改變自變量與因變量之間關係的強度或方向。<strong>例子：</strong>先前使用人工智能的經驗可能改變教學與人工智能素養分數的關係強度。</p></details>
             <details><summary>中介變量</summary><p>有助解釋自變量如何與因變量產生關係的途徑。<strong>例子：</strong>在引導下進行人工智能實作的投入，可能連結教學與人工智能素養分數。</p></details>
-            <details><summary>外來變量</summary><p>不是核心自變量，但可能影響結果。<strong>例子：</strong>裝置使用機會、教師差異或先前人工智能經驗。應盡量減少或處理其影響；若同時與 X 和 Y 相關，則可能是混淆變量。</p></details>
+            <details><summary>外來變量</summary><p>不是核心自變量，但可能影響結果。<strong>例子：</strong>先前人工智能經驗或裝置使用機會。應測量並處理其影響；若同時與 X 和 Y 相關，則可能是混淆變量。</p></details>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="slide" data-title="How variables work together" aria-hidden="true">
+    <section class="slide" data-title="Bridge · Combine variables into common models" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">The family of variables</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Bridge</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <div class="language-panel" data-language="en">
+          <h2>From roles to models</h2>
+          <p class="lead medium">Now combine IV, DV, mediator, and moderator into common models.</p>
+          <p class="topic-line">Structured AI-literacy instruction (IV) → guided AI practice (mediator) → AI-literacy score (DV)</p>
+          <p class="example-line">Prior AI experience may moderate the first relationship; access to devices may need to be measured as an additional variable.</p>
+        </div>
+        <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
+          <h2>從角色走向模型</h2>
+          <p class="lead medium">現在把 IV、DV、中介變量和調節變量結合成常見模型。</p>
+          <p class="topic-line">結構化人工智能素養教學（IV）→ 引導式人工智能實作（中介變量）→ 人工智能素養分數（DV）</p>
+          <p class="example-line">先前人工智能經驗可能調節第一段關係；裝置使用機會可能需要作為附加變量測量。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Example · A variable model in action" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Example</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
         <div class="language-panel" data-language="en">
           <h2>How variables work together</h2>
           <div class="variable-illustration">
             <figure>
               <div class="variable-model-diagram" role="group" aria-label="Click each variable card to reveal its role and function.">
                 <div class="moderator-node">
-                  <button type="button" class="variable-role-card moderator-card" data-variable-role-card aria-pressed="false" aria-label="Effort; activate to reveal its role and function.">
-                    <span class="variable-card-inner"><span class="variable-card-face variable-card-front"><strong>Effort</strong><small>Click to reveal role</small></span><span class="variable-card-face variable-card-back"><strong>Moderating variable</strong><small>Strengthens, weakens or changes the first relationship.</small></span></span>
+                  <button type="button" class="variable-role-card moderator-card" data-variable-role-card aria-pressed="false" aria-label="Prior AI experience; activate to reveal its role and function.">
+                    <span class="variable-card-inner"><span class="variable-card-face variable-card-front"><strong>Prior AI<br />experience</strong><small>Click to reveal role</small></span><span class="variable-card-face variable-card-back"><strong>Moderating variable</strong><small>May change how strongly instruction prompts guided AI practice.</small></span></span>
                   </button>
                   <b aria-hidden="true">↓</b>
                 </div>
-                <button type="button" class="model-node variable-role-card independent-node" data-variable-role-card aria-pressed="false" aria-label="Intelligence; activate to reveal its role and function.">
-                  <span class="variable-card-inner"><span class="variable-card-face variable-card-front"><strong>Intelligence</strong><small>Click to reveal role</small></span><span class="variable-card-face variable-card-back"><strong>Independent variable</strong><small>Explains or predicts another variable.</small></span></span>
+                <button type="button" class="model-node variable-role-card independent-node" data-variable-role-card aria-pressed="false" aria-label="Structured AI-literacy instruction; activate to reveal its role and function.">
+                  <span class="variable-card-inner"><span class="variable-card-face variable-card-front"><strong>Structured AI-literacy<br />instruction</strong><small>Click to reveal role</small></span><span class="variable-card-face variable-card-back"><strong>Independent Variable (IV)</strong><small>The condition expected to prompt guided AI practice.</small></span></span>
                 </button>
                 <span class="model-arrow first-arrow" aria-hidden="true">→</span>
-                <button type="button" class="model-node variable-role-card mediator-node" data-variable-role-card aria-pressed="false" aria-label="Academic achievement; activate to reveal its role and function.">
-                  <span class="variable-card-inner"><span class="variable-card-face variable-card-front"><strong>Academic achievement</strong><small>Click to reveal role</small></span><span class="variable-card-face variable-card-back"><strong>Mediating variable</strong><small>Shows the mechanism through which an effect works.</small></span></span>
+                <button type="button" class="model-node variable-role-card mediator-node" data-variable-role-card aria-pressed="false" aria-label="Guided AI practice; activate to reveal its role and function.">
+                  <span class="variable-card-inner"><span class="variable-card-face variable-card-front"><strong>Guided AI<br />practice</strong><small>Click to reveal role</small></span><span class="variable-card-face variable-card-back"><strong>Mediating variable</strong><small>The proposed pathway from instruction to the score.</small></span></span>
                 </button>
                 <span class="model-arrow second-arrow" aria-hidden="true">→</span>
-                <button type="button" class="model-node variable-role-card dependent-node" data-variable-role-card aria-pressed="false" aria-label="Earning potential; activate to reveal its role and function.">
-                  <span class="variable-card-inner"><span class="variable-card-face variable-card-front"><strong>Earning potential</strong><small>Click to reveal role</small></span><span class="variable-card-face variable-card-back"><strong>Dependent variable</strong><small>The outcome explained by another variable.</small></span></span>
+                <button type="button" class="model-node variable-role-card dependent-node" data-variable-role-card aria-pressed="false" aria-label="AI-literacy score; activate to reveal its role and function.">
+                  <span class="variable-card-inner"><span class="variable-card-face variable-card-front"><strong>AI-literacy<br />score</strong><small>Click to reveal role</small></span><span class="variable-card-face variable-card-back"><strong>Dependent Variable (DV)</strong><small>The outcome measured after the instructional period.</small></span></span>
                 </button>
               </div>
-              <figcaption>Click each variable card to reveal its role and function.</figcaption>
+              <figcaption>Click each AI-literacy variable card to reveal its role and function.</figcaption>
             </figure>
           </div>
         </div>
@@ -922,33 +954,33 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
             <figure>
               <div class="variable-model-diagram" role="group" aria-label="點選每張變量卡片，以顯示其角色與功能。">
                 <div class="moderator-node">
-                  <button type="button" class="variable-role-card moderator-card" data-variable-role-card aria-pressed="false" aria-label="努力；點選以顯示其角色與功能。">
-                    <span class="variable-card-inner"><span class="variable-card-face variable-card-front"><strong>努力</strong><small>點選以顯示角色</small></span><span class="variable-card-face variable-card-back"><strong>調節變量</strong><small>增強、減弱或改變第一段關係。</small></span></span>
+                  <button type="button" class="variable-role-card moderator-card" data-variable-role-card aria-pressed="false" aria-label="先前人工智能經驗；點選以顯示其角色與功能。">
+                    <span class="variable-card-inner"><span class="variable-card-face variable-card-front"><strong>先前人工智能<br />經驗</strong><small>點選以顯示角色</small></span><span class="variable-card-face variable-card-back"><strong>調節變量</strong><small>可能改變教學促進引導式實作的強度。</small></span></span>
                   </button>
                   <b aria-hidden="true">↓</b>
                 </div>
-                <button type="button" class="model-node variable-role-card independent-node" data-variable-role-card aria-pressed="false" aria-label="智力；點選以顯示其角色與功能。">
-                  <span class="variable-card-inner"><span class="variable-card-face variable-card-front"><strong>智力</strong><small>點選以顯示角色</small></span><span class="variable-card-face variable-card-back"><strong>自變量</strong><small>解釋或預測另一個變量。</small></span></span>
+                <button type="button" class="model-node variable-role-card independent-node" data-variable-role-card aria-pressed="false" aria-label="結構化人工智能素養教學；點選以顯示其角色與功能。">
+                  <span class="variable-card-inner"><span class="variable-card-face variable-card-front"><strong>結構化人工智能<br />素養教學</strong><small>點選以顯示角色</small></span><span class="variable-card-face variable-card-back"><strong>自變量（IV）</strong><small>預期會促進引導式人工智能實作的條件。</small></span></span>
                 </button>
                 <span class="model-arrow first-arrow" aria-hidden="true">→</span>
-                <button type="button" class="model-node variable-role-card mediator-node" data-variable-role-card aria-pressed="false" aria-label="學業成就；點選以顯示其角色與功能。">
-                  <span class="variable-card-inner"><span class="variable-card-face variable-card-front"><strong>學業成就</strong><small>點選以顯示角色</small></span><span class="variable-card-face variable-card-back"><strong>中介變量</strong><small>顯示某個效果透過甚麼機制發生。</small></span></span>
+                <button type="button" class="model-node variable-role-card mediator-node" data-variable-role-card aria-pressed="false" aria-label="引導式人工智能實作；點選以顯示其角色與功能。">
+                  <span class="variable-card-inner"><span class="variable-card-face variable-card-front"><strong>引導式人工智能<br />實作</strong><small>點選以顯示角色</small></span><span class="variable-card-face variable-card-back"><strong>中介變量</strong><small>教學通往分數的預設途徑。</small></span></span>
                 </button>
                 <span class="model-arrow second-arrow" aria-hidden="true">→</span>
-                <button type="button" class="model-node variable-role-card dependent-node" data-variable-role-card aria-pressed="false" aria-label="賺取收入的潛力；點選以顯示其角色與功能。">
-                  <span class="variable-card-inner"><span class="variable-card-face variable-card-front"><strong>賺取收入的潛力</strong><small>點選以顯示角色</small></span><span class="variable-card-face variable-card-back"><strong>因變量</strong><small>由另一個變量解釋的結果。</small></span></span>
+                <button type="button" class="model-node variable-role-card dependent-node" data-variable-role-card aria-pressed="false" aria-label="人工智能素養分數；點選以顯示其角色與功能。">
+                  <span class="variable-card-inner"><span class="variable-card-face variable-card-front"><strong>人工智能素養<br />分數</strong><small>點選以顯示角色</small></span><span class="variable-card-face variable-card-back"><strong>因變量（DV）</strong><small>在教學期後測量的結果。</small></span></span>
                 </button>
               </div>
-              <figcaption>點選每張變量卡片，以顯示其角色與功能。</figcaption>
+              <figcaption>點選每張人工智能素養變量卡片，以顯示其角色與功能。</figcaption>
             </figure>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="slide confounder-slide" data-title="Confounders and covariates" aria-hidden="true">
+    <section class="slide confounder-slide" data-title="Instruction · Confounders and covariates" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">The family of variables</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Instruction</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
         <div class="language-panel" data-language="en">
           <h2>Confounders and covariates</h2>
           <div class="confounder-layout">
@@ -957,12 +989,12 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
               <article><h3>Covariate</h3><p>Influences the dependent variable and has little or no relationship with the other variables in the model.</p></article>
             </div>
             <figure>
-              <div class="confounder-map" role="img" aria-label="Work experience points to earning potential, intelligence points to earning potential, and socioeconomic background points to both intelligence and earning potential.">
-                <span class="map-node covariate-map-node">Work experience</span><span class="map-arrow covariate-map-arrow" aria-hidden="true">↘</span>
-                <span class="map-node iv-map-node">Intelligence</span><span class="map-arrow iv-map-arrow" aria-hidden="true">→</span><span class="map-node dv-map-node">Earning potential</span>
-                <span class="map-node confounder-map-node">Socioeconomic background</span><span class="map-arrow confounder-left-arrow" aria-hidden="true">↖</span><span class="map-arrow confounder-right-arrow" aria-hidden="true">↗</span>
+              <div class="confounder-map" role="img" aria-label="Access to devices points to AI-literacy score, structured AI-literacy instruction points to AI-literacy score, and prior AI experience points to both structured instruction and AI-literacy score.">
+                <span class="map-node covariate-map-node">Access to devices</span><span class="map-arrow covariate-map-arrow" aria-hidden="true">↘</span>
+                <span class="map-node iv-map-node">Structured AI-literacy instruction</span><span class="map-arrow iv-map-arrow" aria-hidden="true">→</span><span class="map-node dv-map-node">AI-literacy score</span>
+                <span class="map-node confounder-map-node">Prior AI experience</span><span class="map-arrow confounder-left-arrow" aria-hidden="true">↖</span><span class="map-arrow confounder-right-arrow" aria-hidden="true">↗</span>
               </div>
-              <figcaption>Consistent example: intelligence predicts earning potential; socioeconomic background may influence both, while work experience is included as a covariate.</figcaption>
+              <figcaption>In a non-randomised study, prior AI experience may influence both uptake of structured instruction and AI-literacy score; access to devices can be included as a covariate.</figcaption>
             </figure>
           </div>
         </div>
@@ -974,21 +1006,21 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
               <article><h3>協變量</h3><p>影響因變量，而與模型中的其他變量只有很少或沒有關係。</p></article>
             </div>
             <figure>
-              <div class="confounder-map" role="img" aria-label="工作經驗指向賺取收入的潛力，智力指向賺取收入的潛力，而社會經濟背景同時指向智力與賺取收入的潛力。">
-                <span class="map-node covariate-map-node">工作經驗</span><span class="map-arrow covariate-map-arrow" aria-hidden="true">↘</span>
-                <span class="map-node iv-map-node">智力</span><span class="map-arrow iv-map-arrow" aria-hidden="true">→</span><span class="map-node dv-map-node">賺取收入的潛力</span>
-                <span class="map-node confounder-map-node">社會經濟背景</span><span class="map-arrow confounder-left-arrow" aria-hidden="true">↖</span><span class="map-arrow confounder-right-arrow" aria-hidden="true">↗</span>
+              <div class="confounder-map" role="img" aria-label="裝置使用機會指向人工智能素養分數，結構化人工智能素養教學指向人工智能素養分數，而先前人工智能經驗同時指向結構化教學與人工智能素養分數。">
+                <span class="map-node covariate-map-node">裝置使用機會</span><span class="map-arrow covariate-map-arrow" aria-hidden="true">↘</span>
+                <span class="map-node iv-map-node">結構化人工智能素養教學</span><span class="map-arrow iv-map-arrow" aria-hidden="true">→</span><span class="map-node dv-map-node">人工智能素養分數</span>
+                <span class="map-node confounder-map-node">先前人工智能經驗</span><span class="map-arrow confounder-left-arrow" aria-hidden="true">↖</span><span class="map-arrow confounder-right-arrow" aria-hidden="true">↗</span>
               </div>
-              <figcaption>一致的例子：智力預測賺取收入的潛力；社會經濟背景可能同時影響兩者，而工作經驗則作為協變量納入。</figcaption>
+              <figcaption>在非隨機研究中，先前人工智能經驗可能同時影響學生接受結構化教學的情況與人工智能素養分數；裝置使用機會可作為協變量納入。</figcaption>
             </figure>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="slide variable-match-slide" data-title="Activity 5: Match variable types to models" aria-hidden="true">
+    <section class="slide variable-match-slide" data-title="Activity · Match variable roles to models" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Activity 5: The family of variables</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Activity</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
         <div class="language-panel" data-language="en">
           <h2>Match variable types to models</h2>
           <div class="variable-match-activity" data-variable-match data-complete-message="All variable types are correctly placed." data-review-message="Some boxes need another look." data-incomplete-message="Fill all boxes before checking.">
@@ -998,7 +1030,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
               <button type="button" draggable="true" data-role-chip="mediating" data-label="Mediating variable">Mediating variable</button>
               <button type="button" draggable="true" data-role-chip="moderating" data-label="Moderating variable">Moderating variable</button>
             </div>
-            <p class="drag-instruction">Drag a label into each empty box. On touch devices, tap a label and then a box. Model names appear after you check.</p>
+            <p class="drag-instruction">Use the shared case as your anchor: structured AI-literacy instruction → guided AI practice → AI-literacy score; prior AI experience may moderate. Drag a label into each empty box, then check your answers.</p>
             <div class="process-model-grid">
               <article class="process-model-card">
                 <h3 class="model-title" data-model-title data-model-answer="Model 1 · Simple moderation" data-model-waiting="Model to identify after checking">Model to identify after checking</h3>
@@ -1048,7 +1080,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
               <button type="button" draggable="true" data-role-chip="mediating" data-label="中介變量">中介變量</button>
               <button type="button" draggable="true" data-role-chip="moderating" data-label="調節變量">調節變量</button>
             </div>
-            <p class="drag-instruction">把標籤拖入每個空白方框。使用觸控裝置時，先點選標籤，再點選方框。檢查後才會顯示模型名稱。</p>
+            <p class="drag-instruction">以貫穿案例為線索：結構化人工智能素養教學 → 引導式人工智能實作 → 人工智能素養分數；先前人工智能經驗可能調節。把標籤拖入每個空白方框，再檢查答案。</p>
             <div class="process-model-grid">
               <article class="process-model-card">
                 <h3 class="model-title" data-model-title data-model-answer="模型 1 · 簡單調節" data-model-waiting="檢查後顯示模型">檢查後顯示模型</h3>
@@ -1092,9 +1124,9 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
       </div>
     </section>
 
-    <section class="slide variable-match-slide conditional-match-slide" data-title="Activity 5: Conditional process models (continued)" aria-hidden="true">
+    <section class="slide variable-match-slide conditional-match-slide" data-title="Activity · Match conditional process models" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Activity 5 continued: Conditional process models</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Activity</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
         <div class="language-panel" data-language="en">
           <h2>Match roles in conditional process models</h2>
           <div class="variable-match-activity" data-variable-match data-complete-message="All variable types are correctly placed." data-review-message="Some boxes need another look." data-incomplete-message="Fill all boxes before checking.">
@@ -1104,7 +1136,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
               <button type="button" draggable="true" data-role-chip="mediating" data-label="Mediating variable">Mediating variable</button>
               <button type="button" draggable="true" data-role-chip="moderating" data-label="Moderating variable">Moderating variable</button>
             </div>
-            <p class="drag-instruction">Drag or tap the variable types into each empty box, then check your answers. Model names appear after you check.</p>
+            <p class="drag-instruction">Use structured AI-literacy instruction → guided AI practice → AI-literacy score as the anchor. Drag or tap the variable types into each empty box, then check your answers.</p>
             <div class="conditional-model-grid">
               <article class="process-model-card">
                 <h3 class="model-title" data-model-title data-model-answer="Model 7 · First-stage moderation" data-model-waiting="Model to identify after checking">Model to identify after checking</h3>
@@ -1146,7 +1178,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
               <button type="button" draggable="true" data-role-chip="mediating" data-label="中介變量">中介變量</button>
               <button type="button" draggable="true" data-role-chip="moderating" data-label="調節變量">調節變量</button>
             </div>
-            <p class="drag-instruction">把變量類型拖入或點選到每個空白方框，然後檢查答案。檢查後才會顯示模型名稱。</p>
+            <p class="drag-instruction">以「結構化人工智能素養教學 → 引導式人工智能實作 → 人工智能素養分數」為線索。把變量類型拖入或點選到每個空白方框，然後檢查答案。</p>
             <div class="conditional-model-grid">
               <article class="process-model-card">
                 <h3 class="model-title" data-model-title data-model-answer="模型 7 · 第一階段調節" data-model-waiting="檢查後顯示模型">檢查後顯示模型</h3>
@@ -1182,57 +1214,51 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
       </div>
     </section>
 
-    <section class="slide" data-title="The literature search and review" aria-hidden="true">
+    <section class="slide literature-activity-slide" data-title="Activity · Build literature-search keywords" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">The literature search and review</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Activity</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
         <div class="language-panel" data-language="en">
-          <h2>Literature search and review</h2>
-          <div class="hypothesis-pair">
-            <article><h3>Literature search</h3><p>Identifies the relevant literature.</p></article>
-            <article><h3>Literature review</h3><p>Reviews the literature selected.</p></article>
+          <h2>Build literature-search keywords</h2>
+          <p class="lead small-lead">A literature search locates relevant sources; a literature review evaluates, connects and synthesises the sources you select. Start your search terms with the topic, research question or hypothesis, and variables.</p>
+          <div class="literature-keyword-activity">
+            <div class="keyword-source-cards">
+              <article><span class="operationalization-label">Topic</span><p>AI literacy in digital education</p></article>
+              <article><span class="operationalization-label">Research question / hypothesis</span><p>Structured AI-literacy instruction → guided AI practice → AI-literacy score</p></article>
+              <article><span class="operationalization-label">Variables</span><p>Prior AI experience; access to devices; first-year undergraduates</p></article>
+            </div>
+            <div class="keyword-practice">
+              <p class="activity-prompt"><strong>Your turn:</strong> identify keywords from each source, add synonyms or variants, and then combine only the facets that fit your search purpose. Once complete, use the same three fields as a short transfer check for a topic you may study later.</p>
+              <label><span>Topic terms</span><textarea data-save="literature-topic-en" placeholder="e.g., AI literacy; artificial intelligence literacy; AI competencies"></textarea></label>
+              <label><span>Question / hypothesis terms</span><textarea data-save="literature-question-en" placeholder="e.g., structured instruction; AI literacy module; guided AI practice"></textarea></label>
+              <label><span>Variable / population terms</span><textarea data-save="literature-variable-en" placeholder="e.g., AI-literacy score; undergraduate; prior AI experience"></textarea></label>
+              <details class="keyword-reference"><summary>Reveal a reference keyword set</summary><p><strong>Topic:</strong> “AI literacy” OR “artificial intelligence literacy” OR “AI competencies”<br /><strong>Question / hypothesis:</strong> “AI literacy education” OR “AI literacy instruction” OR “guided AI practice”<br /><strong>Variables / population:</strong> “AI literacy scale” OR “AI literacy score” AND undergraduate* OR “higher education”<br /><strong>Starting query:</strong> <code>("AI literacy" OR "artificial intelligence literacy") AND (instruction OR module OR training) AND (undergraduate* OR "higher education")</code></p></details>
+            </div>
           </div>
-          <p class="lead small-lead">Creswell (2012) suggests identifying key terms, locating literature, critically examining sources for relevance, topicality, accuracy, scope and coverage, organising the literature, and then writing the review.</p>
         </div>
         <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
-          <h2>文獻檢索與文獻綜述</h2>
-          <div class="hypothesis-pair">
-            <article><h3>文獻檢索</h3><p>識別相關文獻。</p></article>
-            <article><h3>文獻綜述</h3><p>回顧所選文獻。</p></article>
+          <h2>建立文獻檢索關鍵詞</h2>
+          <p class="lead small-lead">文獻檢索用來找出相關來源；文獻綜述則評估、連結和綜合你選取的來源。先從主題、研究問題或假設，以及變量建立檢索詞。</p>
+          <div class="literature-keyword-activity">
+            <div class="keyword-source-cards">
+              <article><span class="operationalization-label">主題</span><p>數字教育中的人工智能素養</p></article>
+              <article><span class="operationalization-label">研究問題／假設</span><p>結構化人工智能素養教學 → 引導式人工智能實作 → 人工智能素養分數</p></article>
+              <article><span class="operationalization-label">變量</span><p>先前人工智能經驗；裝置使用機會；一年級本科生</p></article>
+            </div>
+            <div class="keyword-practice">
+              <p class="activity-prompt"><strong>輪到你：</strong>從每個來源找出關鍵詞，加入同義詞或變體，然後只合併適合你的檢索目的的面向。完成後，可用同樣三個欄位為你日後可能研究的主題作一個簡短遷移檢查。</p>
+              <label><span>主題詞</span><textarea data-save="literature-topic-zh" placeholder="例如：人工智能素養；AI 素養；人工智能能力"></textarea></label>
+              <label><span>問題／假設詞</span><textarea data-save="literature-question-zh" placeholder="例如：結構化教學；人工智能素養單元；引導式人工智能實作"></textarea></label>
+              <label><span>變量／研究對象詞</span><textarea data-save="literature-variable-zh" placeholder="例如：人工智能素養分數；本科生；先前人工智能經驗"></textarea></label>
+              <details class="keyword-reference"><summary>揭示參考關鍵詞組</summary><p><strong>主題：</strong>“AI literacy” OR “artificial intelligence literacy” OR “AI competencies”<br /><strong>問題／假設：</strong>“AI literacy education” OR “AI literacy instruction” OR “guided AI practice”<br /><strong>變量／研究對象：</strong>“AI literacy scale” OR “AI literacy score” AND undergraduate* OR “higher education”<br /><strong>起步檢索式：</strong><code>("AI literacy" OR "artificial intelligence literacy") AND (instruction OR module OR training) AND (undergraduate* OR "higher education")</code></p></details>
+            </div>
           </div>
-          <p class="lead small-lead">Creswell（2012）建議先確定關鍵詞、查找文獻，再從相關性、時效性、準確性、範圍與覆蓋面批判檢視來源，組織文獻，然後撰寫文獻綜述。</p>
         </div>
       </div>
     </section>
 
-    <section class="slide" data-title="Activity 6: Search with keywords" aria-hidden="true">
-      <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Activity 6: Search with keywords</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
-        <div class="language-panel" data-language="en">
-          <h2>Steps to keywords</h2>
-          <ol class="keyword-steps">
-            <li><strong>Extract key concepts</strong><span>Nouns from research questions, e.g., social media, employability, language learning.</span></li>
-            <li><strong>Brainstorm keywords</strong><span>Synonyms, variants, and broader/narrower terms for each concept.</span></li>
-            <li><strong>Use phrase searching</strong><span>Quotation marks for exact phrases to improve precision.</span></li>
-            <li><strong>Filter results</strong><span>Publication year, document type, language, etc.</span></li>
-          </ol>
-          <div class="operator-line"><code>“…”</code><span>reduce returned sites</span><code>teach*</code><span>teach, teaching, teacher</span><code>~English teaching</code><span>English language, English teaching</span><code>AND · NOT · OR</code></div>
-        </div>
-        <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
-          <h2>從研究問題到關鍵詞</h2>
-          <ol class="keyword-steps">
-            <li><strong>提取關鍵概念</strong><span>從研究問題提取名詞，例如社交媒體、就業能力、語言學習。</span></li>
-            <li><strong>構思關鍵詞</strong><span>為每個概念生成同義詞、變體、更廣與更窄的詞語。</span></li>
-            <li><strong>使用短語檢索</strong><span>以引號搜尋精確短語，提高準確度。</span></li>
-            <li><strong>篩選結果</strong><span>按出版年份、文件類型、語言等篩選。</span></li>
-          </ol>
-          <div class="operator-line"><code>“…”</code><span>減少返回結果</span><code>teach*</code><span>teach、teaching、teacher</span><code>~English teaching</code><span>English language、English teaching</span><code>AND · NOT · OR</code></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide" data-title="Thank you and personal PDF" aria-hidden="true">
+    <section class="slide" data-title="Exit · Create your personal PDF" aria-hidden="true">
       <div class="slide-inner closing-slide">
-        <header class="slide-header"><span class="eyebrow">Create your personal PDF</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Exit</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
         <div class="language-panel" data-language="en"><h1 class="closing-title">Thank you!</h1><div class="closing-actions"><button type="button" class="pdf-cta" data-pdf-open>Create your personal PDF</button><a class="course-return" href={courseHref}>DEDC02 course materials</a></div></div>
         <div class="language-panel" data-language="zh" hidden lang="zh-Hant"><h1 class="closing-title">謝謝！</h1><div class="closing-actions"><button type="button" class="pdf-cta" data-pdf-open>建立你的個人 PDF</button><a class="course-return" href={courseHref}>DEDC02 課程材料</a></div></div>
       </div>
@@ -1249,7 +1275,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
   </nav>
 
   <dialog class="overview-dialog">
-    <div class="overview-head"><h2>Research Questions</h2><button type="button" data-close-overview aria-label="Close overview">×</button></div>
+    <div class="overview-head"><h2>Research Questions, Hypotheses and Variables</h2><button type="button" data-close-overview aria-label="Close overview">×</button></div>
     <ol></ol>
     <p>Use ← →, Page Up / Page Down or swipe. Press O for overview and F for fullscreen.</p>
   </dialog>
@@ -1302,6 +1328,8 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
   blockquote { max-width: 34ch; margin: .2rem 0 1.4rem; padding-left: 1rem; border-left: .35rem solid var(--green-mid); color: var(--green); font: 600 clamp(1.35rem, 3vw, 2.4rem)/1.3 'Source Serif 4', serif; }
   .topic-line { max-width: 850px; color: var(--green); font: 600 clamp(1.25rem, 2.6vw, 2rem)/1.35 'Source Serif 4', serif; }
   .intro-line { color: var(--muted); }
+  .activity-prompt { margin: 0 0 .7rem; padding: .55rem .7rem; border-left: .3rem solid var(--green-mid); background: var(--green-soft); color: var(--muted); font-size: .9rem; line-height: 1.4; }
+  .activity-prompt strong { color: var(--green); }
   .source-list { max-width: 1000px; margin: 0; padding-left: 1.35rem; color: var(--green); font-size: clamp(1rem, 1.8vw, 1.28rem); line-height: 1.55; }
   .source-list li { margin-bottom: .55rem; padding-left: .3rem; }
   .source-list.large { font-size: clamp(1.2rem, 2.4vw, 1.7rem); line-height: 1.5; }
@@ -1607,6 +1635,19 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
   .variable-match-actions button { border: 1px solid var(--green-mid); border-radius: 999px; padding: .35rem .7rem; background: #fff; color: var(--green-mid); font: 700 .75rem/1 'Source Sans 3', sans-serif; cursor: pointer; }
   .variable-match-actions span { color: var(--muted); font-size: .75rem; }
   .example-line { margin: .7rem 0 0; color: var(--muted); }
+  .literature-keyword-activity { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: .9rem; align-items: start; }
+  .keyword-source-cards { display: grid; gap: .5rem; }
+  .keyword-source-cards article { padding: .7rem .8rem; border-top: .3rem solid var(--green-mid); background: var(--green-soft); }
+  .keyword-source-cards p { margin: 0; color: var(--green); font: 600 .94rem/1.35 'Source Serif 4', Georgia, serif; }
+  .keyword-practice { display: grid; gap: .45rem; }
+  .keyword-practice .activity-prompt { margin-bottom: .1rem; font-size: .8rem; }
+  .keyword-practice label { display: grid; grid-template-columns: 8.2rem minmax(0, 1fr); gap: .55rem; align-items: center; color: var(--green); font-size: .82rem; font-weight: 700; }
+  .keyword-practice label span { padding: .62rem; border-left: .3rem solid var(--green-mid); background: var(--green-soft); }
+  .keyword-practice textarea { min-height: 3.05rem; padding: .45rem .55rem; font-size: .82rem; line-height: 1.3; }
+  .keyword-reference { border: 1px solid var(--line); border-radius: .35rem; }
+  .keyword-reference summary { padding: .55rem .65rem; color: var(--green); font-size: .8rem; }
+  .keyword-reference p { margin: 0; padding: .58rem .65rem; border-top: 1px solid var(--line); background: #fff; color: var(--muted); font-size: .74rem; line-height: 1.4; }
+  .keyword-reference code { padding: .1rem .2rem; background: var(--green-soft); color: var(--green); font-size: .68rem; overflow-wrap: anywhere; }
   .keyword-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: .6rem; margin: 0; padding: 0; counter-reset: keyword; list-style: none; }
   .keyword-steps li { counter-increment: keyword; display: flex; min-height: 9rem; flex-direction: column; padding: .9rem; border-top: .3rem solid var(--green-mid); background: var(--green-soft); }
   .keyword-steps li::before { content: counter(keyword, decimal-leading-zero); color: var(--green-mid); font-size: .75rem; font-weight: 700; }
@@ -1658,8 +1699,8 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
     .hypothesis-pair, .compare-table, .three-source { grid-template-columns: 1fr; }
     .paradigm-three, .avoid-grid, .type-grid, .avoid-question-grid, .variable-types, .variable-form, .keyword-steps, .concept-grid, .pico-guides, .hypothesis-type-grid, .template-grid, .full-example-grid, .hypothesis-avoid-grid, .hypothesis-steps { grid-template-columns: repeat(2, 1fr); }
     .hypothesis-types-slide .hypothesis-type-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .illustration-layout, .confounder-layout, .hypothesis-introduction, .operationalization-layout { grid-template-columns: 1fr; }
-    .build-field, .build-form label { grid-template-columns: 1fr; gap: .2rem; }
+    .illustration-layout, .confounder-layout, .hypothesis-introduction, .operationalization-layout, .literature-keyword-activity { grid-template-columns: 1fr; }
+    .build-field, .build-form label, .keyword-practice label { grid-template-columns: 1fr; gap: .2rem; }
     .compact-list { columns: 1; }
     .process-model-grid, .conditional-model-grid, .conditional-match-slide .conditional-model-grid { grid-template-columns: 1fr; }
     .wide-model-card { grid-column: auto; }
