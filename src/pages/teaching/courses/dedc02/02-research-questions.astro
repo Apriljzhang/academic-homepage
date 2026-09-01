@@ -624,7 +624,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
               <label class="hypothesis-entry"><span>Your improved hypothesis</span><textarea data-save="hypothesis-difference-en" placeholder="Include the population, comparison, outcome measure and direction."></textarea></label>
               <button type="button" class="answer-toggle" data-reveal-answer="hypothesis-answer-difference-en" data-show-label="Reveal referenced answer" data-hide-label="Hide referenced answer" aria-expanded="false">Reveal referenced answer</button>
               <div class="referenced-answer" id="hypothesis-answer-difference-en" hidden><span>Referenced answer</span><p>Among first-year undergraduates, students assigned to a four-week structured AI-literacy module will achieve higher mean scores on a post-module AI-literacy questionnaire than students completing usual course activity.</p></div>
-              <p class="why-example"><strong>Quality check:</strong> It names the population, intervention, comparison, outcome measure and time point; the assigned comparison supports the stated causal design.</p>
+              <p class="why-example" data-answer-quality-check hidden><strong>Quality check:</strong> It names the population, intervention, comparison, outcome measure and time point; the assigned comparison supports the stated causal design.</p>
             </article>
             <article>
               <h3>Example 2 · Correlation</h3>
@@ -632,7 +632,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
               <label class="hypothesis-entry"><span>Your improved hypothesis</span><textarea data-save="hypothesis-correlation-en" placeholder="Name both measured variables and state the direction of association."></textarea></label>
               <button type="button" class="answer-toggle" data-reveal-answer="hypothesis-answer-correlation-en" data-show-label="Reveal referenced answer" data-hide-label="Hide referenced answer" aria-expanded="false">Reveal referenced answer</button>
               <div class="referenced-answer" id="hypothesis-answer-correlation-en" hidden><span>Referenced answer</span><p>Among first-year undergraduates, guided AI-practice scores recorded during the module will be positively associated with post-module AI-literacy questionnaire scores.</p></div>
-              <p class="why-example"><strong>Quality check:</strong> It identifies both measured variables and the direction while avoiding a causal claim.</p>
+              <p class="why-example" data-answer-quality-check hidden><strong>Quality check:</strong> It identifies both measured variables and the direction while avoiding a causal claim.</p>
             </article>
           </div>
         </div>
@@ -646,7 +646,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
               <label class="hypothesis-entry"><span>你改寫的假設</span><textarea data-save="hypothesis-difference-zh" placeholder="加入研究對象、比較組、結果測量與方向。"></textarea></label>
               <button type="button" class="answer-toggle" data-reveal-answer="hypothesis-answer-difference-zh" data-show-label="揭示參考答案" data-hide-label="隱藏參考答案" aria-expanded="false">揭示參考答案</button>
               <div class="referenced-answer" id="hypothesis-answer-difference-zh" hidden><span>參考答案</span><p>在一年級本科生中，被分配參加為期四週結構化人工智能素養單元的學生，其單元後人工智能素養問卷平均分數將高於進行一般課程活動的學生。</p></div>
-              <p class="why-example"><strong>品質檢查：</strong>它說明研究對象、干預、比較組、結果測量與時間點；分配式比較配合其因果研究設計。</p>
+              <p class="why-example" data-answer-quality-check hidden><strong>品質檢查：</strong>它說明研究對象、干預、比較組、結果測量與時間點；分配式比較配合其因果研究設計。</p>
             </article>
             <article>
               <h3>例子 2 · 相關</h3>
@@ -654,7 +654,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
               <label class="hypothesis-entry"><span>你改寫的假設</span><textarea data-save="hypothesis-correlation-zh" placeholder="列出兩個可測量的變量，並說明關聯方向。"></textarea></label>
               <button type="button" class="answer-toggle" data-reveal-answer="hypothesis-answer-correlation-zh" data-show-label="揭示參考答案" data-hide-label="隱藏參考答案" aria-expanded="false">揭示參考答案</button>
               <div class="referenced-answer" id="hypothesis-answer-correlation-zh" hidden><span>參考答案</span><p>在一年級本科生中，單元期間記錄的引導式人工智能實作分數將與單元後人工智能素養問卷分數呈正相關。</p></div>
-              <p class="why-example"><strong>品質檢查：</strong>它指出兩個可測量變量及關係方向，同時避免提出因果主張。</p>
+              <p class="why-example" data-answer-quality-check hidden><strong>品質檢查：</strong>它指出兩個可測量變量及關係方向，同時避免提出因果主張。</p>
             </article>
           </div>
         </div>
@@ -1823,6 +1823,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
       const answerId = button.dataset.revealAnswer;
       const answer = answerId ? document.getElementById(answerId) : null;
       if (!answerId || !answer) return;
+      const qualityCheck = button.closest<HTMLElement>('article')?.querySelector<HTMLElement>('[data-answer-quality-check]') || null;
 
       const showLabel = button.dataset.showLabel || button.textContent || '';
       const hideLabel = button.dataset.hideLabel || 'Hide referenced answer';
@@ -1831,6 +1832,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
         const shouldReveal = button.getAttribute('aria-expanded') !== 'true';
         button.setAttribute('aria-expanded', String(shouldReveal));
         answer.hidden = !shouldReveal;
+        if (qualityCheck) qualityCheck.hidden = !shouldReveal;
         button.textContent = shouldReveal ? hideLabel : showLabel;
       });
     });
