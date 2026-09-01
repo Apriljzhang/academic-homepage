@@ -456,7 +456,10 @@ const comicHref = withBase('/teaching/courses/dedc02/the-claus-hypothesis.png');
             <div class="hypothesis-definition">
               <p class="lead medium">A hypothesis is a precise, testable prediction about the relationship between two or more variables. It should be grounded in theory or prior evidence, and the data should be able to show that it is wrong.</p>
               <p class="lead medium">It is not simply an “educated guess”: a research question stays open, while a hypothesis commits to a specific expected pattern.</p>
-              <aside class="inductive-callout"><strong>Inductive reasoning</strong><span>The comic moves from several observations to a provisional general explanation: “Santa Claus is a professor!” Observations can support a hypothesis, but they do not prove it.</span></aside>
+              <div class="reasoning-compare">
+                <aside class="inductive-callout"><strong>Inductive reasoning</strong><span>Moves from observations or patterns to a tentative hypothesis. It helps generate a hypothesis, but does not prove it.</span></aside>
+                <aside class="deductive-callout"><strong>Deductive reasoning</strong><span>Starts with a theory or hypothesis and derives a testable prediction. It helps test whether evidence is consistent with the hypothesis.</span></aside>
+              </div>
             </div>
             <figure class="comic-figure">
               <img src={comicHref} alt="The Claus Hypothesis comic: observations about Santa lead to the provisional conclusion that Santa Claus is a professor, followed by a null-hypothesis joke." loading="lazy" decoding="async" />
@@ -470,7 +473,10 @@ const comicHref = withBase('/teaching/courses/dedc02/the-claus-hypothesis.png');
             <div class="hypothesis-definition">
               <p class="lead medium">假設是對兩個或以上變量之間關係的精確、可檢驗預測。它應以理論或既有證據為基礎，而資料應能顯示它可能是錯的。</p>
               <p class="lead medium">假設不只是「有根據的猜測」：研究問題保持開放，而假設則承諾一種具體的預期模式。</p>
-              <aside class="inductive-callout"><strong>歸納推理</strong><span>漫畫先呈現多項觀察，再提出暫時性的概括解釋：「聖誕老人是一位教授！」觀察可以支持假設，但不能證明假設。</span></aside>
+              <div class="reasoning-compare">
+                <aside class="inductive-callout"><strong>歸納推理</strong><span>從觀察或模式走向暫時性假設；有助於提出假設，但不能證明假設。</span></aside>
+                <aside class="deductive-callout"><strong>演繹推理</strong><span>從理論或假設推導可檢驗的預測；有助於檢驗證據是否與假設一致。</span></aside>
+              </div>
             </div>
             <figure class="comic-figure">
               <img src={comicHref} alt="《聖誕老人假設》漫畫：幾項關於聖誕老人的觀察引出聖誕老人是教授的暫時結論，並以零假設作笑點。" loading="lazy" decoding="async" />
@@ -1358,8 +1364,11 @@ const comicHref = withBase('/teaching/courses/dedc02/the-claus-hypothesis.png');
   .hypothesis-introduction { display: grid; grid-template-columns: minmax(0, 1fr) minmax(22rem, .95fr); gap: 1rem; align-items: start; }
   .hypothesis-definition { display: grid; gap: .35rem; }
   .hypothesis-definition .lead { margin-bottom: .25rem; }
+  .reasoning-compare { display: grid; gap: .55rem; }
   .inductive-callout { display: grid; gap: .25rem; padding: .75rem .85rem; border-left: .35rem solid #c56b35; background: #fff4ec; color: var(--muted); font-size: .9rem; line-height: 1.4; }
   .inductive-callout strong { color: #8a3f1f; font-size: 1rem; }
+  .deductive-callout { display: grid; gap: .25rem; padding: .75rem .85rem; border-left: .35rem solid var(--green-mid); background: var(--green-soft); color: var(--muted); font-size: .9rem; line-height: 1.4; }
+  .deductive-callout strong { color: var(--green); font-size: 1rem; }
   .comic-figure { min-width: 0; margin: 0; }
   .comic-figure img { display: block; width: 100%; height: auto; border: 1px solid var(--line); }
   .comic-figure figcaption { margin-top: .45rem; color: var(--muted); font-size: .7rem; line-height: 1.35; }
