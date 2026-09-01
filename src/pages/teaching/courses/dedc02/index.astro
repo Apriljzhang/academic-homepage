@@ -8,7 +8,8 @@ import { withBase } from '../../../../utils/paths';
 
 const title = `DEDC02 · ${person.fullDisplayName}`;
 const description = 'Interactive materials for DEDC02 Advanced Research Method at City University of Macau.';
-const lessonHref = withBase('/teaching/courses/dedc02/01-philosophical-grounding');
+const week1Href = withBase('/teaching/courses/dedc02/01-philosophical-grounding');
+const week2Href = withBase('/teaching/courses/dedc02/02-research-questions');
 ---
 
 <BaseLayout {title} {description}>
@@ -28,7 +29,7 @@ const lessonHref = withBase('/teaching/courses/dedc02/01-philosophical-grounding
         <ol class="mt-4 grid gap-3">
           <li>
             <a
-              href={lessonHref}
+              href={week1Href}
               class="group flex items-center justify-between gap-5 rounded-lg border border-border bg-white px-5 py-4 no-underline transition hover:border-secondary hover:bg-main-faint"
             >
               <span>
@@ -38,6 +39,23 @@ const lessonHref = withBase('/teaching/courses/dedc02/01-philosophical-grounding
                 </span>
                 <span class="mt-1 block text-sm text-muted">
                   Ontology, epistemology, axiology, methodology, methods, evidence and claims
+                </span>
+              </span>
+              <span class="shrink-0 text-2xl text-secondary" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href={week2Href}
+              class="group flex items-center justify-between gap-5 rounded-lg border border-border bg-white px-5 py-4 no-underline transition hover:border-secondary hover:bg-main-faint"
+            >
+              <span>
+                <span class="block text-xs font-semibold uppercase tracking-[0.12em] text-secondary">Week 2</span>
+                <span class="mt-1 block text-lg font-semibold text-ink group-hover:text-secondary">
+                  2. Research Questions
+                </span>
+                <span class="mt-1 block text-sm text-muted">
+                  Research problems, question types, hypotheses, variables and keyword searches
                 </span>
               </span>
               <span class="shrink-0 text-2xl text-secondary" aria-hidden="true">→</span>
