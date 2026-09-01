@@ -5,6 +5,8 @@ import { withBase } from '../../../../utils/paths';
 const title = '2. Research Questions · DEDC02';
 const description = 'An interactive lesson on research questions, hypotheses, variables and literature searching.';
 const courseHref = withBase('/teaching/courses/dedc02');
+const homepageHref = withBase('/');
+const comicHref = withBase('/teaching/courses/dedc02/the-claus-hypothesis.png');
 ---
 
 <CourseSlideLayout {title} {description}>
@@ -141,21 +143,21 @@ const courseHref = withBase('/teaching/courses/dedc02');
         <div class="language-panel" data-language="en">
           <h2>Topics to avoid</h2>
           <div class="avoid-grid">
-            <details><summary>Too big</summary><p>Ask whether you have the time, experience and resources to complete the research.</p></details>
-            <details><summary>Too trivial</summary><p>Ask whether the results have meaning or significance to others, not just to yourself.</p></details>
-            <details><summary>Lacking in resource materials</summary><p>Look for warning signs such as very few references in textbooks, practitioner journals, refereed journals or websites.</p></details>
-            <details><summary>Lacking in sponsorship</summary><p>Support and commitment from key people in the organisation or fieldwork setting may be important.</p></details>
-            <details><summary>Intractable</summary><p>Be suspicious of a problem that nobody else has been able to solve. Ask yourself: “Why me?”</p></details>
+            <details><summary>Too big</summary><p><strong>Example:</strong> “Human resource management – innovative international perspectives.” Some very large projects can be worthy and valuable to an organisation, but ask whether you have the time, experience and resources to complete them.</p></details>
+            <details><summary>Too trivial</summary><p>Ask whether the results have meaning or significance to others, not just to yourself. A project on <em>reducing paper use in a marketing department of ten people</em> may yield little value; studying recycling across an organisation—paper, printer cartridges, furniture and computers—has broader scope.</p></details>
+            <details><summary>Lacking in resource materials</summary><p>Look for warning signs: very few references to the topic in the main textbooks, practitioner journals, refereed journals or credible websites.</p></details>
+            <details><summary>Lacking in sponsorship</summary><p>Support and commitment from key people in the organisation or fieldwork setting may be important. These may include directors, senior managers, or leaders of networks and groups.</p></details>
+            <details><summary>Intractable</summary><p>Be suspicious of a problem that nobody else has been able to solve. Ask yourself: “Why me?” It may be an offer you need to refuse.</p></details>
           </div>
         </div>
         <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
           <h2>應避免的主題</h2>
           <div class="avoid-grid">
-            <details><summary>範圍太大</summary><p>問自己是否有足夠時間、經驗與資源完成研究。</p></details>
-            <details><summary>過於瑣碎</summary><p>問自己研究結果對其他人是否有意義或重要性，而不只對自己有意義。</p></details>
-            <details><summary>缺乏資料來源</summary><p>留意警號，例如主要教科書、實務期刊、同儕評審期刊或網站中很少有相關參考資料。</p></details>
-            <details><summary>缺乏支持</summary><p>取得組織或田野場域中關鍵人士的支持與承諾可能很重要。</p></details>
-            <details><summary>難以處理</summary><p>對一個其他人都未能解決的問題保持懷疑，並問自己：「為甚麼是我？」</p></details>
+            <details><summary>範圍太大</summary><p><strong>例子：</strong>「人力資源管理——創新的國際視角」。有些大型項目對組織可能值得且有價值，但要問自己是否有足夠時間、經驗與資源完成它。</p></details>
+            <details><summary>過於瑣碎</summary><p>問自己研究結果對其他人是否有意義或重要性，而不只對自己有意義。研究<strong>如何在一個十人的營銷部門減少紙張使用</strong>可能價值很少；研究<strong>整個組織的回收問題（紙張、打印機墨盒、家具、計算機等）</strong>則有更廣泛的範圍。</p></details>
+            <details><summary>缺乏資源材料</summary><p>留意警號：主要教科書、實務期刊、同儕評審期刊或可靠網站中，很少提到這個主題或提供相關參考資料。</p></details>
+            <details><summary>缺乏贊助</summary><p>研究所在的組織或實地考察環境中，關鍵人士的支持與承諾可能很重要，例如董事、高級管理人員，或網絡與群組的領袖。</p></details>
+            <details><summary>棘手的問題</summary><p>對一個其他人都未能解決的問題保持懷疑，並問自己：「為甚麼是我？」這可能是你需要拒絕的提議。</p></details>
           </div>
         </div>
       </div>
@@ -166,7 +168,8 @@ const courseHref = withBase('/teaching/courses/dedc02');
         <header class="slide-header"><span class="eyebrow">Activity 1: Narrowing down</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
         <div class="language-panel" data-language="en">
           <h2>Narrowing down</h2>
-          <p class="intro-line">Consider each of the following “big” topics and formulate a more focused, narrower research project:</p>
+          <p class="intro-line">After background reading and a literature review, use PICO—Population, Intervention, Comparator and Outcome—to keep a research question focused and clinically relevant.</p>
+          <p class="pico-advice">Choose a population or intervention that interests you, and check what expertise is available in your group or department.</p>
           <div class="narrowing-activity">
             <ul class="source-list compact-list">
               <li>Technology-Enhanced Language Learning</li>
@@ -176,16 +179,20 @@ const courseHref = withBase('/teaching/courses/dedc02');
               <li>AI Literacy in Digital Education</li>
               <li>Or…</li>
             </ul>
-            <div class="three-source narrowing-guides">
-              <article><h3>Context</h3><p>In which setting? Formal classroom, informal learning, higher education, primary school, online platforms, Macau context, etc.</p></article>
-              <article><h3>Population</h3><p>Who are the learners/teachers? EFL students, preservice teachers, primary pupils, multilingual undergraduates…</p></article>
-              <article><h3>Variable/Phenomenon</h3><p>What specifically will be studied? Motivation, feedback style, AI tool use, test anxiety, translanguaging, accessibility…</p></article>
+            <div class="pico-guides">
+              <article><span class="pico-label">P</span><h3>Population</h3><p>Who is the study relevant to? <strong>Example:</strong> patients with cerebral small vessel disease (CSVD).</p></article>
+              <article><span class="pico-label">I</span><h3>Intervention</h3><p>What exposure, programme or treatment is examined? <strong>Example:</strong> a new vasoactive compound intended to improve cerebral circulation.</p></article>
+              <article><span class="pico-label">C</span><h3>Comparator</h3><p>What will it be compared with? <strong>Example:</strong> a healthy or matched population; matching age, sex and/or disease can strengthen relevance.</p></article>
+              <article><span class="pico-label">O</span><h3>Outcome</h3><p>What is expected to change or matter to participants? <strong>Example:</strong> cerebral circulation.</p></article>
             </div>
+            <p class="pico-question"><strong>Worked example:</strong> In patients with CSVD, does a new vasoactive compound, compared with a matched comparator, improve cerebral circulation?</p>
+            <p class="source-note">Based on <a href="https://www.csvs.org.uk/research/3-svt_research_series/4-research-questions-hypothesis/" target="_blank" rel="noreferrer">CSVS guidance</a>; see <a href="https://doi.org/10.1186/s12874-017-0468-4" target="_blank" rel="noreferrer">Munn et al. (2018)</a> for choosing a review method.</p>
           </div>
         </div>
         <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
           <h2>收窄主題</h2>
-          <p class="intro-line">考慮以下「大」主題，並把每個主題轉化為更聚焦、更狹窄的研究項目：</p>
+          <p class="intro-line">完成背景閱讀與文獻綜述後，可使用 PICO——研究對象（Population）、干預（Intervention）、比較／對照（Comparator／Control）與結果（Outcome）——聚焦研究問題，並保持臨床相關性。</p>
+          <p class="pico-advice">選擇你感興趣的研究對象或干預，並考慮小組及系所可提供的專業知識。</p>
           <div class="narrowing-activity">
             <ul class="source-list compact-list">
               <li>科技增強的語言學習</li>
@@ -195,11 +202,14 @@ const courseHref = withBase('/teaching/courses/dedc02');
               <li>數字教育中的人工智能素養</li>
               <li>或者……</li>
             </ul>
-            <div class="three-source narrowing-guides">
-              <article><h3>情境</h3><p>在哪一種情境？正式課堂、非正式學習、高等教育、小學、線上平台、澳門情境等。</p></article>
-              <article><h3>研究對象</h3><p>學習者／教師是誰？英語學習者、職前教師、小學生、多語大學生……</p></article>
-              <article><h3>變量／現象</h3><p>具體研究甚麼？動機、回饋方式、AI 工具使用、考試焦慮、跨語言實踐、可及性……</p></article>
+            <div class="pico-guides">
+              <article><span class="pico-label">P</span><h3>研究對象</h3><p>研究與誰相關？<strong>例：</strong>患有腦小血管疾病（CSVD）的患者。</p></article>
+              <article><span class="pico-label">I</span><h3>干預</h3><p>研究哪一種暴露、方案或治療？<strong>例：</strong>旨在改善腦部循環的新血管活性化合物。</p></article>
+              <article><span class="pico-label">C</span><h3>比較／對照</h3><p>與甚麼比較？<strong>例：</strong>健康或匹配的群體；在相關情況下匹配年齡、性別及／或疾病狀況。</p></article>
+              <article><span class="pico-label">O</span><h3>結果</h3><p>預期會改變或對參與者重要的是甚麼？<strong>例：</strong>腦部循環。</p></article>
             </div>
+            <p class="pico-question"><strong>例子：</strong>在 CSVD 患者中，與匹配的比較組相比，新的血管活性化合物是否能改善腦部循環？</p>
+            <p class="source-note">內容根據 <a href="https://www.csvs.org.uk/research/3-svt_research_series/4-research-questions-hypothesis/" target="_blank" rel="noreferrer">CSVS 指引</a>；另參閱 <a href="https://doi.org/10.1186/s12874-017-0468-4" target="_blank" rel="noreferrer">Munn 等人（2018）</a>了解如何選擇綜述方法。</p>
           </div>
         </div>
       </div>
@@ -211,19 +221,19 @@ const courseHref = withBase('/teaching/courses/dedc02');
         <div class="language-panel" data-language="en">
           <h2>Building up your research</h2>
           <div class="build-form">
-            <label><span>Topic</span><textarea data-save="topic"></textarea></label>
-            <label><span>Problem</span><textarea data-save="problem"></textarea></label>
-            <label><span>Purpose</span><textarea data-save="purpose"></textarea></label>
-            <label><span>Question</span><textarea data-save="question"></textarea></label>
+            <label><span>Topic</span><textarea data-save="topic" placeholder="The broad subject matter addressed by the study."></textarea></label>
+            <label><span>Problem</span><textarea data-save="problem" placeholder="A general educational issue, concern, or controversy addressed in research that narrows the topic."></textarea></label>
+            <label><span>Purpose</span><textarea data-save="purpose" placeholder="The major intent or objective of the study used to address the problem."></textarea></label>
+            <label><span>Question</span><textarea data-save="question" placeholder="Research questions narrow the purpose into specific questions that the researcher would like answered or addressed in the study."></textarea></label>
           </div>
         </div>
         <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
           <h2>逐步建立你的研究</h2>
           <div class="build-form">
-            <label><span>主題</span><textarea data-save="topic-zh"></textarea></label>
-            <label><span>研究課題</span><textarea data-save="problem-zh"></textarea></label>
-            <label><span>研究目的</span><textarea data-save="purpose-zh"></textarea></label>
-            <label><span>研究問題</span><textarea data-save="question-zh"></textarea></label>
+            <label><span>主題</span><textarea data-save="topic-zh" placeholder="研究涉及的廣泛主題"></textarea></label>
+            <label><span>研究課題</span><textarea data-save="problem-zh" placeholder="在縮小主題範圍的研究中解決的一般教育問題、關注點或爭議"></textarea></label>
+            <label><span>研究目的</span><textarea data-save="purpose-zh" placeholder="用於解決問題的研究的主要意圖或目標"></textarea></label>
+            <label><span>研究問題</span><textarea data-save="question-zh" placeholder="研究問題將目的縮小到研究人員希望在研究中回答或解決的特定問題"></textarea></label>
           </div>
         </div>
       </div>
@@ -345,19 +355,19 @@ const courseHref = withBase('/teaching/courses/dedc02');
         <div class="language-panel" data-language="en">
           <h2>Revise your research questions</h2>
           <div class="build-form">
-            <label><span>Topic</span><textarea data-save="revise-topic"></textarea></label>
-            <label><span>Problem</span><textarea data-save="revise-problem"></textarea></label>
-            <label><span>Purpose</span><textarea data-save="revise-purpose"></textarea></label>
-            <label><span>Question</span><textarea data-save="revise-question"></textarea></label>
+            <label><span>Topic</span><textarea data-save="revise-topic" placeholder="The broad subject matter addressed by the study."></textarea></label>
+            <label><span>Problem</span><textarea data-save="revise-problem" placeholder="A general educational issue, concern, or controversy addressed in research that narrows the topic."></textarea></label>
+            <label><span>Purpose</span><textarea data-save="revise-purpose" placeholder="The major intent or objective of the study used to address the problem."></textarea></label>
+            <label><span>Question</span><textarea data-save="revise-question" placeholder="Research questions narrow the purpose into specific questions that the researcher would like answered or addressed in the study."></textarea></label>
           </div>
         </div>
         <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
           <h2>修訂你的研究問題</h2>
           <div class="build-form">
-            <label><span>主題</span><textarea data-save="revise-topic-zh"></textarea></label>
-            <label><span>研究課題</span><textarea data-save="revise-problem-zh"></textarea></label>
-            <label><span>研究目的</span><textarea data-save="revise-purpose-zh"></textarea></label>
-            <label><span>研究問題</span><textarea data-save="revise-question-zh"></textarea></label>
+            <label><span>主題</span><textarea data-save="revise-topic-zh" placeholder="研究涉及的廣泛主題"></textarea></label>
+            <label><span>研究課題</span><textarea data-save="revise-problem-zh" placeholder="在縮小主題範圍的研究中解決的一般教育問題、關注點或爭議"></textarea></label>
+            <label><span>研究目的</span><textarea data-save="revise-purpose-zh" placeholder="用於解決問題的研究的主要意圖或目標"></textarea></label>
+            <label><span>研究問題</span><textarea data-save="revise-question-zh" placeholder="研究問題將目的縮小到研究人員希望在研究中回答或解決的特定問題"></textarea></label>
           </div>
         </div>
       </div>
@@ -372,6 +382,7 @@ const courseHref = withBase('/teaching/courses/dedc02');
             <article><h3>Qualitative research</h3><ul><li>Uses research questions</li><li>Seeks information on a single concept</li><li>Asks participants to share ideas and builds general themes</li><li>Uses a more open-ended stance</li><li>Seeks a deep understanding of the views of one group or single individuals</li></ul></article>
             <article><h3>Quantitative research</h3><ul><li>Uses hypotheses</li><li>Identifies and measures multiple variables</li><li>Tests theories that predict results from relating variables</li><li>Uses a closed-ended stance and selects instruments before the study begins</li><li>Measures differences among groups or changes over time</li></ul></article>
           </div>
+          <p class="hypothesis-note">Many qualitative studies do not test hypotheses; they explore questions. If hypotheses appear, they are often working hypotheses revisited as data are analysed.</p>
         </div>
         <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
           <h2>研究問題與假設</h2>
@@ -379,6 +390,7 @@ const courseHref = withBase('/teaching/courses/dedc02');
             <article><h3>定性研究</h3><ul><li>使用研究問題</li><li>尋求有關單一概念的資料</li><li>請參與者分享想法，並建立一般主題</li><li>採用較開放的立場</li><li>深入理解一個群體或個別人士的觀點</li></ul></article>
             <article><h3>定量研究</h3><ul><li>使用假設</li><li>識別並測量多個變量</li><li>檢驗從變量關係預測結果的理論</li><li>採用封閉式立場，並在研究開始前選擇工具</li><li>測量群體差異或個體隨時間的變化</li></ul></article>
           </div>
+          <p class="hypothesis-note">許多定性研究不檢驗假設，而是探索研究問題。若出現假設，通常是隨著資料分析而重新審視的工作假設。</p>
         </div>
       </div>
     </section>
@@ -388,13 +400,87 @@ const courseHref = withBase('/teaching/courses/dedc02');
         <header class="slide-header"><span class="eyebrow">Hypothesis</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
         <div class="language-panel" data-language="en">
           <h2>Hypothesis</h2>
-          <p class="lead medium">Hypotheses are statements in quantitative research in which the investigator makes a prediction or conjecture about the outcome of a relationship among attributes or characteristics.</p>
-          <p class="lead medium">These predictions are not simply an “educated guess”. Hypotheses are made because past studies in the literature suggest certain outcomes.</p>
+          <div class="hypothesis-introduction">
+            <div class="hypothesis-definition">
+              <p class="lead medium">A hypothesis is a precise, testable prediction about the relationship between two or more variables. It should be grounded in theory or prior evidence, and the data should be able to show that it is wrong.</p>
+              <p class="lead medium">It is not simply an “educated guess”: a research question stays open, while a hypothesis commits to a specific expected pattern.</p>
+              <aside class="inductive-callout"><strong>Inductive reasoning</strong><span>The comic moves from several observations to a provisional general explanation: “Santa Claus is a professor!” Observations can support a hypothesis, but they do not prove it.</span></aside>
+            </div>
+            <figure class="comic-figure">
+              <img src={comicHref} alt="The Claus Hypothesis comic: observations about Santa lead to the provisional conclusion that Santa Claus is a professor, followed by a null-hypothesis joke." loading="lazy" decoding="async" />
+              <figcaption>Inductive reasoning in a comic: <a href="https://phdcomics.com/comics/archive_print.php?comicid=1457" target="_blank" rel="noreferrer"><em>The Claus Hypothesis</em></a> by Jorge Cham.</figcaption>
+            </figure>
+          </div>
+          <p class="source-note">Hypothesis framing adapted from <a href="https://www.thesisai.io/blog/how-to-write-a-research-hypothesis/" target="_blank" rel="noreferrer">ThesisAI’s guide</a> and the <a href="https://www.csvs.org.uk/research/3-svt_research_series/4-research-questions-hypothesis/" target="_blank" rel="noreferrer">CSVS research-methods article</a>.</p>
         </div>
         <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
           <h2>假設</h2>
-          <p class="lead medium">假設是定量研究中的陳述，研究者對屬性或特徵之間關係的結果作出預測或推測。</p>
-          <p class="lead medium">這些預測並不只是「有根據的猜測」。提出假設，是因為過往文獻研究顯示某些結果。</p>
+          <div class="hypothesis-introduction">
+            <div class="hypothesis-definition">
+              <p class="lead medium">假設是對兩個或以上變量之間關係的精確、可檢驗預測。它應以理論或既有證據為基礎，而資料應能顯示它可能是錯的。</p>
+              <p class="lead medium">假設不只是「有根據的猜測」：研究問題保持開放，而假設則承諾一種具體的預期模式。</p>
+              <aside class="inductive-callout"><strong>歸納推理</strong><span>漫畫先呈現多項觀察，再提出暫時性的概括解釋：「聖誕老人是一位教授！」觀察可以支持假設，但不能證明假設。</span></aside>
+            </div>
+            <figure class="comic-figure">
+              <img src={comicHref} alt="《聖誕老人假設》漫畫：幾項關於聖誕老人的觀察引出聖誕老人是教授的暫時結論，並以零假設作笑點。" loading="lazy" decoding="async" />
+              <figcaption>漫畫中的歸納推理：Jorge Cham 的<a href="https://phdcomics.com/comics/archive_print.php?comicid=1457" target="_blank" rel="noreferrer"><em>《The Claus Hypothesis》</em></a>。</figcaption>
+            </figure>
+          </div>
+          <p class="source-note">假設的介紹參考 <a href="https://www.thesisai.io/blog/how-to-write-a-research-hypothesis/" target="_blank" rel="noreferrer">ThesisAI 指引</a>及 <a href="https://www.csvs.org.uk/research/3-svt_research_series/4-research-questions-hypothesis/" target="_blank" rel="noreferrer">CSVS 研究方法文章</a>。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide operationalization-slide" data-title="Operationalization" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">From ideas to evidence</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <div class="language-panel" data-language="en">
+          <h2>Operationalization</h2>
+          <p class="lead small-lead">Operationalization turns an abstract research question or hypothesis into observable participants, conditions, measures and outcomes.</p>
+          <div class="operationalization-layout">
+            <div class="operationalization-example">
+              <div class="operationalization-card question-card"><span class="operationalization-label">Research question</span><p>How do students experience digital feedback on their writing?</p></div>
+              <div class="operationalization-arrow" aria-hidden="true">↓</div>
+              <div class="operationalization-details">
+                <div><strong>Students</strong><span>second-year undergraduate EFL learners at a university</span></div>
+                <div><strong>Experience</strong><span>learners’ perceptions, emotions and interpretations of feedback</span></div>
+                <div><strong>Digital feedback</strong><span>teacher comments through an online platform: typed comments and tracked changes</span></div>
+              </div>
+              <div class="operationalization-arrow" aria-hidden="true">↓</div>
+              <div class="operationalization-card refined-card"><span class="operationalization-label">Narrowed qualitative question</span><p>How do second-year undergraduate EFL learners describe their perceptions and experiences of receiving digital feedback (typed comments on drafts) in academic writing courses?</p></div>
+            </div>
+            <div class="operationalization-hypotheses">
+              <p class="operationalization-label">Quantitative comparison example</p>
+              <article class="operationalization-hypothesis null-hypothesis"><h3>Null hypothesis (H₀)</h3><p>There is no significant difference in academic-writing scores between students who receive digital feedback and those who receive handwritten feedback.</p></article>
+              <article class="operationalization-hypothesis alternative-hypothesis"><h3>Alternative hypothesis (H₁)</h3><p>Students who receive digital feedback achieve significantly higher academic-writing scores than those who receive handwritten feedback.</p></article>
+              <p class="operationalization-note">Match the formulation to the design: the experience question is qualitative; H₀/H₁ require a measured outcome and a comparison.</p>
+            </div>
+          </div>
+          <p class="source-note">Example adapted from the supplied School of Education slide. Operationalization makes the concepts in a question observable and researchable.</p>
+        </div>
+        <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
+          <h2>操作化</h2>
+          <p class="lead small-lead">操作化把抽象的研究問題或假設轉化為可觀察的參與者、條件、測量方式與結果。</p>
+          <div class="operationalization-layout">
+            <div class="operationalization-example">
+              <div class="operationalization-card question-card"><span class="operationalization-label">研究問題</span><p>學生如何體驗寫作中的數字回饋？</p></div>
+              <div class="operationalization-arrow" aria-hidden="true">↓</div>
+              <div class="operationalization-details">
+                <div><strong>學生</strong><span>大學二年級本科 EFL 學習者</span></div>
+                <div><strong>體驗</strong><span>學習者對回饋的看法、情緒與詮釋</span></div>
+                <div><strong>數字回饋</strong><span>透過線上平台提供的教師評語：鍵入的評語與修訂記錄</span></div>
+              </div>
+              <div class="operationalization-arrow" aria-hidden="true">↓</div>
+              <div class="operationalization-card refined-card"><span class="operationalization-label">收窄後的定性問題</span><p>大學二年級本科 EFL 學習者如何描述他們在學術寫作課程中接受數字回饋（草稿上的鍵入評語）的看法與經驗？</p></div>
+            </div>
+            <div class="operationalization-hypotheses">
+              <p class="operationalization-label">定量比較例子</p>
+              <article class="operationalization-hypothesis null-hypothesis"><h3>零假設（H₀）</h3><p>接受數字回饋與手寫回饋的學生，其學術寫作分數沒有顯著差異。</p></article>
+              <article class="operationalization-hypothesis alternative-hypothesis"><h3>備擇假設（H₁）</h3><p>接受數字回饋的學生，其學術寫作分數顯著高於接受手寫回饋的學生。</p></article>
+              <p class="operationalization-note">要讓表述配合研究設計：體驗問題偏向定性探索；H₀／H₁則要求可測量的結果與比較組。</p>
+            </div>
+          </div>
+          <p class="source-note">例子改編自所提供的教育學院投影片。操作化使問題中的概念變得可觀察並可研究。</p>
         </div>
       </div>
     </section>
@@ -410,8 +496,8 @@ const courseHref = withBase('/teaching/courses/dedc02');
           </div>
           <h3 class="hypothesis-subtitle">Directional and non-directional</h3>
           <div class="hypothesis-pair hypothesis-followup">
-            <article><h3>Directional alternative hypothesis</h3><p>Students who participate in direct learning in four elementary schools will have <strong>higher</strong> achievement scores than students who participate in whole-language learning.</p></article>
-            <article><h3>Non-directional alternative hypothesis</h3><p>There is <strong>a difference</strong> between varsity athletes in high school who smoke and those who do not smoke in terms of athletic accomplishments.</p></article>
+            <article><h3>Directional alternative hypothesis</h3><p>Students who receive structured AI-literacy instruction will have <strong>higher</strong> AI-literacy scores than students who do not receive the instruction.</p></article>
+            <article><h3>Non-directional alternative hypothesis</h3><p>AI-literacy scores <strong>differ</strong> between students who receive structured AI-literacy instruction and students who do not.</p></article>
           </div>
         </div>
         <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
@@ -422,9 +508,39 @@ const courseHref = withBase('/teaching/courses/dedc02');
           </div>
           <h3 class="hypothesis-subtitle">方向性與非方向性</h3>
           <div class="hypothesis-pair hypothesis-followup">
-            <article><h3>方向性備擇假設</h3><p>四所小學中參加直接教學的學生，成就分數將<strong>高於</strong>參加全語言教學的學生。</p></article>
-            <article><h3>非方向性備擇假設</h3><p>高中校隊運動員中吸煙者與不吸煙者的運動成就<strong>存在差異</strong>。</p></article>
+            <article><h3>方向性備擇假設</h3><p>接受結構化人工智能素養教學的學生，其人工智能素養分數將<strong>高於</strong>未接受該教學的學生。</p></article>
+            <article><h3>非方向性備擇假設</h3><p>接受結構化人工智能素養教學與未接受教學的學生，其人工智能素養分數<strong>存在差異</strong>。</p></article>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Types of hypotheses" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Choose the claim carefully</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <div class="language-panel" data-language="en">
+          <h2>Types of hypotheses</h2>
+          <p class="intro-line">First decide whether you are comparing groups or examining an association. Then decide whether prior theory or evidence justifies predicting a direction.</p>
+          <div class="hypothesis-type-grid">
+            <article><span class="type-kicker">Difference · non-directional</span><h3>Difference without a direction</h3><p>Compares groups but does not say which group will score higher.</p><p class="type-example"><strong>Example:</strong> AI-literacy scores differ between students who receive structured AI-literacy instruction and students who do not.</p></article>
+            <article><span class="type-kicker">Difference · directional</span><h3>Difference with a direction</h3><p>Compares groups and predicts which way the outcome will differ.</p><p class="type-example"><strong>Example:</strong> Students who receive structured AI-literacy instruction will have higher AI-literacy scores than students who do not.</p></article>
+            <article><span class="type-kicker">Correlation · non-directional</span><h3>Association without a direction</h3><p>States that two measured variables are related without predicting a positive or negative pattern.</p><p class="type-example"><strong>Example:</strong> AI-literacy scores are associated with academic-writing scores.</p></article>
+            <article><span class="type-kicker">Correlation · directional</span><h3>Association with a direction</h3><p>States whether the association is positive or negative.</p><p class="type-example"><strong>Example:</strong> Higher AI-literacy scores are positively associated with higher academic-writing scores.</p></article>
+          </div>
+          <p class="hypothesis-caution"><strong>Plan before seeing the data:</strong> choose a directional or non-directional form in advance. An association alone does not establish causation.</p>
+          <p class="source-note">Distinction adapted from <a href="https://numiqo.com/tutorial/hypothesis" target="_blank" rel="noreferrer">NumIQO’s hypothesis tutorial</a> and <a href="https://www.thesisai.io/blog/how-to-write-a-research-hypothesis/" target="_blank" rel="noreferrer">ThesisAI’s guide</a>.</p>
+        </div>
+        <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
+          <h2>假設的類型</h2>
+          <p class="intro-line">先決定你是在比較群體，還是在檢驗變量之間的關聯；再決定既有理論或證據是否足以支持方向性的預測。</p>
+          <div class="hypothesis-type-grid">
+            <article><span class="type-kicker">差異 · 非方向性</span><h3>沒有方向的差異</h3><p>比較群體，但不說明哪一個群體的分數較高。</p><p class="type-example"><strong>例子：</strong>接受結構化人工智能素養教學與未接受教學的學生，其人工智能素養分數存在差異。</p></article>
+            <article><span class="type-kicker">差異 · 方向性</span><h3>有方向的差異</h3><p>比較群體，並預測結果差異的方向。</p><p class="type-example"><strong>例子：</strong>接受結構化人工智能素養教學的學生，其人工智能素養分數將高於未接受教學的學生。</p></article>
+            <article><span class="type-kicker">相關 · 非方向性</span><h3>沒有方向的關聯</h3><p>指出兩個測量變量有關聯，但不預測正向或負向模式。</p><p class="type-example"><strong>例子：</strong>人工智能素養分數與學術寫作分數相關。</p></article>
+            <article><span class="type-kicker">相關 · 方向性</span><h3>有方向的關聯</h3><p>指出關聯是正向還是負向。</p><p class="type-example"><strong>例子：</strong>人工智能素養分數越高，通常與越高的學術寫作分數呈正相關。</p></article>
+          </div>
+          <p class="hypothesis-caution"><strong>在查看資料前先作規劃：</strong>預先選擇方向性或非方向性的表述。單憑關聯不能確立因果關係。</p>
+          <p class="source-note">類型區分參考 <a href="https://numiqo.com/tutorial/hypothesis" target="_blank" rel="noreferrer">NumIQO 假設教學</a>及 <a href="https://www.thesisai.io/blog/how-to-write-a-research-hypothesis/" target="_blank" rel="noreferrer">ThesisAI 指引</a>。</p>
         </div>
       </div>
     </section>
@@ -434,8 +550,13 @@ const courseHref = withBase('/teaching/courses/dedc02');
         <header class="slide-header"><span class="eyebrow">Tips for hypotheses</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
         <div class="language-panel" data-language="en">
           <h2>Tips for hypotheses</h2>
+          <div class="variable-order" aria-label="Recommended variable order">
+            <span><strong>Independent Variable (IV)</strong><small>first</small></span><b aria-hidden="true">→</b>
+            <span><strong>Dependent Variable (DV)</strong><small>second</small></span><b aria-hidden="true">→</b>
+            <span><strong>Control Variables (CVs)</strong><small>third</small></span>
+          </div>
           <ul class="source-list">
-            <li><strong>State variables clearly:</strong> independent variable first, dependent variable second, control variables third.</li>
+            <li><strong>State variables clearly:</strong> name the <strong>Independent Variable (IV)</strong> first, the <strong>Dependent Variable (DV)</strong> second, and the <strong>Control Variables (CVs)</strong> third.</li>
             <li><strong>If comparing groups:</strong> explicitly state which groups are compared.</li>
             <li><strong>If testing relationships:</strong> specify the type of relationship: positive, negative or no relationship.</li>
             <li>These predictions are tested statistically.</li>
@@ -443,12 +564,147 @@ const courseHref = withBase('/teaching/courses/dedc02');
         </div>
         <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
           <h2>假設的提示</h2>
+          <div class="variable-order" aria-label="建議的變量順序">
+            <span><strong>自變量（IV）</strong><small>第一</small></span><b aria-hidden="true">→</b>
+            <span><strong>因變量（DV）</strong><small>第二</small></span><b aria-hidden="true">→</b>
+            <span><strong>控制變量（CVs）</strong><small>第三</small></span>
+          </div>
           <ul class="source-list">
-            <li><strong>清楚說明變量：</strong>先自變量，其次因變量，再次控制變量。</li>
+            <li><strong>清楚說明變量：</strong>先列出<strong>自變量（IV）</strong>，其次是<strong>因變量（DV）</strong>，再次是<strong>控制變量（CVs）</strong>。</li>
             <li><strong>若比較群體：</strong>明確說明比較哪些群體。</li>
             <li><strong>若檢驗關係：</strong>說明關係類型：正向、負向或沒有關係。</li>
             <li>這些預測會以統計方法進行檢驗。</li>
           </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Hypothesis templates" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">From question to prediction</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <div class="language-panel" data-language="en">
+          <h2>Hypothesis templates</h2>
+          <p class="intro-line">Replace the brackets with your population, variables, measures and comparison. Use a direction only when theory or prior evidence supports it.</p>
+          <div class="template-grid">
+            <article><span class="type-kicker">Directional difference</span><h3>Compare two groups</h3><p class="template-line">For [population] receiving [condition X], the mean [outcome] score, measured with [instrument], will be [higher/lower] than in [comparison group].</p></article>
+            <article><span class="type-kicker">Directional correlation</span><h3>Relate two variables</h3><p class="template-line">Among [population], [variable A], measured by [instrument], will be [positively/negatively] associated with [variable B], measured by [instrument].</p></article>
+            <article><span class="type-kicker">Moderation</span><h3>Specify a conditional effect</h3><p class="template-line">The relationship between [variable A] and [variable B] in [population] will be [stronger/weaker] at [level of moderator C] than at [comparison level].</p></article>
+            <article><span class="type-kicker">Null hypothesis</span><h3>State the no-effect claim</h3><p class="template-line">H₀: [outcome] will not differ between [group 1] and [group 2] in [population].</p></article>
+          </div>
+          <p class="hypothesis-caution"><strong>Non-directional option:</strong> say that groups “differ” or variables “are associated” without adding higher, lower, positive or negative.</p>
+          <p class="source-note">Template structures adapted from <a href="https://www.thesisai.io/blog/how-to-write-a-research-hypothesis/" target="_blank" rel="noreferrer">ThesisAI’s hypothesis guide</a>.</p>
+        </div>
+        <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
+          <h2>假設模板</h2>
+          <p class="intro-line">把研究對象、變量、測量方式與比較組填入方括號。只有在理論或既有證據支持時，才加入方向。</p>
+          <div class="template-grid">
+            <article><span class="type-kicker">方向性差異</span><h3>比較兩個群體</h3><p class="template-line">對於接受［條件 X］的［研究對象］，以［工具］測量的平均［結果］分數將［高於／低於］［比較組］。</p></article>
+            <article><span class="type-kicker">方向性相關</span><h3>連結兩個變量</h3><p class="template-line">在［研究對象］中，以［工具］測量的［變量 A］將與以［工具］測量的［變量 B］呈［正／負］相關。</p></article>
+            <article><span class="type-kicker">調節作用</span><h3>說明條件性效果</h3><p class="template-line">在［研究對象］中，［變量 A］與［變量 B］的關係，在［調節變量 C 的水平］下將比［比較水平］更［強／弱］。</p></article>
+            <article><span class="type-kicker">零假設</span><h3>說明沒有作用的主張</h3><p class="template-line">H₀：在［研究對象］中，［群體 1］與［群體 2］的［結果］沒有差異。</p></article>
+          </div>
+          <p class="hypothesis-caution"><strong>非方向性選項：</strong>說明群體「存在差異」或變量「相關」，但不加入較高、較低、正向或負向。</p>
+          <p class="source-note">模板結構參考 <a href="https://www.thesisai.io/blog/how-to-write-a-research-hypothesis/" target="_blank" rel="noreferrer">ThesisAI 假設指引</a>。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Full hypothesis examples" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Specific, testable, grounded</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <div class="language-panel" data-language="en">
+          <h2>Full hypothesis examples</h2>
+          <p class="intro-line">The weak versions name an idea; the strong versions specify who, what, how it is measured, and—when relevant—when or against whom.</p>
+          <div class="full-example-grid">
+            <article>
+              <h3>Example 1 · Difference</h3>
+              <div class="weak-strong"><p><span>Weak</span>AI literacy improves writing.</p><p><span>Strong</span>Among first-year undergraduates, students assigned to a four-week AI-literacy workshop will achieve higher mean scores on a common academic-writing rubric than wait-list students at post-test.</p></div>
+              <p class="why-example"><strong>Why it works:</strong> It names the population, intervention, comparison, outcome measure and time point; the assigned comparison supports the stated causal design.</p>
+            </article>
+            <article>
+              <h3>Example 2 · Correlation</h3>
+              <div class="weak-strong"><p><span>Weak</span>AI literacy is related to achievement.</p><p><span>Strong</span>Among first-year undergraduates, AI-literacy questionnaire scores will be positively associated with academic-writing rubric scores collected in the same semester.</p></div>
+              <p class="why-example"><strong>Why it works:</strong> It identifies both measured variables and the direction while avoiding a causal claim.</p>
+            </article>
+          </div>
+          <p class="source-note">Examples adapted for this course from the strong/weak comparisons in <a href="https://www.thesisai.io/blog/how-to-write-a-research-hypothesis/" target="_blank" rel="noreferrer">ThesisAI’s hypothesis guide</a>.</p>
+        </div>
+        <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
+          <h2>完整的假設例子</h2>
+          <p class="intro-line">較弱的表述只提出一個想法；較強的表述則說明誰、研究甚麼、如何測量，以及在相關情況下何時或與誰比較。</p>
+          <div class="full-example-grid">
+            <article>
+              <h3>例子 1 · 差異</h3>
+              <div class="weak-strong"><p><span>較弱</span>人工智能素養改善寫作。</p><p><span>較強</span>在一年級本科生中，被分配參加為期四週人工智能素養工作坊的學生，在共同的學術寫作評分標準上的平均分數，將高於候補名單學生在後測中的分數。</p></div>
+              <p class="why-example"><strong>為甚麼可行：</strong>它說明研究對象、干預、比較組、結果測量與時間點；分配式比較配合其因果研究設計。</p>
+            </article>
+            <article>
+              <h3>例子 2 · 相關</h3>
+              <div class="weak-strong"><p><span>較弱</span>人工智能素養與成就有關。</p><p><span>較強</span>在一年級本科生中，人工智能素養問卷分數將與同一學期收集的學術寫作評分標準分數呈正相關。</p></div>
+              <p class="why-example"><strong>為甚麼可行：</strong>它指出兩個可測量變量及關係方向，同時避免提出因果主張。</p>
+            </article>
+          </div>
+          <p class="source-note">例子按本課程需要改編自 <a href="https://www.thesisai.io/blog/how-to-write-a-research-hypothesis/" target="_blank" rel="noreferrer">ThesisAI 假設指引</a>中的強弱表述比較。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Common hypothesis mistakes" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Quality check</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <div class="language-panel" data-language="en">
+          <h2>Common hypothesis mistakes</h2>
+          <div class="mistake-grid">
+            <article><span>01</span><h3>Too many predictions</h3><p>Split separate outcomes into H₁, H₂ and H₃ so each claim can be tested clearly.</p></article>
+            <article><span>02</span><h3>Not falsifiable</h3><p>Name a specific pattern or direction that the data could contradict.</p></article>
+            <article><span>03</span><h3>Causal language without a suitable design</h3><p>Use “is associated with” for correlational evidence; reserve causal claims for designs that support them.</p></article>
+            <article><span>04</span><h3>No literature grounding</h3><p>Show the logic from theory or prior finding to implication to prediction.</p></article>
+            <article><span>05</span><h3>Vague outcome</h3><p>Specify what will change and how it will be measured.</p></article>
+            <article><span>06</span><h3>Direction chosen after the data</h3><p>Choose directional or non-directional wording before inspecting the results.</p></article>
+          </div>
+          <p class="source-note">Checklist adapted from <a href="https://www.thesisai.io/blog/how-to-write-a-research-hypothesis/" target="_blank" rel="noreferrer">ThesisAI’s common-mistakes guide</a>.</p>
+        </div>
+        <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
+          <h2>常見的假設錯誤</h2>
+          <div class="mistake-grid">
+            <article><span>01</span><h3>一個句子有太多預測</h3><p>把不同結果分成 H₁、H₂ 與 H₃，讓每個主張都能清楚檢驗。</p></article>
+            <article><span>02</span><h3>無法證偽</h3><p>指出資料可能反駁的具體模式或方向。</p></article>
+            <article><span>03</span><h3>研究設計不足卻使用因果語言</h3><p>對相關性證據使用「相關」；只有在研究設計支持時才提出因果主張。</p></article>
+            <article><span>04</span><h3>沒有文獻基礎</h3><p>展示由理論或既有發現到推論，再到預測的邏輯。</p></article>
+            <article><span>05</span><h3>結果表述含糊</h3><p>說明甚麼會改變，以及如何測量。</p></article>
+            <article><span>06</span><h3>看過資料後才選方向</h3><p>在查看結果前，先選擇方向性或非方向性的措辭。</p></article>
+          </div>
+          <p class="source-note">檢查清單參考 <a href="https://www.thesisai.io/blog/how-to-write-a-research-hypothesis/" target="_blank" rel="noreferrer">ThesisAI 常見錯誤指引</a>。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="How to write a hypothesis" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">A five-step process</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <div class="language-panel" data-language="en">
+          <h2>How to write the hypothesis</h2>
+          <ol class="hypothesis-steps">
+            <li><span>01</span><strong>Start from the research question</strong><p>Rewrite the question as a statement that commits to a specific answer.</p></li>
+            <li><span>02</span><strong>Identify the variables</strong><p>Mark the predictor or Independent Variable (IV) and the outcome or Dependent Variable (DV).</p></li>
+            <li><span>03</span><strong>Add measurement detail</strong><p>Name the instrument or operational measure for each variable.</p></li>
+            <li><span>04</span><strong>Specify direction if justified</strong><p>Use higher, lower, positive or negative only when theory or evidence supports it.</p></li>
+            <li><span>05</span><strong>Pair with a null hypothesis</strong><p>State the no-difference or no-association claim for statistical inference.</p></li>
+          </ol>
+          <p class="hypothesis-caution"><strong>Before analysis:</strong> record the wording and rationale so the direction is not chosen after seeing the data.</p>
+          <p class="source-note">Five-step process adapted from <a href="https://www.thesisai.io/blog/how-to-write-a-research-hypothesis/" target="_blank" rel="noreferrer">ThesisAI’s hypothesis guide</a>.</p>
+        </div>
+        <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
+          <h2>如何撰寫假設</h2>
+          <ol class="hypothesis-steps">
+            <li><span>01</span><strong>從研究問題開始</strong><p>把問題改寫成承諾具體答案的陳述。</p></li>
+            <li><span>02</span><strong>識別變量</strong><p>標記預測變量或自變量（IV），以及結果或因變量（DV）。</p></li>
+            <li><span>03</span><strong>加入測量細節</strong><p>為每一個變量說明工具或操作性測量方式。</p></li>
+            <li><span>04</span><strong>在有理據時說明方向</strong><p>只有在理論或證據支持時，才使用較高、較低、正向或負向。</p></li>
+            <li><span>05</span><strong>配對零假設</strong><p>為統計推論說明沒有差異或沒有關聯的主張。</p></li>
+          </ol>
+          <p class="hypothesis-caution"><strong>分析前：</strong>記錄措辭及其理據，避免在查看資料後才選擇方向。</p>
+          <p class="source-note">五步流程參考 <a href="https://www.thesisai.io/blog/how-to-write-a-research-hypothesis/" target="_blank" rel="noreferrer">ThesisAI 假設指引</a>。</p>
         </div>
       </div>
     </section>
@@ -555,25 +811,25 @@ const courseHref = withBase('/teaching/courses/dedc02');
         <div class="language-panel" data-language="en">
           <h2>Types of variables</h2>
           <div class="variable-types">
-            <details><summary>Control variable</summary><p>Extraneous variables whose influence can be controlled or eliminated. Example: gender, socioeconomic status, age or race.</p></details>
-            <details><summary>Independent variable</summary><p>A construct considered to be the cause in a theoretical framework. Example: higher education leads to higher income.</p></details>
-            <details><summary>Dependent variable</summary><p>A construct considered to be the effect in a theoretical framework. Example: aerobic exercise reduces state anxiety.</p></details>
-            <details><summary>Intervening or mediating variable</summary><p>A construct that intervenes, mediates or stands between cause and effect.</p></details>
-            <details><summary>Moderating variable</summary><p>Moderates the relationship between two variables.</p></details>
-            <details><summary>Covariate</summary><p>A measured variable included to account for variation in the dependent variable.</p></details>
-            <details><summary>Confounding or lurking variable</summary><p>A rival explanation for a cause-and-effect relationship. Example: age explains the relationship between shoe size and intelligence in children.</p></details>
+            <details><summary>Control variable</summary><p>An extraneous factor whose influence is controlled or held constant. In this example, record relevant background factors so they do not obscure the main relationship.</p></details>
+            <details><summary>Independent variable</summary><p>The predictor or proposed cause. Here, <strong>intelligence</strong> is used to predict academic achievement and, through it, earning potential.</p></details>
+            <details><summary>Dependent variable</summary><p>The outcome being explained. Here, <strong>earning potential</strong> is the outcome at the end of the model.</p></details>
+            <details><summary>Intervening or mediating variable</summary><p>The mechanism between a predictor and an outcome. Here, <strong>academic achievement</strong> carries part of the relationship between intelligence and earning potential.</p></details>
+            <details><summary>Moderating variable</summary><p>A factor that changes the strength or direction of a relationship. Here, <strong>effort</strong> moderates the relationship between intelligence and academic achievement.</p></details>
+            <details><summary>Covariate</summary><p>A measured variable included to account for variation in the dependent variable. Here, <strong>work experience</strong> is included alongside the main model.</p></details>
+            <details><summary>Confounding or lurking variable</summary><p>A rival explanation for the relationship. Here, <strong>socioeconomic background</strong> may influence both intelligence opportunities and earning potential.</p></details>
           </div>
         </div>
         <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
           <h2>變量的類型</h2>
           <div class="variable-types">
-            <details><summary>控制變量</summary><p>其影響可以被控制或消除的外來變量，例如性別、社會經濟地位、年齡或種族。</p></details>
-            <details><summary>自變量</summary><p>在理論框架中被視為原因的構念，例如高等教育導致較高收入。</p></details>
-            <details><summary>因變量</summary><p>在理論框架中被視為效果的構念，例如有氧運動降低狀態焦慮。</p></details>
-            <details><summary>介入或中介變量</summary><p>介入、中介或處於原因與效果之間的構念。</p></details>
-            <details><summary>調節變量</summary><p>調節兩個變量之間的關係。</p></details>
-            <details><summary>協變量</summary><p>納入測量，以解釋因變量變異的變量。</p></details>
-            <details><summary>混淆或潛伏變量</summary><p>因果關係的競爭解釋，例如年齡解釋兒童鞋碼與智力之間的關係。</p></details>
+            <details><summary>控制變量</summary><p>其影響受到控制或保持不變的外來因素。在這個例子中，記錄相關背景因素，避免它們遮蔽主要關係。</p></details>
+            <details><summary>自變量</summary><p>預測變量或假定的原因。在這個例子中，<strong>智力</strong>用來預測學業成就，並透過學業成就預測賺取收入的潛力。</p></details>
+            <details><summary>因變量</summary><p>被解釋的結果。在這個例子中，<strong>賺取收入的潛力</strong>是模型末端的結果。</p></details>
+            <details><summary>介入或中介變量</summary><p>位於預測變量與結果之間的機制。在這個例子中，<strong>學業成就</strong>承載智力與賺取收入的潛力之間的部分關係。</p></details>
+            <details><summary>調節變量</summary><p>改變關係強度或方向的因素。在這個例子中，<strong>努力</strong>調節智力與學業成就之間的關係。</p></details>
+            <details><summary>協變量</summary><p>納入測量以解釋因變量變異的變量。在這個例子中，<strong>工作經驗</strong>與主要模型一同納入。</p></details>
+            <details><summary>混淆或潛伏變量</summary><p>對關係的競爭解釋。在這個例子中，<strong>社會經濟背景</strong>可能同時影響智力發展機會與賺取收入的潛力。</p></details>
           </div>
         </div>
       </div>
@@ -586,44 +842,56 @@ const courseHref = withBase('/teaching/courses/dedc02');
           <h2>How variables work together</h2>
           <div class="variable-illustration">
             <figure>
-              <div class="variable-model-diagram" role="img" aria-label="Intelligence as an independent variable influences academic achievement as a mediating variable, which influences earning potential as a dependent variable. Effort moderates the first relationship.">
-                <span class="moderator-node"><small>Moderating variable</small><strong>Effort</strong><b aria-hidden="true">↓</b></span>
-                <span class="model-node independent-node"><strong>Intelligence</strong><small>Independent variable</small></span>
+              <div class="variable-model-diagram" role="group" aria-label="Click each variable card to reveal its role and function.">
+                <div class="moderator-node">
+                  <button type="button" class="variable-role-card moderator-card" data-variable-role-card aria-pressed="false" aria-label="Effort; activate to reveal its role and function.">
+                    <span class="variable-card-inner"><span class="variable-card-face variable-card-front"><strong>Effort</strong><small>Click to reveal role</small></span><span class="variable-card-face variable-card-back"><strong>Moderating variable</strong><small>Strengthens, weakens or changes the first relationship.</small></span></span>
+                  </button>
+                  <b aria-hidden="true">↓</b>
+                </div>
+                <button type="button" class="model-node variable-role-card independent-node" data-variable-role-card aria-pressed="false" aria-label="Intelligence; activate to reveal its role and function.">
+                  <span class="variable-card-inner"><span class="variable-card-face variable-card-front"><strong>Intelligence</strong><small>Click to reveal role</small></span><span class="variable-card-face variable-card-back"><strong>Independent variable</strong><small>Explains or predicts another variable.</small></span></span>
+                </button>
                 <span class="model-arrow first-arrow" aria-hidden="true">→</span>
-                <span class="model-node mediator-node"><strong>Academic achievement</strong><small>Mediating variable</small></span>
+                <button type="button" class="model-node variable-role-card mediator-node" data-variable-role-card aria-pressed="false" aria-label="Academic achievement; activate to reveal its role and function.">
+                  <span class="variable-card-inner"><span class="variable-card-face variable-card-front"><strong>Academic achievement</strong><small>Click to reveal role</small></span><span class="variable-card-face variable-card-back"><strong>Mediating variable</strong><small>Shows the mechanism through which an effect works.</small></span></span>
+                </button>
                 <span class="model-arrow second-arrow" aria-hidden="true">→</span>
-                <span class="model-node dependent-node"><strong>Earning potential</strong><small>Dependent variable</small></span>
+                <button type="button" class="model-node variable-role-card dependent-node" data-variable-role-card aria-pressed="false" aria-label="Earning potential; activate to reveal its role and function.">
+                  <span class="variable-card-inner"><span class="variable-card-face variable-card-front"><strong>Earning potential</strong><small>Click to reveal role</small></span><span class="variable-card-face variable-card-back"><strong>Dependent variable</strong><small>The outcome explained by another variable.</small></span></span>
+                </button>
               </div>
-              <figcaption>One model can assign different roles to its variables.</figcaption>
+              <figcaption>Click each variable card to reveal its role and function.</figcaption>
             </figure>
-            <dl>
-              <div><dt>Independent</dt><dd>Explains or predicts another variable.</dd></div>
-              <div><dt>Dependent</dt><dd>The outcome explained by another variable.</dd></div>
-              <div><dt>Mediating</dt><dd>Shows the mechanism through which an effect works.</dd></div>
-              <div><dt>Moderating</dt><dd>Strengthens, weakens or changes an effect.</dd></div>
-            </dl>
+            <aside class="interaction-guide"><strong>Click each card</strong><p>Start with the variable name. The reverse side identifies its role and explains what it does in this model.</p></aside>
           </div>
         </div>
         <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
           <h2>變量如何共同作用</h2>
           <div class="variable-illustration">
             <figure>
-              <div class="variable-model-diagram" role="img" aria-label="智力作為自變量影響學業成就這個中介變量，再影響賺取收入的潛力這個因變量；努力調節第一段關係。">
-                <span class="moderator-node"><small>調節變量</small><strong>努力</strong><b aria-hidden="true">↓</b></span>
-                <span class="model-node independent-node"><strong>智力</strong><small>自變量</small></span>
+              <div class="variable-model-diagram" role="group" aria-label="點選每張變量卡片，以顯示其角色與功能。">
+                <div class="moderator-node">
+                  <button type="button" class="variable-role-card moderator-card" data-variable-role-card aria-pressed="false" aria-label="努力；點選以顯示其角色與功能。">
+                    <span class="variable-card-inner"><span class="variable-card-face variable-card-front"><strong>努力</strong><small>點選以顯示角色</small></span><span class="variable-card-face variable-card-back"><strong>調節變量</strong><small>增強、減弱或改變第一段關係。</small></span></span>
+                  </button>
+                  <b aria-hidden="true">↓</b>
+                </div>
+                <button type="button" class="model-node variable-role-card independent-node" data-variable-role-card aria-pressed="false" aria-label="智力；點選以顯示其角色與功能。">
+                  <span class="variable-card-inner"><span class="variable-card-face variable-card-front"><strong>智力</strong><small>點選以顯示角色</small></span><span class="variable-card-face variable-card-back"><strong>自變量</strong><small>解釋或預測另一個變量。</small></span></span>
+                </button>
                 <span class="model-arrow first-arrow" aria-hidden="true">→</span>
-                <span class="model-node mediator-node"><strong>學業成就</strong><small>中介變量</small></span>
+                <button type="button" class="model-node variable-role-card mediator-node" data-variable-role-card aria-pressed="false" aria-label="學業成就；點選以顯示其角色與功能。">
+                  <span class="variable-card-inner"><span class="variable-card-face variable-card-front"><strong>學業成就</strong><small>點選以顯示角色</small></span><span class="variable-card-face variable-card-back"><strong>中介變量</strong><small>顯示某個效果透過甚麼機制發生。</small></span></span>
+                </button>
                 <span class="model-arrow second-arrow" aria-hidden="true">→</span>
-                <span class="model-node dependent-node"><strong>賺取收入的潛力</strong><small>因變量</small></span>
+                <button type="button" class="model-node variable-role-card dependent-node" data-variable-role-card aria-pressed="false" aria-label="賺取收入的潛力；點選以顯示其角色與功能。">
+                  <span class="variable-card-inner"><span class="variable-card-face variable-card-front"><strong>賺取收入的潛力</strong><small>點選以顯示角色</small></span><span class="variable-card-face variable-card-back"><strong>因變量</strong><small>由另一個變量解釋的結果。</small></span></span>
+                </button>
               </div>
-              <figcaption>同一個模型可為不同變量指定不同角色。</figcaption>
+              <figcaption>點選每張變量卡片，以顯示其角色與功能。</figcaption>
             </figure>
-            <dl>
-              <div><dt>自變量</dt><dd>解釋或預測另一個變量。</dd></div>
-              <div><dt>因變量</dt><dd>由另一個變量解釋的結果。</dd></div>
-              <div><dt>中介變量</dt><dd>顯示某個效果透過甚麼機制發生。</dd></div>
-              <div><dt>調節變量</dt><dd>增強、減弱或改變某個效果。</dd></div>
-            </dl>
+            <aside class="interaction-guide"><strong>點選每張卡片</strong><p>先看變量名稱。卡片背面會指出它在這個模型中的角色，並解釋其作用。</p></aside>
           </div>
         </div>
       </div>
@@ -640,12 +908,12 @@ const courseHref = withBase('/teaching/courses/dedc02');
               <article><h3>Covariate</h3><p>Influences the dependent variable and has little or no relationship with the other variables in the model.</p></article>
             </div>
             <figure>
-              <div class="confounder-map" role="img" aria-label="A covariate points to the dependent variable, the independent variable points to the dependent variable, and a confounder points to both the independent and dependent variables.">
-                <span class="map-node covariate-map-node">Covariate</span><span class="map-arrow covariate-map-arrow" aria-hidden="true">↘</span>
-                <span class="map-node iv-map-node">Independent variable</span><span class="map-arrow iv-map-arrow" aria-hidden="true">→</span><span class="map-node dv-map-node">Dependent variable</span>
-                <span class="map-node confounder-map-node">Confounder</span><span class="map-arrow confounder-left-arrow" aria-hidden="true">↖</span><span class="map-arrow confounder-right-arrow" aria-hidden="true">↗</span>
+              <div class="confounder-map" role="img" aria-label="Work experience points to earning potential, intelligence points to earning potential, and socioeconomic background points to both intelligence and earning potential.">
+                <span class="map-node covariate-map-node">Work experience</span><span class="map-arrow covariate-map-arrow" aria-hidden="true">↘</span>
+                <span class="map-node iv-map-node">Intelligence</span><span class="map-arrow iv-map-arrow" aria-hidden="true">→</span><span class="map-node dv-map-node">Earning potential</span>
+                <span class="map-node confounder-map-node">Socioeconomic background</span><span class="map-arrow confounder-left-arrow" aria-hidden="true">↖</span><span class="map-arrow confounder-right-arrow" aria-hidden="true">↗</span>
               </div>
-              <figcaption>Example: age influences working hours and stress; distance from work influences stress.</figcaption>
+              <figcaption>Consistent example: intelligence predicts earning potential; socioeconomic background may influence both, while work experience is included as a covariate.</figcaption>
             </figure>
           </div>
         </div>
@@ -657,12 +925,12 @@ const courseHref = withBase('/teaching/courses/dedc02');
               <article><h3>協變量</h3><p>影響因變量，而與模型中的其他變量只有很少或沒有關係。</p></article>
             </div>
             <figure>
-              <div class="confounder-map" role="img" aria-label="協變量指向因變量，自變量指向因變量，而混淆變量同時指向自變量與因變量。">
-                <span class="map-node covariate-map-node">協變量</span><span class="map-arrow covariate-map-arrow" aria-hidden="true">↘</span>
-                <span class="map-node iv-map-node">自變量</span><span class="map-arrow iv-map-arrow" aria-hidden="true">→</span><span class="map-node dv-map-node">因變量</span>
-                <span class="map-node confounder-map-node">混淆變量</span><span class="map-arrow confounder-left-arrow" aria-hidden="true">↖</span><span class="map-arrow confounder-right-arrow" aria-hidden="true">↗</span>
+              <div class="confounder-map" role="img" aria-label="工作經驗指向賺取收入的潛力，智力指向賺取收入的潛力，而社會經濟背景同時指向智力與賺取收入的潛力。">
+                <span class="map-node covariate-map-node">工作經驗</span><span class="map-arrow covariate-map-arrow" aria-hidden="true">↘</span>
+                <span class="map-node iv-map-node">智力</span><span class="map-arrow iv-map-arrow" aria-hidden="true">→</span><span class="map-node dv-map-node">賺取收入的潛力</span>
+                <span class="map-node confounder-map-node">社會經濟背景</span><span class="map-arrow confounder-left-arrow" aria-hidden="true">↖</span><span class="map-arrow confounder-right-arrow" aria-hidden="true">↗</span>
               </div>
-              <figcaption>例子：年齡影響工作時數與壓力；上班距離影響壓力。</figcaption>
+              <figcaption>一致的例子：智力預測賺取收入的潛力；社會經濟背景可能同時影響兩者，而工作經驗則作為協變量納入。</figcaption>
             </figure>
           </div>
         </div>
@@ -681,10 +949,10 @@ const courseHref = withBase('/teaching/courses/dedc02');
               <button type="button" draggable="true" data-role-chip="mediating" data-label="Mediating variable">Mediating variable</button>
               <button type="button" draggable="true" data-role-chip="moderating" data-label="Moderating variable">Moderating variable</button>
             </div>
-            <p class="drag-instruction">Drag a label into each empty box. On touch devices, tap a label and then a box.</p>
+            <p class="drag-instruction">Drag a label into each empty box. On touch devices, tap a label and then a box. Model names appear after you check.</p>
             <div class="process-model-grid">
               <article class="process-model-card">
-                <h3>Model 1 · Simple moderation</h3>
+                <h3 class="model-title" data-model-title data-model-answer="Model 1 · Simple moderation" data-model-waiting="Model to identify after checking">Model to identify after checking</h3>
                 <div class="moderation-match-layout model-match-layout">
                   <button type="button" class="role-slot moderator-slot" data-answer="moderating" data-placeholder="Drop here" aria-label="Empty upper box">Drop here</button>
                   <span class="match-down" aria-hidden="true">↓</span>
@@ -694,7 +962,7 @@ const courseHref = withBase('/teaching/courses/dedc02');
                 </div>
               </article>
               <article class="process-model-card">
-                <h3>Model 4 · Simple mediation</h3>
+                <h3 class="model-title" data-model-title data-model-answer="Model 4 · Simple mediation" data-model-waiting="Model to identify after checking">Model to identify after checking</h3>
                 <div class="chain-match-layout model-match-layout">
                   <button type="button" class="role-slot" data-answer="independent" data-placeholder="Drop here" aria-label="Empty first box">Drop here</button><span class="match-arrow" aria-hidden="true">→</span>
                   <button type="button" class="role-slot" data-answer="mediating" data-placeholder="Drop here" aria-label="Empty middle box">Drop here</button><span class="match-arrow" aria-hidden="true">→</span>
@@ -702,7 +970,7 @@ const courseHref = withBase('/teaching/courses/dedc02');
                 </div>
               </article>
               <article class="process-model-card">
-                <h3>Model 4 · Parallel mediation</h3>
+                <h3 class="model-title" data-model-title data-model-answer="Model 4 · Parallel mediation" data-model-waiting="Model to identify after checking">Model to identify after checking</h3>
                 <div class="parallel-match-layout model-match-layout">
                   <button type="button" class="role-slot" data-answer="independent" data-placeholder="Drop here" aria-label="Empty left box">Drop here</button><span class="match-arrow" aria-hidden="true">→</span>
                   <div class="parallel-mediators"><button type="button" class="role-slot" data-answer="mediating" data-placeholder="Drop here" aria-label="Empty upper middle box">Drop here</button><button type="button" class="role-slot" data-answer="mediating" data-placeholder="Drop here" aria-label="Empty lower middle box">Drop here</button></div><span class="match-arrow" aria-hidden="true">→</span>
@@ -710,7 +978,7 @@ const courseHref = withBase('/teaching/courses/dedc02');
                 </div>
               </article>
               <article class="process-model-card">
-                <h3>Model 6 · Serial mediation</h3>
+                <h3 class="model-title" data-model-title data-model-answer="Model 6 · Serial mediation" data-model-waiting="Model to identify after checking">Model to identify after checking</h3>
                 <div class="serial-match-layout model-match-layout">
                   <button type="button" class="role-slot" data-answer="independent" data-placeholder="Drop here" aria-label="Empty first box">Drop here</button><span class="match-arrow" aria-hidden="true">→</span>
                   <button type="button" class="role-slot" data-answer="mediating" data-placeholder="Drop here" aria-label="Empty second box">Drop here</button><span class="match-arrow" aria-hidden="true">→</span>
@@ -731,10 +999,10 @@ const courseHref = withBase('/teaching/courses/dedc02');
               <button type="button" draggable="true" data-role-chip="mediating" data-label="中介變量">中介變量</button>
               <button type="button" draggable="true" data-role-chip="moderating" data-label="調節變量">調節變量</button>
             </div>
-            <p class="drag-instruction">把標籤拖入每個空白方框。使用觸控裝置時，先點選標籤，再點選方框。</p>
+            <p class="drag-instruction">把標籤拖入每個空白方框。使用觸控裝置時，先點選標籤，再點選方框。檢查後才會顯示模型名稱。</p>
             <div class="process-model-grid">
               <article class="process-model-card">
-                <h3>模型 1 · 簡單調節</h3>
+                <h3 class="model-title" data-model-title data-model-answer="模型 1 · 簡單調節" data-model-waiting="檢查後顯示模型">檢查後顯示模型</h3>
                 <div class="moderation-match-layout model-match-layout">
                   <button type="button" class="role-slot moderator-slot" data-answer="moderating" data-placeholder="拖放到此" aria-label="上方空白方框">拖放到此</button>
                   <span class="match-down" aria-hidden="true">↓</span>
@@ -744,7 +1012,7 @@ const courseHref = withBase('/teaching/courses/dedc02');
                 </div>
               </article>
               <article class="process-model-card">
-                <h3>模型 4 · 簡單中介</h3>
+                <h3 class="model-title" data-model-title data-model-answer="模型 4 · 簡單中介" data-model-waiting="檢查後顯示模型">檢查後顯示模型</h3>
                 <div class="chain-match-layout model-match-layout">
                   <button type="button" class="role-slot" data-answer="independent" data-placeholder="拖放到此" aria-label="第一個空白方框">拖放到此</button><span class="match-arrow" aria-hidden="true">→</span>
                   <button type="button" class="role-slot" data-answer="mediating" data-placeholder="拖放到此" aria-label="中間空白方框">拖放到此</button><span class="match-arrow" aria-hidden="true">→</span>
@@ -752,7 +1020,7 @@ const courseHref = withBase('/teaching/courses/dedc02');
                 </div>
               </article>
               <article class="process-model-card">
-                <h3>模型 4 · 平行中介</h3>
+                <h3 class="model-title" data-model-title data-model-answer="模型 4 · 平行中介" data-model-waiting="檢查後顯示模型">檢查後顯示模型</h3>
                 <div class="parallel-match-layout model-match-layout">
                   <button type="button" class="role-slot" data-answer="independent" data-placeholder="拖放到此" aria-label="左側空白方框">拖放到此</button><span class="match-arrow" aria-hidden="true">→</span>
                   <div class="parallel-mediators"><button type="button" class="role-slot" data-answer="mediating" data-placeholder="拖放到此" aria-label="上方中間空白方框">拖放到此</button><button type="button" class="role-slot" data-answer="mediating" data-placeholder="拖放到此" aria-label="下方中間空白方框">拖放到此</button></div><span class="match-arrow" aria-hidden="true">→</span>
@@ -760,7 +1028,7 @@ const courseHref = withBase('/teaching/courses/dedc02');
                 </div>
               </article>
               <article class="process-model-card">
-                <h3>模型 6 · 序列中介</h3>
+                <h3 class="model-title" data-model-title data-model-answer="模型 6 · 序列中介" data-model-waiting="檢查後顯示模型">檢查後顯示模型</h3>
                 <div class="serial-match-layout model-match-layout">
                   <button type="button" class="role-slot" data-answer="independent" data-placeholder="拖放到此" aria-label="第一個空白方框">拖放到此</button><span class="match-arrow" aria-hidden="true">→</span>
                   <button type="button" class="role-slot" data-answer="mediating" data-placeholder="拖放到此" aria-label="第二個空白方框">拖放到此</button><span class="match-arrow" aria-hidden="true">→</span>
@@ -777,7 +1045,7 @@ const courseHref = withBase('/teaching/courses/dedc02');
 
     <section class="slide variable-match-slide conditional-match-slide" data-title="Activity 5: Conditional process models (continued)" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Activity 5 continued: Hayes Models 7, 14 and 58</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Activity 5 continued: Conditional process models</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
         <div class="language-panel" data-language="en">
           <h2>Match roles in conditional process models</h2>
           <div class="variable-match-activity" data-variable-match data-complete-message="All variable types are correctly placed." data-review-message="Some boxes need another look." data-incomplete-message="Fill all boxes before checking.">
@@ -787,10 +1055,10 @@ const courseHref = withBase('/teaching/courses/dedc02');
               <button type="button" draggable="true" data-role-chip="mediating" data-label="Mediating variable">Mediating variable</button>
               <button type="button" draggable="true" data-role-chip="moderating" data-label="Moderating variable">Moderating variable</button>
             </div>
-            <p class="drag-instruction">Drag or tap the variable types into each empty box, then check your answers.</p>
+            <p class="drag-instruction">Drag or tap the variable types into each empty box, then check your answers. Model names appear after you check.</p>
             <div class="conditional-model-grid">
               <article class="process-model-card">
-                <h3>Model 7 · First-stage moderation</h3>
+                <h3 class="model-title" data-model-title data-model-answer="Model 7 · First-stage moderation" data-model-waiting="Model to identify after checking">Model to identify after checking</h3>
                 <div class="conditional-match-layout first-stage-match model-match-layout">
                   <button type="button" class="role-slot stage-moderator-slot" data-answer="moderating" data-placeholder="Drop here" aria-label="Empty moderator box">Drop here</button><span class="stage-pointer first-stage-pointer" aria-hidden="true">↓</span>
                   <button type="button" class="role-slot x-slot" data-answer="independent" data-placeholder="Drop here" aria-label="Empty independent variable box">Drop here</button><span class="match-arrow a-arrow" aria-hidden="true">→</span>
@@ -799,7 +1067,7 @@ const courseHref = withBase('/teaching/courses/dedc02');
                 </div>
               </article>
               <article class="process-model-card">
-                <h3>Model 14 · Second-stage moderation</h3>
+                <h3 class="model-title" data-model-title data-model-answer="Model 14 · Second-stage moderation" data-model-waiting="Model to identify after checking">Model to identify after checking</h3>
                 <div class="conditional-match-layout second-stage-match model-match-layout">
                   <button type="button" class="role-slot stage-moderator-slot" data-answer="moderating" data-placeholder="Drop here" aria-label="Empty moderator box">Drop here</button><span class="stage-pointer second-stage-pointer" aria-hidden="true">↓</span>
                   <button type="button" class="role-slot x-slot" data-answer="independent" data-placeholder="Drop here" aria-label="Empty independent variable box">Drop here</button><span class="match-arrow a-arrow" aria-hidden="true">→</span>
@@ -808,7 +1076,7 @@ const courseHref = withBase('/teaching/courses/dedc02');
                 </div>
               </article>
               <article class="process-model-card wide-model-card">
-                <h3>Model 58 · Two-stage moderation</h3>
+                <h3 class="model-title" data-model-title data-model-answer="Model 58 · Two-stage moderation" data-model-waiting="Model to identify after checking">Model to identify after checking</h3>
                 <div class="conditional-match-layout two-stage-match model-match-layout">
                   <button type="button" class="role-slot stage-moderator-slot" data-answer="moderating" data-placeholder="Drop here" aria-label="Empty moderator box">Drop here</button><span class="stage-pointer first-stage-pointer" aria-hidden="true">↙</span><span class="stage-pointer second-stage-pointer" aria-hidden="true">↘</span>
                   <button type="button" class="role-slot x-slot" data-answer="independent" data-placeholder="Drop here" aria-label="Empty independent variable box">Drop here</button><span class="match-arrow a-arrow" aria-hidden="true">→</span>
@@ -829,10 +1097,10 @@ const courseHref = withBase('/teaching/courses/dedc02');
               <button type="button" draggable="true" data-role-chip="mediating" data-label="中介變量">中介變量</button>
               <button type="button" draggable="true" data-role-chip="moderating" data-label="調節變量">調節變量</button>
             </div>
-            <p class="drag-instruction">把變量類型拖入或點選到每個空白方框，然後檢查答案。</p>
+            <p class="drag-instruction">把變量類型拖入或點選到每個空白方框，然後檢查答案。檢查後才會顯示模型名稱。</p>
             <div class="conditional-model-grid">
               <article class="process-model-card">
-                <h3>模型 7 · 第一階段調節</h3>
+                <h3 class="model-title" data-model-title data-model-answer="模型 7 · 第一階段調節" data-model-waiting="檢查後顯示模型">檢查後顯示模型</h3>
                 <div class="conditional-match-layout first-stage-match model-match-layout">
                   <button type="button" class="role-slot stage-moderator-slot" data-answer="moderating" data-placeholder="拖放到此" aria-label="調節變量空白方框">拖放到此</button><span class="stage-pointer first-stage-pointer" aria-hidden="true">↓</span>
                   <button type="button" class="role-slot x-slot" data-answer="independent" data-placeholder="拖放到此" aria-label="自變量空白方框">拖放到此</button><span class="match-arrow a-arrow" aria-hidden="true">→</span>
@@ -841,7 +1109,7 @@ const courseHref = withBase('/teaching/courses/dedc02');
                 </div>
               </article>
               <article class="process-model-card">
-                <h3>模型 14 · 第二階段調節</h3>
+                <h3 class="model-title" data-model-title data-model-answer="模型 14 · 第二階段調節" data-model-waiting="檢查後顯示模型">檢查後顯示模型</h3>
                 <div class="conditional-match-layout second-stage-match model-match-layout">
                   <button type="button" class="role-slot stage-moderator-slot" data-answer="moderating" data-placeholder="拖放到此" aria-label="調節變量空白方框">拖放到此</button><span class="stage-pointer second-stage-pointer" aria-hidden="true">↓</span>
                   <button type="button" class="role-slot x-slot" data-answer="independent" data-placeholder="拖放到此" aria-label="自變量空白方框">拖放到此</button><span class="match-arrow a-arrow" aria-hidden="true">→</span>
@@ -850,7 +1118,7 @@ const courseHref = withBase('/teaching/courses/dedc02');
                 </div>
               </article>
               <article class="process-model-card wide-model-card">
-                <h3>模型 58 · 兩階段調節</h3>
+                <h3 class="model-title" data-model-title data-model-answer="模型 58 · 兩階段調節" data-model-waiting="檢查後顯示模型">檢查後顯示模型</h3>
                 <div class="conditional-match-layout two-stage-match model-match-layout">
                   <button type="button" class="role-slot stage-moderator-slot" data-answer="moderating" data-placeholder="拖放到此" aria-label="調節變量空白方框">拖放到此</button><span class="stage-pointer first-stage-pointer" aria-hidden="true">↙</span><span class="stage-pointer second-stage-pointer" aria-hidden="true">↘</span>
                   <button type="button" class="role-slot x-slot" data-answer="independent" data-placeholder="拖放到此" aria-label="自變量空白方框">拖放到此</button><span class="match-arrow a-arrow" aria-hidden="true">→</span>
@@ -923,9 +1191,9 @@ const courseHref = withBase('/teaching/courses/dedc02');
   </main>
 
   <nav class="deck-controls" aria-label="Slide controls">
-    <a class="home-button" href={courseHref} aria-label="Back to DEDC02">⌂</a>
+    <a class="home-button" href={homepageHref} aria-label="Back to homepage"><span class="home-glyph" aria-hidden="true"></span></a>
     <button type="button" data-nav="previous" aria-label="Previous slide">←</button>
-    <button class="slide-count" type="button" data-overview aria-label="Open slide overview"><span>1</span>/<span data-slide-total>28</span></button>
+    <button class="slide-count" type="button" data-overview aria-label="Open slide overview"><span>1</span>/<span data-slide-total>34</span></button>
     <button type="button" data-nav="next" aria-label="Next slide">→</button>
     <button type="button" data-fullscreen aria-label="Toggle fullscreen">⛶</button>
     <div class="progress-track" aria-hidden="true"><span></span></div>
@@ -957,10 +1225,10 @@ const courseHref = withBase('/teaching/courses/dedc02');
   .slide-header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: clamp(1.2rem, 3vh, 2rem); padding-bottom: .75rem; border-bottom: 1px solid var(--line); }
   .title-header { margin-bottom: .8rem; border-bottom: 0; }
   .eyebrow { color: var(--green-mid); font-size: .78rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; }
-  .translate-button { min-height: 2rem; border: 1px solid var(--green-mid); border-radius: 999px; padding: .34rem .72rem; background: #fff; color: var(--green-mid); font: inherit; font-size: .78rem; font-weight: 700; cursor: pointer; }
+  .translate-button { min-height: 2.55rem; border: 1px solid var(--green-mid); border-radius: 999px; padding: .15rem .72rem; background: rgba(255,255,255,.97); color: var(--green-mid); font: inherit; font-size: .78rem; font-weight: 700; box-shadow: 0 .35rem 1rem rgba(15,74,50,.08); cursor: pointer; }
   .translate-button:hover, .translate-button[aria-pressed="true"] { background: var(--green-mid); color: #fff; }
   .slide-header .translate-button { display: none; }
-  .top-tools { position: fixed; top: clamp(1rem, 4.5vw, 4.5rem); right: max(clamp(1rem, 5vw, 5.5rem), calc((100vw - 1120px) / 2)); z-index: 25; display: flex; align-items: center; gap: .45rem; font-family: 'Source Sans 3', Arial, sans-serif; }
+  .top-tools { position: fixed; top: max(1rem, env(safe-area-inset-top)); right: max(1rem, env(safe-area-inset-right)); z-index: 25; display: flex; align-items: center; gap: .45rem; font-family: 'Source Sans 3', Arial, sans-serif; }
   .compact-timer { display: flex; min-height: 2.55rem; align-items: center; gap: .2rem; border: 1px solid var(--line); border-radius: 999px; padding: .15rem .3rem .15rem .65rem; background: rgba(255,255,255,.97); box-shadow: 0 .35rem 1rem rgba(15,74,50,.08); }
   .compact-timer input { width: 3.5rem; border: 0; border-right: 1px solid var(--line); padding: .25rem .35rem .25rem 0; background: transparent; color: var(--green); font: inherit; }
   .compact-timer input:focus { outline: 0; }
@@ -1005,13 +1273,22 @@ const courseHref = withBase('/teaching/courses/dedc02');
   .three-source { display: grid; grid-template-columns: repeat(3, 1fr); gap: .8rem; }
   .three-source p { color: var(--muted); line-height: 1.45; }
   .narrowing-activity { display: grid; gap: 1rem; }
-  .narrowing-guides article { padding: .8rem .9rem; }
-  .narrowing-guides h3 { margin-bottom: .35rem; }
-  .narrowing-guides p { margin-bottom: 0; font-size: .88rem; }
+  .pico-advice { margin: -.45rem 0 .7rem; color: var(--muted); font-size: .88rem; line-height: 1.4; }
+  .pico-guides { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .55rem; }
+  .pico-guides article { min-width: 0; padding: .65rem .7rem; border-top: .28rem solid var(--green-mid); background: var(--green-soft); }
+  .pico-label { display: inline-grid; width: 1.55rem; height: 1.55rem; place-items: center; border-radius: 50%; background: var(--green); color: #fff; font: 800 .75rem/1 'Source Sans 3', sans-serif; }
+  .pico-guides h3 { margin: .28rem 0 .3rem; font-size: .95rem; }
+  .pico-guides p { margin: 0; color: var(--muted); font-size: .78rem; line-height: 1.35; }
+  .pico-guides strong { color: var(--green); }
+  .pico-question { margin: .7rem 0 0; padding: .7rem .8rem; border-left: .3rem solid var(--green-mid); background: #fff; color: var(--green); font: 600 clamp(.92rem, 1.45vw, 1.08rem)/1.35 'Source Serif 4', Georgia, serif; }
+  .pico-question strong { font-family: 'Source Sans 3', Arial, sans-serif; font-size: .76rem; letter-spacing: .04em; text-transform: uppercase; }
+  .source-note { margin: .65rem 0 0; color: var(--muted); font-size: .72rem; line-height: 1.35; }
+  .source-note a { color: var(--green-mid); font-weight: 700; }
   .build-form { display: grid; gap: .58rem; }
   .build-form label { display: grid; grid-template-columns: 7rem 1fr; gap: .8rem; align-items: center; color: var(--green); font-weight: 700; }
   .build-form label span { padding: .85rem; border-left: .4rem solid var(--green-mid); background: var(--green-soft); }
   textarea { box-sizing: border-box; width: 100%; min-height: 3.3rem; resize: vertical; border: 1px solid var(--line); border-radius: .35rem; padding: .55rem; color: var(--green); font: inherit; }
+  textarea::placeholder { color: #87988e; opacity: 1; }
   textarea:focus { outline: .18rem solid rgba(31,107,69,.18); border-color: var(--green-mid); }
   .word-line { display: flex; flex-wrap: wrap; gap: .55rem; }
   .word-line span { padding: .58rem .78rem; border: 1px solid var(--line); border-radius: 999px; color: var(--green); font: 600 1.05rem/1 'Source Serif 4', serif; }
@@ -1019,10 +1296,72 @@ const courseHref = withBase('/teaching/courses/dedc02');
   .avoid-question-grid { grid-template-columns: repeat(4, 1fr); }
   .compare-table ul { margin-bottom: 0; padding-left: 1.2rem; color: var(--muted); line-height: 1.5; }
   .hypothesis-pair p { color: var(--muted); line-height: 1.5; }
+  .hypothesis-note { margin: .8rem 0 0; padding: .65rem .8rem; border-left: .3rem solid var(--green-mid); background: var(--green-soft); color: var(--muted); font-size: .9rem; line-height: 1.45; }
+  .hypothesis-introduction { display: grid; grid-template-columns: minmax(0, 1fr) minmax(22rem, .95fr); gap: 1rem; align-items: start; }
+  .hypothesis-definition { display: grid; gap: .35rem; }
+  .hypothesis-definition .lead { margin-bottom: .25rem; }
+  .inductive-callout { display: grid; gap: .25rem; padding: .75rem .85rem; border-left: .35rem solid #c56b35; background: #fff4ec; color: var(--muted); font-size: .9rem; line-height: 1.4; }
+  .inductive-callout strong { color: #8a3f1f; font-size: 1rem; }
+  .comic-figure { min-width: 0; margin: 0; }
+  .comic-figure img { display: block; width: 100%; height: auto; border: 1px solid var(--line); }
+  .comic-figure figcaption { margin-top: .45rem; color: var(--muted); font-size: .7rem; line-height: 1.35; }
+  .comic-figure a { color: var(--green-mid); font-weight: 700; }
   .hypothesis-subtitle { margin: 1rem 0 .55rem; color: var(--green); font: 700 clamp(1.15rem, 2vw, 1.5rem)/1.2 'Source Serif 4', serif; }
   .hypothesis-followup article { padding: .8rem 1rem; }
   .hypothesis-followup article > p:last-child { margin-bottom: 0; font-size: .9rem; }
   .formula { margin-bottom: 0; padding: .65rem; background: #fff; color: var(--green) !important; font-weight: 700; }
+  .operationalization-slide h2 { margin-bottom: .55rem; font-size: clamp(2.25rem, 4.2vw, 3.8rem); }
+  .operationalization-layout { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(18rem, .92fr); gap: .8rem; align-items: start; }
+  .operationalization-example, .operationalization-hypotheses { display: grid; gap: .38rem; min-width: 0; }
+  .operationalization-card { padding: .6rem .75rem; border-top: .3rem solid var(--green-mid); background: var(--green-soft); }
+  .operationalization-card.question-card { border-top-color: #5f9bd2; background: #f0f6fc; }
+  .operationalization-card.refined-card { border-top-color: #68ad3f; }
+  .operationalization-label { display: block; margin-bottom: .24rem; color: var(--green-mid); font: 800 .64rem/1.1 'Source Sans 3', Arial, sans-serif; letter-spacing: .1em; text-transform: uppercase; }
+  .operationalization-card p { margin: 0; color: var(--green); font: 600 clamp(.9rem, 1.35vw, 1.05rem)/1.3 'Source Serif 4', Georgia, serif; }
+  .operationalization-arrow { color: var(--green-mid); font-size: 1.35rem; font-weight: 800; line-height: 1; text-align: center; }
+  .operationalization-details { display: grid; gap: .35rem; padding: .6rem .75rem; border: 1px solid var(--line); background: #fff; }
+  .operationalization-details div { display: grid; grid-template-columns: 7rem minmax(0, 1fr); gap: .5rem; align-items: start; color: var(--muted); font-size: .76rem; line-height: 1.35; }
+  .operationalization-details strong { color: var(--green); }
+  .operationalization-hypotheses > .operationalization-label { margin: .1rem 0 .05rem; }
+  .operationalization-hypothesis { margin: 0; padding: .7rem .75rem; border-left: .35rem solid var(--green-mid); background: var(--green-soft); }
+  .operationalization-hypothesis.null-hypothesis { border-left-color: #5f9bd2; }
+  .operationalization-hypothesis.alternative-hypothesis { border-left-color: #68ad3f; }
+  .operationalization-hypothesis h3 { margin: 0 0 .25rem; font-size: .95rem; }
+  .operationalization-hypothesis p, .operationalization-note { margin: 0; color: var(--muted); font-size: .8rem; line-height: 1.4; }
+  .operationalization-note { padding: .65rem .75rem; border: 1px solid var(--line); background: #fff; }
+  .hypothesis-type-grid, .template-grid, .full-example-grid, .mistake-grid { display: grid; gap: .65rem; }
+  .hypothesis-type-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hypothesis-type-grid article, .template-grid article, .full-example-grid article, .mistake-grid article { min-width: 0; padding: .7rem .75rem; border-top: .3rem solid var(--green-mid); background: var(--green-soft); }
+  .hypothesis-type-grid h3, .template-grid h3, .full-example-grid h3, .mistake-grid h3 { margin: .25rem 0 .3rem; font-size: 1rem; line-height: 1.2; }
+  .type-kicker { display: block; color: var(--green-mid); font: 800 .63rem/1.1 'Source Sans 3', Arial, sans-serif; letter-spacing: .1em; text-transform: uppercase; }
+  .hypothesis-type-grid p, .template-grid p { margin: 0; color: var(--muted); font-size: .8rem; line-height: 1.35; }
+  .hypothesis-type-grid .type-example { margin-top: .45rem; color: var(--green); }
+  .hypothesis-type-grid .type-example strong { color: var(--green-mid); }
+  .hypothesis-caution { margin: .7rem 0 0; padding: .65rem .8rem; border-left: .3rem solid #c56b35; background: #fff4ec; color: #6f4b37; font-size: .85rem; line-height: 1.4; }
+  .template-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .template-line { min-height: 3.2rem; padding: .6rem .65rem; border: 1px solid var(--line); background: #fff; color: var(--green) !important; font: 600 .82rem/1.4 'Source Serif 4', Georgia, serif !important; }
+  .full-example-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .full-example-grid article { padding: .8rem; }
+  .weak-strong { display: grid; gap: .4rem; }
+  .weak-strong p { margin: 0; padding: .55rem .65rem; background: #fff; color: var(--muted); font-size: .8rem; line-height: 1.35; }
+  .weak-strong p:last-child { background: #e1f2e7; color: var(--green); }
+  .weak-strong span { display: block; margin-bottom: .18rem; color: var(--green-mid); font: 800 .62rem/1 'Source Sans 3', Arial, sans-serif; letter-spacing: .1em; text-transform: uppercase; }
+  .why-example { margin: .55rem 0 0; color: var(--muted); font-size: .78rem; line-height: 1.4; }
+  .mistake-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .mistake-grid article { padding: .6rem .7rem; }
+  .mistake-grid article > span { color: var(--green-mid); font: 800 .68rem/1 'Source Sans 3', Arial, sans-serif; letter-spacing: .1em; }
+  .mistake-grid h3 { margin-top: .28rem; font-size: .9rem; }
+  .mistake-grid p { margin: 0; color: var(--muted); font-size: .77rem; line-height: 1.35; }
+  .hypothesis-steps { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .6rem; margin: 0; padding: 0; list-style: none; }
+  .hypothesis-steps li { display: flex; min-width: 0; flex-direction: column; padding: .7rem; border-top: .3rem solid var(--green-mid); background: var(--green-soft); }
+  .hypothesis-steps li > span { color: var(--green-mid); font: 800 .7rem/1 'Source Sans 3', Arial, sans-serif; letter-spacing: .1em; }
+  .hypothesis-steps strong { margin: .35rem 0 .45rem; color: var(--green); font-size: .9rem; line-height: 1.2; }
+  .hypothesis-steps p { margin: auto 0 0; color: var(--muted); font-size: .78rem; line-height: 1.35; }
+  .variable-order { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr); gap: .45rem; align-items: center; margin-bottom: .85rem; }
+  .variable-order span { display: grid; min-width: 0; min-height: 3.3rem; align-content: center; gap: .18rem; padding: .55rem .65rem; border-top: .3rem solid var(--green-mid); background: var(--green-soft); color: var(--green); text-align: center; }
+  .variable-order strong { font-size: .86rem; line-height: 1.2; }
+  .variable-order small { color: var(--muted); font-size: .72rem; }
+  .variable-order b { color: var(--green-mid); font-size: 1.35rem; text-align: center; }
   .concept-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; align-items: start; }
   .concept-card { min-width: 0; overflow: hidden; border: 1px solid var(--line); border-radius: .4rem; background: #fff; }
   .concept-card summary { display: grid; min-height: 3.5rem; grid-template-columns: auto auto 1fr; gap: .5rem; align-items: center; padding: .8rem; list-style: none; color: var(--green); cursor: pointer; }
@@ -1077,10 +1416,27 @@ const courseHref = withBase('/teaching/courses/dedc02');
   .model-arrow.first-arrow { display: flex; align-self: stretch; align-items: center; margin-inline: -.35rem; font-size: 0; }
   .model-arrow.first-arrow::before { content: ''; flex: 1; height: 2px; background: var(--green-mid); }
   .model-arrow.first-arrow::after { content: ''; width: .55rem; height: .55rem; margin-left: -.6rem; border-top: 2px solid var(--green-mid); border-right: 2px solid var(--green-mid); transform: rotate(45deg); }
+  .variable-role-card { width: 100%; min-width: 0; min-height: 4.6rem; border: 0; padding: 0; background: transparent; color: inherit; font: inherit; perspective: 900px; cursor: pointer; }
+  .model-node.variable-role-card { display: block; border-top: 0; background: transparent; }
+  .variable-role-card:hover .variable-card-front { box-shadow: 0 .2rem .55rem rgba(15,74,50,.12); }
+  .variable-role-card:focus-visible { outline: .18rem solid rgba(31,107,69,.32); outline-offset: .16rem; }
+  .variable-card-inner { display: grid; width: 100%; min-height: inherit; transform-style: preserve-3d; transition: transform 420ms ease; }
+  .variable-role-card.is-flipped .variable-card-inner { transform: rotateY(180deg); }
+  .variable-card-face { grid-area: 1 / 1; display: flex; min-height: inherit; box-sizing: border-box; flex-direction: column; align-items: center; justify-content: center; border-top: .3rem solid var(--green-mid); padding: .35rem; backface-visibility: hidden; background: var(--green-soft); color: var(--green); text-align: center; }
+  .variable-card-face strong { margin: 0; padding: .2rem; border-radius: 0; background: transparent; color: inherit; line-height: 1.2; }
+  .variable-card-face small { padding: 0 .25rem .35rem; color: var(--muted); font-size: .68rem; line-height: 1.2; }
+  .variable-card-back { border-top-color: var(--green); background: var(--green); color: #fff; transform: rotateY(180deg); }
+  .variable-card-back small { color: rgba(255,255,255,.82); }
+  .moderator-node > .variable-role-card { width: 7rem; min-height: 4.6rem; }
+  .moderator-card .variable-card-front { border-top: 0; border-radius: .35rem; background: var(--green); color: #fff; }
+  .moderator-card .variable-card-front small { color: rgba(255,255,255,.82); }
   .variable-illustration dl { display: grid; grid-template-columns: 1fr 1fr; gap: .55rem; margin: 0; }
   .variable-illustration dl div { padding: .72rem; border-top: .28rem solid var(--green-mid); background: var(--green-soft); }
   .variable-illustration dt { color: var(--green); font-weight: 800; }
   .variable-illustration dd { margin: .25rem 0 0; color: var(--muted); font-size: .84rem; line-height: 1.35; }
+  .interaction-guide { display: grid; gap: .35rem; align-content: center; min-height: 8rem; padding: 1rem; border-left: .35rem solid var(--green-mid); background: var(--green-soft); color: var(--muted); }
+  .interaction-guide strong { color: var(--green); font-size: 1.05rem; }
+  .interaction-guide p { margin: 0; font-size: .9rem; line-height: 1.45; }
   .variable-form { display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; }
   .variable-form label { display: flex; min-height: 14rem; flex-direction: column; padding: 1rem; border-top: .3rem solid var(--green-mid); background: var(--green-soft); color: var(--green); font-weight: 700; }
   .variable-form textarea { flex: 1; margin-top: .8rem; }
@@ -1135,8 +1491,10 @@ const courseHref = withBase('/teaching/courses/dedc02');
   .process-model-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .55rem; }
   .process-model-card { min-width: 0; padding: .6rem .7rem; border-top: .28rem solid var(--green-mid); background: var(--green-soft); }
   .process-model-card h3 { margin: 0 0 .45rem; font-size: .93rem; }
+  .process-model-card .model-title { min-height: 2.3em; }
   .model-match-layout { min-width: 0; }
   .role-slot { min-width: 0; min-height: 2.65rem; border: 1px dashed var(--green-mid); border-radius: .3rem; padding: .35rem; background: #fff; color: var(--muted); font: 700 clamp(.62rem, 1.1vw, .76rem)/1.15 'Source Sans 3', sans-serif; cursor: pointer; }
+  .role-slot.is-filled { border-style: solid; background: var(--green-soft); color: var(--green); }
   .role-slot.is-correct { border-style: solid; background: #dff3e5; color: var(--green); }
   .role-slot.is-incorrect { border-style: solid; border-color: #c56b35; background: #fff4ec; color: #8a3f1f; }
   .role-slot.is-dragover { outline: .18rem solid rgba(31,107,69,.2); }
@@ -1186,9 +1544,11 @@ const courseHref = withBase('/teaching/courses/dedc02');
   .deck-controls { position: fixed; left: 50%; bottom: max(.8rem, env(safe-area-inset-bottom)); z-index: 20; display: flex; align-items: center; gap: .25rem; transform: translateX(-50%); border: 1px solid var(--line); border-radius: 999px; padding: .3rem; background: rgba(255,255,255,.96); box-shadow: 0 .45rem 1.5rem rgba(15,74,50,.12); }
   .deck-controls button, .home-button { display: grid; min-width: 2.35rem; min-height: 2.35rem; place-items: center; border: 0; border-radius: 999px; padding: 0 .65rem; background: transparent; color: var(--green-mid); font: 700 .86rem/1 'Source Sans 3', sans-serif; text-decoration: none; cursor: pointer; }
   .deck-controls button:hover, .home-button:hover { background: var(--green-soft); }
+  .home-glyph { position: relative; display: block; width: .8rem; height: .62rem; margin-top: .2rem; border: 2px solid currentColor; border-top: 0; }
+  .home-glyph::before { content: ''; position: absolute; top: -.34rem; left: .08rem; width: .48rem; height: .48rem; border-top: 2px solid currentColor; border-left: 2px solid currentColor; transform: rotate(45deg); }
   .slide-count { min-width: 4.5rem !important; }
   .progress-track { position: absolute; right: .8rem; bottom: -.36rem; left: .8rem; height: 2px; overflow: hidden; background: #dcebe2; }
-  .progress-track span { display: block; width: 3.57%; height: 100%; background: var(--green-mid); transition: width 200ms ease; }
+  .progress-track span { display: block; width: 2.94%; height: 100%; background: var(--green-mid); transition: width 200ms ease; }
   .overview-dialog { width: min(780px, 92vw); max-height: 82vh; border: 1px solid var(--line); border-radius: .6rem; padding: 1.2rem; background: #fff; color: var(--green); }
   .overview-dialog::backdrop { background: rgba(15,74,50,.35); }
   .overview-head { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); }
@@ -1217,19 +1577,21 @@ const courseHref = withBase('/teaching/courses/dedc02');
     .slide { padding: 1rem 1rem 5.5rem; }
     .slide-inner { min-height: auto; justify-content: flex-start; }
     .hypothesis-pair, .compare-table, .three-source { grid-template-columns: 1fr; }
-    .paradigm-three, .avoid-grid, .type-grid, .avoid-question-grid, .variable-types, .variable-form, .keyword-steps, .concept-grid { grid-template-columns: repeat(2, 1fr); }
-    .illustration-layout, .variable-illustration, .confounder-layout { grid-template-columns: 1fr; }
+    .paradigm-three, .avoid-grid, .type-grid, .avoid-question-grid, .variable-types, .variable-form, .keyword-steps, .concept-grid, .pico-guides, .hypothesis-type-grid, .template-grid, .full-example-grid, .mistake-grid, .hypothesis-steps { grid-template-columns: repeat(2, 1fr); }
+    .illustration-layout, .variable-illustration, .confounder-layout, .hypothesis-introduction, .operationalization-layout { grid-template-columns: 1fr; }
     .build-form label { grid-template-columns: 1fr; gap: .2rem; }
     .compact-list { columns: 1; }
     .process-model-grid, .conditional-model-grid, .conditional-match-slide .conditional-model-grid { grid-template-columns: 1fr; }
     .wide-model-card { grid-column: auto; }
-    .home-button, [data-fullscreen] { display: none; }
+    [data-fullscreen] { display: none; }
   }
   @media (max-width: 500px) {
     h2 { max-width: 100%; font-size: clamp(2rem, 9vw, 2.7rem); line-height: 1; overflow-wrap: break-word; }
     .number-list { width: 100%; }
-    .paradigm-three, .avoid-grid, .type-grid, .avoid-question-grid, .variable-types, .variable-form, .keyword-steps, .concept-grid, .measure-examples, .hayes-model-grid { grid-template-columns: 1fr; }
-    .variable-illustration dl { grid-template-columns: 1fr; }
+    .paradigm-three, .avoid-grid, .type-grid, .avoid-question-grid, .variable-types, .variable-form, .keyword-steps, .concept-grid, .measure-examples, .hayes-model-grid, .pico-guides, .hypothesis-type-grid, .template-grid, .full-example-grid, .mistake-grid, .hypothesis-steps { grid-template-columns: 1fr; }
+    .variable-order { grid-template-columns: 1fr; }
+    .variable-order b { transform: rotate(90deg); }
+    .operationalization-details div { grid-template-columns: 1fr; gap: .15rem; }
     .diagram-plane { gap: .35rem; padding: 1.65rem .5rem .7rem; }
     .diagram-node { min-height: 2.8rem; font-size: .78rem; }
     .diagram-relation b, .model-arrow { font-size: 1.45rem; }
@@ -1324,6 +1686,13 @@ const courseHref = withBase('/teaching/courses/dedc02');
   document.querySelector('[data-close-overview]')?.addEventListener('click', () => overview?.close());
   document.querySelector('[data-fullscreen]')?.addEventListener('click', () => document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen());
 
+  document.querySelectorAll<HTMLButtonElement>('[data-variable-role-card]').forEach((card) => {
+    card.addEventListener('click', () => {
+      const flipped = card.classList.toggle('is-flipped');
+      card.setAttribute('aria-pressed', String(flipped));
+    });
+  });
+
   const savedFields = Array.from(document.querySelectorAll<HTMLTextAreaElement>('textarea[data-save]'));
   savedFields.forEach((field) => {
     const key = `dedc02-w2-source-${field.dataset.save}`;
@@ -1372,7 +1741,18 @@ const courseHref = withBase('/teaching/courses/dedc02');
     const chips = Array.from(activity.querySelectorAll<HTMLButtonElement>('[data-role-chip]'));
     const slots = Array.from(activity.querySelectorAll<HTMLButtonElement>('[data-answer]'));
     const status = activity.querySelector<HTMLElement>('[data-variable-match-status]');
+    const modelTitles = Array.from(activity.closest<HTMLElement>('.language-panel')?.querySelectorAll<HTMLElement>('[data-model-title]') || []);
     let selectedChip: HTMLButtonElement | null = null;
+
+    function hideModelTitles() {
+      modelTitles.forEach((title) => { title.textContent = title.dataset.modelWaiting || ''; });
+    }
+
+    function revealModelTitles() {
+      modelTitles.forEach((title) => { title.textContent = title.dataset.modelAnswer || title.dataset.modelWaiting || ''; });
+    }
+
+    hideModelTitles();
 
     function selectChip(chip: HTMLButtonElement | null) {
       selectedChip = chip;
@@ -1392,10 +1772,12 @@ const courseHref = withBase('/teaching/courses/dedc02');
       const filled = slots.filter((slot) => slot.dataset.currentRole).length;
       clearMatchFeedback();
       if (filled < slots.length) {
+        hideModelTitles();
         if (status) status.textContent = activity.dataset.incompleteMessage || '';
         return;
       }
 
+      revealModelTitles();
       const correct = slots.filter((slot) => slot.dataset.currentRole === slot.dataset.answer).length;
       slots.forEach((slot) => {
         const isCorrect = slot.dataset.currentRole === slot.dataset.answer;
@@ -1408,6 +1790,8 @@ const courseHref = withBase('/teaching/courses/dedc02');
     function placeRole(slot: HTMLButtonElement, role: string, label: string) {
       slot.dataset.currentRole = role;
       slot.textContent = label;
+      slot.classList.add('is-filled');
+      hideModelTitles();
       clearMatchFeedback();
     }
 
@@ -1444,9 +1828,10 @@ const courseHref = withBase('/teaching/courses/dedc02');
       slots.forEach((slot) => {
         slot.textContent = slot.dataset.placeholder || '';
         delete slot.dataset.currentRole;
-        slot.classList.remove('is-correct', 'is-incorrect', 'is-dragover');
+        slot.classList.remove('is-filled', 'is-correct', 'is-incorrect', 'is-dragover');
       });
       selectChip(null);
+      hideModelTitles();
       clearMatchFeedback();
     });
   });
