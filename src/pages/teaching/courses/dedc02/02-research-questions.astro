@@ -521,32 +521,38 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
         <div class="language-panel" data-language="en">
           <h2>Types of hypotheses</h2>
           <p class="intro-line">First decide whether you are comparing groups or examining an association. Then decide whether prior theory or evidence justifies predicting a direction.</p>
-          <div class="hypothesis-type-grid">
-            <article><span class="type-kicker">Difference · non-directional</span><h3>Difference without a direction</h3><p>Compares groups but does not say which group will score higher.</p><p class="type-example"><strong>Example:</strong> AI-literacy scores differ between students who receive structured AI-literacy instruction and students who do not.</p></article>
-            <article><span class="type-kicker">Difference · directional</span><h3>Difference with a direction</h3><p>Compares groups and predicts which way the outcome will differ.</p><p class="type-example"><strong>Example:</strong> Students who receive structured AI-literacy instruction will have higher AI-literacy scores than students who do not.</p></article>
-            <article><span class="type-kicker">Correlation · non-directional</span><h3>Association without a direction</h3><p>States that two measured variables are related without predicting a positive or negative pattern.</p><p class="type-example"><strong>Example:</strong> Guided AI-practice engagement is associated with AI-literacy scores.</p></article>
-            <article><span class="type-kicker">Correlation · directional</span><h3>Association with a direction</h3><p>States whether the association is positive or negative.</p><p class="type-example"><strong>Example:</strong> More guided AI practice is positively associated with higher AI-literacy scores.</p></article>
+          <div class="hypothesis-types-layout">
+            <div class="hypothesis-types-content">
+              <div class="hypothesis-type-grid">
+                <article><span class="type-kicker">Difference · non-directional</span><h3>Difference without a direction</h3><p>Compares groups but does not say which group will score higher.</p><p class="type-example"><strong>Example:</strong> AI-literacy scores differ between students who receive structured AI-literacy instruction and students who do not.</p></article>
+                <article><span class="type-kicker">Difference · directional</span><h3>Difference with a direction</h3><p>Compares groups and predicts which way the outcome will differ.</p><p class="type-example"><strong>Example:</strong> Students who receive structured AI-literacy instruction will have higher AI-literacy scores than students who do not.</p></article>
+                <article><span class="type-kicker">Correlation · non-directional</span><h3>Association without a direction</h3><p>States that two measured variables are related without predicting a positive or negative pattern.</p><p class="type-example"><strong>Example:</strong> Guided AI-practice engagement is associated with AI-literacy scores.</p></article>
+                <article><span class="type-kicker">Correlation · directional</span><h3>Association with a direction</h3><p>States whether the association is positive or negative.</p><p class="type-example"><strong>Example:</strong> More guided AI practice is positively associated with higher AI-literacy scores.</p></article>
+              </div>
+              <p class="hypothesis-caution"><strong>Plan before seeing the data:</strong> choose a directional or non-directional form in advance. An association alone does not establish causation.</p>
+            </div>
+            <figure class="hypothesis-types-comic">
+              <img src={correlationComicHref} alt="Three-panel comic explaining that correlation does not imply causation: after taking a statistics class, the speaker no longer makes that mistake." width="1394" height="620" loading="lazy" decoding="async" />
+            </figure>
           </div>
-          <p class="hypothesis-caution"><strong>Plan before seeing the data:</strong> choose a directional or non-directional form in advance. An association alone does not establish causation.</p>
-          <figure class="hypothesis-types-comic">
-            <img src={correlationComicHref} alt="Three-panel comic explaining that correlation does not imply causation: after taking a statistics class, the speaker no longer makes that mistake." width="1394" height="620" loading="lazy" decoding="async" />
-            <figcaption>Correlation does not imply causation · Source: xkcd comics.</figcaption>
-          </figure>
         </div>
         <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
           <h2>假設的類型</h2>
           <p class="intro-line">先決定你是在比較群體，還是在檢驗變量之間的關聯；再決定既有理論或證據是否足以支持方向性的預測。</p>
-          <div class="hypothesis-type-grid">
-            <article><span class="type-kicker">差異 · 非方向性</span><h3>沒有方向的差異</h3><p>比較群體，但不說明哪一個群體的分數較高。</p><p class="type-example"><strong>例子：</strong>接受結構化人工智能素養教學與未接受教學的學生，其人工智能素養分數存在差異。</p></article>
-            <article><span class="type-kicker">差異 · 方向性</span><h3>有方向的差異</h3><p>比較群體，並預測結果差異的方向。</p><p class="type-example"><strong>例子：</strong>接受結構化人工智能素養教學的學生，其人工智能素養分數將高於未接受教學的學生。</p></article>
-            <article><span class="type-kicker">相關 · 非方向性</span><h3>沒有方向的關聯</h3><p>指出兩個測量變量有關聯，但不預測正向或負向模式。</p><p class="type-example"><strong>例子：</strong>引導式人工智能實作的投入與人工智能素養分數相關。</p></article>
-            <article><span class="type-kicker">相關 · 方向性</span><h3>有方向的關聯</h3><p>指出關聯是正向還是負向。</p><p class="type-example"><strong>例子：</strong>更多引導式人工智能實作與較高的人工智能素養分數呈正相關。</p></article>
+          <div class="hypothesis-types-layout">
+            <div class="hypothesis-types-content">
+              <div class="hypothesis-type-grid">
+                <article><span class="type-kicker">差異 · 非方向性</span><h3>沒有方向的差異</h3><p>比較群體，但不說明哪一個群體的分數較高。</p><p class="type-example"><strong>例子：</strong>接受結構化人工智能素養教學與未接受教學的學生，其人工智能素養分數存在差異。</p></article>
+                <article><span class="type-kicker">差異 · 方向性</span><h3>有方向的差異</h3><p>比較群體，並預測結果差異的方向。</p><p class="type-example"><strong>例子：</strong>接受結構化人工智能素養教學的學生，其人工智能素養分數將高於未接受教學的學生。</p></article>
+                <article><span class="type-kicker">相關 · 非方向性</span><h3>沒有方向的關聯</h3><p>指出兩個測量變量有關聯，但不預測正向或負向模式。</p><p class="type-example"><strong>例子：</strong>引導式人工智能實作的投入與人工智能素養分數相關。</p></article>
+                <article><span class="type-kicker">相關 · 方向性</span><h3>有方向的關聯</h3><p>指出關聯是正向還是負向。</p><p class="type-example"><strong>例子：</strong>更多引導式人工智能實作與較高的人工智能素養分數呈正相關。</p></article>
+              </div>
+              <p class="hypothesis-caution"><strong>在查看資料前先作規劃：</strong>預先選擇方向性或非方向性的表述。單憑關聯不能確立因果關係。</p>
+            </div>
+            <figure class="hypothesis-types-comic">
+              <img src={correlationComicHref} alt="三格漫畫說明相關不等於因果：人物修讀統計課後，不再犯這個錯誤。" width="1394" height="620" loading="lazy" decoding="async" />
+            </figure>
           </div>
-          <p class="hypothesis-caution"><strong>在查看資料前先作規劃：</strong>預先選擇方向性或非方向性的表述。單憑關聯不能確立因果關係。</p>
-          <figure class="hypothesis-types-comic">
-            <img src={correlationComicHref} alt="三格漫畫說明相關不等於因果：人物修讀統計課後，不再犯這個錯誤。" width="1394" height="620" loading="lazy" decoding="async" />
-            <figcaption>相關不等於因果 · 來源：xkcd 漫畫。</figcaption>
-          </figure>
         </div>
       </div>
     </section>
@@ -1417,15 +1423,15 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
   .hypothesis-caution { margin: .7rem 0 0; padding: .65rem .8rem; border-left: .3rem solid #c56b35; background: #fff4ec; color: #6f4b37; font-size: .85rem; line-height: 1.4; }
   .hypothesis-types-slide { overflow-y: auto; }
   .hypothesis-types-slide .slide-inner { justify-content: flex-start; }
-  .hypothesis-types-slide .hypothesis-type-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .55rem; }
-  .hypothesis-types-slide .hypothesis-type-grid article { padding: .55rem .6rem; }
-  .hypothesis-types-slide .hypothesis-type-grid h3 { margin: .2rem 0 .25rem; font-size: .88rem; }
-  .hypothesis-types-slide .hypothesis-type-grid p { font-size: .72rem; line-height: 1.3; }
+  .hypothesis-types-layout { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(18rem, .9fr); gap: .8rem 1rem; align-items: start; margin-top: .45rem; }
+  .hypothesis-types-slide .hypothesis-type-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .55rem; }
+  .hypothesis-types-slide .hypothesis-type-grid article { padding: .6rem .65rem; }
+  .hypothesis-types-slide .hypothesis-type-grid h3 { margin: .2rem 0 .25rem; font-size: .92rem; }
+  .hypothesis-types-slide .hypothesis-type-grid p { font-size: .74rem; line-height: 1.32; }
   .hypothesis-types-slide .hypothesis-type-grid .type-example { margin-top: .35rem; }
   .hypothesis-types-slide .hypothesis-caution { margin-top: .55rem; padding: .5rem .65rem; font-size: .78rem; }
-  .hypothesis-types-comic { width: min(100%, 28rem); margin: .6rem auto 0; }
+  .hypothesis-types-comic { min-width: 0; margin: 0; align-self: center; }
   .hypothesis-types-comic img { display: block; width: 100%; height: auto; border: 1px solid var(--line); }
-  .hypothesis-types-comic figcaption { margin-top: .2rem; color: var(--muted); font-size: .68rem; line-height: 1.3; text-align: right; }
   .template-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .template-line { min-height: 3.2rem; padding: .6rem .65rem; border: 1px solid var(--line); background: #fff; color: var(--green) !important; font: 600 .82rem/1.4 'Source Serif 4', Georgia, serif !important; }
   .full-example-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -1690,7 +1696,9 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
     .slide-inner { min-height: auto; justify-content: flex-start; }
     .hypothesis-pair, .compare-table, .three-source { grid-template-columns: 1fr; }
     .paradigm-three, .avoid-grid, .type-grid, .avoid-question-grid, .variable-types, .variable-form, .keyword-steps, .concept-grid, .pico-guides, .hypothesis-type-grid, .template-grid, .full-example-grid, .hypothesis-avoid-grid, .hypothesis-steps { grid-template-columns: repeat(2, 1fr); }
+    .hypothesis-types-layout { grid-template-columns: 1fr; }
     .hypothesis-types-slide .hypothesis-type-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .hypothesis-types-comic { width: min(100%, 38rem); margin: .65rem auto 0; }
     .illustration-layout, .confounder-layout, .hypothesis-introduction, .operationalization-layout, .literature-keyword-activity { grid-template-columns: 1fr; }
     .build-field, .build-form label, .keyword-practice label { grid-template-columns: 1fr; gap: .2rem; }
     .compact-list { columns: 1; }
