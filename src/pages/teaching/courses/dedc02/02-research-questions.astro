@@ -918,7 +918,6 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
               </div>
               <figcaption>Click each variable card to reveal its role and function.</figcaption>
             </figure>
-            <aside class="interaction-guide"><strong>Click each card</strong><p>Start with the variable name. The reverse side identifies its role and explains what it does in this model.</p></aside>
           </div>
         </div>
         <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
@@ -946,7 +945,6 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
               </div>
               <figcaption>點選每張變量卡片，以顯示其角色與功能。</figcaption>
             </figure>
-            <aside class="interaction-guide"><strong>點選每張卡片</strong><p>先看變量名稱。卡片背面會指出它在這個模型中的角色，並解釋其作用。</p></aside>
           </div>
         </div>
       </div>
@@ -1486,7 +1484,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
   .measure-examples span { color: var(--muted); font-size: .78rem; }
   .measurement-check { margin: .7rem 0 0; color: var(--green); }
   .concept-measure-slide h2 { max-width: 28ch; font-size: clamp(2.3rem, 4.2vw, 3.8rem); }
-  .variable-illustration { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(18rem, .85fr); gap: 1rem; align-items: center; }
+  .variable-illustration { display: block; }
   .variable-model-diagram { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr); grid-template-rows: auto auto; gap: .45rem .35rem; align-items: center; padding: .8rem; border: 1px solid var(--line); background: #fff; }
   .moderator-node { grid-column: 2; grid-row: 1; display: flex; min-width: 5.8rem; flex-direction: column; align-items: center; justify-self: center; color: var(--green); text-align: center; }
   .moderator-node small, .model-node small { color: var(--muted); font-size: .68rem; line-height: 1.2; }
@@ -1522,9 +1520,6 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
   .variable-illustration dl div { padding: .72rem; border-top: .28rem solid var(--green-mid); background: var(--green-soft); }
   .variable-illustration dt { color: var(--green); font-weight: 800; }
   .variable-illustration dd { margin: .25rem 0 0; color: var(--muted); font-size: .84rem; line-height: 1.35; }
-  .interaction-guide { display: grid; gap: .35rem; align-content: center; min-height: 8rem; padding: 1rem; border-left: .35rem solid var(--green-mid); background: var(--green-soft); color: var(--muted); }
-  .interaction-guide strong { color: var(--green); font-size: 1.05rem; }
-  .interaction-guide p { margin: 0; font-size: .9rem; line-height: 1.45; }
   .variable-form { display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; }
   .variable-form label { display: flex; min-height: 14rem; flex-direction: column; padding: 1rem; border-top: .3rem solid var(--green-mid); background: var(--green-soft); color: var(--green); font-weight: 700; }
   .variable-form textarea { flex: 1; margin-top: .8rem; }
@@ -1667,7 +1662,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
     .hypothesis-pair, .compare-table, .three-source { grid-template-columns: 1fr; }
     .paradigm-three, .avoid-grid, .type-grid, .avoid-question-grid, .variable-types, .variable-form, .keyword-steps, .concept-grid, .pico-guides, .hypothesis-type-grid, .template-grid, .full-example-grid, .hypothesis-avoid-grid, .hypothesis-steps { grid-template-columns: repeat(2, 1fr); }
     .hypothesis-types-slide .hypothesis-type-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .illustration-layout, .variable-illustration, .confounder-layout, .hypothesis-introduction, .operationalization-layout { grid-template-columns: 1fr; }
+    .illustration-layout, .confounder-layout, .hypothesis-introduction, .operationalization-layout { grid-template-columns: 1fr; }
     .build-field, .build-form label { grid-template-columns: 1fr; gap: .2rem; }
     .compact-list { columns: 1; }
     .process-model-grid, .conditional-model-grid, .conditional-match-slide .conditional-model-grid { grid-template-columns: 1fr; }
