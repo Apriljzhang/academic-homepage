@@ -862,40 +862,64 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
         <header class="slide-header"><span class="eyebrow">Instruction</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
         <div class="language-panel" data-language="en">
           <h2>Types of variables</h2>
-          <p class="lead small-lead">Variables can be classified by the role they play in a study and by the type of data they contain. Open each card to compare examples from the shared AI-literacy study.</p>
-          <p class="variable-classification-label">Variables classified by role</p>
-          <div class="variable-types" aria-label="Variables classified by role">
-            <details><summary>Independent Variable (IV)</summary><p>The presumed cause, treatment, exposure or predictor. In an experiment it may be manipulated; in an observational study it is measured as a predictor. <strong>Example:</strong> receiving a four-week structured AI-literacy module.</p></details>
-            <details><summary>Dependent Variable (DV)</summary><p>The measured outcome or response that a study aims to predict or explain. <strong>Example:</strong> a student’s post-module AI-literacy score.</p></details>
-            <details><summary>Control Variable</summary><p>A factor deliberately held constant in the design to reduce unwanted variation and support a fair comparison. <strong>Example:</strong> using the same module length, learning platform and scoring instrument for all students.</p></details>
-            <details><summary>Mediating (Intervening) Variable</summary><p>A proposed mechanism or pathway linking the IV to the DV. <strong>Example:</strong> guided AI practice may be the pathway through which structured instruction relates to AI-literacy scores.</p></details>
-            <details><summary>Moderating Variable</summary><p>A factor that changes the strength or direction of the IV–DV relationship. <strong>Example:</strong> prior AI experience may make structured instruction more or less strongly related to AI-literacy scores.</p></details>
-            <details><summary>Confounding Variable</summary><p>A factor associated with both the IV and the DV that can create or hide an apparent causal relationship. It may be measured or unmeasured. <strong>Example:</strong> prior AI training may relate both to participation in structured instruction and to later AI-literacy scores.</p></details>
-            <details><summary>Extraneous Variable</summary><p>Any non-focal outside factor that can affect the DV if it is not addressed in the design. <strong>Example:</strong> access to devices may affect guided AI practice and AI-literacy scores; if it is also related to instruction, it may become a confounder.</p></details>
-          </div>
-          <p class="variable-classification-label">Variables classified by data type</p>
-          <div class="variable-data-types" aria-label="Variables classified by data type">
-            <details><summary>Categorical (Qualitative) Variables</summary><div class="variable-data-detail"><div class="variable-data-definition">Data divided into distinct groups or labels rather than values with numerical magnitude.</div><div class="variable-data-subtypes"><div><strong>Nominal</strong><span>Categories with no meaningful order. <b>Example:</b> instructional condition: structured module or usual course activity.</span></div><div><strong>Ordinal</strong><span>Categories with a meaningful order or rank. <b>Example:</b> self-rated AI confidence: low, medium or high.</span></div></div></div></details>
-            <details><summary>Numerical (Quantitative) Variables</summary><div class="variable-data-detail"><div class="variable-data-definition">Data expressed as numbers with quantitative meaning.</div><div class="variable-data-subtypes"><div><strong>Discrete</strong><span>Countable whole-number values. <b>Example:</b> number of guided AI-practice tasks completed.</span></div><div><strong>Continuous</strong><span>Measurements that can take any value within a range. <b>Example:</b> time spent on guided AI practice, recorded to decimal minutes.</span></div></div></div></details>
+          <p class="lead small-lead">Ask two questions in order. First identify the job a variable does in the study; then identify the data type used to measure it. Open a leaf to reveal its explanation and example.</p>
+          <div class="variable-lens" aria-label="Two ways to classify a variable">
+            <div class="variable-lens-root">How do we look at a variable?</div>
+            <div class="variable-lens-split" aria-hidden="true"></div>
+            <div class="variable-lens-branches">
+              <section class="variable-lens-branch" aria-labelledby="variable-job-heading">
+                <div class="variable-lens-question">
+                  <span>Question 1</span><h3 id="variable-job-heading">What is its job?</h3><p>The causal anatomy: where it sits in the story’s timeline.</p>
+                </div>
+                <div class="variable-lens-list">
+                  <details class="variable-lens-leaf"><summary><strong>The Actor · Independent Variable (X)</strong><span>Starts the action</span></summary><p>The variable that triggers a change or is manipulated by the researcher. <strong>Example:</strong> a four-week structured AI-literacy module.</p></details>
+                  <details class="variable-lens-leaf"><summary><strong>The Outcome · Dependent Variable (Y)</strong><span>The effect to explain</span></summary><p>The variable that reacts: the behaviour or result at the end of the story. <strong>Example:</strong> a student’s post-module AI-literacy score.</p></details>
+                  <details class="variable-lens-leaf"><summary><strong>The Background · Control Variable</strong><span>Held constant</span></summary><p>Factors held in place so they do not disrupt the main comparison. <strong>Example:</strong> the same module length, learning platform and scoring instrument for every student.</p></details>
+                  <details class="variable-lens-leaf"><summary><strong>The Bridge · Mediator (M)</strong><span>How or why X leads to Y</span></summary><p>The internal mechanism linking X to Y: X → M → Y. <strong>Example:</strong> guided AI practice may bridge structured instruction and AI-literacy scores.</p></details>
+                  <details class="variable-lens-leaf"><summary><strong>The Context · Moderator (W)</strong><span>When or for whom X leads to Y</span></summary><p>The boundary condition that changes the strength of the X → Y relationship. <strong>Example:</strong> prior AI experience may change how strongly instruction relates to AI-literacy scores.</p></details>
+                </div>
+              </section>
+              <section class="variable-lens-branch" aria-labelledby="variable-data-heading">
+                <div class="variable-lens-question">
+                  <span>Question 2</span><h3 id="variable-data-heading">What is its data type?</h3><p>The mathematical anatomy: how it is measured and which statistical tools fit.</p>
+                </div>
+                <div class="variable-lens-list">
+                  <details class="variable-lens-leaf variable-data-lens"><summary><strong>Categorical / Qualitative</strong><span>Words, groups or labels</span></summary><div class="variable-data-lens-detail"><div>Data described by words, groups or labels.</div><div class="variable-lens-subtypes"><div><strong>Nominal</strong><span>Unordered categories. <b>Example:</b> instructional condition: structured module or usual course activity.</span></div><div><strong>Ordinal</strong><span>Ordered categories with imprecise distances. <b>Example:</b> self-rated AI confidence: disagree, neutral or agree.</span></div></div></div></details>
+                  <details class="variable-lens-leaf variable-data-lens"><summary><strong>Numerical / Quantitative</strong><span>True quantities</span></summary><div class="variable-data-lens-detail"><div>Data expressed as numbers with quantitative meaning.</div><div class="variable-lens-subtypes"><div><strong>Discrete</strong><span>Fixed, countable values. <b>Example:</b> number of guided AI-practice tasks completed.</span></div><div><strong>Continuous</strong><span>Measured values that can take unlimited decimal values within a range. <b>Example:</b> time spent on guided AI practice.</span></div></div></div></details>
+                </div>
+              </section>
+            </div>
           </div>
         </div>
         <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
           <h2>變量的類型</h2>
-          <p class="lead small-lead">變量可按其在研究中擔當的角色，以及所包含的資料類型分類。請點選每張卡片，比較同一個人工智能素養研究中的例子。</p>
-          <p class="variable-classification-label">按角色分類的變量</p>
-          <div class="variable-types" aria-label="按角色分類的變量">
-            <details><summary>自變量（IV）</summary><p>被視為可能成因、處理條件、暴露因素或預測因素。在實驗研究中可由研究者操控；在觀察性研究中則作為預測因素加以測量。<strong>例子：</strong>接受為期四週的結構化人工智能素養單元。</p></details>
-            <details><summary>因變量（DV）</summary><p>研究試圖預測或解釋的測量結果或反應。<strong>例子：</strong>學生在單元後的人工智能素養分數。</p></details>
-            <details><summary>控制變量</summary><p>在研究設計中刻意保持一致的因素，用以減少不必要的變異，並支持公平比較。<strong>例子：</strong>所有學生使用相同的單元長度、學習平台和評分工具。</p></details>
-            <details><summary>中介（介入）變量</summary><p>用以說明自變量如何連結至因變量的預設機制或途徑。<strong>例子：</strong>引導式人工智能實作可能是結構化教學與人工智能素養分數之間的途徑。</p></details>
-            <details><summary>調節變量</summary><p>改變自變量與因變量關係強度或方向的因素。<strong>例子：</strong>先前人工智能經驗可能令結構化教學與人工智能素養分數的關係更強或更弱。</p></details>
-            <details><summary>混淆變量</summary><p>同時與自變量及因變量有關，因而可能產生或掩蓋表面因果關係的因素；它可以是已測量或未測量的。<strong>例子：</strong>先前人工智能培訓可能同時與參與結構化教學及之後的人工智能素養分數有關。</p></details>
-            <details><summary>外來變量</summary><p>不屬研究焦點、但若未在設計中處理便可能影響因變量的外在因素。<strong>例子：</strong>裝置使用機會可能影響引導式實作及人工智能素養分數；若同時與教學有關，便可能成為混淆變量。</p></details>
-          </div>
-          <p class="variable-classification-label">按資料類型分類的變量</p>
-          <div class="variable-data-types" aria-label="按資料類型分類的變量">
-            <details><summary>類別（質性）變量</summary><div class="variable-data-detail"><div class="variable-data-definition">資料被分為不同的群組或標籤，而不是具數值大小意義的數值。</div><div class="variable-data-subtypes"><div><strong>名義</strong><span>沒有有意義的次序。<b>例子：</b>教學條件：結構化單元或一般課程活動。</span></div><div><strong>序數</strong><span>具有有意義的次序或等級。<b>例子：</b>自評人工智能信心：低、中或高。</span></div></div></div></details>
-            <details><summary>數值（量化）變量</summary><div class="variable-data-detail"><div class="variable-data-definition">以具有量化意義的數字表示的資料。</div><div class="variable-data-subtypes"><div><strong>離散</strong><span>可數的整數值。<b>例子：</b>完成的引導式人工智能實作任務數量。</span></div><div><strong>連續</strong><span>在一定範圍內可取任何數值的測量值。<b>例子：</b>投入引導式人工智能實作的時間，以帶小數的分鐘記錄。</span></div></div></div></details>
+          <p class="lead small-lead">依次問兩個問題：先識別變量在研究中的角色，再識別用來測量它的資料類型。點選每個末端方框，可查看說明和例子。</p>
+          <div class="variable-lens" aria-label="兩種分類變量的方式">
+            <div class="variable-lens-root">如何看待一個變量？</div>
+            <div class="variable-lens-split" aria-hidden="true"></div>
+            <div class="variable-lens-branches">
+              <section class="variable-lens-branch" aria-labelledby="variable-job-heading-zh">
+                <div class="variable-lens-question">
+                  <span>問題 1</span><h3 id="variable-job-heading-zh">它的角色是甚麼？</h3><p>因果結構：它在研究故事的時間線中位於哪裡。</p>
+                </div>
+                <div class="variable-lens-list">
+                  <details class="variable-lens-leaf"><summary><strong>行動者 · 自變量（X）</strong><span>開始行動</span></summary><p>啟動改變或由研究者操控的變量。<strong>例子：</strong>為期四週的結構化人工智能素養單元。</p></details>
+                  <details class="variable-lens-leaf"><summary><strong>結果 · 因變量（Y）</strong><span>需要解釋的效果</span></summary><p>會作出反應的變量：故事終點的行為或結果。<strong>例子：</strong>學生的單元後人工智能素養分數。</p></details>
+                  <details class="variable-lens-leaf"><summary><strong>背景 · 控制變量</strong><span>保持一致</span></summary><p>被固定下來、以免干擾主要比較的因素。<strong>例子：</strong>每位學生均使用相同的單元長度、學習平台和評分工具。</p></details>
+                  <details class="variable-lens-leaf"><summary><strong>橋樑 · 中介變量（M）</strong><span>X 如何或為何導向 Y</span></summary><p>連結 X 與 Y 的內部機制：X → M → Y。<strong>例子：</strong>引導式人工智能實作可能連結結構化教學與人工智能素養分數。</p></details>
+                  <details class="variable-lens-leaf"><summary><strong>情境 · 調節變量（W）</strong><span>何時或對誰 X 導向 Y</span></summary><p>改變 X → Y 關係強度的邊界條件。<strong>例子：</strong>先前人工智能經驗可能改變教學與人工智能素養分數的關係強度。</p></details>
+                </div>
+              </section>
+              <section class="variable-lens-branch" aria-labelledby="variable-data-heading-zh">
+                <div class="variable-lens-question">
+                  <span>問題 2</span><h3 id="variable-data-heading-zh">它的資料類型是甚麼？</h3><p>數學結構：它如何被測量，以及適合使用哪些統計工具。</p>
+                </div>
+                <div class="variable-lens-list">
+                  <details class="variable-lens-leaf variable-data-lens"><summary><strong>類別／質性</strong><span>文字、群組或標籤</span></summary><div class="variable-data-lens-detail"><div>以文字、群組或標籤描述的資料。</div><div class="variable-lens-subtypes"><div><strong>名義</strong><span>沒有次序的類別。<b>例子：</b>教學條件：結構化單元或一般課程活動。</span></div><div><strong>序數</strong><span>有次序、但距離未必精確的類別。<b>例子：</b>自評人工智能信心：不同意、中立或同意。</span></div></div></div></details>
+                  <details class="variable-lens-leaf variable-data-lens"><summary><strong>數值／量化</strong><span>真正的數量</span></summary><div class="variable-data-lens-detail"><div>以具有量化意義的數字表示的資料。</div><div class="variable-lens-subtypes"><div><strong>離散</strong><span>固定、可數的數值。<b>例子：</b>完成的引導式人工智能實作任務數量。</span></div><div><strong>連續</strong><span>在一定範圍內可取無限小數值的測量。<b>例子：</b>投入引導式人工智能實作的時間。</span></div></div></div></details>
+                </div>
+              </section>
+            </div>
           </div>
         </div>
       </div>
@@ -1266,20 +1290,32 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
   .paradigm-three article > p:last-child { margin-bottom: 0; color: var(--green); line-height: 1.45; }
   .focus { min-height: 2.7rem; color: var(--muted); font-size: .88rem; font-weight: 600; }
   .paradigm-three { display: grid; grid-template-columns: repeat(3, 1fr); gap: .7rem; }
-  .avoid-grid, .type-grid, .avoid-question-grid, .variable-types { display: grid; grid-template-columns: repeat(5, 1fr); gap: .55rem; }
-  .variable-types { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  .avoid-grid details, .type-grid details, .avoid-question-grid details, .variable-types details { border: 1px solid var(--line); border-radius: .4rem; }
-  .variable-types summary { min-height: 3.2em; box-sizing: border-box; }
-  .variable-types details p { font-size: .72rem; line-height: 1.34; }
-  .variable-classification-label { margin: .5rem 0 .28rem; color: var(--green-mid); font-size: .7rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
-  .variable-data-types { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .55rem; }
-  .variable-data-types details { border: 1px solid var(--line); border-radius: .4rem; }
-  .variable-data-types summary { min-height: 3em; box-sizing: border-box; }
-  .variable-data-detail { display: grid; gap: .4rem; padding: .58rem .7rem; border-top: 1px solid var(--line); background: var(--green-soft); color: var(--muted); font-size: .7rem; line-height: 1.3; }
-  .variable-data-subtypes { display: grid; grid-template-columns: 1fr 1fr; gap: .35rem; }
-  .variable-data-subtypes > div { display: grid; gap: .1rem; min-width: 0; padding: .34rem .38rem; border-left: .18rem solid var(--green-mid); background: #fff; }
-  .variable-data-subtypes strong { color: var(--green); font-size: .72rem; }
-  .variable-data-subtypes span { min-width: 0; }
+  .avoid-grid, .type-grid, .avoid-question-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: .55rem; }
+  .avoid-grid details, .type-grid details, .avoid-question-grid details { border: 1px solid var(--line); border-radius: .4rem; }
+  .variable-lens { display: grid; gap: .38rem; }
+  .variable-lens-root { justify-self: center; width: min(44rem, 82%); padding: .45rem .85rem; border: 1px solid var(--green-mid); background: #fff; color: var(--green); font: 600 clamp(1rem, 1.75vw, 1.3rem)/1.2 'Source Serif 4', Georgia, serif; text-align: center; }
+  .variable-lens-split { position: relative; height: 1rem; margin: 0 clamp(1.4rem, 8vw, 6rem); }
+  .variable-lens-split::before { content: ''; position: absolute; top: 0; left: 50%; height: .52rem; border-left: 2px solid var(--green-mid); }
+  .variable-lens-split::after { content: ''; position: absolute; top: .52rem; right: 0; left: 0; border-top: 2px solid var(--green-mid); }
+  .variable-lens-branches { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; }
+  .variable-lens-branch { position: relative; display: grid; align-content: start; gap: .34rem; min-width: 0; }
+  .variable-lens-branch::before { content: ''; position: absolute; top: -.48rem; left: 50%; height: .48rem; border-left: 2px solid var(--green-mid); }
+  .variable-lens-question { position: relative; display: grid; justify-items: center; padding: .45rem .5rem .58rem; border-top: .28rem solid var(--green-mid); background: var(--green-soft); text-align: center; }
+  .variable-lens-question::after { content: '↓'; position: absolute; bottom: -.72rem; left: 50%; transform: translateX(-50%); color: var(--green-mid); font-size: 1rem; font-weight: 800; }
+  .variable-lens-question > span { color: var(--green-mid); font: 800 .64rem/1 'Source Sans 3', sans-serif; letter-spacing: .13em; text-transform: uppercase; }
+  .variable-lens-question h3 { margin: .12rem 0; color: var(--green); font-size: clamp(.96rem, 1.5vw, 1.13rem); }
+  .variable-lens-question p { margin: 0; color: var(--muted); font-size: .68rem; line-height: 1.25; }
+  .variable-lens-list { display: grid; gap: .3rem; padding-top: .32rem; }
+  .variable-lens-leaf { min-width: 0; border: 1px solid var(--line); border-left: .25rem solid var(--green-mid); background: #fff; }
+  .variable-lens-leaf summary { min-height: 2.35rem; padding: .32rem .42rem; box-sizing: border-box; }
+  .variable-lens-leaf summary strong { display: block; color: var(--green); font-size: .72rem; line-height: 1.15; }
+  .variable-lens-leaf summary span { display: block; margin-top: .09rem; color: var(--muted); font-size: .62rem; line-height: 1.14; }
+  .variable-lens-leaf p { margin: 0; padding: .36rem .42rem; border-top: 1px solid var(--line); background: var(--green-soft); color: var(--muted); font-size: .64rem; line-height: 1.28; }
+  .variable-data-lens-detail { display: grid; gap: .34rem; padding: .38rem .42rem; border-top: 1px solid var(--line); background: var(--green-soft); color: var(--muted); font-size: .64rem; line-height: 1.28; }
+  .variable-lens-subtypes { display: grid; grid-template-columns: 1fr 1fr; gap: .3rem; }
+  .variable-lens-subtypes > div { display: grid; gap: .08rem; min-width: 0; padding: .3rem .34rem; border-left: .18rem solid var(--green-mid); background: #fff; }
+  .variable-lens-subtypes strong { color: var(--green); font-size: .67rem; }
+  .variable-lens-subtypes span { min-width: 0; }
   summary { padding: .8rem; color: var(--green); font-weight: 700; cursor: pointer; }
   details p { margin: 0; padding: .78rem; border-top: 1px solid var(--line); background: var(--green-soft); color: var(--muted); font-size: .85rem; line-height: 1.4; }
   .three-source { display: grid; grid-template-columns: repeat(3, 1fr); gap: .8rem; }
@@ -1682,11 +1718,14 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
     .slide { padding: 1rem 1rem 5.5rem; }
     .slide-inner { min-height: auto; justify-content: flex-start; }
     .hypothesis-pair, .compare-table, .three-source { grid-template-columns: 1fr; }
-    .paradigm-three, .avoid-grid, .type-grid, .avoid-question-grid, .variable-types, .variable-form, .keyword-steps, .concept-grid, .pico-guides, .hypothesis-type-grid, .template-grid, .full-example-grid, .hypothesis-avoid-grid, .hypothesis-steps { grid-template-columns: repeat(2, 1fr); }
+    .paradigm-three, .avoid-grid, .type-grid, .avoid-question-grid, .variable-form, .keyword-steps, .concept-grid, .pico-guides, .hypothesis-type-grid, .template-grid, .full-example-grid, .hypothesis-avoid-grid, .hypothesis-steps { grid-template-columns: repeat(2, 1fr); }
     .hypothesis-types-layout { grid-template-columns: 1fr; }
     .hypothesis-types-slide .hypothesis-type-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .hypothesis-types-comic { width: min(100%, 38rem); margin: .65rem auto 0; }
     .illustration-layout, .confounder-layout, .hypothesis-introduction, .operationalization-layout, .literature-keyword-activity { grid-template-columns: 1fr; }
+    .variable-lens-root { width: 100%; }
+    .variable-lens-split, .variable-lens-branch::before { display: none; }
+    .variable-lens-branches { grid-template-columns: 1fr; }
     .pico-next-step { grid-template-columns: 1fr; }
     .build-field, .build-form label, .keyword-practice label { grid-template-columns: 1fr; gap: .2rem; }
     .compact-list { columns: 1; }
@@ -1698,7 +1737,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
   @media (max-width: 500px) {
     h2 { max-width: 100%; font-size: clamp(2rem, 9vw, 2.7rem); line-height: 1; overflow-wrap: break-word; }
     .number-list { width: 100%; }
-    .paradigm-three, .avoid-grid, .type-grid, .avoid-question-grid, .variable-types, .variable-form, .keyword-steps, .concept-grid, .measure-examples, .hayes-model-grid, .pico-guides, .hypothesis-type-grid, .template-grid, .full-example-grid, .hypothesis-avoid-grid, .hypothesis-steps, .variable-data-types, .variable-data-subtypes { grid-template-columns: 1fr; }
+    .paradigm-three, .avoid-grid, .type-grid, .avoid-question-grid, .variable-form, .keyword-steps, .concept-grid, .measure-examples, .hayes-model-grid, .pico-guides, .hypothesis-type-grid, .template-grid, .full-example-grid, .hypothesis-avoid-grid, .hypothesis-steps, .variable-lens-subtypes { grid-template-columns: 1fr; }
     .hypothesis-avoid-slide h2 { font-size: clamp(2.5rem, 12vw, 4rem); }
     .hypothesis-types-slide .hypothesis-type-grid { grid-template-columns: 1fr; }
     .hypothesis-types-comic { width: 100%; }
