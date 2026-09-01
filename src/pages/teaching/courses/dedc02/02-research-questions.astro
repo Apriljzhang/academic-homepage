@@ -216,20 +216,76 @@ const comicHref = withBase('/teaching/courses/dedc02/the-claus-hypothesis.png');
         <header class="slide-header"><span class="eyebrow">Activity 2: Building up your research</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
         <div class="language-panel" data-language="en">
           <h2>Building up your research</h2>
-          <div class="build-form">
-            <label><span>Topic</span><textarea data-save="topic" placeholder="The broad subject matter addressed by the study."></textarea></label>
-            <label><span>Problem</span><textarea data-save="problem" placeholder="A general educational issue, concern, or controversy addressed in research that narrows the topic."></textarea></label>
-            <label><span>Purpose</span><textarea data-save="purpose" placeholder="The major intent or objective of the study used to address the problem."></textarea></label>
-            <label><span>Question</span><textarea data-save="question" placeholder="Research questions narrow the purpose into specific questions that the researcher would like answered or addressed in the study."></textarea></label>
+          <div class="build-form" data-build-examples>
+            <div class="build-field">
+              <button type="button" class="build-label" data-build-example-toggle="topic-example" aria-expanded="false" aria-controls="topic-example">Topic</button>
+              <div class="build-entry">
+                <label class="visually-hidden" for="build-topic">Topic</label>
+                <textarea id="build-topic" data-save="topic" placeholder="The broad subject matter addressed by the study."></textarea>
+                <p class="build-example" id="topic-example" hidden><strong>Example:</strong> Distance learning.</p>
+              </div>
+            </div>
+            <div class="build-field">
+              <button type="button" class="build-label" data-build-example-toggle="problem-example" aria-expanded="false" aria-controls="problem-example">Problem</button>
+              <div class="build-entry">
+                <label class="visually-hidden" for="build-problem">Problem</label>
+                <textarea id="build-problem" data-save="problem" placeholder="A general educational issue, concern, or controversy addressed in research that narrows the topic."></textarea>
+                <p class="build-example" id="problem-example" hidden><strong>Example:</strong> Lack of students in distance education classes.</p>
+              </div>
+            </div>
+            <div class="build-field">
+              <button type="button" class="build-label" data-build-example-toggle="purpose-example" aria-expanded="false" aria-controls="purpose-example">Purpose</button>
+              <div class="build-entry">
+                <label class="visually-hidden" for="build-purpose">Purpose</label>
+                <textarea id="build-purpose" data-save="purpose" placeholder="The major intent or objective of the study used to address the problem."></textarea>
+                <p class="build-example" id="purpose-example" hidden><strong>Example:</strong> To study why students do not attend distance education classes at a community college.</p>
+              </div>
+            </div>
+            <div class="build-field">
+              <button type="button" class="build-label" data-build-example-toggle="question-example" aria-expanded="false" aria-controls="question-example">Question</button>
+              <div class="build-entry">
+                <label class="visually-hidden" for="build-question">Question</label>
+                <textarea id="build-question" data-save="question" placeholder="Research questions narrow the purpose into specific questions that the researcher would like answered or addressed in the study."></textarea>
+                <p class="build-example" id="question-example" hidden><strong>Example:</strong> Does the use of Web site technology in the classroom deter students from enrolling in a distance education class?</p>
+              </div>
+            </div>
           </div>
         </div>
         <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
           <h2>逐步建立你的研究</h2>
-          <div class="build-form">
-            <label><span>主題</span><textarea data-save="topic-zh" placeholder="研究涉及的廣泛主題"></textarea></label>
-            <label><span>研究課題</span><textarea data-save="problem-zh" placeholder="在縮小主題範圍的研究中解決的一般教育問題、關注點或爭議"></textarea></label>
-            <label><span>研究目的</span><textarea data-save="purpose-zh" placeholder="用於解決問題的研究的主要意圖或目標"></textarea></label>
-            <label><span>研究問題</span><textarea data-save="question-zh" placeholder="研究問題將目的縮小到研究人員希望在研究中回答或解決的特定問題"></textarea></label>
+          <div class="build-form" data-build-examples>
+            <div class="build-field">
+              <button type="button" class="build-label" data-build-example-toggle="topic-example-zh" aria-expanded="false" aria-controls="topic-example-zh">主題</button>
+              <div class="build-entry">
+                <label class="visually-hidden" for="build-topic-zh">主題</label>
+                <textarea id="build-topic-zh" data-save="topic-zh" placeholder="研究涉及的廣泛主題"></textarea>
+                <p class="build-example" id="topic-example-zh" hidden><strong>例子：</strong>遠距學習。</p>
+              </div>
+            </div>
+            <div class="build-field">
+              <button type="button" class="build-label" data-build-example-toggle="problem-example-zh" aria-expanded="false" aria-controls="problem-example-zh">研究課題</button>
+              <div class="build-entry">
+                <label class="visually-hidden" for="build-problem-zh">研究課題</label>
+                <textarea id="build-problem-zh" data-save="problem-zh" placeholder="在縮小主題範圍的研究中解決的一般教育問題、關注點或爭議"></textarea>
+                <p class="build-example" id="problem-example-zh" hidden><strong>例子：</strong>遠程教育課程缺乏學生。</p>
+              </div>
+            </div>
+            <div class="build-field">
+              <button type="button" class="build-label" data-build-example-toggle="purpose-example-zh" aria-expanded="false" aria-controls="purpose-example-zh">研究目的</button>
+              <div class="build-entry">
+                <label class="visually-hidden" for="build-purpose-zh">研究目的</label>
+                <textarea id="build-purpose-zh" data-save="purpose-zh" placeholder="用於解決問題的研究的主要意圖或目標"></textarea>
+                <p class="build-example" id="purpose-example-zh" hidden><strong>例子：</strong>研究為什麼學生不參加社區大學的遠程教育課程。</p>
+              </div>
+            </div>
+            <div class="build-field">
+              <button type="button" class="build-label" data-build-example-toggle="question-example-zh" aria-expanded="false" aria-controls="question-example-zh">研究問題</button>
+              <div class="build-entry">
+                <label class="visually-hidden" for="build-question-zh">研究問題</label>
+                <textarea id="build-question-zh" data-save="question-zh" placeholder="研究問題將目的縮小到研究人員希望在研究中回答或解決的特定問題"></textarea>
+                <p class="build-example" id="question-example-zh" hidden><strong>例子：</strong>在課堂上使用網站技術是否會阻止學生參加遠程教育課程？</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1280,6 +1336,15 @@ const comicHref = withBase('/teaching/courses/dedc02/the-claus-hypothesis.png');
   .source-note { margin: .65rem 0 0; color: var(--muted); font-size: .72rem; line-height: 1.35; }
   .source-note a { color: var(--green-mid); font-weight: 700; }
   .build-form { display: grid; gap: .58rem; }
+  .build-field { display: grid; grid-template-columns: 7rem minmax(0, 1fr); gap: .8rem; align-items: start; }
+  .build-label { box-sizing: border-box; width: 100%; min-height: 3.3rem; border: 0; border-left: .4rem solid var(--green-mid); padding: .85rem; background: var(--green-soft); color: var(--green); font: inherit; font-weight: 700; text-align: left; cursor: pointer; }
+  .build-label:hover, .build-label[aria-expanded="true"] { background: var(--green-mid); color: #fff; }
+  .build-label:focus-visible { outline: .18rem solid rgba(31,107,69,.25); outline-offset: 2px; }
+  .build-label:active { transform: translateY(1px); }
+  .build-entry { display: grid; gap: .35rem; min-width: 0; }
+  .build-example { margin: 0; padding: .55rem .65rem; border-left: .22rem solid var(--green-mid); background: var(--green-soft); color: var(--muted); font-size: .84rem; line-height: 1.4; }
+  .build-example strong { color: var(--green); }
+  .build-example[hidden] { display: none; }
   .build-form label { display: grid; grid-template-columns: 7rem 1fr; gap: .8rem; align-items: center; color: var(--green); font-weight: 700; }
   .build-form label span { padding: .85rem; border-left: .4rem solid var(--green-mid); background: var(--green-soft); }
   textarea { box-sizing: border-box; width: 100%; min-height: 3.3rem; resize: vertical; border: 1px solid var(--line); border-radius: .35rem; padding: .55rem; color: var(--green); font: inherit; }
@@ -1574,7 +1639,7 @@ const comicHref = withBase('/teaching/courses/dedc02/the-claus-hypothesis.png');
     .hypothesis-pair, .compare-table, .three-source { grid-template-columns: 1fr; }
     .paradigm-three, .avoid-grid, .type-grid, .avoid-question-grid, .variable-types, .variable-form, .keyword-steps, .concept-grid, .pico-guides, .hypothesis-type-grid, .template-grid, .full-example-grid, .mistake-grid, .hypothesis-steps { grid-template-columns: repeat(2, 1fr); }
     .illustration-layout, .variable-illustration, .confounder-layout, .hypothesis-introduction, .operationalization-layout { grid-template-columns: 1fr; }
-    .build-form label { grid-template-columns: 1fr; gap: .2rem; }
+    .build-field, .build-form label { grid-template-columns: 1fr; gap: .2rem; }
     .compact-list { columns: 1; }
     .process-model-grid, .conditional-model-grid, .conditional-match-slide .conditional-model-grid { grid-template-columns: 1fr; }
     .wide-model-card { grid-column: auto; }
@@ -1693,6 +1758,31 @@ const comicHref = withBase('/teaching/courses/dedc02/the-claus-hypothesis.png');
     const key = `dedc02-w2-source-${field.dataset.save}`;
     try { field.value = localStorage.getItem(key) || ''; } catch {}
     field.addEventListener('input', () => { try { localStorage.setItem(key, field.value); } catch {} });
+  });
+
+  document.querySelectorAll<HTMLElement>('[data-build-examples]').forEach((buildForm) => {
+    const triggers = Array.from(buildForm.querySelectorAll<HTMLButtonElement>('[data-build-example-toggle]'));
+    triggers.forEach((trigger) => {
+      const targetId = trigger.dataset.buildExampleToggle;
+      const target = targetId ? document.getElementById(targetId) : null;
+      if (!target) return;
+
+      trigger.addEventListener('click', () => {
+        const shouldOpen = trigger.getAttribute('aria-expanded') !== 'true';
+        triggers.forEach((other) => {
+          other.setAttribute('aria-expanded', 'false');
+          const otherTargetId = other.dataset.buildExampleToggle;
+          if (otherTargetId) {
+            const otherTarget = document.getElementById(otherTargetId);
+            if (otherTarget) otherTarget.hidden = true;
+          }
+        });
+        if (shouldOpen) {
+          trigger.setAttribute('aria-expanded', 'true');
+          target.hidden = false;
+        }
+      });
+    });
   });
 
   const revisionPairs = [
