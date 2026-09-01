@@ -373,6 +373,32 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
       </div>
     </section>
 
+    <section class="slide" data-title="Activity · Revise research questions" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Activity</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <div class="language-panel" data-language="en">
+          <h2>Revise your research questions</h2>
+          <p class="intro-line">Your Slide 8 draft appears below as an editable starting point. Refine the topic, problem, purpose and question so they fit one feasible study.</p>
+          <div class="build-form">
+            <label><span>Topic</span><textarea data-save="revise-topic" placeholder="The broad subject matter addressed by the study."></textarea></label>
+            <label><span>Problem</span><textarea data-save="revise-problem" placeholder="A general educational issue, concern, or controversy addressed in research that narrows the topic."></textarea></label>
+            <label><span>Purpose</span><textarea data-save="revise-purpose" placeholder="The major intent or objective of the study used to address the problem."></textarea></label>
+            <label><span>Question</span><textarea data-save="revise-question" placeholder="Research questions narrow the purpose into specific questions that the researcher would like answered or addressed in the study."></textarea></label>
+          </div>
+        </div>
+        <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
+          <h2>修訂你的研究問題</h2>
+          <p class="intro-line">你在第 8 頁建立的研究草稿會顯示在下方，作為可編輯的起點。請修訂主題、研究課題、目的和問題，使它們都適合一項可行研究。</p>
+          <div class="build-form">
+            <label><span>主題</span><textarea data-save="revise-topic-zh" placeholder="研究涉及的廣泛主題"></textarea></label>
+            <label><span>研究課題</span><textarea data-save="revise-problem-zh" placeholder="在縮小主題範圍的研究中解決的一般教育問題、關注點或爭議"></textarea></label>
+            <label><span>研究目的</span><textarea data-save="revise-purpose-zh" placeholder="用於解決問題的研究的主要意圖或目標"></textarea></label>
+            <label><span>研究問題</span><textarea data-save="revise-question-zh" placeholder="研究問題將目的縮小到研究人員希望在研究中回答或解決的特定問題"></textarea></label>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="slide" data-title="How-to · Scope research questions" aria-hidden="true">
       <div class="slide-inner">
         <header class="slide-header"><span class="eyebrow">How-to</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
@@ -395,32 +421,6 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
             <li>比較或關係問題：結構化教學是否與引導式實作及人工智能素養分數相關？</li>
             <li>「那又怎樣？」問題：若先前人工智能經驗或裝置使用機會影響結果，應如何修改單元？</li>
           </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide" data-title="Activity · Revise research questions" aria-hidden="true">
-      <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Activity</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
-        <div class="language-panel" data-language="en">
-          <h2>Revise your research questions</h2>
-          <p class="intro-line">Use the AI-literacy chain as a starting point, then make the topic, problem, purpose and question fit one feasible study.</p>
-          <div class="build-form">
-            <label><span>Topic</span><textarea data-save="revise-topic" placeholder="The broad subject matter addressed by the study."></textarea></label>
-            <label><span>Problem</span><textarea data-save="revise-problem" placeholder="A general educational issue, concern, or controversy addressed in research that narrows the topic."></textarea></label>
-            <label><span>Purpose</span><textarea data-save="revise-purpose" placeholder="The major intent or objective of the study used to address the problem."></textarea></label>
-            <label><span>Question</span><textarea data-save="revise-question" placeholder="Research questions narrow the purpose into specific questions that the researcher would like answered or addressed in the study."></textarea></label>
-          </div>
-        </div>
-        <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
-          <h2>修訂你的研究問題</h2>
-          <p class="intro-line">以人工智能素養研究鏈作起點，然後使主題、研究課題、目的和問題都適合一項可行研究。</p>
-          <div class="build-form">
-            <label><span>主題</span><textarea data-save="revise-topic-zh" placeholder="研究涉及的廣泛主題"></textarea></label>
-            <label><span>研究課題</span><textarea data-save="revise-problem-zh" placeholder="在縮小主題範圍的研究中解決的一般教育問題、關注點或爭議"></textarea></label>
-            <label><span>研究目的</span><textarea data-save="revise-purpose-zh" placeholder="用於解決問題的研究的主要意圖或目標"></textarea></label>
-            <label><span>研究問題</span><textarea data-save="revise-question-zh" placeholder="研究問題將目的縮小到研究人員希望在研究中回答或解決的特定問題"></textarea></label>
-          </div>
         </div>
       </div>
     </section>
@@ -1884,7 +1884,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
     const editedKey = `dedc02-w2-revision-edited-${revisionName}`;
     let revisionEdited = false;
     try {
-      revisionEdited = localStorage.getItem(editedKey) === 'true' || (revision.value.trim().length > 0 && revision.value !== source.value);
+      revisionEdited = localStorage.getItem(editedKey) === 'true';
     } catch {}
 
     const copyStartingPoint = () => {
