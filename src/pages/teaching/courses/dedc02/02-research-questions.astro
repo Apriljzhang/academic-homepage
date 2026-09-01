@@ -862,22 +862,28 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
         <header class="slide-header"><span class="eyebrow">Instruction</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
         <div class="language-panel" data-language="en">
           <h2>Types of variables</h2>
-          <div class="variable-types">
-            <details><summary>Independent Variable(s)</summary><p>The condition, exposure or predictor under study. In an experiment it may be varied; in an observational study it is measured. <strong>Example:</strong> receiving structured AI-literacy instruction.</p></details>
-            <details><summary>Dependent Variable(s)</summary><p>The outcome a study tries to predict or explain. <strong>Example:</strong> students’ AI-literacy scores after the instructional period.</p></details>
-            <details><summary>Moderating Variable(s)</summary><p>Changes the strength or direction of the relationship between the independent and dependent variables. <strong>Example:</strong> prior AI experience may alter how strongly instruction relates to AI-literacy scores.</p></details>
-            <details><summary>Mediating Variable(s)</summary><p>Helps explain the pathway through which the independent variable relates to the dependent variable. <strong>Example:</strong> engagement in guided AI practice may link instruction with AI-literacy scores.</p></details>
-            <details><summary>Extraneous Variable(s)</summary><p>Not the focal independent variable, but able to affect the outcome. <strong>Example:</strong> prior AI experience or access to devices. Measure and account for these; one related to both X and Y may be a confounder.</p></details>
+          <p class="lead small-lead">Variables are classified by the role they play in a study. Open each card to compare roles in the shared AI-literacy study.</p>
+          <div class="variable-types" aria-label="Variables classified by role">
+            <details><summary>Independent Variable (IV)</summary><p>The presumed cause, treatment, exposure or predictor. In an experiment it may be manipulated; in an observational study it is measured as a predictor. <strong>Example:</strong> receiving a four-week structured AI-literacy module.</p></details>
+            <details><summary>Dependent Variable (DV)</summary><p>The measured outcome or response that a study aims to predict or explain. <strong>Example:</strong> a student’s post-module AI-literacy score.</p></details>
+            <details><summary>Control Variable</summary><p>A factor deliberately held constant in the design to reduce unwanted variation and support a fair comparison. <strong>Example:</strong> using the same module length, learning platform and scoring instrument for all students.</p></details>
+            <details><summary>Mediating (Intervening) Variable</summary><p>A proposed mechanism or pathway linking the IV to the DV. <strong>Example:</strong> guided AI practice may be the pathway through which structured instruction relates to AI-literacy scores.</p></details>
+            <details><summary>Moderating Variable</summary><p>A factor that changes the strength or direction of the IV–DV relationship. <strong>Example:</strong> prior AI experience may make structured instruction more or less strongly related to AI-literacy scores.</p></details>
+            <details><summary>Confounding Variable</summary><p>A factor associated with both the IV and the DV that can create or hide an apparent causal relationship. It may be measured or unmeasured. <strong>Example:</strong> prior AI training may relate both to participation in structured instruction and to later AI-literacy scores.</p></details>
+            <details><summary>Extraneous Variable</summary><p>Any non-focal outside factor that can affect the DV if it is not addressed in the design. <strong>Example:</strong> access to devices may affect guided AI practice and AI-literacy scores; if it is also related to instruction, it may become a confounder.</p></details>
           </div>
         </div>
         <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
           <h2>變量的類型</h2>
-          <div class="variable-types">
-            <details><summary>自變量</summary><p>研究中被考察的條件、暴露因素或預測因素。在實驗研究中可以操控；在觀察性研究中則被測量。<strong>例子：</strong>是否接受結構化人工智能素養教學。</p></details>
-            <details><summary>因變量</summary><p>研究試圖預測或解釋的結果。<strong>例子：</strong>教學期結束後學生的人工智能素養分數。</p></details>
-            <details><summary>調節變量</summary><p>改變自變量與因變量之間關係的強度或方向。<strong>例子：</strong>先前使用人工智能的經驗可能改變教學與人工智能素養分數的關係強度。</p></details>
-            <details><summary>中介變量</summary><p>有助解釋自變量如何與因變量產生關係的途徑。<strong>例子：</strong>在引導下進行人工智能實作的投入，可能連結教學與人工智能素養分數。</p></details>
-            <details><summary>外來變量</summary><p>不是核心自變量，但可能影響結果。<strong>例子：</strong>先前人工智能經驗或裝置使用機會。應測量並處理其影響；若同時與 X 和 Y 相關，則可能是混淆變量。</p></details>
+          <p class="lead small-lead">變量可按其在研究中擔當的角色分類。請點選每張卡片，比較同一個人工智能素養研究中的不同角色。</p>
+          <div class="variable-types" aria-label="按角色分類的變量">
+            <details><summary>自變量（IV）</summary><p>被視為可能成因、處理條件、暴露因素或預測因素。在實驗研究中可由研究者操控；在觀察性研究中則作為預測因素加以測量。<strong>例子：</strong>接受為期四週的結構化人工智能素養單元。</p></details>
+            <details><summary>因變量（DV）</summary><p>研究試圖預測或解釋的測量結果或反應。<strong>例子：</strong>學生在單元後的人工智能素養分數。</p></details>
+            <details><summary>控制變量</summary><p>在研究設計中刻意保持一致的因素，用以減少不必要的變異，並支持公平比較。<strong>例子：</strong>所有學生使用相同的單元長度、學習平台和評分工具。</p></details>
+            <details><summary>中介（介入）變量</summary><p>用以說明自變量如何連結至因變量的預設機制或途徑。<strong>例子：</strong>引導式人工智能實作可能是結構化教學與人工智能素養分數之間的途徑。</p></details>
+            <details><summary>調節變量</summary><p>改變自變量與因變量關係強度或方向的因素。<strong>例子：</strong>先前人工智能經驗可能令結構化教學與人工智能素養分數的關係更強或更弱。</p></details>
+            <details><summary>混淆變量</summary><p>同時與自變量及因變量有關，因而可能產生或掩蓋表面因果關係的因素；它可以是已測量或未測量的。<strong>例子：</strong>先前人工智能培訓可能同時與參與結構化教學及之後的人工智能素養分數有關。</p></details>
+            <details><summary>外來變量</summary><p>不屬研究焦點、但若未在設計中處理便可能影響因變量的外在因素。<strong>例子：</strong>裝置使用機會可能影響引導式實作及人工智能素養分數；若同時與教學有關，便可能成為混淆變量。</p></details>
           </div>
         </div>
       </div>
@@ -1249,7 +1255,10 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
   .focus { min-height: 2.7rem; color: var(--muted); font-size: .88rem; font-weight: 600; }
   .paradigm-three { display: grid; grid-template-columns: repeat(3, 1fr); gap: .7rem; }
   .avoid-grid, .type-grid, .avoid-question-grid, .variable-types { display: grid; grid-template-columns: repeat(5, 1fr); gap: .55rem; }
+  .variable-types { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .avoid-grid details, .type-grid details, .avoid-question-grid details, .variable-types details { border: 1px solid var(--line); border-radius: .4rem; }
+  .variable-types summary { min-height: 3.2em; box-sizing: border-box; }
+  .variable-types details p { font-size: .72rem; line-height: 1.34; }
   summary { padding: .8rem; color: var(--green); font-weight: 700; cursor: pointer; }
   details p { margin: 0; padding: .78rem; border-top: 1px solid var(--line); background: var(--green-soft); color: var(--muted); font-size: .85rem; line-height: 1.4; }
   .three-source { display: grid; grid-template-columns: repeat(3, 1fr); gap: .8rem; }
