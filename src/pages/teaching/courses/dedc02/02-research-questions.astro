@@ -585,40 +585,6 @@ const comicHref = withBase('/teaching/courses/dedc02/the-claus-hypothesis.png');
       </div>
     </section>
 
-    <section class="slide" data-title="Tips for hypotheses" aria-hidden="true">
-      <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Tips for hypotheses</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
-        <div class="language-panel" data-language="en">
-          <h2>Tips for hypotheses</h2>
-          <div class="variable-order" aria-label="Recommended variable order">
-            <span><strong>Independent Variable (IV)</strong><small>first</small></span><b aria-hidden="true">→</b>
-            <span><strong>Dependent Variable (DV)</strong><small>second</small></span><b aria-hidden="true">→</b>
-            <span><strong>Control Variables (CVs)</strong><small>third</small></span>
-          </div>
-          <ul class="source-list">
-            <li><strong>State variables clearly:</strong> name the <strong>Independent Variable (IV)</strong> first, the <strong>Dependent Variable (DV)</strong> second, and the <strong>Control Variables (CVs)</strong> third.</li>
-            <li><strong>If comparing groups:</strong> explicitly state which groups are compared.</li>
-            <li><strong>If testing relationships:</strong> specify the type of relationship: positive, negative or no relationship.</li>
-            <li>These predictions are tested statistically.</li>
-          </ul>
-        </div>
-        <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
-          <h2>假設的提示</h2>
-          <div class="variable-order" aria-label="建議的變量順序">
-            <span><strong>自變量（IV）</strong><small>第一</small></span><b aria-hidden="true">→</b>
-            <span><strong>因變量（DV）</strong><small>第二</small></span><b aria-hidden="true">→</b>
-            <span><strong>控制變量（CVs）</strong><small>第三</small></span>
-          </div>
-          <ul class="source-list">
-            <li><strong>清楚說明變量：</strong>先列出<strong>自變量（IV）</strong>，其次是<strong>因變量（DV）</strong>，再次是<strong>控制變量（CVs）</strong>。</li>
-            <li><strong>若比較群體：</strong>明確說明比較哪些群體。</li>
-            <li><strong>若檢驗關係：</strong>說明關係類型：正向、負向或沒有關係。</li>
-            <li>這些預測會以統計方法進行檢驗。</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
     <section class="slide" data-title="Hypothesis templates" aria-hidden="true">
       <div class="slide-inner">
         <header class="slide-header"><span class="eyebrow">From question to prediction</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
@@ -1405,11 +1371,6 @@ const comicHref = withBase('/teaching/courses/dedc02/the-claus-hypothesis.png');
   .hypothesis-steps li > span { color: var(--green-mid); font: 800 .7rem/1 'Source Sans 3', Arial, sans-serif; letter-spacing: .1em; }
   .hypothesis-steps strong { margin: .35rem 0 .45rem; color: var(--green); font-size: .9rem; line-height: 1.2; }
   .hypothesis-steps p { margin: auto 0 0; color: var(--muted); font-size: .78rem; line-height: 1.35; }
-  .variable-order { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr); gap: .45rem; align-items: center; margin-bottom: .85rem; }
-  .variable-order span { display: grid; min-width: 0; min-height: 3.3rem; align-content: center; gap: .18rem; padding: .55rem .65rem; border-top: .3rem solid var(--green-mid); background: var(--green-soft); color: var(--green); text-align: center; }
-  .variable-order strong { font-size: .86rem; line-height: 1.2; }
-  .variable-order small { color: var(--muted); font-size: .72rem; }
-  .variable-order b { color: var(--green-mid); font-size: 1.35rem; text-align: center; }
   .concept-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; align-items: start; }
   .concept-card { min-width: 0; overflow: hidden; border: 1px solid var(--line); border-radius: .4rem; background: #fff; }
   .concept-card summary { display: grid; min-height: 3.5rem; grid-template-columns: auto auto 1fr; gap: .5rem; align-items: center; padding: .8rem; list-style: none; color: var(--green); cursor: pointer; }
@@ -1637,8 +1598,6 @@ const comicHref = withBase('/teaching/courses/dedc02/the-claus-hypothesis.png');
     h2 { max-width: 100%; font-size: clamp(2rem, 9vw, 2.7rem); line-height: 1; overflow-wrap: break-word; }
     .number-list { width: 100%; }
     .paradigm-three, .avoid-grid, .type-grid, .avoid-question-grid, .variable-types, .variable-form, .keyword-steps, .concept-grid, .measure-examples, .hayes-model-grid, .pico-guides, .hypothesis-type-grid, .template-grid, .full-example-grid, .mistake-grid, .hypothesis-steps { grid-template-columns: 1fr; }
-    .variable-order { grid-template-columns: 1fr; }
-    .variable-order b { transform: rotate(90deg); }
     .operationalization-details div { grid-template-columns: 1fr; gap: .15rem; }
     .diagram-plane { gap: .35rem; padding: 1.65rem .5rem .7rem; }
     .diagram-node { min-height: 2.8rem; font-size: .78rem; }
