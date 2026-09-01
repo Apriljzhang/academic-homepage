@@ -862,7 +862,8 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
         <header class="slide-header"><span class="eyebrow">Instruction</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
         <div class="language-panel" data-language="en">
           <h2>Types of variables</h2>
-          <p class="lead small-lead">Variables are classified by the role they play in a study. Open each card to compare roles in the shared AI-literacy study.</p>
+          <p class="lead small-lead">Variables can be classified by the role they play in a study and by the type of data they contain. Open each card to compare examples from the shared AI-literacy study.</p>
+          <p class="variable-classification-label">Variables classified by role</p>
           <div class="variable-types" aria-label="Variables classified by role">
             <details><summary>Independent Variable (IV)</summary><p>The presumed cause, treatment, exposure or predictor. In an experiment it may be manipulated; in an observational study it is measured as a predictor. <strong>Example:</strong> receiving a four-week structured AI-literacy module.</p></details>
             <details><summary>Dependent Variable (DV)</summary><p>The measured outcome or response that a study aims to predict or explain. <strong>Example:</strong> a student’s post-module AI-literacy score.</p></details>
@@ -872,10 +873,16 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
             <details><summary>Confounding Variable</summary><p>A factor associated with both the IV and the DV that can create or hide an apparent causal relationship. It may be measured or unmeasured. <strong>Example:</strong> prior AI training may relate both to participation in structured instruction and to later AI-literacy scores.</p></details>
             <details><summary>Extraneous Variable</summary><p>Any non-focal outside factor that can affect the DV if it is not addressed in the design. <strong>Example:</strong> access to devices may affect guided AI practice and AI-literacy scores; if it is also related to instruction, it may become a confounder.</p></details>
           </div>
+          <p class="variable-classification-label">Variables classified by data type</p>
+          <div class="variable-data-types" aria-label="Variables classified by data type">
+            <details><summary>Categorical (Qualitative) Variables</summary><div class="variable-data-detail"><div class="variable-data-definition">Data divided into distinct groups or labels rather than values with numerical magnitude.</div><div class="variable-data-subtypes"><div><strong>Nominal</strong><span>Categories with no meaningful order. <b>Example:</b> instructional condition: structured module or usual course activity.</span></div><div><strong>Ordinal</strong><span>Categories with a meaningful order or rank. <b>Example:</b> self-rated AI confidence: low, medium or high.</span></div></div></div></details>
+            <details><summary>Numerical (Quantitative) Variables</summary><div class="variable-data-detail"><div class="variable-data-definition">Data expressed as numbers with quantitative meaning.</div><div class="variable-data-subtypes"><div><strong>Discrete</strong><span>Countable whole-number values. <b>Example:</b> number of guided AI-practice tasks completed.</span></div><div><strong>Continuous</strong><span>Measurements that can take any value within a range. <b>Example:</b> time spent on guided AI practice, recorded to decimal minutes.</span></div></div></div></details>
+          </div>
         </div>
         <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
           <h2>變量的類型</h2>
-          <p class="lead small-lead">變量可按其在研究中擔當的角色分類。請點選每張卡片，比較同一個人工智能素養研究中的不同角色。</p>
+          <p class="lead small-lead">變量可按其在研究中擔當的角色，以及所包含的資料類型分類。請點選每張卡片，比較同一個人工智能素養研究中的例子。</p>
+          <p class="variable-classification-label">按角色分類的變量</p>
           <div class="variable-types" aria-label="按角色分類的變量">
             <details><summary>自變量（IV）</summary><p>被視為可能成因、處理條件、暴露因素或預測因素。在實驗研究中可由研究者操控；在觀察性研究中則作為預測因素加以測量。<strong>例子：</strong>接受為期四週的結構化人工智能素養單元。</p></details>
             <details><summary>因變量（DV）</summary><p>研究試圖預測或解釋的測量結果或反應。<strong>例子：</strong>學生在單元後的人工智能素養分數。</p></details>
@@ -884,6 +891,11 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
             <details><summary>調節變量</summary><p>改變自變量與因變量關係強度或方向的因素。<strong>例子：</strong>先前人工智能經驗可能令結構化教學與人工智能素養分數的關係更強或更弱。</p></details>
             <details><summary>混淆變量</summary><p>同時與自變量及因變量有關，因而可能產生或掩蓋表面因果關係的因素；它可以是已測量或未測量的。<strong>例子：</strong>先前人工智能培訓可能同時與參與結構化教學及之後的人工智能素養分數有關。</p></details>
             <details><summary>外來變量</summary><p>不屬研究焦點、但若未在設計中處理便可能影響因變量的外在因素。<strong>例子：</strong>裝置使用機會可能影響引導式實作及人工智能素養分數；若同時與教學有關，便可能成為混淆變量。</p></details>
+          </div>
+          <p class="variable-classification-label">按資料類型分類的變量</p>
+          <div class="variable-data-types" aria-label="按資料類型分類的變量">
+            <details><summary>類別（質性）變量</summary><div class="variable-data-detail"><div class="variable-data-definition">資料被分為不同的群組或標籤，而不是具數值大小意義的數值。</div><div class="variable-data-subtypes"><div><strong>名義</strong><span>沒有有意義的次序。<b>例子：</b>教學條件：結構化單元或一般課程活動。</span></div><div><strong>序數</strong><span>具有有意義的次序或等級。<b>例子：</b>自評人工智能信心：低、中或高。</span></div></div></div></details>
+            <details><summary>數值（量化）變量</summary><div class="variable-data-detail"><div class="variable-data-definition">以具有量化意義的數字表示的資料。</div><div class="variable-data-subtypes"><div><strong>離散</strong><span>可數的整數值。<b>例子：</b>完成的引導式人工智能實作任務數量。</span></div><div><strong>連續</strong><span>在一定範圍內可取任何數值的測量值。<b>例子：</b>投入引導式人工智能實作的時間，以帶小數的分鐘記錄。</span></div></div></div></details>
           </div>
         </div>
       </div>
@@ -1259,6 +1271,15 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
   .avoid-grid details, .type-grid details, .avoid-question-grid details, .variable-types details { border: 1px solid var(--line); border-radius: .4rem; }
   .variable-types summary { min-height: 3.2em; box-sizing: border-box; }
   .variable-types details p { font-size: .72rem; line-height: 1.34; }
+  .variable-classification-label { margin: .5rem 0 .28rem; color: var(--green-mid); font-size: .7rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+  .variable-data-types { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .55rem; }
+  .variable-data-types details { border: 1px solid var(--line); border-radius: .4rem; }
+  .variable-data-types summary { min-height: 3em; box-sizing: border-box; }
+  .variable-data-detail { display: grid; gap: .4rem; padding: .58rem .7rem; border-top: 1px solid var(--line); background: var(--green-soft); color: var(--muted); font-size: .7rem; line-height: 1.3; }
+  .variable-data-subtypes { display: grid; grid-template-columns: 1fr 1fr; gap: .35rem; }
+  .variable-data-subtypes > div { display: grid; gap: .1rem; min-width: 0; padding: .34rem .38rem; border-left: .18rem solid var(--green-mid); background: #fff; }
+  .variable-data-subtypes strong { color: var(--green); font-size: .72rem; }
+  .variable-data-subtypes span { min-width: 0; }
   summary { padding: .8rem; color: var(--green); font-weight: 700; cursor: pointer; }
   details p { margin: 0; padding: .78rem; border-top: 1px solid var(--line); background: var(--green-soft); color: var(--muted); font-size: .85rem; line-height: 1.4; }
   .three-source { display: grid; grid-template-columns: repeat(3, 1fr); gap: .8rem; }
@@ -1677,7 +1698,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
   @media (max-width: 500px) {
     h2 { max-width: 100%; font-size: clamp(2rem, 9vw, 2.7rem); line-height: 1; overflow-wrap: break-word; }
     .number-list { width: 100%; }
-    .paradigm-three, .avoid-grid, .type-grid, .avoid-question-grid, .variable-types, .variable-form, .keyword-steps, .concept-grid, .measure-examples, .hayes-model-grid, .pico-guides, .hypothesis-type-grid, .template-grid, .full-example-grid, .hypothesis-avoid-grid, .hypothesis-steps { grid-template-columns: 1fr; }
+    .paradigm-three, .avoid-grid, .type-grid, .avoid-question-grid, .variable-types, .variable-form, .keyword-steps, .concept-grid, .measure-examples, .hayes-model-grid, .pico-guides, .hypothesis-type-grid, .template-grid, .full-example-grid, .hypothesis-avoid-grid, .hypothesis-steps, .variable-data-types, .variable-data-subtypes { grid-template-columns: 1fr; }
     .hypothesis-avoid-slide h2 { font-size: clamp(2.5rem, 12vw, 4rem); }
     .hypothesis-types-slide .hypothesis-type-grid { grid-template-columns: 1fr; }
     .hypothesis-types-comic { width: 100%; }
