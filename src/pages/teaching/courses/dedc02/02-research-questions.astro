@@ -618,37 +618,47 @@ const comicHref = withBase('/teaching/courses/dedc02/the-claus-hypothesis.png');
         <header class="slide-header"><span class="eyebrow">Specific, testable, grounded</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
         <div class="language-panel" data-language="en">
           <h2>Full hypothesis examples</h2>
-          <p class="intro-line">The weak versions name an idea; the strong versions specify who, what, how it is measured, and—when relevant—when or against whom.</p>
-          <div class="full-example-grid">
+          <p class="intro-line">Improve each weak hypothesis by typing a more precise, testable version. Then reveal the referenced answer and compare your wording.</p>
+          <div class="full-example-grid hypothesis-practice" data-hypothesis-practice>
             <article>
               <h3>Example 1 · Difference</h3>
-              <div class="weak-strong"><p><span>Weak</span>AI literacy improves writing.</p><p><span>Strong</span>Among first-year undergraduates, students assigned to a four-week AI-literacy workshop will achieve higher mean scores on a common academic-writing rubric than wait-list students at post-test.</p></div>
-              <p class="why-example"><strong>Why it works:</strong> It names the population, intervention, comparison, outcome measure and time point; the assigned comparison supports the stated causal design.</p>
+              <p class="weak-version"><span>Weak version</span>AI literacy improves writing.</p>
+              <label class="hypothesis-entry"><span>Your improved hypothesis</span><textarea data-save="hypothesis-difference-en" placeholder="Include the population, comparison, outcome measure and direction."></textarea></label>
+              <button type="button" class="answer-toggle" data-reveal-answer="hypothesis-answer-difference-en" data-show-label="Reveal referenced answer" data-hide-label="Hide referenced answer" aria-expanded="false">Reveal referenced answer</button>
+              <div class="referenced-answer" id="hypothesis-answer-difference-en" hidden><span>Referenced answer</span><p>Among first-year undergraduates, students assigned to a four-week AI-literacy workshop will achieve higher mean scores on a common academic-writing rubric than wait-list students at post-test.</p></div>
+              <p class="why-example"><strong>Quality check:</strong> It names the population, intervention, comparison, outcome measure and time point; the assigned comparison supports the stated causal design.</p>
             </article>
             <article>
               <h3>Example 2 · Correlation</h3>
-              <div class="weak-strong"><p><span>Weak</span>AI literacy is related to achievement.</p><p><span>Strong</span>Among first-year undergraduates, AI-literacy questionnaire scores will be positively associated with academic-writing rubric scores collected in the same semester.</p></div>
-              <p class="why-example"><strong>Why it works:</strong> It identifies both measured variables and the direction while avoiding a causal claim.</p>
+              <p class="weak-version"><span>Weak version</span>AI literacy is related to achievement.</p>
+              <label class="hypothesis-entry"><span>Your improved hypothesis</span><textarea data-save="hypothesis-correlation-en" placeholder="Name both measured variables and state the direction of association."></textarea></label>
+              <button type="button" class="answer-toggle" data-reveal-answer="hypothesis-answer-correlation-en" data-show-label="Reveal referenced answer" data-hide-label="Hide referenced answer" aria-expanded="false">Reveal referenced answer</button>
+              <div class="referenced-answer" id="hypothesis-answer-correlation-en" hidden><span>Referenced answer</span><p>Among first-year undergraduates, AI-literacy questionnaire scores will be positively associated with academic-writing rubric scores collected in the same semester.</p></div>
+              <p class="why-example"><strong>Quality check:</strong> It identifies both measured variables and the direction while avoiding a causal claim.</p>
             </article>
           </div>
-          <p class="source-note">Examples adapted for this course from the strong/weak comparisons in <a href="https://www.thesisai.io/blog/how-to-write-a-research-hypothesis/" target="_blank" rel="noreferrer">ThesisAI’s hypothesis guide</a>.</p>
         </div>
         <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
           <h2>完整的假設例子</h2>
-          <p class="intro-line">較弱的表述只提出一個想法；較強的表述則說明誰、研究甚麼、如何測量，以及在相關情況下何時或與誰比較。</p>
-          <div class="full-example-grid">
+          <p class="intro-line">請把每個較弱的假設改寫成更精確、可檢驗的表述。然後揭示參考答案，與自己的文字比較。</p>
+          <div class="full-example-grid hypothesis-practice" data-hypothesis-practice>
             <article>
               <h3>例子 1 · 差異</h3>
-              <div class="weak-strong"><p><span>較弱</span>人工智能素養改善寫作。</p><p><span>較強</span>在一年級本科生中，被分配參加為期四週人工智能素養工作坊的學生，在共同的學術寫作評分標準上的平均分數，將高於候補名單學生在後測中的分數。</p></div>
-              <p class="why-example"><strong>為甚麼可行：</strong>它說明研究對象、干預、比較組、結果測量與時間點；分配式比較配合其因果研究設計。</p>
+              <p class="weak-version"><span>較弱的表述</span>人工智能素養改善寫作。</p>
+              <label class="hypothesis-entry"><span>你改寫的假設</span><textarea data-save="hypothesis-difference-zh" placeholder="加入研究對象、比較組、結果測量與方向。"></textarea></label>
+              <button type="button" class="answer-toggle" data-reveal-answer="hypothesis-answer-difference-zh" data-show-label="揭示參考答案" data-hide-label="隱藏參考答案" aria-expanded="false">揭示參考答案</button>
+              <div class="referenced-answer" id="hypothesis-answer-difference-zh" hidden><span>參考答案</span><p>在一年級本科生中，被分配參加為期四週人工智能素養工作坊的學生，在共同的學術寫作評分標準上的平均分數，將高於候補名單學生在後測中的分數。</p></div>
+              <p class="why-example"><strong>品質檢查：</strong>它說明研究對象、干預、比較組、結果測量與時間點；分配式比較配合其因果研究設計。</p>
             </article>
             <article>
               <h3>例子 2 · 相關</h3>
-              <div class="weak-strong"><p><span>較弱</span>人工智能素養與成就有關。</p><p><span>較強</span>在一年級本科生中，人工智能素養問卷分數將與同一學期收集的學術寫作評分標準分數呈正相關。</p></div>
-              <p class="why-example"><strong>為甚麼可行：</strong>它指出兩個可測量變量及關係方向，同時避免提出因果主張。</p>
+              <p class="weak-version"><span>較弱的表述</span>人工智能素養與成就有關。</p>
+              <label class="hypothesis-entry"><span>你改寫的假設</span><textarea data-save="hypothesis-correlation-zh" placeholder="列出兩個可測量的變量，並說明關聯方向。"></textarea></label>
+              <button type="button" class="answer-toggle" data-reveal-answer="hypothesis-answer-correlation-zh" data-show-label="揭示參考答案" data-hide-label="隱藏參考答案" aria-expanded="false">揭示參考答案</button>
+              <div class="referenced-answer" id="hypothesis-answer-correlation-zh" hidden><span>參考答案</span><p>在一年級本科生中，人工智能素養問卷分數將與同一學期收集的學術寫作評分標準分數呈正相關。</p></div>
+              <p class="why-example"><strong>品質檢查：</strong>它指出兩個可測量變量及關係方向，同時避免提出因果主張。</p>
             </article>
           </div>
-          <p class="source-note">例子按本課程需要改編自 <a href="https://www.thesisai.io/blog/how-to-write-a-research-hypothesis/" target="_blank" rel="noreferrer">ThesisAI 假設指引</a>中的強弱表述比較。</p>
         </div>
       </div>
     </section>
@@ -1354,10 +1364,18 @@ const comicHref = withBase('/teaching/courses/dedc02/the-claus-hypothesis.png');
   .template-line { min-height: 3.2rem; padding: .6rem .65rem; border: 1px solid var(--line); background: #fff; color: var(--green) !important; font: 600 .82rem/1.4 'Source Serif 4', Georgia, serif !important; }
   .full-example-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .full-example-grid article { padding: .8rem; }
-  .weak-strong { display: grid; gap: .4rem; }
-  .weak-strong p { margin: 0; padding: .55rem .65rem; background: #fff; color: var(--muted); font-size: .8rem; line-height: 1.35; }
-  .weak-strong p:last-child { background: #e1f2e7; color: var(--green); }
-  .weak-strong span { display: block; margin-bottom: .18rem; color: var(--green-mid); font: 800 .62rem/1 'Source Sans 3', Arial, sans-serif; letter-spacing: .1em; text-transform: uppercase; }
+  .hypothesis-practice { align-items: start; }
+  .hypothesis-practice article { display: grid; gap: .55rem; }
+  .hypothesis-practice h3 { margin: 0; }
+  .weak-version { margin: 0; padding: .55rem .65rem; background: #fff; color: var(--muted); font-size: .8rem; line-height: 1.35; }
+  .weak-version span, .hypothesis-entry > span, .referenced-answer > span { display: block; margin-bottom: .18rem; color: var(--green-mid); font: 800 .62rem/1 'Source Sans 3', Arial, sans-serif; letter-spacing: .1em; text-transform: uppercase; }
+  .hypothesis-entry { display: grid; gap: .35rem; color: var(--green); font-weight: 700; }
+  .hypothesis-entry textarea { min-height: 5rem; }
+  .answer-toggle { justify-self: start; min-height: 2.3rem; border: 1px solid var(--green-mid); border-radius: 999px; padding: .45rem .75rem; background: #fff; color: var(--green-mid); font: 700 .78rem/1 'Source Sans 3', Arial, sans-serif; cursor: pointer; }
+  .answer-toggle:hover, .answer-toggle[aria-expanded="true"] { background: var(--green-mid); color: #fff; }
+  .referenced-answer { margin: 0; padding: .55rem .65rem; border-left: .25rem solid #68ad3f; background: #e1f2e7; color: var(--green); font-size: .8rem; line-height: 1.35; }
+  .referenced-answer p { margin: 0; }
+  .referenced-answer[hidden] { display: none; }
   .why-example { margin: .55rem 0 0; color: var(--muted); font-size: .78rem; line-height: 1.4; }
   .mistake-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .mistake-grid article { padding: .6rem .7rem; }
@@ -1703,6 +1721,24 @@ const comicHref = withBase('/teaching/courses/dedc02/the-claus-hypothesis.png');
     const key = `dedc02-w2-source-${field.dataset.save}`;
     try { field.value = localStorage.getItem(key) || ''; } catch {}
     field.addEventListener('input', () => { try { localStorage.setItem(key, field.value); } catch {} });
+  });
+
+  document.querySelectorAll<HTMLElement>('[data-hypothesis-practice]').forEach((activity) => {
+    activity.querySelectorAll<HTMLButtonElement>('[data-reveal-answer]').forEach((button) => {
+      const answerId = button.dataset.revealAnswer;
+      const answer = answerId ? document.getElementById(answerId) : null;
+      if (!answerId || !answer) return;
+
+      const showLabel = button.dataset.showLabel || button.textContent || '';
+      const hideLabel = button.dataset.hideLabel || 'Hide referenced answer';
+      button.setAttribute('aria-controls', answerId);
+      button.addEventListener('click', () => {
+        const shouldReveal = button.getAttribute('aria-expanded') !== 'true';
+        button.setAttribute('aria-expanded', String(shouldReveal));
+        answer.hidden = !shouldReveal;
+        button.textContent = shouldReveal ? hideLabel : showLabel;
+      });
+    });
   });
 
   document.querySelectorAll<HTMLElement>('[data-build-examples]').forEach((buildForm) => {
