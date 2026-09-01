@@ -893,24 +893,6 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
       </div>
     </section>
 
-    <section class="slide" data-title="Bridge · Combine variables into common models" aria-hidden="true">
-      <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Bridge</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
-        <div class="language-panel" data-language="en">
-          <h2>From roles to models</h2>
-          <p class="lead medium">Now combine IV, DV, mediator, and moderator into common models.</p>
-          <p class="topic-line">Structured AI-literacy instruction (IV) → guided AI practice (mediator) → AI-literacy score (DV)</p>
-          <p class="example-line">Prior AI experience may moderate the first relationship; access to devices may need to be measured as an additional variable.</p>
-        </div>
-        <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
-          <h2>從角色走向模型</h2>
-          <p class="lead medium">現在把 IV、DV、中介變量和調節變量結合成常見模型。</p>
-          <p class="topic-line">結構化人工智能素養教學（IV）→ 引導式人工智能實作（中介變量）→ 人工智能素養分數（DV）</p>
-          <p class="example-line">先前人工智能經驗可能調節第一段關係；裝置使用機會可能需要作為附加變量測量。</p>
-        </div>
-      </div>
-    </section>
-
     <section class="slide" data-title="Example · A variable model in action" aria-hidden="true">
       <div class="slide-inner">
         <header class="slide-header"><span class="eyebrow">Example</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
@@ -971,234 +953,166 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
       </div>
     </section>
 
-    <section class="slide confounder-slide" data-title="Instruction · Confounders and covariates" aria-hidden="true">
-      <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Instruction</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
-        <div class="language-panel" data-language="en">
-          <h2>Confounders and covariates</h2>
-          <div class="confounder-layout">
-            <div class="variable-definition-pair">
-              <article><h3>Confounder</h3><p>Influences both the independent and dependent variables. It can inflate or deflate their apparent relationship and affect internal validity.</p></article>
-              <article><h3>Covariate</h3><p>Influences the dependent variable and has little or no relationship with the other variables in the model.</p></article>
-            </div>
-            <figure>
-              <div class="confounder-map" role="img" aria-label="Access to devices points to AI-literacy score, structured AI-literacy instruction points to AI-literacy score, and prior AI experience points to both structured instruction and AI-literacy score.">
-                <span class="map-node covariate-map-node">Access to devices</span><span class="map-arrow covariate-map-arrow" aria-hidden="true">↘</span>
-                <span class="map-node iv-map-node">Structured AI-literacy instruction</span><span class="map-arrow iv-map-arrow" aria-hidden="true">→</span><span class="map-node dv-map-node">AI-literacy score</span>
-                <span class="map-node confounder-map-node">Prior AI experience</span><span class="map-arrow confounder-left-arrow" aria-hidden="true">↖</span><span class="map-arrow confounder-right-arrow" aria-hidden="true">↗</span>
-              </div>
-              <figcaption>In a non-randomised study, prior AI experience may influence both uptake of structured instruction and AI-literacy score; access to devices can be included as a covariate.</figcaption>
-            </figure>
-          </div>
-        </div>
-        <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
-          <h2>混淆變量與協變量</h2>
-          <div class="confounder-layout">
-            <div class="variable-definition-pair">
-              <article><h3>混淆變量</h3><p>同時影響自變量與因變量，可能放大或縮小兩者表面上的關係，並影響內部效度。</p></article>
-              <article><h3>協變量</h3><p>影響因變量，而與模型中的其他變量只有很少或沒有關係。</p></article>
-            </div>
-            <figure>
-              <div class="confounder-map" role="img" aria-label="裝置使用機會指向人工智能素養分數，結構化人工智能素養教學指向人工智能素養分數，而先前人工智能經驗同時指向結構化教學與人工智能素養分數。">
-                <span class="map-node covariate-map-node">裝置使用機會</span><span class="map-arrow covariate-map-arrow" aria-hidden="true">↘</span>
-                <span class="map-node iv-map-node">結構化人工智能素養教學</span><span class="map-arrow iv-map-arrow" aria-hidden="true">→</span><span class="map-node dv-map-node">人工智能素養分數</span>
-                <span class="map-node confounder-map-node">先前人工智能經驗</span><span class="map-arrow confounder-left-arrow" aria-hidden="true">↖</span><span class="map-arrow confounder-right-arrow" aria-hidden="true">↗</span>
-              </div>
-              <figcaption>在非隨機研究中，先前人工智能經驗可能同時影響學生接受結構化教學的情況與人工智能素養分數；裝置使用機會可作為協變量納入。</figcaption>
-            </figure>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide variable-match-slide" data-title="Activity · Match variable roles to models" aria-hidden="true">
+    <section class="slide variable-match-slide relationship-models-slide" data-title="Activity · Map variables in relationship models" aria-hidden="true">
       <div class="slide-inner">
         <header class="slide-header"><span class="eyebrow">Activity</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
         <div class="language-panel" data-language="en">
-          <h2>Match variable types to models</h2>
-          <div class="variable-match-activity" data-variable-match data-complete-message="All variable types are correctly placed." data-review-message="Some boxes need another look." data-incomplete-message="Fill all boxes before checking.">
-            <div class="role-bank" aria-label="Variable types">
-              <button type="button" draggable="true" data-role-chip="independent" data-label="Independent variable">Independent variable</button>
-              <button type="button" draggable="true" data-role-chip="dependent" data-label="Dependent variable">Dependent variable</button>
-              <button type="button" draggable="true" data-role-chip="mediating" data-label="Mediating variable">Mediating variable</button>
-              <button type="button" draggable="true" data-role-chip="moderating" data-label="Moderating variable">Moderating variable</button>
+          <h2>Map variables in relationship models</h2>
+          <div class="variable-match-activity relationship-models-activity" data-variable-match data-complete-message="All 15 variable placements are correct. Click a filled box to see why it serves that role." data-review-message="Some placements need another look. Correct boxes are green; revisit the orange boxes." data-incomplete-message="Fill all 15 boxes before checking.">
+            <p class="drag-instruction"><strong>Your task:</strong> drag variables into every X, Y and Z box. A variable chip may be reused across models. When all 15 boxes are filled, check your answers; then click a filled box to see why it serves that role.</p>
+            <div class="role-bank relationship-role-bank" aria-label="Variables from the AI-literacy study">
+              <button type="button" draggable="true" data-role-chip="structured-instruction" data-label="Structured AI-literacy instruction">Structured AI-literacy instruction</button>
+              <button type="button" draggable="true" data-role-chip="post-score" data-label="Post-module AI-literacy score">Post-module AI-literacy score</button>
+              <button type="button" draggable="true" data-role-chip="guided-practice" data-label="Guided AI practice">Guided AI practice</button>
+              <button type="button" draggable="true" data-role-chip="prior-experience" data-label="Prior AI experience">Prior AI experience</button>
+              <button type="button" draggable="true" data-role-chip="prior-training" data-label="Prior AI training">Prior AI training</button>
+              <button type="button" draggable="true" data-role-chip="device-access" data-label="Access to devices">Access to devices</button>
+              <button type="button" draggable="true" data-role-chip="baseline-score" data-label="Baseline AI-literacy score">Baseline AI-literacy score</button>
             </div>
-            <p class="drag-instruction">Use the shared case as your anchor: structured AI-literacy instruction → guided AI practice → AI-literacy score; prior AI experience may moderate. Drag a label into each empty box, then check your answers.</p>
-            <div class="process-model-grid">
-              <article class="process-model-card">
-                <h3 class="model-title" data-model-title data-model-answer="Model 1 · Simple moderation" data-model-waiting="Model to identify after checking">Model to identify after checking</h3>
-                <div class="moderation-match-layout model-match-layout">
-                  <button type="button" class="role-slot moderator-slot" data-answer="moderating" data-placeholder="Drop here" aria-label="Empty upper box">Drop here</button>
-                  <span class="match-down" aria-hidden="true">↓</span>
-                  <button type="button" class="role-slot" data-answer="independent" data-placeholder="Drop here" aria-label="Empty left box">Drop here</button>
-                  <span class="match-arrow" aria-hidden="true">→</span>
-                  <button type="button" class="role-slot" data-answer="dependent" data-placeholder="Drop here" aria-label="Empty right box">Drop here</button>
+            <div class="relationship-model-grid">
+              <article class="relationship-model-card" data-model-card>
+                <h3>Mediated relationship</h3>
+                <div class="relationship-diagram mediation-model" role="group" aria-label="A mediated relationship has X pointing directly to Y and indirectly through Z.">
+                  <button type="button" class="role-slot x-slot" data-answer="structured-instruction" data-placeholder="X · Drop variable" data-empty-label="Predictor X variable box" data-explanation="X is the predictor: structured AI-literacy instruction is expected to influence guided practice and the post-module score.">X · Drop variable</button>
+                  <span class="model-link direct-link" aria-hidden="true">⟶</span>
+                  <button type="button" class="role-slot y-slot" data-answer="post-score" data-placeholder="Y · Drop variable" data-empty-label="Response Y variable box" data-explanation="Y is the response: post-module AI-literacy score is the outcome being explained.">Y · Drop variable</button>
+                  <span class="model-link left-link" aria-hidden="true">↘</span>
+                  <button type="button" class="role-slot z-slot" data-answer="guided-practice" data-placeholder="Z · Drop variable" data-empty-label="Mediator Z variable box" data-explanation="Z is the mediator: guided AI practice is the proposed pathway through which instruction relates to the score.">Z · Drop variable</button>
+                  <span class="model-link right-link" aria-hidden="true">↗</span>
                 </div>
+                <p class="model-note">Part of X's effect on Y is proposed to operate through mediator Z, alongside a possible direct X-to-Y path.</p>
+                <p class="model-slot-explanation" data-model-slot-explanation data-default="After checking, click a filled box to see its role." aria-live="polite">After checking, click a filled box to see its role.</p>
               </article>
-              <article class="process-model-card">
-                <h3 class="model-title" data-model-title data-model-answer="Model 4 · Simple mediation" data-model-waiting="Model to identify after checking">Model to identify after checking</h3>
-                <div class="chain-match-layout model-match-layout">
-                  <button type="button" class="role-slot" data-answer="independent" data-placeholder="Drop here" aria-label="Empty first box">Drop here</button><span class="match-arrow" aria-hidden="true">→</span>
-                  <button type="button" class="role-slot" data-answer="mediating" data-placeholder="Drop here" aria-label="Empty middle box">Drop here</button><span class="match-arrow" aria-hidden="true">→</span>
-                  <button type="button" class="role-slot" data-answer="dependent" data-placeholder="Drop here" aria-label="Empty final box">Drop here</button>
+              <article class="relationship-model-card" data-model-card>
+                <h3>Moderated relationship</h3>
+                <div class="relationship-diagram moderation-model" role="group" aria-label="A moderated relationship has Z pointing to the relationship between X and Y.">
+                  <button type="button" class="role-slot z-slot" data-answer="prior-experience" data-placeholder="Z · Drop variable" data-empty-label="Moderator Z variable box" data-explanation="Z is the moderator: prior AI experience may change the strength of the instruction-to-score relationship.">Z · Drop variable</button>
+                  <span class="model-link down-link" aria-hidden="true">↓</span>
+                  <button type="button" class="role-slot x-slot" data-answer="structured-instruction" data-placeholder="X · Drop variable" data-empty-label="Predictor X variable box" data-explanation="X is the predictor: structured AI-literacy instruction is expected to affect the post-module score.">X · Drop variable</button>
+                  <span class="model-link direct-link" aria-hidden="true">⟶</span>
+                  <button type="button" class="role-slot y-slot" data-answer="post-score" data-placeholder="Y · Drop variable" data-empty-label="Response Y variable box" data-explanation="Y is the response: post-module AI-literacy score is the outcome being explained.">Y · Drop variable</button>
                 </div>
+                <p class="model-note">The effect of X on Y changes at different values of moderator Z.</p>
+                <p class="model-slot-explanation" data-model-slot-explanation data-default="After checking, click a filled box to see its role." aria-live="polite">After checking, click a filled box to see its role.</p>
               </article>
-              <article class="process-model-card">
-                <h3 class="model-title" data-model-title data-model-answer="Model 4 · Parallel mediation" data-model-waiting="Model to identify after checking">Model to identify after checking</h3>
-                <div class="parallel-match-layout model-match-layout">
-                  <button type="button" class="role-slot" data-answer="independent" data-placeholder="Drop here" aria-label="Empty left box">Drop here</button><span class="match-arrow" aria-hidden="true">→</span>
-                  <div class="parallel-mediators"><button type="button" class="role-slot" data-answer="mediating" data-placeholder="Drop here" aria-label="Empty upper middle box">Drop here</button><button type="button" class="role-slot" data-answer="mediating" data-placeholder="Drop here" aria-label="Empty lower middle box">Drop here</button></div><span class="match-arrow" aria-hidden="true">→</span>
-                  <button type="button" class="role-slot" data-answer="dependent" data-placeholder="Drop here" aria-label="Empty right box">Drop here</button>
+              <article class="relationship-model-card" data-model-card>
+                <h3>Spurious relationship (confound)</h3>
+                <div class="relationship-diagram confound-model" role="group" aria-label="A confounding variable Z points to both X and Y.">
+                  <button type="button" class="role-slot x-slot" data-answer="structured-instruction" data-placeholder="X · Drop variable" data-empty-label="Predictor X variable box" data-explanation="X is the apparent predictor in a non-randomised comparison: structured AI-literacy instruction.">X · Drop variable</button>
+                  <span class="model-link direct-link" aria-hidden="true">⟶</span>
+                  <button type="button" class="role-slot y-slot" data-answer="post-score" data-placeholder="Y · Drop variable" data-empty-label="Response Y variable box" data-explanation="Y is the response: post-module AI-literacy score may appear related to X without accounting for the confounder.">Y · Drop variable</button>
+                  <span class="model-link left-link" aria-hidden="true">↖</span>
+                  <button type="button" class="role-slot z-slot" data-answer="prior-training" data-placeholder="Z · Drop variable" data-empty-label="Confounder Z variable box" data-explanation="Z is a confounder: prior AI training can relate to both receiving structured instruction and post-module score.">Z · Drop variable</button>
+                  <span class="model-link right-link" aria-hidden="true">↗</span>
                 </div>
+                <p class="model-note">Z is related to X and Y, so it can create an apparent X-to-Y relationship even where no causal relation exists.</p>
+                <p class="model-slot-explanation" data-model-slot-explanation data-default="After checking, click a filled box to see its role." aria-live="polite">After checking, click a filled box to see its role.</p>
               </article>
-              <article class="process-model-card">
-                <h3 class="model-title" data-model-title data-model-answer="Model 6 · Serial mediation" data-model-waiting="Model to identify after checking">Model to identify after checking</h3>
-                <div class="serial-match-layout model-match-layout">
-                  <button type="button" class="role-slot" data-answer="independent" data-placeholder="Drop here" aria-label="Empty first box">Drop here</button><span class="match-arrow" aria-hidden="true">→</span>
-                  <button type="button" class="role-slot" data-answer="mediating" data-placeholder="Drop here" aria-label="Empty second box">Drop here</button><span class="match-arrow" aria-hidden="true">→</span>
-                  <button type="button" class="role-slot" data-answer="mediating" data-placeholder="Drop here" aria-label="Empty third box">Drop here</button><span class="match-arrow" aria-hidden="true">→</span>
-                  <button type="button" class="role-slot" data-answer="dependent" data-placeholder="Drop here" aria-label="Empty final box">Drop here</button>
+              <article class="relationship-model-card" data-model-card>
+                <h3>Covariate related to X</h3>
+                <div class="relationship-diagram covariate-model related-covariate-model" role="group" aria-label="Related X and Z both point to Y.">
+                  <button type="button" class="role-slot x-slot" data-answer="structured-instruction" data-placeholder="X · Drop variable" data-empty-label="Predictor X variable box" data-explanation="X is one predictor: structured AI-literacy instruction.">X · Drop variable</button>
+                  <span class="model-link direct-link" aria-hidden="true">⟶</span>
+                  <button type="button" class="role-slot y-slot" data-answer="post-score" data-placeholder="Y · Drop variable" data-empty-label="Response Y variable box" data-explanation="Y is the shared outcome: post-module AI-literacy score is predicted by both X and Z.">Y · Drop variable</button>
+                  <span class="model-link related-link" aria-hidden="true">↕</span>
+                  <button type="button" class="role-slot z-slot" data-answer="device-access" data-placeholder="Z · Drop variable" data-empty-label="Covariate Z variable box" data-explanation="Z is a covariate related to X: access to devices may relate to instruction exposure and also predict post-module score.">Z · Drop variable</button>
+                  <span class="model-link right-link" aria-hidden="true">↗</span>
                 </div>
+                <p class="model-note">X and Z are related and both predict Y; a strong X-to-Z link makes their individual effects hard to separate.</p>
+                <p class="model-slot-explanation" data-model-slot-explanation data-default="After checking, click a filled box to see its role." aria-live="polite">After checking, click a filled box to see its role.</p>
+              </article>
+              <article class="relationship-model-card" data-model-card>
+                <h3>Covariate independent of X</h3>
+                <div class="relationship-diagram covariate-model independent-covariate-model" role="group" aria-label="Unrelated X and Z both point to Y.">
+                  <button type="button" class="role-slot x-slot" data-answer="structured-instruction" data-placeholder="X · Drop variable" data-empty-label="Predictor X variable box" data-explanation="X is one predictor: structured AI-literacy instruction.">X · Drop variable</button>
+                  <span class="model-link direct-link" aria-hidden="true">⟶</span>
+                  <button type="button" class="role-slot y-slot" data-answer="post-score" data-placeholder="Y · Drop variable" data-empty-label="Response Y variable box" data-explanation="Y is the shared outcome: post-module AI-literacy score is predicted by both X and Z.">Y · Drop variable</button>
+                  <button type="button" class="role-slot z-slot" data-answer="baseline-score" data-placeholder="Z · Drop variable" data-empty-label="Covariate Z variable box" data-explanation="Z is an independent covariate: baseline AI-literacy score predicts post-module score but should not be related to randomly assigned instruction.">Z · Drop variable</button>
+                  <span class="model-link right-link" aria-hidden="true">↗</span>
+                </div>
+                <p class="model-note">X and Z are unrelated but both predict Y. Controlling Z helps estimate X's relationship with Y more precisely.</p>
+                <p class="model-slot-explanation" data-model-slot-explanation data-default="After checking, click a filled box to see its role." aria-live="polite">After checking, click a filled box to see its role.</p>
               </article>
             </div>
             <div class="variable-match-actions"><button type="button" data-variable-match-check>Check answers</button><button type="button" data-variable-match-clear>Clear</button><span role="status" aria-live="polite" data-variable-match-status></span></div>
           </div>
         </div>
         <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
-          <h2>把變量類型配對到模型</h2>
-          <div class="variable-match-activity" data-variable-match data-complete-message="所有變量類型均已正確放置。" data-review-message="部分方框需要再檢查。" data-incomplete-message="請先填滿所有方框，再檢查答案。">
-            <div class="role-bank" aria-label="變量類型">
-              <button type="button" draggable="true" data-role-chip="independent" data-label="自變量">自變量</button>
-              <button type="button" draggable="true" data-role-chip="dependent" data-label="因變量">因變量</button>
-              <button type="button" draggable="true" data-role-chip="mediating" data-label="中介變量">中介變量</button>
-              <button type="button" draggable="true" data-role-chip="moderating" data-label="調節變量">調節變量</button>
+          <h2>把變量放入關係模型</h2>
+          <div class="variable-match-activity relationship-models-activity" data-variable-match data-complete-message="全部 15 個變量位置均正確。點選任何已填寫的方框，以了解它為何擔當該角色。" data-review-message="部分位置需要再檢查。正確方框會顯示綠色；請重新查看橙色方框。" data-incomplete-message="請先填滿全部 15 個方框，再檢查答案。">
+            <p class="drag-instruction"><strong>你的任務：</strong>把變量拖入每個 X、Y 和 Z 方框。同一張變量卡可重複使用於不同模型。填滿全部 15 個方框後，檢查答案；然後點選已填寫的方框，了解它為何擔當該角色。</p>
+            <div class="role-bank relationship-role-bank" aria-label="人工智能素養研究中的變量">
+              <button type="button" draggable="true" data-role-chip="structured-instruction" data-label="結構化人工智能素養教學">結構化人工智能素養教學</button>
+              <button type="button" draggable="true" data-role-chip="post-score" data-label="單元後人工智能素養分數">單元後人工智能素養分數</button>
+              <button type="button" draggable="true" data-role-chip="guided-practice" data-label="引導式人工智能實作">引導式人工智能實作</button>
+              <button type="button" draggable="true" data-role-chip="prior-experience" data-label="先前人工智能經驗">先前人工智能經驗</button>
+              <button type="button" draggable="true" data-role-chip="prior-training" data-label="先前人工智能培訓">先前人工智能培訓</button>
+              <button type="button" draggable="true" data-role-chip="device-access" data-label="裝置使用機會">裝置使用機會</button>
+              <button type="button" draggable="true" data-role-chip="baseline-score" data-label="基線人工智能素養分數">基線人工智能素養分數</button>
             </div>
-            <p class="drag-instruction">以貫穿案例為線索：結構化人工智能素養教學 → 引導式人工智能實作 → 人工智能素養分數；先前人工智能經驗可能調節。把標籤拖入每個空白方框，再檢查答案。</p>
-            <div class="process-model-grid">
-              <article class="process-model-card">
-                <h3 class="model-title" data-model-title data-model-answer="模型 1 · 簡單調節" data-model-waiting="檢查後顯示模型">檢查後顯示模型</h3>
-                <div class="moderation-match-layout model-match-layout">
-                  <button type="button" class="role-slot moderator-slot" data-answer="moderating" data-placeholder="拖放到此" aria-label="上方空白方框">拖放到此</button>
-                  <span class="match-down" aria-hidden="true">↓</span>
-                  <button type="button" class="role-slot" data-answer="independent" data-placeholder="拖放到此" aria-label="左側空白方框">拖放到此</button>
-                  <span class="match-arrow" aria-hidden="true">→</span>
-                  <button type="button" class="role-slot" data-answer="dependent" data-placeholder="拖放到此" aria-label="右側空白方框">拖放到此</button>
+            <div class="relationship-model-grid">
+              <article class="relationship-model-card" data-model-card>
+                <h3>中介關係</h3>
+                <div class="relationship-diagram mediation-model" role="group" aria-label="中介關係中，X 直接指向 Y，亦會透過 Z 間接指向 Y。">
+                  <button type="button" class="role-slot x-slot" data-answer="structured-instruction" data-placeholder="X · 拖放變量" data-empty-label="預測因素 X 方框" data-explanation="X 是預測因素：結構化人工智能素養教學預期會影響引導式實作及單元後分數。">X · 拖放變量</button>
+                  <span class="model-link direct-link" aria-hidden="true">⟶</span>
+                  <button type="button" class="role-slot y-slot" data-answer="post-score" data-placeholder="Y · 拖放變量" data-empty-label="結果 Y 方框" data-explanation="Y 是結果：單元後人工智能素養分數是需要解釋的結果。">Y · 拖放變量</button>
+                  <span class="model-link left-link" aria-hidden="true">↘</span>
+                  <button type="button" class="role-slot z-slot" data-answer="guided-practice" data-placeholder="Z · 拖放變量" data-empty-label="中介變量 Z 方框" data-explanation="Z 是中介變量：引導式人工智能實作是教學與分數之間的預設途徑。">Z · 拖放變量</button>
+                  <span class="model-link right-link" aria-hidden="true">↗</span>
                 </div>
+                <p class="model-note">X 對 Y 的部分影響被認為是透過中介變量 Z 發生，同時可能保留直接的 X 至 Y 路徑。</p>
+                <p class="model-slot-explanation" data-model-slot-explanation data-default="檢查後，點選已填寫的方框以了解其角色。" aria-live="polite">檢查後，點選已填寫的方框以了解其角色。</p>
               </article>
-              <article class="process-model-card">
-                <h3 class="model-title" data-model-title data-model-answer="模型 4 · 簡單中介" data-model-waiting="檢查後顯示模型">檢查後顯示模型</h3>
-                <div class="chain-match-layout model-match-layout">
-                  <button type="button" class="role-slot" data-answer="independent" data-placeholder="拖放到此" aria-label="第一個空白方框">拖放到此</button><span class="match-arrow" aria-hidden="true">→</span>
-                  <button type="button" class="role-slot" data-answer="mediating" data-placeholder="拖放到此" aria-label="中間空白方框">拖放到此</button><span class="match-arrow" aria-hidden="true">→</span>
-                  <button type="button" class="role-slot" data-answer="dependent" data-placeholder="拖放到此" aria-label="最後一個空白方框">拖放到此</button>
+              <article class="relationship-model-card" data-model-card>
+                <h3>調節關係</h3>
+                <div class="relationship-diagram moderation-model" role="group" aria-label="調節關係中，Z 指向 X 與 Y 之間的關係。">
+                  <button type="button" class="role-slot z-slot" data-answer="prior-experience" data-placeholder="Z · 拖放變量" data-empty-label="調節變量 Z 方框" data-explanation="Z 是調節變量：先前人工智能經驗可能改變教學與分數之間關係的強度。">Z · 拖放變量</button>
+                  <span class="model-link down-link" aria-hidden="true">↓</span>
+                  <button type="button" class="role-slot x-slot" data-answer="structured-instruction" data-placeholder="X · 拖放變量" data-empty-label="預測因素 X 方框" data-explanation="X 是預測因素：結構化人工智能素養教學預期會影響單元後分數。">X · 拖放變量</button>
+                  <span class="model-link direct-link" aria-hidden="true">⟶</span>
+                  <button type="button" class="role-slot y-slot" data-answer="post-score" data-placeholder="Y · 拖放變量" data-empty-label="結果 Y 方框" data-explanation="Y 是結果：單元後人工智能素養分數是需要解釋的結果。">Y · 拖放變量</button>
                 </div>
+                <p class="model-note">X 對 Y 的影響會因調節變量 Z 的不同取值而改變。</p>
+                <p class="model-slot-explanation" data-model-slot-explanation data-default="檢查後，點選已填寫的方框以了解其角色。" aria-live="polite">檢查後，點選已填寫的方框以了解其角色。</p>
               </article>
-              <article class="process-model-card">
-                <h3 class="model-title" data-model-title data-model-answer="模型 4 · 平行中介" data-model-waiting="檢查後顯示模型">檢查後顯示模型</h3>
-                <div class="parallel-match-layout model-match-layout">
-                  <button type="button" class="role-slot" data-answer="independent" data-placeholder="拖放到此" aria-label="左側空白方框">拖放到此</button><span class="match-arrow" aria-hidden="true">→</span>
-                  <div class="parallel-mediators"><button type="button" class="role-slot" data-answer="mediating" data-placeholder="拖放到此" aria-label="上方中間空白方框">拖放到此</button><button type="button" class="role-slot" data-answer="mediating" data-placeholder="拖放到此" aria-label="下方中間空白方框">拖放到此</button></div><span class="match-arrow" aria-hidden="true">→</span>
-                  <button type="button" class="role-slot" data-answer="dependent" data-placeholder="拖放到此" aria-label="右側空白方框">拖放到此</button>
+              <article class="relationship-model-card" data-model-card>
+                <h3>虛假關係（混淆）</h3>
+                <div class="relationship-diagram confound-model" role="group" aria-label="混淆變量 Z 同時指向 X 和 Y。">
+                  <button type="button" class="role-slot x-slot" data-answer="structured-instruction" data-placeholder="X · 拖放變量" data-empty-label="預測因素 X 方框" data-explanation="X 是非隨機比較中表面上的預測因素：結構化人工智能素養教學。">X · 拖放變量</button>
+                  <span class="model-link direct-link" aria-hidden="true">⟶</span>
+                  <button type="button" class="role-slot y-slot" data-answer="post-score" data-placeholder="Y · 拖放變量" data-empty-label="結果 Y 方框" data-explanation="Y 是結果：若未考慮混淆變量，單元後人工智能素養分數可能看似與 X 有關。">Y · 拖放變量</button>
+                  <span class="model-link left-link" aria-hidden="true">↖</span>
+                  <button type="button" class="role-slot z-slot" data-answer="prior-training" data-placeholder="Z · 拖放變量" data-empty-label="混淆變量 Z 方框" data-explanation="Z 是混淆變量：先前人工智能培訓可能同時與接受結構化教學及單元後分數有關。">Z · 拖放變量</button>
+                  <span class="model-link right-link" aria-hidden="true">↗</span>
                 </div>
+                <p class="model-note">Z 同時與 X 和 Y 有關，因此即使不存在因果關係，也可能產生表面上的 X 至 Y 關係。</p>
+                <p class="model-slot-explanation" data-model-slot-explanation data-default="檢查後，點選已填寫的方框以了解其角色。" aria-live="polite">檢查後，點選已填寫的方框以了解其角色。</p>
               </article>
-              <article class="process-model-card">
-                <h3 class="model-title" data-model-title data-model-answer="模型 6 · 序列中介" data-model-waiting="檢查後顯示模型">檢查後顯示模型</h3>
-                <div class="serial-match-layout model-match-layout">
-                  <button type="button" class="role-slot" data-answer="independent" data-placeholder="拖放到此" aria-label="第一個空白方框">拖放到此</button><span class="match-arrow" aria-hidden="true">→</span>
-                  <button type="button" class="role-slot" data-answer="mediating" data-placeholder="拖放到此" aria-label="第二個空白方框">拖放到此</button><span class="match-arrow" aria-hidden="true">→</span>
-                  <button type="button" class="role-slot" data-answer="mediating" data-placeholder="拖放到此" aria-label="第三個空白方框">拖放到此</button><span class="match-arrow" aria-hidden="true">→</span>
-                  <button type="button" class="role-slot" data-answer="dependent" data-placeholder="拖放到此" aria-label="最後一個空白方框">拖放到此</button>
+              <article class="relationship-model-card" data-model-card>
+                <h3>與 X 相關的協變量</h3>
+                <div class="relationship-diagram covariate-model related-covariate-model" role="group" aria-label="相關的 X 和 Z 均指向 Y。">
+                  <button type="button" class="role-slot x-slot" data-answer="structured-instruction" data-placeholder="X · 拖放變量" data-empty-label="預測因素 X 方框" data-explanation="X 是其中一個預測因素：結構化人工智能素養教學。">X · 拖放變量</button>
+                  <span class="model-link direct-link" aria-hidden="true">⟶</span>
+                  <button type="button" class="role-slot y-slot" data-answer="post-score" data-placeholder="Y · 拖放變量" data-empty-label="結果 Y 方框" data-explanation="Y 是共同結果：單元後人工智能素養分數同時由 X 和 Z 預測。">Y · 拖放變量</button>
+                  <span class="model-link related-link" aria-hidden="true">↕</span>
+                  <button type="button" class="role-slot z-slot" data-answer="device-access" data-placeholder="Z · 拖放變量" data-empty-label="協變量 Z 方框" data-explanation="Z 是與 X 相關的協變量：裝置使用機會可能與接受教學有關，並同時預測單元後分數。">Z · 拖放變量</button>
+                  <span class="model-link right-link" aria-hidden="true">↗</span>
                 </div>
+                <p class="model-note">X 與 Z 相關，且兩者均預測 Y；若 X 與 Z 的連結很強，便難以分開其個別影響。</p>
+                <p class="model-slot-explanation" data-model-slot-explanation data-default="檢查後，點選已填寫的方框以了解其角色。" aria-live="polite">檢查後，點選已填寫的方框以了解其角色。</p>
               </article>
-            </div>
-            <div class="variable-match-actions"><button type="button" data-variable-match-check>檢查答案</button><button type="button" data-variable-match-clear>清除</button><span role="status" aria-live="polite" data-variable-match-status></span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide variable-match-slide conditional-match-slide" data-title="Activity · Match conditional process models" aria-hidden="true">
-      <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Activity</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
-        <div class="language-panel" data-language="en">
-          <h2>Match roles in conditional process models</h2>
-          <div class="variable-match-activity" data-variable-match data-complete-message="All variable types are correctly placed." data-review-message="Some boxes need another look." data-incomplete-message="Fill all boxes before checking.">
-            <div class="role-bank" aria-label="Variable types">
-              <button type="button" draggable="true" data-role-chip="independent" data-label="Independent variable">Independent variable</button>
-              <button type="button" draggable="true" data-role-chip="dependent" data-label="Dependent variable">Dependent variable</button>
-              <button type="button" draggable="true" data-role-chip="mediating" data-label="Mediating variable">Mediating variable</button>
-              <button type="button" draggable="true" data-role-chip="moderating" data-label="Moderating variable">Moderating variable</button>
-            </div>
-            <p class="drag-instruction">Use structured AI-literacy instruction → guided AI practice → AI-literacy score as the anchor. Drag or tap the variable types into each empty box, then check your answers.</p>
-            <div class="conditional-model-grid">
-              <article class="process-model-card">
-                <h3 class="model-title" data-model-title data-model-answer="Model 7 · First-stage moderation" data-model-waiting="Model to identify after checking">Model to identify after checking</h3>
-                <div class="conditional-match-layout first-stage-match model-match-layout">
-                  <button type="button" class="role-slot stage-moderator-slot" data-answer="moderating" data-placeholder="Drop here" aria-label="Empty moderator box">Drop here</button><span class="stage-pointer first-stage-pointer" aria-hidden="true">↓</span>
-                  <button type="button" class="role-slot x-slot" data-answer="independent" data-placeholder="Drop here" aria-label="Empty independent variable box">Drop here</button><span class="match-arrow a-arrow" aria-hidden="true">→</span>
-                  <button type="button" class="role-slot m-slot" data-answer="mediating" data-placeholder="Drop here" aria-label="Empty mediating variable box">Drop here</button><span class="match-arrow b-arrow" aria-hidden="true">→</span>
-                  <button type="button" class="role-slot y-slot" data-answer="dependent" data-placeholder="Drop here" aria-label="Empty dependent variable box">Drop here</button>
+              <article class="relationship-model-card" data-model-card>
+                <h3>與 X 無關的協變量</h3>
+                <div class="relationship-diagram covariate-model independent-covariate-model" role="group" aria-label="無關的 X 和 Z 均指向 Y。">
+                  <button type="button" class="role-slot x-slot" data-answer="structured-instruction" data-placeholder="X · 拖放變量" data-empty-label="預測因素 X 方框" data-explanation="X 是其中一個預測因素：結構化人工智能素養教學。">X · 拖放變量</button>
+                  <span class="model-link direct-link" aria-hidden="true">⟶</span>
+                  <button type="button" class="role-slot y-slot" data-answer="post-score" data-placeholder="Y · 拖放變量" data-empty-label="結果 Y 方框" data-explanation="Y 是共同結果：單元後人工智能素養分數同時由 X 和 Z 預測。">Y · 拖放變量</button>
+                  <button type="button" class="role-slot z-slot" data-answer="baseline-score" data-placeholder="Z · 拖放變量" data-empty-label="協變量 Z 方框" data-explanation="Z 是獨立協變量：基線人工智能素養分數會預測單元後分數，但在隨機分配教學下，應與 X 無關。">Z · 拖放變量</button>
+                  <span class="model-link right-link" aria-hidden="true">↗</span>
                 </div>
-              </article>
-              <article class="process-model-card">
-                <h3 class="model-title" data-model-title data-model-answer="Model 14 · Second-stage moderation" data-model-waiting="Model to identify after checking">Model to identify after checking</h3>
-                <div class="conditional-match-layout second-stage-match model-match-layout">
-                  <button type="button" class="role-slot stage-moderator-slot" data-answer="moderating" data-placeholder="Drop here" aria-label="Empty moderator box">Drop here</button><span class="stage-pointer second-stage-pointer" aria-hidden="true">↓</span>
-                  <button type="button" class="role-slot x-slot" data-answer="independent" data-placeholder="Drop here" aria-label="Empty independent variable box">Drop here</button><span class="match-arrow a-arrow" aria-hidden="true">→</span>
-                  <button type="button" class="role-slot m-slot" data-answer="mediating" data-placeholder="Drop here" aria-label="Empty mediating variable box">Drop here</button><span class="match-arrow b-arrow" aria-hidden="true">→</span>
-                  <button type="button" class="role-slot y-slot" data-answer="dependent" data-placeholder="Drop here" aria-label="Empty dependent variable box">Drop here</button>
-                </div>
-              </article>
-              <article class="process-model-card wide-model-card">
-                <h3 class="model-title" data-model-title data-model-answer="Model 58 · Two-stage moderation" data-model-waiting="Model to identify after checking">Model to identify after checking</h3>
-                <div class="conditional-match-layout two-stage-match model-match-layout">
-                  <button type="button" class="role-slot stage-moderator-slot" data-answer="moderating" data-placeholder="Drop here" aria-label="Empty moderator box">Drop here</button><span class="stage-pointer first-stage-pointer" aria-hidden="true">↙</span><span class="stage-pointer second-stage-pointer" aria-hidden="true">↘</span>
-                  <button type="button" class="role-slot x-slot" data-answer="independent" data-placeholder="Drop here" aria-label="Empty independent variable box">Drop here</button><span class="match-arrow a-arrow" aria-hidden="true">→</span>
-                  <button type="button" class="role-slot m-slot" data-answer="mediating" data-placeholder="Drop here" aria-label="Empty mediating variable box">Drop here</button><span class="match-arrow b-arrow" aria-hidden="true">→</span>
-                  <button type="button" class="role-slot y-slot" data-answer="dependent" data-placeholder="Drop here" aria-label="Empty dependent variable box">Drop here</button>
-                </div>
-              </article>
-            </div>
-            <div class="variable-match-actions"><button type="button" data-variable-match-check>Check answers</button><button type="button" data-variable-match-clear>Clear</button><span role="status" aria-live="polite" data-variable-match-status></span></div>
-          </div>
-        </div>
-        <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
-          <h2>配對條件歷程模型中的變量角色</h2>
-          <div class="variable-match-activity" data-variable-match data-complete-message="所有變量類型均已正確放置。" data-review-message="部分方框需要再檢查。" data-incomplete-message="請先填滿所有方框，再檢查答案。">
-            <div class="role-bank" aria-label="變量類型">
-              <button type="button" draggable="true" data-role-chip="independent" data-label="自變量">自變量</button>
-              <button type="button" draggable="true" data-role-chip="dependent" data-label="因變量">因變量</button>
-              <button type="button" draggable="true" data-role-chip="mediating" data-label="中介變量">中介變量</button>
-              <button type="button" draggable="true" data-role-chip="moderating" data-label="調節變量">調節變量</button>
-            </div>
-            <p class="drag-instruction">以「結構化人工智能素養教學 → 引導式人工智能實作 → 人工智能素養分數」為線索。把變量類型拖入或點選到每個空白方框，然後檢查答案。</p>
-            <div class="conditional-model-grid">
-              <article class="process-model-card">
-                <h3 class="model-title" data-model-title data-model-answer="模型 7 · 第一階段調節" data-model-waiting="檢查後顯示模型">檢查後顯示模型</h3>
-                <div class="conditional-match-layout first-stage-match model-match-layout">
-                  <button type="button" class="role-slot stage-moderator-slot" data-answer="moderating" data-placeholder="拖放到此" aria-label="調節變量空白方框">拖放到此</button><span class="stage-pointer first-stage-pointer" aria-hidden="true">↓</span>
-                  <button type="button" class="role-slot x-slot" data-answer="independent" data-placeholder="拖放到此" aria-label="自變量空白方框">拖放到此</button><span class="match-arrow a-arrow" aria-hidden="true">→</span>
-                  <button type="button" class="role-slot m-slot" data-answer="mediating" data-placeholder="拖放到此" aria-label="中介變量空白方框">拖放到此</button><span class="match-arrow b-arrow" aria-hidden="true">→</span>
-                  <button type="button" class="role-slot y-slot" data-answer="dependent" data-placeholder="拖放到此" aria-label="因變量空白方框">拖放到此</button>
-                </div>
-              </article>
-              <article class="process-model-card">
-                <h3 class="model-title" data-model-title data-model-answer="模型 14 · 第二階段調節" data-model-waiting="檢查後顯示模型">檢查後顯示模型</h3>
-                <div class="conditional-match-layout second-stage-match model-match-layout">
-                  <button type="button" class="role-slot stage-moderator-slot" data-answer="moderating" data-placeholder="拖放到此" aria-label="調節變量空白方框">拖放到此</button><span class="stage-pointer second-stage-pointer" aria-hidden="true">↓</span>
-                  <button type="button" class="role-slot x-slot" data-answer="independent" data-placeholder="拖放到此" aria-label="自變量空白方框">拖放到此</button><span class="match-arrow a-arrow" aria-hidden="true">→</span>
-                  <button type="button" class="role-slot m-slot" data-answer="mediating" data-placeholder="拖放到此" aria-label="中介變量空白方框">拖放到此</button><span class="match-arrow b-arrow" aria-hidden="true">→</span>
-                  <button type="button" class="role-slot y-slot" data-answer="dependent" data-placeholder="拖放到此" aria-label="因變量空白方框">拖放到此</button>
-                </div>
-              </article>
-              <article class="process-model-card wide-model-card">
-                <h3 class="model-title" data-model-title data-model-answer="模型 58 · 兩階段調節" data-model-waiting="檢查後顯示模型">檢查後顯示模型</h3>
-                <div class="conditional-match-layout two-stage-match model-match-layout">
-                  <button type="button" class="role-slot stage-moderator-slot" data-answer="moderating" data-placeholder="拖放到此" aria-label="調節變量空白方框">拖放到此</button><span class="stage-pointer first-stage-pointer" aria-hidden="true">↙</span><span class="stage-pointer second-stage-pointer" aria-hidden="true">↘</span>
-                  <button type="button" class="role-slot x-slot" data-answer="independent" data-placeholder="拖放到此" aria-label="自變量空白方框">拖放到此</button><span class="match-arrow a-arrow" aria-hidden="true">→</span>
-                  <button type="button" class="role-slot m-slot" data-answer="mediating" data-placeholder="拖放到此" aria-label="中介變量空白方框">拖放到此</button><span class="match-arrow b-arrow" aria-hidden="true">→</span>
-                  <button type="button" class="role-slot y-slot" data-answer="dependent" data-placeholder="拖放到此" aria-label="因變量空白方框">拖放到此</button>
-                </div>
+                <p class="model-note">X 與 Z 無關，但兩者均預測 Y。控制 Z 有助更精確地估計 X 與 Y 的關係。</p>
+                <p class="model-slot-explanation" data-model-slot-explanation data-default="檢查後，點選已填寫的方框以了解其角色。" aria-live="polite">檢查後，點選已填寫的方框以了解其角色。</p>
               </article>
             </div>
             <div class="variable-match-actions"><button type="button" data-variable-match-check>檢查答案</button><button type="button" data-variable-match-clear>清除</button><span role="status" aria-live="polite" data-variable-match-status></span></div>
@@ -1626,6 +1540,34 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
   .variable-match-actions { display: flex; align-items: center; gap: .7rem; min-height: 1.9rem; }
   .variable-match-actions button { border: 1px solid var(--green-mid); border-radius: 999px; padding: .35rem .7rem; background: #fff; color: var(--green-mid); font: 700 .75rem/1 'Source Sans 3', sans-serif; cursor: pointer; }
   .variable-match-actions span { color: var(--muted); font-size: .75rem; }
+  .relationship-models-slide h2 { margin-bottom: .3rem; font-size: clamp(2rem, 3.6vw, 3.2rem); }
+  .relationship-models-activity { gap: .4rem; }
+  .relationship-models-activity .drag-instruction { max-width: 90rem; }
+  .relationship-role-bank { gap: .35rem; }
+  .relationship-role-bank button { padding: .38rem .58rem; font-size: .7rem; }
+  .relationship-model-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .45rem; }
+  .relationship-model-card { display: grid; min-width: 0; grid-template-rows: auto auto auto 1fr; gap: .34rem; padding: .55rem; border-top: .28rem solid var(--green-mid); background: var(--green-soft); }
+  .relationship-model-card h3 { margin: 0; color: var(--green); font-size: .83rem; line-height: 1.15; }
+  .relationship-diagram { display: grid; min-height: 8.35rem; grid-template-columns: minmax(0, 1fr) .72rem minmax(0, 1fr) .72rem minmax(0, 1fr); grid-template-rows: minmax(2.7rem, auto) .95rem minmax(2.7rem, auto); gap: .16rem; align-items: center; }
+  .relationship-diagram .role-slot { min-height: 2.7rem; padding: .3rem .24rem; font-size: clamp(.58rem, .75vw, .69rem); overflow-wrap: anywhere; }
+  .model-link { color: var(--green-mid); font-size: 1.2rem; font-weight: 800; line-height: 1; text-align: center; }
+  .mediation-model .x-slot, .confound-model .x-slot, .covariate-model .x-slot { grid-column: 1; grid-row: 1; }
+  .mediation-model .y-slot, .confound-model .y-slot, .covariate-model .y-slot { grid-column: 5; grid-row: 1; }
+  .mediation-model .direct-link, .confound-model .direct-link, .covariate-model .direct-link { grid-column: 2 / 5; grid-row: 1; }
+  .mediation-model .left-link, .confound-model .left-link { grid-column: 2; grid-row: 2; }
+  .mediation-model .z-slot, .confound-model .z-slot { grid-column: 3; grid-row: 3; }
+  .mediation-model .right-link, .confound-model .right-link { grid-column: 4; grid-row: 2; }
+  .moderation-model .z-slot { grid-column: 3; grid-row: 1; }
+  .moderation-model .down-link { grid-column: 3; grid-row: 2; }
+  .moderation-model .x-slot { grid-column: 1; grid-row: 3; }
+  .moderation-model .direct-link { grid-column: 2 / 5; grid-row: 3; }
+  .moderation-model .y-slot { grid-column: 5; grid-row: 3; }
+  .covariate-model .z-slot { grid-column: 1; grid-row: 3; }
+  .covariate-model .right-link { grid-column: 4; grid-row: 2; }
+  .related-covariate-model .related-link { grid-column: 2; grid-row: 2; }
+  .model-note { min-height: 4.35rem; margin: 0; color: var(--muted); font-size: .68rem; line-height: 1.28; }
+  .model-slot-explanation { min-height: 3.35rem; margin: 0; padding: .38rem .42rem; border-left: .18rem solid var(--green-mid); background: #fff; color: var(--muted); font-size: .65rem; line-height: 1.27; }
+  .model-slot-explanation.is-active { border-color: #cb7436; background: #fff7f0; color: #75401f; }
   .example-line { margin: .7rem 0 0; color: var(--muted); }
   .literature-keyword-activity { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: .9rem; align-items: start; }
   .keyword-source-cards { display: grid; gap: .5rem; }
@@ -1697,6 +1639,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
     .build-field, .build-form label, .keyword-practice label { grid-template-columns: 1fr; gap: .2rem; }
     .compact-list { columns: 1; }
     .process-model-grid, .conditional-model-grid, .conditional-match-slide .conditional-model-grid { grid-template-columns: 1fr; }
+    .relationship-model-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .wide-model-card { grid-column: auto; }
     [data-fullscreen] { display: none; }
   }
@@ -1717,6 +1660,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
     .model-node small, .moderator-node small { font-size: .58rem; }
     .role-bank button { font-size: .7rem; }
     .role-slot { min-height: 2.45rem; font-size: .6rem; }
+    .relationship-model-grid { grid-template-columns: 1fr; }
     .chain-match-layout, .parallel-match-layout, .serial-match-layout { gap: .12rem; }
     .match-arrow { font-size: 1rem; }
     .overview-dialog ol { grid-template-columns: 1fr; }
@@ -1904,6 +1848,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
     const status = activity.querySelector<HTMLElement>('[data-variable-match-status]');
     const modelTitles = Array.from(activity.closest<HTMLElement>('.language-panel')?.querySelectorAll<HTMLElement>('[data-model-title]') || []);
     let selectedChip: HTMLButtonElement | null = null;
+    let answersChecked = false;
 
     function hideModelTitles() {
       modelTitles.forEach((title) => { title.textContent = title.dataset.modelWaiting || ''; });
@@ -1929,15 +1874,34 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
       if (status) status.textContent = '';
     }
 
+    function resetSlotExplanations() {
+      activity.querySelectorAll<HTMLElement>('[data-model-slot-explanation]').forEach((explanation) => {
+        explanation.textContent = explanation.dataset.default || '';
+        explanation.classList.remove('is-active');
+      });
+    }
+
+    function revealSlotExplanation(slot: HTMLButtonElement) {
+      if (!answersChecked || !slot.dataset.currentRole) return;
+      const explanation = slot.dataset.explanation;
+      const target = slot.closest<HTMLElement>('[data-model-card]')?.querySelector<HTMLElement>('[data-model-slot-explanation]');
+      if (!explanation || !target) return;
+      target.textContent = explanation;
+      target.classList.add('is-active');
+    }
+
     function checkAnswers() {
       const filled = slots.filter((slot) => slot.dataset.currentRole).length;
       clearMatchFeedback();
       if (filled < slots.length) {
+        answersChecked = false;
         hideModelTitles();
         if (status) status.textContent = activity.dataset.incompleteMessage || '';
         return;
       }
 
+      answersChecked = true;
+      selectChip(null);
       revealModelTitles();
       const correct = slots.filter((slot) => slot.dataset.currentRole === slot.dataset.answer).length;
       slots.forEach((slot) => {
@@ -1949,11 +1913,14 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
     }
 
     function placeRole(slot: HTMLButtonElement, role: string, label: string) {
+      answersChecked = false;
       slot.dataset.currentRole = role;
       slot.textContent = label;
+      slot.setAttribute('aria-label', label);
       slot.classList.add('is-filled');
       hideModelTitles();
       clearMatchFeedback();
+      resetSlotExplanations();
     }
 
     chips.forEach((chip) => {
@@ -1968,8 +1935,11 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
 
     slots.forEach((slot) => {
       slot.addEventListener('click', () => {
-        if (!selectedChip?.dataset.roleChip) return;
-        placeRole(slot, selectedChip.dataset.roleChip, selectedChip.dataset.label || selectedChip.textContent || '');
+        if (selectedChip?.dataset.roleChip) {
+          placeRole(slot, selectedChip.dataset.roleChip, selectedChip.dataset.label || selectedChip.textContent || '');
+          return;
+        }
+        revealSlotExplanation(slot);
       });
       slot.addEventListener('dragover', (event) => { event.preventDefault(); slot.classList.add('is-dragover'); });
       slot.addEventListener('dragleave', () => slot.classList.remove('is-dragover'));
@@ -1989,11 +1959,14 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
       slots.forEach((slot) => {
         slot.textContent = slot.dataset.placeholder || '';
         delete slot.dataset.currentRole;
+        slot.setAttribute('aria-label', slot.dataset.emptyLabel || slot.dataset.placeholder || 'Empty box');
         slot.classList.remove('is-filled', 'is-correct', 'is-incorrect', 'is-dragover');
       });
+      answersChecked = false;
       selectChip(null);
       hideModelTitles();
       clearMatchFeedback();
+      resetSlotExplanations();
     });
   });
 
