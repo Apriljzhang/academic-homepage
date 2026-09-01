@@ -1051,166 +1051,158 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
       </div>
     </section>
 
-    <section class="slide variable-match-slide relationship-models-slide" data-title="Activity · Map variables in relationship models" aria-hidden="true">
+    <section class="slide variable-match-slide relationship-map-slide" data-title="Activity · Drag variable types into relationship maps" aria-hidden="true">
       <div class="slide-inner">
         <header class="slide-header"><span class="eyebrow">Activity</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
         <div class="language-panel" data-language="en">
-          <h2>Map variables in relationship models</h2>
-          <div class="variable-match-activity relationship-models-activity" data-variable-match data-complete-message="All 15 variable placements are correct. Click a filled box to see why it serves that role." data-review-message="Some placements need another look. Correct boxes are green; revisit the orange boxes." data-incomplete-message="Fill all 15 boxes before checking.">
-            <p class="drag-instruction"><strong>Your task:</strong> drag variables into every X, Y and Z box. A variable chip may be reused across models. When all 15 boxes are filled, check your answers; then click a filled box to see why it serves that role.</p>
-            <div class="role-bank relationship-role-bank" aria-label="Variables from the AI-literacy study">
-              <button type="button" draggable="true" data-role-chip="structured-instruction" data-label="Structured AI-literacy instruction">Structured AI-literacy instruction</button>
-              <button type="button" draggable="true" data-role-chip="post-score" data-label="Post-module AI-literacy score">Post-module AI-literacy score</button>
-              <button type="button" draggable="true" data-role-chip="guided-practice" data-label="Guided AI practice">Guided AI practice</button>
-              <button type="button" draggable="true" data-role-chip="prior-experience" data-label="Prior AI experience">Prior AI experience</button>
-              <button type="button" draggable="true" data-role-chip="prior-training" data-label="Prior AI training">Prior AI training</button>
-              <button type="button" draggable="true" data-role-chip="device-access" data-label="Access to devices">Access to devices</button>
-              <button type="button" draggable="true" data-role-chip="baseline-score" data-label="Baseline AI-literacy score">Baseline AI-literacy score</button>
+          <h2>Drag variable types into relationship maps</h2>
+          <p class="lead small-lead">Rectangles represent observed variables; ovals represent latent constructs. Use the arrows and each shape's position to decide what belongs in it.</p>
+          <div class="visual-alphabet" role="list" aria-label="Visual alphabet for research models">
+            <article role="listitem"><span class="map-shape map-box">Rectangle</span><p><strong>Observed variable</strong><small>A concrete score, group or recorded value.</small></p></article>
+            <article role="listitem"><span class="map-shape map-oval">Oval</span><p><strong>Latent variable</strong><small>An unobserved construct measured by several items.</small></p></article>
+            <article role="listitem"><span class="legend-path direct-path" aria-hidden="true"></span><p><strong>Straight arrow</strong><small>Directional prediction or path coefficient.</small></p></article>
+            <article role="listitem"><span class="legend-path covariance-path" aria-hidden="true"></span><p><strong>Curved double arrow</strong><small>Background covariance or correlation.</small></p></article>
+          </div>
+          <div class="variable-match-activity relationship-map-activity" data-variable-match data-complete-message="All 13 placements are correct. Click a filled shape to see why it serves that role." data-review-message="Some placements need another look. Correct shapes are green; revisit the orange shapes." data-incomplete-message="Fill all 13 shapes before checking.">
+            <p class="drag-instruction"><strong>Your task:</strong> drag the variable types into the blank shapes. A type chip may be reused. Use the arrows and the position of each shape to decide.</p>
+            <div class="role-bank relationship-role-bank" aria-label="Variable types">
+              <button type="button" draggable="true" data-role-chip="independent-x" data-label="Independent Variable / X">Independent Variable / X</button>
+              <button type="button" draggable="true" data-role-chip="dependent-y" data-label="Dependent Variable / Y">Dependent Variable / Y</button>
+              <button type="button" draggable="true" data-role-chip="mediator-m" data-label="Mediator / M">Mediator / M</button>
+              <button type="button" draggable="true" data-role-chip="moderator-w" data-label="Moderator / W">Moderator / W</button>
+              <button type="button" draggable="true" data-role-chip="control-c" data-label="Control Variable / C">Control Variable / C</button>
+              <button type="button" draggable="true" data-role-chip="latent-variable" data-label="Latent Variable">Latent Variable</button>
             </div>
-            <div class="relationship-model-grid">
-              <article class="relationship-model-card" data-model-card>
-                <h3>Mediated relationship</h3>
-                <div class="relationship-diagram mediation-model" role="group" aria-label="A mediated relationship has X pointing directly to Y and indirectly through Z.">
-                  <button type="button" class="role-slot x-slot" data-answer="structured-instruction" data-placeholder="X · Drop variable" data-empty-label="Predictor X variable box" data-explanation="X is the predictor: structured AI-literacy instruction is expected to influence guided practice and the post-module score.">X · Drop variable</button>
-                  <span class="model-link direct-link" aria-hidden="true">⟶</span>
-                  <button type="button" class="role-slot y-slot" data-answer="post-score" data-placeholder="Y · Drop variable" data-empty-label="Response Y variable box" data-explanation="Y is the response: post-module AI-literacy score is the outcome being explained.">Y · Drop variable</button>
-                  <span class="model-link left-link" aria-hidden="true">↘</span>
-                  <button type="button" class="role-slot z-slot" data-answer="guided-practice" data-placeholder="Z · Drop variable" data-empty-label="Mediator Z variable box" data-explanation="Z is the mediator: guided AI practice is the proposed pathway through which instruction relates to the score.">Z · Drop variable</button>
-                  <span class="model-link right-link" aria-hidden="true">↗</span>
-                </div>
-                <p class="model-note">Part of X's effect on Y is proposed to operate through mediator Z, alongside a possible direct X-to-Y path.</p>
-                <p class="model-slot-explanation" data-model-slot-explanation data-default="After checking, click a filled box to see its role." aria-live="polite">After checking, click a filled box to see its role.</p>
+            <div class="relationship-canvas-grid">
+              <article class="relationship-canvas-card" data-model-card>
+                <h3>Direct relationship <span>Regression / path analysis</span></h3>
+                <figure class="map-figure"><div class="map-canvas direct-canvas" aria-label="Blank observed-variable rectangle points directly to another blank observed-variable rectangle.">
+                  <button type="button" class="map-shape map-box role-slot" data-answer="independent-x" data-placeholder="" data-empty-label="Blank rectangle at the start of a direct path" data-explanation="Independent Variable / X begins a directional path: it is the presumed cause or predictor."></button>
+                  <span class="canvas-arrow" aria-hidden="true"></span>
+                  <button type="button" class="map-shape map-box role-slot" data-answer="dependent-y" data-placeholder="" data-empty-label="Blank rectangle at the end of a direct path" data-explanation="Dependent Variable / Y receives the path: it is the outcome or response being explained."></button>
+                </div><figcaption>One directional path.</figcaption></figure>
+                <p class="map-slot-explanation" data-model-slot-explanation data-default="After checking, click a filled shape to see its role." aria-live="polite">After checking, click a filled shape to see its role.</p>
               </article>
-              <article class="relationship-model-card" data-model-card>
-                <h3>Moderated relationship</h3>
-                <div class="relationship-diagram moderation-model" role="group" aria-label="A moderated relationship has Z pointing to the relationship between X and Y.">
-                  <button type="button" class="role-slot z-slot" data-answer="prior-experience" data-placeholder="Z · Drop variable" data-empty-label="Moderator Z variable box" data-explanation="Z is the moderator: prior AI experience may change the strength of the instruction-to-score relationship.">Z · Drop variable</button>
-                  <span class="model-link up-link" aria-hidden="true">↑</span>
-                  <button type="button" class="role-slot x-slot" data-answer="structured-instruction" data-placeholder="X · Drop variable" data-empty-label="Predictor X variable box" data-explanation="X is the predictor: structured AI-literacy instruction is expected to affect the post-module score.">X · Drop variable</button>
-                  <span class="model-link direct-link" aria-hidden="true">⟶</span>
-                  <button type="button" class="role-slot y-slot" data-answer="post-score" data-placeholder="Y · Drop variable" data-empty-label="Response Y variable box" data-explanation="Y is the response: post-module AI-literacy score is the outcome being explained.">Y · Drop variable</button>
-                </div>
-                <p class="model-note">The effect of X on Y changes at different values of moderator Z.</p>
-                <p class="model-slot-explanation" data-model-slot-explanation data-default="After checking, click a filled box to see its role." aria-live="polite">After checking, click a filled box to see its role.</p>
+              <article class="relationship-canvas-card" data-model-card>
+                <h3>Intervening relationship <span>Mediation model</span></h3>
+                <figure class="map-figure"><div class="map-canvas mediation-canvas" aria-label="Three blank observed-variable rectangles form an indirect path, with a direct path from the first to the last rectangle.">
+                  <button type="button" class="map-shape map-box role-slot mediation-x" data-answer="independent-x" data-placeholder="" data-empty-label="Blank rectangle at the start of an indirect path" data-explanation="Independent Variable / X begins the mediated pathway."></button>
+                  <span class="canvas-arrow mediation-a" aria-hidden="true"></span>
+                  <button type="button" class="map-shape map-box role-slot mediation-m" data-answer="mediator-m" data-placeholder="" data-empty-label="Blank rectangle between the first and last variables" data-explanation="Mediator / M sits between X and Y: it explains the pathway through which X may relate to Y."></button>
+                  <span class="canvas-arrow mediation-b" aria-hidden="true"></span>
+                  <button type="button" class="map-shape map-box role-slot mediation-y" data-answer="dependent-y" data-placeholder="" data-empty-label="Blank rectangle at the end of an indirect path" data-explanation="Dependent Variable / Y is the outcome at the end of the mediated pathway."></button>
+                  <span class="mediation-direct" aria-hidden="true"></span>
+                </div><figcaption>A pathway plus a direct path.</figcaption></figure>
+                <p class="map-slot-explanation" data-model-slot-explanation data-default="After checking, click a filled shape to see its role." aria-live="polite">After checking, click a filled shape to see its role.</p>
               </article>
-              <article class="relationship-model-card" data-model-card>
-                <h3>Spurious relationship (confound)</h3>
-                <div class="relationship-diagram confound-model" role="group" aria-label="A confounding variable Z points to both X and Y.">
-                  <button type="button" class="role-slot x-slot" data-answer="structured-instruction" data-placeholder="X · Drop variable" data-empty-label="Predictor X variable box" data-explanation="X is the apparent predictor in a non-randomised comparison: structured AI-literacy instruction.">X · Drop variable</button>
-                  <span class="model-link direct-link" aria-hidden="true">⟶</span>
-                  <button type="button" class="role-slot y-slot" data-answer="post-score" data-placeholder="Y · Drop variable" data-empty-label="Response Y variable box" data-explanation="Y is the response: post-module AI-literacy score may appear related to X without accounting for the confounder.">Y · Drop variable</button>
-                  <span class="model-link left-link" aria-hidden="true">↖</span>
-                  <button type="button" class="role-slot z-slot" data-answer="prior-training" data-placeholder="Z · Drop variable" data-empty-label="Confounder Z variable box" data-explanation="Z is a confounder: prior AI training can relate to both receiving structured instruction and post-module score.">Z · Drop variable</button>
-                  <span class="model-link right-link" aria-hidden="true">↗</span>
-                </div>
-                <p class="model-note">Z is related to X and Y, so it can create an apparent X-to-Y relationship even where no causal relation exists.</p>
-                <p class="model-slot-explanation" data-model-slot-explanation data-default="After checking, click a filled box to see its role." aria-live="polite">After checking, click a filled box to see its role.</p>
+              <article class="relationship-canvas-card" data-model-card>
+                <h3>Conditional relationship <span>Moderation model</span></h3>
+                <figure class="map-figure"><div class="map-canvas moderation-canvas" aria-label="A blank rectangle above points at the arrow between two blank rectangles.">
+                  <button type="button" class="map-shape map-box role-slot moderator-w" data-answer="moderator-w" data-placeholder="" data-empty-label="Blank rectangle pointing at the main relationship" data-explanation="Moderator / W points at the X → Y arrow: it specifies when or for whom that relationship changes."></button>
+                  <span class="moderator-pointer" aria-hidden="true"></span>
+                  <button type="button" class="map-shape map-box role-slot moderation-x" data-answer="independent-x" data-placeholder="" data-empty-label="Blank rectangle at the start of the moderated path" data-explanation="Independent Variable / X begins the relationship whose strength or direction may change."></button>
+                  <span class="canvas-arrow moderation-arrow" aria-hidden="true"></span>
+                  <button type="button" class="map-shape map-box role-slot moderation-y" data-answer="dependent-y" data-placeholder="" data-empty-label="Blank rectangle at the end of the moderated path" data-explanation="Dependent Variable / Y is the outcome of the moderated relationship."></button>
+                </div><figcaption>A context points at the X → Y arrow.</figcaption></figure>
+                <p class="map-slot-explanation" data-model-slot-explanation data-default="After checking, click a filled shape to see its role." aria-live="polite">After checking, click a filled shape to see its role.</p>
               </article>
-              <article class="relationship-model-card" data-model-card>
-                <h3>Covariate related to X</h3>
-                <div class="relationship-diagram covariate-model related-covariate-model" role="group" aria-label="Related X and Z both point to Y.">
-                  <button type="button" class="role-slot x-slot" data-answer="structured-instruction" data-placeholder="X · Drop variable" data-empty-label="Predictor X variable box" data-explanation="X is one predictor: structured AI-literacy instruction.">X · Drop variable</button>
-                  <span class="model-link direct-link" aria-hidden="true">⟶</span>
-                  <button type="button" class="role-slot y-slot" data-answer="post-score" data-placeholder="Y · Drop variable" data-empty-label="Response Y variable box" data-explanation="Y is the shared outcome: post-module AI-literacy score is predicted by both X and Z.">Y · Drop variable</button>
-                  <span class="model-link related-link" aria-hidden="true">↕</span>
-                  <button type="button" class="role-slot z-slot" data-answer="device-access" data-placeholder="Z · Drop variable" data-empty-label="Covariate Z variable box" data-explanation="Z is a covariate related to X: access to devices may relate to instruction exposure and also predict post-module score.">Z · Drop variable</button>
-                  <span class="model-link right-link" aria-hidden="true">↗</span>
-                </div>
-                <p class="model-note">X and Z are related and both predict Y; a strong X-to-Z link makes their individual effects hard to separate.</p>
-                <p class="model-slot-explanation" data-model-slot-explanation data-default="After checking, click a filled box to see its role." aria-live="polite">After checking, click a filled box to see its role.</p>
+              <article class="relationship-canvas-card" data-model-card>
+                <h3>Background association <span>Covariance / control model</span></h3>
+                <figure class="map-figure"><div class="map-canvas covariance-canvas" aria-label="Two blank rectangles covary, and both point to a third blank rectangle.">
+                  <button type="button" class="map-shape map-box role-slot covariance-c" data-answer="control-c" data-placeholder="" data-empty-label="Blank background rectangle that covaries with X" data-explanation="Control Variable / C is a background predictor accounted for alongside X when explaining Y."></button>
+                  <button type="button" class="map-shape map-box role-slot covariance-x" data-answer="independent-x" data-placeholder="" data-empty-label="Blank independent-variable rectangle that covaries with C" data-explanation="Independent Variable / X is the focal predictor of Y and may covary with the control variable."></button>
+                  <span class="covariance-arc" aria-hidden="true"></span>
+                  <span class="canvas-arrow covariance-c-arrow" aria-hidden="true"></span>
+                  <span class="canvas-arrow covariance-x-arrow" aria-hidden="true"></span>
+                  <button type="button" class="map-shape map-box role-slot covariance-y" data-answer="dependent-y" data-placeholder="" data-empty-label="Blank outcome rectangle receiving two arrows" data-explanation="Dependent Variable / Y is the outcome receiving separate paths from X and C."></button>
+                </div><figcaption>Two background variables covary and both point to an outcome.</figcaption></figure>
+                <p class="map-slot-explanation" data-model-slot-explanation data-default="After checking, click a filled shape to see its role." aria-live="polite">After checking, click a filled shape to see its role.</p>
               </article>
-              <article class="relationship-model-card" data-model-card>
-                <h3>Covariate independent of X</h3>
-                <div class="relationship-diagram covariate-model independent-covariate-model" role="group" aria-label="Unrelated X and Z both point to Y.">
-                  <button type="button" class="role-slot x-slot" data-answer="structured-instruction" data-placeholder="X · Drop variable" data-empty-label="Predictor X variable box" data-explanation="X is one predictor: structured AI-literacy instruction.">X · Drop variable</button>
-                  <span class="model-link direct-link" aria-hidden="true">⟶</span>
-                  <button type="button" class="role-slot y-slot" data-answer="post-score" data-placeholder="Y · Drop variable" data-empty-label="Response Y variable box" data-explanation="Y is the shared outcome: post-module AI-literacy score is predicted by both X and Z.">Y · Drop variable</button>
-                  <button type="button" class="role-slot z-slot" data-answer="baseline-score" data-placeholder="Z · Drop variable" data-empty-label="Covariate Z variable box" data-explanation="Z is an independent covariate: baseline AI-literacy score predicts post-module score but should not be related to randomly assigned instruction.">Z · Drop variable</button>
-                  <span class="model-link right-link" aria-hidden="true">↗</span>
-                </div>
-                <p class="model-note">X and Z are unrelated but both predict Y. Controlling Z helps estimate X's relationship with Y more precisely.</p>
-                <p class="model-slot-explanation" data-model-slot-explanation data-default="After checking, click a filled box to see its role." aria-live="polite">After checking, click a filled box to see its role.</p>
+              <article class="relationship-canvas-card sem-canvas-card" data-model-card>
+                <h3>Advanced preview <span>Structural equation modelling (SEM)</span></h3>
+                <figure class="map-figure"><div class="sem-canvas" aria-label="Blank item rectangles measure two blank latent-variable ovals connected by a directional path.">
+                  <div class="sem-measurement"><div class="sem-items" aria-hidden="true"><span></span><span></span><span></span></div><div class="sem-errors" aria-hidden="true"><i></i><i></i><i></i></div><span class="measurement-arrow" aria-hidden="true"></span><button type="button" class="map-shape map-oval role-slot" data-answer="latent-variable" data-placeholder="" data-empty-label="Blank latent-variable oval measured by observed items" data-explanation="A Latent Variable is an unobserved construct represented by an oval and measured using several observed item rectangles."></button></div>
+                  <span class="canvas-arrow sem-structural-arrow" aria-hidden="true"></span>
+                  <div class="sem-measurement"><div class="sem-items" aria-hidden="true"><span></span><span></span><span></span></div><div class="sem-errors" aria-hidden="true"><i></i><i></i><i></i></div><span class="measurement-arrow" aria-hidden="true"></span><button type="button" class="map-shape map-oval role-slot" data-answer="latent-variable" data-placeholder="" data-empty-label="Blank latent-variable oval predicted by another latent variable" data-explanation="A Latent Variable is an unobserved construct represented by an oval and measured using several observed item rectangles."></button></div>
+                </div><figcaption>Item rectangles measure latent ovals; the ovals are linked by a structural path.</figcaption></figure>
+                <p class="map-slot-explanation" data-model-slot-explanation data-default="After checking, click a filled shape to see its role." aria-live="polite">After checking, click a filled shape to see its role.</p>
               </article>
             </div>
             <div class="variable-match-actions"><button type="button" data-variable-match-check>Check answers</button><button type="button" data-variable-match-clear>Clear</button><span role="status" aria-live="polite" data-variable-match-status></span></div>
           </div>
         </div>
         <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
-          <h2>把變量放入關係模型</h2>
-          <div class="variable-match-activity relationship-models-activity" data-variable-match data-complete-message="全部 15 個變量位置均正確。點選任何已填寫的方框，以了解它為何擔當該角色。" data-review-message="部分位置需要再檢查。正確方框會顯示綠色；請重新查看橙色方框。" data-incomplete-message="請先填滿全部 15 個方框，再檢查答案。">
-            <p class="drag-instruction"><strong>你的任務：</strong>把變量拖入每個 X、Y 和 Z 方框。同一張變量卡可重複使用於不同模型。填滿全部 15 個方框後，檢查答案；然後點選已填寫的方框，了解它為何擔當該角色。</p>
-            <div class="role-bank relationship-role-bank" aria-label="人工智能素養研究中的變量">
-              <button type="button" draggable="true" data-role-chip="structured-instruction" data-label="結構化人工智能素養教學">結構化人工智能素養教學</button>
-              <button type="button" draggable="true" data-role-chip="post-score" data-label="單元後人工智能素養分數">單元後人工智能素養分數</button>
-              <button type="button" draggable="true" data-role-chip="guided-practice" data-label="引導式人工智能實作">引導式人工智能實作</button>
-              <button type="button" draggable="true" data-role-chip="prior-experience" data-label="先前人工智能經驗">先前人工智能經驗</button>
-              <button type="button" draggable="true" data-role-chip="prior-training" data-label="先前人工智能培訓">先前人工智能培訓</button>
-              <button type="button" draggable="true" data-role-chip="device-access" data-label="裝置使用機會">裝置使用機會</button>
-              <button type="button" draggable="true" data-role-chip="baseline-score" data-label="基線人工智能素養分數">基線人工智能素養分數</button>
+          <h2>把變量類型拖入關係圖</h2>
+          <p class="lead small-lead">矩形代表觀察變量；橢圓代表潛在構念。請根據箭頭與每個形狀的位置，判斷應放入的變量類型。</p>
+          <div class="visual-alphabet" role="list" aria-label="研究模型的視覺符號">
+            <article role="listitem"><span class="map-shape map-box">矩形</span><p><strong>觀察變量</strong><small>試算表中的具體分數、組別或紀錄值。</small></p></article>
+            <article role="listitem"><span class="map-shape map-oval">橢圓</span><p><strong>潛在變量</strong><small>由多個題目測量的未觀察構念。</small></p></article>
+            <article role="listitem"><span class="legend-path direct-path" aria-hidden="true"></span><p><strong>直線箭頭</strong><small>有方向的預測或路徑係數。</small></p></article>
+            <article role="listitem"><span class="legend-path covariance-path" aria-hidden="true"></span><p><strong>彎曲雙向箭頭</strong><small>背景共變異數或相關。</small></p></article>
+          </div>
+          <div class="variable-match-activity relationship-map-activity" data-variable-match data-complete-message="全部 13 個位置均正確。點選已填寫的形狀，以了解它為何擔當該角色。" data-review-message="部分位置需要再檢查。正確形狀會顯示綠色；請重新查看橙色形狀。" data-incomplete-message="請先填滿全部 13 個形狀，再檢查答案。">
+            <p class="drag-instruction"><strong>你的任務：</strong>把變量類型拖入空白形狀。同一類型卡可重複使用。請根據箭頭與每個形狀的位置作出判斷。</p>
+            <div class="role-bank relationship-role-bank" aria-label="變量類型">
+              <button type="button" draggable="true" data-role-chip="independent-x" data-label="自變量／X">自變量／X</button>
+              <button type="button" draggable="true" data-role-chip="dependent-y" data-label="因變量／Y">因變量／Y</button>
+              <button type="button" draggable="true" data-role-chip="mediator-m" data-label="中介變量／M">中介變量／M</button>
+              <button type="button" draggable="true" data-role-chip="moderator-w" data-label="調節變量／W">調節變量／W</button>
+              <button type="button" draggable="true" data-role-chip="control-c" data-label="控制變量／C">控制變量／C</button>
+              <button type="button" draggable="true" data-role-chip="latent-variable" data-label="潛在變量">潛在變量</button>
             </div>
-            <div class="relationship-model-grid">
-              <article class="relationship-model-card" data-model-card>
-                <h3>中介關係</h3>
-                <div class="relationship-diagram mediation-model" role="group" aria-label="中介關係中，X 直接指向 Y，亦會透過 Z 間接指向 Y。">
-                  <button type="button" class="role-slot x-slot" data-answer="structured-instruction" data-placeholder="X · 拖放變量" data-empty-label="預測因素 X 方框" data-explanation="X 是預測因素：結構化人工智能素養教學預期會影響引導式實作及單元後分數。">X · 拖放變量</button>
-                  <span class="model-link direct-link" aria-hidden="true">⟶</span>
-                  <button type="button" class="role-slot y-slot" data-answer="post-score" data-placeholder="Y · 拖放變量" data-empty-label="結果 Y 方框" data-explanation="Y 是結果：單元後人工智能素養分數是需要解釋的結果。">Y · 拖放變量</button>
-                  <span class="model-link left-link" aria-hidden="true">↘</span>
-                  <button type="button" class="role-slot z-slot" data-answer="guided-practice" data-placeholder="Z · 拖放變量" data-empty-label="中介變量 Z 方框" data-explanation="Z 是中介變量：引導式人工智能實作是教學與分數之間的預設途徑。">Z · 拖放變量</button>
-                  <span class="model-link right-link" aria-hidden="true">↗</span>
-                </div>
-                <p class="model-note">X 對 Y 的部分影響被認為是透過中介變量 Z 發生，同時可能保留直接的 X 至 Y 路徑。</p>
-                <p class="model-slot-explanation" data-model-slot-explanation data-default="檢查後，點選已填寫的方框以了解其角色。" aria-live="polite">檢查後，點選已填寫的方框以了解其角色。</p>
+            <div class="relationship-canvas-grid">
+              <article class="relationship-canvas-card" data-model-card>
+                <h3>直接關係 <span>迴歸／路徑分析</span></h3>
+                <figure class="map-figure"><div class="map-canvas direct-canvas" aria-label="一個空白觀察變量矩形直接指向另一個空白觀察變量矩形。">
+                  <button type="button" class="map-shape map-box role-slot" data-answer="independent-x" data-placeholder="" data-empty-label="直接路徑起點的空白矩形" data-explanation="自變量／X 是方向性路徑的起點：它是預設的原因或預測因素。"></button>
+                  <span class="canvas-arrow" aria-hidden="true"></span>
+                  <button type="button" class="map-shape map-box role-slot" data-answer="dependent-y" data-placeholder="" data-empty-label="直接路徑終點的空白矩形" data-explanation="因變量／Y 接收路徑：它是需要解釋的結果或反應。"></button>
+                </div><figcaption>單一方向路徑。</figcaption></figure>
+                <p class="map-slot-explanation" data-model-slot-explanation data-default="檢查後，點選已填寫的形狀以了解其角色。" aria-live="polite">檢查後，點選已填寫的形狀以了解其角色。</p>
               </article>
-              <article class="relationship-model-card" data-model-card>
-                <h3>調節關係</h3>
-                <div class="relationship-diagram moderation-model" role="group" aria-label="調節關係中，Z 指向 X 與 Y 之間的關係。">
-                  <button type="button" class="role-slot z-slot" data-answer="prior-experience" data-placeholder="Z · 拖放變量" data-empty-label="調節變量 Z 方框" data-explanation="Z 是調節變量：先前人工智能經驗可能改變教學與分數之間關係的強度。">Z · 拖放變量</button>
-                  <span class="model-link up-link" aria-hidden="true">↑</span>
-                  <button type="button" class="role-slot x-slot" data-answer="structured-instruction" data-placeholder="X · 拖放變量" data-empty-label="預測因素 X 方框" data-explanation="X 是預測因素：結構化人工智能素養教學預期會影響單元後分數。">X · 拖放變量</button>
-                  <span class="model-link direct-link" aria-hidden="true">⟶</span>
-                  <button type="button" class="role-slot y-slot" data-answer="post-score" data-placeholder="Y · 拖放變量" data-empty-label="結果 Y 方框" data-explanation="Y 是結果：單元後人工智能素養分數是需要解釋的結果。">Y · 拖放變量</button>
-                </div>
-                <p class="model-note">X 對 Y 的影響會因調節變量 Z 的不同取值而改變。</p>
-                <p class="model-slot-explanation" data-model-slot-explanation data-default="檢查後，點選已填寫的方框以了解其角色。" aria-live="polite">檢查後，點選已填寫的方框以了解其角色。</p>
+              <article class="relationship-canvas-card" data-model-card>
+                <h3>中介關係 <span>中介模型</span></h3>
+                <figure class="map-figure"><div class="map-canvas mediation-canvas" aria-label="三個空白觀察變量矩形形成間接路徑，第一個與最後一個矩形之間另有直接路徑。">
+                  <button type="button" class="map-shape map-box role-slot mediation-x" data-answer="independent-x" data-placeholder="" data-empty-label="間接路徑起點的空白矩形" data-explanation="自變量／X 是中介途徑的起點。"></button>
+                  <span class="canvas-arrow mediation-a" aria-hidden="true"></span>
+                  <button type="button" class="map-shape map-box role-slot mediation-m" data-answer="mediator-m" data-placeholder="" data-empty-label="首尾變量之間的空白矩形" data-explanation="中介變量／M 位於 X 與 Y 之間：它解釋 X 如何或為何與 Y 相關。"></button>
+                  <span class="canvas-arrow mediation-b" aria-hidden="true"></span>
+                  <button type="button" class="map-shape map-box role-slot mediation-y" data-answer="dependent-y" data-placeholder="" data-empty-label="間接路徑終點的空白矩形" data-explanation="因變量／Y 是中介途徑終點的結果。"></button>
+                  <span class="mediation-direct" aria-hidden="true"></span>
+                </div><figcaption>一條途徑及一條直接路徑。</figcaption></figure>
+                <p class="map-slot-explanation" data-model-slot-explanation data-default="檢查後，點選已填寫的形狀以了解其角色。" aria-live="polite">檢查後，點選已填寫的形狀以了解其角色。</p>
               </article>
-              <article class="relationship-model-card" data-model-card>
-                <h3>虛假關係（混淆）</h3>
-                <div class="relationship-diagram confound-model" role="group" aria-label="混淆變量 Z 同時指向 X 和 Y。">
-                  <button type="button" class="role-slot x-slot" data-answer="structured-instruction" data-placeholder="X · 拖放變量" data-empty-label="預測因素 X 方框" data-explanation="X 是非隨機比較中表面上的預測因素：結構化人工智能素養教學。">X · 拖放變量</button>
-                  <span class="model-link direct-link" aria-hidden="true">⟶</span>
-                  <button type="button" class="role-slot y-slot" data-answer="post-score" data-placeholder="Y · 拖放變量" data-empty-label="結果 Y 方框" data-explanation="Y 是結果：若未考慮混淆變量，單元後人工智能素養分數可能看似與 X 有關。">Y · 拖放變量</button>
-                  <span class="model-link left-link" aria-hidden="true">↖</span>
-                  <button type="button" class="role-slot z-slot" data-answer="prior-training" data-placeholder="Z · 拖放變量" data-empty-label="混淆變量 Z 方框" data-explanation="Z 是混淆變量：先前人工智能培訓可能同時與接受結構化教學及單元後分數有關。">Z · 拖放變量</button>
-                  <span class="model-link right-link" aria-hidden="true">↗</span>
-                </div>
-                <p class="model-note">Z 同時與 X 和 Y 有關，因此即使不存在因果關係，也可能產生表面上的 X 至 Y 關係。</p>
-                <p class="model-slot-explanation" data-model-slot-explanation data-default="檢查後，點選已填寫的方框以了解其角色。" aria-live="polite">檢查後，點選已填寫的方框以了解其角色。</p>
+              <article class="relationship-canvas-card" data-model-card>
+                <h3>條件關係 <span>調節模型</span></h3>
+                <figure class="map-figure"><div class="map-canvas moderation-canvas" aria-label="上方的空白矩形指向兩個空白矩形之間的箭頭。">
+                  <button type="button" class="map-shape map-box role-slot moderator-w" data-answer="moderator-w" data-placeholder="" data-empty-label="指向主要關係的空白矩形" data-explanation="調節變量／W 指向 X → Y 的箭頭：它說明關係在何時或對誰會改變。"></button>
+                  <span class="moderator-pointer" aria-hidden="true"></span>
+                  <button type="button" class="map-shape map-box role-slot moderation-x" data-answer="independent-x" data-placeholder="" data-empty-label="受調節路徑起點的空白矩形" data-explanation="自變量／X 是關係強度或方向可能改變的起點。"></button>
+                  <span class="canvas-arrow moderation-arrow" aria-hidden="true"></span>
+                  <button type="button" class="map-shape map-box role-slot moderation-y" data-answer="dependent-y" data-placeholder="" data-empty-label="受調節路徑終點的空白矩形" data-explanation="因變量／Y 是受調節關係的結果。"></button>
+                </div><figcaption>情境變量指向 X → Y 的箭頭。</figcaption></figure>
+                <p class="map-slot-explanation" data-model-slot-explanation data-default="檢查後，點選已填寫的形狀以了解其角色。" aria-live="polite">檢查後，點選已填寫的形狀以了解其角色。</p>
               </article>
-              <article class="relationship-model-card" data-model-card>
-                <h3>與 X 相關的協變量</h3>
-                <div class="relationship-diagram covariate-model related-covariate-model" role="group" aria-label="相關的 X 和 Z 均指向 Y。">
-                  <button type="button" class="role-slot x-slot" data-answer="structured-instruction" data-placeholder="X · 拖放變量" data-empty-label="預測因素 X 方框" data-explanation="X 是其中一個預測因素：結構化人工智能素養教學。">X · 拖放變量</button>
-                  <span class="model-link direct-link" aria-hidden="true">⟶</span>
-                  <button type="button" class="role-slot y-slot" data-answer="post-score" data-placeholder="Y · 拖放變量" data-empty-label="結果 Y 方框" data-explanation="Y 是共同結果：單元後人工智能素養分數同時由 X 和 Z 預測。">Y · 拖放變量</button>
-                  <span class="model-link related-link" aria-hidden="true">↕</span>
-                  <button type="button" class="role-slot z-slot" data-answer="device-access" data-placeholder="Z · 拖放變量" data-empty-label="協變量 Z 方框" data-explanation="Z 是與 X 相關的協變量：裝置使用機會可能與接受教學有關，並同時預測單元後分數。">Z · 拖放變量</button>
-                  <span class="model-link right-link" aria-hidden="true">↗</span>
-                </div>
-                <p class="model-note">X 與 Z 相關，且兩者均預測 Y；若 X 與 Z 的連結很強，便難以分開其個別影響。</p>
-                <p class="model-slot-explanation" data-model-slot-explanation data-default="檢查後，點選已填寫的方框以了解其角色。" aria-live="polite">檢查後，點選已填寫的方框以了解其角色。</p>
+              <article class="relationship-canvas-card" data-model-card>
+                <h3>背景關聯 <span>共變異數／控制模型</span></h3>
+                <figure class="map-figure"><div class="map-canvas covariance-canvas" aria-label="兩個空白矩形共變，並同時指向第三個空白矩形。">
+                  <button type="button" class="map-shape map-box role-slot covariance-c" data-answer="control-c" data-placeholder="" data-empty-label="與 X 共變的空白背景矩形" data-explanation="控制變量／C 是在解釋 Y 時與 X 一併納入的背景預測因素。"></button>
+                  <button type="button" class="map-shape map-box role-slot covariance-x" data-answer="independent-x" data-placeholder="" data-empty-label="與 C 共變的空白自變量矩形" data-explanation="自變量／X 是 Y 的焦點預測因素，並可能與控制變量共變。"></button>
+                  <span class="covariance-arc" aria-hidden="true"></span>
+                  <span class="canvas-arrow covariance-c-arrow" aria-hidden="true"></span>
+                  <span class="canvas-arrow covariance-x-arrow" aria-hidden="true"></span>
+                  <button type="button" class="map-shape map-box role-slot covariance-y" data-answer="dependent-y" data-placeholder="" data-empty-label="接收兩條箭頭的空白結果矩形" data-explanation="因變量／Y 是同時接收 X 與 C 的獨立路徑的結果。"></button>
+                </div><figcaption>兩個背景變量共變，且均指向結果。</figcaption></figure>
+                <p class="map-slot-explanation" data-model-slot-explanation data-default="檢查後，點選已填寫的形狀以了解其角色。" aria-live="polite">檢查後，點選已填寫的形狀以了解其角色。</p>
               </article>
-              <article class="relationship-model-card" data-model-card>
-                <h3>與 X 無關的協變量</h3>
-                <div class="relationship-diagram covariate-model independent-covariate-model" role="group" aria-label="無關的 X 和 Z 均指向 Y。">
-                  <button type="button" class="role-slot x-slot" data-answer="structured-instruction" data-placeholder="X · 拖放變量" data-empty-label="預測因素 X 方框" data-explanation="X 是其中一個預測因素：結構化人工智能素養教學。">X · 拖放變量</button>
-                  <span class="model-link direct-link" aria-hidden="true">⟶</span>
-                  <button type="button" class="role-slot y-slot" data-answer="post-score" data-placeholder="Y · 拖放變量" data-empty-label="結果 Y 方框" data-explanation="Y 是共同結果：單元後人工智能素養分數同時由 X 和 Z 預測。">Y · 拖放變量</button>
-                  <button type="button" class="role-slot z-slot" data-answer="baseline-score" data-placeholder="Z · 拖放變量" data-empty-label="協變量 Z 方框" data-explanation="Z 是獨立協變量：基線人工智能素養分數會預測單元後分數，但在隨機分配教學下，應與 X 無關。">Z · 拖放變量</button>
-                  <span class="model-link right-link" aria-hidden="true">↗</span>
-                </div>
-                <p class="model-note">X 與 Z 無關，但兩者均預測 Y。控制 Z 有助更精確地估計 X 與 Y 的關係。</p>
-                <p class="model-slot-explanation" data-model-slot-explanation data-default="檢查後，點選已填寫的方框以了解其角色。" aria-live="polite">檢查後，點選已填寫的方框以了解其角色。</p>
+              <article class="relationship-canvas-card sem-canvas-card" data-model-card>
+                <h3>進階預覽 <span>結構方程模型（SEM）</span></h3>
+                <figure class="map-figure"><div class="sem-canvas" aria-label="空白題目矩形測量兩個由方向性路徑連結的空白潛在變量橢圓。">
+                  <div class="sem-measurement"><div class="sem-items" aria-hidden="true"><span></span><span></span><span></span></div><div class="sem-errors" aria-hidden="true"><i></i><i></i><i></i></div><span class="measurement-arrow" aria-hidden="true"></span><button type="button" class="map-shape map-oval role-slot" data-answer="latent-variable" data-placeholder="" data-empty-label="由觀察題目測量的空白潛在變量橢圓" data-explanation="潛在變量是不可直接觀察的構念，以橢圓表示，並由多個觀察題目矩形測量。"></button></div>
+                  <span class="canvas-arrow sem-structural-arrow" aria-hidden="true"></span>
+                  <div class="sem-measurement"><div class="sem-items" aria-hidden="true"><span></span><span></span><span></span></div><div class="sem-errors" aria-hidden="true"><i></i><i></i><i></i></div><span class="measurement-arrow" aria-hidden="true"></span><button type="button" class="map-shape map-oval role-slot" data-answer="latent-variable" data-placeholder="" data-empty-label="由另一個潛在變量預測的空白潛在變量橢圓" data-explanation="潛在變量是不可直接觀察的構念，以橢圓表示，並由多個觀察題目矩形測量。"></button></div>
+                </div><figcaption>題目矩形測量潛在橢圓；橢圓由結構路徑連結。</figcaption></figure>
+                <p class="map-slot-explanation" data-model-slot-explanation data-default="檢查後，點選已填寫的形狀以了解其角色。" aria-live="polite">檢查後，點選已填寫的形狀以了解其角色。</p>
               </article>
             </div>
             <div class="variable-match-actions"><button type="button" data-variable-match-check>檢查答案</button><button type="button" data-variable-match-clear>清除</button><span role="status" aria-live="polite" data-variable-match-status></span></div>
@@ -1717,34 +1709,80 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
   .variable-match-actions { display: flex; align-items: center; gap: .7rem; min-height: 1.9rem; }
   .variable-match-actions button { border: 1px solid var(--green-mid); border-radius: 999px; padding: .35rem .7rem; background: #fff; color: var(--green-mid); font: 700 .75rem/1 'Source Sans 3', sans-serif; cursor: pointer; }
   .variable-match-actions span { color: var(--muted); font-size: .75rem; }
-  .relationship-models-slide h2 { margin-bottom: .3rem; font-size: clamp(2rem, 3.6vw, 3.2rem); }
-  .relationship-models-activity { gap: .4rem; }
-  .relationship-models-activity .drag-instruction { max-width: 90rem; }
+  .relationship-map-slide h2 { margin-bottom: .25rem; font-size: clamp(2rem, 3.6vw, 3.2rem); }
+  .relationship-map-slide .lead { margin-bottom: .45rem; }
+  .relationship-map-activity { gap: .4rem; }
+  .relationship-map-activity .drag-instruction { max-width: 88rem; }
   .relationship-role-bank { gap: .35rem; }
   .relationship-role-bank button { padding: .38rem .58rem; font-size: .7rem; }
-  .relationship-model-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .45rem; }
-  .relationship-model-card { display: grid; min-width: 0; grid-template-rows: auto auto auto 1fr; gap: .34rem; padding: .55rem; border-top: .28rem solid var(--green-mid); background: var(--green-soft); }
-  .relationship-model-card h3 { margin: 0; color: var(--green); font-size: .83rem; line-height: 1.15; }
-  .relationship-diagram { display: grid; min-height: 8.35rem; grid-template-columns: minmax(0, 1fr) .72rem minmax(0, 1fr) .72rem minmax(0, 1fr); grid-template-rows: minmax(2.7rem, auto) .95rem minmax(2.7rem, auto); gap: .16rem; align-items: center; }
-  .relationship-diagram .role-slot { min-height: 2.7rem; padding: .3rem .24rem; font-size: clamp(.58rem, .75vw, .69rem); overflow-wrap: anywhere; }
-  .model-link { color: var(--green-mid); font-size: 1.2rem; font-weight: 800; line-height: 1; text-align: center; }
-  .mediation-model .x-slot, .confound-model .x-slot, .covariate-model .x-slot { grid-column: 1; grid-row: 1; }
-  .mediation-model .y-slot, .confound-model .y-slot, .covariate-model .y-slot { grid-column: 5; grid-row: 1; }
-  .mediation-model .direct-link, .confound-model .direct-link, .covariate-model .direct-link { grid-column: 2 / 5; grid-row: 1; }
-  .mediation-model .left-link, .confound-model .left-link { grid-column: 2; grid-row: 2; }
-  .mediation-model .z-slot, .confound-model .z-slot { grid-column: 3; grid-row: 3; }
-  .mediation-model .right-link, .confound-model .right-link { grid-column: 4; grid-row: 2; }
-  .moderation-model .x-slot { grid-column: 1; grid-row: 1; }
-  .moderation-model .direct-link { grid-column: 2 / 5; grid-row: 1; }
-  .moderation-model .y-slot { grid-column: 5; grid-row: 1; }
-  .moderation-model .up-link { grid-column: 3; grid-row: 2; }
-  .moderation-model .z-slot { grid-column: 3; grid-row: 3; }
-  .covariate-model .z-slot { grid-column: 1; grid-row: 3; }
-  .covariate-model .right-link { grid-column: 4; grid-row: 2; }
-  .related-covariate-model .related-link { grid-column: 2; grid-row: 2; }
-  .model-note { min-height: 4.35rem; margin: 0; color: var(--muted); font-size: .68rem; line-height: 1.28; }
-  .model-slot-explanation { min-height: 3.35rem; margin: 0; padding: .38rem .42rem; border-left: .18rem solid var(--green-mid); background: #fff; color: var(--muted); font-size: .65rem; line-height: 1.27; }
-  .model-slot-explanation.is-active { border-color: #cb7436; background: #fff7f0; color: #75401f; }
+  .visual-alphabet { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .4rem; margin-bottom: .48rem; }
+  .visual-alphabet article { display: flex; min-width: 0; align-items: center; gap: .45rem; padding: .38rem .46rem; border: 1px solid var(--line); background: #fff; }
+  .visual-alphabet p { display: grid; gap: .06rem; margin: 0; color: var(--green); font-size: .72rem; line-height: 1.2; }
+  .visual-alphabet strong { font-size: .76rem; }
+  .visual-alphabet small { color: var(--muted); font-size: .64rem; }
+  .visual-alphabet .map-shape { flex: 0 0 4.15rem; min-height: 1.85rem; padding: .2rem; font: 700 .58rem/1.1 'Source Sans 3', sans-serif; }
+  .map-shape { box-sizing: border-box; border: 2px dashed var(--green-mid); background: #fff; color: var(--green); text-align: center; }
+  .map-box { border-radius: .18rem; }
+  .map-oval { border-radius: 999px; }
+  .legend-path { position: relative; display: block; flex: 0 0 3.5rem; height: 2px; background: var(--green-mid); }
+  .legend-path::after, .canvas-arrow::after { content: ''; position: absolute; top: 50%; right: -.02rem; width: 0; height: 0; border-top: .28rem solid transparent; border-bottom: .28rem solid transparent; border-left: .42rem solid var(--green-mid); transform: translateY(-50%); }
+  .covariance-path { width: 2.7rem; height: 1.3rem; margin-left: .35rem; border: 2px solid var(--green-mid); border-right: 0; border-radius: 1.4rem 0 0 1.4rem; background: transparent; }
+  .covariance-path::before, .covariance-path::after { content: ''; position: absolute; left: -.28rem; width: 0; height: 0; border-right: .38rem solid var(--green-mid); border-top: .23rem solid transparent; border-bottom: .23rem solid transparent; }
+  .covariance-path::before { top: -.11rem; transform: rotate(42deg); }
+  .covariance-path::after { bottom: -.11rem; transform: rotate(-42deg); }
+  .relationship-canvas-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .46rem; }
+  .relationship-canvas-card { display: grid; min-width: 0; gap: .34rem; padding: .55rem; border-top: .28rem solid var(--green-mid); background: var(--green-soft); }
+  .relationship-canvas-card h3 { display: grid; gap: .06rem; margin: 0; color: var(--green); font-size: .84rem; line-height: 1.15; }
+  .relationship-canvas-card h3 span { color: var(--green-mid); font: 800 .6rem/1 'Source Sans 3', sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+  .sem-canvas-card { grid-column: 1 / -1; }
+  .map-figure { margin: 0; }
+  .map-figure figcaption { margin-top: .25rem; color: var(--muted); font-size: .64rem; line-height: 1.25; }
+  .map-canvas { min-height: 5.3rem; padding: .45rem; border: 1px solid var(--line); background: #fff; }
+  .relationship-map-slide .map-shape.role-slot { display: grid; min-width: 0; min-height: 2.7rem; place-items: center; border-width: 2px; padding: .3rem; background: #fff; color: var(--green); font: 700 clamp(.58rem, .8vw, .7rem)/1.15 'Source Sans 3', sans-serif; overflow-wrap: anywhere; }
+  .relationship-map-slide .map-shape.role-slot.is-filled { border-style: solid; background: var(--green-soft); }
+  .relationship-map-slide .map-shape.role-slot.is-correct { border-style: solid; background: #dff3e5; }
+  .relationship-map-slide .map-shape.role-slot.is-incorrect { border-style: solid; border-color: #c56b35; background: #fff4ec; color: #8a3f1f; }
+  .relationship-map-slide .map-shape.role-slot:focus-visible { outline: .18rem solid rgba(31,107,69,.26); outline-offset: .12rem; }
+  .canvas-arrow { position: relative; display: block; min-width: 1.25rem; height: 2px; background: var(--green-mid); }
+  .direct-canvas { display: flex; align-items: center; gap: .48rem; }
+  .direct-canvas .role-slot { flex: 1 1 0; }
+  .direct-canvas .canvas-arrow { flex: 0 0 2.7rem; }
+  .mediation-canvas { display: grid; grid-template-columns: minmax(0, 1fr) 1.35rem minmax(0, 1fr) 1.35rem minmax(0, 1fr); grid-template-rows: minmax(2.7rem, auto) 1.35rem; gap: .22rem; align-items: center; }
+  .mediation-x { grid-column: 1; grid-row: 1; }
+  .mediation-a { grid-column: 2; grid-row: 1; }
+  .mediation-m { grid-column: 3; grid-row: 1; }
+  .mediation-b { grid-column: 4; grid-row: 1; }
+  .mediation-y { grid-column: 5; grid-row: 1; }
+  .mediation-direct { position: relative; grid-column: 1 / -1; grid-row: 2; height: 1.1rem; margin: 0 .45rem; border-bottom: 2px solid var(--green-mid); border-radius: 0 0 1.1rem 1.1rem; }
+  .mediation-direct::after { content: ''; position: absolute; right: -.02rem; bottom: -.28rem; width: 0; height: 0; border-top: .28rem solid transparent; border-bottom: .28rem solid transparent; border-left: .42rem solid var(--green-mid); }
+  .moderation-canvas { display: grid; grid-template-columns: minmax(0, 1fr) 2.3rem minmax(0, 1fr); grid-template-rows: minmax(2.6rem, auto) 1.05rem minmax(2.7rem, auto); gap: .16rem; align-items: center; }
+  .moderator-w { grid-column: 2; grid-row: 1; width: 6.2rem; justify-self: center; }
+  .moderator-pointer { position: relative; grid-column: 2; grid-row: 2; justify-self: center; width: 2px; height: 100%; background: var(--green-mid); }
+  .moderator-pointer::after { content: ''; position: absolute; bottom: -.02rem; left: 50%; width: 0; height: 0; border-top: .38rem solid var(--green-mid); border-left: .28rem solid transparent; border-right: .28rem solid transparent; transform: translateX(-50%); }
+  .moderation-x { grid-column: 1; grid-row: 3; }
+  .moderation-arrow { grid-column: 2; grid-row: 3; width: 100%; }
+  .moderation-y { grid-column: 3; grid-row: 3; }
+  .covariance-canvas { display: grid; grid-template-columns: minmax(0, 1fr) 2.3rem minmax(0, 1fr); grid-template-rows: minmax(2.7rem, auto) minmax(2.7rem, auto); gap: .35rem .28rem; align-items: center; }
+  .covariance-c { grid-column: 1; grid-row: 1; }
+  .covariance-x { grid-column: 1; grid-row: 2; }
+  .covariance-y { grid-column: 3; grid-row: 1 / -1; align-self: center; }
+  .covariance-c-arrow { grid-column: 2; grid-row: 1; width: 100%; }
+  .covariance-x-arrow { grid-column: 2; grid-row: 2; width: 100%; }
+  .covariance-arc { position: relative; grid-column: 1; grid-row: 1 / -1; justify-self: end; width: 1.05rem; height: 3.2rem; border-right: 2px solid var(--green-mid); border-radius: 0 1.2rem 1.2rem 0; }
+  .covariance-arc::before, .covariance-arc::after { content: ''; position: absolute; right: -.31rem; width: 0; height: 0; border-left: .38rem solid var(--green-mid); border-top: .23rem solid transparent; border-bottom: .23rem solid transparent; }
+  .covariance-arc::before { top: -.13rem; transform: rotate(-42deg); }
+  .covariance-arc::after { bottom: -.13rem; transform: rotate(42deg); }
+  .sem-canvas { display: grid; grid-template-columns: minmax(0, 1fr) 3.2rem minmax(0, 1fr); gap: .5rem; align-items: center; padding: .55rem; border: 1px solid var(--line); background: #fff; }
+  .sem-measurement { display: grid; grid-template-rows: 1.35rem .62rem .72rem minmax(2.8rem, auto); gap: .14rem; min-width: 0; }
+  .sem-items { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .25rem; }
+  .sem-items span { display: block; min-height: 1.28rem; border: 1.5px dashed var(--green-mid); background: #fff; }
+  .sem-errors { display: grid; grid-template-columns: repeat(3, 1fr); gap: .25rem; }
+  .sem-errors i { display: block; width: .42rem; height: .42rem; justify-self: center; border: 1px solid var(--green-mid); border-radius: 50%; }
+  .measurement-arrow { position: relative; display: block; justify-self: center; width: 2px; height: .72rem; background: var(--green-mid); }
+  .measurement-arrow::after { content: ''; position: absolute; bottom: -.02rem; left: 50%; width: 0; height: 0; border-top: .32rem solid var(--green-mid); border-left: .24rem solid transparent; border-right: .24rem solid transparent; transform: translateX(-50%); }
+  .sem-structural-arrow { width: 100%; }
+  .map-slot-explanation { min-height: 2.45rem; margin: 0; padding: .35rem .4rem; border-left: .18rem solid var(--green-mid); background: #fff; color: var(--muted); font-size: .64rem; line-height: 1.25; }
+  .map-slot-explanation.is-active { border-color: #cb7436; background: #fff7f0; color: #75401f; }
   .example-line { margin: .7rem 0 0; color: var(--muted); }
   .literature-keyword-activity { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: .9rem; align-items: start; }
   .keyword-source-cards { display: grid; gap: .5rem; }
@@ -1821,6 +1859,9 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
     .build-field, .build-form label, .keyword-practice label { grid-template-columns: 1fr; gap: .2rem; }
     .compact-list { columns: 1; }
     .process-model-grid, .conditional-model-grid, .conditional-match-slide .conditional-model-grid { grid-template-columns: 1fr; }
+    .relationship-canvas-grid { grid-template-columns: 1fr; }
+    .sem-canvas-card { grid-column: auto; }
+    .visual-alphabet { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .relationship-model-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .wide-model-card { grid-column: auto; }
     [data-fullscreen] { display: none; }
@@ -1844,6 +1885,9 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
     .model-node small, .moderator-node small { font-size: .58rem; }
     .role-bank button { font-size: .7rem; }
     .role-slot { min-height: 2.45rem; font-size: .6rem; }
+    .visual-alphabet { grid-template-columns: 1fr; }
+    .sem-canvas { grid-template-columns: 1fr; }
+    .sem-structural-arrow { width: 2rem; justify-self: center; transform: rotate(90deg); }
     .relationship-model-grid { grid-template-columns: 1fr; }
     .chain-match-layout, .parallel-match-layout, .serial-match-layout { gap: .12rem; }
     .match-arrow { font-size: 1rem; }
