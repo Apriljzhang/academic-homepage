@@ -925,6 +925,78 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
       </div>
     </section>
 
+    <section class="slide relationship-types-slide" data-title="Instruction · Types of variable relationships" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Instruction</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <div class="language-panel" data-language="en">
+          <h2>Types of variable relationships</h2>
+          <p class="lead small-lead">Read the arrow before interpreting a model: variables may move together, one may predict another, or a third may change the relationship between them.</p>
+          <div class="relationship-type-grid">
+            <article class="relationship-type-card">
+              <span class="relationship-type-kicker">Symmetrical / association</span>
+              <h3>Variables change together</h3>
+              <div class="relationship-visual association-visual" role="img" aria-label="Variable A and Variable B connected by a curved two-headed arrow."><span class="relationship-node node-a">A</span><span class="association-path" aria-hidden="true"></span><span class="relationship-node node-b">B</span></div>
+              <p><strong>Concept:</strong> A and B change together, but neither is necessarily causing the other.</p>
+              <p class="relationship-math"><strong>Math term:</strong> covariance or correlation</p>
+              <p class="relationship-example"><strong>Teaching example:</strong> Ice-cream sales and shark attacks both rise in summer; one does not cause the other.</p>
+              <p class="relationship-transfer"><strong>AI-literacy transfer:</strong> Guided AI practice and AI-literacy scores may covary because prior AI experience affects both.</p>
+            </article>
+            <article class="relationship-type-card">
+              <span class="relationship-type-kicker">Asymmetrical / causal</span>
+              <h3>One variable predicts another</h3>
+              <div class="relationship-visual causal-visual" role="img" aria-label="Variable X points directly to Variable Y."><span class="relationship-node node-x">X</span><span class="causal-path" aria-hidden="true"></span><span class="relationship-node node-y">Y</span></div>
+              <p><strong>Concept:</strong> One variable directly predicts, influences or changes another in a specified direction.</p>
+              <p class="relationship-math"><strong>Math term:</strong> regression; a directional beta coefficient</p>
+              <p class="relationship-example"><strong>Teaching example:</strong> Hours studied → exam score.</p>
+              <p class="relationship-transfer"><strong>AI-literacy transfer:</strong> Structured AI-literacy instruction → post-module AI-literacy score.</p>
+            </article>
+            <article class="relationship-type-card">
+              <span class="relationship-type-kicker">Conditional / interaction</span>
+              <h3>A third variable changes the arrow</h3>
+              <div class="relationship-visual interaction-visual" role="img" aria-label="Moderator W points to the arrow from Variable X to Variable Y."><span class="relationship-node node-w">W</span><span class="moderation-path" aria-hidden="true"></span><span class="relationship-node node-x">X</span><span class="causal-path" aria-hidden="true"></span><span class="relationship-node node-y">Y</span></div>
+              <p><strong>Concept:</strong> The X–Y relationship is not fixed; it changes depending on a third variable.</p>
+              <p class="relationship-math"><strong>Math term:</strong> interaction effect or moderation</p>
+              <p class="relationship-example"><strong>Teaching example:</strong> Exercise → muscle mass is stronger or weaker depending on diet.</p>
+              <p class="relationship-transfer"><strong>AI-literacy transfer:</strong> Prior AI experience may change how strongly instruction relates to AI-literacy scores.</p>
+            </article>
+          </div>
+        </div>
+        <div class="language-panel" data-language="zh" hidden lang="zh-Hant">
+          <h2>變量關係的類型</h2>
+          <p class="lead small-lead">在解讀模型前，先閱讀箭頭：變量可以一起變化、一個預測另一個，或由第三個變量改變兩者之間的關係。</p>
+          <div class="relationship-type-grid">
+            <article class="relationship-type-card">
+              <span class="relationship-type-kicker">對稱／關聯</span>
+              <h3>變量一起變化</h3>
+              <div class="relationship-visual association-visual" role="img" aria-label="變量 A 與變量 B 由彎曲的雙向箭頭連結。"><span class="relationship-node node-a">A</span><span class="association-path" aria-hidden="true"></span><span class="relationship-node node-b">B</span></div>
+              <p><strong>概念：</strong>A 與 B 一起變化，但不代表其中一個必然造成另一個。</p>
+              <p class="relationship-math"><strong>數學術語：</strong>共變異數或相關</p>
+              <p class="relationship-example"><strong>教學例子：</strong>雪糕銷量與鯊魚襲擊事件在夏季同時上升；兩者並非互為因果。</p>
+              <p class="relationship-transfer"><strong>人工智能素養轉用：</strong>引導式人工智能實作與人工智能素養分數可能一起變化，因為先前人工智能經驗同時影響兩者。</p>
+            </article>
+            <article class="relationship-type-card">
+              <span class="relationship-type-kicker">非對稱／因果</span>
+              <h3>一個變量預測另一個</h3>
+              <div class="relationship-visual causal-visual" role="img" aria-label="變量 X 直接指向變量 Y。"><span class="relationship-node node-x">X</span><span class="causal-path" aria-hidden="true"></span><span class="relationship-node node-y">Y</span></div>
+              <p><strong>概念：</strong>一個變量以指定方向直接預測、影響或改變另一個變量。</p>
+              <p class="relationship-math"><strong>數學術語：</strong>迴歸；方向性的 beta 係數</p>
+              <p class="relationship-example"><strong>教學例子：</strong>溫習時數 → 考試分數。</p>
+              <p class="relationship-transfer"><strong>人工智能素養轉用：</strong>結構化人工智能素養教學 → 單元後人工智能素養分數。</p>
+            </article>
+            <article class="relationship-type-card">
+              <span class="relationship-type-kicker">條件／交互作用</span>
+              <h3>第三個變量改變箭頭</h3>
+              <div class="relationship-visual interaction-visual" role="img" aria-label="調節變量 W 指向變量 X 至變量 Y 的箭頭。"><span class="relationship-node node-w">W</span><span class="moderation-path" aria-hidden="true"></span><span class="relationship-node node-x">X</span><span class="causal-path" aria-hidden="true"></span><span class="relationship-node node-y">Y</span></div>
+              <p><strong>概念：</strong>X 與 Y 的關係並非固定；它會因第三個變量而改變。</p>
+              <p class="relationship-math"><strong>數學術語：</strong>交互作用效應或調節</p>
+              <p class="relationship-example"><strong>教學例子：</strong>運動 → 肌肉量的關係會因飲食而變強或變弱。</p>
+              <p class="relationship-transfer"><strong>人工智能素養轉用：</strong>先前人工智能經驗可能改變教學與人工智能素養分數關係的強度。</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="slide" data-title="Example · A variable model in action" aria-hidden="true">
       <div class="slide-inner">
         <header class="slide-header"><span class="eyebrow">Example</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
@@ -1316,6 +1388,30 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
   .variable-lens-subtypes > div { display: grid; gap: .08rem; min-width: 0; padding: .3rem .34rem; border-left: .18rem solid var(--green-mid); background: #fff; }
   .variable-lens-subtypes strong { color: var(--green); font-size: .67rem; }
   .variable-lens-subtypes span { min-width: 0; }
+  .relationship-types-slide h2 { margin-bottom: .32rem; font-size: clamp(2.1rem, 3.8vw, 3.3rem); }
+  .relationship-type-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .62rem; }
+  .relationship-type-card { display: grid; align-content: start; min-width: 0; padding: .62rem .68rem; border-top: .3rem solid var(--green-mid); background: var(--green-soft); }
+  .relationship-type-kicker { color: var(--green-mid); font: 800 .64rem/1 'Source Sans 3', sans-serif; letter-spacing: .12em; text-transform: uppercase; }
+  .relationship-type-card h3 { margin: .23rem 0 .15rem; color: var(--green); font-size: .98rem; line-height: 1.15; }
+  .relationship-type-card p { margin: .28rem 0 0; color: var(--muted); font-size: .68rem; line-height: 1.3; }
+  .relationship-type-card p strong { color: var(--green); }
+  .relationship-math { padding: .3rem .36rem; border-left: .18rem solid var(--green-mid); background: #fff; }
+  .relationship-example { color: var(--green) !important; }
+  .relationship-transfer { padding-top: .3rem; border-top: 1px solid var(--line); }
+  .relationship-visual { position: relative; height: 3.75rem; margin: .1rem 0 .16rem; }
+  .relationship-node { position: absolute; z-index: 1; display: grid; width: 1.62rem; height: 1.62rem; place-items: center; border-radius: .26rem; background: var(--green); color: #fff; font: 800 .74rem/1 'Source Sans 3', sans-serif; }
+  .association-visual .node-a, .causal-visual .node-x, .interaction-visual .node-x { top: 1.62rem; left: 9%; }
+  .association-visual .node-b, .causal-visual .node-y, .interaction-visual .node-y { top: 1.62rem; right: 9%; }
+  .association-path { position: absolute; top: 1.18rem; right: 20%; left: 20%; height: 1.1rem; border-top: 2px solid var(--green-mid); border-radius: 50% 50% 0 0; }
+  .association-path::before, .association-path::after { content: ''; position: absolute; top: -.27rem; width: .42rem; height: .42rem; }
+  .association-path::before { left: -.18rem; border-bottom: 2px solid var(--green-mid); border-left: 2px solid var(--green-mid); transform: rotate(45deg); }
+  .association-path::after { right: -.18rem; border-right: 2px solid var(--green-mid); border-bottom: 2px solid var(--green-mid); transform: rotate(-45deg); }
+  .causal-path { position: absolute; right: 23%; left: 23%; top: 2.42rem; border-top: 2px solid var(--green-mid); }
+  .causal-path::after { content: ''; position: absolute; top: -.31rem; right: -.04rem; border-top: .31rem solid transparent; border-bottom: .31rem solid transparent; border-left: .42rem solid var(--green-mid); }
+  .interaction-visual .node-w { top: .08rem; left: calc(50% - .81rem); }
+  .interaction-visual .causal-path { top: 2.42rem; }
+  .moderation-path { position: absolute; top: 1.7rem; left: 50%; height: .66rem; border-left: 2px solid var(--green-mid); }
+  .moderation-path::after { content: ''; position: absolute; bottom: -.04rem; left: -.29rem; border-right: .29rem solid transparent; border-left: .29rem solid transparent; border-top: .4rem solid var(--green-mid); }
   summary { padding: .8rem; color: var(--green); font-weight: 700; cursor: pointer; }
   details p { margin: 0; padding: .78rem; border-top: 1px solid var(--line); background: var(--green-soft); color: var(--muted); font-size: .85rem; line-height: 1.4; }
   .three-source { display: grid; grid-template-columns: repeat(3, 1fr); gap: .8rem; }
@@ -1723,6 +1819,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
     .hypothesis-types-slide .hypothesis-type-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .hypothesis-types-comic { width: min(100%, 38rem); margin: .65rem auto 0; }
     .illustration-layout, .confounder-layout, .hypothesis-introduction, .operationalization-layout, .literature-keyword-activity { grid-template-columns: 1fr; }
+    .relationship-type-grid { grid-template-columns: 1fr; }
     .variable-lens-root { width: 100%; }
     .variable-lens-split, .variable-lens-branch::before { display: none; }
     .variable-lens-branches { grid-template-columns: 1fr; }
