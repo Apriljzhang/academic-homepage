@@ -413,8 +413,41 @@ const timerInput = document.querySelector<HTMLInputElement>('[data-timer-minutes
 const timerStart = document.querySelector<HTMLButtonElement>('[data-timer-start]');
 const timerReset = document.querySelector<HTMLButtonElement>('[data-timer-reset]');
 const timerOutput = document.querySelector<HTMLOutputElement>('[data-timer-output]');
+const timerUsesDing = Boolean(document.querySelector('[data-timer-ding]'));
 let timerRemaining = 0;
 let timerInterval = 0;
+let timerAudioContext: AudioContext | undefined;
+
+function prepareTimerDing() {
+  if (!timerUsesDing) return;
+  try {
+    timerAudioContext ??= new AudioContext();
+    if (timerAudioContext.state === 'suspended') void timerAudioContext.resume();
+  } catch {}
+}
+
+function playTimerDing() {
+  if (!timerUsesDing || !timerAudioContext) return;
+  const play = () => {
+    const now = timerAudioContext!.currentTime;
+    [880, 1320].forEach((frequency, index) => {
+      const start = now + index * .16;
+      const oscillator = timerAudioContext!.createOscillator();
+      const gain = timerAudioContext!.createGain();
+      oscillator.type = 'sine';
+      oscillator.frequency.setValueAtTime(frequency, start);
+      gain.gain.setValueAtTime(.0001, start);
+      gain.gain.exponentialRampToValueAtTime(.12, start + .01);
+      gain.gain.exponentialRampToValueAtTime(.0001, start + .22);
+      oscillator.connect(gain).connect(timerAudioContext!.destination);
+      oscillator.start(start);
+      oscillator.stop(start + .24);
+    });
+  };
+  if (timerAudioContext.state === 'suspended') void timerAudioContext.resume().then(play).catch(() => {});
+  else play();
+}
+
 function paintTimer() {
   if (!timerOutput) return;
   timerOutput.hidden = timerRemaining <= 0;
@@ -427,10 +460,14 @@ timerStart?.addEventListener('click', () => {
     if (minutes < 1) { timerInput?.focus(); return; }
     timerRemaining = minutes * 60; paintTimer();
   }
+  prepareTimerDing();
   timerStart.textContent = 'Pause';
   timerInterval = window.setInterval(() => {
     timerRemaining = Math.max(0, timerRemaining - 1); paintTimer();
-    if (!timerRemaining) { window.clearInterval(timerInterval); timerInterval = 0; timerStart.textContent = 'Start'; }
+    if (!timerRemaining) {
+      window.clearInterval(timerInterval); timerInterval = 0; timerStart.textContent = 'Start';
+      playTimerDing();
+    }
   }, 1000);
 });
 timerReset?.addEventListener('click', () => {

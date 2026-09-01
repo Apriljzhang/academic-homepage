@@ -38,7 +38,7 @@ const exitQuestions = [
 <CourseSlideLayout {title} {description}>
   <div class="slide-tools" aria-label="Slide tools">
     <button type="button" class="translate-button" data-translate-current aria-pressed="false">中文</button>
-    <div class="global-timer" aria-label="Presentation timer">
+    <div class="global-timer" aria-label="Presentation timer" data-timer-ding>
       <input type="number" min="1" max="999" inputmode="numeric" placeholder="min" aria-label="Timer minutes" data-timer-minutes />
       <button type="button" data-timer-start>Start</button>
       <output data-timer-output hidden>00:00</output>
@@ -47,18 +47,18 @@ const exitQuestions = [
   </div>
 
   <main class="deck" aria-label="Philosophical Grounding slide deck">
-    <section class="slide is-active title-slide" data-title="Philosophical Grounding" aria-hidden="false">
+    <section class="slide is-active title-slide" data-title="Orientation · Philosophical Grounding" aria-hidden="false">
       <div class="slide-inner">
-        <p class="eyebrow">DEDC02 · Advanced Research Method</p>
+        <p class="eyebrow">DEDC02 · Advanced Research Method · Orientation</p>
         <div class="short-rule"></div>
         <h1 data-en="Philosophical Grounding" data-zh="研究的哲學基礎">Philosophical Grounding</h1>
         <p class="lead" data-en="How assumptions about reality, knowledge and values shape research decisions." data-zh="關於現實、知識與價值的假設，如何形塑研究決策。">How assumptions about reality, knowledge and values shape research decisions.</p>
       </div>
     </section>
 
-    <section class="slide" data-title="Learning outcomes" aria-hidden="true">
+    <section class="slide" data-title="Orientation · Learning outcomes" aria-hidden="true">
       <div class="slide-inner">
-        <p class="eyebrow" data-en="Learning outcomes" data-zh="學習成果">Learning outcomes</p>
+        <p class="eyebrow">Orientation</p>
         <h2 data-en="By the end, you can…" data-zh="完成本課後，你能夠……">By the end, you can…</h2>
         <ol class="outcome-list">
           {outcomes.map(([en, zh], index) => (
@@ -68,9 +68,9 @@ const exitQuestions = [
       </div>
     </section>
 
-    <section class="slide" data-title="The research chain" aria-hidden="true">
+    <section class="slide" data-title="Instruction · The research chain" aria-hidden="true">
       <div class="slide-inner">
-        <p class="eyebrow" data-en="A simple map" data-zh="簡明地圖">A simple map</p>
+        <p class="eyebrow">Instruction</p>
         <h2 data-en="Research decisions form a chain" data-zh="研究決策構成一條鏈">Research decisions form a chain</h2>
         <p class="lead small" data-en="Open each term. A defensible study explains how one decision leads to the next." data-zh="點開每個術語。可辯護的研究會解釋一項決策如何連接下一項。">Open each term. A defensible study explains how one decision leads to the next.</p>
         <div class="layer-list">
@@ -84,9 +84,9 @@ const exitQuestions = [
       </div>
     </section>
 
-    <section class="slide" data-title="From observation to research" aria-hidden="true">
+    <section class="slide" data-title="How-to · From observation to research" aria-hidden="true">
       <div class="slide-inner">
-        <p class="eyebrow" data-en="From observation to research" data-zh="從觀察到研究">From observation to research</p>
+        <p class="eyebrow">How-to</p>
         <h2 data-en="Turn an observation into research" data-zh="把觀察轉化為研究">Turn an observation into research</h2>
         <div class="problem-strip" data-en="Starting observation: Ten students were absent from yesterday’s research methods class." data-zh="起始觀察：昨天的研究方法課有十名學生缺席。">Starting observation: Ten students were absent from yesterday’s research methods class.</div>
         <ol class="steps research-steps">
@@ -100,9 +100,9 @@ const exitQuestions = [
       </div>
     </section>
 
-    <section class="slide" data-title="Question the problem" aria-hidden="true">
+    <section class="slide" data-title="Activity · Question the problem" aria-hidden="true">
       <div class="slide-inner">
-        <p class="eyebrow" data-en="Concept inquiry" data-zh="概念探究">Concept inquiry</p>
+        <p class="eyebrow">Activity</p>
         <h2 data-en="Before we define terms, ask better questions" data-zh="先提出更好的問題，再定義術語">Before we define terms, ask better questions</h2>
         <div class="problem-strip" data-en="Is this an observation, a practical problem, or already a research problem? What else would we need to know?" data-zh="這是一項觀察、實際問題，還是已經是一個研究問題？我們還需要知道甚麼？">Is this an observation, a practical problem, or already a research problem? What else would we need to know?</div>
         <div class="three-explanations">
@@ -131,9 +131,9 @@ const exitQuestions = [
       </div>
     </section>
 
-    <section class="slide" data-title="One problem, different studies" aria-hidden="true">
+    <section class="slide" data-title="Example · One problem, different studies" aria-hidden="true">
       <div class="slide-inner">
-        <p class="eyebrow" data-en="Connecting assumptions and questions" data-zh="連接假設與問題">Connecting assumptions and questions</p>
+        <p class="eyebrow">Example</p>
         <div class="problem-strip" data-en="Research problem: Ten students were absent from yesterday’s research methods class." data-zh="研究問題：昨天的研究方法課有十名學生缺席。">Research problem: Ten students were absent from yesterday’s research methods class.</div>
         <h2 data-en="The same event can become different studies" data-zh="同一事件可以形成不同研究">The same event can become different studies</h2>
         <div class="study-list">
@@ -145,10 +145,10 @@ const exitQuestions = [
       </div>
     </section>
 
-    <section class="slide" data-title="Philosophical layers" aria-hidden="true">
+    <section class="slide" data-title="Instruction · Philosophical layers" aria-hidden="true">
       <div class="slide-inner split-simple">
         <div>
-          <p class="eyebrow" data-en="Illustration" data-zh="插圖">Illustration</p>
+          <p class="eyebrow">Instruction</p>
           <h2 data-en="Roots, stance, strategy and tools" data-zh="根基、立場、策略與工具">Roots, stance, strategy and tools</h2>
           <dl class="plain-definitions">
             <div><dt data-en="Ontology" data-zh="本體論">Ontology</dt><dd data-en="How we understand reality." data-zh="我們如何理解現實。">How we understand reality.</dd></div>
@@ -162,9 +162,9 @@ const exitQuestions = [
       </div>
     </section>
 
-    <section class="slide" data-title="Ontological positions" aria-hidden="true">
+    <section class="slide" data-title="Activity · Ontological positions" aria-hidden="true">
       <div class="slide-inner">
-        <p class="eyebrow" data-en="Ontology · self-positioning" data-zh="本體論 · 自我定位">Ontology · self-positioning</p>
+        <p class="eyebrow">Activity</p>
         <h2 data-en="What do you think is real?" data-zh="你認為甚麼是真實的？">What do you think is real?</h2>
         <p class="note position-note" data-en="Choose the response that is currently closest to your view. There are no correct answers." data-zh="選擇目前最接近你觀點的回應；沒有正確答案。">Choose the response that is currently closest to your view. There are no correct answers.</p>
         <div class="position-quiz" data-position-quiz="ontology">
@@ -192,9 +192,9 @@ const exitQuestions = [
       </div>
     </section>
 
-    <section class="slide" data-title="Epistemological positions" aria-hidden="true">
+    <section class="slide" data-title="Activity · Epistemological positions" aria-hidden="true">
       <div class="slide-inner">
-        <p class="eyebrow" data-en="Epistemology · self-positioning" data-zh="知識論 · 自我定位">Epistemology · self-positioning</p>
+        <p class="eyebrow">Activity</p>
         <h2 data-en="What should count as knowledge?" data-zh="甚麼應算作知識？">What should count as knowledge?</h2>
         <p class="note position-note" data-en="Choose the response that is currently closest to your view. There are no correct answers." data-zh="選擇目前最接近你觀點的回應；沒有正確答案。">Choose the response that is currently closest to your view. There are no correct answers.</p>
         <div class="position-quiz" data-position-quiz="epistemology">
@@ -222,9 +222,9 @@ const exitQuestions = [
       </div>
     </section>
 
-    <section class="slide" data-title="Methodological positions" aria-hidden="true">
+    <section class="slide" data-title="Activity · Methodological positions" aria-hidden="true">
       <div class="slide-inner">
-        <p class="eyebrow" data-en="Methodology · self-positioning" data-zh="方法論 · 自我定位">Methodology · self-positioning</p>
+        <p class="eyebrow">Activity</p>
         <h2 data-en="How would you design the inquiry?" data-zh="你會如何設計這項探究？">How would you design the inquiry?</h2>
         <p class="note position-note" data-en="Methodology is the overall strategy that links assumptions about reality, knowledge and values to methods. Choose what you would currently do; there are no correct answers." data-zh="方法論是把對現實、知識與價值的假設連接到研究方法的整體策略。選擇你目前會採取的做法；沒有正確答案。">Methodology is the overall strategy that links assumptions about reality, knowledge and values to methods. Choose what you would currently do; there are no correct answers.</p>
         <div class="position-quiz" data-position-quiz="methodology">
@@ -252,9 +252,9 @@ const exitQuestions = [
       </div>
     </section>
 
-    <section class="slide" data-title="Map research paradigms" aria-hidden="true">
+    <section class="slide" data-title="Activity · Map research paradigms" aria-hidden="true">
       <div class="slide-inner">
-        <p class="eyebrow" data-en="Ontology × epistemology · inquiry activity" data-zh="本體論 × 知識論 · 探究活動">Ontology × epistemology · inquiry activity</p>
+        <p class="eyebrow">Activity</p>
         <h2 data-en="Where might these paradigms sit?" data-zh="這些典範可能位於哪裡？">Where might these paradigms sit?</h2>
         <ol class="activity-steps">
           <li><b data-en="1. Ask AI" data-zh="1. 問 AI">1. Ask AI</b><span data-en="Ask an AI assistant for a concise explanation of each paradigm’s view of reality and knowledge. Compare its answer with your notes; do not treat its first answer as final." data-zh="請 AI 助手簡要說明每個典範如何看待現實與知識。把它的回應與你的筆記比較；不要把第一個答案當作定論。">Ask an AI assistant for a concise explanation of each paradigm’s view of reality and knowledge. Compare its answer with your notes; do not treat its first answer as final.</span></li>
@@ -310,9 +310,9 @@ const exitQuestions = [
       </div>
     </section>
 
-    <section class="slide" data-title="Video: paradigms in research" aria-hidden="true">
+    <section class="slide" data-title="Example · Paradigms in research" aria-hidden="true">
       <div class="slide-inner paradigm-video-slide">
-        <p class="eyebrow" data-en="Watch after mapping" data-zh="繪圖後觀看">Watch after mapping</p>
+        <p class="eyebrow">Example</p>
         <h2 data-en="Ontology, epistemology, and research paradigms" data-zh="本體論、知識論與研究典範">Ontology, epistemology, and research paradigms</h2>
         <p class="lead small" data-en="Use this short video to revisit the connections you just mapped. As you watch, ask: which claims about reality and knowledge does each paradigm make?" data-zh="用這段短片重溫剛才繪製的連繫。觀看時請追問：每一個典範對現實與知識作出了甚麼主張？">Use this short video to revisit the connections you just mapped. As you watch, ask: which claims about reality and knowledge does each paradigm make?</p>
         <div class="video-frame">
@@ -322,9 +322,9 @@ const exitQuestions = [
       </div>
     </section>
 
-    <section class="slide combined-axiology" data-title="Axiology and values" aria-hidden="true">
+    <section class="slide combined-axiology" data-title="Instruction · Axiology and values" aria-hidden="true">
       <div class="slide-inner">
-        <p class="eyebrow" data-en="Beyond ethical approval" data-zh="超越倫理審批">Beyond ethical approval</p>
+        <p class="eyebrow">Instruction</p>
         <div class="problem-strip" data-en="Research problem: Ten students were absent from yesterday’s research methods class." data-zh="研究問題：昨天的研究方法課有十名學生缺席。">Research problem: Ten students were absent from yesterday’s research methods class.</div>
         <h2 data-en="Axiology runs through the whole study" data-zh="價值論貫穿整項研究">Axiology runs through the whole study</h2>
         <div class="combined-values">
@@ -352,9 +352,9 @@ const exitQuestions = [
       </div>
     </section>
 
-    <section class="slide" data-title="Match paradigms and questions" aria-hidden="true">
+    <section class="slide" data-title="Activity · Match paradigms and questions" aria-hidden="true">
       <div class="slide-inner">
-        <p class="eyebrow" data-en="Matching activity" data-zh="配對活動">Matching activity</p>
+        <p class="eyebrow">Activity</p>
         <div class="problem-strip" data-en="Research problem: Ten students were absent from yesterday’s research methods class." data-zh="研究問題：昨天的研究方法課有十名學生缺席。">Research problem: Ten students were absent from yesterday’s research methods class.</div>
         <h2 data-en="Match each paradigm to its research question" data-zh="把每個典範配對到其研究問題">Match each paradigm to its research question</h2>
         <p class="note matching-note" data-en="Choose a paradigm on the left, then choose the question on the right that best follows from its assumptions." data-zh="先在左側選擇一個典範，再在右側選擇最能體現其假設的研究問題。">Choose a paradigm on the left, then choose the question on the right that best follows from its assumptions.</p>
@@ -381,9 +381,9 @@ const exitQuestions = [
       </div>
     </section>
 
-    <section class="slide" data-title="Alignment canvas" aria-hidden="true">
+    <section class="slide" data-title="How-to · Align a research design" aria-hidden="true">
       <div class="slide-inner design-walkthrough">
-        <p class="eyebrow" data-en="Researcher thinking through a design" data-zh="研究者逐步思考研究設計">Researcher thinking through a design</p>
+        <p class="eyebrow">How-to</p>
         <div class="problem-strip" data-en="Research problem: Ten students were absent from yesterday’s research methods class." data-zh="研究問題：昨天的研究方法課有十名學生缺席。">Research problem: Ten students were absent from yesterday’s research methods class.</div>
         <h2 data-en="Make every connection visible" data-zh="讓每個連繫清晰可見">Make every connection visible</h2>
         <div class="design-walkthrough-grid">
@@ -400,10 +400,10 @@ const exitQuestions = [
       </div>
     </section>
 
-    <section class="slide" data-title="Exit ticket" aria-hidden="true">
+    <section class="slide" data-title="Exit · Exit ticket" aria-hidden="true">
       <div class="slide-inner exit-slide">
         <div class="exit-head">
-          <div><p class="eyebrow" data-en="Exit ticket" data-zh="離堂小結">Exit ticket</p><h2 data-en="What is clearer now?" data-zh="現在有甚麼更清晰？">What is clearer now?</h2></div>
+          <div><p class="eyebrow">Exit</p><h2 data-en="What is clearer now?" data-zh="現在有甚麼更清晰？">What is clearer now?</h2></div>
           <div class="view-switch" role="tablist"><button type="button" class="is-active" data-exit-view="student" data-en="Student form" data-zh="學生表格">Student form</button><button type="button" data-exit-view="teacher" data-en="Teacher dashboard" data-zh="教師儀表板">Teacher dashboard</button></div>
         </div>
 
@@ -436,9 +436,9 @@ const exitQuestions = [
       </div>
     </section>
 
-    <section class="slide thank-you-slide" data-title="Thank you" aria-hidden="true">
+    <section class="slide thank-you-slide" data-title="Exit · Thank you" aria-hidden="true">
       <div class="slide-inner">
-        <p class="eyebrow">DEDC02 · Advanced Research Method</p>
+        <p class="eyebrow">DEDC02 · Advanced Research Method · Exit</p>
         <div class="short-rule"></div>
         <h1 data-en="Thank you" data-zh="謝謝">Thank you</h1>
         <p class="lead" data-en="Make the assumptions behind every research decision visible." data-zh="讓每項研究決策背後的假設清晰可見。">Make the assumptions behind every research decision visible.</p>
