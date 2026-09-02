@@ -1732,9 +1732,9 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
   .legend-path { position: relative; display: block; flex: 0 0 3.5rem; height: 2px; background: var(--green-mid); }
   .legend-path::after, .canvas-arrow::after { content: ''; position: absolute; top: 50%; right: -.02rem; width: 0; height: 0; border-top: .28rem solid transparent; border-bottom: .28rem solid transparent; border-left: .42rem solid var(--green-mid); transform: translateY(-50%); }
   .covariance-path { width: 2.7rem; height: 1.3rem; margin-left: .35rem; border: 2px solid var(--green-mid); border-right: 0; border-radius: 1.4rem 0 0 1.4rem; background: transparent; }
-  .covariance-path::before, .covariance-path::after { content: ''; position: absolute; left: -.28rem; width: 0; height: 0; border-right: .38rem solid var(--green-mid); border-top: .23rem solid transparent; border-bottom: .23rem solid transparent; }
-  .covariance-path::before { top: -.11rem; transform: rotate(42deg); }
-  .covariance-path::after { bottom: -.11rem; transform: rotate(-42deg); }
+  .covariance-path::before, .covariance-path::after { content: ''; position: absolute; right: -.31rem; width: 0; height: 0; border-left: .38rem solid var(--green-mid); border-top: .23rem solid transparent; border-bottom: .23rem solid transparent; }
+  .covariance-path::before { top: -.13rem; transform: rotate(-42deg); }
+  .covariance-path::after { top: auto; bottom: -.13rem; transform: rotate(42deg); }
   .relationship-canvas-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .46rem; }
   .relationship-canvas-card { display: grid; min-width: 0; gap: .34rem; padding: .55rem; border-top: .28rem solid var(--green-mid); background: var(--green-soft); }
   .relationship-canvas-card h3 { display: grid; gap: .06rem; margin: 0; color: var(--green); font-size: .84rem; line-height: 1.15; }
@@ -1767,13 +1767,13 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
   .moderation-x { grid-column: 1; grid-row: 3; }
   .moderation-arrow { grid-column: 2; grid-row: 3; width: 100%; }
   .moderation-y { grid-column: 3; grid-row: 3; }
-  .covariance-canvas { display: grid; grid-template-columns: minmax(0, 1fr) 2.3rem minmax(0, 1fr); grid-template-rows: minmax(2.7rem, auto) minmax(2.7rem, auto); gap: .35rem .28rem; align-items: center; }
-  .covariance-c { grid-column: 1; grid-row: 1; }
-  .covariance-x { grid-column: 1; grid-row: 2; }
-  .covariance-y { grid-column: 3; grid-row: 1 / -1; align-self: center; }
-  .covariance-c-arrow { grid-column: 2; grid-row: 1; width: 100%; }
-  .covariance-x-arrow { grid-column: 2; grid-row: 2; width: 100%; }
-  .covariance-arc { position: relative; grid-column: 1; grid-row: 1 / -1; justify-self: end; width: 1.05rem; height: 3.2rem; border-right: 2px solid var(--green-mid); border-radius: 0 1.2rem 1.2rem 0; }
+  .covariance-canvas { display: grid; grid-template-columns: 1.15rem minmax(0, 1fr) 2.3rem minmax(0, 1fr); grid-template-rows: minmax(2.7rem, auto) minmax(2.7rem, auto); gap: .35rem .28rem; align-items: center; }
+  .covariance-c { grid-column: 2; grid-row: 1; }
+  .covariance-x { grid-column: 2; grid-row: 2; }
+  .covariance-y { grid-column: 4; grid-row: 1 / -1; align-self: center; }
+  .covariance-c-arrow { grid-column: 3; grid-row: 1; width: 100%; }
+  .covariance-x-arrow { grid-column: 3; grid-row: 2; width: 100%; }
+  .covariance-arc { position: relative; grid-column: 1; grid-row: 1 / -1; justify-self: center; width: .95rem; height: 3.2rem; border-left: 2px solid var(--green-mid); border-radius: 1.2rem 0 0 1.2rem; }
   .covariance-arc::before, .covariance-arc::after { content: ''; position: absolute; right: -.31rem; width: 0; height: 0; border-left: .38rem solid var(--green-mid); border-top: .23rem solid transparent; border-bottom: .23rem solid transparent; }
   .covariance-arc::before { top: -.13rem; transform: rotate(-42deg); }
   .covariance-arc::after { bottom: -.13rem; transform: rotate(42deg); }
