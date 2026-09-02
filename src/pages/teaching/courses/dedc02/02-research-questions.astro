@@ -1401,9 +1401,9 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
   .association-visual .node-a, .causal-visual .node-x, .interaction-visual .node-x { top: 1.62rem; left: 9%; }
   .association-visual .node-b, .causal-visual .node-y, .interaction-visual .node-y { top: 1.62rem; right: 9%; }
   .association-path { position: absolute; top: 1.18rem; right: 20%; left: 20%; height: 1.1rem; border-top: 2px solid var(--green-mid); border-radius: 50% 50% 0 0; }
-  .association-path::before, .association-path::after { content: ''; position: absolute; top: calc(100% - .21rem); width: .42rem; height: .42rem; }
-  .association-path::before { left: .09rem; border-bottom: 2px solid var(--green-mid); border-left: 2px solid var(--green-mid); transform: rotate(45deg); }
-  .association-path::after { right: .09rem; border-right: 2px solid var(--green-mid); border-bottom: 2px solid var(--green-mid); transform: rotate(-45deg); }
+  .association-path::before, .association-path::after { content: ''; position: absolute; top: calc(100% - .26rem); width: 0; height: 0; border-top: .26rem solid transparent; border-bottom: .26rem solid transparent; }
+  .association-path::before { left: .02rem; border-right: .42rem solid var(--green-mid); }
+  .association-path::after { right: .02rem; border-left: .42rem solid var(--green-mid); }
   .causal-path { position: absolute; right: 23%; left: 23%; top: 2.42rem; border-top: 2px solid var(--green-mid); }
   .causal-path::after { content: ''; position: absolute; top: -.31rem; right: -.04rem; border-top: .31rem solid transparent; border-bottom: .31rem solid transparent; border-left: .42rem solid var(--green-mid); }
   .interaction-visual .node-w { top: .08rem; left: calc(50% - .81rem); }
