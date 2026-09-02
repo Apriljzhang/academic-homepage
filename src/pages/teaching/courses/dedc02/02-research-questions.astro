@@ -884,7 +884,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
                   <span>Question 2</span><h3 id="variable-data-heading">What is its data type?</h3><p>The mathematical anatomy: how it is measured and which statistical tools fit.</p>
                 </div>
                 <div class="variable-lens-list">
-                  <details class="variable-lens-leaf variable-data-lens"><summary><strong>Categorical / Qualitative</strong><span>Words, groups or labels</span></summary><div class="variable-data-lens-detail"><div>Data described by words, groups or labels.</div><div class="variable-lens-subtypes"><div><strong>Nominal</strong><span>Unordered categories. <b>Example:</b> instructional condition: structured module or usual course activity.</span></div><div><strong>Ordinal</strong><span>Ordered categories with imprecise distances. <b>Example:</b> self-rated AI confidence: disagree, neutral or agree.</span></div></div></div></details>
+                  <details class="variable-lens-leaf variable-data-lens"><summary><strong>Categorical / Qualitative</strong><span>Words, groups or labels</span></summary><div class="variable-data-lens-detail"><div>Data described by words, groups or labels.</div><div class="variable-lens-subtypes categorical-subtypes"><div><strong>Nominal</strong><span>Unordered categories. <b>Example:</b> instructional condition: structured module or usual course activity.</span></div><div><strong>Ordinal</strong><span>Ordered categories with imprecise distances. <b>Example:</b> self-rated AI confidence: disagree, neutral or agree.</span></div><div><strong>Binary</strong><span>Exactly two categories. <b>Example:</b> received structured AI-literacy instruction: yes or no.</span></div></div></div></details>
                   <details class="variable-lens-leaf variable-data-lens"><summary><strong>Numerical / Quantitative</strong><span>True quantities</span></summary><div class="variable-data-lens-detail"><div>Data expressed as numbers with quantitative meaning.</div><div class="variable-lens-subtypes"><div><strong>Discrete</strong><span>Fixed, countable values. <b>Example:</b> number of guided AI-practice tasks completed.</span></div><div><strong>Continuous</strong><span>Measured values that can take unlimited decimal values within a range. <b>Example:</b> time spent on guided AI practice.</span></div></div></div></details>
                 </div>
               </section>
@@ -915,7 +915,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
                   <span>問題 2</span><h3 id="variable-data-heading-zh">它的資料類型是甚麼？</h3><p>數學結構：它如何被測量，以及適合使用哪些統計工具。</p>
                 </div>
                 <div class="variable-lens-list">
-                  <details class="variable-lens-leaf variable-data-lens"><summary><strong>類別／質性</strong><span>文字、群組或標籤</span></summary><div class="variable-data-lens-detail"><div>以文字、群組或標籤描述的資料。</div><div class="variable-lens-subtypes"><div><strong>名義</strong><span>沒有次序的類別。<b>例子：</b>教學條件：結構化單元或一般課程活動。</span></div><div><strong>序數</strong><span>有次序、但距離未必精確的類別。<b>例子：</b>自評人工智能信心：不同意、中立或同意。</span></div></div></div></details>
+                  <details class="variable-lens-leaf variable-data-lens"><summary><strong>類別／質性</strong><span>文字、群組或標籤</span></summary><div class="variable-data-lens-detail"><div>以文字、群組或標籤描述的資料。</div><div class="variable-lens-subtypes categorical-subtypes"><div><strong>名義</strong><span>沒有次序的類別。<b>例子：</b>教學條件：結構化單元或一般課程活動。</span></div><div><strong>序數</strong><span>有次序、但距離未必精確的類別。<b>例子：</b>自評人工智能信心：不同意、中立或同意。</span></div><div><strong>二元</strong><span>只有兩個類別。<b>例子：</b>是否接受結構化人工智能素養教學：是或否。</span></div></div></div></details>
                   <details class="variable-lens-leaf variable-data-lens"><summary><strong>數值／量化</strong><span>真正的數量</span></summary><div class="variable-data-lens-detail"><div>以具有量化意義的數字表示的資料。</div><div class="variable-lens-subtypes"><div><strong>離散</strong><span>固定、可數的數值。<b>例子：</b>完成的引導式人工智能實作任務數量。</span></div><div><strong>連續</strong><span>在一定範圍內可取無限小數值的測量。<b>例子：</b>投入引導式人工智能實作的時間。</span></div></div></div></details>
                 </div>
               </section>
@@ -1375,6 +1375,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
   .variable-lens-leaf p { margin: 0; padding: .45rem .55rem; border-top: 1px solid var(--line); background: var(--green-soft); color: var(--muted); font-size: .76rem; line-height: 1.34; }
   .variable-data-lens-detail { display: grid; gap: .38rem; padding: .46rem .55rem; border-top: 1px solid var(--line); background: var(--green-soft); color: var(--muted); font-size: .76rem; line-height: 1.34; }
   .variable-lens-subtypes { display: grid; grid-template-columns: 1fr 1fr; gap: .3rem; }
+  .variable-lens-subtypes.categorical-subtypes { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .variable-lens-subtypes > div { display: grid; gap: .1rem; min-width: 0; padding: .36rem .4rem; border-left: .18rem solid var(--green-mid); background: #fff; }
   .variable-lens-subtypes strong { color: var(--green); font-size: .8rem; }
   .variable-lens-subtypes span { min-width: 0; }
@@ -1859,6 +1860,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
     .variable-lens-root { width: 100%; }
     .variable-lens-split, .variable-lens-branch::before { display: none; }
     .variable-lens-branches { grid-template-columns: 1fr; }
+    .variable-lens-subtypes.categorical-subtypes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .pico-next-step { grid-template-columns: 1fr; }
     .build-field, .build-form label, .keyword-practice label { grid-template-columns: 1fr; gap: .2rem; }
     .compact-list { columns: 1; }
@@ -1874,6 +1876,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
     h2 { max-width: 100%; font-size: clamp(2rem, 9vw, 2.7rem); line-height: 1; overflow-wrap: break-word; }
     .number-list { width: 100%; }
     .paradigm-three, .avoid-grid, .type-grid, .avoid-question-grid, .variable-form, .keyword-steps, .concept-grid, .measure-examples, .hayes-model-grid, .pico-guides, .hypothesis-type-grid, .template-grid, .full-example-grid, .hypothesis-avoid-grid, .hypothesis-steps, .variable-lens-subtypes { grid-template-columns: 1fr; }
+    .variable-lens-subtypes.categorical-subtypes { grid-template-columns: 1fr; }
     .hypothesis-avoid-slide h2 { font-size: clamp(2.5rem, 12vw, 4rem); }
     .hypothesis-types-slide .hypothesis-type-grid { grid-template-columns: 1fr; }
     .hypothesis-types-comic { width: 100%; }
