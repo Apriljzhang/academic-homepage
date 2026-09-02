@@ -1058,12 +1058,12 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
           <h2>Drag variable types into relationship maps</h2>
           <p class="lead small-lead">Rectangles represent observed variables; ovals represent latent constructs. Use the arrows and each shape's position to decide what belongs in it.</p>
           <div class="visual-alphabet" role="list" aria-label="Visual alphabet for research models">
-            <article role="listitem"><span class="map-shape map-box">Rectangle</span><p><strong>Observed variable</strong><small>A concrete score, group or recorded value.</small></p></article>
+            <article role="listitem"><span class="map-shape map-box">Rectangle</span><p><strong>Observed variable</strong><small>A scale item, score, group or recorded value.</small></p></article>
             <article role="listitem"><span class="map-shape map-oval">Oval</span><p><strong>Latent variable</strong><small>An unobserved construct measured by several items.</small></p></article>
             <article role="listitem"><span class="legend-path direct-path" aria-hidden="true"></span><p><strong>Straight arrow</strong><small>Directional prediction or path coefficient.</small></p></article>
             <article role="listitem"><span class="legend-path covariance-path" aria-hidden="true"></span><p><strong>Curved double arrow</strong><small>Background covariance or correlation.</small></p></article>
           </div>
-          <div class="variable-match-activity relationship-map-activity" data-variable-match data-complete-message="All 13 placements are correct. Click a filled shape to see why it serves that role." data-review-message="Some placements need another look. Correct shapes are green; revisit the orange shapes." data-incomplete-message="Fill all 13 shapes before checking.">
+          <div class="variable-match-activity relationship-map-activity" data-variable-match data-complete-message="All 19 placements are correct. Click a filled shape to see why it serves that role." data-review-message="Some placements need another look. Correct shapes are green; revisit the orange shapes." data-incomplete-message="Fill all 19 shapes before checking.">
             <p class="drag-instruction"><strong>Your task:</strong> drag the variable types into the blank shapes. A type chip may be reused. Use the arrows and the position of each shape to decide.</p>
             <div class="role-bank relationship-role-bank" aria-label="Variable types">
               <button type="button" draggable="true" data-role-chip="independent-x" data-label="Independent Variable / X">Independent Variable / X</button>
@@ -1071,6 +1071,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
               <button type="button" draggable="true" data-role-chip="mediator-m" data-label="Mediator / M">Mediator / M</button>
               <button type="button" draggable="true" data-role-chip="moderator-w" data-label="Moderator / W">Moderator / W</button>
               <button type="button" draggable="true" data-role-chip="control-c" data-label="Control Variable / C">Control Variable / C</button>
+              <button type="button" draggable="true" data-role-chip="scale-item" data-label="Scale Item">Scale Item</button>
               <button type="button" draggable="true" data-role-chip="latent-variable" data-label="Latent Variable">Latent Variable</button>
             </div>
             <div class="relationship-canvas-grid">
@@ -1120,11 +1121,11 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
               </article>
               <article class="relationship-canvas-card sem-canvas-card" data-model-card>
                 <h3>Advanced preview <span>Structural equation modelling (SEM)</span></h3>
-                <figure class="map-figure"><div class="sem-canvas" aria-label="Blank item rectangles measure two blank latent-variable ovals connected by a directional path.">
-                  <div class="sem-measurement"><div class="sem-items" aria-hidden="true"><span></span><span></span><span></span></div><div class="sem-errors" aria-hidden="true"><i></i><i></i><i></i></div><span class="measurement-arrow" aria-hidden="true"></span><button type="button" class="map-shape map-oval role-slot" data-answer="latent-variable" data-placeholder="" data-empty-label="Blank latent-variable oval measured by observed items" data-explanation="A Latent Variable is an unobserved construct represented by an oval and measured using several observed item rectangles."></button></div>
+                <figure class="map-figure"><div class="sem-canvas" aria-label="Six blank scale-item rectangles measure two blank latent-variable ovals connected by a directional path.">
+                  <div class="sem-measurement"><div class="sem-items"><button type="button" class="map-shape map-box role-slot" data-answer="scale-item" data-placeholder="" data-empty-label="Blank scale-item rectangle 1 for the first latent variable" data-explanation="A Scale Item is an observed survey statement scored directly and used as an indicator of the latent variable."></button><button type="button" class="map-shape map-box role-slot" data-answer="scale-item" data-placeholder="" data-empty-label="Blank scale-item rectangle 2 for the first latent variable" data-explanation="A Scale Item is an observed survey statement scored directly and used as an indicator of the latent variable."></button><button type="button" class="map-shape map-box role-slot" data-answer="scale-item" data-placeholder="" data-empty-label="Blank scale-item rectangle 3 for the first latent variable" data-explanation="A Scale Item is an observed survey statement scored directly and used as an indicator of the latent variable."></button></div><div class="sem-errors" aria-hidden="true"><i></i><i></i><i></i></div><span class="measurement-arrow" aria-hidden="true"></span><button type="button" class="map-shape map-oval role-slot" data-answer="latent-variable" data-placeholder="" data-empty-label="Blank latent-variable oval measured by observed items" data-explanation="A Latent Variable is an unobserved construct represented by an oval and measured using several observed item rectangles."></button></div>
                   <span class="canvas-arrow sem-structural-arrow" aria-hidden="true"></span>
-                  <div class="sem-measurement"><div class="sem-items" aria-hidden="true"><span></span><span></span><span></span></div><div class="sem-errors" aria-hidden="true"><i></i><i></i><i></i></div><span class="measurement-arrow" aria-hidden="true"></span><button type="button" class="map-shape map-oval role-slot" data-answer="latent-variable" data-placeholder="" data-empty-label="Blank latent-variable oval predicted by another latent variable" data-explanation="A Latent Variable is an unobserved construct represented by an oval and measured using several observed item rectangles."></button></div>
-                </div><figcaption>Item rectangles measure latent ovals; the ovals are linked by a structural path.</figcaption></figure>
+                  <div class="sem-measurement"><div class="sem-items"><button type="button" class="map-shape map-box role-slot" data-answer="scale-item" data-placeholder="" data-empty-label="Blank scale-item rectangle 1 for the second latent variable" data-explanation="A Scale Item is an observed survey statement scored directly and used as an indicator of the latent variable."></button><button type="button" class="map-shape map-box role-slot" data-answer="scale-item" data-placeholder="" data-empty-label="Blank scale-item rectangle 2 for the second latent variable" data-explanation="A Scale Item is an observed survey statement scored directly and used as an indicator of the latent variable."></button><button type="button" class="map-shape map-box role-slot" data-answer="scale-item" data-placeholder="" data-empty-label="Blank scale-item rectangle 3 for the second latent variable" data-explanation="A Scale Item is an observed survey statement scored directly and used as an indicator of the latent variable."></button></div><div class="sem-errors" aria-hidden="true"><i></i><i></i><i></i></div><span class="measurement-arrow" aria-hidden="true"></span><button type="button" class="map-shape map-oval role-slot" data-answer="latent-variable" data-placeholder="" data-empty-label="Blank latent-variable oval predicted by another latent variable" data-explanation="A Latent Variable is an unobserved construct represented by an oval and measured using several observed item rectangles."></button></div>
+                </div><figcaption>Scale-item rectangles measure latent ovals; the ovals are linked by a structural path.</figcaption></figure>
                 <p class="map-slot-explanation" data-model-slot-explanation data-default="After checking, click a filled shape to see its role." aria-live="polite">After checking, click a filled shape to see its role.</p>
               </article>
             </div>
@@ -1135,12 +1136,12 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
           <h2>把變量類型拖入關係圖</h2>
           <p class="lead small-lead">矩形代表觀察變量；橢圓代表潛在構念。請根據箭頭與每個形狀的位置，判斷應放入的變量類型。</p>
           <div class="visual-alphabet" role="list" aria-label="研究模型的視覺符號">
-            <article role="listitem"><span class="map-shape map-box">矩形</span><p><strong>觀察變量</strong><small>試算表中的具體分數、組別或紀錄值。</small></p></article>
+            <article role="listitem"><span class="map-shape map-box">矩形</span><p><strong>觀察變量</strong><small>量表題項、具體分數、組別或紀錄值。</small></p></article>
             <article role="listitem"><span class="map-shape map-oval">橢圓</span><p><strong>潛在變量</strong><small>由多個題目測量的未觀察構念。</small></p></article>
             <article role="listitem"><span class="legend-path direct-path" aria-hidden="true"></span><p><strong>直線箭頭</strong><small>有方向的預測或路徑係數。</small></p></article>
             <article role="listitem"><span class="legend-path covariance-path" aria-hidden="true"></span><p><strong>彎曲雙向箭頭</strong><small>背景共變異數或相關。</small></p></article>
           </div>
-          <div class="variable-match-activity relationship-map-activity" data-variable-match data-complete-message="全部 13 個位置均正確。點選已填寫的形狀，以了解它為何擔當該角色。" data-review-message="部分位置需要再檢查。正確形狀會顯示綠色；請重新查看橙色形狀。" data-incomplete-message="請先填滿全部 13 個形狀，再檢查答案。">
+          <div class="variable-match-activity relationship-map-activity" data-variable-match data-complete-message="全部 19 個位置均正確。點選已填寫的形狀，以了解它為何擔當該角色。" data-review-message="部分位置需要再檢查。正確形狀會顯示綠色；請重新查看橙色形狀。" data-incomplete-message="請先填滿全部 19 個形狀，再檢查答案。">
             <p class="drag-instruction"><strong>你的任務：</strong>把變量類型拖入空白形狀。同一類型卡可重複使用。請根據箭頭與每個形狀的位置作出判斷。</p>
             <div class="role-bank relationship-role-bank" aria-label="變量類型">
               <button type="button" draggable="true" data-role-chip="independent-x" data-label="自變量／X">自變量／X</button>
@@ -1148,6 +1149,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
               <button type="button" draggable="true" data-role-chip="mediator-m" data-label="中介變量／M">中介變量／M</button>
               <button type="button" draggable="true" data-role-chip="moderator-w" data-label="調節變量／W">調節變量／W</button>
               <button type="button" draggable="true" data-role-chip="control-c" data-label="控制變量／C">控制變量／C</button>
+              <button type="button" draggable="true" data-role-chip="scale-item" data-label="量表題項">量表題項</button>
               <button type="button" draggable="true" data-role-chip="latent-variable" data-label="潛在變量">潛在變量</button>
             </div>
             <div class="relationship-canvas-grid">
@@ -1197,11 +1199,11 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
               </article>
               <article class="relationship-canvas-card sem-canvas-card" data-model-card>
                 <h3>進階預覽 <span>結構方程模型（SEM）</span></h3>
-                <figure class="map-figure"><div class="sem-canvas" aria-label="空白題目矩形測量兩個由方向性路徑連結的空白潛在變量橢圓。">
-                  <div class="sem-measurement"><div class="sem-items" aria-hidden="true"><span></span><span></span><span></span></div><div class="sem-errors" aria-hidden="true"><i></i><i></i><i></i></div><span class="measurement-arrow" aria-hidden="true"></span><button type="button" class="map-shape map-oval role-slot" data-answer="latent-variable" data-placeholder="" data-empty-label="由觀察題目測量的空白潛在變量橢圓" data-explanation="潛在變量是不可直接觀察的構念，以橢圓表示，並由多個觀察題目矩形測量。"></button></div>
+                <figure class="map-figure"><div class="sem-canvas" aria-label="六個空白量表題項矩形測量兩個由方向性路徑連結的空白潛在變量橢圓。">
+                  <div class="sem-measurement"><div class="sem-items"><button type="button" class="map-shape map-box role-slot" data-answer="scale-item" data-placeholder="" data-empty-label="第一個潛在變量的空白量表題項矩形 1" data-explanation="量表題項是可直接觀察並評分的問卷陳述，用作潛在變量的指標。"></button><button type="button" class="map-shape map-box role-slot" data-answer="scale-item" data-placeholder="" data-empty-label="第一個潛在變量的空白量表題項矩形 2" data-explanation="量表題項是可直接觀察並評分的問卷陳述，用作潛在變量的指標。"></button><button type="button" class="map-shape map-box role-slot" data-answer="scale-item" data-placeholder="" data-empty-label="第一個潛在變量的空白量表題項矩形 3" data-explanation="量表題項是可直接觀察並評分的問卷陳述，用作潛在變量的指標。"></button></div><div class="sem-errors" aria-hidden="true"><i></i><i></i><i></i></div><span class="measurement-arrow" aria-hidden="true"></span><button type="button" class="map-shape map-oval role-slot" data-answer="latent-variable" data-placeholder="" data-empty-label="由觀察題目測量的空白潛在變量橢圓" data-explanation="潛在變量是不可直接觀察的構念，以橢圓表示，並由多個觀察題目矩形測量。"></button></div>
                   <span class="canvas-arrow sem-structural-arrow" aria-hidden="true"></span>
-                  <div class="sem-measurement"><div class="sem-items" aria-hidden="true"><span></span><span></span><span></span></div><div class="sem-errors" aria-hidden="true"><i></i><i></i><i></i></div><span class="measurement-arrow" aria-hidden="true"></span><button type="button" class="map-shape map-oval role-slot" data-answer="latent-variable" data-placeholder="" data-empty-label="由另一個潛在變量預測的空白潛在變量橢圓" data-explanation="潛在變量是不可直接觀察的構念，以橢圓表示，並由多個觀察題目矩形測量。"></button></div>
-                </div><figcaption>題目矩形測量潛在橢圓；橢圓由結構路徑連結。</figcaption></figure>
+                  <div class="sem-measurement"><div class="sem-items"><button type="button" class="map-shape map-box role-slot" data-answer="scale-item" data-placeholder="" data-empty-label="第二個潛在變量的空白量表題項矩形 1" data-explanation="量表題項是可直接觀察並評分的問卷陳述，用作潛在變量的指標。"></button><button type="button" class="map-shape map-box role-slot" data-answer="scale-item" data-placeholder="" data-empty-label="第二個潛在變量的空白量表題項矩形 2" data-explanation="量表題項是可直接觀察並評分的問卷陳述，用作潛在變量的指標。"></button><button type="button" class="map-shape map-box role-slot" data-answer="scale-item" data-placeholder="" data-empty-label="第二個潛在變量的空白量表題項矩形 3" data-explanation="量表題項是可直接觀察並評分的問卷陳述，用作潛在變量的指標。"></button></div><div class="sem-errors" aria-hidden="true"><i></i><i></i><i></i></div><span class="measurement-arrow" aria-hidden="true"></span><button type="button" class="map-shape map-oval role-slot" data-answer="latent-variable" data-placeholder="" data-empty-label="由另一個潛在變量預測的空白潛在變量橢圓" data-explanation="潛在變量是不可直接觀察的構念，以橢圓表示，並由多個觀察題目矩形測量。"></button></div>
+                </div><figcaption>量表題項矩形測量潛在橢圓；橢圓由結構路徑連結。</figcaption></figure>
                 <p class="map-slot-explanation" data-model-slot-explanation data-default="檢查後，點選已填寫的形狀以了解其角色。" aria-live="polite">檢查後，點選已填寫的形狀以了解其角色。</p>
               </article>
             </div>
@@ -1783,7 +1785,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
   .sem-canvas { display: grid; grid-template-columns: minmax(0, 1fr) 3.2rem minmax(0, 1fr); gap: .5rem; align-items: center; padding: .55rem; border: 1px solid var(--line); background: #fff; }
   .sem-measurement { display: grid; grid-template-rows: 1.35rem .62rem .72rem minmax(2.8rem, auto); gap: .14rem; min-width: 0; }
   .sem-items { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .25rem; }
-  .sem-items span { display: block; min-height: 1.28rem; border: 1.5px dashed var(--green-mid); background: #fff; }
+  .relationship-map-slide .sem-items .role-slot { min-height: 1.28rem; padding: .1rem; border-width: 1.5px; font-size: clamp(.44rem, .65vw, .56rem); }
   .sem-errors { display: grid; grid-template-columns: repeat(3, 1fr); gap: .25rem; }
   .sem-errors i { display: block; width: .42rem; height: .42rem; justify-self: center; border: 1px solid var(--green-mid); border-radius: 50%; }
   .measurement-arrow { position: relative; display: block; justify-self: center; width: 2px; height: .72rem; background: var(--green-mid); }
