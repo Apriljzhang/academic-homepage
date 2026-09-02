@@ -1365,9 +1365,13 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
   .variable-lens-question p { margin: 0; color: var(--muted); font-size: .78rem; line-height: 1.3; }
   .variable-lens-list { display: grid; gap: .3rem; padding-top: .32rem; }
   .variable-lens-leaf { min-width: 0; border: 1px solid var(--line); border-left: .25rem solid var(--green-mid); background: #fff; }
-  .variable-lens-leaf summary { min-height: 2.8rem; padding: .42rem .55rem; box-sizing: border-box; }
-  .variable-lens-leaf summary strong { display: block; color: var(--green); font-size: .9rem; line-height: 1.18; }
-  .variable-lens-leaf summary span { display: block; margin-top: .1rem; color: var(--muted); font-size: .76rem; line-height: 1.18; }
+  .variable-lens-leaf summary { display: grid; grid-template-columns: .85rem minmax(0, 1fr); grid-template-rows: auto auto; column-gap: .35rem; align-items: start; min-height: 0; padding: .42rem .55rem; box-sizing: border-box; cursor: pointer; list-style: none; }
+  .variable-lens-leaf summary::-webkit-details-marker { display: none; }
+  .variable-lens-leaf summary::marker { content: ''; }
+  .variable-lens-leaf summary::before { content: '▶'; grid-column: 1; grid-row: 1 / -1; align-self: start; margin-top: .12rem; color: var(--green); font-size: .8rem; line-height: 1; }
+  .variable-lens-leaf[open] summary::before { content: '▼'; }
+  .variable-lens-leaf summary strong { display: block; grid-column: 2; color: var(--green); font-size: .9rem; line-height: 1.18; }
+  .variable-lens-leaf summary span { display: block; grid-column: 2; margin-top: .1rem; color: var(--muted); font-size: .76rem; line-height: 1.18; }
   .variable-lens-leaf p { margin: 0; padding: .45rem .55rem; border-top: 1px solid var(--line); background: var(--green-soft); color: var(--muted); font-size: .76rem; line-height: 1.34; }
   .variable-data-lens-detail { display: grid; gap: .38rem; padding: .46rem .55rem; border-top: 1px solid var(--line); background: var(--green-soft); color: var(--muted); font-size: .76rem; line-height: 1.34; }
   .variable-lens-subtypes { display: grid; grid-template-columns: 1fr 1fr; gap: .3rem; }
