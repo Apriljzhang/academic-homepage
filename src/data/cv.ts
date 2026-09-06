@@ -263,8 +263,9 @@ export const aalaConferenceUrl = 'https://aalaconference.com/' as const;
 export type EditorialRole = {
   role: string;
   journal: string;
-  specialIssue: string;
+  specialIssue?: string;
   href: string;
+  linkLabel?: string;
   years?: string;
 };
 
@@ -275,6 +276,12 @@ export const editorialRoles: EditorialRole[] = [
     specialIssue: 'A Humanistic Approach to Assessment, Standards, Innovation, and Accountability',
     href: 'https://link.springer.com/collections/hfddgecgfa',
     years: '2026 – 2028',
+  },
+  {
+    role: 'Consulting Editorial Board',
+    journal: 'Language Education & Assessment',
+    href: 'https://www.castledown.com/journals/lea/index',
+    linkLabel: 'Journal website',
   },
 ];
 

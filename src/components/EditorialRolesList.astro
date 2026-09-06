@@ -8,10 +8,14 @@ import { editorialRoles } from '../data/cv';
       <li class="grid gap-4 border-l-2 border-primary/40 pl-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end">
         <div>
           <p class="type-card-title">{role.role}</p>
-          <p class="type-meta mt-1">
-            <em>{role.specialIssue}</em>
-          </p>
-          <p class="type-meta mt-0.5">
+          {
+            role.specialIssue && (
+              <p class="type-meta mt-1">
+                <em>{role.specialIssue}</em>
+              </p>
+            )
+          }
+          <p class:list={['type-meta', role.specialIssue ? 'mt-0.5' : 'mt-1']}>
             {role.journal}
             {role.years ? ` · ${role.years}` : ''}
           </p>
@@ -23,7 +27,7 @@ import { editorialRoles } from '../data/cv';
             rel="noopener noreferrer"
             class="text-sm font-semibold text-primary no-underline hover:underline"
           >
-            Special issue collection →
+            {role.linkLabel ?? 'Special issue collection'} →
           </a>
         </p>
       </li>
