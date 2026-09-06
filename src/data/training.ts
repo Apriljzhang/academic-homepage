@@ -21,15 +21,11 @@ export const eapTrainingTheme = {
   description:
     'A developing sequence for academic writing in applied linguistics and language education. Detailed session content will be added progressively.',
   sessions: [
-    { number: 1, slug: 'philosophical-foundations', title: 'Philosophical Foundations' },
-    { number: 2, slug: 'research-questions', title: 'Research Questions' },
-    { number: 3, slug: 'introduction', title: 'Introduction' },
-    { number: 4, slug: 'literature-review', title: 'Literature Review' },
-    { number: 5, slug: 'methodology', title: 'Methodology' },
-    { number: 6, slug: 'results-findings', title: 'Results / Findings' },
-    { number: 7, slug: 'discussion', title: 'Discussion' },
-    { number: 8, slug: 'conclusion', title: 'Conclusion' },
-    { number: 9, slug: 'abstract', title: 'Abstract' },
-    { number: 10, slug: 'references-citation', title: 'References and Citation' },
+    { number: 1, slug: 'introduction', title: 'Introduction' },
+    { number: 2, slug: 'literature-review', title: 'Literature Review' },
+    { number: 3, slug: 'methods', title: 'Methods' },
+    { number: 4, slug: 'findings-results', title: 'Findings / Results' },
+    { number: 5, slug: 'discussion', title: 'Discussion' },
+    { number: 6, slug: 'conclusion', title: 'Conclusion' },
   ],
 } as const satisfies TrainingTheme;
