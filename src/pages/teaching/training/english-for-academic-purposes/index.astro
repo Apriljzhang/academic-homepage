@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import SiteHeader from '../../../../components/SiteHeader.astro';
+import SiteFooter from '../../../../components/SiteFooter.astro';
+import PageShell from '../../../../components/PageShell.astro';
+import { person } from '../../../../data/cv';
+import { eapTrainingTheme } from '../../../../data/training';
+import { withBase } from '../../../../utils/paths';
+
+const title = `${eapTrainingTheme.title} · ${person.fullDisplayName}`;
+const description = `${eapTrainingTheme.title} for ${eapTrainingTheme.context.toLowerCase()} — session structure.`;
+
+function sessionPath(slug: string): string {
+  return withBase(`/teaching/training/${eapTrainingTheme.slug}/${slug}`);
+}
+---
+
+<BaseLayout {title} {description}>
+  <SiteHeader />
+  <main id="main-content" class="min-h-[50vh] w-full bg-page">
+    <PageShell accentBar>
+      <p class="type-label text-secondary">Training theme · {eapTrainingTheme.shortTitle}</p>
+      <h1 class="mt-2 font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">
+        {eapTrainingTheme.title}
+      </h1>
+      <p class="type-intro mt-4 text-pretty">{eapTrainingTheme.context}</p>
+      <p class="type-body mt-4 text-pretty text-muted">{eapTrainingTheme.description}</p>
+
+      <section class="mt-8 max-w-5xl border-t border-border pt-6" aria-labelledby="session-sequence-heading">
+        <div class="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+          <h2 id="session-sequence-heading" class="font-serif text-2xl font-semibold text-ink">Session sequence</h2>
+          <p class="type-label text-muted">{eapTrainingTheme.sessions.length} sessions · Structure ready</p>
+        </div>
+
+        <ol class="mt-5 grid gap-3 sm:grid-cols-2">
+          {
+            eapTrainingTheme.sessions.map((session) => (
+              <li>
+                <a
+                  href={sessionPath(session.slug)}
+                  class="group flex min-h-24 items-center gap-5 rounded-xl border border-border bg-surface px-5 py-4 no-underline transition hover:border-primary hover:bg-main-faint"
+                >
+                  <span class="font-serif text-3xl font-semibold text-secondary/70">
+                    {String(session.number).padStart(2, '0')}
+                  </span>
+                  <span class="type-card-title flex-1 group-hover:text-primary">{session.title}</span>
+                  <span class="text-xl text-primary" aria-hidden="true">→</span>
+                </a>
+              </li>
+            ))
+          }
+        </ol>
+
+        <p class="mt-5 text-sm text-muted">The sequence can be extended as the theme develops.</p>
+      </section>
+
+      <a href={withBase('/teaching/training')} class="mt-8 inline-flex text-sm font-semibold">
+        ← Back to Training
+      </a>
+    </PageShell>
+  </main>
+  <SiteFooter />
+</BaseLayout>

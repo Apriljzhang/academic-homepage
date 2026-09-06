@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import SiteHeader from '../../../../components/SiteHeader.astro';
+import SiteFooter from '../../../../components/SiteFooter.astro';
+import PageShell from '../../../../components/PageShell.astro';
+import { person } from '../../../../data/cv';
+import { eapTrainingTheme } from '../../../../data/training';
+import { withBase } from '../../../../utils/paths';
+
+type Session = (typeof eapTrainingTheme.sessions)[number];
+
+export function getStaticPaths() {
+  return eapTrainingTheme.sessions.map((session) => ({
+    params: { session: session.slug },
+    props: { session },
+  }));
+}
+
+interface Props {
+  session: Session;
+}
+
+const { session } = Astro.props;
+const sessionIndex = eapTrainingTheme.sessions.findIndex((item) => item.slug === session.slug);
+const previousSession = sessionIndex > 0 ? eapTrainingTheme.sessions[sessionIndex - 1] : undefined;
+const nextSession = sessionIndex < eapTrainingTheme.sessions.length - 1 ? eapTrainingTheme.sessions[sessionIndex + 1] : undefined;
+const themePath = withBase(`/teaching/training/${eapTrainingTheme.slug}`);
+const title = `${session.title} · ${eapTrainingTheme.shortTitle} · ${person.fullDisplayName}`;
+const description = `${session.title}, part of the ${eapTrainingTheme.title} training theme for ${eapTrainingTheme.context.toLowerCase()}.`;
+
+function sessionPath(slug: string): string {
+  return withBase(`/teaching/training/${eapTrainingTheme.slug}/${slug}`);
+}
+---
+
+<BaseLayout {title} {description}>
+  <SiteHeader />
+  <main id="main-content" class="min-h-[50vh] w-full bg-page">
+    <PageShell accentBar>
+      <p class="type-label text-secondary">
+        {eapTrainingTheme.shortTitle} · Session {String(session.number).padStart(2, '0')} of {eapTrainingTheme.sessions.length}
+      </p>
+      <h1 class="mt-2 font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">
+        {session.title}
+      </h1>
+      <p class="type-intro mt-4 text-pretty">{eapTrainingTheme.context}</p>
+
+      <section class="mt-8 max-w-4xl rounded-xl border border-border bg-surface p-6" aria-labelledby="session-content-heading">
+        <p class="type-label text-secondary">Session scaffold</p>
+        <h2 id="session-content-heading" class="mt-2 font-serif text-2xl font-semibold text-ink">Content forthcoming</h2>
+        <p class="type-body mt-3 text-muted">
+          This page is reserved for the {session.title} session. Detailed content and materials will be added later.
+        </p>
+      </section>
+
+      <nav class="mt-8 flex max-w-4xl flex-wrap items-center justify-between gap-3 border-t border-border pt-5" aria-label="Session navigation">
+        <div>
+          {
+            previousSession ? (
+              <a href={sessionPath(previousSession.slug)} class="text-sm font-semibold">
+                ← {previousSession.title}
+              </a>
+            ) : null
+          }
+        </div>
+        <a href={themePath} class="text-sm font-semibold">All sessions</a>
+        <div class="text-right">
+          {
+            nextSession ? (
+              <a href={sessionPath(nextSession.slug)} class="text-sm font-semibold">
+                {nextSession.title} →
+              </a>
+            ) : null
+          }
+        </div>
+      </nav>
+    </PageShell>
+  </main>
+  <SiteFooter />
+</BaseLayout>

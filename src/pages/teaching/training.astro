@@ -8,12 +8,18 @@ import MainWithAside from '../../components/MainWithAside.astro';
 import TeachingSectionAside from '../../components/TeachingSectionAside.astro';
 import { teachingSubnav } from '../../data/sectionNav';
 import { person } from '../../data/cv';
+import { eapTrainingTheme } from '../../data/training';
 import { withBase } from '../../utils/paths';
 
 const title = `Training · ${person.fullDisplayName}`;
-const description = `Interactive formative assessment training materials — ${person.fullDisplayName}.`;
+const description = `English for Academic Purposes and interactive professional-development materials — ${person.fullDisplayName}.`;
 const studentPath = withBase('/teaching/training/app/');
 const hostPath = withBase('/teaching/training/app/host');
+const themePath = withBase(`/teaching/training/${eapTrainingTheme.slug}`);
+
+function sessionPath(slug: string): string {
+  return withBase(`/teaching/training/${eapTrainingTheme.slug}/${slug}`);
+}
 ---
 
 <BaseLayout {title} {description}>
@@ -26,11 +32,52 @@ const hostPath = withBase('/teaching/training/app/host');
           <SectionSubnav ariaLabel="Teaching section" items={teachingSubnav} />
 
           <p class="type-intro mt-8 text-pretty">
-            Selected interactive workshops and professional development materials. Enter the access code to open a
-            training room.
+            Training themes, interactive workshops, and professional-development materials for language education.
+            Browse the open materials below or enter an access code for a training room.
           </p>
 
-          <ul class="mt-10 space-y-4">
+          <section class="mt-10" aria-labelledby="eap-theme-heading">
+            <div class="rounded-xl border border-border bg-surface p-5 sm:p-6">
+              <div class="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
+                <div class="max-w-3xl">
+                  <p class="type-label text-secondary">Training theme · {eapTrainingTheme.shortTitle}</p>
+                  <h2 id="eap-theme-heading" class="mt-2 font-serif text-2xl font-semibold text-ink sm:text-3xl">
+                    {eapTrainingTheme.title}
+                  </h2>
+                  <p class="type-card-title mt-2 text-secondary">{eapTrainingTheme.context}</p>
+                  <p class="type-body mt-3 text-muted">{eapTrainingTheme.description}</p>
+                </div>
+                <a
+                  href={themePath}
+                  class="inline-flex shrink-0 items-center rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white no-underline hover:opacity-95"
+                >
+                  Open theme →
+                </a>
+              </div>
+
+              <ol class="mt-6 grid gap-2 sm:grid-cols-2">
+                {
+                  eapTrainingTheme.sessions.map((session) => (
+                    <li>
+                      <a
+                        href={sessionPath(session.slug)}
+                        class="group flex items-center gap-4 rounded-lg border border-border bg-page px-4 py-3 no-underline transition hover:border-primary hover:bg-main-faint"
+                      >
+                        <span class="type-label shrink-0 text-secondary">
+                          {String(session.number).padStart(2, '0')}
+                        </span>
+                        <span class="type-card-title flex-1 group-hover:text-primary">{session.title}</span>
+                        <span class="text-lg text-primary" aria-hidden="true">→</span>
+                      </a>
+                    </li>
+                  ))
+                }
+              </ol>
+            </div>
+          </section>
+
+          <h2 class="type-label mt-10 text-secondary">Selected workshops</h2>
+          <ul class="mt-4 space-y-4">
             <li class="rounded-xl border border-border bg-surface p-5">
               <p class="type-label text-muted">January 2026</p>
               <h2 class="type-card-title mt-1">
