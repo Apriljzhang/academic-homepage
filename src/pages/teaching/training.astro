@@ -16,10 +16,6 @@ const description = `English for Academic Purposes and interactive professional-
 const studentPath = withBase('/teaching/training/app/');
 const hostPath = withBase('/teaching/training/app/host');
 const themePath = withBase(`/teaching/training/${eapTrainingTheme.slug}`);
-
-function sessionPath(slug: string): string {
-  return withBase(`/teaching/training/${eapTrainingTheme.slug}/${slug}`);
-}
 ---
 
 <BaseLayout {title} {description}>
@@ -54,25 +50,6 @@ function sessionPath(slug: string): string {
                   Open theme →
                 </a>
               </div>
-
-              <ol class="mt-6 grid gap-2 sm:grid-cols-2">
-                {
-                  eapTrainingTheme.sessions.map((session) => (
-                    <li>
-                      <a
-                        href={sessionPath(session.slug)}
-                        class="group flex items-center gap-4 rounded-lg border border-border bg-page px-4 py-3 no-underline transition hover:border-primary hover:bg-main-faint"
-                      >
-                        <span class="type-label shrink-0 text-secondary">
-                          {String(session.number).padStart(2, '0')}
-                        </span>
-                        <span class="type-card-title flex-1 group-hover:text-primary">{session.title}</span>
-                        <span class="text-lg text-primary" aria-hidden="true">→</span>
-                      </a>
-                    </li>
-                  ))
-                }
-              </ol>
             </div>
           </section>
 
