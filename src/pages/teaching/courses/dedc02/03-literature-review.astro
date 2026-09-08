@@ -1,0 +1,987 @@
+---
+import CourseSlideLayout from '../../../../layouts/CourseSlideLayout.astro';
+import { withBase } from '../../../../utils/paths';
+import '../../../../styles/dedc02-literature-review.css';
+
+const title = '3. Literature Review · DEDC02';
+const description = 'An interactive lesson on literature review structure, argumentation, synthesis and citation.';
+const courseHref = withBase('/teaching/courses/dedc02');
+---
+
+<CourseSlideLayout {title} {description}>
+  <section class="pdf-cover" aria-hidden="true">
+    <span class="eyebrow">DEDC02 · Advanced Research Method</span>
+    <h1>Literature<br />Review</h1>
+    <div class="pdf-message-block">
+      <h2>Personal message</h2>
+      <p data-pdf-message-print></p>
+    </div>
+  </section>
+
+  <div class="top-tools" aria-label="Language and timer controls">
+    <button class="translate-button" type="button" aria-pressed="false" data-global-translate>中文</button>
+    <div class="compact-timer" aria-label="Activity timer">
+      <input type="number" min="0.1" step="0.5" inputmode="decimal" placeholder="Timer" aria-label="Timer duration" data-timer-minutes />
+      <output data-timer-output hidden aria-live="polite">00:00</output>
+      <button type="button" data-timer-start>Start</button>
+      <button type="button" data-timer-reset aria-label="Reset timer">↻</button>
+    </div>
+  </div>
+
+  <main class="deck" aria-label="Literature Review slide deck">
+    <section class="slide is-active" data-title="Literature Review" aria-hidden="false">
+      <div class="slide-inner title-slide">
+        <header class="slide-header"><span class="eyebrow">DEDC02 · Advanced Research Method</span></header>
+        <div class="title-rule"></div>
+        <div data-language="en">
+          <h1>Literature<br />Review</h1>
+          <p class="lead">Using Toulmin’s model to understand argumentation, then applying it to literature-review structure and paragraph writing.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h1>文獻<br />綜述</h1>
+          <p class="lead">運用 Toulmin 模型理解論證，再把它應用於文獻綜述結構與段落寫作。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Learning aims" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Where we are going</span></header>
+        <div data-language="en">
+          <h2>By the end, you can…</h2>
+          <ol class="number-list">
+            <li><span><strong>Apply</strong> Toulmin’s claim, grounds, warrant, backing, qualifier and rebuttal.</span></li>
+            <li><span><strong>Design</strong> a coherent chapter and give each section an argumentative purpose.</span></li>
+            <li><span><strong>Build</strong> a paragraph that synthesises evidence and retains your voice.</span></li>
+            <li><span><strong>Decide</strong> why, when and how a source should be cited.</span></li>
+            <li><span><strong>Diagnose</strong> common weaknesses in literature-review writing.</span></li>
+          </ol>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>完成本課後，你可以⋯⋯</h2>
+          <ol class="number-list">
+            <li><span><strong>運用</strong>Toulmin 模型的主張、Grounds（證據）、論證依據、支持依據、限定語及反駁。</span></li>
+            <li><span><strong>設計</strong>連貫的章節，並賦予每個小節明確的論證功能。</span></li>
+            <li><span><strong>建立</strong>能綜合證據並保留作者聲音的段落。</span></li>
+            <li><span><strong>判斷</strong>為何、何時及如何引用來源。</span></li>
+            <li><span><strong>診斷</strong>文獻綜述寫作中的常見問題。</span></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Lesson route" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Lesson sequence</span></header>
+        <div data-language="en">
+          <h2>One model, then a focus on writing</h2>
+          <div class="core-path">
+            <span>Evidence</span><b>+</b><span>Warrant</span><b>→</b><span>Claim</span>
+          </div>
+          <div class="grid-4" style="margin-top: 1rem;">
+            <article class="panel accent"><h3>Start</h3><p>From search results to claims</p></article>
+            <article class="panel accent"><h3>Understand</h3><p>One Toulmin argument model</p></article>
+            <article class="panel accent"><h3>Organise</h3><p>Chapter and section structure</p></article>
+            <article class="panel accent"><h3>Apply</h3><p>Paragraph examples, citations and revision</p></article>
+          </div>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>一個模型，然後聚焦寫作</h2>
+          <div class="core-path">
+            <span>證據</span><b>+</b><span>論證依據</span><b>→</b><span>主張</span>
+          </div>
+          <div class="grid-4" style="margin-top: 1rem;">
+            <article class="panel accent"><h3>開始</h3><p>從檢索結果到主張</p></article>
+            <article class="panel accent"><h3>理解</h3><p>一個 Toulmin 論證模型</p></article>
+            <article class="panel accent"><h3>組織</h3><p>章節與小節結構</p></article>
+            <article class="panel accent"><h3>應用</h3><p>段落範例、引用與修訂</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="From search to argument" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Bridge from Week 2</span></header>
+        <div data-language="en">
+          <h2>Searching finds sources. Reviewing builds an argument.</h2>
+          <div class="path-line">
+            <span>Research question</span><b>→</b><span>Relevant sources</span><b>→</b><span>Patterns and tensions</span><b>→</b><span>Review claim</span>
+          </div>
+          <p class="takeaway">The source provides information. The reviewer decides what that information means in relation to other evidence and to the proposed study.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>檢索尋找來源，綜述建立論證。</h2>
+          <div class="path-line">
+            <span>研究問題</span><b>→</b><span>相關來源</span><b>→</b><span>模式與張力</span><b>→</b><span>綜述主張</span>
+          </div>
+          <p class="takeaway">來源提供資料，綜述者則判斷這些資料與其他證據及擬議研究之間的意義。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="What a literature review does" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Purpose</span></header>
+        <div data-language="en">
+          <h2>What must the review accomplish?</h2>
+          <div class="grid-4">
+            <article class="purpose-card accent"><h3>Locate</h3><p>Place the study within a larger scholarly conversation.</p></article>
+            <article class="purpose-card accent"><h3>Relate</h3><p>Show agreements, contradictions and alternative explanations.</p></article>
+            <article class="purpose-card accent"><h3>Evaluate</h3><p>Judge what different evidence can and cannot support.</p></article>
+            <article class="purpose-card accent"><h3>Justify</h3><p>Establish the unresolved research space addressed by the study.</p></article>
+          </div>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>文獻綜述必須完成甚麼？</h2>
+          <div class="grid-4">
+            <article class="purpose-card accent"><h3>定位</h3><p>把研究置於更廣泛的學術對話中。</p></article>
+            <article class="purpose-card accent"><h3>連結</h3><p>呈現一致、矛盾及其他解釋。</p></article>
+            <article class="purpose-card accent"><h3>評估</h3><p>判斷不同證據能夠及不能夠支持甚麼。</p></article>
+            <article class="purpose-card accent"><h3>論證需要</h3><p>建立本研究將處理的未解研究空間。</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Summary and synthesis" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">The central distinction</span></header>
+        <div data-language="en">
+          <h2>Summary reports. Synthesis reorganises.</h2>
+          <div class="contrast">
+            <article><h3>Paper-by-paper summary</h3><p>Chan found A. Lee found B. Wong found C.</p></article>
+            <b>→</b>
+            <article><h3>Synthesis by relationship</h3><p>Together, the studies suggest X; however, their different contexts and methods limit how far this pattern can be generalised.</p></article>
+          </div>
+          <p class="takeaway">A review may summarise individual studies, but its argument comes from comparing, grouping, interpreting and qualifying them.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>摘要負責報告，綜合負責重組。</h2>
+          <div class="contrast">
+            <article><h3>逐篇摘要</h3><p>Chan 發現 A；Lee 發現 B；Wong 發現 C。</p></article>
+            <b>→</b>
+            <article><h3>按關係綜合</h3><p>綜合而言，這些研究顯示 X；然而，不同情境與方法限制了此模式的可推廣程度。</p></article>
+          </div>
+          <p class="takeaway">文獻綜述可以摘要個別研究，但其論證來自比較、歸類、詮釋與限定。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="What is a claim?" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Argumentation</span></header>
+        <div data-language="en">
+          <h2>What is a claim?</h2>
+          <blockquote>A claim is the point that a writer asks the reader to accept.</blockquote>
+          <div class="grid-4">
+            <article class="panel"><h3>Specific</h3><p>Its scope and relationship are clear.</p></article>
+            <article class="panel"><h3>Supportable</h3><p>Relevant evidence could justify it.</p></article>
+            <article class="panel"><h3>Contestable</h3><p>It can be evaluated or qualified.</p></article>
+            <article class="panel"><h3>Purposeful</h3><p>It advances the larger argument.</p></article>
+          </div>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>甚麼是主張？</h2>
+          <blockquote>主張是作者希望讀者接受的觀點。</blockquote>
+          <div class="grid-4">
+            <article class="panel"><h3>具體</h3><p>範圍與關係清晰。</p></article>
+            <article class="panel"><h3>可支持</h3><p>相關證據能夠為其提供理據。</p></article>
+            <article class="panel"><h3>可質疑</h3><p>主張可以被評估或限定。</p></article>
+            <article class="panel"><h3>有目的</h3><p>主張推進整體論證。</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="From structure to paragraph" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Where the writing happens</span></header>
+        <div data-language="en">
+          <h2>Structure guides the reader; paragraphs do the reasoning</h2>
+          <div class="writing-scales">
+            <article><span>Chapter</span><h3>Give the field a clear route</h3><p>Define the scope and order the major strands around the research problem.</p></article>
+            <article><span>Section</span><h3>Develop one manageable part</h3><p>Group related literature, compare it and connect the section to the next step.</p></article>
+            <article><span>Paragraph</span><h3>Make the reasoning visible</h3><p>State a point, combine sources, explain their relationship and set a boundary.</p></article>
+          </div>
+          <p class="takeaway">We will plan chapters and sections briefly. The main focus is the paragraph, where readers can see what you conclude from the literature and why.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>結構引導讀者；段落展示推理</h2>
+          <div class="writing-scales">
+            <article><span>章節</span><h3>為研究領域提供清晰路線</h3><p>界定範圍，並圍繞研究問題安排主要脈絡。</p></article>
+            <article><span>小節</span><h3>發展一個可處理的部分</h3><p>歸類相關文獻、進行比較，並連結下一步。</p></article>
+            <article><span>段落</span><h3>讓推理清晰可見</h3><p>提出觀點、結合來源、解釋關係，並設定邊界。</p></article>
+          </div>
+          <p class="takeaway">我們會簡要規劃章節與小節。主要焦點是段落，因為讀者在這裏看到你從文獻得出甚麼結論，以及理由。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Activity 1: Claim Lab" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Activity 1</span></header>
+        <div data-language="en">
+          <h2>Claim Lab</h2>
+          <div class="interactive-stack" data-check-activity>
+            <div class="sort-row"><p>Lee et al. reported more grammatical corrections after AI feedback.</p><select data-answer="evidence" aria-label="Classify statement one"><option value="">Choose…</option><option value="topic">Topic</option><option value="description">Description</option><option value="evidence">Evidence</option><option value="claim">Review claim</option></select></div>
+            <div class="sort-row"><p>AI feedback appears more effective for surface correction than conceptual revision.</p><select data-answer="claim" aria-label="Classify statement two"><option value="">Choose…</option><option value="topic">Topic</option><option value="description">Description</option><option value="evidence">Evidence</option><option value="claim">Review claim</option></select></div>
+            <div class="sort-row"><p>AI-generated feedback in postgraduate writing</p><select data-answer="topic" aria-label="Classify statement three"><option value="">Choose…</option><option value="topic">Topic</option><option value="description">Description</option><option value="evidence">Evidence</option><option value="claim">Review claim</option></select></div>
+            <div class="sort-row"><p>Many studies have examined the use of automated feedback.</p><select data-answer="description" aria-label="Classify statement four"><option value="">Choose…</option><option value="topic">Topic</option><option value="description">Description</option><option value="evidence">Evidence</option><option value="claim">Review claim</option></select></div>
+            <div class="activity-actions"><button type="button" data-check>Check answers</button><button type="button" data-clear>Clear</button><span class="activity-status" data-status role="status" aria-live="polite"></span></div>
+          </div>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>主張實驗室</h2>
+          <div class="interactive-stack" data-check-activity>
+            <div class="sort-row"><p>Lee 等人報告，接受人工智能回饋後，學生修正了更多語法錯誤。</p><select data-answer="evidence" aria-label="分類陳述一"><option value="">請選擇⋯⋯</option><option value="topic">主題</option><option value="description">描述</option><option value="evidence">證據</option><option value="claim">綜述主張</option></select></div>
+            <div class="sort-row"><p>人工智能回饋似乎更能促進表層修正，而非概念層面的修改。</p><select data-answer="claim" aria-label="分類陳述二"><option value="">請選擇⋯⋯</option><option value="topic">主題</option><option value="description">描述</option><option value="evidence">證據</option><option value="claim">綜述主張</option></select></div>
+            <div class="sort-row"><p>研究生寫作中的人工智能回饋</p><select data-answer="topic" aria-label="分類陳述三"><option value="">請選擇⋯⋯</option><option value="topic">主題</option><option value="description">描述</option><option value="evidence">證據</option><option value="claim">綜述主張</option></select></div>
+            <div class="sort-row"><p>許多研究探討了自動化回饋的使用。</p><select data-answer="description" aria-label="分類陳述四"><option value="">請選擇⋯⋯</option><option value="topic">主題</option><option value="description">描述</option><option value="evidence">證據</option><option value="claim">綜述主張</option></select></div>
+            <div class="activity-actions"><button type="button" data-check>檢查答案</button><button type="button" data-clear>清除</button><span class="activity-status" data-status role="status" aria-live="polite"></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Introducing the Toulmin model" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Argumentation</span></header>
+        <div data-language="en">
+          <h2>Meet the Toulmin model</h2>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>認識 Toulmin 模型</h2>
+        </div>
+        <div class="video-layout">
+          <div class="video-frame">
+            <iframe src="https://www.youtube-nocookie.com/embed/GWnEbMZ0IaA?rel=0" title="Toulmin Method video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+          <aside class="watch-notes" data-language="en">
+            <h3>Watch for three questions</h3>
+            <ol><li>What does the writer want us to accept?</li><li>What support is offered?</li><li>What connects that support to the claim?</li></ol>
+            <a href="https://www.youtube.com/watch?v=GWnEbMZ0IaA" target="_blank" rel="noreferrer">Open the video on YouTube</a>
+          </aside>
+          <aside class="watch-notes" data-language="zh" hidden lang="zh-Hant">
+            <h3>觀看時留意三個問題</h3>
+            <ol><li>作者希望我們接受甚麼？</li><li>作者提供了甚麼支持？</li><li>甚麼把這些支持連接到主張？</li></ol>
+            <a href="https://www.youtube.com/watch?v=GWnEbMZ0IaA" target="_blank" rel="noreferrer">在 YouTube 開啟影片</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Toulmin model of argument" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Argumentation</span></header>
+        <div data-language="en">
+          <h2>The Toulmin model is our argument map</h2>
+          <div class="toulmin-map" aria-label="Toulmin argument map">
+            <article class="tm-qualifier"><h3>Qualifier</h3><p>How strongly does the claim hold?</p></article>
+            <article class="tm-claim"><h3>Claim</h3><p>The conclusion the reader is asked to accept.</p></article>
+            <details class="tm-grounds tm-evidence">
+              <summary><h3>Grounds</h3><small>Evidence · Click to explore</small></summary>
+              <p>What is offered to support the claim:</p>
+              <ul><li>Empirical findings</li><li>Statistics</li><li>Participant quotations</li><li>Theoretical propositions</li><li>Definitions</li><li>Previous researchers’ interpretations</li></ul>
+            </details>
+            <article class="tm-warrant"><h3>Warrant</h3><p>Explains how the grounds lead to the claim.</p></article>
+            <article class="tm-rebuttal"><h3>Rebuttal</h3><p>Exceptions, counter-evidence or conditions of failure.</p></article>
+            <article class="tm-backing"><h3>Backing</h3><p>Explains why the warrant has authority.</p></article>
+          </div>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>Toulmin 模型是本課的論證地圖</h2>
+          <div class="toulmin-map" aria-label="Toulmin 論證地圖">
+            <article class="tm-qualifier"><h3>限定語</h3><p>主張在多大程度上成立？</p></article>
+            <article class="tm-claim"><h3>主張</h3><p>希望讀者接受的結論。</p></article>
+            <details class="tm-grounds tm-evidence">
+              <summary><h3>Grounds（證據）</h3><small>點擊查看證據類型</small></summary>
+              <p>用以支持主張的材料：</p>
+              <ul><li>實證研究發現</li><li>統計數據</li><li>參與者引語</li><li>理論命題</li><li>定義</li><li>先前研究者的詮釋</li></ul>
+            </details>
+            <article class="tm-warrant"><h3>論證依據</h3><p>解釋證據如何導向主張。</p></article>
+            <article class="tm-rebuttal"><h3>反駁</h3><p>例外、相反證據或不成立的條件。</p></article>
+            <article class="tm-backing"><h3>支持依據</h3><p>解釋論證依據為何具有權威。</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Activity 1: Toulmin Function Detective" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Activity 1 continued</span></header>
+        <div data-language="en">
+          <h2>What work does each sentence do?</h2>
+          <p class="intro-line">Treat the six sentences as one hypothetical university-library argument. Identify the function of each sentence within the Toulmin model.</p>
+          <div class="interactive-stack compact-activity" data-check-activity>
+            <div class="sort-row"><p>When study spaces are full, longer opening hours give students more access to suitable places to prepare.</p><select data-answer="warrant" aria-label="Classify Toulmin sentence one"><option value="">Choose a function…</option><option value="claim">Claim</option><option value="grounds">Grounds</option><option value="warrant">Warrant</option><option value="backing">Backing</option><option value="qualifier">Qualifier</option><option value="rebuttal">Rebuttal</option></select></div>
+            <div class="sort-row"><p>The extension is most justified during the two examination weeks.</p><select data-answer="qualifier" aria-label="Classify Toulmin sentence two"><option value="">Choose a function…</option><option value="claim">Claim</option><option value="grounds">Grounds</option><option value="warrant">Warrant</option><option value="backing">Backing</option><option value="qualifier">Qualifier</option><option value="rebuttal">Rebuttal</option></select></div>
+            <div class="sort-row"><p>During the final two weeks last term, every available library seat was occupied by 8 p.m.</p><select data-answer="grounds" aria-label="Classify Toulmin sentence three"><option value="">Choose a function…</option><option value="claim">Claim</option><option value="grounds">Grounds</option><option value="warrant">Warrant</option><option value="backing">Backing</option><option value="qualifier">Qualifier</option><option value="rebuttal">Rebuttal</option></select></div>
+            <div class="sort-row"><p>It may not be feasible on nights when safe staffing and transport cannot be arranged.</p><select data-answer="rebuttal" aria-label="Classify Toulmin sentence four"><option value="">Choose a function…</option><option value="claim">Claim</option><option value="grounds">Grounds</option><option value="warrant">Warrant</option><option value="backing">Backing</option><option value="qualifier">Qualifier</option><option value="rebuttal">Rebuttal</option></select></div>
+            <div class="sort-row"><p>The university should keep the library open later during examination weeks.</p><select data-answer="claim" aria-label="Classify Toulmin sentence five"><option value="">Choose a function…</option><option value="claim">Claim</option><option value="grounds">Grounds</option><option value="warrant">Warrant</option><option value="backing">Backing</option><option value="qualifier">Qualifier</option><option value="rebuttal">Rebuttal</option></select></div>
+            <div class="sort-row"><p>Universities are responsible for providing learning spaces that support students’ academic work.</p><select data-answer="backing" aria-label="Classify Toulmin sentence six"><option value="">Choose a function…</option><option value="claim">Claim</option><option value="grounds">Grounds</option><option value="warrant">Warrant</option><option value="backing">Backing</option><option value="qualifier">Qualifier</option><option value="rebuttal">Rebuttal</option></select></div>
+            <div class="activity-actions"><button type="button" data-check>Check answers</button><button type="button" data-clear>Clear</button><span class="activity-status" data-status role="status" aria-live="polite"></span></div>
+          </div>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>每個句子發揮甚麼作用？</h2>
+          <p class="intro-line">把以下六個句子視為一個假設的大學圖書館論證。判斷每句在 Toulmin 模型中的功能。</p>
+          <div class="interactive-stack compact-activity" data-check-activity>
+            <div class="sort-row"><p>當學習空間已滿，延長開放時間可讓學生有更多機會使用合適的備試場所。</p><select data-answer="warrant" aria-label="分類 Toulmin 句子一"><option value="">選擇功能⋯⋯</option><option value="claim">主張</option><option value="grounds">Grounds（證據）</option><option value="warrant">論證依據</option><option value="backing">支持依據</option><option value="qualifier">限定語</option><option value="rebuttal">反駁</option></select></div>
+            <div class="sort-row"><p>延長開放時間在兩個考試週期間最為合理。</p><select data-answer="qualifier" aria-label="分類 Toulmin 句子二"><option value="">選擇功能⋯⋯</option><option value="claim">主張</option><option value="grounds">Grounds（證據）</option><option value="warrant">論證依據</option><option value="backing">支持依據</option><option value="qualifier">限定語</option><option value="rebuttal">反駁</option></select></div>
+            <div class="sort-row"><p>上學期最後兩週，每晚八時前圖書館所有座位都已有人使用。</p><select data-answer="grounds" aria-label="分類 Toulmin 句子三"><option value="">選擇功能⋯⋯</option><option value="claim">主張</option><option value="grounds">Grounds（證據）</option><option value="warrant">論證依據</option><option value="backing">支持依據</option><option value="qualifier">限定語</option><option value="rebuttal">反駁</option></select></div>
+            <div class="sort-row"><p>如果無法安排安全的人手和交通，某些晚上可能不適合延長開放時間。</p><select data-answer="rebuttal" aria-label="分類 Toulmin 句子四"><option value="">選擇功能⋯⋯</option><option value="claim">主張</option><option value="grounds">Grounds（證據）</option><option value="warrant">論證依據</option><option value="backing">支持依據</option><option value="qualifier">限定語</option><option value="rebuttal">反駁</option></select></div>
+            <div class="sort-row"><p>大學應在考試週延長圖書館開放時間。</p><select data-answer="claim" aria-label="分類 Toulmin 句子五"><option value="">選擇功能⋯⋯</option><option value="claim">主張</option><option value="grounds">Grounds（證據）</option><option value="warrant">論證依據</option><option value="backing">支持依據</option><option value="qualifier">限定語</option><option value="rebuttal">反駁</option></select></div>
+            <div class="sort-row"><p>大學有責任提供支持學生學習的空間。</p><select data-answer="backing" aria-label="分類 Toulmin 句子六"><option value="">選擇功能⋯⋯</option><option value="claim">主張</option><option value="grounds">Grounds（證據）</option><option value="warrant">論證依據</option><option value="backing">支持依據</option><option value="qualifier">限定語</option><option value="rebuttal">反駁</option></select></div>
+            <div class="activity-actions"><button type="button" data-check>檢查答案</button><button type="button" data-clear>清除</button><span class="activity-status" data-status role="status" aria-live="polite"></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Chapter-level structure" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Chapter level</span></header>
+        <div data-language="en">
+          <h2>Give the chapter a clear route</h2>
+          <div class="grid-3">
+            <article class="level-card accent"><h3>Scope</h3><p>Define the problem, key concepts, boundaries and inclusion logic.</p></article>
+            <article class="level-card accent"><h3>Sequence</h3><p>Order themes, debates, methods or theories so each section prepares the next.</p></article>
+            <article class="level-card accent"><h3>Destination</h3><p>End with a synthesis that establishes the research space and links to the study.</p></article>
+          </div>
+          <p class="takeaway">The structure should follow the research problem. It should not be forced into an independent-variable/dependent-variable template when that logic does not fit.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>為章節建立清晰路線</h2>
+          <div class="grid-3">
+            <article class="level-card accent"><h3>範圍</h3><p>界定問題、核心概念、邊界與納入邏輯。</p></article>
+            <article class="level-card accent"><h3>順序</h3><p>安排主題、爭論、方法或理論，使每小節為下一節作準備。</p></article>
+            <article class="level-card accent"><h3>目的地</h3><p>以綜合結束，建立研究空間並連結本研究。</p></article>
+          </div>
+          <p class="takeaway">結構應跟隨研究課題；如果不合適，不應強行套用自變量與因變量的框架。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="A flexible chapter architecture" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Chapter level</span></header>
+        <div data-language="en">
+          <h2>A flexible architecture</h2>
+          <div class="architecture">
+            <article><span>01</span><p><strong>Introduction</strong><br />Purpose, scope and route</p></article>
+            <article><span>02</span><p><strong>Key concepts</strong><br />Definitions and boundaries</p></article>
+            <article><span>03</span><p><strong>Major strands</strong><br />Themes, debates or relationships</p></article>
+            <article><span>04</span><p><strong>Framework</strong><br />Theory and concepts</p></article>
+            <article><span>05</span><p><strong>Evidence</strong><br />Methodological strengths and limits</p></article>
+            <article><span>06</span><p><strong>Research space</strong><br />Uncertainty, tension or gap</p></article>
+            <article><span>07</span><p><strong>Conclusion</strong><br />Synthesis and link to the study</p></article>
+          </div>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>可調整的章節架構</h2>
+          <div class="architecture">
+            <article><span>01</span><p><strong>引言</strong><br />目的、範圍與路線</p></article>
+            <article><span>02</span><p><strong>核心概念</strong><br />定義與邊界</p></article>
+            <article><span>03</span><p><strong>主要脈絡</strong><br />主題、爭論或關係</p></article>
+            <article><span>04</span><p><strong>框架</strong><br />理論與概念</p></article>
+            <article><span>05</span><p><strong>證據</strong><br />方法上的優點與限制</p></article>
+            <article><span>06</span><p><strong>研究空間</strong><br />不確定、張力或缺口</p></article>
+            <article><span>07</span><p><strong>結論</strong><br />綜合並連結本研究</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Organising strategies" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Chapter level</span></header>
+        <div data-language="en">
+          <h2>Choose an organising logic</h2>
+          <div class="grid-4">
+            <article class="panel accent"><h3>Thematic</h3><p>Organise around recurring issues, concepts or debates.</p></article>
+            <article class="panel accent"><h3>Chronological</h3><p>Trace a meaningful development across time, not merely publication dates.</p></article>
+            <article class="panel accent"><h3>Methodological</h3><p>Compare how different designs produce different kinds of evidence.</p></article>
+            <article class="panel accent"><h3>Theoretical</h3><p>Compare explanatory lenses, assumptions and propositions.</p></article>
+          </div>
+          <p class="takeaway">A chapter may combine strategies. Name the principal logic and use another only when it helps the reader follow the argument.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>選擇組織邏輯</h2>
+          <div class="grid-4">
+            <article class="panel accent"><h3>主題式</h3><p>按反覆出現的議題、概念或爭論組織。</p></article>
+            <article class="panel accent"><h3>時間式</h3><p>追蹤隨時間出現的實質發展，而非只按出版年份排列。</p></article>
+            <article class="panel accent"><h3>方法式</h3><p>比較不同設計如何產生不同種類的證據。</p></article>
+            <article class="panel accent"><h3>理論式</h3><p>比較解釋視角、假設與命題。</p></article>
+          </div>
+          <p class="takeaway">一章可以結合多種策略，但應指出主要邏輯；只有在有助讀者理解論證時才加入其他策略。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Section-level structure" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Section level</span></header>
+        <div data-language="en">
+          <h2>Give each section one clear job</h2>
+          <div class="section-flow">
+            <article><span>Focus</span><p>Name the issue, relationship or debate this section addresses.</p></article>
+            <article><span>Group</span><p>Bring relevant studies together by pattern rather than by author.</p></article>
+            <article><span>Compare</span><p>Show where findings, concepts or methods converge and diverge.</p></article>
+            <article><span>Evaluate</span><p>Judge the strength, limits and relevance of the available evidence.</p></article>
+            <article><span>Conclude</span><p>State what can reasonably be concluded from this body of work.</p></article>
+            <article><span>Connect</span><p>Show why the next section or the proposed study is needed.</p></article>
+          </div>
+          <p class="takeaway">These are functions, not a fixed six-paragraph template. A short section may combine several functions.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>賦予每個小節一項清晰任務</h2>
+          <div class="section-flow">
+            <article><span>聚焦</span><p>指出本節處理的議題、關係或爭論。</p></article>
+            <article><span>歸類</span><p>按模式而非按作者組合相關研究。</p></article>
+            <article><span>比較</span><p>顯示發現、概念或方法在哪裏一致或分歧。</p></article>
+            <article><span>評估</span><p>判斷現有證據的強度、限制與相關性。</p></article>
+            <article><span>結論</span><p>說明根據這些文獻可以合理得出甚麼結論。</p></article>
+            <article><span>連結</span><p>說明為何需要下一節或擬議研究。</p></article>
+          </div>
+          <p class="takeaway">這些是功能，不是固定的六段模板。較短的小節可以結合多項功能。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Evidence roles" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Section level</span></header>
+        <div data-language="en">
+          <h2>Sources do different argumentative work</h2>
+          <div class="grid-6">
+            <article class="source-role"><h3>Support</h3><p>Provides findings consistent with the emerging conclusion.</p></article>
+            <article class="source-role"><h3>Explain</h3><p>Offers a concept or theory that helps interpret a pattern.</p></article>
+            <article class="source-role"><h3>Qualify</h3><p>Adds a condition, boundary or degree of certainty.</p></article>
+            <article class="source-role"><h3>Contrast</h3><p>Shows how another population, context or method differs.</p></article>
+            <article class="source-role"><h3>Challenge</h3><p>Offers contrary evidence or an exception.</p></article>
+            <article class="source-role"><h3>Extend</h3><p>Suggests a new implication, perspective or research direction.</p></article>
+          </div>
+          <p class="takeaway">Do not ask only, “What did this paper find?” Ask, “What role does it play in my argument?”</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>不同來源承擔不同論證功能</h2>
+          <div class="grid-6">
+            <article class="source-role"><h3>支持</h3><p>提供與逐漸形成的結論一致的發現。</p></article>
+            <article class="source-role"><h3>解釋</h3><p>提供有助於詮釋模式的概念或理論。</p></article>
+            <article class="source-role"><h3>限定</h3><p>加入條件、邊界或確定程度。</p></article>
+            <article class="source-role"><h3>對比</h3><p>顯示另一人群、情境或方法如何不同。</p></article>
+            <article class="source-role"><h3>挑戰</h3><p>提出相反證據或例外。</p></article>
+            <article class="source-role"><h3>延伸</h3><p>提出新的啟示、視角或研究方向。</p></article>
+          </div>
+          <p class="takeaway">不要只問「這篇文章發現了甚麼？」還要問「它在我的論證中扮演甚麼角色？」</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Critical evaluation" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Section level</span></header>
+        <div data-language="en">
+          <h2>Critical does not mean negative</h2>
+          <div class="evaluation-grid">
+            <article><h3>Provenance</h3><p>Who produced the evidence, with what expertise and data?</p></article>
+            <article><h3>Objectivity</h3><p>Were alternatives, contrary evidence and assumptions considered?</p></article>
+            <article><h3>Persuasiveness</h3><p>Do the evidence and reasoning justify the conclusion?</p></article>
+            <article><h3>Value</h3><p>What does this work contribute to this particular review?</p></article>
+          </div>
+          <p class="takeaway">Evaluate the fitness of evidence for a claim. A limited study may still have conceptual, methodological or historical value.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>批判不等於負面</h2>
+          <div class="evaluation-grid">
+            <article><h3>來源背景</h3><p>誰以甚麼專業知識與數據產生這項證據？</p></article>
+            <article><h3>客觀性</h3><p>是否考慮其他觀點、相反證據與假設？</p></article>
+            <article><h3>說服力</h3><p>證據與推理是否足以支持結論？</p></article>
+            <article><h3>價值</h3><p>這項工作對本次綜述有何貢獻？</p></article>
+          </div>
+          <p class="takeaway">評估證據是否適合支持主張。一項有限制的研究仍可能具有概念、方法或歷史價值。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Activity 2: Evidence Role Map" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Activity 2</span></header>
+        <div data-language="en">
+          <h2>Evidence Role Map</h2>
+          <p class="intro-line">Claim: Public collective feedback increases engagement.</p>
+          <div class="interactive-stack" data-check-activity>
+            <div class="sort-row"><p>A controlled study reports more voluntary responses after collective feedback.</p><select data-answer="support" aria-label="Role of source one"><option value="">Choose role…</option><option value="support">Supports the pattern</option><option value="challenge">Counter-evidence</option><option value="method">Methodological limitation</option><option value="context">Contextual boundary</option></select></div>
+            <div class="sort-row"><p>Another study reports greater social-comparison threat and lower behavioural engagement.</p><select data-answer="challenge" aria-label="Role of source two"><option value="">Choose role…</option><option value="support">Supports the pattern</option><option value="challenge">Counter-evidence</option><option value="method">Methodological limitation</option><option value="context">Contextual boundary</option></select></div>
+            <div class="sort-row"><p>The outcome was measured only through platform clicks during one session.</p><select data-answer="method" aria-label="Role of source three"><option value="">Choose role…</option><option value="support">Supports the pattern</option><option value="challenge">Counter-evidence</option><option value="method">Methodological limitation</option><option value="context">Contextual boundary</option></select></div>
+            <div class="sort-row"><p>The participants were undergraduate psychology students in one online course.</p><select data-answer="context" aria-label="Role of source four"><option value="">Choose role…</option><option value="support">Supports the pattern</option><option value="challenge">Counter-evidence</option><option value="method">Methodological limitation</option><option value="context">Contextual boundary</option></select></div>
+            <div class="activity-actions"><button type="button" data-check>Check answers</button><button type="button" data-clear>Clear</button><span class="activity-status" data-status role="status" aria-live="polite"></span></div>
+          </div>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>證據角色圖</h2>
+          <p class="intro-line">主張：公開集體回饋能提高參與度。</p>
+          <div class="interactive-stack" data-check-activity>
+            <div class="sort-row"><p>一項控制研究報告，集體回饋後學生自願回應次數增加。</p><select data-answer="support" aria-label="來源一的角色"><option value="">選擇角色⋯⋯</option><option value="support">支持該模式</option><option value="challenge">相反證據</option><option value="method">方法限制</option><option value="context">情境邊界</option></select></div>
+            <div class="sort-row"><p>另一項研究報告，社會比較威脅增加，行為參與度下降。</p><select data-answer="challenge" aria-label="來源二的角色"><option value="">選擇角色⋯⋯</option><option value="support">支持該模式</option><option value="challenge">相反證據</option><option value="method">方法限制</option><option value="context">情境邊界</option></select></div>
+            <div class="sort-row"><p>結果只透過單次課堂中的平台點擊量度。</p><select data-answer="method" aria-label="來源三的角色"><option value="">選擇角色⋯⋯</option><option value="support">支持該模式</option><option value="challenge">相反證據</option><option value="method">方法限制</option><option value="context">情境邊界</option></select></div>
+            <div class="sort-row"><p>參與者是同一網上課程中的心理學本科生。</p><select data-answer="context" aria-label="來源四的角色"><option value="">選擇角色⋯⋯</option><option value="support">支持該模式</option><option value="challenge">相反證據</option><option value="method">方法限制</option><option value="context">情境邊界</option></select></div>
+            <div class="activity-actions"><button type="button" data-check>檢查答案</button><button type="button" data-clear>清除</button><span class="activity-status" data-status role="status" aria-live="polite"></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Published paragraph A" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Paragraph investigation · Published example A</span></header>
+        <div data-language="en">
+          <h2>What is this paragraph doing?</h2>
+          <p class="intro-line">Read the complete published paragraph once. Then analyse it sentence by sentence: What is the controlling point? How are sources related? What does the writer add? Open each note only after your group agrees.</p>
+          <div class="sentence-analysis-list published-paragraph">
+            <details class="sentence-analysis"><summary><span>1</span> The number of academic and commercial tools for language learning is growing rapidly, e.g., popular systems such as Duolingo, Rosetta Stone, Babbel, Busuu, and iTalki.</summary><p><strong>Possible analysis:</strong> Establishes the topic through examples, but the broad growth claim is not cited and the sentence does not yet state an analytical point.</p></details>
+            <details class="sentence-analysis"><summary><span>2</span> Some CALL systems aim to give learners access to authentic materials (White &amp; Reinders, 2010), the opportunity to interact with teachers and native speakers (e.g., the app Lingoda is a platform for live video classes) and provide text or audio feedback based on learner needs and knowledge (Bodnar et al., 2017).</summary><p><strong>Possible analysis:</strong> Lists several affordances. The long coordination and uneven citation placement make it difficult to see precisely which source supports which proposition.</p></details>
+            <details class="sentence-analysis"><summary><span>3</span> Modern CALL systems are also mobile, which increases their accessibility (Derakhshan &amp; Khodabakhshzadeh, 2011; Kacetl &amp; Klímová, 2019; Rosell-Aguilar, 2018).</summary><p><strong>Possible analysis:</strong> Adds another feature and a claimed consequence. The relation between mobility and the paragraph’s earlier list remains implicit.</p></details>
+            <details class="paragraph-verdict"><summary>Reveal a possible overall judgement</summary><p>For the purpose of an argumentative literature review, this paragraph is mainly descriptive: it inventories tools and affordances but offers little synthesis, evaluation or explicit connection to a research problem. That does not make it unusable; it may serve as brief background when description is the writer’s immediate purpose.</p></details>
+          </div>
+          <p class="paper-citation"><strong>Quoted from:</strong> Hou, J., Vu, A.-D., Katinskaia, A., &amp; Yangarber, R. (2025). AI-assisted second-language teaching and learning in the Zone of Proximal Development. <em>Studies in Language Assessment, 14</em>(2), 92–122. <a href="https://doi.org/10.58379/vchj2886" target="_blank" rel="noreferrer">https://doi.org/10.58379/vchj2886</a> (p. 96).</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>這個段落在做甚麼？</h2>
+          <p class="intro-line">先完整閱讀已發表的原文段落，再逐句分析：控制觀點是甚麼？來源如何互相連結？作者加入了甚麼？小組達成共識後才打開提示。</p>
+          <div class="sentence-analysis-list published-paragraph">
+            <details class="sentence-analysis"><summary><span>1</span> The number of academic and commercial tools for language learning is growing rapidly, e.g., popular systems such as Duolingo, Rosetta Stone, Babbel, Busuu, and iTalki.</summary><p><strong>可能分析：</strong>以例子建立主題，但「快速增長」這項廣泛主張沒有引用，也尚未提出分析觀點。</p></details>
+            <details class="sentence-analysis"><summary><span>2</span> Some CALL systems aim to give learners access to authentic materials (White &amp; Reinders, 2010), the opportunity to interact with teachers and native speakers (e.g., the app Lingoda is a platform for live video classes) and provide text or audio feedback based on learner needs and knowledge (Bodnar et al., 2017).</summary><p><strong>可能分析：</strong>列出多種功能。句子並列過長，引用位置又不一致，因此難以判斷每個來源準確支持哪一項命題。</p></details>
+            <details class="sentence-analysis"><summary><span>3</span> Modern CALL systems are also mobile, which increases their accessibility (Derakhshan &amp; Khodabakhshzadeh, 2011; Kacetl &amp; Klímová, 2019; Rosell-Aguilar, 2018).</summary><p><strong>可能分析：</strong>增加另一項特徵及其影響，但「流動性」與前述清單的關係仍然隱含。</p></details>
+            <details class="paragraph-verdict"><summary>顯示一個可能的整體判斷</summary><p>若以論證型文獻綜述為目的，這個段落主要是描述性的：它列舉工具與功能，但較少綜合、評估或明確連結研究問題。這不代表段落完全不可用；當作者當下的目的是提供簡短背景時，這種描述仍可能合適。</p></details>
+          </div>
+          <p class="paper-citation"><strong>引文來源：</strong> Hou, J., Vu, A.-D., Katinskaia, A., &amp; Yangarber, R. (2025). AI-assisted second-language teaching and learning in the Zone of Proximal Development. <em>Studies in Language Assessment, 14</em>(2), 92–122. <a href="https://doi.org/10.58379/vchj2886" target="_blank" rel="noreferrer">https://doi.org/10.58379/vchj2886</a>（p. 96）。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Published paragraph B" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Paragraph investigation · Published example B</span></header>
+        <div data-language="en">
+          <h2>Watch the argument develop</h2>
+          <p class="intro-line">Trace the paragraph’s movement from claim to evidence, interpretation and research space. Analyse every sentence before opening its note.</p>
+          <div class="sentence-analysis-list published-paragraph compact-paragraph">
+            <details class="sentence-analysis"><summary><span>1</span> Less is known about the developmental trajectories (i.e. pathways) of secondary students’ goal setting, self-evaluation, and motivation with AIIS in IDLE.</summary><p><strong>Possible analysis:</strong> Opens with a knowledge-gap claim and defines its population, processes and context.</p></details>
+            <details class="sentence-analysis"><summary><span>2</span> Adolescence has been considered as a turning point for developing metacognitive monitoring, reflection, and regulatory skills, so it is expected that adolescents’ goal setting, self-evaluation, and motivation should gradually increase (Bardach et al., 2023).</summary><p><strong>Possible analysis:</strong> Supplies a theoretically informed expectation and places the citation beside the proposition that supports it.</p></details>
+            <details class="sentence-analysis"><summary><span>3</span> However, relevant studies indicated mixed potential trajectories, especially in new learning environments.</summary><p><strong>Possible analysis:</strong> “However” turns from the expectation to a tension in the empirical literature.</p></details>
+            <details class="sentence-analysis"><summary><span>4</span> For example, when new learning environments presented cognitive learning difficulty, the levels of learners’ self-rated attainment such as goal setting, self-evaluation, and motivation tended to decrease from the beginning until the third or seventh month, followed by a stabilizing trend afterwards (Koizumi &amp; Matsuo, 1993).</summary><p><strong>Possible analysis:</strong> Provides a concrete declining-and-stabilising pattern as Grounds for the tension.</p></details>
+            <details class="sentence-analysis"><summary><span>5</span> This decline-and-stabilizing trend reflected the process that the learners adjusted their goals based on self-evaluation until the goal scores came to approach their latest learning performance.</summary><p><strong>Possible analysis:</strong> Interprets what the reported pattern may mean rather than merely adding another finding.</p></details>
+            <details class="sentence-analysis"><summary><span>6</span> Moreover, a rising trend was found in goal setting, self-evaluation, and motivation in online learning (Chiu, 2023).</summary><p><strong>Possible analysis:</strong> Adds a contrasting pattern, making the earlier statement about mixed trajectories visible.</p></details>
+            <details class="sentence-analysis"><summary><span>7</span> While these studies suggested potential developmental trajectories, in the specific context of using AIIS for secondary students’ speaking learning in IDLE, the developmental trajectories are unknown.</summary><p><strong>Possible analysis:</strong> Synthesises the preceding evidence, qualifies what it establishes and narrows the unresolved research space.</p></details>
+            <details class="paragraph-verdict"><summary>Reveal a possible overall judgement</summary><p>For this lesson’s purpose, this is the more argumentative paragraph: its sentences establish a gap, develop an expectation, contrast empirical patterns, interpret one pattern and return to a carefully bounded gap. A critical reader should still ask how the opening “less is known” claim was established.</p></details>
+          </div>
+          <p class="paper-citation"><strong>Quoted from:</strong> Wang, F., Zhou, X., Li, K., Cheung, A. C. K., &amp; Tian, M. (2025). The effects of artificial intelligence-based interactive scaffolding on secondary students’ speaking performance, goal setting, self-evaluation, and motivation in informal digital learning of English. <em>Interactive Learning Environments, 33</em>(7), 4633–4652. <a href="https://doi.org/10.1080/10494820.2025.2470319" target="_blank" rel="noreferrer">https://doi.org/10.1080/10494820.2025.2470319</a> (p. 4637).</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>觀察論證如何發展</h2>
+          <p class="intro-line">追蹤段落如何從主張推進至證據、詮釋與研究空間。打開提示前，先逐句分析。</p>
+          <div class="sentence-analysis-list published-paragraph compact-paragraph">
+            <details class="sentence-analysis"><summary><span>1</span> Less is known about the developmental trajectories (i.e. pathways) of secondary students’ goal setting, self-evaluation, and motivation with AIIS in IDLE.</summary><p><strong>可能分析：</strong>以知識缺口主張開始，並界定人群、過程與情境。</p></details>
+            <details class="sentence-analysis"><summary><span>2</span> Adolescence has been considered as a turning point for developing metacognitive monitoring, reflection, and regulatory skills, so it is expected that adolescents’ goal setting, self-evaluation, and motivation should gradually increase (Bardach et al., 2023).</summary><p><strong>可能分析：</strong>提出有理論支持的預期，並把引用放在它所支持的命題旁邊。</p></details>
+            <details class="sentence-analysis"><summary><span>3</span> However, relevant studies indicated mixed potential trajectories, especially in new learning environments.</summary><p><strong>可能分析：</strong>「However」把論述從理論預期轉向實證文獻中的張力。</p></details>
+            <details class="sentence-analysis"><summary><span>4</span> For example, when new learning environments presented cognitive learning difficulty, the levels of learners’ self-rated attainment such as goal setting, self-evaluation, and motivation tended to decrease from the beginning until the third or seventh month, followed by a stabilizing trend afterwards (Koizumi &amp; Matsuo, 1993).</summary><p><strong>可能分析：</strong>提供先下降、後穩定的具體模式，作為呈現張力的 Grounds。</p></details>
+            <details class="sentence-analysis"><summary><span>5</span> This decline-and-stabilizing trend reflected the process that the learners adjusted their goals based on self-evaluation until the goal scores came to approach their latest learning performance.</summary><p><strong>可能分析：</strong>詮釋已報告的模式可能意味著甚麼，而非只加入另一項發現。</p></details>
+            <details class="sentence-analysis"><summary><span>6</span> Moreover, a rising trend was found in goal setting, self-evaluation, and motivation in online learning (Chiu, 2023).</summary><p><strong>可能分析：</strong>加入相反模式，使前文所指的「混合軌跡」清晰可見。</p></details>
+            <details class="sentence-analysis"><summary><span>7</span> While these studies suggested potential developmental trajectories, in the specific context of using AIIS for secondary students’ speaking learning in IDLE, the developmental trajectories are unknown.</summary><p><strong>可能分析：</strong>綜合前述證據、限定它能支持的結論，並收窄尚未解決的研究空間。</p></details>
+            <details class="paragraph-verdict"><summary>顯示一個可能的整體判斷</summary><p>以本課目的而言，這個段落更具論證性：各句先建立缺口，再發展預期、對比實證模式、詮釋其中一種模式，最後返回範圍清楚的研究缺口。批判性讀者仍應追問開首「所知較少」的主張如何被確立。</p></details>
+          </div>
+          <p class="paper-citation"><strong>引文來源：</strong> Wang, F., Zhou, X., Li, K., Cheung, A. C. K., &amp; Tian, M. (2025). The effects of artificial intelligence-based interactive scaffolding on secondary students’ speaking performance, goal setting, self-evaluation, and motivation in informal digital learning of English. <em>Interactive Learning Environments, 33</em>(7), 4633–4652. <a href="https://doi.org/10.1080/10494820.2025.2470319" target="_blank" rel="noreferrer">https://doi.org/10.1080/10494820.2025.2470319</a>（p. 4637）。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Paragraph focus and citation emphasis" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Paragraph level</span></header>
+        <div data-language="en">
+          <h2>Do not let author names control the paragraph</h2>
+          <p class="intro-line"><strong>How you cite changes the emphasis.</strong> Narrative citations foreground researchers; parenthetical citations foreground the proposition.</p>
+          <div class="contrast">
+            <article><h3>Source-led + narrative</h3><p><strong>Chan (2022)</strong> studied feedback literacy. <strong>Lee (2023)</strong> studied engagement. <strong>Wong and Ho (2024)</strong> examined AI feedback. They all found feedback important.</p><p class="source-note">The researchers remain the grammatical subjects and control the paragraph.</p></article>
+            <b>→</b>
+            <article><h3>Claim-led + parenthetical</h3><p>Existing research suggests that feedback becomes educationally useful only when learners can interpret and act upon it <strong>(Chan, 2022; Lee, 2023)</strong>, although AI may alter the availability and timing of that support <strong>(Wong &amp; Ho, 2024)</strong>.</p><p class="source-note">The proposition controls the sentence; citations show which sources support each part.</p></article>
+          </div>
+          <p class="instruction">Use narrative citation when the researcher or study matters. Use parenthetical citation when the relationship across the literature should stay in the foreground.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>不要讓作者姓名控制段落</h2>
+          <p class="intro-line"><strong>引用方式會改變重點。</strong>敘述式引用突出研究者；括號式引用突出命題。</p>
+          <div class="contrast">
+            <article><h3>來源主導＋敘述式</h3><p><strong>Chan（2022）</strong>研究回饋素養；<strong>Lee（2023）</strong>研究參與度；<strong>Wong 與 Ho（2024）</strong>研究人工智能回饋。他們都發現回饋很重要。</p><p class="source-note">研究者一直擔任語法主語，因而控制段落。</p></article>
+            <b>→</b>
+            <article><h3>主張主導＋括號式</h3><p>現有研究顯示，只有當學習者能夠詮釋並運用回饋時，回饋才具有教育價值<strong>（Chan, 2022；Lee, 2023）</strong>；然而，人工智能可能改變這類支持的可得性與時機<strong>（Wong &amp; Ho, 2024）</strong>。</p><p class="source-note">命題控制句子；引用指出每個部分由哪些來源支持。</p></article>
+          </div>
+          <p class="instruction">當研究者或研究本身重要時，使用敘述式引用。當文獻之間的關係應保持在前景時，使用括號式引用。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Why cite?" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Citation as scholarly practice</span></header>
+        <div data-language="en">
+          <h2>Why cite?</h2>
+          <div class="grid-4">
+            <article class="citation-card"><h3>Credit</h3><p>Acknowledge the intellectual work of others.</p></article>
+            <article class="citation-card"><h3>Evidence</h3><p>Show which source supplies the evidence for a claim.</p></article>
+            <article class="citation-card"><h3>Borrowed ideas</h3><p>Identify theories, definitions, methods and interpretations that come from others.</p></article>
+            <article class="citation-card"><h3>Traceability</h3><p>Enable readers to locate and evaluate the source.</p></article>
+          </div>
+          <p class="takeaway">A citation identifies where material comes from. It does not explain the relationship between sources or repair weak reasoning.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>為甚麼要引用？</h2>
+          <div class="grid-4">
+            <article class="citation-card"><h3>承認貢獻</h3><p>承認他人的知識工作。</p></article>
+            <article class="citation-card"><h3>證據</h3><p>顯示哪個來源為主張提供證據。</p></article>
+            <article class="citation-card"><h3>借用的觀點</h3><p>指出來自他人的理論、定義、方法與詮釋。</p></article>
+            <article class="citation-card"><h3>可追溯性</h3><p>讓讀者找到並評估來源。</p></article>
+          </div>
+          <p class="takeaway">引用指出材料來自哪裏。它不會解釋來源之間的關係，也不能修補薄弱推理。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="When to cite" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Citation decisions</span></header>
+        <div data-language="en">
+          <h2>When should you cite?</h2>
+          <div class="do-dont">
+            <article><h3>Cite</h3><ul><li>Source-specific facts, statistics or findings</li><li>Theories, models, concepts and definitions</li><li>Methods or interpretive principles borrowed from others</li><li>Paraphrased, summarised or quoted ideas</li><li>Limitations, contrasts or interpretations derived from particular studies</li></ul></article>
+            <article><h3>Usually no citation</h3><ul><li>Your clearly identified research decision</li><li>Your own transition or analytical implication</li><li>Genuinely common knowledge for the intended readers</li></ul></article>
+          </div>
+          <p class="takeaway">Common knowledge depends on audience and discipline. When uncertain, ask whose idea or evidence the sentence depends upon.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>何時應該引用？</h2>
+          <div class="do-dont">
+            <article><h3>需要引用</h3><ul><li>特定來源的事實、統計或發現</li><li>理論、模型、概念與定義</li><li>借用自他人的方法或詮釋原則</li><li>改寫、摘要或直接引用他人的觀點</li><li>源自特定研究的限制、對比或詮釋</li></ul></article>
+            <article><h3>通常毋須引用</h3><ul><li>已清楚標示為你的研究決定</li><li>你自己的過渡或分析含義</li><li>對目標讀者而言真正屬於常識的內容</li></ul></article>
+          </div>
+          <p class="takeaway">常識取決於讀者與學科。如有疑問，問這句話依賴誰的觀點或證據。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Paraphrase and quotation" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Using sources</span></header>
+        <div data-language="en">
+          <h2>Paraphrase and quote with precision</h2>
+          <p class="intro-line">Choose the form that preserves the source accurately and serves your reason for using it.</p>
+          <div class="citation-scope">
+            <article><strong>Paraphrase</strong><p>Represent the source accurately in your own wording and cite it.</p></article>
+            <article><strong>Short quote</strong><p>Use quotation marks and include author, year and page or paragraph location.</p></article>
+            <article><strong>40+ words</strong><p>Use an indented block quotation without quotation marks; quote only when the exact wording matters.</p></article>
+          </div>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>準確改寫與直接引用</h2>
+          <p class="intro-line">選擇能準確保留來源意思，並符合你使用目的的方式。</p>
+          <div class="citation-scope">
+            <article><strong>改寫</strong><p>以自己的措辭準確表達來源內容，並提供引用。</p></article>
+            <article><strong>短引語</strong><p>使用引號，並包括作者、年份及頁碼或段落位置。</p></article>
+            <article><strong>40 字以上</strong><p>使用縮排的區塊引文，不加引號；只有在原文措辭重要時才直接引用。</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Citation placement and scope" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Citation decisions</span></header>
+        <div data-language="en">
+          <h2>Make the citation’s scope visible</h2>
+          <div class="citation-scope">
+            <article><strong>Close</strong><p>Place the citation immediately beside the idea or evidence it supports.</p></article>
+            <article><strong>Accurate</strong><p>Do not group sources as agreeing unless each supports the stated proposition.</p></article>
+            <article><strong>Primary</strong><p>When practical, read and cite the original theory or study instead of repeating a secondary claim.</p></article>
+            <article><strong>Selective</strong><p>Cite enough to support the claim, but do not replace synthesis with a pile of references.</p></article>
+          </div>
+          <p class="takeaway">A single citation at the end of a long paragraph may leave the reader unable to tell which sentences it supports.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>清楚顯示引用的涵蓋範圍</h2>
+          <div class="citation-scope">
+            <article><strong>接近</strong><p>把引用放在它所支持的觀點或證據旁邊。</p></article>
+            <article><strong>準確</strong><p>除非每個來源都支持該命題，否則不要把它們列為一致。</p></article>
+            <article><strong>原始來源</strong><p>可行情況下，閱讀並引用原始理論或研究，而非轉述二手主張。</p></article>
+            <article><strong>選擇性</strong><p>提供足以支持主張的引用，但不要用大量文獻取代綜合。</p></article>
+          </div>
+          <p class="takeaway">在長段落結尾只放一項引用，可能令讀者無法判斷它支持哪些句子。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Activity 3: Citation Clinic" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Activity 3</span></header>
+        <div data-language="en">
+          <h2>Citation Clinic</h2>
+          <div class="interactive-stack" data-check-activity>
+            <div class="sort-row"><p>A theoretical model is paraphrased but no source is named.</p><select data-answer="cite" aria-label="Repair citation scenario one"><option value="">Best repair…</option><option value="cite">Add a citation</option><option value="no-cite">No citation needed</option><option value="add-page">Add a page number</option><option value="clarify-scope">Clarify citation scope</option></select></div>
+            <div class="sort-row"><p>“Feedback requires learner judgement” (Chan, 2024).</p><select data-answer="add-page" aria-label="Repair citation scenario two"><option value="">Best repair…</option><option value="cite">Add a citation</option><option value="no-cite">No citation needed</option><option value="add-page">Add a page number</option><option value="clarify-scope">Clarify citation scope</option></select></div>
+            <div class="sort-row"><p>Our study will recruit teachers from two Macau schools.</p><select data-answer="no-cite" aria-label="Repair citation scenario three"><option value="">Best repair…</option><option value="cite">Add a citation</option><option value="no-cite">No citation needed</option><option value="add-page">Add a page number</option><option value="clarify-scope">Clarify citation scope</option></select></div>
+            <div class="sort-row"><p>A paragraph makes three different claims, followed by one citation only at the end.</p><select data-answer="clarify-scope" aria-label="Repair citation scenario four"><option value="">Best repair…</option><option value="cite">Add a citation</option><option value="no-cite">No citation needed</option><option value="add-page">Add a page number</option><option value="clarify-scope">Clarify citation scope</option></select></div>
+            <div class="activity-actions"><button type="button" data-check>Check answers</button><button type="button" data-clear>Clear</button><span class="activity-status" data-status role="status" aria-live="polite"></span></div>
+          </div>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>引用診所</h2>
+          <div class="interactive-stack" data-check-activity>
+            <div class="sort-row"><p>一個理論模型被改寫，但沒有指出來源。</p><select data-answer="cite" aria-label="修正引用情境一"><option value="">最佳修正⋯⋯</option><option value="cite">加入引用</option><option value="no-cite">毋須引用</option><option value="add-page">加入頁碼</option><option value="clarify-scope">釐清引用範圍</option></select></div>
+            <div class="sort-row"><p>「回饋需要學習者作出判斷」（Chan, 2024）。</p><select data-answer="add-page" aria-label="修正引用情境二"><option value="">最佳修正⋯⋯</option><option value="cite">加入引用</option><option value="no-cite">毋須引用</option><option value="add-page">加入頁碼</option><option value="clarify-scope">釐清引用範圍</option></select></div>
+            <div class="sort-row"><p>本研究將從澳門兩所學校招募教師。</p><select data-answer="no-cite" aria-label="修正引用情境三"><option value="">最佳修正⋯⋯</option><option value="cite">加入引用</option><option value="no-cite">毋須引用</option><option value="add-page">加入頁碼</option><option value="clarify-scope">釐清引用範圍</option></select></div>
+            <div class="sort-row"><p>一個段落提出三個不同主張，只在段落末尾放置一項引用。</p><select data-answer="clarify-scope" aria-label="修正引用情境四"><option value="">最佳修正⋯⋯</option><option value="cite">加入引用</option><option value="no-cite">毋須引用</option><option value="add-page">加入頁碼</option><option value="clarify-scope">釐清引用範圍</option></select></div>
+            <div class="activity-actions"><button type="button" data-check>檢查答案</button><button type="button" data-clear>清除</button><span class="activity-status" data-status role="status" aria-live="polite"></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Research gaps" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">From synthesis to research space</span></header>
+        <div data-language="en">
+          <h2>A gap is an argued conclusion</h2>
+          <div class="grid-4">
+            <article class="panel accent"><h3>Theoretical</h3><p>An existing explanation is incomplete or conflicting.</p></article>
+            <article class="panel accent"><h3>Empirical</h3><p>Relevant evidence is limited, inconsistent or absent.</p></article>
+            <article class="panel accent"><h3>Methodological</h3><p>Existing designs cannot answer an important aspect of the problem.</p></article>
+            <article class="panel accent"><h3>Contextual</h3><p>Populations, places or periods are systematically under-represented.</p></article>
+          </div>
+          <p class="takeaway">Do not declare “no research exists” after a quick search. Show the pattern, its consequence and why your study is an appropriate response.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>缺口是經論證得出的結論</h2>
+          <div class="grid-4">
+            <article class="panel accent"><h3>理論缺口</h3><p>現有解釋並不完整或互相衝突。</p></article>
+            <article class="panel accent"><h3>實證缺口</h3><p>相關證據有限、不一致或缺失。</p></article>
+            <article class="panel accent"><h3>方法缺口</h3><p>現有設計無法回答研究課題的重要面向。</p></article>
+            <article class="panel accent"><h3>情境缺口</h3><p>某些人群、地點或時期長期代表不足。</p></article>
+          </div>
+          <p class="takeaway">不要在快速檢索後便宣稱「沒有研究」。應呈現證據模式、其後果，以及你的研究為何是合適回應。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Common mistakes" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Quality check</span></header>
+        <div data-language="en">
+          <h2>Common literature-review failures</h2>
+          <div class="grid-6">
+            <article class="panel"><h3>Loose relevance</h3><p>Interesting sources do not clearly serve the research problem.</p></article>
+            <article class="panel"><h3>Paper dumping</h3><p>Studies are reported separately without synthesis.</p></article>
+            <article class="panel"><h3>Uncritical acceptance</h3><p>Published conclusions are treated as automatically valid.</p></article>
+            <article class="panel"><h3>Confirmation bias</h3><p>Only supportive evidence is included.</p></article>
+            <article class="panel"><h3>Invisible method</h3><p>Selection and search procedures are not explained.</p></article>
+            <article class="panel"><h3>Citation fog</h3><p>The reader cannot see which source supports which claim.</p></article>
+          </div>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>文獻綜述的常見問題</h2>
+          <div class="grid-6">
+            <article class="panel"><h3>關聯鬆散</h3><p>有趣的來源未能清楚服務研究課題。</p></article>
+            <article class="panel"><h3>堆砌文獻</h3><p>逐篇報告研究，沒有綜合。</p></article>
+            <article class="panel"><h3>不加批判地接受</h3><p>把已出版結論視為必然有效。</p></article>
+            <article class="panel"><h3>確認偏誤</h3><p>只納入支持既有看法的證據。</p></article>
+            <article class="panel"><h3>方法不可見</h3><p>沒有解釋選擇與檢索程序。</p></article>
+            <article class="panel"><h3>引用迷霧</h3><p>讀者無法看出哪個來源支持哪項主張。</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Activity 4: Review Debugger" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Activity 4</span></header>
+        <div data-language="en">
+          <h2>Literature Review Debugger</h2>
+          <p class="intro-line">Before opening a card, name the writing problem and propose a repair.</p>
+          <div class="debug-grid">
+            <details class="debug-card"><summary>“All eight studies agree, so the intervention is effective.”</summary><p>Overclaiming: check whether outcomes, designs and contexts are comparable, then examine contrary evidence.</p></details>
+            <details class="debug-card"><summary>One source is summarised for half a page.</summary><p>Keep only information that serves the section claim. Relate it to other evidence and explain its role.</p></details>
+            <details class="debug-card"><summary>A paragraph contains six citations but no clear point.</summary><p>No controlling point: state what the sources collectively show, group them by relationship and explain your interpretation.</p></details>
+            <details class="debug-card"><summary>“No study has examined this topic.”</summary><p>Unsupported absolute claim: report the pattern found through a transparent search and define the search coverage.</p></details>
+            <details class="debug-card"><summary>A paraphrase changes words but copies the source structure.</summary><p>Return to the meaning, close the source, restate the idea accurately in a new structure and still cite it.</p></details>
+            <details class="debug-card"><summary>Only evidence supporting the preferred theory is included.</summary><p>Selective synthesis: search for contrary findings and alternative explanations, then use them to refine the conclusion.</p></details>
+          </div>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>文獻綜述除錯器</h2>
+          <p class="intro-line">打開卡片前，小組先指出寫作問題，並提出修正方法。</p>
+          <div class="debug-grid">
+            <details class="debug-card"><summary>「八項研究都一致，因此介入有效。」</summary><p>過度主張：檢查結果、設計與情境是否可比較，再考察相反證據。</p></details>
+            <details class="debug-card"><summary>用半頁摘要單一來源。</summary><p>只保留服務小節主張的資料；把它與其他證據連結並解釋其角色。</p></details>
+            <details class="debug-card"><summary>一個段落有六項引用，但沒有清晰觀點。</summary><p>沒有控制觀點：先說明來源共同顯示甚麼，按關係歸類，並解釋你的詮釋。</p></details>
+            <details class="debug-card"><summary>「沒有研究探討此主題。」</summary><p>缺乏支持的絕對主張：報告透明檢索所顯示的模式，並界定檢索覆蓋範圍。</p></details>
+            <details class="debug-card"><summary>改寫只更換詞語，卻複製來源結構。</summary><p>回到意思，關閉來源，以新結構準確重述，並仍然提供引用。</p></details>
+            <details class="debug-card"><summary>只納入支持偏好理論的證據。</summary><p>選擇性綜合：搜尋相反發現與其他解釋，再用它們細化結論。</p></details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Paragraph audit" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Integration</span></header>
+        <div data-language="en">
+          <h2>Run a final paragraph audit</h2>
+          <div class="paragraph-audit">
+            <article><span>1</span><p><strong>Point</strong><br />Is one clear idea controlling the paragraph?</p></article>
+            <article><span>2</span><p><strong>Selection</strong><br />Does every source serve that point?</p></article>
+            <article><span>3</span><p><strong>Synthesis</strong><br />Are sources compared rather than listed?</p></article>
+            <article><span>4</span><p><strong>Interpretation</strong><br />Have you explained what the pattern means?</p></article>
+            <article><span>5</span><p><strong>Boundary</strong><br />Have you avoided overgeneralising?</p></article>
+            <article><span>6</span><p><strong>Citations</strong><br />Can readers trace each borrowed idea?</p></article>
+          </div>
+          <p class="takeaway">Read the paragraph as a reader would: point, evidence, relationship, meaning, boundary and traceability.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>進行最後的段落審視</h2>
+          <div class="paragraph-audit">
+            <article><span>1</span><p><strong>觀點</strong><br />段落是否由一個清晰觀點控制？</p></article>
+            <article><span>2</span><p><strong>選擇</strong><br />每個來源是否都服務該觀點？</p></article>
+            <article><span>3</span><p><strong>綜合</strong><br />來源是否被比較，而不是羅列？</p></article>
+            <article><span>4</span><p><strong>詮釋</strong><br />是否解釋了模式的意義？</p></article>
+            <article><span>5</span><p><strong>邊界</strong><br />是否避免過度概括？</p></article>
+            <article><span>6</span><p><strong>引用</strong><br />讀者能否追溯每個借用觀點？</p></article>
+          </div>
+          <p class="takeaway">以讀者的方式閱讀段落：觀點、證據、關係、意義、邊界與可追溯性。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Exit ticket" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Exit ticket</span></header>
+        <div data-language="en">
+          <h2>Rebuild the argument</h2>
+          <div class="exit-model-activity" data-toulmin-match>
+            <p class="intro-line">Rebuild this hypothetical literature-review argument. Drag each sentence into an empty box, or select a sentence and then select a box. Reveal the element names when you are ready.</p>
+            <div class="exit-sentence-bank" data-sentence-bank aria-label="Sentence bank">
+              <button type="button" class="exit-sentence" draggable="true" data-card-id="en-backing" data-element="backing" data-order="1">Feedback-literacy research shows that acting on complex feedback requires evaluative judgement and knowledge of disciplinary purposes.</button>
+              <button type="button" class="exit-sentence" draggable="true" data-card-id="en-claim" data-element="claim" data-order="2">Automated feedback appears more effective for surface correction than for conceptual revision in postgraduate writing.</button>
+              <button type="button" class="exit-sentence" draggable="true" data-card-id="en-rebuttal" data-element="rebuttal" data-order="3">This pattern may not hold when students receive guided dialogue with a teacher or sustained conceptual coaching from the system.</button>
+              <button type="button" class="exit-sentence" draggable="true" data-card-id="en-grounds" data-element="grounds" data-order="4">Across four studies, students corrected more grammar errors than problems of argument or structure after automated feedback.</button>
+              <button type="button" class="exit-sentence" draggable="true" data-card-id="en-qualifier" data-element="qualifier" data-order="5">This pattern appears strongest among novice postgraduate writers using text-based feedback tools.</button>
+              <button type="button" class="exit-sentence" draggable="true" data-card-id="en-warrant" data-element="warrant" data-order="6">Grammar errors can be addressed through explicit, local suggestions, whereas conceptual revision requires interpretation of the argument as a whole.</button>
+            </div>
+            <div class="toulmin-map exit-model" aria-label="Unlabelled Toulmin model">
+              <div class="exit-drop tm-qualifier" data-slot="qualifier" role="button" tabindex="0" aria-label="Model box 1"><span class="exit-role" hidden>Qualifier</span><span class="exit-placeholder">Drop a sentence here</span></div>
+              <div class="exit-drop tm-claim" data-slot="claim" role="button" tabindex="0" aria-label="Model box 2"><span class="exit-role" hidden>Claim</span><span class="exit-placeholder">Drop a sentence here</span></div>
+              <div class="exit-drop tm-grounds" data-slot="grounds" role="button" tabindex="0" aria-label="Model box 3"><span class="exit-role" hidden>Grounds</span><span class="exit-placeholder">Drop a sentence here</span></div>
+              <div class="exit-drop tm-warrant" data-slot="warrant" role="button" tabindex="0" aria-label="Model box 4"><span class="exit-role" hidden>Warrant</span><span class="exit-placeholder">Drop a sentence here</span></div>
+              <div class="exit-drop tm-rebuttal" data-slot="rebuttal" role="button" tabindex="0" aria-label="Model box 5"><span class="exit-role" hidden>Rebuttal</span><span class="exit-placeholder">Drop a sentence here</span></div>
+              <div class="exit-drop tm-backing" data-slot="backing" role="button" tabindex="0" aria-label="Model box 6"><span class="exit-role" hidden>Backing</span><span class="exit-placeholder">Drop a sentence here</span></div>
+            </div>
+            <div class="activity-actions">
+              <button type="button" data-reveal-names>Reveal element names</button>
+              <button type="button" data-reset-match>Reset</button>
+              <span class="activity-status" data-match-status role="status" aria-live="polite"></span>
+            </div>
+            <aside class="exit-review-video" data-review-video hidden>
+              <div>
+                <h3>Need another explanation?</h3>
+                <p>If any element is still unclear, you are welcome to watch this explanation again after class.</p>
+                <a href="https://www.youtube.com/watch?v=8g6R9dRtAww" target="_blank" rel="noreferrer">Open the video on YouTube</a>
+              </div>
+              <div class="video-frame compact-video">
+                <iframe src="https://www.youtube-nocookie.com/embed/8g6R9dRtAww?rel=0" title="Stephen Toulmin model of argumentation video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
+            </aside>
+          </div>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>重建論證</h2>
+          <div class="exit-model-activity" data-toulmin-match>
+            <p class="intro-line">重建這個假設的文獻綜述論證。把每個句子拖入一個空格，或先選取句子，再選取一個方格。完成後，按鍵顯示論證元素名稱。</p>
+            <div class="exit-sentence-bank" data-sentence-bank aria-label="句子庫">
+              <button type="button" class="exit-sentence" draggable="true" data-card-id="zh-backing" data-element="backing" data-order="1">回饋素養研究顯示，運用複雜回饋需要評價判斷和對學科目的的理解。</button>
+              <button type="button" class="exit-sentence" draggable="true" data-card-id="zh-claim" data-element="claim" data-order="2">對研究生寫作者而言，自動化回饋對表層修正的成效似乎高於概念層面的修改。</button>
+              <button type="button" class="exit-sentence" draggable="true" data-card-id="zh-rebuttal" data-element="rebuttal" data-order="3">當學生獲得教師引導的對話，或系統提供持續的概念指導時，這一模式可能不成立。</button>
+              <button type="button" class="exit-sentence" draggable="true" data-card-id="zh-grounds" data-element="grounds" data-order="4">四項研究中，學生在接受自動化回饋後修正的語法錯誤，多於論證或結構問題。</button>
+              <button type="button" class="exit-sentence" draggable="true" data-card-id="zh-qualifier" data-element="qualifier" data-order="5">這種模式在使用文字型回饋工具的新手研究生寫作者中似乎最明顯。</button>
+              <button type="button" class="exit-sentence" draggable="true" data-card-id="zh-warrant" data-element="warrant" data-order="6">語法錯誤可透過明確且局部的建議加以辨識和修正，而概念修改需要理解整體論證。</button>
+            </div>
+            <div class="toulmin-map exit-model" aria-label="未標示名稱的 Toulmin 論證模型">
+              <div class="exit-drop tm-qualifier" data-slot="qualifier" role="button" tabindex="0" aria-label="模型方格一"><span class="exit-role" hidden>限定語</span><span class="exit-placeholder">把句子放在這裡</span></div>
+              <div class="exit-drop tm-claim" data-slot="claim" role="button" tabindex="0" aria-label="模型方格二"><span class="exit-role" hidden>主張</span><span class="exit-placeholder">把句子放在這裡</span></div>
+              <div class="exit-drop tm-grounds" data-slot="grounds" role="button" tabindex="0" aria-label="模型方格三"><span class="exit-role" hidden>Grounds（證據）</span><span class="exit-placeholder">把句子放在這裡</span></div>
+              <div class="exit-drop tm-warrant" data-slot="warrant" role="button" tabindex="0" aria-label="模型方格四"><span class="exit-role" hidden>論證依據</span><span class="exit-placeholder">把句子放在這裡</span></div>
+              <div class="exit-drop tm-rebuttal" data-slot="rebuttal" role="button" tabindex="0" aria-label="模型方格五"><span class="exit-role" hidden>反駁</span><span class="exit-placeholder">把句子放在這裡</span></div>
+              <div class="exit-drop tm-backing" data-slot="backing" role="button" tabindex="0" aria-label="模型方格六"><span class="exit-role" hidden>支持依據</span><span class="exit-placeholder">把句子放在這裡</span></div>
+            </div>
+            <div class="activity-actions">
+              <button type="button" data-reveal-names>顯示元素名稱</button>
+              <button type="button" data-reset-match>重設</button>
+              <span class="activity-status" data-match-status role="status" aria-live="polite"></span>
+            </div>
+            <aside class="exit-review-video" data-review-video hidden>
+              <div>
+                <h3>需要另一個解說嗎？</h3>
+                <p>如果仍未理解某個元素，歡迎你在課後再次觀看這段解說。</p>
+                <a href="https://www.youtube.com/watch?v=8g6R9dRtAww" target="_blank" rel="noreferrer">在 YouTube 開啟影片</a>
+              </div>
+              <div class="video-frame compact-video">
+                <iframe src="https://www.youtube-nocookie.com/embed/8g6R9dRtAww?rel=0" title="Stephen Toulmin 論證模型影片" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Personal PDF" aria-hidden="true">
+      <div class="slide-inner title-slide">
+        <header class="slide-header"><span class="eyebrow">Keep your work</span></header>
+        <div data-language="en">
+          <h1>Thank<br />you</h1>
+          <p class="lead">Save the lesson and your written responses as a personal PDF.</p>
+          <div class="closing-actions"><button type="button" class="pdf-cta" data-pdf-open>Create your personal PDF</button><a class="course-return" href={courseHref}>DEDC02 course materials</a></div>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h1>謝謝</h1>
+          <p class="lead">把本課內容及你的書面回應儲存為個人 PDF。</p>
+          <div class="closing-actions"><button type="button" class="pdf-cta" data-pdf-open>建立你的個人 PDF</button><a class="course-return" href={courseHref}>DEDC02 課程材料</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <nav class="deck-controls" aria-label="Slide controls">
+    <a class="home-button" href={courseHref} aria-label="Back to DEDC02">⌂</a>
+    <button type="button" data-nav="previous" aria-label="Previous slide">←</button>
+    <button class="slide-count" type="button" data-overview aria-label="Open slide overview"><span>1</span>/<span data-slide-total>33</span></button>
+    <button type="button" data-nav="next" aria-label="Next slide">→</button>
+    <button type="button" data-fullscreen aria-label="Toggle fullscreen">⛶</button>
+    <div class="progress-track" aria-hidden="true"><span></span></div>
+  </nav>
+
+  <dialog class="overview-dialog">
+    <div class="overview-head"><h2>Literature Review</h2><button type="button" data-close-overview aria-label="Close overview">×</button></div>
+    <ol></ol>
+    <p>Use ← →, Page Up / Page Down or swipe. Press O for overview and F for fullscreen.</p>
+  </dialog>
+
+  <dialog class="tool-dialog pdf-dialog">
+    <form method="dialog" class="tool-dialog-head"><h2>Personal PDF</h2><button value="close" aria-label="Close PDF options">×</button></form>
+    <p>Add a note to the first page of your copy.</p>
+    <label class="pdf-message-entry"><span>Your message</span><textarea maxlength="1200" data-pdf-message placeholder="Write your reflection, reminder or next step here…"></textarea></label>
+    <div class="tool-actions"><button type="button" data-pdf-download>Create PDF</button></div>
+    <p class="tool-status">In the print window, select “Save as PDF”.</p>
+  </dialog>
+</CourseSlideLayout>
+
+<script>
+  import '../../../../scripts/dedc02LiteratureReview.ts';
+</script>

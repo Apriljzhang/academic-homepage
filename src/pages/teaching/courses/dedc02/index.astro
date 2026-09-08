@@ -10,6 +10,7 @@ const title = `DEDC02 · ${person.fullDisplayName}`;
 const description = 'Interactive materials for DEDC02 Advanced Research Method at City University of Macau.';
 const week1Href = withBase('/teaching/courses/dedc02/01-philosophical-grounding');
 const week2Href = withBase('/teaching/courses/dedc02/02-research-questions');
+const week3Href = withBase('/teaching/courses/dedc02/03-literature-review');
 ---
 
 <BaseLayout {title} {description}>
@@ -56,6 +57,23 @@ const week2Href = withBase('/teaching/courses/dedc02/02-research-questions');
                 </span>
                 <span class="mt-1 block text-sm text-muted">
                   Research problems, question types, hypotheses, variables and keyword searches
+                </span>
+              </span>
+              <span class="shrink-0 text-2xl text-secondary" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href={week3Href}
+              class="group flex items-center justify-between gap-5 rounded-lg border border-border bg-white px-5 py-4 no-underline transition hover:border-secondary hover:bg-main-faint"
+            >
+              <span>
+                <span class="block text-xs font-semibold uppercase tracking-[0.12em] text-secondary">Week 3</span>
+                <span class="mt-1 block text-lg font-semibold text-ink group-hover:text-secondary">
+                  3. Literature Review
+                </span>
+                <span class="mt-1 block text-sm text-muted">
+                  Chapter architecture, synthesis, argumentation and citation decisions
                 </span>
               </span>
               <span class="shrink-0 text-2xl text-secondary" aria-hidden="true">→</span>
