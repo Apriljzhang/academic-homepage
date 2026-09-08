@@ -245,34 +245,98 @@ const courseHref = withBase('/teaching/courses/dedc02');
       <div class="slide-inner">
         <header class="slide-header"><span class="eyebrow">Argumentation</span></header>
         <div data-language="en">
-          <h2>The Toulmin model is our argument map</h2>
-          <div class="toulmin-map" aria-label="Toulmin argument map">
-            <article class="tm-qualifier"><h3>Qualifier</h3><p>How strongly does the claim hold?</p></article>
-            <article class="tm-claim"><h3>Claim</h3><p>The conclusion the reader is asked to accept.</p></article>
-            <details class="tm-grounds tm-evidence">
+          <h2>Read the Toulmin model as a connected sentence</h2>
+          <div class="toulmin-map connected-toulmin-map" aria-label="Connected Toulmin argument map">
+            <details class="tm-grounds tm-evidence tm-expandable" name="toulmin-en">
               <summary><h3>Grounds</h3><small>Evidence · Click to explore</small></summary>
-              <p>What is offered to support the claim:</p>
+              <p>Reasons, facts or evidence offered to support the claim:</p>
               <ul><li>Empirical findings</li><li>Statistics</li><li>Participant quotations</li><li>Theoretical propositions</li><li>Definitions</li><li>Previous researchers’ interpretations</li></ul>
+              <p class="tm-question"><strong>Check:</strong> Is it relevant, sufficient, credible and accurately represented?</p>
             </details>
-            <article class="tm-warrant"><h3>Warrant</h3><p>Explains how the grounds lead to the claim.</p></article>
-            <article class="tm-rebuttal"><h3>Rebuttal</h3><p>Exceptions, counter-evidence or conditions of failure.</p></article>
-            <article class="tm-backing"><h3>Backing</h3><p>Explains why the warrant has authority.</p></article>
+            <div class="tm-link tm-link-so" aria-label="so"><span>so</span></div>
+            <details class="tm-qualifier tm-expandable" name="toulmin-en">
+              <summary><h3>Qualifier</h3><small>Strength and scope · Click</small></summary>
+              <p>Shows how certain or widely applicable the claim is.</p>
+              <ul><li>Certainty: probably, possibly, likely</li><li>Frequency: usually, often, sometimes</li><li>Scope: most learners, in this context, under these conditions</li></ul>
+              <p class="tm-question"><strong>Check:</strong> Does the wording match the strength and boundaries of the grounds?</p>
+            </details>
+            <div class="tm-link tm-link-qualifier" aria-label="qualifies the claim"></div>
+            <details class="tm-claim tm-expandable" name="toulmin-en">
+              <summary><h3>Claim</h3><small>Conclusion · Click to explore</small></summary>
+              <p>The assertion the reader is asked to accept.</p>
+              <ul><li>A synthesis or interpretation of a pattern</li><li>An evaluation, explanation, implication or unresolved research space</li><li>A claim of fact, value, policy or definition</li></ul>
+              <p class="tm-question"><strong>Check:</strong> Is it specific, debatable and supportable rather than merely a topic?</p>
+            </details>
+            <div class="tm-link tm-link-since" aria-label="since"><span>since</span></div>
+            <details class="tm-warrant tm-expandable" name="toulmin-en">
+              <summary><h3>Warrant</h3><small>Reasoning bridge · Click</small></summary>
+              <p>The principle or reasoning that makes the move from grounds to claim legitimate.</p>
+              <ul><li>A theoretical or disciplinary assumption</li><li>Causal, comparative or generalisation logic</li><li>An interpretive rule explaining why the evidence matters</li></ul>
+              <p class="tm-question"><strong>Ask:</strong> Why do these grounds justify this particular claim?</p>
+            </details>
+            <div class="tm-link tm-link-because" aria-label="because"><span>because</span></div>
+            <details class="tm-backing tm-expandable" name="toulmin-en">
+              <summary><h3>Backing</h3><small>Support for warrant · Click</small></summary>
+              <p>Additional support showing that the warrant is reliable or acceptable.</p>
+              <ul><li>Established theory or disciplinary principles</li><li>Prior research validating the assumed relationship</li><li>Authoritative definitions, mechanisms or methodological knowledge</li></ul>
+              <p class="tm-question"><strong>Check:</strong> Does it support the reasoning bridge, rather than merely repeat the grounds?</p>
+            </details>
+            <div class="tm-link tm-link-unless" aria-label="unless"><span>unless</span></div>
+            <details class="tm-rebuttal tm-expandable" name="toulmin-en">
+              <summary><h3>Rebuttal</h3><small>Exceptions and limits · Click</small></summary>
+              <p>Conditions under which the claim or reasoning may not hold.</p>
+              <ul><li>Contradictory findings or counterexamples</li><li>Alternative explanations or interpretations</li><li>Populations, contexts or conditions that form exceptions</li></ul>
+              <p class="tm-question"><strong>Check:</strong> Has the writer acknowledged and answered the strongest credible challenge?</p>
+            </details>
           </div>
+          <p class="tm-reading"><strong>Read it:</strong> Grounds, <em>so</em> (Qualifier) Claim, <em>since</em> Warrant, <em>because</em> Backing, <em>unless</em> Rebuttal.</p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
-          <h2>Toulmin 模型是本課的論證地圖</h2>
-          <div class="toulmin-map" aria-label="Toulmin 論證地圖">
-            <article class="tm-qualifier"><h3>限定語</h3><p>主張在多大程度上成立？</p></article>
-            <article class="tm-claim"><h3>主張</h3><p>希望讀者接受的結論。</p></article>
-            <details class="tm-grounds tm-evidence">
+          <h2>把 Toulmin 模型讀成一個相連的句子</h2>
+          <div class="toulmin-map connected-toulmin-map" aria-label="相連的 Toulmin 論證地圖">
+            <details class="tm-grounds tm-evidence tm-expandable" name="toulmin-zh">
               <summary><h3>Grounds（證據）</h3><small>點擊查看證據類型</small></summary>
-              <p>用以支持主張的材料：</p>
+              <p>用以支持主張的理由、事實或證據：</p>
               <ul><li>實證研究發現</li><li>統計數據</li><li>參與者引語</li><li>理論命題</li><li>定義</li><li>先前研究者的詮釋</li></ul>
+              <p class="tm-question"><strong>檢查：</strong>證據是否相關、充分、可信並得到準確呈現？</p>
             </details>
-            <article class="tm-warrant"><h3>論證依據</h3><p>解釋證據如何導向主張。</p></article>
-            <article class="tm-rebuttal"><h3>反駁</h3><p>例外、相反證據或不成立的條件。</p></article>
-            <article class="tm-backing"><h3>支持依據</h3><p>解釋論證依據為何具有權威。</p></article>
+            <div class="tm-link tm-link-so" aria-label="所以"><span>所以</span></div>
+            <details class="tm-qualifier tm-expandable" name="toulmin-zh">
+              <summary><h3>限定語</h3><small>力度與範圍 · 點擊查看</small></summary>
+              <p>表示主張的確定程度及適用範圍。</p>
+              <ul><li>確定程度：很可能、也許、似乎</li><li>頻率：通常、經常、有時</li><li>範圍：多數學習者、在此情境下、在這些條件下</li></ul>
+              <p class="tm-question"><strong>檢查：</strong>措辭是否符合證據的力度與邊界？</p>
+            </details>
+            <div class="tm-link tm-link-qualifier" aria-label="限定主張的力度與範圍"></div>
+            <details class="tm-claim tm-expandable" name="toulmin-zh">
+              <summary><h3>主張</h3><small>結論 · 點擊查看</small></summary>
+              <p>希望讀者接受的論斷。</p>
+              <ul><li>對某一模式的綜合或詮釋</li><li>評價、解釋、含義或尚未解決的研究空間</li><li>事實、價值、政策或定義類主張</li></ul>
+              <p class="tm-question"><strong>檢查：</strong>它是否具體、可辯論且可支持，而不只是一個主題？</p>
+            </details>
+            <div class="tm-link tm-link-since" aria-label="因為"><span>因為</span></div>
+            <details class="tm-warrant tm-expandable" name="toulmin-zh">
+              <summary><h3>論證依據</h3><small>推理橋樑 · 點擊查看</small></summary>
+              <p>使 Grounds 能夠合理導向主張的原則或推理。</p>
+              <ul><li>理論或學科假設</li><li>因果、比較或概括邏輯</li><li>解釋證據為何重要的詮釋規則</li></ul>
+              <p class="tm-question"><strong>提問：</strong>為甚麼這些 Grounds 能證成這一特定主張？</p>
+            </details>
+            <div class="tm-link tm-link-because" aria-label="因為"><span>因為</span></div>
+            <details class="tm-backing tm-expandable" name="toulmin-zh">
+              <summary><h3>支持依據</h3><small>支持推理 · 點擊查看</small></summary>
+              <p>進一步說明論證依據為何可靠或可接受。</p>
+              <ul><li>公認理論或學科原則</li><li>驗證所假定關係的先前研究</li><li>權威定義、機制或方法知識</li></ul>
+              <p class="tm-question"><strong>檢查：</strong>它是否支持推理橋樑，而非只是重複 Grounds？</p>
+            </details>
+            <div class="tm-link tm-link-unless" aria-label="除非"><span>除非</span></div>
+            <details class="tm-rebuttal tm-expandable" name="toulmin-zh">
+              <summary><h3>反駁</h3><small>例外與限制 · 點擊查看</small></summary>
+              <p>主張或推理可能不成立的條件。</p>
+              <ul><li>相反研究發現或反例</li><li>其他解釋或詮釋</li><li>構成例外的人群、情境或條件</li></ul>
+              <p class="tm-question"><strong>檢查：</strong>作者是否承認並回應最有力且可信的挑戰？</p>
+            </details>
           </div>
+          <p class="tm-reading"><strong>讀法：</strong>Grounds（證據），<em>所以</em>（限定語）主張，<em>因為</em>論證依據，論證依據成立<em>因為</em>有支持依據，<em>除非</em>出現反駁條件。</p>
         </div>
       </div>
     </section>
