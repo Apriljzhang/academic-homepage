@@ -327,7 +327,7 @@ textarea:focus, select:focus { outline: .18rem solid rgba(31,107,69,.16); border
 .paragraph-verdict { border: 1px solid var(--lr-line); border-radius: .35rem; background: var(--lr-green-soft); }
 .paragraph-verdict summary { padding: .55rem .72rem; color: var(--lr-green); font-size: .78rem; font-weight: 800; cursor: pointer; }
 .paragraph-verdict p { margin: 0; padding: .55rem .72rem; border-top: 1px solid var(--lr-line); color: var(--lr-muted); font-size: .75rem; line-height: 1.4; }
-.paper-citation { margin: .55rem 0 0; padding-top: .45rem; border-top: 1px solid var(--lr-line); color: var(--lr-muted); font-size: .65rem; line-height: 1.32; }
+.paper-citation { display: none; }
 .paper-citation a { color: var(--lr-green-mid); overflow-wrap: anywhere; }
 .paper-citation > strong { display: none; }
 .watch-notes .source-note, .tm-reading small { display: none; }
