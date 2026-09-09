@@ -209,7 +209,7 @@ document.querySelectorAll<HTMLElement>('[data-toulmin-match]').forEach((activity
   const bank = activity.querySelector<HTMLElement>('[data-sentence-bank]');
   const cards = Array.from(activity.querySelectorAll<HTMLButtonElement>('.exit-sentence'));
   const zones = Array.from(activity.querySelectorAll<HTMLElement>('.exit-drop'));
-  const reveal = activity.querySelector<HTMLButtonElement>('[data-reveal-names]');
+  const check = activity.querySelector<HTMLButtonElement>('[data-check-match]');
   const reset = activity.querySelector<HTMLButtonElement>('[data-reset-match]');
   const status = activity.querySelector<HTMLElement>('[data-match-status]');
   const reviewVideo = activity.querySelector<HTMLElement>('[data-review-video]');
@@ -227,8 +227,6 @@ document.querySelectorAll<HTMLElement>('[data-toulmin-match]').forEach((activity
   const clearFeedback = () => {
     zones.forEach((zone) => {
       zone.classList.remove('is-correct', 'is-incorrect');
-      const role = zone.querySelector<HTMLElement>('.exit-role');
-      if (role) role.hidden = true;
     });
     if (reviewVideo) reviewVideo.hidden = true;
     if (status) status.textContent = '';
@@ -290,13 +288,11 @@ document.querySelectorAll<HTMLElement>('[data-toulmin-match]').forEach((activity
     });
   });
 
-  reveal?.addEventListener('click', () => {
+  check?.addEventListener('click', () => {
     clearSelection();
     let correct = 0;
     let placed = 0;
     zones.forEach((zone) => {
-      const role = zone.querySelector<HTMLElement>('.exit-role');
-      if (role) role.hidden = false;
       const card = zone.querySelector<HTMLButtonElement>('.exit-sentence');
       if (!card) return;
       placed += 1;
@@ -309,7 +305,7 @@ document.querySelectorAll<HTMLElement>('[data-toulmin-match]').forEach((activity
       const fullyCorrect = placed === zones.length && correct === zones.length;
       if (reviewVideo) reviewVideo.hidden = fullyCorrect;
       status.textContent = fullyCorrect
-        ? (chinese ? '六句全部配對正確，元素名稱已顯示。' : 'All six correctly matched. Element names revealed.')
+        ? (chinese ? '六句全部配對正確。' : 'All six correctly matched.')
         : (chinese ? `答對 ${correct} 句，共六句。請檢查標示的方格；下方提供複習影片。` : `${correct} of six correctly matched. Recheck the marked boxes; a review video is available below.`);
     }
   });

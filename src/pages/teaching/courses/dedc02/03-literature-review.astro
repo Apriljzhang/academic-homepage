@@ -901,7 +901,7 @@ const courseHref = withBase('/teaching/courses/dedc02');
         <div data-language="en">
           <h2>Rebuild the argument</h2>
           <div class="exit-model-activity" data-toulmin-match>
-            <p class="intro-line">Rebuild this hypothetical literature-review argument. Drag each sentence into an empty box, or select a sentence and then select a box. Reveal the element names when you are ready.</p>
+            <p class="intro-line">Rebuild this hypothetical literature-review argument. Use the element names and positions from the Toulmin model on slide 10. Drag each sentence into its box, or select a sentence and then select a box.</p>
             <div class="exit-sentence-bank" data-sentence-bank aria-label="Sentence bank">
               <button type="button" class="exit-sentence" draggable="true" data-card-id="en-backing" data-element="backing" data-order="1">Feedback-literacy research shows that acting on complex feedback requires evaluative judgement and knowledge of disciplinary purposes.</button>
               <button type="button" class="exit-sentence" draggable="true" data-card-id="en-claim" data-element="claim" data-order="2">Automated feedback appears more effective for surface correction than for conceptual revision in postgraduate writing.</button>
@@ -910,16 +910,21 @@ const courseHref = withBase('/teaching/courses/dedc02');
               <button type="button" class="exit-sentence" draggable="true" data-card-id="en-qualifier" data-element="qualifier" data-order="5">This pattern appears strongest among novice postgraduate writers using text-based feedback tools.</button>
               <button type="button" class="exit-sentence" draggable="true" data-card-id="en-warrant" data-element="warrant" data-order="6">Grammar errors can be addressed through explicit, local suggestions, whereas conceptual revision requires interpretation of the argument as a whole.</button>
             </div>
-            <div class="toulmin-map exit-model" aria-label="Unlabelled Toulmin model">
-              <div class="exit-drop tm-qualifier" data-slot="qualifier" role="button" tabindex="0" aria-label="Model box 1"><span class="exit-role" hidden>Qualifier</span><span class="exit-placeholder">Drop a sentence here</span></div>
-              <div class="exit-drop tm-claim" data-slot="claim" role="button" tabindex="0" aria-label="Model box 2"><span class="exit-role" hidden>Claim</span><span class="exit-placeholder">Drop a sentence here</span></div>
-              <div class="exit-drop tm-grounds" data-slot="grounds" role="button" tabindex="0" aria-label="Model box 3"><span class="exit-role" hidden>Grounds</span><span class="exit-placeholder">Drop a sentence here</span></div>
-              <div class="exit-drop tm-warrant" data-slot="warrant" role="button" tabindex="0" aria-label="Model box 4"><span class="exit-role" hidden>Warrant</span><span class="exit-placeholder">Drop a sentence here</span></div>
-              <div class="exit-drop tm-rebuttal" data-slot="rebuttal" role="button" tabindex="0" aria-label="Model box 5"><span class="exit-role" hidden>Rebuttal</span><span class="exit-placeholder">Drop a sentence here</span></div>
-              <div class="exit-drop tm-backing" data-slot="backing" role="button" tabindex="0" aria-label="Model box 6"><span class="exit-role" hidden>Backing</span><span class="exit-placeholder">Drop a sentence here</span></div>
+            <div class="toulmin-map connected-toulmin-map exit-model" aria-label="Toulmin model matching activity">
+              <div class="exit-drop tm-grounds" data-slot="grounds" role="button" tabindex="0" aria-label="Grounds drop zone"><span class="exit-role">Grounds</span><span class="exit-placeholder">Drop a sentence here</span></div>
+              <div class="tm-link tm-link-so" aria-label="so"><span>so</span></div>
+              <div class="exit-drop tm-qualifier" data-slot="qualifier" role="button" tabindex="0" aria-label="Qualifier drop zone"><span class="exit-role">Qualifier</span><span class="exit-placeholder">Drop a sentence here</span></div>
+              <div class="tm-link tm-link-qualifier" aria-label="qualifies the claim"></div>
+              <div class="exit-drop tm-claim" data-slot="claim" role="button" tabindex="0" aria-label="Claim drop zone"><span class="exit-role">Claim</span><span class="exit-placeholder">Drop a sentence here</span></div>
+              <div class="tm-link tm-link-since" aria-label="since"><span>since</span></div>
+              <div class="exit-drop tm-warrant" data-slot="warrant" role="button" tabindex="0" aria-label="Warrant drop zone"><span class="exit-role">Warrant</span><span class="exit-placeholder">Drop a sentence here</span></div>
+              <div class="tm-link tm-link-because" aria-label="because"><span>because</span></div>
+              <div class="exit-drop tm-backing" data-slot="backing" role="button" tabindex="0" aria-label="Backing drop zone"><span class="exit-role">Backing</span><span class="exit-placeholder">Drop a sentence here</span></div>
+              <div class="tm-link tm-link-unless" aria-label="unless"><span>unless</span></div>
+              <div class="exit-drop tm-rebuttal" data-slot="rebuttal" role="button" tabindex="0" aria-label="Rebuttal drop zone"><span class="exit-role">Rebuttal</span><span class="exit-placeholder">Drop a sentence here</span></div>
             </div>
             <div class="activity-actions">
-              <button type="button" data-reveal-names>Reveal element names</button>
+              <button type="button" data-check-match>Check placements</button>
               <button type="button" data-reset-match>Reset</button>
               <span class="activity-status" data-match-status role="status" aria-live="polite"></span>
             </div>
@@ -938,7 +943,7 @@ const courseHref = withBase('/teaching/courses/dedc02');
         <div data-language="zh" hidden lang="zh-Hant">
           <h2>重建論證</h2>
           <div class="exit-model-activity" data-toulmin-match>
-            <p class="intro-line">重建這個假設的文獻綜述論證。把每個句子拖入一個空格，或先選取句子，再選取一個方格。完成後，按鍵顯示論證元素名稱。</p>
+            <p class="intro-line">重建這個假設的文獻綜述論證。參考第 10 頁 Toulmin 模型中的元素名稱與位置，把每個句子拖入相應方格，或先選取句子，再選取一個方格。</p>
             <div class="exit-sentence-bank" data-sentence-bank aria-label="句子庫">
               <button type="button" class="exit-sentence" draggable="true" data-card-id="zh-backing" data-element="backing" data-order="1">回饋素養研究顯示，運用複雜回饋需要評價判斷和對學科目的的理解。</button>
               <button type="button" class="exit-sentence" draggable="true" data-card-id="zh-claim" data-element="claim" data-order="2">對研究生寫作者而言，自動化回饋對表層修正的成效似乎高於概念層面的修改。</button>
@@ -947,16 +952,21 @@ const courseHref = withBase('/teaching/courses/dedc02');
               <button type="button" class="exit-sentence" draggable="true" data-card-id="zh-qualifier" data-element="qualifier" data-order="5">這種模式在使用文字型回饋工具的新手研究生寫作者中似乎最明顯。</button>
               <button type="button" class="exit-sentence" draggable="true" data-card-id="zh-warrant" data-element="warrant" data-order="6">語法錯誤可透過明確且局部的建議加以辨識和修正，而概念修改需要理解整體論證。</button>
             </div>
-            <div class="toulmin-map exit-model" aria-label="未標示名稱的 Toulmin 論證模型">
-              <div class="exit-drop tm-qualifier" data-slot="qualifier" role="button" tabindex="0" aria-label="模型方格一"><span class="exit-role" hidden>限定語</span><span class="exit-placeholder">把句子放在這裡</span></div>
-              <div class="exit-drop tm-claim" data-slot="claim" role="button" tabindex="0" aria-label="模型方格二"><span class="exit-role" hidden>主張</span><span class="exit-placeholder">把句子放在這裡</span></div>
-              <div class="exit-drop tm-grounds" data-slot="grounds" role="button" tabindex="0" aria-label="模型方格三"><span class="exit-role" hidden>Grounds（證據）</span><span class="exit-placeholder">把句子放在這裡</span></div>
-              <div class="exit-drop tm-warrant" data-slot="warrant" role="button" tabindex="0" aria-label="模型方格四"><span class="exit-role" hidden>論證依據</span><span class="exit-placeholder">把句子放在這裡</span></div>
-              <div class="exit-drop tm-rebuttal" data-slot="rebuttal" role="button" tabindex="0" aria-label="模型方格五"><span class="exit-role" hidden>反駁</span><span class="exit-placeholder">把句子放在這裡</span></div>
-              <div class="exit-drop tm-backing" data-slot="backing" role="button" tabindex="0" aria-label="模型方格六"><span class="exit-role" hidden>支持依據</span><span class="exit-placeholder">把句子放在這裡</span></div>
+            <div class="toulmin-map connected-toulmin-map exit-model" aria-label="Toulmin 論證模型配對活動">
+              <div class="exit-drop tm-grounds" data-slot="grounds" role="button" tabindex="0" aria-label="Grounds（證據）方格"><span class="exit-role">Grounds（證據）</span><span class="exit-placeholder">把句子放在這裡</span></div>
+              <div class="tm-link tm-link-so" aria-label="所以"><span>所以</span></div>
+              <div class="exit-drop tm-qualifier" data-slot="qualifier" role="button" tabindex="0" aria-label="限定語方格"><span class="exit-role">限定語</span><span class="exit-placeholder">把句子放在這裡</span></div>
+              <div class="tm-link tm-link-qualifier" aria-label="限定主張的力度與範圍"></div>
+              <div class="exit-drop tm-claim" data-slot="claim" role="button" tabindex="0" aria-label="主張方格"><span class="exit-role">主張</span><span class="exit-placeholder">把句子放在這裡</span></div>
+              <div class="tm-link tm-link-since" aria-label="因為"><span>因為</span></div>
+              <div class="exit-drop tm-warrant" data-slot="warrant" role="button" tabindex="0" aria-label="論證依據方格"><span class="exit-role">論證依據</span><span class="exit-placeholder">把句子放在這裡</span></div>
+              <div class="tm-link tm-link-because" aria-label="因為"><span>因為</span></div>
+              <div class="exit-drop tm-backing" data-slot="backing" role="button" tabindex="0" aria-label="支持依據方格"><span class="exit-role">支持依據</span><span class="exit-placeholder">把句子放在這裡</span></div>
+              <div class="tm-link tm-link-unless" aria-label="除非"><span>除非</span></div>
+              <div class="exit-drop tm-rebuttal" data-slot="rebuttal" role="button" tabindex="0" aria-label="反駁方格"><span class="exit-role">反駁</span><span class="exit-placeholder">把句子放在這裡</span></div>
             </div>
             <div class="activity-actions">
-              <button type="button" data-reveal-names>顯示元素名稱</button>
+              <button type="button" data-check-match>檢查配對</button>
               <button type="button" data-reset-match>重設</button>
               <span class="activity-status" data-match-status role="status" aria-live="polite"></span>
             </div>

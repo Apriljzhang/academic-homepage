@@ -393,6 +393,7 @@ textarea:focus, select:focus { outline: .18rem solid rgba(31,107,69,.16); border
   .toulmin-map { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: none; }
   .toulmin-map article, .toulmin-map details, .exit-drop, .tm-grounds[open] { grid-column: auto; grid-row: auto; }
   .connected-toulmin-map { grid-template-columns: 1fr; gap: .35rem; }
+  .connected-toulmin-map .exit-drop { grid-column: 1; grid-row: auto; }
   .connected-toulmin-map article, .connected-toulmin-map details, .connected-toulmin-map .tm-link { grid-column: 1; grid-row: auto; }
   .connected-toulmin-map .tm-link { min-height: 1.35rem; }
   .connected-toulmin-map .tm-link-so::before, .connected-toulmin-map .tm-link-qualifier::before,
