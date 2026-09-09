@@ -227,6 +227,19 @@ textarea:focus, select:focus { outline: .18rem solid rgba(31,107,69,.16); border
 .tm-reading { margin: .55rem 0 0; padding: .48rem .7rem; border-left: .3rem solid var(--lr-green-mid); background: var(--lr-green-pale); color: var(--lr-muted); font-size: .82rem; line-height: 1.35; }
 .tm-reading em { color: var(--lr-green); font-style: normal; font-weight: 850; }
 
+.argument-transfer-figure {
+  display: grid;
+  gap: .45rem;
+  margin: .35rem 0 0;
+}
+.argument-transfer-figure img {
+  display: block;
+  width: min(100%, 75rem);
+  max-height: min(67vh, calc(100dvh - 20rem));
+  margin-inline: auto;
+  border: 1px solid var(--lr-line);
+  object-fit: contain;
+}
 .exit-model-activity { display: grid; gap: .55rem; }
 .exit-model-activity .intro-line { margin-bottom: 0; font-size: .9rem; }
 .exit-sentence-bank { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .42rem; }
