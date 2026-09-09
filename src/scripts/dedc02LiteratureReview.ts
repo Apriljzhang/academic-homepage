@@ -5,6 +5,10 @@ const progress = document.querySelector<HTMLElement>('.progress-track span');
 const overview = document.querySelector<HTMLDialogElement>('.overview-dialog');
 const overviewList = overview?.querySelector('ol');
 const globalTranslate = document.querySelector<HTMLButtonElement>('[data-global-translate]');
+const delayedDebugSlide = document.querySelector<HTMLElement>('[data-delayed-debug-reveal]');
+const delayedDebugCards = Array.from(delayedDebugSlide?.querySelectorAll<HTMLDetailsElement>('.debug-card') || []);
+const delayedDebugRevealMs = 2 * 60 * 1000;
+let delayedDebugTimer = 0;
 let current = 0;
 
 if (totalLabel) totalLabel.textContent = String(slides.length);
@@ -21,6 +25,33 @@ function syncGlobalTranslate() {
   globalTranslate.setAttribute('aria-pressed', String(chinese));
 }
 
+function resetDelayedDebugReveal() {
+  window.clearTimeout(delayedDebugTimer);
+  delayedDebugTimer = 0;
+  if (!delayedDebugSlide) return;
+  delayedDebugSlide.dataset.explanationsReady = 'false';
+  delayedDebugCards.forEach((card) => {
+    card.open = false;
+    card.querySelector('summary')?.setAttribute('aria-disabled', 'true');
+  });
+}
+
+function revealDelayedDebugExplanations() {
+  if (!delayedDebugSlide?.classList.contains('is-active')) return;
+  delayedDebugSlide.dataset.explanationsReady = 'true';
+  delayedDebugCards.forEach((card) => {
+    card.querySelector('summary')?.setAttribute('aria-disabled', 'false');
+    card.open = true;
+  });
+  delayedDebugTimer = 0;
+}
+
+function syncDelayedDebugReveal() {
+  resetDelayedDebugReveal();
+  if (!delayedDebugSlide?.classList.contains('is-active')) return;
+  delayedDebugTimer = window.setTimeout(revealDelayedDebugExplanations, delayedDebugRevealMs);
+}
+
 function showSlide(index: number) {
   current = Math.max(0, Math.min(slides.length - 1, index));
   slides.forEach((slide, slideIndex) => {
@@ -33,7 +64,17 @@ function showSlide(index: number) {
   overviewList?.querySelectorAll('li').forEach((item, itemIndex) => item.classList.toggle('is-current', itemIndex === current));
   history.replaceState(null, '', '#slide-' + String(current + 1));
   syncGlobalTranslate();
+  syncDelayedDebugReveal();
 }
+
+delayedDebugCards.forEach((card) => {
+  card.querySelector('summary')?.addEventListener('click', (event) => {
+    if (delayedDebugSlide?.dataset.explanationsReady !== 'true') event.preventDefault();
+  });
+  card.addEventListener('toggle', () => {
+    if (delayedDebugSlide?.dataset.explanationsReady !== 'true' && card.open) card.open = false;
+  });
+});
 
 document.querySelectorAll<HTMLElement>('[data-nav]').forEach((button) => {
   button.addEventListener('click', () => showSlide(current + (button.dataset.nav === 'next' ? 1 : -1)));
