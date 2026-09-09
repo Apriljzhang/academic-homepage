@@ -226,6 +226,7 @@ textarea:focus, select:focus { outline: .18rem solid rgba(31,107,69,.16); border
 .tm-link-since span, .tm-link-because span, .tm-link-unless span { transform: translateX(1.35rem); }
 .tm-reading { margin: .55rem 0 0; padding: .48rem .7rem; border-left: .3rem solid var(--lr-green-mid); background: var(--lr-green-pale); color: var(--lr-muted); font-size: .82rem; line-height: 1.35; }
 .tm-reading em { color: var(--lr-green); font-style: normal; font-weight: 850; }
+.tm-reading small { margin-left: .55rem; font-size: .7rem; }
 
 .argument-transfer-figure {
   display: grid;
@@ -235,7 +236,7 @@ textarea:focus, select:focus { outline: .18rem solid rgba(31,107,69,.16); border
 .argument-transfer-figure img {
   display: block;
   width: min(100%, 75rem);
-  max-height: min(67vh, calc(100dvh - 20rem));
+  max-height: min(62vh, calc(100dvh - 22rem));
   margin-inline: auto;
   border: 1px solid var(--lr-line);
   object-fit: contain;
@@ -328,6 +329,17 @@ textarea:focus, select:focus { outline: .18rem solid rgba(31,107,69,.16); border
 .paragraph-verdict p { margin: 0; padding: .55rem .72rem; border-top: 1px solid var(--lr-line); color: var(--lr-muted); font-size: .75rem; line-height: 1.4; }
 .paper-citation { margin: .55rem 0 0; padding-top: .45rem; border-top: 1px solid var(--lr-line); color: var(--lr-muted); font-size: .65rem; line-height: 1.32; }
 .paper-citation a { color: var(--lr-green-mid); overflow-wrap: anywhere; }
+.reference-list { display: grid; gap: .72rem; max-width: 72rem; margin-top: 1rem; }
+.reference-list p { margin: 0; padding-left: 2rem; text-indent: -2rem; font-size: clamp(.72rem, 1.05vw, 1rem); line-height: 1.42; }
+.reference-list a { color: var(--lr-green-mid); overflow-wrap: anywhere; }
+
+.slide[data-title="Activity 1: Toulmin Function Detective"] .slide-header { margin-bottom: .55rem; }
+.slide[data-title="Activity 1: Toulmin Function Detective"] h2 { margin-bottom: .45rem; font-size: clamp(2.2rem, 4vw, 4rem); }
+.slide[data-title="Activity 1: Toulmin Function Detective"] .intro-line { margin-bottom: .35rem; }
+.slide[data-title="Activity 1: Toulmin Function Detective"] .interactive-stack { gap: .34rem; }
+.slide[data-title="Activity 1: Toulmin Function Detective"] .sort-row { padding-block: .35rem; }
+.slide[data-title="Activity 1: Toulmin Function Detective"] .activity-actions { margin-top: .15rem; }
+.slide[data-title="Activity 1: Toulmin Function Detective"] .paper-citation { margin-top: .3rem; padding-top: .3rem; }
 
 .citation-scope { display: grid; gap: .6rem; }
 .citation-scope article { display: grid; grid-template-columns: 8rem 1fr; gap: .8rem; padding: .7rem .8rem; border-bottom: 1px solid var(--lr-line); }
