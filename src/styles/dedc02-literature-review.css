@@ -329,6 +329,8 @@ textarea:focus, select:focus { outline: .18rem solid rgba(31,107,69,.16); border
 .paragraph-verdict p { margin: 0; padding: .55rem .72rem; border-top: 1px solid var(--lr-line); color: var(--lr-muted); font-size: .75rem; line-height: 1.4; }
 .paper-citation { margin: .55rem 0 0; padding-top: .45rem; border-top: 1px solid var(--lr-line); color: var(--lr-muted); font-size: .65rem; line-height: 1.32; }
 .paper-citation a { color: var(--lr-green-mid); overflow-wrap: anywhere; }
+.paper-citation > strong { display: none; }
+.watch-notes .source-note, .tm-reading small { display: none; }
 .reference-list { display: grid; gap: .72rem; max-width: 72rem; margin-top: 1rem; }
 .reference-list p { margin: 0; padding-left: 2rem; text-indent: -2rem; font-size: clamp(.72rem, 1.05vw, 1rem); line-height: 1.42; }
 .reference-list a { color: var(--lr-green-mid); overflow-wrap: anywhere; }
