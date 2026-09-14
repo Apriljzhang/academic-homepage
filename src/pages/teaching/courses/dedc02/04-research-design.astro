@@ -1,0 +1,1079 @@
+---
+import CourseSlideLayout from '../../../../layouts/CourseSlideLayout.astro';
+import { withBase } from '../../../../utils/paths';
+import '../../../../styles/dedc02-literature-review.css';
+
+const title = '4. Research Design & Alignment · DEDC02';
+const description = 'An interactive lesson on frameworks, research design, sampling, validity, trustworthiness and methodological alignment.';
+const courseHref = withBase('/teaching/courses/dedc02');
+---
+
+<CourseSlideLayout {title} {description}>
+  <section class="pdf-cover" aria-hidden="true">
+    <span class="eyebrow">DEDC02 · Advanced Research Method</span>
+    <h1>Research Design<br />&amp; Alignment</h1>
+    <div class="pdf-message-block">
+      <h2>Personal message</h2>
+      <p data-pdf-message-print></p>
+    </div>
+  </section>
+
+  <div class="top-tools" aria-label="Language and timer controls">
+    <button class="translate-button" type="button" aria-pressed="false" data-global-translate>中文</button>
+    <div class="compact-timer" aria-label="Activity timer">
+      <input type="number" min="0.1" step="0.5" inputmode="decimal" placeholder="Timer" aria-label="Timer duration" data-timer-minutes />
+      <output data-timer-output hidden aria-live="polite">00:00</output>
+      <button type="button" data-timer-start>Start</button>
+      <button type="button" data-timer-reset aria-label="Reset timer">↻</button>
+    </div>
+  </div>
+
+  <main class="deck" aria-label="Research Design and Alignment slide deck">
+    <section class="slide is-active" data-title="Research Design & Alignment" aria-hidden="false">
+      <div class="slide-inner title-slide">
+        <header class="slide-header"><span class="eyebrow">DEDC02 · Advanced Research Method</span></header>
+        <div class="title-rule"></div>
+        <div data-language="en">
+          <h1>Research Design<br />&amp; Alignment</h1>
+          <p class="lead">Conceptual and theoretical frameworks, design families, sampling, validity, trustworthiness and the logic connecting them.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h1>研究設計<br />與對齊</h1>
+          <p class="lead">概念與理論框架、研究設計類型、抽樣、效度、可信度，以及連結這些元素的邏輯。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Learning aims" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Where we are going</span></header>
+        <div data-language="en">
+          <h2>By the end, you can…</h2>
+          <ol class="number-list">
+            <li><span><strong>Distinguish</strong> a theoretical framework from a conceptual framework.</span></li>
+            <li><span><strong>Select</strong> a design family that fits the question and intended claim.</span></li>
+            <li><span><strong>Justify</strong> an initial sampling strategy.</span></li>
+            <li><span><strong>Plan</strong> suitable validity or trustworthiness safeguards.</span></li>
+            <li><span><strong>Audit</strong> the alignment of a proposed study.</span></li>
+          </ol>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>完成本課後，你可以⋯⋯</h2>
+          <ol class="number-list">
+            <li><span><strong>區分</strong>理論框架與概念框架。</span></li>
+            <li><span><strong>選擇</strong>符合研究問題與預期主張的設計類型。</span></li>
+            <li><span><strong>論證</strong>初步抽樣策略。</span></li>
+            <li><span><strong>規劃</strong>合適的效度或可信度保障。</span></li>
+            <li><span><strong>審視</strong>擬議研究的方法論對齊。</span></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="From gap to design" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Bridge from Week 3</span></header>
+        <div data-language="en">
+          <h2>A gap does not choose the method</h2>
+          <div class="path-line design-chain">
+            <span>Problem</span><b>→</b><span>Framework</span><b>→</b><span>Question</span><b>→</b><span>Claim</span>
+          </div>
+          <p class="takeaway">The design begins when you decide what evidence would make the intended answer defensible.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>研究缺口不會自動決定方法</h2>
+          <div class="path-line design-chain">
+            <span>研究課題</span><b>→</b><span>框架</span><b>→</b><span>研究問題</span><b>→</b><span>主張</span>
+          </div>
+          <p class="takeaway">當你開始判斷需要甚麼證據，才能使預期答案站得住腳，研究設計便開始了。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="What theory does" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Frameworks</span></header>
+        <div data-language="en">
+          <h2>Theory gives the study an explanatory lens</h2>
+          <div class="grid-4">
+            <article class="panel accent"><h3>Select</h3><p>Identifies concepts and processes worth attending to.</p></article>
+            <article class="panel accent"><h3>Relate</h3><p>Proposes how concepts or conditions connect.</p></article>
+            <article class="panel accent"><h3>Explain</h3><p>Offers a reason why an observed pattern may occur.</p></article>
+            <article class="panel accent"><h3>Bound</h3><p>Makes assumptions and limits visible.</p></article>
+          </div>
+          <p class="takeaway">A theory is more than a named citation. It must do identifiable work in the study.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>理論為研究提供解釋視角</h2>
+          <div class="grid-4">
+            <article class="panel accent"><h3>選取</h3><p>指出值得關注的概念與過程。</p></article>
+            <article class="panel accent"><h3>連結</h3><p>提出概念或條件之間可能如何關聯。</p></article>
+            <article class="panel accent"><h3>解釋</h3><p>說明為何可能出現某種觀察模式。</p></article>
+            <article class="panel accent"><h3>界定</h3><p>使假設與限制變得可見。</p></article>
+          </div>
+          <p class="takeaway">理論不只是文獻中的一個名稱；它必須在研究中發揮可辨識的作用。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Theoretical and conceptual frameworks" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">The central distinction</span></header>
+        <div data-language="en">
+          <h2>Lens or study-specific map?</h2>
+          <div class="contrast framework-contrast">
+            <article><h3>Theoretical framework</h3><p>A recognised explanatory lens at a higher level of abstraction. It helps explain or predict and states assumptions.</p><strong>Example:</strong> Self-efficacy theory</article>
+            <b>↔</b>
+            <article><h3>Conceptual framework</h3><p>The study-specific map of key constructs or phenomena, their proposed relationships, context and boundaries.</p><strong>Example:</strong> Feedback → self-efficacy → persistence</article>
+          </div>
+          <p class="takeaway">A study may use both: the theory explains; the conceptual framework specifies what this study will examine.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>解釋視角，還是研究專屬地圖？</h2>
+          <div class="contrast framework-contrast">
+            <article><h3>理論框架</h3><p>抽象層次較高、已被認識的解釋視角；協助解釋或預測，並呈現假設。</p><strong>例子：</strong>自我效能理論</article>
+            <b>↔</b>
+            <article><h3>概念框架</h3><p>針對本研究繪製的關鍵構念或現象、擬議關係、情境及邊界。</p><strong>例子：</strong>回饋 → 自我效能 → 堅持</article>
+          </div>
+          <p class="takeaway">研究可以同時使用兩者：理論負責解釋，概念框架則具體指出本研究要檢視甚麼。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Activity 1: Framework Match" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Activity 1</span></header>
+        <div data-language="en">
+          <h2>Framework Match</h2>
+          <p class="intro-line">Match each statement to its function. Then defend the distinction with your group.</p>
+          <div class="interactive-stack" data-check-activity>
+            <div class="sort-row"><p>Social cognitive theory explains how beliefs, action and environment influence one another.</p><select data-answer="theory"><option value="">Choose…</option><option value="theory">Theoretical framework</option><option value="concept">Conceptual framework</option><option value="neither">Neither</option></select></div>
+            <div class="sort-row"><p>Teacher feedback → learner self-efficacy → revision persistence, with prior achievement as a contextual condition.</p><select data-answer="concept"><option value="">Choose…</option><option value="theory">Theoretical framework</option><option value="concept">Conceptual framework</option><option value="neither">Neither</option></select></div>
+            <div class="sort-row"><p>“Students use AI because it is convenient.”</p><select data-answer="neither"><option value="">Choose…</option><option value="theory">Theoretical framework</option><option value="concept">Conceptual framework</option><option value="neither">Neither</option></select></div>
+            <div class="sort-row"><p>A diagram specifies which forms of AI literacy may relate to research confidence in this study.</p><select data-answer="concept"><option value="">Choose…</option><option value="theory">Theoretical framework</option><option value="concept">Conceptual framework</option><option value="neither">Neither</option></select></div>
+            <div class="activity-actions"><button type="button" data-check>Check matches</button><button type="button" data-clear>Clear</button><span class="activity-status" data-status role="status" aria-live="polite"></span></div>
+          </div>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>框架配對</h2>
+          <p class="intro-line">把每項陳述配對至相應功能，再與小組解釋你的判斷。</p>
+          <div class="interactive-stack" data-check-activity>
+            <div class="sort-row"><p>社會認知理論解釋信念、行動與環境如何互相影響。</p><select data-answer="theory"><option value="">請選擇⋯⋯</option><option value="theory">理論框架</option><option value="concept">概念框架</option><option value="neither">兩者皆非</option></select></div>
+            <div class="sort-row"><p>教師回饋 → 學習者自我效能 → 修訂堅持，並把先前成績視為情境條件。</p><select data-answer="concept"><option value="">請選擇⋯⋯</option><option value="theory">理論框架</option><option value="concept">概念框架</option><option value="neither">兩者皆非</option></select></div>
+            <div class="sort-row"><p>「學生使用人工智能，因為它很方便。」</p><select data-answer="neither"><option value="">請選擇⋯⋯</option><option value="theory">理論框架</option><option value="concept">概念框架</option><option value="neither">兩者皆非</option></select></div>
+            <div class="sort-row"><p>一個圖表指出本研究中哪些人工智能素養可能與研究信心有關。</p><select data-answer="concept"><option value="">請選擇⋯⋯</option><option value="theory">理論框架</option><option value="concept">概念框架</option><option value="neither">兩者皆非</option></select></div>
+            <div class="activity-actions"><button type="button" data-check>檢查配對</button><button type="button" data-clear>清除</button><span class="activity-status" data-status role="status" aria-live="polite"></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Framework to research question" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">From explanation to inquiry</span></header>
+        <div data-language="en">
+          <h2>Let the framework sharpen the question</h2>
+          <div class="grid-3">
+            <article class="panel accent"><h3>Deductive use</h3><p>An existing theory supports propositions or hypotheses that the study tests.</p></article>
+            <article class="panel accent"><h3>Sensitising use</h3><p>A framework directs initial attention without fixing what qualitative inquiry must find.</p></article>
+            <article class="panel accent"><h3>Generative use</h3><p>Patterns in data support refinement or development of a conceptual or theoretical account.</p></article>
+          </div>
+          <p class="takeaway">Name the role of the framework. Do not claim to “use” a theory if it never shapes the question, evidence or interpretation.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>讓框架使研究問題更精準</h2>
+          <div class="grid-3">
+            <article class="panel accent"><h3>演繹用途</h3><p>既有理論支持研究要檢驗的命題或假設。</p></article>
+            <article class="panel accent"><h3>啟發用途</h3><p>框架引導初步注意，但不預先規定質性研究必須發現甚麼。</p></article>
+            <article class="panel accent"><h3>生成用途</h3><p>資料模式支持修訂或發展概念／理論解釋。</p></article>
+          </div>
+          <p class="takeaway">清楚說明框架扮演的角色。若理論從未影響問題、證據或詮釋，便不應聲稱研究「使用」了該理論。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="What is research design?" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Research architecture</span></header>
+        <div data-language="en">
+          <h2>A design is the logic of the whole study</h2>
+          <blockquote>How will this study obtain evidence capable of answering the question and supporting the intended claim?</blockquote>
+          <p class="takeaway">A design is not simply “qualitative,” “quantitative,” a survey or an interview. It is a justified system of decisions.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>研究設計是整項研究的邏輯</h2>
+          <blockquote>本研究將如何取得能夠回答問題並支持預期主張的證據？</blockquote>
+          <p class="takeaway">研究設計不只是「質性」、「量化」、問卷或訪談，而是一套有理據、互相連結的決策。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Design components" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Research architecture</span></header>
+        <div data-language="en">
+          <h2>What must the design coordinate?</h2>
+          <div class="component-grid">
+            <article><span>01</span><strong>Purpose and problem</strong></article>
+            <article><span>02</span><strong>Framework and assumptions</strong></article>
+            <article><span>03</span><strong>Research questions</strong></article>
+            <article><span>04</span><strong>Intended claims</strong></article>
+            <article><span>05</span><strong>Design family and timing</strong></article>
+            <article><span>06</span><strong>Cases, participants or data</strong></article>
+            <article><span>07</span><strong>Sampling and access</strong></article>
+            <article><span>08</span><strong>Quality and ethics</strong></article>
+          </div>
+          <p class="takeaway">Changing one component may require changes elsewhere. Alignment is a property of the system.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>研究設計必須協調甚麼？</h2>
+          <div class="component-grid">
+            <article><span>01</span><strong>目的與研究課題</strong></article>
+            <article><span>02</span><strong>框架與假設</strong></article>
+            <article><span>03</span><strong>研究問題</strong></article>
+            <article><span>04</span><strong>預期主張</strong></article>
+            <article><span>05</span><strong>設計類型與時序</strong></article>
+            <article><span>06</span><strong>個案、參與者或資料</strong></article>
+            <article><span>07</span><strong>抽樣與進入研究場域</strong></article>
+            <article><span>08</span><strong>研究品質與倫理</strong></article>
+          </div>
+          <p class="takeaway">改變一個元素，可能需要同時調整其他元素。對齊是整個系統的特性。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Methodology, design and methods" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Do not collapse the levels</span></header>
+        <div data-language="en">
+          <h2>Three related decisions</h2>
+          <div class="grid-3 level-cards">
+            <article class="panel accent"><span>WHY</span><h3>Methodology</h3><p>The rationale and principles governing how knowledge will be produced.</p></article>
+            <article class="panel accent"><span>ARCHITECTURE</span><h3>Research design</h3><p>The overall structure connecting questions, evidence, comparison, timing and inference.</p></article>
+            <article class="panel accent"><span>HOW</span><h3>Methods</h3><p>The procedures used to generate and analyse particular forms of data.</p></article>
+          </div>
+          <p class="takeaway">“I will use interviews” states a method. It does not yet state or justify a research design.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>三個相關但不同的決策</h2>
+          <div class="grid-3 level-cards">
+            <article class="panel accent"><span>為何</span><h3>方法論</h3><p>規範研究如何產生知識的理據與原則。</p></article>
+            <article class="panel accent"><span>架構</span><h3>研究設計</h3><p>把研究問題、證據、比較、時序與推論連結起來的整體結構。</p></article>
+            <article class="panel accent"><span>如何</span><h3>方法</h3><p>產生及分析特定資料形式的程序。</p></article>
+          </div>
+          <p class="takeaway">「我會進行訪談」只說明方法，尚未說明或論證研究設計。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Start with the intended claim" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Claim-led design</span></header>
+        <div data-language="en">
+          <h2>What kind of answer are you seeking?</h2>
+          <div class="claim-ladder design-claims">
+            <article><span>Describe</span><p>What exists, how often, for whom or in what form?</p></article>
+            <article><span>Relate</span><p>Do variables, conditions or experiences vary together?</p></article>
+            <article><span>Explain</span><p>How or why does a process, pattern or experience occur?</p></article>
+            <article><span>Evaluate change</span><p>Did an intervention or condition contribute to an outcome?</p></article>
+          </div>
+          <p class="takeaway">The wording of the claim determines what comparison, variation, context and evidence the design must provide.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>你要尋找哪一類答案？</h2>
+          <div class="claim-ladder design-claims">
+            <article><span>描述</span><p>存在甚麼、頻率如何、涉及誰，或呈現甚麼形式？</p></article>
+            <article><span>關聯</span><p>變項、條件或經驗是否共同變化？</p></article>
+            <article><span>解釋</span><p>某個過程、模式或經驗如何或為何發生？</p></article>
+            <article><span>評估改變</span><p>某項介入或條件是否促成結果？</p></article>
+          </div>
+          <p class="takeaway">主張的措辭決定研究設計必須提供甚麼比較、變異、情境與證據。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Design family map" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Design landscape</span></header>
+        <div data-language="en">
+          <h2>Begin with the question, not a favourite method</h2>
+          <div class="design-family-map">
+            <article><span>Pattern or estimate</span><strong>Descriptive / survey</strong></article>
+            <article><span>Association or prediction</span><strong>Correlational</strong></article>
+            <article><span>Difference or effect</span><strong>Experimental / quasi-experimental</strong></article>
+            <article><span>Bounded complexity</span><strong>Case study</strong></article>
+            <article><span>Meaning or experience</span><strong>Phenomenology / narrative</strong></article>
+            <article><span>Culture, process or change</span><strong>Ethnography / grounded theory / action research</strong></article>
+          </div>
+          <p class="takeaway">These are families, not recipes. Each still requires decisions about context, sampling, evidence, timing and quality.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>從研究問題出發，而不是從偏好的方法出發</h2>
+          <div class="design-family-map">
+            <article><span>模式或估計</span><strong>描述性研究／調查</strong></article>
+            <article><span>關聯或預測</span><strong>相關研究</strong></article>
+            <article><span>差異或效果</span><strong>實驗／準實驗研究</strong></article>
+            <article><span>有邊界的複雜性</span><strong>個案研究</strong></article>
+            <article><span>意義或經驗</span><strong>現象學／敘事研究</strong></article>
+            <article><span>文化、過程或改變</span><strong>民族誌／紮根理論／行動研究</strong></article>
+          </div>
+          <p class="takeaway">這些是設計類型，不是固定配方。每種設計仍需決定情境、抽樣、證據、時序及品質。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Descriptive and survey designs" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Design family</span></header>
+        <div data-language="en">
+          <h2>Describe a population, condition or pattern</h2>
+          <div class="grid-3">
+            <article class="panel accent"><h3>Best suited to</h3><p>Prevalence, distributions, characteristics, attitudes or reported practices.</p></article>
+            <article class="panel accent"><h3>Design decisions</h3><p>Target population, sampling frame, measurement quality and response coverage.</p></article>
+            <article class="panel accent"><h3>Claim boundary</h3><p>A one-time survey can describe or associate; it usually cannot establish that one variable caused another.</p></article>
+          </div>
+          <p class="instruction"><strong>Ask:</strong> Whom should the estimate represent, and does the achieved sample support that scope?</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>描述群體、狀況或模式</h2>
+          <div class="grid-3">
+            <article class="panel accent"><h3>適合回答</h3><p>盛行率、分布、特徵、態度或自陳實踐。</p></article>
+            <article class="panel accent"><h3>設計決策</h3><p>目標群體、抽樣框、測量品質及回應覆蓋程度。</p></article>
+            <article class="panel accent"><h3>主張邊界</h3><p>一次性調查可以描述或分析關聯，但通常不能確立一個變項造成另一個變項。</p></article>
+          </div>
+          <p class="instruction"><strong>要問：</strong>估計結果應代表誰？實際取得的樣本能否支持這個範圍？</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Correlational and predictive designs" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Design family</span></header>
+        <div data-language="en">
+          <h2>Examine variation and association</h2>
+          <div class="grid-3">
+            <article class="panel accent"><h3>Best suited to</h3><p>Whether variables move together and whether one set helps predict another.</p></article>
+            <article class="panel accent"><h3>Design decisions</h3><p>Construct definition, temporal ordering, plausible confounders and a justified model.</p></article>
+            <article class="panel accent"><h3>Claim boundary</h3><p>Prediction is not automatically explanation; association is not automatically causation.</p></article>
+          </div>
+          <p class="instruction"><strong>Ask:</strong> Which alternative explanation could produce the same observed association?</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>檢視變異與關聯</h2>
+          <div class="grid-3">
+            <article class="panel accent"><h3>適合回答</h3><p>變項是否共同變化，以及一組變項能否協助預測另一組變項。</p></article>
+            <article class="panel accent"><h3>設計決策</h3><p>構念定義、時間先後、可能的混淆因素及有理據的模型。</p></article>
+            <article class="panel accent"><h3>主張邊界</h3><p>預測不等於解釋；關聯也不等於因果。</p></article>
+          </div>
+          <p class="instruction"><strong>要問：</strong>哪個其他解釋也可能產生同樣的關聯？</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Experimental and quasi-experimental designs" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Design family</span></header>
+        <div data-language="en">
+          <h2>Estimate whether an intervention contributes to change</h2>
+          <div class="contrast design-comparison">
+            <article><h3>Experiment</h3><p>Manipulates a condition and uses random assignment where feasible to strengthen group comparability.</p></article>
+            <b>↔</b>
+            <article><h3>Quasi-experiment</h3><p>Examines an intervention without random assignment and must address pre-existing differences explicitly.</p></article>
+          </div>
+          <div class="evidence-strip"><span>Comparison</span><span>Before/after evidence</span><span>Implementation fidelity</span><span>Alternative explanations</span></div>
+          <p class="takeaway">A pre-test and post-test alone do not prove that the intervention caused the change.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>估計介入是否促成改變</h2>
+          <div class="contrast design-comparison">
+            <article><h3>實驗研究</h3><p>操弄條件，並在可行情況下隨機分派，以提高組別的可比較性。</p></article>
+            <b>↔</b>
+            <article><h3>準實驗研究</h3><p>在沒有隨機分派下檢視介入，因此必須明確處理原有組別差異。</p></article>
+          </div>
+          <div class="evidence-strip"><span>比較</span><span>前後證據</span><span>實施忠實度</span><span>其他解釋</span></div>
+          <p class="takeaway">只有前測與後測，並不足以證明介入造成改變。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Case study design" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Design family</span></header>
+        <div data-language="en">
+          <h2>Study a bounded case in context</h2>
+          <div class="grid-4">
+            <article class="panel accent"><h3>The case</h3><p>A person, programme, class, school, event or organisation.</p></article>
+            <article class="panel accent"><h3>The boundary</h3><p>Define the place, period, participants and activity included.</p></article>
+            <article class="panel accent"><h3>The evidence</h3><p>Use multiple relevant sources to understand the case, not merely one interview.</p></article>
+            <article class="panel accent"><h3>The claim</h3><p>Explain the case deeply; do not treat it as a statistical sample of all cases.</p></article>
+          </div>
+          <p class="takeaway">“A case study” must identify what the case is and where its boundary lies.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>在情境中研究一個有明確邊界的個案</h2>
+          <div class="grid-4">
+            <article class="panel accent"><h3>個案</h3><p>個人、課程、班級、學校、事件或組織。</p></article>
+            <article class="panel accent"><h3>邊界</h3><p>界定納入的地點、時期、參與者與活動。</p></article>
+            <article class="panel accent"><h3>證據</h3><p>使用多種相關來源理解個案，而不只是進行一次訪談。</p></article>
+            <article class="panel accent"><h3>主張</h3><p>深入解釋個案，不把個案當成所有個案的統計樣本。</p></article>
+          </div>
+          <p class="takeaway">使用「個案研究」時，必須清楚指出個案是甚麼，以及邊界在哪裡。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Phenomenology and narrative research" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Design family</span></header>
+        <div data-language="en">
+          <h2>Experience and story are not the same object</h2>
+          <div class="contrast design-comparison">
+            <article><h3>Phenomenology</h3><p>Investigates how people experience and make meaning of a shared phenomenon.</p><strong>Focus:</strong> the structure and meaning of lived experience.</article>
+            <b>↔</b>
+            <article><h3>Narrative research</h3><p>Investigates how people construct and communicate experience through stories.</p><strong>Focus:</strong> sequence, turning points, voice and context.</article>
+          </div>
+          <p class="takeaway">Both may use interviews, but the analytic object and intended account differ.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>經驗與故事並不是同一研究對象</h2>
+          <div class="contrast design-comparison">
+            <article><h3>現象學</h3><p>探討人們如何經歷共同現象並賦予其意義。</p><strong>焦點：</strong>生活經驗的結構與意義。</article>
+            <b>↔</b>
+            <article><h3>敘事研究</h3><p>探討人們如何透過故事建構及表達經驗。</p><strong>焦點：</strong>時序、轉折點、聲音與情境。</article>
+          </div>
+          <p class="takeaway">兩者都可能使用訪談，但分析對象與預期產出的解釋不同。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Ethnography, grounded theory and action research" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Design family</span></header>
+        <div data-language="en">
+          <h2>Choose according to the object and purpose</h2>
+          <div class="grid-3">
+            <article class="panel accent"><h3>Ethnography</h3><p>Understand practices, meanings and relationships within a cultural or social setting through sustained engagement.</p></article>
+            <article class="panel accent"><h3>Grounded theory</h3><p>Develop a process-oriented theoretical account through iterative data collection, comparison and analysis.</p></article>
+            <article class="panel accent"><h3>Action research</h3><p>Investigate and improve practice through planned cycles of action, evidence and reflection with relevant participants.</p></article>
+          </div>
+          <p class="takeaway">The label must change how the study is organised. It is not a decorative synonym for “qualitative.”</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>根據研究對象與目的作出選擇</h2>
+          <div class="grid-3">
+            <article class="panel accent"><h3>民族誌</h3><p>透過持續參與，理解文化或社會場域中的實踐、意義與關係。</p></article>
+            <article class="panel accent"><h3>紮根理論</h3><p>透過反覆蒐集資料、比較及分析，發展以過程為核心的理論解釋。</p></article>
+            <article class="panel accent"><h3>行動研究</h3><p>與相關參與者透過行動、證據及反思的規劃循環，研究並改善實踐。</p></article>
+          </div>
+          <p class="takeaway">設計名稱必須改變研究的組織方式，不能只是「質性研究」的裝飾性同義詞。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Mixed methods: the entry question" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Design family · Preview only</span></header>
+        <div data-language="en">
+          <h2>Does the problem require both forms of evidence?</h2>
+          <div class="grid-3">
+            <article class="panel accent"><h3>Quantitative contribution</h3><p>Magnitude, distribution, comparison, association or change.</p></article>
+            <article class="panel accent"><h3>Qualitative contribution</h3><p>Meaning, mechanism, experience, process or contextual explanation.</p></article>
+            <article class="panel accent"><h3>Integration requirement</h3><p>The strands must inform one another and support a combined inference.</p></article>
+          </div>
+          <p class="takeaway">Two datasets do not automatically make mixed-methods research. Use both only when a single approach leaves a consequential gap.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>研究課題是否同時需要兩種證據？</h2>
+          <div class="grid-3">
+            <article class="panel accent"><h3>量化貢獻</h3><p>幅度、分布、比較、關聯或改變。</p></article>
+            <article class="panel accent"><h3>質性貢獻</h3><p>意義、機制、經驗、過程或情境解釋。</p></article>
+            <article class="panel accent"><h3>整合要求</h3><p>兩個研究部分必須互相提供資訊，並支持綜合推論。</p></article>
+          </div>
+          <p class="takeaway">擁有兩組資料不等於混合方法研究。只有當單一取向留下重要缺口時，才應同時使用兩者。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Design decision path" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">A repeatable decision sequence</span></header>
+        <div data-language="en">
+          <h2>Ask these questions in order</h2>
+          <ol class="decision-list">
+            <li><strong>What must be understood or claimed?</strong><span>Describe, relate, explain, evaluate or predict?</span></li>
+            <li><strong>What variation or context must be observed?</strong><span>Across people, settings, conditions, events or time?</span></li>
+            <li><strong>What comparison is necessary?</strong><span>No comparison, within-case, between groups, before/after or across phases?</span></li>
+            <li><strong>What evidence could challenge the preferred answer?</strong><span>Plan for alternatives, negative cases and rival explanations.</span></li>
+            <li><strong>What design can be implemented ethically and well?</strong><span>A modest coherent design is stronger than an ambitious incoherent one.</span></li>
+          </ol>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>依次提出這些問題</h2>
+          <ol class="decision-list">
+            <li><strong>研究必須理解或主張甚麼？</strong><span>描述、關聯、解釋、評估，還是預測？</span></li>
+            <li><strong>必須觀察甚麼變異或情境？</strong><span>跨個人、場域、條件、事件，還是時間？</span></li>
+            <li><strong>需要甚麼比較？</strong><span>不比較、個案內、組別間、前後，還是跨階段？</span></li>
+            <li><strong>甚麼證據可能挑戰偏好的答案？</strong><span>預先考慮其他解釋、反例與負面個案。</span></li>
+            <li><strong>哪個設計能在倫理上妥善實施？</strong><span>規模適中而連貫的設計，勝過宏大但失去對齊的設計。</span></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Activity 2: Design Match" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Activity 2</span></header>
+        <div data-language="en">
+          <h2>Design Match</h2>
+          <p class="intro-line">Choose the most defensible starting design. More information could change the decision, so justify every match.</p>
+          <div class="interactive-stack compact-activity" data-check-activity>
+            <div class="sort-row"><p>How common is generative-AI use among doctoral students across the university?</p><select data-answer="survey"><option value="">Choose…</option><option value="survey">Descriptive survey</option><option value="case">Case study</option><option value="experiment">Experiment</option><option value="phenom">Phenomenology</option></select></div>
+            <div class="sort-row"><p>Does a structured feedback intervention improve revision quality compared with usual practice?</p><select data-answer="experiment"><option value="">Choose…</option><option value="survey">Descriptive survey</option><option value="case">Case study</option><option value="experiment">Experiment / quasi-experiment</option><option value="phenom">Phenomenology</option></select></div>
+            <div class="sort-row"><p>How do first-generation doctoral students experience belonging during their first year?</p><select data-answer="phenom"><option value="">Choose…</option><option value="survey">Descriptive survey</option><option value="case">Case study</option><option value="experiment">Experiment</option><option value="phenom">Phenomenology</option></select></div>
+            <div class="sort-row"><p>How did one school implement and adapt a multilingual assessment policy?</p><select data-answer="case"><option value="">Choose…</option><option value="survey">Descriptive survey</option><option value="case">Case study</option><option value="experiment">Experiment</option><option value="phenom">Phenomenology</option></select></div>
+            <div class="activity-actions"><button type="button" data-check>Check matches</button><button type="button" data-clear>Clear</button><span class="activity-status" data-status role="status" aria-live="polite"></span></div>
+          </div>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>研究設計配對</h2>
+          <p class="intro-line">選擇最站得住腳的初步設計。更多資料可能改變決定，因此每項配對都需要理據。</p>
+          <div class="interactive-stack compact-activity" data-check-activity>
+            <div class="sort-row"><p>全校博士生使用生成式人工智能的情況有多普遍？</p><select data-answer="survey"><option value="">請選擇⋯⋯</option><option value="survey">描述性調查</option><option value="case">個案研究</option><option value="experiment">實驗研究</option><option value="phenom">現象學</option></select></div>
+            <div class="sort-row"><p>與一般做法相比，結構化回饋介入能否改善修訂品質？</p><select data-answer="experiment"><option value="">請選擇⋯⋯</option><option value="survey">描述性調查</option><option value="case">個案研究</option><option value="experiment">實驗／準實驗研究</option><option value="phenom">現象學</option></select></div>
+            <div class="sort-row"><p>第一代大學生背景的博士生如何經歷第一年的歸屬感？</p><select data-answer="phenom"><option value="">請選擇⋯⋯</option><option value="survey">描述性調查</option><option value="case">個案研究</option><option value="experiment">實驗研究</option><option value="phenom">現象學</option></select></div>
+            <div class="sort-row"><p>某一所學校如何實施及調整多語評估政策？</p><select data-answer="case"><option value="">請選擇⋯⋯</option><option value="survey">描述性調查</option><option value="case">個案研究</option><option value="experiment">實驗研究</option><option value="phenom">現象學</option></select></div>
+            <div class="activity-actions"><button type="button" data-check>檢查配對</button><button type="button" data-clear>清除</button><span class="activity-status" data-status role="status" aria-live="polite"></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Activity 3: Design Clinic" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Activity 3</span></header>
+        <div data-language="en">
+          <h2>Design Clinic</h2>
+          <p class="intro-line">Diagnose the problem before opening each card. Then compare your repair with the suggested response.</p>
+          <div class="debug-grid">
+            <details class="debug-card"><summary>A one-time survey concludes that AI use causes stronger research confidence.</summary><p>The design establishes association, not causal direction. Revise the claim or add temporal evidence, a defensible comparison and control of alternative explanations.</p></details>
+            <details class="debug-card"><summary>Ten purposively selected interviewees are used to estimate university-wide prevalence.</summary><p>Information-rich purposive sampling can support depth, not a population estimate. Revise the question or adopt a probability-based sampling plan.</p></details>
+            <details class="debug-card"><summary>A survey and interviews are conducted, then reported in separate chapters and called mixed methods.</summary><p>The study is merely additive unless the strands answer connected questions and contribute to a planned combined inference.</p></details>
+            <details class="debug-card"><summary>The paper says “case study” but never identifies the case or its boundary.</summary><p>Define the bounded case, context, period and units; explain why the case is informative and which evidence is needed to understand it.</p></details>
+            <details class="debug-card"><summary>A study selects grounded theory because it includes interview coding.</summary><p>Coding interviews does not make grounded theory. The design requires iterative sampling and analysis directed towards developing a theoretical account.</p></details>
+            <details class="debug-card"><summary>The preferred design requires access that the researcher is unlikely to obtain.</summary><p>Feasibility is a design condition. Narrow the setting, change the unit or select an alternative design that can still answer the core question well.</p></details>
+          </div>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>研究設計診所</h2>
+          <p class="intro-line">打開卡片前先診斷問題，再把你的修正與建議答案比較。</p>
+          <div class="debug-grid">
+            <details class="debug-card"><summary>一次性調查得出「使用人工智能會造成更強研究信心」的結論。</summary><p>該設計只能建立關聯，不能確立因果方向。應修訂主張，或加入時間證據、有理據的比較及對其他解釋的控制。</p></details>
+            <details class="debug-card"><summary>以十名目的抽樣的受訪者估計全校盛行率。</summary><p>目的抽樣可取得資訊豐富的深度證據，但不能支持群體估計。應修訂問題，或採用以機率為基礎的抽樣計劃。</p></details>
+            <details class="debug-card"><summary>研究同時進行問卷與訪談，分章報告後便稱為混合方法。</summary><p>若兩個部分沒有回答互相連結的問題，也沒有支持預先規劃的綜合推論，研究只是在方法上相加。</p></details>
+            <details class="debug-card"><summary>論文稱為「個案研究」，卻沒有指出個案及其邊界。</summary><p>應界定有邊界的個案、情境、時期及分析單位；解釋個案為何有資訊價值，以及需要哪些證據理解它。</p></details>
+            <details class="debug-card"><summary>研究因為包含訪談編碼而選擇紮根理論。</summary><p>編碼訪談並不等於紮根理論。該設計需要以發展理論解釋為目標，反覆進行抽樣與分析。</p></details>
+            <details class="debug-card"><summary>偏好的設計需要研究者不太可能取得的場域進入權限。</summary><p>可行性是設計條件。應縮小場域、改變分析單位，或選擇仍能妥善回答核心問題的替代設計。</p></details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Sampling foundations" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Sampling</span></header>
+        <div data-language="en">
+          <h2>Define what is being sampled before choosing how</h2>
+          <div class="sampling-stack">
+            <article><strong>Unit of analysis</strong><span>What entity will the claims describe?</span></article>
+            <article><strong>Target population or phenomenon</strong><span>To whom or what should the claim apply?</span></article>
+            <article><strong>Accessible population or field</strong><span>What can the researcher realistically reach?</span></article>
+            <article><strong>Sampling frame and criteria</strong><span>How will eligible people, cases, texts, events or settings be identified?</span></article>
+            <article><strong>Achieved sample</strong><span>Who or what actually contributes usable evidence?</span></article>
+          </div>
+          <p class="takeaway">The sample is not always people. It may include classrooms, documents, interactions, events, sites or time periods.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>先界定抽取甚麼，再決定如何抽樣</h2>
+          <div class="sampling-stack">
+            <article><strong>分析單位</strong><span>主張將描述哪一種實體？</span></article>
+            <article><strong>目標群體或現象</strong><span>主張應適用於誰或甚麼？</span></article>
+            <article><strong>可接觸群體或場域</strong><span>研究者實際能接觸甚麼？</span></article>
+            <article><strong>抽樣框與準則</strong><span>如何辨識符合資格的人、個案、文本、事件或場域？</span></article>
+            <article><strong>實際樣本</strong><span>最終由誰或甚麼提供可用證據？</span></article>
+          </div>
+          <p class="takeaway">樣本不一定是人，也可以是課堂、文件、互動、事件、場域或時段。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Probability sampling" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Sampling logic</span></header>
+        <div data-language="en">
+          <h2>Probability sampling supports population inference</h2>
+          <div class="grid-4">
+            <article class="panel accent"><h3>Simple random</h3><p>Every unit has a known, non-zero selection chance through a random procedure.</p></article>
+            <article class="panel accent"><h3>Systematic</h3><p>Select every kth unit after a random starting point, if the list has no harmful pattern.</p></article>
+            <article class="panel accent"><h3>Stratified</h3><p>Sample within meaningful subgroups to protect representation or improve precision.</p></article>
+            <article class="panel accent"><h3>Cluster / multistage</h3><p>Select natural groups, then possibly sample units within selected groups.</p></article>
+          </div>
+          <p class="takeaway">Random selection is about how units enter the sample. It is not the same as random assignment to conditions.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>機率抽樣支持群體推論</h2>
+          <div class="grid-4">
+            <article class="panel accent"><h3>簡單隨機抽樣</h3><p>每個單位都透過隨機程序，擁有已知且非零的入選機會。</p></article>
+            <article class="panel accent"><h3>系統抽樣</h3><p>隨機決定起點後，每隔第 k 個單位抽取一次，前提是名單沒有造成偏差的規律。</p></article>
+            <article class="panel accent"><h3>分層抽樣</h3><p>在有意義的子群內抽樣，以保障代表性或提高估計精確度。</p></article>
+            <article class="panel accent"><h3>叢集／多階段抽樣</h3><p>先選取自然群組，再視需要於入選群組內抽取單位。</p></article>
+          </div>
+          <p class="takeaway">隨機抽樣關乎單位如何進入樣本，並不等同於把參與者隨機分派至不同條件。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Non-probability sampling" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Sampling logic</span></header>
+        <div data-language="en">
+          <h2>Select for access, composition or information</h2>
+          <div class="grid-6">
+            <article class="panel"><h3>Convenience</h3><p>Use readily accessible units.</p></article>
+            <article class="panel"><h3>Volunteer</h3><p>Participants self-select after an invitation.</p></article>
+            <article class="panel"><h3>Purposive</h3><p>Select cases relevant to the research purpose.</p></article>
+            <article class="panel"><h3>Snowball</h3><p>Participants help reach others in a network.</p></article>
+            <article class="panel"><h3>Quota</h3><p>Fill planned subgroup categories without random selection.</p></article>
+            <article class="panel"><h3>Theoretical</h3><p>Select further cases to develop an emerging theoretical account.</p></article>
+          </div>
+          <p class="takeaway">Non-probability does not mean careless. State the selection logic and limit claims to what it can support.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>按可接觸性、組成或資訊價值選取</h2>
+          <div class="grid-6">
+            <article class="panel"><h3>便利抽樣</h3><p>使用容易接觸的單位。</p></article>
+            <article class="panel"><h3>志願者抽樣</h3><p>參與者回應邀請後自行選擇加入。</p></article>
+            <article class="panel"><h3>目的抽樣</h3><p>選取與研究目的相關的個案。</p></article>
+            <article class="panel"><h3>滾雪球抽樣</h3><p>由參與者協助接觸其網絡中的其他人。</p></article>
+            <article class="panel"><h3>配額抽樣</h3><p>在沒有隨機選取下填滿預定子群類別。</p></article>
+            <article class="panel"><h3>理論抽樣</h3><p>為發展正在形成的理論解釋而選取後續個案。</p></article>
+          </div>
+          <p class="takeaway">非機率抽樣不等於隨意。必須說明選取邏輯，並把主張限制在該邏輯能支持的範圍內。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Sample adequacy" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Sampling logic</span></header>
+        <div data-language="en">
+          <h2>There is no universal “good sample size”</h2>
+          <div class="contrast design-comparison">
+            <article><h3>Quantitative adequacy</h3><p>Depends on the target inference, expected variation or effect, precision, design structure, planned analysis and likely missingness.</p></article>
+            <b>↔</b>
+            <article><h3>Qualitative adequacy</h3><p>Depends on the design, specificity of participants, richness and relevance of evidence, variation sought and depth of analysis.</p></article>
+          </div>
+          <p class="takeaway">“Large” is not automatically representative; “small” is not automatically inadequate. Justify adequacy for the question and design.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>並不存在通用的「良好樣本量」</h2>
+          <div class="contrast design-comparison">
+            <article><h3>量化研究的充分性</h3><p>取決於目標推論、預期變異或效果、精確度、設計結構、計劃分析及可能的缺失資料。</p></article>
+            <b>↔</b>
+            <article><h3>質性研究的充分性</h3><p>取決於研究設計、參與者的特定性、證據的豐富與相關程度、所需差異及分析深度。</p></article>
+          </div>
+          <p class="takeaway">「大」不一定具有代表性，「小」也不一定不充分。應根據研究問題與設計論證其充分性。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Activity 4: Sampling Match" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Activity 4</span></header>
+        <div data-language="en">
+          <h2>Sampling Match</h2>
+          <p class="intro-line">Match the selection procedure to the sampling strategy.</p>
+          <div class="interactive-stack compact-activity" data-check-activity>
+            <div class="sort-row"><p>Randomly select four schools, then randomly select students within each school.</p><select data-answer="multistage"><option value="">Choose…</option><option value="stratified">Stratified</option><option value="purposive">Purposive</option><option value="multistage">Multistage</option><option value="snowball">Snowball</option></select></div>
+            <div class="sort-row"><p>Select teachers who have implemented bilingual assessment for at least two years.</p><select data-answer="purposive"><option value="">Choose…</option><option value="stratified">Stratified</option><option value="purposive">Purposive</option><option value="multistage">Multistage</option><option value="snowball">Snowball</option></select></div>
+            <div class="sort-row"><p>Randomly sample within school level so primary and secondary schools are both represented.</p><select data-answer="stratified"><option value="">Choose…</option><option value="stratified">Stratified</option><option value="purposive">Purposive</option><option value="multistage">Multistage</option><option value="snowball">Snowball</option></select></div>
+            <div class="sort-row"><p>Ask participants in a hard-to-reach professional network to refer eligible colleagues.</p><select data-answer="snowball"><option value="">Choose…</option><option value="stratified">Stratified</option><option value="purposive">Purposive</option><option value="multistage">Multistage</option><option value="snowball">Snowball</option></select></div>
+            <div class="activity-actions"><button type="button" data-check>Check matches</button><button type="button" data-clear>Clear</button><span class="activity-status" data-status role="status" aria-live="polite"></span></div>
+          </div>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>抽樣配對</h2>
+          <p class="intro-line">把選取程序配對至相應抽樣策略。</p>
+          <div class="interactive-stack compact-activity" data-check-activity>
+            <div class="sort-row"><p>隨機選取四所學校，再於每所學校內隨機抽取學生。</p><select data-answer="multistage"><option value="">請選擇⋯⋯</option><option value="stratified">分層抽樣</option><option value="purposive">目的抽樣</option><option value="multistage">多階段抽樣</option><option value="snowball">滾雪球抽樣</option></select></div>
+            <div class="sort-row"><p>選取已有至少兩年雙語評估實施經驗的教師。</p><select data-answer="purposive"><option value="">請選擇⋯⋯</option><option value="stratified">分層抽樣</option><option value="purposive">目的抽樣</option><option value="multistage">多階段抽樣</option><option value="snowball">滾雪球抽樣</option></select></div>
+            <div class="sort-row"><p>在不同學校階段內隨機抽樣，以確保小學與中學均有代表。</p><select data-answer="stratified"><option value="">請選擇⋯⋯</option><option value="stratified">分層抽樣</option><option value="purposive">目的抽樣</option><option value="multistage">多階段抽樣</option><option value="snowball">滾雪球抽樣</option></select></div>
+            <div class="sort-row"><p>請難以接觸的專業網絡中的參與者轉介符合資格的同事。</p><select data-answer="snowball"><option value="">請選擇⋯⋯</option><option value="stratified">分層抽樣</option><option value="purposive">目的抽樣</option><option value="multistage">多階段抽樣</option><option value="snowball">滾雪球抽樣</option></select></div>
+            <div class="activity-actions"><button type="button" data-check>檢查配對</button><button type="button" data-clear>清除</button><span class="activity-status" data-status role="status" aria-live="polite"></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Evidence to claim" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Research quality</span></header>
+        <div data-language="en">
+          <h2>Quality asks whether the inference is warranted</h2>
+          <div class="path-line quality-chain">
+            <span>Question</span><b>→</b><span>Evidence</span><b>→</b><span>Analysis</span><b>→</b><span>Claim</span>
+          </div>
+          <div class="grid-3 quality-questions">
+            <article class="panel"><h3>Accuracy</h3><p>Does the evidence represent the intended construct, experience or process?</p></article>
+            <article class="panel"><h3>Alternatives</h3><p>Could bias, confounding, selection or interpretation produce another account?</p></article>
+            <article class="panel"><h3>Boundary</h3><p>How far beyond these participants, cases, conditions and measures may the claim travel?</p></article>
+          </div>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>研究品質關乎推論是否有充分理據</h2>
+          <div class="path-line quality-chain">
+            <span>研究問題</span><b>→</b><span>證據</span><b>→</b><span>分析</span><b>→</b><span>主張</span>
+          </div>
+          <div class="grid-3 quality-questions">
+            <article class="panel"><h3>準確性</h3><p>證據是否代表研究所指的構念、經驗或過程？</p></article>
+            <article class="panel"><h3>其他解釋</h3><p>偏誤、混淆、選取或詮釋是否可能產生另一種解釋？</p></article>
+            <article class="panel"><h3>邊界</h3><p>主張能在多大程度上超出這些參與者、個案、條件與測量？</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Validity and reliability" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Quantitative quality</span></header>
+        <div data-language="en">
+          <h2>Different threats require different safeguards</h2>
+          <div class="quality-matrix">
+            <article><strong>Construct validity</strong><span>Does the operational measure represent the intended construct?</span></article>
+            <article><strong>Internal validity</strong><span>Can rival explanations for an observed difference be ruled down?</span></article>
+            <article><strong>External validity</strong><span>To which populations, settings, measures and periods might findings apply?</span></article>
+            <article><strong>Statistical conclusion validity</strong><span>Are the data and analyses adequate for the inference?</span></article>
+            <article><strong>Reliability</strong><span>Are scores or observations sufficiently consistent for their intended use?</span></article>
+          </div>
+          <p class="takeaway">A reliable measure can still measure the wrong construct. Reliability alone does not establish validity.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>不同威脅需要不同保障</h2>
+          <div class="quality-matrix">
+            <article><strong>構念效度</strong><span>操作化測量是否代表研究所指的構念？</span></article>
+            <article><strong>內部效度</strong><span>能否減少對觀察差異的其他競爭性解釋？</span></article>
+            <article><strong>外部效度</strong><span>研究發現可能適用於哪些群體、場域、測量及時期？</span></article>
+            <article><strong>統計結論效度</strong><span>資料與分析是否足以支持該項推論？</span></article>
+            <article><strong>信度</strong><span>分數或觀察是否在預期用途下具有足夠一致性？</span></article>
+          </div>
+          <p class="takeaway">一項測量即使具有信度，也可能測量了錯誤的構念。只有信度並不能建立效度。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Trustworthiness" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Qualitative quality</span></header>
+        <div data-language="en">
+          <h2>Make the interpretive process defensible</h2>
+          <div class="grid-6">
+            <article class="panel"><h3>Credibility</h3><p>Is the account well grounded in relevant evidence and engagement?</p></article>
+            <article class="panel"><h3>Dependability</h3><p>Is the research process documented and logically consistent?</p></article>
+            <article class="panel"><h3>Confirmability</h3><p>Can readers see how interpretations developed from evidence?</p></article>
+            <article class="panel"><h3>Transferability</h3><p>Is context described well enough for readers to judge relevance elsewhere?</p></article>
+            <article class="panel"><h3>Reflexivity</h3><p>How did the researcher’s position and decisions shape the inquiry?</p></article>
+            <article class="panel"><h3>Challenge</h3><p>Were negative cases, tensions and alternative interpretations pursued?</p></article>
+          </div>
+          <p class="takeaway">Member checking, triangulation or prolonged engagement are strategies, not automatic certificates. Use those that address the actual threat.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>使詮釋過程具有充分理據</h2>
+          <div class="grid-6">
+            <article class="panel"><h3>可信性</h3><p>研究解釋是否充分植根於相關證據與投入？</p></article>
+            <article class="panel"><h3>依賴性</h3><p>研究過程是否有記錄並保持邏輯一致？</p></article>
+            <article class="panel"><h3>可確認性</h3><p>讀者能否看出詮釋如何從證據發展而來？</p></article>
+            <article class="panel"><h3>可轉移性</h3><p>情境描述是否足以讓讀者判斷結果在其他地方的相關性？</p></article>
+            <article class="panel"><h3>反思性</h3><p>研究者的位置與決策如何塑造研究？</p></article>
+            <article class="panel"><h3>挑戰</h3><p>是否追查負面個案、張力與其他可能詮釋？</p></article>
+          </div>
+          <p class="takeaway">成員檢核、三角互證或長期投入都是策略，不是自動認證。應選用能處理實際威脅的策略。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Mixed-methods quality" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Preview only</span></header>
+        <div data-language="en">
+          <h2>Each strand can be sound while the whole remains weak</h2>
+          <div class="grid-4">
+            <article class="panel accent"><h3>Appropriateness</h3><p>Does each strand answer a necessary part of the research question?</p></article>
+            <article class="panel accent"><h3>Consistency</h3><p>Do design, sampling and analysis support the same overall purpose?</p></article>
+            <article class="panel accent"><h3>Connection</h3><p>Are the strands connected where the design says they will be?</p></article>
+            <article class="panel accent"><h3>Combined inference</h3><p>Does integration produce an answer that neither strand could provide alone?</p></article>
+          </div>
+          <p class="takeaway">The detailed integration procedures belong to the later mixed-methods lesson. Today, identify whether integration is genuinely required.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>每個研究部分都可以穩健，但整體研究仍可能薄弱</h2>
+          <div class="grid-4">
+            <article class="panel accent"><h3>合適性</h3><p>每個部分是否回答研究問題中不可缺少的一部分？</p></article>
+            <article class="panel accent"><h3>一致性</h3><p>設計、抽樣及分析是否支持相同的整體目的？</p></article>
+            <article class="panel accent"><h3>連結</h3><p>不同部分是否在設計所規劃的位置互相連結？</p></article>
+            <article class="panel accent"><h3>綜合推論</h3><p>整合是否產生任何單一部分都無法獨立提供的答案？</p></article>
+          </div>
+          <p class="takeaway">具體整合程序留待之後的混合方法課。今天只需判斷研究是否真正需要整合。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Activity 5: Quality Match" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Activity 5</span></header>
+        <div data-language="en">
+          <h2>Quality Match</h2>
+          <p class="intro-line">Match each safeguard or threat to the quality criterion it addresses most directly.</p>
+          <div class="interactive-stack compact-activity" data-check-activity>
+            <div class="sort-row"><p>Groups differ before the intervention and no adjustment or comparison is made.</p><select data-answer="internal"><option value="">Choose…</option><option value="internal">Internal validity</option><option value="reliability">Reliability</option><option value="credibility">Credibility</option><option value="transfer">Transferability</option></select></div>
+            <div class="sort-row"><p>Two raters apply a scoring rubric inconsistently.</p><select data-answer="reliability"><option value="">Choose…</option><option value="internal">Internal validity</option><option value="reliability">Reliability</option><option value="credibility">Credibility</option><option value="transfer">Transferability</option></select></div>
+            <div class="sort-row"><p>Interpretations are tested against contrary cases and supported with low-inference evidence.</p><select data-answer="credibility"><option value="">Choose…</option><option value="internal">Internal validity</option><option value="reliability">Reliability</option><option value="credibility">Credibility</option><option value="transfer">Transferability</option></select></div>
+            <div class="sort-row"><p>The report richly describes the setting and participants so readers can judge contextual relevance.</p><select data-answer="transfer"><option value="">Choose…</option><option value="internal">Internal validity</option><option value="reliability">Reliability</option><option value="credibility">Credibility</option><option value="transfer">Transferability</option></select></div>
+            <div class="activity-actions"><button type="button" data-check>Check matches</button><button type="button" data-clear>Clear</button><span class="activity-status" data-status role="status" aria-live="polite"></span></div>
+          </div>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>研究品質配對</h2>
+          <p class="intro-line">把每項保障或威脅配對至它最直接處理的品質準則。</p>
+          <div class="interactive-stack compact-activity" data-check-activity>
+            <div class="sort-row"><p>介入前各組已存在差異，研究卻沒有調整或作出比較。</p><select data-answer="internal"><option value="">請選擇⋯⋯</option><option value="internal">內部效度</option><option value="reliability">信度</option><option value="credibility">可信性</option><option value="transfer">可轉移性</option></select></div>
+            <div class="sort-row"><p>兩名評分者以不一致方式使用評分規準。</p><select data-answer="reliability"><option value="">請選擇⋯⋯</option><option value="internal">內部效度</option><option value="reliability">信度</option><option value="credibility">可信性</option><option value="transfer">可轉移性</option></select></div>
+            <div class="sort-row"><p>研究以反例檢驗詮釋，並以低推論證據加以支持。</p><select data-answer="credibility"><option value="">請選擇⋯⋯</option><option value="internal">內部效度</option><option value="reliability">信度</option><option value="credibility">可信性</option><option value="transfer">可轉移性</option></select></div>
+            <div class="sort-row"><p>報告豐富描述場域與參與者，使讀者能判斷其他情境的相關性。</p><select data-answer="transfer"><option value="">請選擇⋯⋯</option><option value="internal">內部效度</option><option value="reliability">信度</option><option value="credibility">可信性</option><option value="transfer">可轉移性</option></select></div>
+            <div class="activity-actions"><button type="button" data-check>檢查配對</button><button type="button" data-clear>清除</button><span class="activity-status" data-status role="status" aria-live="polite"></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Methodological alignment" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">The whole-study test</span></header>
+        <div data-language="en">
+          <h2>Every decision must serve the same study</h2>
+          <div class="alignment-flow">
+            <span>Problem</span><b>→</b><span>Framework</span><b>→</b><span>Question</span><b>→</b><span>Claim</span><b>→</b><span>Design</span><b>→</b><span>Sample</span><b>→</b><span>Evidence</span><b>→</b><span>Quality</span>
+          </div>
+          <p class="takeaway">Alignment does not mean every element is identical. It means each choice has a visible function in answering the question.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>每項決策都必須服務同一研究</h2>
+          <div class="alignment-flow">
+            <span>課題</span><b>→</b><span>框架</span><b>→</b><span>問題</span><b>→</b><span>主張</span><b>→</b><span>設計</span><b>→</b><span>樣本</span><b>→</b><span>證據</span><b>→</b><span>品質</span>
+          </div>
+          <p class="takeaway">對齊並不表示所有元素都相同，而是每項選擇在回答研究問題時都有可見功能。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Activity 6: Study Architecture I" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Activity 6 · Build</span></header>
+        <div data-language="en">
+          <h2>Study Architecture: purpose and logic</h2>
+          <div class="canvas-grid">
+            <label><span>Problem and purpose</span><textarea data-save="problem" placeholder="What matters, to whom, and what remains unresolved?"></textarea></label>
+            <label><span>Framework</span><textarea data-save="framework" placeholder="Which theory or study-specific concept map guides the inquiry, and how?"></textarea></label>
+            <label><span>Research question</span><textarea data-save="question" placeholder="Write the question in a form the proposed study can answer."></textarea></label>
+            <label><span>Intended claim</span><textarea data-save="claim" placeholder="What kind of answer do you intend to support, and within what boundary?"></textarea></label>
+          </div>
+          <p class="instruction">Read across all four boxes. Circle any concept that changes meaning between boxes.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>研究架構：目的與邏輯</h2>
+          <div class="canvas-grid">
+            <label><span>研究課題與目的</span><textarea data-save="problem-zh" placeholder="甚麼課題重要、對誰重要，以及尚未解決甚麼？"></textarea></label>
+            <label><span>框架</span><textarea data-save="framework-zh" placeholder="哪項理論或研究專屬概念圖引導研究？如何引導？"></textarea></label>
+            <label><span>研究問題</span><textarea data-save="question-zh" placeholder="把問題寫成擬議研究能夠回答的形式。"></textarea></label>
+            <label><span>預期主張</span><textarea data-save="claim-zh" placeholder="你要支持哪類答案？其適用邊界是甚麼？"></textarea></label>
+          </div>
+          <p class="instruction">橫向閱讀四個方格，把在不同方格中意思改變的概念圈出來。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Activity 6: Study Architecture II" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Activity 6 · Test</span></header>
+        <div data-language="en">
+          <h2>Study Architecture: evidence and limits</h2>
+          <div class="canvas-grid">
+            <label><span>Design and rationale</span><textarea data-save="design" placeholder="Which design family fits, and why is it stronger than the nearest alternative?"></textarea></label>
+            <label><span>Sample and access</span><textarea data-save="sample" placeholder="What is sampled, how is it selected, and what access is realistic?"></textarea></label>
+            <label><span>Quality safeguard</span><textarea data-save="quality" placeholder="Name the main threat and a design-stage response."></textarea></label>
+            <label><span>Feasibility and ethics flag</span><textarea data-save="ethics" placeholder="What issue must be resolved before data collection can begin?"></textarea></label>
+          </div>
+          <p class="instruction">Do not draft instruments or IRB forms here. Record the decisions that the next lessons must develop.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>研究架構：證據與限制</h2>
+          <div class="canvas-grid">
+            <label><span>設計與理據</span><textarea data-save="design-zh" placeholder="哪個設計類型最合適？為何優於最接近的替代選擇？"></textarea></label>
+            <label><span>樣本與進入場域</span><textarea data-save="sample-zh" placeholder="抽取甚麼、如何選取，以及哪些進入方式切實可行？"></textarea></label>
+            <label><span>品質保障</span><textarea data-save="quality-zh" placeholder="指出主要威脅及一項在設計階段採取的回應。"></textarea></label>
+            <label><span>可行性與倫理提示</span><textarea data-save="ethics-zh" placeholder="開始蒐集資料前，必須解決哪個問題？"></textarea></label>
+          </div>
+          <p class="instruction">此處不擬定研究工具或 IRB 表格，只記錄後續課堂需要發展的決策。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Peer Alignment Audit" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Peer review</span></header>
+        <div data-language="en">
+          <h2>Audit the chain, not the topic</h2>
+          <div class="audit-grid">
+            <article><span>1</span><p>Does the framework genuinely shape the question?</p></article>
+            <article><span>2</span><p>Does the design permit the intended claim?</p></article>
+            <article><span>3</span><p>Will the sampling logic produce the required evidence?</p></article>
+            <article><span>4</span><p>Is the design feasible in the available context?</p></article>
+            <article><span>5</span><p>Does the quality safeguard address the main threat?</p></article>
+            <article><span>6</span><p>Which word in the claim needs tighter boundaries?</p></article>
+          </div>
+          <p class="takeaway">Give one precise diagnosis and one feasible repair. “Looks good” is not methodological feedback.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>審視對齊，而不是評論研究主題</h2>
+          <div class="audit-grid">
+            <article><span>1</span><p>框架是否真正影響研究問題？</p></article>
+            <article><span>2</span><p>研究設計是否容許預期主張？</p></article>
+            <article><span>3</span><p>抽樣邏輯能否產生所需證據？</p></article>
+            <article><span>4</span><p>研究設計在現有情境中是否可行？</p></article>
+            <article><span>5</span><p>品質保障是否處理最主要威脅？</p></article>
+            <article><span>6</span><p>主張中的哪個詞需要更嚴格的邊界？</p></article>
+          </div>
+          <p class="takeaway">提出一項精確診斷及一項可行修正。「看起來不錯」並不是方法論回饋。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Exit ticket" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Exit ticket</span></header>
+        <div data-language="en">
+          <h2>Make one decision defensible</h2>
+          <div class="writing-grid exit-writing">
+            <label>My strongest alignment decision<textarea data-save="exit-decision" placeholder="State the decision and why it fits the rest of the study."></textarea></label>
+            <label>My next unresolved decision<textarea data-save="exit-next" placeholder="State what must be decided before instruments or ethics materials can be developed."></textarea></label>
+          </div>
+          <p class="takeaway">A defensible study makes its logic visible before data collection begins.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>使一項決策站得住腳</h2>
+          <div class="writing-grid exit-writing">
+            <label>我最穩健的對齊決策<textarea data-save="exit-decision-zh" placeholder="說明該項決策，以及它為何符合研究的其他部分。"></textarea></label>
+            <label>我下一項尚未解決的決策<textarea data-save="exit-next-zh" placeholder="說明在發展研究工具或倫理材料前必須決定甚麼。"></textarea></label>
+          </div>
+          <p class="takeaway">一項站得住腳的研究，會在蒐集資料前使其邏輯清晰可見。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Personal PDF" aria-hidden="true">
+      <div class="slide-inner title-slide">
+        <header class="slide-header"><span class="eyebrow">Keep your work</span></header>
+        <div data-language="en">
+          <h1>Keep the<br />chain intact</h1>
+          <p class="lead">Save the lesson and your Study Architecture responses as a personal PDF.</p>
+          <div class="closing-actions"><button type="button" class="pdf-cta" data-pdf-open>Create your personal PDF</button><a class="course-return" href={courseHref}>DEDC02 course materials</a></div>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h1>保持<br />邏輯連結</h1>
+          <p class="lead">把本課內容及研究架構回應儲存為個人 PDF。</p>
+          <div class="closing-actions"><button type="button" class="pdf-cta" data-pdf-open>建立你的個人 PDF</button><a class="course-return" href={courseHref}>DEDC02 課程材料</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <nav class="deck-controls" aria-label="Slide controls">
+    <a class="home-button" href={courseHref} aria-label="Back to DEDC02">⌂</a>
+    <button type="button" data-nav="previous" aria-label="Previous slide">←</button>
+    <button class="slide-count" type="button" data-overview aria-label="Open slide overview"><span>1</span>/<span data-slide-total>38</span></button>
+    <button type="button" data-nav="next" aria-label="Next slide">→</button>
+    <button type="button" data-fullscreen aria-label="Toggle fullscreen">⛶</button>
+    <div class="progress-track" aria-hidden="true"><span></span></div>
+  </nav>
+
+  <dialog class="overview-dialog">
+    <div class="overview-head"><h2>Research Design &amp; Alignment</h2><button type="button" data-close-overview aria-label="Close overview">×</button></div>
+    <ol></ol>
+    <p>Use ← →, Page Up / Page Down or swipe. Press O for overview and F for fullscreen.</p>
+  </dialog>
+
+  <dialog class="tool-dialog pdf-dialog">
+    <form method="dialog" class="tool-dialog-head"><h2>Personal PDF</h2><button value="close" aria-label="Close PDF options">×</button></form>
+    <p>Add a note to the first page of your copy.</p>
+    <label class="pdf-message-entry"><span>Your message</span><textarea maxlength="1200" data-pdf-message placeholder="Write your design decision, reminder or next step here…"></textarea></label>
+    <div class="tool-actions"><button type="button" data-pdf-download>Create PDF</button></div>
+    <p class="tool-status">In the print window, select “Save as PDF”.</p>
+  </dialog>
+</CourseSlideLayout>
+
+<style>
+  .design-chain, .quality-chain { grid-template-columns: repeat(7, auto); }
+  .framework-contrast strong, .design-comparison strong { display: block; margin-top: .75rem; color: var(--lr-green); }
+  .component-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .55rem; }
+  .component-grid article { display: grid; min-height: 7rem; align-content: space-between; padding: .8rem; border-top: .3rem solid var(--lr-green-mid); background: var(--lr-green-soft); }
+  .component-grid span, .level-cards span { color: var(--lr-green-mid); font-size: .7rem; font-weight: 800; letter-spacing: .1em; }
+  .component-grid strong { font: 600 1.05rem/1.25 'Source Serif 4', Georgia, serif; }
+  .level-cards article { min-height: 11rem; }
+  .level-cards h3 { margin-top: .7rem; font-size: 1.35rem; }
+  .design-family-map { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .65rem; }
+  .design-family-map article { display: grid; min-height: 8rem; align-content: space-between; padding: .85rem; border: 1px solid var(--lr-line); border-top-width: .32rem; background: var(--lr-green-pale); }
+  .design-family-map span { color: var(--lr-muted); font-size: .78rem; font-weight: 700; text-transform: uppercase; }
+  .design-family-map strong { color: var(--lr-green); font: 600 1.12rem/1.25 'Source Serif 4', Georgia, serif; }
+  .design-comparison article { min-height: 10.5rem; }
+  .evidence-strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .5rem; margin-top: .8rem; }
+  .evidence-strip span { padding: .55rem; border: 1px solid var(--lr-line); color: var(--lr-green); font-size: .8rem; font-weight: 750; text-align: center; }
+  .decision-list { display: grid; gap: .48rem; margin: 0; padding: 0; counter-reset: decision; list-style: none; }
+  .decision-list li { counter-increment: decision; display: grid; grid-template-columns: 2rem minmax(12rem, .85fr) minmax(15rem, 1.3fr); gap: .65rem; align-items: center; padding: .65rem .75rem; border-bottom: 1px solid var(--lr-line); }
+  .decision-list li::before { content: counter(decision); display: grid; width: 1.65rem; height: 1.65rem; place-items: center; border-radius: 50%; background: var(--lr-green-mid); color: white; font-size: .75rem; font-weight: 800; }
+  .decision-list span { color: var(--lr-muted); font-size: .9rem; }
+  .sampling-stack { display: grid; gap: .45rem; }
+  .sampling-stack article { display: grid; grid-template-columns: minmax(13rem, .75fr) minmax(0, 1.4fr); gap: .8rem; padding: .65rem .8rem; border-left: .3rem solid var(--lr-green-mid); background: var(--lr-green-pale); }
+  .sampling-stack span { color: var(--lr-muted); }
+  .quality-questions { margin-top: .8rem; }
+  .quality-matrix { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem; }
+  .quality-matrix article { display: grid; grid-template-columns: minmax(10rem, .62fr) minmax(0, 1.4fr); gap: .65rem; padding: .7rem .8rem; border: 1px solid var(--lr-line); }
+  .quality-matrix article:last-child { grid-column: 1 / -1; }
+  .quality-matrix span { color: var(--lr-muted); font-size: .88rem; line-height: 1.38; }
+  .alignment-flow { display: grid; grid-template-columns: repeat(15, auto); gap: .25rem; align-items: center; }
+  .alignment-flow span { display: grid; min-height: 5rem; place-items: center; padding: .5rem; border-top: .3rem solid var(--lr-green-mid); background: var(--lr-green-soft); font-size: .78rem; font-weight: 800; text-align: center; }
+  .alignment-flow b { color: var(--lr-green-mid); }
+  .canvas-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; }
+  .canvas-grid label { display: grid; gap: .35rem; padding: .65rem; border-top: .3rem solid var(--lr-green-mid); background: var(--lr-green-soft); color: var(--lr-green); font-size: .8rem; font-weight: 800; }
+  .canvas-grid textarea { min-height: 6.1rem; font-weight: 400; }
+  .slide[data-title^="Activity 6:"] h2 { max-width: 100%; font-size: clamp(2.35rem, 4vw, 3.3rem); }
+  .audit-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .55rem; }
+  .audit-grid article { display: grid; grid-template-columns: 1.8rem 1fr; gap: .55rem; padding: .75rem; border: 1px solid var(--lr-line); background: var(--lr-green-pale); }
+  .audit-grid span { display: grid; width: 1.55rem; height: 1.55rem; place-items: center; border-radius: 50%; background: var(--lr-green-mid); color: #fff; font-size: .7rem; font-weight: 800; }
+  .audit-grid p { margin: 0; color: var(--lr-muted); font-size: .86rem; line-height: 1.4; }
+  .exit-writing label { min-height: 13rem; }
+
+  @media (max-width: 880px) {
+    .component-grid, .design-family-map, .audit-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .alignment-flow { grid-template-columns: 1fr; }
+    .alignment-flow b { display: none; }
+    .alignment-flow span { min-height: 0; }
+  }
+
+  @media (max-width: 560px) {
+    .component-grid, .design-family-map, .evidence-strip, .quality-matrix, .canvas-grid, .audit-grid { grid-template-columns: 1fr; }
+    .quality-matrix article, .quality-matrix article:last-child { grid-column: auto; grid-template-columns: 1fr; }
+    .decision-list li, .sampling-stack article { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script>
+  import '../../../../scripts/dedc02ResearchDesign.ts';
+</script>
