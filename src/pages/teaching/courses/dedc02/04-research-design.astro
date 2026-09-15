@@ -446,7 +446,7 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
       <div class="slide-inner">
         <header class="slide-header"><span class="eyebrow">Pause · predict · reveal</span></header>
         <div data-language="en">
-          <h2>Three related decisions</h2>
+          <h2>How methodology, design and methods connect</h2>
           <p class="decision-instruction">Read each question first. Commit to an answer, then open the card.</p>
           <div class="decision-reveal-grid">
             <details class="decision-reveal" name="decision-level-en">
@@ -483,7 +483,7 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
           </div>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
-          <h2>三個相關但不同的決策</h2>
+          <h2>方法論、研究設計與研究方法如何連結</h2>
           <p class="decision-instruction">先閱讀每張卡片的問題，想好自己的答案，再點擊揭示。</p>
           <div class="decision-reveal-grid">
             <details class="decision-reveal" name="decision-level-zh">
@@ -583,120 +583,60 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
         <header class="slide-header"><span class="eyebrow">Design families · Explore one branch</span></header>
         <div data-language="en" data-design-family-map>
           <h2>Research questions lead to different design routes</h2>
-          <p class="family-map-instruction">Choose the bubble that best matches the intended claim. Its next layer will spread out below.</p>
-          <div class="family-spider" aria-label="Six research design families">
-            <svg class="family-spider-lines" viewBox="0 0 1000 240" aria-hidden="true" focusable="false"><path d="M500 120 150 46M500 120 500 38M500 120 850 46M500 120 150 194M500 120 500 202M500 120 850 194" /></svg>
-            <div class="family-spider-core"><span>Research<br />question</span><small>intended claim</small></div>
-            <button class="family-bubble family-bubble--1" type="button" data-family-select="descriptive-en" aria-controls="descriptive-en" aria-pressed="false"><strong>Descriptive / survey</strong><small>Pattern or estimate</small></button>
-            <button class="family-bubble family-bubble--2" type="button" data-family-select="correlational-en" aria-controls="correlational-en" aria-pressed="false"><strong>Correlational</strong><small>Association or prediction</small></button>
-            <button class="family-bubble family-bubble--3" type="button" data-family-select="experimental-en" aria-controls="experimental-en" aria-pressed="false"><strong>Experimental / quasi</strong><small>Difference or effect</small></button>
-            <button class="family-bubble family-bubble--4" type="button" data-family-select="case-en" aria-controls="case-en" aria-pressed="false"><strong>Case study</strong><small>Bounded complexity</small></button>
-            <button class="family-bubble family-bubble--5" type="button" data-family-select="experience-en" aria-controls="experience-en" aria-pressed="false"><strong>Phenomenology / narrative</strong><small>Experience or story</small></button>
-            <button class="family-bubble family-bubble--6 family-bubble--long" type="button" data-family-select="process-en" aria-controls="process-en" aria-pressed="false"><strong>Ethnography / grounded theory / action research</strong><small>Culture, process or change</small></button>
-          </div>
-          <div class="family-detail" data-family-detail aria-live="polite">
-            <p class="family-detail-prompt" data-family-prompt>Select a design-family bubble to examine its purpose, decisions, evidence and claim boundary.</p>
-            <section class="family-branch" id="descriptive-en" data-family-branch hidden>
-              <article><h3>Best suited to</h3><p>Prevalence, distributions, characteristics, attitudes or reported practices.</p></article>
-              <article><h3>Design decisions</h3><p>Target population, sampling frame, measurement quality and response coverage.</p></article>
-              <div class="family-branch-centre"><svg viewBox="0 0 96 72" aria-hidden="true" focusable="false"><path d="M15 58V14M15 58H82"/><rect x="25" y="39" width="10" height="19"/><rect x="43" y="28" width="10" height="30"/><rect x="61" y="18" width="10" height="40"/></svg><strong>Describe</strong><small>a population or pattern</small></div>
-              <article><h3>Claim boundary</h3><p>A one-time survey can describe or associate; it usually cannot establish causation.</p></article>
-              <article><h3>Ask</h3><p>Whom should the estimate represent, and does the achieved sample support that scope?</p></article>
-            </section>
-            <section class="family-branch" id="correlational-en" data-family-branch hidden>
-              <article><h3>Best suited to</h3><p>Whether variables move together and whether one set helps predict another.</p></article>
-              <article><h3>Design decisions</h3><p>Construct definition, temporal ordering, plausible confounders and a justified model.</p></article>
-              <div class="family-branch-centre"><svg viewBox="0 0 96 72" aria-hidden="true" focusable="false"><path d="M14 58 80 16"/><circle cx="24" cy="50" r="4"/><circle cx="38" cy="39" r="4"/><circle cx="51" cy="42" r="4"/><circle cx="64" cy="25" r="4"/><circle cx="77" cy="20" r="4"/></svg><strong>Relate</strong><small>variation and association</small></div>
-              <article><h3>Claim boundary</h3><p>Prediction is not automatically explanation; association is not automatically causation.</p></article>
-              <article><h3>Ask</h3><p>Which alternative explanation could produce the same observed association?</p></article>
-            </section>
-            <section class="family-branch" id="experimental-en" data-family-branch hidden>
-              <article><h3>Experiment</h3><p>Manipulates a condition and uses random assignment where feasible to strengthen comparability.</p></article>
-              <article><h3>Quasi-experiment</h3><p>Examines an intervention without random assignment and addresses pre-existing differences.</p></article>
-              <div class="family-branch-centre"><svg viewBox="0 0 96 72" aria-hidden="true" focusable="false"><circle cx="26" cy="25" r="12"/><circle cx="70" cy="25" r="12"/><path d="M38 25H56M52 20l6 5-6 5M22 51h52"/></svg><strong>Evaluate change</strong><small>comparison over time</small></div>
-              <article><h3>Evidence</h3><p>Comparison, before/after evidence, implementation fidelity and alternative explanations.</p></article>
-              <article><h3>Claim boundary</h3><p>A pre-test and post-test alone do not prove that the intervention caused the change.</p></article>
-            </section>
-            <section class="family-branch" id="case-en" data-family-branch hidden>
-              <article><h3>The case</h3><p>A person, programme, class, school, event or organisation.</p></article>
-              <article><h3>The boundary</h3><p>Define the place, period, participants and activity included.</p></article>
-              <div class="family-branch-centre"><svg viewBox="0 0 96 72" aria-hidden="true" focusable="false"><rect x="16" y="10" width="64" height="52" rx="3"/><circle cx="35" cy="29" r="5"/><circle cx="59" cy="29" r="5"/><path d="M29 48h38"/></svg><strong>Bounded case</strong><small>understood in context</small></div>
-              <article><h3>The evidence</h3><p>Use multiple relevant sources to understand the case, not merely one interview.</p></article>
-              <article><h3>The claim</h3><p>Explain the case deeply; do not treat it as a statistical sample of all cases.</p></article>
-            </section>
-            <section class="family-branch" id="experience-en" data-family-branch hidden>
-              <article><h3>Phenomenology</h3><p>Investigates the structure and meaning of a shared lived experience.</p></article>
-              <article><h3>Narrative research</h3><p>Investigates how people construct experience through sequence, turning points and voice.</p></article>
-              <div class="family-branch-centre"><svg viewBox="0 0 96 72" aria-hidden="true" focusable="false"><path d="M13 16h34v24H28l-9 9v-9h-6zM50 29h33v24H72l-9 9v-9H50z"/><path d="M20 24h20M20 31h14M57 37h19M57 44h13"/></svg><strong>Meaning</strong><small>experience or story</small></div>
-              <article><h3>Shared method</h3><p>Both may use interviews, but the analytic object and intended account differ.</p></article>
-              <article><h3>Ask</h3><p>Is the object the meaning of an experience, or how a life is organised as a story?</p></article>
-            </section>
-            <section class="family-branch" id="process-en" data-family-branch hidden>
-              <article><h3>Ethnography</h3><p>Understands practices and meanings in a social setting through sustained engagement.</p></article>
-              <article><h3>Grounded theory</h3><p>Develops a process-oriented account through iterative collection, comparison and analysis.</p></article>
-              <div class="family-branch-centre"><svg viewBox="0 0 96 72" aria-hidden="true" focusable="false"><path d="M29 18a25 25 0 0 1 38 10M68 22l-1 9-9-2M67 54a25 25 0 0 1-38-10M28 50l1-9 9 2"/><circle cx="48" cy="36" r="8"/></svg><strong>Process</strong><small>culture, theory or change</small></div>
-              <article><h3>Action research</h3><p>Improves practice through planned cycles of action, evidence and reflection with participants.</p></article>
-              <article><h3>Claim boundary</h3><p>The label must change how the study is organised; it is not a synonym for “qualitative.”</p></article>
-            </section>
+          <p class="family-map-instruction">Choose a design bubble, then use its questions with an AI assistant or search engine. Check the answers against credible methods sources.</p>
+          <div class="family-explorer" aria-label="Six research design families">
+            <div class="family-stage family-stage--left" data-family-detail aria-live="polite">
+              <p class="family-stage-empty" data-family-prompt>Questions from a left-side design will expand here.</p>
+              <section class="family-inquiry" id="descriptive-en" data-family-branch hidden><span>Explore with AI or search</span><h3>Descriptive / survey</h3><ol><li>What questions can this design answer, and which claims remain outside its scope?</li><li>How do the target population, sampling frame and response rate shape the claim?</li><li>How should constructs be measured, and how can validity and reliability be checked?</li><li>How do cross-sectional and longitudinal surveys differ in timing and inference?</li></ol></section>
+              <section class="family-inquiry" id="correlational-en" data-family-branch hidden><span>Explore with AI or search</span><h3>Correlational</h3><ol><li>How do association, prediction and causal explanation differ?</li><li>Which confounders could produce the same observed relationship?</li><li>What measurement and model assumptions must be examined before interpreting a coefficient?</li><li>What does a longitudinal correlational design add beyond a cross-sectional design?</li></ol></section>
+              <section class="family-inquiry" id="experimental-en" data-family-branch hidden><span>Explore with AI or search</span><h3>Experimental / quasi-experimental</h3><ol><li>Which features define a true experiment, and what does random assignment achieve?</li><li>How can a quasi-experiment build a credible comparison without random assignment?</li><li>Which threats—selection, history, maturation or attrition—matter most here?</li><li>Compare the causal claims supported by experimental and quasi-experimental designs.</li></ol></section>
+            </div>
+            <div class="family-route-list family-route-list--left">
+              <button class="family-bubble" type="button" data-family-select="descriptive-en" aria-controls="descriptive-en" aria-pressed="false"><span class="family-symbol" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M5 27V6M5 27h22"/><rect x="9" y="18" width="4" height="9"/><rect x="16" y="13" width="4" height="14"/><rect x="23" y="8" width="4" height="19"/></svg></span><span><strong>Descriptive / survey</strong><small>Pattern or estimate</small></span></button>
+              <button class="family-bubble" type="button" data-family-select="correlational-en" aria-controls="correlational-en" aria-pressed="false"><span class="family-symbol" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M5 25 27 7"/><circle cx="9" cy="22" r="2"/><circle cx="14" cy="17" r="2"/><circle cx="20" cy="18" r="2"/><circle cx="25" cy="10" r="2"/></svg></span><span><strong>Correlational</strong><small>Association or prediction</small></span></button>
+              <button class="family-bubble" type="button" data-family-select="experimental-en" aria-controls="experimental-en" aria-pressed="false"><span class="family-symbol" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="9" cy="12" r="5"/><circle cx="23" cy="12" r="5"/><path d="M14 12h4M17 9l3 3-3 3M6 24h20"/></svg></span><span><strong>Experimental / quasi</strong><small>Difference or effect</small></span></button>
+            </div>
+            <div class="family-hub"><span>Research<br />question</span><small>intended claim</small></div>
+            <div class="family-route-list family-route-list--right">
+              <button class="family-bubble" type="button" data-family-select="case-en" aria-controls="case-en" aria-pressed="false"><span class="family-symbol" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="5" y="5" width="22" height="22" rx="2"/><circle cx="12" cy="13" r="2"/><circle cx="20" cy="13" r="2"/><path d="M10 21h12"/></svg></span><span><strong>Case study</strong><small>Bounded complexity</small></span></button>
+              <button class="family-bubble" type="button" data-family-select="experience-en" aria-controls="experience-en" aria-pressed="false"><span class="family-symbol" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M4 6h14v10H9l-4 4v-4H4zM17 14h11v9h-4l-4 4v-4h-3z"/><path d="M8 10h6M20 18h5"/></svg></span><span><strong>Phenomenology / narrative</strong><small>Experience or story</small></span></button>
+              <button class="family-bubble" type="button" data-family-select="process-en" aria-controls="process-en" aria-pressed="false"><span class="family-symbol" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M8 11a10 10 0 0 1 15-3M23 5v5h-5M24 21a10 10 0 0 1-15 3M9 27v-5h5"/><circle cx="16" cy="16" r="3"/></svg></span><span><strong>Ethnography / grounded theory / action research</strong><small>Culture, process or change</small></span></button>
+            </div>
+            <div class="family-stage family-stage--right" data-family-detail aria-live="polite">
+              <p class="family-stage-empty" data-family-prompt>Questions from a right-side design will expand here.</p>
+              <section class="family-inquiry" id="case-en" data-family-branch hidden><span>Explore with AI or search</span><h3>Case study</h3><ol><li>Which boundaries of place, time, participants and activity turn a topic or site into a case?</li><li>Which evidence sources should be combined to understand the case in context?</li><li>When is a single-case or a multiple-case design more appropriate?</li><li>How does a case study differ from ethnography in focus, fieldwork and claim?</li></ol></section>
+              <section class="family-inquiry" id="experience-en" data-family-branch hidden><span>Explore with AI or search</span><h3>Phenomenology / narrative</h3><ol><li>What is the unit of inquiry in phenomenology and in narrative research?</li><li>How should participants and evidence be selected for each design?</li><li>How do their analytic procedures treat meaning, sequence, turning points and voice?</li><li>Compare their final claims: shared lived experience or storied individual experience?</li></ol></section>
+              <section class="family-inquiry" id="process-en" data-family-branch hidden><span>Explore with AI or search</span><h3>Ethnography / grounded theory / action research</h3><ol><li>How do their central aims differ: culture, process theory or practical change?</li><li>What field engagement and evidence does each design require?</li><li>How do researcher and participant roles differ across the three designs?</li><li>For one sample question, which design fits best, why, and what would change the choice?</li></ol></section>
+            </div>
           </div>
         </div>
         <div data-language="zh" hidden lang="zh-Hant" data-design-family-map>
           <h2>研究問題引導不同的設計路徑</h2>
-          <p class="family-map-instruction">選擇最符合預期主張的氣泡；下一層心智圖會在下方展開。</p>
-          <div class="family-spider" aria-label="六種研究設計類型">
-            <svg class="family-spider-lines" viewBox="0 0 1000 240" aria-hidden="true" focusable="false"><path d="M500 120 150 46M500 120 500 38M500 120 850 46M500 120 150 194M500 120 500 202M500 120 850 194" /></svg>
-            <div class="family-spider-core"><span>研究<br />問題</span><small>預期主張</small></div>
-            <button class="family-bubble family-bubble--1" type="button" data-family-select="descriptive-zh" aria-controls="descriptive-zh" aria-pressed="false"><strong>描述性研究／調查</strong><small>模式或估計</small></button>
-            <button class="family-bubble family-bubble--2" type="button" data-family-select="correlational-zh" aria-controls="correlational-zh" aria-pressed="false"><strong>相關研究</strong><small>關聯或預測</small></button>
-            <button class="family-bubble family-bubble--3" type="button" data-family-select="experimental-zh" aria-controls="experimental-zh" aria-pressed="false"><strong>實驗／準實驗研究</strong><small>差異或效果</small></button>
-            <button class="family-bubble family-bubble--4" type="button" data-family-select="case-zh" aria-controls="case-zh" aria-pressed="false"><strong>個案研究</strong><small>有邊界的複雜性</small></button>
-            <button class="family-bubble family-bubble--5" type="button" data-family-select="experience-zh" aria-controls="experience-zh" aria-pressed="false"><strong>現象學／敘事研究</strong><small>經驗或故事</small></button>
-            <button class="family-bubble family-bubble--6" type="button" data-family-select="process-zh" aria-controls="process-zh" aria-pressed="false"><strong>民族誌／紮根理論／行動研究</strong><small>文化、過程或改變</small></button>
-          </div>
-          <div class="family-detail" data-family-detail aria-live="polite">
-            <p class="family-detail-prompt" data-family-prompt>選擇一個研究設計氣泡，查看其目的、關鍵決策、證據及主張邊界。</p>
-            <section class="family-branch" id="descriptive-zh" data-family-branch hidden>
-              <article><h3>適合回答</h3><p>盛行率、分布、特徵、態度或自陳實踐。</p></article>
-              <article><h3>設計決策</h3><p>目標群體、抽樣框、測量品質及回應覆蓋程度。</p></article>
-              <div class="family-branch-centre"><svg viewBox="0 0 96 72" aria-hidden="true" focusable="false"><path d="M15 58V14M15 58H82"/><rect x="25" y="39" width="10" height="19"/><rect x="43" y="28" width="10" height="30"/><rect x="61" y="18" width="10" height="40"/></svg><strong>描述</strong><small>群體、狀況或模式</small></div>
-              <article><h3>主張邊界</h3><p>一次性調查可以描述或分析關聯，但通常不能確立因果。</p></article>
-              <article><h3>要問</h3><p>估計結果應代表誰？實際取得的樣本能否支持這個範圍？</p></article>
-            </section>
-            <section class="family-branch" id="correlational-zh" data-family-branch hidden>
-              <article><h3>適合回答</h3><p>變項是否共同變化，以及一組變項能否協助預測另一組變項。</p></article>
-              <article><h3>設計決策</h3><p>構念定義、時間先後、可能的混淆因素及有理據的模型。</p></article>
-              <div class="family-branch-centre"><svg viewBox="0 0 96 72" aria-hidden="true" focusable="false"><path d="M14 58 80 16"/><circle cx="24" cy="50" r="4"/><circle cx="38" cy="39" r="4"/><circle cx="51" cy="42" r="4"/><circle cx="64" cy="25" r="4"/><circle cx="77" cy="20" r="4"/></svg><strong>關聯</strong><small>變異與預測</small></div>
-              <article><h3>主張邊界</h3><p>預測不等於解釋；關聯也不等於因果。</p></article>
-              <article><h3>要問</h3><p>哪個其他解釋也可能產生同樣的關聯？</p></article>
-            </section>
-            <section class="family-branch" id="experimental-zh" data-family-branch hidden>
-              <article><h3>實驗研究</h3><p>操弄條件，並在可行情況下隨機分派，以提高組別可比較性。</p></article>
-              <article><h3>準實驗研究</h3><p>在沒有隨機分派下檢視介入，並明確處理原有組別差異。</p></article>
-              <div class="family-branch-centre"><svg viewBox="0 0 96 72" aria-hidden="true" focusable="false"><circle cx="26" cy="25" r="12"/><circle cx="70" cy="25" r="12"/><path d="M38 25H56M52 20l6 5-6 5M22 51h52"/></svg><strong>評估改變</strong><small>比較與時序</small></div>
-              <article><h3>所需證據</h3><p>比較、前後證據、實施忠實度及其他解釋。</p></article>
-              <article><h3>主張邊界</h3><p>只有前測與後測，並不足以證明介入造成改變。</p></article>
-            </section>
-            <section class="family-branch" id="case-zh" data-family-branch hidden>
-              <article><h3>個案</h3><p>個人、課程、班級、學校、事件或組織。</p></article>
-              <article><h3>邊界</h3><p>界定納入的地點、時期、參與者與活動。</p></article>
-              <div class="family-branch-centre"><svg viewBox="0 0 96 72" aria-hidden="true" focusable="false"><rect x="16" y="10" width="64" height="52" rx="3"/><circle cx="35" cy="29" r="5"/><circle cx="59" cy="29" r="5"/><path d="M29 48h38"/></svg><strong>有邊界的個案</strong><small>置於情境中理解</small></div>
-              <article><h3>證據</h3><p>使用多種相關來源理解個案，而不只是進行一次訪談。</p></article>
-              <article><h3>主張</h3><p>深入解釋個案，不把個案當成所有個案的統計樣本。</p></article>
-            </section>
-            <section class="family-branch" id="experience-zh" data-family-branch hidden>
-              <article><h3>現象學</h3><p>探討共同生活經驗的結構與意義。</p></article>
-              <article><h3>敘事研究</h3><p>探討人們如何透過時序、轉折點及聲音建構經驗。</p></article>
-              <div class="family-branch-centre"><svg viewBox="0 0 96 72" aria-hidden="true" focusable="false"><path d="M13 16h34v24H28l-9 9v-9h-6zM50 29h33v24H72l-9 9v-9H50z"/><path d="M20 24h20M20 31h14M57 37h19M57 44h13"/></svg><strong>意義</strong><small>經驗或故事</small></div>
-              <article><h3>共同方法</h3><p>兩者都可能使用訪談，但分析對象與預期解釋不同。</p></article>
-              <article><h3>要問</h3><p>研究對象是經驗的意義，還是生命如何組織成故事？</p></article>
-            </section>
-            <section class="family-branch" id="process-zh" data-family-branch hidden>
-              <article><h3>民族誌</h3><p>透過持續參與，理解社會場域中的實踐與意義。</p></article>
-              <article><h3>紮根理論</h3><p>透過反覆蒐集、比較及分析，發展過程導向的理論解釋。</p></article>
-              <div class="family-branch-centre"><svg viewBox="0 0 96 72" aria-hidden="true" focusable="false"><path d="M29 18a25 25 0 0 1 38 10M68 22l-1 9-9-2M67 54a25 25 0 0 1-38-10M28 50l1-9 9 2"/><circle cx="48" cy="36" r="8"/></svg><strong>過程</strong><small>文化、理論或改變</small></div>
-              <article><h3>行動研究</h3><p>與參與者透過行動、證據及反思循環研究並改善實踐。</p></article>
-              <article><h3>主張邊界</h3><p>設計名稱必須改變研究的組織方式，不能只是「質性研究」的同義詞。</p></article>
-            </section>
+          <p class="family-map-instruction">選擇一個設計氣泡，再把問題交給 AI 助手或搜尋引擎探索，並以可信的方法論資料核對答案。</p>
+          <div class="family-explorer" aria-label="六種研究設計類型">
+            <div class="family-stage family-stage--left" data-family-detail aria-live="polite">
+              <p class="family-stage-empty" data-family-prompt>左側設計的探索問題會向左展開。</p>
+              <section class="family-inquiry" id="descriptive-zh" data-family-branch hidden><span>使用 AI 或搜尋探索</span><h3>描述性研究／調查</h3><ol><li>這種設計能回答哪些問題？哪些主張超出其範圍？</li><li>目標群體、抽樣框及回應率如何影響可作出的主張？</li><li>構念應如何測量？如何檢查效度與信度？</li><li>橫斷面與縱向調查在時序及推論上有何差異？</li></ol></section>
+              <section class="family-inquiry" id="correlational-zh" data-family-branch hidden><span>使用 AI 或搜尋探索</span><h3>相關研究</h3><ol><li>關聯、預測與因果解釋有何分別？</li><li>哪些混淆因素也可能產生相同的關係？</li><li>解釋係數前，應檢查哪些測量與模型假設？</li><li>縱向相關研究比橫斷面研究增加了甚麼證據？</li></ol></section>
+              <section class="family-inquiry" id="experimental-zh" data-family-branch hidden><span>使用 AI 或搜尋探索</span><h3>實驗／準實驗研究</h3><ol><li>真正實驗包含哪些特徵？隨機分派有甚麼作用？</li><li>準實驗如何在沒有隨機分派下建立可信的比較？</li><li>選擇、歷史、成熟或流失威脅中，哪些最值得關注？</li><li>比較實驗與準實驗研究可支持的因果主張。</li></ol></section>
+            </div>
+            <div class="family-route-list family-route-list--left">
+              <button class="family-bubble" type="button" data-family-select="descriptive-zh" aria-controls="descriptive-zh" aria-pressed="false"><span class="family-symbol" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M5 27V6M5 27h22"/><rect x="9" y="18" width="4" height="9"/><rect x="16" y="13" width="4" height="14"/><rect x="23" y="8" width="4" height="19"/></svg></span><span><strong>描述性研究／調查</strong><small>模式或估計</small></span></button>
+              <button class="family-bubble" type="button" data-family-select="correlational-zh" aria-controls="correlational-zh" aria-pressed="false"><span class="family-symbol" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M5 25 27 7"/><circle cx="9" cy="22" r="2"/><circle cx="14" cy="17" r="2"/><circle cx="20" cy="18" r="2"/><circle cx="25" cy="10" r="2"/></svg></span><span><strong>相關研究</strong><small>關聯或預測</small></span></button>
+              <button class="family-bubble" type="button" data-family-select="experimental-zh" aria-controls="experimental-zh" aria-pressed="false"><span class="family-symbol" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="9" cy="12" r="5"/><circle cx="23" cy="12" r="5"/><path d="M14 12h4M17 9l3 3-3 3M6 24h20"/></svg></span><span><strong>實驗／準實驗研究</strong><small>差異或效果</small></span></button>
+            </div>
+            <div class="family-hub"><span>研究<br />問題</span><small>預期主張</small></div>
+            <div class="family-route-list family-route-list--right">
+              <button class="family-bubble" type="button" data-family-select="case-zh" aria-controls="case-zh" aria-pressed="false"><span class="family-symbol" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="5" y="5" width="22" height="22" rx="2"/><circle cx="12" cy="13" r="2"/><circle cx="20" cy="13" r="2"/><path d="M10 21h12"/></svg></span><span><strong>個案研究</strong><small>有邊界的複雜性</small></span></button>
+              <button class="family-bubble" type="button" data-family-select="experience-zh" aria-controls="experience-zh" aria-pressed="false"><span class="family-symbol" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M4 6h14v10H9l-4 4v-4H4zM17 14h11v9h-4l-4 4v-4h-3z"/><path d="M8 10h6M20 18h5"/></svg></span><span><strong>現象學／敘事研究</strong><small>經驗或故事</small></span></button>
+              <button class="family-bubble" type="button" data-family-select="process-zh" aria-controls="process-zh" aria-pressed="false"><span class="family-symbol" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M8 11a10 10 0 0 1 15-3M23 5v5h-5M24 21a10 10 0 0 1-15 3M9 27v-5h5"/><circle cx="16" cy="16" r="3"/></svg></span><span><strong>民族誌／紮根理論／行動研究</strong><small>文化、過程或改變</small></span></button>
+            </div>
+            <div class="family-stage family-stage--right" data-family-detail aria-live="polite">
+              <p class="family-stage-empty" data-family-prompt>右側設計的探索問題會向右展開。</p>
+              <section class="family-inquiry" id="case-zh" data-family-branch hidden><span>使用 AI 或搜尋探索</span><h3>個案研究</h3><ol><li>地點、時期、參與者與活動需要如何界定，才能形成一個清楚的個案？</li><li>應結合哪些證據來源，才能在情境中理解個案？</li><li>甚麼情況適合單一個案或多個案設計？</li><li>個案研究與民族誌在焦點、田野工作及主張上有何差異？</li></ol></section>
+              <section class="family-inquiry" id="experience-zh" data-family-branch hidden><span>使用 AI 或搜尋探索</span><h3>現象學／敘事研究</h3><ol><li>現象學與敘事研究各自的分析單位是甚麼？</li><li>兩種設計應如何選擇參與者及生成證據？</li><li>其分析程序如何處理意義、時序、轉折點及聲音？</li><li>比較兩者的最終主張：共同生活經驗或個人故事化經驗？</li></ol></section>
+              <section class="family-inquiry" id="process-zh" data-family-branch hidden><span>使用 AI 或搜尋探索</span><h3>民族誌／紮根理論／行動研究</h3><ol><li>三者的核心目的如何區分：文化、過程理論或實踐改變？</li><li>每種設計需要甚麼田野參與及證據？</li><li>研究者與參與者的角色在三種設計中有何不同？</li><li>以同一研究問題比較：哪種設計最合適？甚麼證據會改變選擇？</li></ol></section>
+            </div>
           </div>
         </div>
       </div>
@@ -757,15 +697,15 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
         <header class="slide-header"><span class="eyebrow">Activity 2</span></header>
         <div data-language="en">
           <h2>Match six real studies to their designs</h2>
-          <p class="intro-line">Read the question or intended claim and the evidence clues. Drag each design to its study; select-then-place also works with a keyboard. A correct match unlocks the vault PDF.</p>
+          <p class="intro-line">Read the question or intended claim and the evidence clues. Drag each study's actual design to its paper; select-then-place also works with a keyboard. A correct match unlocks the vault PDF.</p>
           <div class="paper-match-board" data-design-match>
             <div class="design-token-bank" aria-label="Research designs">
-              <button type="button" draggable="true" data-design-token="survey" aria-pressed="false">Descriptive / survey</button>
-              <button type="button" draggable="true" data-design-token="correlational" aria-pressed="false">Correlational / predictive</button>
-              <button type="button" draggable="true" data-design-token="experiment" aria-pressed="false">Experimental / quasi</button>
+              <button type="button" draggable="true" data-design-token="survey" aria-pressed="false">Survey study</button>
+              <button type="button" draggable="true" data-design-token="correlational" aria-pressed="false">Cross-sectional survey</button>
+              <button type="button" draggable="true" data-design-token="experiment" aria-pressed="false">Strategy-based intervention study</button>
               <button type="button" draggable="true" data-design-token="case" aria-pressed="false">Case study</button>
-              <button type="button" draggable="true" data-design-token="phenomenology" aria-pressed="false">Phenomenology / narrative</button>
-              <button type="button" draggable="true" data-design-token="action" aria-pressed="false">Culture / theory / change</button>
+              <button type="button" draggable="true" data-design-token="phenomenology" aria-pressed="false">Descriptive phenomenology</button>
+              <button type="button" draggable="true" data-design-token="action" aria-pressed="false">Action research</button>
             </div>
             <div class="paper-match-grid">
               <article class="paper-study" data-study-slot data-answer="case">
@@ -810,15 +750,15 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
           <h2>把六項真實研究與設計配對</h2>
-          <p class="intro-line">閱讀研究問題或預期主張及證據線索，把每種設計拖到相應研究；鍵盤亦可先選設計再放置。配對正確後會解鎖資料庫中的 PDF。</p>
+          <p class="intro-line">閱讀研究問題或預期主張及證據線索，把每篇研究實際採用的設計拖到相應論文；鍵盤亦可先選設計再放置。配對正確後會解鎖資料庫中的 PDF。</p>
           <div class="paper-match-board" data-design-match>
             <div class="design-token-bank" aria-label="研究設計">
-              <button type="button" draggable="true" data-design-token="survey" aria-pressed="false">描述性研究／調查</button>
-              <button type="button" draggable="true" data-design-token="correlational" aria-pressed="false">相關／預測研究</button>
-              <button type="button" draggable="true" data-design-token="experiment" aria-pressed="false">實驗／準實驗研究</button>
+              <button type="button" draggable="true" data-design-token="survey" aria-pressed="false">調查研究</button>
+              <button type="button" draggable="true" data-design-token="correlational" aria-pressed="false">橫斷面調查</button>
+              <button type="button" draggable="true" data-design-token="experiment" aria-pressed="false">策略教學介入研究</button>
               <button type="button" draggable="true" data-design-token="case" aria-pressed="false">個案研究</button>
-              <button type="button" draggable="true" data-design-token="phenomenology" aria-pressed="false">現象學／敘事研究</button>
-              <button type="button" draggable="true" data-design-token="action" aria-pressed="false">文化／理論／改變</button>
+              <button type="button" draggable="true" data-design-token="phenomenology" aria-pressed="false">描述現象學</button>
+              <button type="button" draggable="true" data-design-token="action" aria-pressed="false">行動研究</button>
             </div>
             <div class="paper-match-grid">
               <article class="paper-study" data-study-slot data-answer="case">
@@ -1570,51 +1510,41 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
   .design-family-map strong { color: var(--lr-green); font: 600 1.12rem/1.25 'Source Serif 4', Georgia, serif; }
   .slide[data-title="Interactive design family spider map"] h2 { margin-bottom: var(--space-3xs); font-size: clamp(1.85rem, 3.2vw, 2.8rem); }
   .slide[data-title="Interactive design family spider map"] [lang="zh-Hant"] h2 { max-width: 100%; }
-  .family-map-instruction { max-width: 66ch; margin: 0 0 var(--space-3xs); color: var(--lr-muted); font-size: .78rem; line-height: 1.3; }
-  .family-spider { position: relative; height: 13.2rem; min-width: 0; }
-  .family-spider-lines { position: absolute; inset: 0; width: 100%; height: 100%; color: var(--lr-line); }
-  .family-spider-lines path { fill: none; stroke: currentColor; stroke-width: 1.4; vector-effect: non-scaling-stroke; }
-  .family-spider-core { position: absolute; left: 50%; top: 50%; z-index: 2; display: grid; width: 6.2rem; height: 6.2rem; place-content: center; border: 1px solid var(--lr-green-mid); border-radius: 50%; background: var(--lr-green-mid); color: var(--lr-green-pale); text-align: center; transform: translate(-50%, -50%); }
-  .family-spider-core span { font: 700 .88rem/1.05 var(--font-display); }
-  .family-spider-core small { margin-top: var(--space-3xs); color: var(--lr-green-pale); font-size: .58rem; line-height: 1.1; }
-  .family-bubble { position: absolute; z-index: 2; display: grid; width: 16rem; min-height: 3.6rem; place-content: center; gap: .08rem; border: 1px solid var(--lr-line); border-radius: 50%; padding: var(--space-2xs) var(--space-xs); background: var(--lr-green-pale); color: var(--lr-green); font-family: var(--font-body); text-align: center; cursor: pointer; transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
-  .family-bubble strong { font-size: .75rem; line-height: 1.12; white-space: nowrap; }
-  .family-bubble small { color: var(--lr-muted); font-size: .59rem; line-height: 1.15; white-space: nowrap; }
+  .family-map-instruction { max-width: 80ch; margin: 0 0 var(--space-2xs); color: var(--lr-muted); font-size: .72rem; line-height: 1.3; }
+  .family-explorer { display: grid; min-width: 0; grid-template-columns: minmax(0, 1.2fr) minmax(15rem, .78fr) 5.4rem minmax(15rem, .78fr) minmax(0, 1.2fr); gap: var(--space-2xs); align-items: center; }
+  .family-stage { position: relative; min-width: 0; min-height: 18rem; border: 1px solid var(--lr-line); background: var(--lr-green-pale); }
+  .family-stage::after, .family-route-list::after { content: ''; position: absolute; z-index: 0; top: 50%; width: var(--space-2xs); height: 1px; background: var(--lr-line); }
+  .family-stage--left::after, .family-route-list--left::after { left: 100%; }
+  .family-stage--right::after, .family-route-list--right::after { right: 100%; }
+  .family-stage-empty { display: grid; min-height: 17.9rem; place-content: center; margin: 0; padding: var(--space-xs); color: var(--lr-muted); font-size: .66rem; line-height: 1.3; text-align: center; }
+  .family-stage-empty[hidden] { display: none; }
+  .family-route-list { position: relative; display: grid; min-width: 0; gap: var(--space-2xs); }
+  .family-bubble { position: relative; z-index: 1; display: grid; width: 100%; min-width: 0; min-height: 4.7rem; grid-template-columns: 2.2rem minmax(0, 1fr); gap: var(--space-2xs); align-items: center; border: 1px solid var(--lr-line); border-radius: 999px; padding: var(--space-2xs) var(--space-xs); background: var(--lr-green-pale); color: var(--lr-green); font-family: var(--font-body); text-align: start; cursor: pointer; transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
+  .family-bubble > span:last-child { display: grid; min-width: 0; gap: var(--space-3xs); }
+  .family-bubble strong { min-width: 0; overflow-wrap: anywhere; font-size: .64rem; line-height: 1.08; }
+  .family-bubble small { color: var(--lr-muted); font-size: .54rem; line-height: 1.1; white-space: nowrap; }
+  .family-bubble[aria-controls^="process"] strong { overflow-wrap: normal; font-size: .46rem; white-space: nowrap; }
+  .family-symbol { display: grid; width: 2rem; height: 2rem; place-items: center; border: 1px solid var(--lr-green-mid); border-radius: 50%; background: var(--lr-green-soft); color: var(--lr-green-mid); }
+  .family-symbol svg { width: 1.35rem; height: 1.35rem; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+  .family-symbol svg rect:not(:first-child) { fill: currentColor; stroke: none; }
   .family-bubble[aria-pressed="true"] { border-color: var(--lr-green-mid); background: var(--lr-green-mid); color: var(--lr-green-pale); }
-  .family-bubble[aria-pressed="true"] small { color: var(--lr-green-pale); }
+  .family-bubble[aria-pressed="true"] small, .family-bubble[aria-pressed="true"] .family-symbol { border-color: var(--lr-green-pale); background: var(--lr-green-mid); color: var(--lr-green-pale); }
   .family-bubble:focus-visible { outline: .18rem solid var(--lr-warm); outline-offset: .16rem; }
   .family-bubble:active { transform: translateY(1px); }
   .family-bubble:disabled { cursor: not-allowed; opacity: .55; }
-  .family-bubble--1 { left: 0; top: 0; }
-  .family-bubble--2 { left: 50%; top: 0; transform: translateX(-50%); }
-  .family-bubble--2:active { transform: translate(-50%, 1px); }
-  .family-bubble--3 { right: 0; top: 0; }
-  .family-bubble--4 { left: 0; bottom: 0; }
-  .family-bubble--5 { left: 50%; bottom: 0; transform: translateX(-50%); }
-  .family-bubble--5:active { transform: translate(-50%, 1px); }
-  .family-bubble--6 { right: 0; bottom: 0; }
-  .family-bubble--long strong { font-size: .62rem; }
-  .family-detail { min-height: 10.8rem; padding-top: var(--space-2xs); border-top: 1px solid var(--lr-line); }
-  .family-detail-prompt { display: grid; min-height: 9.5rem; place-items: center; margin: 0; color: var(--lr-muted); font-size: .8rem; text-align: center; }
-  .family-branch { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) 7.5rem minmax(0, 1fr); grid-template-rows: repeat(2, minmax(4.55rem, auto)); gap: var(--space-2xs) var(--space-md); animation: family-branch-in var(--dur-short) var(--ease-out) both; }
-  .family-branch[hidden] { display: none; }
-  .family-branch::before, .family-branch::after { content: ''; position: absolute; z-index: 0; background: var(--lr-line); }
-  .family-branch::before { left: 18%; right: 18%; top: 50%; height: 1px; }
-  .family-branch::after { top: 18%; bottom: 18%; left: 50%; width: 1px; }
-  .family-branch article { position: relative; z-index: 1; min-width: 0; padding: var(--space-2xs) var(--space-xs); border: 1px solid var(--lr-line); background: var(--lr-green-pale); }
-  .family-branch article:nth-of-type(1) { grid-column: 1; grid-row: 1; }
-  .family-branch article:nth-of-type(2) { grid-column: 3; grid-row: 1; }
-  .family-branch article:nth-of-type(3) { grid-column: 1; grid-row: 2; }
-  .family-branch article:nth-of-type(4) { grid-column: 3; grid-row: 2; }
-  .family-branch article h3 { margin: 0 0 .12rem; color: var(--lr-green); font-size: .73rem; line-height: 1.15; }
-  .family-branch article p { margin: 0; color: var(--lr-muted); font-size: .64rem; line-height: 1.25; }
-  .family-branch-centre { position: relative; z-index: 2; grid-column: 2; grid-row: 1 / 3; display: grid; min-width: 0; align-content: center; justify-items: center; padding: var(--space-3xs); border: 1px solid var(--lr-green-mid); border-radius: 50%; background: var(--lr-green-soft); color: var(--lr-green-mid); text-align: center; }
-  .family-branch-centre svg { width: 4rem; height: 3rem; fill: none; stroke: currentColor; stroke-width: 2; }
-  .family-branch-centre svg rect { fill: var(--lr-green-mid); stroke: none; }
-  .family-branch-centre strong { color: var(--lr-green); font: 700 .7rem/1.1 var(--font-display); }
-  .family-branch-centre small { max-width: 12ch; margin-top: .12rem; color: var(--lr-muted); font-size: .56rem; line-height: 1.1; }
+  .family-hub { position: relative; z-index: 2; display: grid; width: 5.4rem; height: 5.4rem; place-content: center; border: 1px solid var(--lr-green-mid); border-radius: 50%; background: var(--lr-green-mid); color: var(--lr-green-pale); text-align: center; }
+  .family-hub span { font: 700 .76rem/1.05 var(--font-display); }
+  .family-hub small { margin-top: var(--space-3xs); color: var(--lr-green-pale); font-size: .52rem; line-height: 1.1; }
+  .family-inquiry { display: grid; min-width: 0; min-height: 17.9rem; align-content: start; gap: var(--space-3xs); padding: var(--space-xs); animation: family-inquiry-left var(--dur-short) var(--ease-out) both; }
+  .family-stage--right .family-inquiry { animation-name: family-inquiry-right; }
+  .family-inquiry[hidden] { display: none; }
+  .family-inquiry > span { color: var(--lr-warm); font-size: .55rem; font-weight: 850; letter-spacing: .06em; line-height: 1; text-transform: uppercase; }
+  .family-inquiry h3 { margin: 0; color: var(--lr-green); font: 700 .9rem/1.08 var(--font-display); overflow-wrap: anywhere; }
+  .family-inquiry ol { display: grid; gap: var(--space-2xs); margin: var(--space-3xs) 0 0; padding-inline-start: var(--space-xs); }
+  .family-inquiry li { padding-inline-start: var(--space-3xs); color: var(--lr-muted); font-size: .6rem; line-height: 1.25; }
 
-  @keyframes family-branch-in { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes family-inquiry-left { from { opacity: 0; transform: translateX(.5rem); } to { opacity: 1; transform: none; } }
+  @keyframes family-inquiry-right { from { opacity: 0; transform: translateX(-.5rem); } to { opacity: 1; transform: none; } }
 
   @media (hover: hover) and (pointer: fine) {
     .family-bubble:hover { background: var(--lr-green-soft); }
@@ -1670,6 +1600,7 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
   .paper-match-board { display: grid; gap: var(--space-2xs); }
   .design-token-bank { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: var(--space-3xs); padding-block: var(--space-3xs); border-block: 1px solid var(--lr-line); }
   .design-token-bank button, .paper-drop, [data-design-reset] { min-height: 2.75rem; border: 1px solid var(--lr-green-mid); background: var(--lr-green-pale); color: var(--lr-green); font-family: var(--font-body); font-size: .64rem; font-weight: 800; line-height: 1; white-space: nowrap; cursor: grab; transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out), opacity var(--dur-micro) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
+  .design-token-bank button { padding-inline: var(--space-3xs); line-height: 1.15; white-space: normal; }
   .design-token-bank button[aria-pressed="true"] { background: var(--lr-green-mid); color: var(--lr-green-pale); }
   .design-token-bank button.is-dragging { opacity: .55; cursor: grabbing; }
   .design-token-bank button:focus-visible, .paper-drop:focus-visible, [data-design-reset]:focus-visible, .paper-download:focus-visible { outline: .18rem solid var(--lr-warm); outline-offset: .14rem; }
@@ -1863,11 +1794,14 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
     .decision-reveal summary { min-height: 0; }
     .example-chain { grid-template-columns: 1fr; }
     .example-arrow { min-height: .7rem; transform: rotate(90deg); }
-    .family-spider { display: grid; height: auto; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2xs); }
-    .family-spider-lines { display: none; }
-    .family-spider-core { position: static; grid-column: 1 / -1; width: 5.4rem; height: 5.4rem; justify-self: center; transform: none; }
-    .family-bubble { position: static; width: 100%; min-height: 3.5rem; border-radius: var(--radius-card); transform: none; }
-    .family-bubble--2:active, .family-bubble--5:active { transform: translateY(1px); }
+    .family-explorer { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
+    .family-hub { grid-column: 1 / -1; justify-self: center; order: 0; }
+    .family-route-list--left { order: 1; }
+    .family-route-list--right { order: 2; }
+    .family-stage--left { order: 3; }
+    .family-stage--right { order: 4; }
+    .family-stage::after, .family-route-list::after { display: none; }
+    .family-stage, .family-stage-empty, .family-inquiry { min-height: 15rem; }
     .design-token-bank { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .paper-match-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .sampling-explorer { grid-template-columns: minmax(0, 1fr); }
@@ -1898,13 +1832,14 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
     .concept-arrow { transform: rotate(90deg); text-align: center; }
     .connected-example-head { grid-template-columns: 1fr; gap: var(--space-3xs); }
     .connected-example-head > span { white-space: normal; }
-    .family-spider { grid-template-columns: 1fr; }
-    .family-spider-core { grid-column: auto; }
-    .family-detail { min-height: 0; }
-    .family-detail-prompt { min-height: 5rem; }
-    .family-branch { display: flex; flex-direction: column; }
-    .family-branch::before, .family-branch::after { display: none; }
-    .family-branch-centre { order: -1; width: 7rem; min-height: 7rem; align-self: center; }
+    .family-explorer { grid-template-columns: minmax(0, 1fr); }
+    .family-hub { grid-column: auto; }
+    .family-route-list--left { order: 1; }
+    .family-stage--left { order: 2; }
+    .family-route-list--right { order: 3; }
+    .family-stage--right { order: 4; }
+    .family-stage, .family-stage-empty, .family-inquiry { min-height: 0; }
+    .family-stage-empty { padding-block: var(--space-sm); }
     .design-token-bank, .paper-match-grid { grid-template-columns: 1fr; }
     .paper-study { min-height: 0; }
     .paper-match-footer { align-items: flex-start; flex-direction: column; }
@@ -1949,7 +1884,7 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
   @media (prefers-reduced-motion: reduce) {
     .framework-study-links a { transition-duration: 0ms; }
     .family-bubble { transition-duration: 0ms; }
-    .family-branch { animation-duration: 0ms; }
+    .family-inquiry { animation-duration: 0ms; }
     .design-token-bank button, .paper-drop, [data-design-reset], .paper-download { transition-duration: 0ms; }
     .sampling-method-grid button { transition-duration: 0ms; }
     .sampling-detail-card { animation-duration: 0ms; }
@@ -1970,7 +1905,7 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
 
       const buttons = Array.from(map.querySelectorAll('[data-family-select]'));
       const branches = Array.from(map.querySelectorAll('[data-family-branch]'));
-      const prompt = map.querySelector('[data-family-prompt]');
+      const prompts = Array.from(map.querySelectorAll('[data-family-prompt]'));
 
       buttons.forEach((button) => {
         button.addEventListener('click', () => {
@@ -1981,14 +1916,14 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
           branches.forEach((branch) => { branch.hidden = true; });
 
           if (wasSelected) {
-            if (prompt) prompt.hidden = false;
+            prompts.forEach((prompt) => { prompt.hidden = false; });
             return;
           }
 
           button.setAttribute('aria-pressed', 'true');
           const target = map.querySelector(`#${targetId}`);
           if (target) target.hidden = false;
-          if (prompt) prompt.hidden = true;
+          prompts.forEach((prompt) => { prompt.hidden = true; });
         });
       });
     });
