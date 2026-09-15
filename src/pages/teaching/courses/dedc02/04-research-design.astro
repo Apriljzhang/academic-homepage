@@ -1544,8 +1544,12 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
   .decision-reveal summary, .example-step summary { position: relative; cursor: pointer; list-style: none; }
   .decision-reveal summary::-webkit-details-marker, .example-step summary::-webkit-details-marker { display: none; }
   .decision-reveal summary { display: grid; min-height: 7.4rem; align-content: start; gap: var(--space-3xs); padding: var(--space-xs) 2.2rem var(--space-xs) var(--space-xs); }
-  .decision-reveal summary::after, .example-step summary::after { content: '+'; position: absolute; inset-block-start: var(--space-xs); inset-inline-end: var(--space-xs); display: grid; width: 1.55rem; height: 1.55rem; place-items: center; border: 1px solid var(--lr-green-mid); border-radius: 50%; color: var(--lr-green-mid); font-size: 1rem; font-weight: 800; line-height: 1; }
-  .decision-reveal[open] summary::after, .example-step[open] summary::after { content: '−'; background: var(--lr-green-mid); color: var(--lr-green-pale); }
+  .decision-reveal summary::after, .example-step summary::after { content: '+'; position: absolute; inset-block-start: var(--space-xs); inset-inline-end: var(--space-xs); display: grid; place-items: center; color: var(--lr-green-mid); font-size: 1rem; font-weight: 800; line-height: 1; }
+  .decision-reveal summary::after { width: auto; height: auto; border: 0; border-radius: 0; }
+  .example-step summary::after { width: 1.55rem; height: 1.55rem; border: 1px solid var(--lr-green-mid); border-radius: 50%; }
+  .decision-reveal[open] summary::after, .example-step[open] summary::after { content: '−'; }
+  .decision-reveal[open] summary::after { color: var(--lr-green-mid); }
+  .example-step[open] summary::after { background: var(--lr-green-mid); color: var(--lr-green-pale); }
   .decision-reveal summary:focus-visible, .example-step summary:focus-visible { outline: .18rem solid var(--lr-warm); outline-offset: .12rem; }
   .decision-reveal summary:active, .example-step summary:active { background: var(--lr-green-soft); }
   .decision-kicker { color: var(--lr-warm); font-size: .66rem; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
