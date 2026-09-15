@@ -1200,16 +1200,41 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
               <p class="validity-note">The target is a teaching analogy: validity also concerns constructs, causal explanations, generalisation and statistical conclusions.</p>
             </section>
             <section id="validity-en-terms" class="validity-panel" data-validity-panel="terms" hidden>
-              <div class="quality-map-core"><strong>Research quality</strong></div>
-              <div class="quality-terminology-map">
+              <div class="quality-map-core">
+                <div><strong>Research quality</strong><span>What makes this inference or interpretation defensible?</span></div>
+                <p><b>AI inquiry</b> First ask AI what each term means, what threatens it and which safeguards could strengthen it. Then click a term to compare its safeguarding strategies.</p>
+              </div>
+              <div class="quality-terminology-map" data-quality-explorer>
                 <section class="quality-map-branch quality-map-quant">
                   <header><span>Quantitative studies</span><h3>Validity + reliability</h3></header>
-                  <div class="quality-map-nodes">{quantitativeQualityTerms.map((term) => <article><strong>{term.labelEn}</strong></article>)}</div>
+                  <div class="quality-map-side">
+                    <div class="quality-map-details quality-map-details--left" aria-live="polite">
+                      {quantitativeQualityTerms.map((term) => (
+                        <article id={`quality-en-${term.id}`} class="quality-map-detail" data-quality-panel={term.id} hidden>
+                          <header><span>Safeguarding strategies</span><h4>{term.labelEn}</h4></header>
+                          <ul>{term.strategiesEn.map((strategy) => <li>{strategy}</li>)}</ul>
+                          <button type="button" data-quality-reset aria-label={`Close ${term.labelEn} safeguards`}>Close</button>
+                        </article>
+                      ))}
+                    </div>
+                    <div class="quality-map-nodes">{quantitativeQualityTerms.map((term) => <button type="button" data-quality-term={term.id} aria-controls={`quality-en-${term.id}`} aria-pressed="false" aria-expanded="false">{term.labelEn}</button>)}</div>
+                  </div>
                 </section>
                 <div class="quality-map-bridge"><strong>Related questions</strong></div>
                 <section class="quality-map-branch quality-map-qual">
                   <header><span>Qualitative studies</span><h3>Trustworthiness + methodological integrity</h3></header>
-                  <div class="quality-map-nodes">{qualitativeQualityTerms.map((term) => <article><strong>{term.labelEn}</strong></article>)}</div>
+                  <div class="quality-map-side">
+                    <div class="quality-map-nodes">{qualitativeQualityTerms.map((term) => <button type="button" data-quality-term={term.id} aria-controls={`quality-en-${term.id}`} aria-pressed="false" aria-expanded="false">{term.labelEn}</button>)}</div>
+                    <div class="quality-map-details quality-map-details--right" aria-live="polite">
+                      {qualitativeQualityTerms.map((term) => (
+                        <article id={`quality-en-${term.id}`} class="quality-map-detail" data-quality-panel={term.id} hidden>
+                          <header><span>Safeguarding strategies</span><h4>{term.labelEn}</h4></header>
+                          <ul>{term.strategiesEn.map((strategy) => <li>{strategy}</li>)}</ul>
+                          <button type="button" data-quality-reset aria-label={`Close ${term.labelEn} safeguards`}>Close</button>
+                        </article>
+                      ))}
+                    </div>
+                  </div>
                 </section>
               </div>
             </section>
@@ -1258,70 +1283,45 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
               <p class="validity-note">靶圖只是一個教學比喻：效度亦涉及構念、因果解釋、推廣範圍及統計結論。</p>
             </section>
             <section id="validity-zh-terms" class="validity-panel" data-validity-panel="terms" hidden>
-              <div class="quality-map-core"><strong>研究品質</strong></div>
-              <div class="quality-terminology-map">
+              <div class="quality-map-core">
+                <div><strong>研究品質</strong><span>甚麼使這項推論或詮釋站得住腳？</span></div>
+                <p><b>AI 探究</b> 先詢問 AI 每個術語的意思、相關威脅，以及可加強研究品質的保障策略；再點選術語，比較保障策略卡。</p>
+              </div>
+              <div class="quality-terminology-map" data-quality-explorer>
                 <section class="quality-map-branch quality-map-quant">
                   <header><span>量化研究</span><h3>效度 + 信度</h3></header>
-                  <div class="quality-map-nodes">{quantitativeQualityTerms.map((term) => <article><strong>{term.labelZh}</strong></article>)}</div>
+                  <div class="quality-map-side">
+                    <div class="quality-map-details quality-map-details--left" aria-live="polite">
+                      {quantitativeQualityTerms.map((term) => (
+                        <article id={`quality-zh-${term.id}`} class="quality-map-detail" data-quality-panel={term.id} hidden>
+                          <header><span>保障策略</span><h4>{term.labelZh}</h4></header>
+                          <ul>{term.strategiesZh.map((strategy) => <li>{strategy}</li>)}</ul>
+                          <button type="button" data-quality-reset aria-label={`關閉${term.labelZh}保障策略`}>關閉</button>
+                        </article>
+                      ))}
+                    </div>
+                    <div class="quality-map-nodes">{quantitativeQualityTerms.map((term) => <button type="button" data-quality-term={term.id} aria-controls={`quality-zh-${term.id}`} aria-pressed="false" aria-expanded="false">{term.labelZh}</button>)}</div>
+                  </div>
                 </section>
                 <div class="quality-map-bridge"><strong>相關問題</strong></div>
                 <section class="quality-map-branch quality-map-qual">
                   <header><span>質性研究</span><h3>可信賴性 + 方法完整性</h3></header>
-                  <div class="quality-map-nodes">{qualitativeQualityTerms.map((term) => <article><strong>{term.labelZh}</strong></article>)}</div>
+                  <div class="quality-map-side">
+                    <div class="quality-map-nodes">{qualitativeQualityTerms.map((term) => <button type="button" data-quality-term={term.id} aria-controls={`quality-zh-${term.id}`} aria-pressed="false" aria-expanded="false">{term.labelZh}</button>)}</div>
+                    <div class="quality-map-details quality-map-details--right" aria-live="polite">
+                      {qualitativeQualityTerms.map((term) => (
+                        <article id={`quality-zh-${term.id}`} class="quality-map-detail" data-quality-panel={term.id} hidden>
+                          <header><span>保障策略</span><h4>{term.labelZh}</h4></header>
+                          <ul>{term.strategiesZh.map((strategy) => <li>{strategy}</li>)}</ul>
+                          <button type="button" data-quality-reset aria-label={`關閉${term.labelZh}保障策略`}>關閉</button>
+                        </article>
+                      ))}
+                    </div>
+                  </div>
                 </section>
               </div>
             </section>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide" data-title="Quality safeguards explorer" aria-hidden="true">
-      <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Quality in action</span></header>
-        <div data-language="en">
-          <h2>Move from a quality threat to a safeguard</h2>
-          <p class="quality-explorer-intro">Choose a term. Identify what convincing evidence would look like, name the issue, then select techniques that address that issue.</p>
-          <div class="quality-explorer" data-quality-explorer>
-            <div class="quality-term-selector">
-              <section><header><strong>Quantitative</strong><span>measurement + inference</span></header><div>{quantitativeQualityTerms.map((term) => <button type="button" data-quality-term={term.id} aria-controls={`quality-en-${term.id}`} aria-pressed="false">{term.labelEn}</button>)}</div></section>
-              <section><header><strong>Qualitative</strong><span>interpretation + process</span></header><div>{qualitativeQualityTerms.map((term) => <button type="button" data-quality-term={term.id} aria-controls={`quality-en-${term.id}`} aria-pressed="false">{term.labelEn}</button>)}</div></section>
-            </div>
-            <div class="quality-guidance-stage" aria-live="polite">
-              <div class="quality-guidance-empty" data-quality-empty><strong>No strategy is an automatic certificate</strong><p>Predict the threat first. A technique improves quality only when it fits the design and addresses that named threat.</p></div>
-              {qualityTerms.map((term) => (
-                <article id={`quality-en-${term.id}`} class="quality-guidance" data-quality-panel={term.id} hidden>
-                  <header><span>{term.family === 'quant' ? 'Quantitative quality' : 'Qualitative quality'}</span><h3>{term.labelEn}</h3></header>
-                  <button class="quality-reset" type="button" data-quality-reset>← All terms</button>
-                  <dl><div><dt>Indicator</dt><dd>{term.indicatorEn}</dd></div><div><dt>Issue</dt><dd>{term.issueEn}</dd></div></dl>
-                  <div class="quality-strategies"><strong>Safeguards to consider</strong><ul>{term.strategiesEn.map((strategy) => <li>{strategy}</li>)}</ul></div>
-                </article>
-              ))}
-            </div>
-          </div>
-          <p class="quality-explorer-footer">Document why each safeguard fits the claim, design and threat—not merely that it was used.</p>
-        </div>
-        <div data-language="zh" hidden lang="zh-Hant">
-          <h2>由品質威脅走向保障策略</h2>
-          <p class="quality-explorer-intro">選擇一個術語。先辨識具說服力的證據、說明問題，再選取真正處理該問題的技巧。</p>
-          <div class="quality-explorer" data-quality-explorer>
-            <div class="quality-term-selector">
-              <section><header><strong>量化研究</strong><span>測量 + 推論</span></header><div>{quantitativeQualityTerms.map((term) => <button type="button" data-quality-term={term.id} aria-controls={`quality-zh-${term.id}`} aria-pressed="false">{term.labelZh}</button>)}</div></section>
-              <section><header><strong>質性研究</strong><span>詮釋 + 過程</span></header><div>{qualitativeQualityTerms.map((term) => <button type="button" data-quality-term={term.id} aria-controls={`quality-zh-${term.id}`} aria-pressed="false">{term.labelZh}</button>)}</div></section>
-            </div>
-            <div class="quality-guidance-stage" aria-live="polite">
-              <div class="quality-guidance-empty" data-quality-empty><strong>沒有任何策略可以自動保證品質</strong><p>先預測威脅。只有技巧符合研究設計並處理已命名的威脅，才可能提升品質。</p></div>
-              {qualityTerms.map((term) => (
-                <article id={`quality-zh-${term.id}`} class="quality-guidance" data-quality-panel={term.id} hidden>
-                  <header><span>{term.family === 'quant' ? '量化研究品質' : '質性研究品質'}</span><h3>{term.labelZh}</h3></header>
-                  <button class="quality-reset" type="button" data-quality-reset>← 所有術語</button>
-                  <dl><div><dt>指標</dt><dd>{term.indicatorZh}</dd></div><div><dt>問題</dt><dd>{term.issueZh}</dd></div></dl>
-                  <div class="quality-strategies"><strong>可考慮的保障策略</strong><ul>{term.strategiesZh.map((strategy) => <li>{strategy}</li>)}</ul></div>
-                </article>
-              ))}
-            </div>
-          </div>
-          <p class="quality-explorer-footer">記錄每項保障為何符合研究主張、設計及威脅，而不只是列出曾經使用。</p>
         </div>
       </div>
     </section>
@@ -1472,7 +1472,7 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
   <nav class="deck-controls" aria-label="Slide controls">
     <a class="home-button" href={courseHref} aria-label="Back to DEDC02">⌂</a>
     <button type="button" data-nav="previous" aria-label="Previous slide">←</button>
-    <button class="slide-count" type="button" data-overview aria-label="Open slide overview"><span>1</span>/<span data-slide-total>32</span></button>
+    <button class="slide-count" type="button" data-overview aria-label="Open slide overview"><span>1</span>/<span data-slide-total>28</span></button>
     <button type="button" data-nav="next" aria-label="Next slide">→</button>
     <button type="button" data-fullscreen aria-label="Toggle fullscreen">⛶</button>
     <div class="progress-track" aria-hidden="true"><span></span></div>
@@ -1799,72 +1799,66 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
   .validity-definitions strong { color: var(--lr-green); }
   .validity-note { margin: var(--space-3xs) 0 0; color: var(--lr-muted); font-size: .62rem; line-height: 1.25; }
   .validity-note::before { content: '△ '; color: var(--lr-warm); font-weight: 900; }
-  .quality-map-core { display: grid; max-width: 34rem; place-items: center; margin: 0 auto var(--space-2xs); padding: var(--space-2xs) var(--space-xs); border-block: 1px solid var(--lr-green-mid); text-align: center; }
+  .quality-map-core { display: grid; max-width: 60rem; grid-template-columns: minmax(0, .7fr) minmax(0, 1.3fr); gap: var(--space-xs); align-items: center; margin: 0 auto var(--space-2xs); padding: var(--space-2xs) var(--space-xs); border-block: 1px solid var(--lr-green-mid); }
+  .quality-map-core > div { display: grid; gap: var(--space-3xs); }
   .quality-map-core strong { color: var(--lr-green); font: 700 .86rem/1.1 var(--font-display); white-space: nowrap; }
-  .quality-terminology-map { display: grid; min-width: 0; grid-template-columns: minmax(0, 1fr) 6.5rem minmax(0, 1fr); gap: var(--space-xs); align-items: center; }
-  .quality-map-branch { min-width: 0; padding: var(--space-2xs); border: 1px solid var(--lr-line); background: var(--lr-green-pale); }
-  .quality-map-branch > header { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--space-xs); align-items: baseline; padding-bottom: var(--space-3xs); border-bottom: 1px solid var(--lr-line); }
-  .quality-map-branch > header span { color: var(--lr-warm); font-size: .56rem; font-weight: 850; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
-  .quality-map-branch h3 { margin: 0; color: var(--lr-green); font: 700 .78rem/1.1 var(--font-display); text-align: end; }
-  .quality-map-nodes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3xs); margin-top: var(--space-3xs); }
-  .quality-map-nodes article { min-width: 0; padding: var(--space-3xs) var(--space-2xs); border-block-start: 1px solid var(--lr-green-mid); background: var(--lr-green-soft); }
-  .quality-map-nodes strong { display: block; overflow-wrap: anywhere; color: var(--lr-green); font-size: .6rem; line-height: 1.1; }
-  .quality-map-bridge { position: relative; display: grid; min-height: 6.5rem; place-content: center; gap: var(--space-3xs); border: 1px solid var(--lr-green-mid); border-radius: 50%; background: var(--lr-green-soft); text-align: center; }
+  .quality-map-core span { color: var(--lr-muted); font-size: .625rem; line-height: 1.2; }
+  .quality-map-core p { margin: 0; color: var(--lr-muted); font-size: .625rem; line-height: 1.25; }
+  .quality-map-core b { color: var(--lr-warm); font-weight: 850; }
+  .quality-terminology-map { display: grid; min-width: 0; grid-template-columns: minmax(0, 1fr) 5.5rem minmax(0, 1fr); gap: var(--space-2xs); align-items: center; }
+  .quality-map-branch { min-width: 0; }
+  .quality-map-branch > header { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-3xs); padding: 0 var(--space-3xs) var(--space-3xs); border-bottom: 1px solid var(--lr-line); }
+  .quality-map-quant > header { text-align: end; }
+  .quality-map-qual > header { text-align: start; }
+  .quality-map-branch > header span { color: var(--lr-warm); font-size: .625rem; font-weight: 850; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
+  .quality-map-branch h3 { margin: 0; color: var(--lr-green); font: 700 .78rem/1.1 var(--font-display); text-align: inherit; }
+  .quality-map-side { display: grid; min-width: 0; gap: var(--space-2xs); align-items: start; margin-top: var(--space-3xs); }
+  .quality-map-quant .quality-map-side { grid-template-columns: minmax(0, 1.55fr) minmax(8rem, .75fr); }
+  .quality-map-qual .quality-map-side { grid-template-columns: minmax(8rem, .75fr) minmax(0, 1.55fr); }
+  .quality-map-nodes { display: grid; min-width: 0; gap: var(--space-3xs); }
+  .quality-map-nodes button { position: relative; min-width: 0; min-height: 1.75rem; border: 1px solid var(--lr-line); padding-inline: var(--space-2xs); background: var(--lr-green-soft); color: var(--lr-green); font-family: var(--font-body); font-size: .625rem; font-weight: 800; line-height: 1; text-align: start; white-space: nowrap; cursor: pointer; transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
+  .quality-map-qual .quality-map-nodes button { text-align: end; }
+  .quality-map-nodes button[aria-pressed="true"] { border-color: var(--lr-green-mid); background: var(--lr-green-mid); color: var(--lr-green-pale); }
+  .quality-map-quant .quality-map-nodes button[aria-pressed="true"]::after { content: '←'; position: absolute; inset-inline-start: var(--space-3xs); }
+  .quality-map-qual .quality-map-nodes button[aria-pressed="true"]::after { content: '→'; position: absolute; inset-inline-end: var(--space-3xs); }
+  .quality-map-nodes button:focus-visible, .quality-map-detail button:focus-visible { outline: .18rem solid var(--lr-warm); outline-offset: .12rem; }
+  .quality-map-nodes button:active, .quality-map-detail button:active { transform: translateY(1px); }
+  .quality-map-nodes button:disabled, .quality-map-detail button:disabled { cursor: not-allowed; opacity: .5; }
+  .quality-map-details { min-width: 0; min-height: 12.35rem; }
+  .quality-map-detail { position: relative; display: grid; min-width: 0; min-height: 12.35rem; align-content: start; gap: var(--space-2xs); padding: var(--space-2xs); border: 1px solid var(--lr-green-mid); background: var(--lr-green-pale); }
+  .quality-map-detail[hidden] { display: none; }
+  .quality-map-details--left .quality-map-detail { animation: quality-map-out-left var(--dur-short) var(--ease-out) both; }
+  .quality-map-details--right .quality-map-detail { animation: quality-map-out-right var(--dur-short) var(--ease-out) both; }
+  .quality-map-detail::after { content: ''; position: absolute; top: 50%; width: var(--space-2xs); height: 1px; background: var(--lr-line); }
+  .quality-map-details--left .quality-map-detail::after { left: 100%; }
+  .quality-map-details--right .quality-map-detail::after { right: 100%; }
+  .quality-map-detail header { display: grid; gap: var(--space-3xs); padding-bottom: var(--space-3xs); border-bottom: 1px solid var(--lr-line); }
+  .quality-map-detail header span { color: var(--lr-warm); font-size: .625rem; font-weight: 850; letter-spacing: .05em; text-transform: uppercase; }
+  .quality-map-detail h4 { margin: 0; color: var(--lr-green); font: 700 .78rem/1.1 var(--font-display); }
+  .quality-map-detail ul { display: grid; gap: var(--space-3xs); margin: 0; padding-inline-start: var(--space-xs); }
+  .quality-map-detail li { color: var(--lr-muted); font-size: .65rem; line-height: 1.2; }
+  .quality-map-detail button { justify-self: end; min-height: 1.75rem; border: 1px solid var(--lr-green-mid); padding-inline: var(--space-2xs); background: var(--lr-green-pale); color: var(--lr-green); font-family: var(--font-body); font-size: .625rem; font-weight: 800; line-height: 1; white-space: nowrap; cursor: pointer; transition: background-color var(--dur-micro) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
+  .quality-map-bridge { position: relative; display: grid; min-height: 5.5rem; place-content: center; gap: var(--space-3xs); border: 1px solid var(--lr-green-mid); border-radius: 50%; background: var(--lr-green-soft); text-align: center; }
   .quality-map-bridge::before, .quality-map-bridge::after { content: ''; position: absolute; top: 50%; width: var(--space-xs); height: 1px; background: var(--lr-line); }
   .quality-map-bridge::before { right: 100%; }
   .quality-map-bridge::after { left: 100%; }
   .quality-map-bridge strong { color: var(--lr-green); font: 700 .66rem/1.05 var(--font-display); }
 
+  @keyframes quality-map-out-left { from { opacity: 0; transform: translateX(.5rem); } to { opacity: 1; transform: none; } }
+  @keyframes quality-map-out-right { from { opacity: 0; transform: translateX(-.5rem); } to { opacity: 1; transform: none; } }
+
   @keyframes validity-panel-in { from { opacity: 0; } to { opacity: 1; } }
 
   @media (hover: hover) and (pointer: fine) {
-    .validity-tabs button:not([aria-pressed="true"]):not(:disabled):hover { background: var(--lr-green-soft); }
+    .validity-tabs button:not([aria-pressed="true"]):not(:disabled):hover,
+    .quality-map-nodes button:not([aria-pressed="true"]):not(:disabled):hover,
+    .quality-map-detail button:not(:disabled):hover { background: var(--lr-green-pale); }
   }
   .quality-questions { margin-top: .8rem; }
   .quality-matrix { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem; }
   .quality-matrix article { display: grid; grid-template-columns: minmax(10rem, .62fr) minmax(0, 1.4fr); gap: .65rem; padding: .7rem .8rem; border: 1px solid var(--lr-line); }
   .quality-matrix article:last-child { grid-column: 1 / -1; }
   .quality-matrix span { color: var(--lr-muted); font-size: .88rem; line-height: 1.38; }
-  .slide[data-title="Quality safeguards explorer"] h2 { max-width: 100%; margin-bottom: var(--space-3xs); font-size: clamp(1.9rem, 3.3vw, 2.8rem); }
-  .quality-explorer-intro { max-width: 78ch; margin: 0 0 var(--space-2xs); color: var(--lr-muted); font-size: .72rem; line-height: 1.25; }
-  .quality-explorer { display: grid; min-width: 0; grid-template-columns: minmax(0, 1.15fr) minmax(19rem, .85fr); gap: var(--space-2xs); }
-  .quality-term-selector { display: grid; min-width: 0; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2xs); }
-  .quality-term-selector section { min-width: 0; padding: var(--space-2xs); border: 1px solid var(--lr-line); background: var(--lr-green-pale); }
-  .quality-term-selector section > header { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-2xs); margin-bottom: var(--space-3xs); padding-bottom: var(--space-3xs); border-bottom: 1px solid var(--lr-line); }
-  .quality-term-selector header strong { color: var(--lr-green); font: 700 .82rem/1.1 var(--font-display); }
-  .quality-term-selector header span { color: var(--lr-muted); font-size: .5rem; line-height: 1; white-space: nowrap; }
-  .quality-term-selector section > div { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3xs); }
-  .quality-term-selector button { min-width: 0; min-height: 2.65rem; border: 1px solid var(--lr-line); padding-inline: var(--space-3xs); background: var(--lr-green-soft); color: var(--lr-green); font-family: var(--font-body); font-size: .54rem; font-weight: 800; line-height: 1; white-space: nowrap; cursor: pointer; transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
-  .quality-term-selector button[aria-pressed="true"] { border-color: var(--lr-green-mid); background: var(--lr-green-mid); color: var(--lr-green-pale); }
-  .quality-term-selector button:focus-visible, .quality-reset:focus-visible { outline: .18rem solid var(--lr-warm); outline-offset: .14rem; }
-  .quality-term-selector button:active, .quality-reset:active { transform: translateY(1px); }
-  .quality-term-selector button:disabled, .quality-reset:disabled { cursor: not-allowed; opacity: .5; }
-  .quality-guidance-stage { min-width: 0; min-height: 18.5rem; border: 1px solid var(--lr-line); background: var(--lr-green-pale); }
-  .quality-guidance-empty { display: grid; min-height: 18.4rem; place-content: center; gap: var(--space-2xs); padding: var(--space-sm); text-align: center; }
-  .quality-guidance-empty[hidden] { display: none; }
-  .quality-guidance-empty strong { color: var(--lr-green); font: 700 1rem/1.1 var(--font-display); }
-  .quality-guidance-empty p { max-width: 38ch; margin: 0; color: var(--lr-muted); font-size: .68rem; line-height: 1.3; }
-  .quality-guidance { display: grid; min-width: 0; gap: var(--space-2xs); padding: var(--space-xs); animation: quality-guidance-in var(--dur-short) var(--ease-out) both; }
-  .quality-guidance[hidden] { display: none; }
-  .quality-guidance > header { display: grid; gap: 0; }
-  .quality-guidance > header span { color: var(--lr-warm); font-size: .56rem; font-weight: 850; letter-spacing: .06em; text-transform: uppercase; }
-  .quality-guidance h3 { margin: 0; color: var(--lr-green); font: 700 1.15rem/1.1 var(--font-display); }
-  .quality-guidance dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2xs); margin: 0; }
-  .quality-guidance dl div { padding: var(--space-2xs); border-block-start: 1px solid var(--lr-green-mid); }
-  .quality-guidance dt { color: var(--lr-green); font-size: .58rem; font-weight: 850; letter-spacing: .04em; text-transform: uppercase; }
-  .quality-guidance dd { margin: var(--space-3xs) 0 0; color: var(--lr-muted); font-size: .62rem; line-height: 1.25; }
-  .quality-strategies { padding: var(--space-2xs); border-block: 1px solid var(--lr-line); background: var(--lr-green-soft); }
-  .quality-strategies > strong { color: var(--lr-green); font-size: .62rem; }
-  .quality-strategies ul { display: grid; gap: var(--space-3xs); margin: var(--space-3xs) 0 0; padding-inline-start: var(--space-sm); }
-  .quality-strategies li { color: var(--lr-muted); font-size: .59rem; line-height: 1.22; }
-  .quality-reset { display: none; }
-  .quality-explorer-footer { margin: var(--space-2xs) 0 0; padding-top: var(--space-3xs); border-top: 1px solid var(--lr-line); color: var(--lr-green); font-size: .62rem; font-weight: 750; line-height: 1.2; }
-
-  @keyframes quality-guidance-in { from { opacity: 0; } to { opacity: 1; } }
-
-  @media (hover: hover) and (pointer: fine) {
-    .quality-term-selector button:not([aria-pressed="true"]):not(:disabled):hover, .quality-reset:not(:disabled):hover { background: var(--lr-green-pale); }
-  }
   .alignment-flow { display: grid; grid-template-columns: repeat(15, auto); gap: .25rem; align-items: center; }
   .alignment-flow span { display: grid; min-height: 5rem; place-items: center; padding: .5rem; border-top: .3rem solid var(--lr-green-mid); background: var(--lr-green-soft); font-size: .78rem; font-weight: 800; text-align: center; }
   .alignment-flow b { color: var(--lr-green-mid); }
@@ -1894,6 +1888,13 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
     .sample-size-routes { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: none; }
     .sample-size-stage, .sample-size-empty { min-height: 0; }
     .target-patterns { gap: var(--space-2xs); }
+    .quality-terminology-map { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
+    .quality-map-bridge { display: none; }
+    .quality-map-side, .quality-map-quant .quality-map-side, .quality-map-qual .quality-map-side { grid-template-columns: minmax(0, 1fr); }
+    .quality-map-quant .quality-map-nodes { order: -1; }
+    .quality-map-details { min-height: 0; }
+    .quality-map-detail { min-height: 0; }
+    .quality-map-detail::after { display: none; }
     .alignment-flow { grid-template-columns: 1fr; }
     .alignment-flow b { display: none; }
     .alignment-flow span { min-height: 0; }
@@ -1936,33 +1937,25 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
     .validity-definitions { gap: var(--space-2xs); }
     .validity-definitions p { font-size: .62rem; }
     .slide[data-title="Validity and reliability"] [data-language]:has([data-validity-panel="terms"]:not([hidden])) .validity-intro { display: none; }
-    .quality-terminology-map { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3xs); align-items: stretch; }
-    .quality-map-bridge { display: none; }
-    .quality-map-branch { padding: var(--space-3xs); }
+    .quality-map-core { grid-template-columns: minmax(0, 1fr); }
+    .quality-map-core p { font-size: .625rem; }
+    .quality-terminology-map { grid-template-columns: minmax(0, 1fr); gap: var(--space-2xs); align-items: start; }
     .quality-map-branch > header { grid-template-columns: minmax(0, 1fr); gap: var(--space-3xs); }
-    .quality-map-branch h3 { text-align: start; }
-    .quality-map-nodes { grid-template-columns: minmax(0, 1fr); }
+    .quality-map-quant > header, .quality-map-qual > header { text-align: start; }
+    .quality-map-nodes button { min-height: 1.6rem; padding-inline: var(--space-3xs); font-size: .625rem; }
+    .quality-map-detail { padding: var(--space-3xs); }
+    .quality-map-detail li { font-size: .65rem; }
     .validity-panel .quality-matrix { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3xs); }
     .validity-panel .quality-matrix article, .validity-panel .quality-matrix article:last-child { grid-column: auto; grid-template-columns: minmax(0, 1fr); gap: var(--space-3xs); padding: var(--space-2xs); }
     .validity-panel .quality-matrix article:last-child { grid-column: 1 / -1; }
     .validity-panel .quality-matrix strong { font-size: .68rem; line-height: 1.15; }
     .validity-panel .quality-matrix span { font-size: .6rem; line-height: 1.22; }
     .quality-matrix article, .quality-matrix article:last-child { grid-column: auto; grid-template-columns: 1fr; }
-    .quality-explorer { grid-template-columns: minmax(0, 1fr); }
-    .quality-term-selector { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .quality-term-selector section { padding: var(--space-3xs); }
-    .quality-term-selector section > header { display: grid; gap: var(--space-3xs); }
-    .quality-term-selector section > div { grid-template-columns: minmax(0, 1fr); }
-    .quality-term-selector button { min-height: 1.75rem; font-size: .48rem; }
-    .quality-explorer:has(.quality-guidance-empty:not([hidden])) .quality-guidance-stage { display: none; }
-    .quality-explorer:has(.quality-guidance:not([hidden])) .quality-term-selector { display: none; }
-    .slide[data-title="Quality safeguards explorer"] [data-language]:has(.quality-guidance:not([hidden])) .quality-explorer-intro,
-    .slide[data-title="Quality safeguards explorer"] [data-language]:has(.quality-guidance:not([hidden])) .quality-explorer-footer { display: none; }
-    .quality-guidance-stage { min-height: 0; }
-    .quality-guidance { padding: var(--space-2xs); }
-    .quality-guidance dl { grid-template-columns: minmax(0, 1fr); }
-    .quality-reset { display: inline-flex; width: fit-content; min-height: 2.25rem; align-items: center; border: 1px solid var(--lr-green-mid); padding-inline: var(--space-2xs); background: var(--lr-green-pale); color: var(--lr-green); font-family: var(--font-body); font-size: .56rem; font-weight: 800; line-height: 1; white-space: nowrap; cursor: pointer; transition: background-color var(--dur-micro) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
     .decision-list li, .sampling-stack article { grid-template-columns: 1fr; }
+  }
+
+  @media (pointer: coarse) {
+    .quality-map-nodes button, .quality-map-detail button { min-height: 2.75rem; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -1976,8 +1969,8 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
     .sample-size-panel { animation-duration: 0ms; }
     .validity-tabs button { transition-duration: 0ms; }
     .validity-panel { animation-duration: 0ms; }
-    .quality-term-selector button, .quality-reset { transition-duration: 0ms; }
-    .quality-guidance { animation-duration: 0ms; }
+    .quality-map-nodes button, .quality-map-detail button { transition-duration: 0ms; }
+    .quality-map-detail { animation-duration: 0ms; }
   }
 </style>
 

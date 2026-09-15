@@ -332,21 +332,37 @@ document.querySelectorAll<HTMLElement>('[data-quality-explorer]').forEach((explo
   const empty = explorer.querySelector<HTMLElement>('[data-quality-empty]');
   const resets = Array.from(explorer.querySelectorAll<HTMLButtonElement>('[data-quality-reset]'));
 
+  const closeSafeguards = (returnFocus = false) => {
+    const activeTerm = terms.find((term) => term.getAttribute('aria-pressed') === 'true');
+    terms.forEach((term) => {
+      term.setAttribute('aria-pressed', 'false');
+      term.setAttribute('aria-expanded', 'false');
+    });
+    panels.forEach((panel) => { panel.hidden = true; });
+    if (empty) empty.hidden = false;
+    if (returnFocus) activeTerm?.focus({ preventScroll: true });
+  };
+
   terms.forEach((term) => {
     term.addEventListener('click', () => {
       const selected = term.dataset.qualityTerm || '';
-      terms.forEach((item) => item.setAttribute('aria-pressed', String(item === term)));
+      const wasOpen = term.getAttribute('aria-pressed') === 'true';
+      if (wasOpen) {
+        closeSafeguards();
+        return;
+      }
+      terms.forEach((item) => {
+        const active = item === term;
+        item.setAttribute('aria-pressed', String(active));
+        item.setAttribute('aria-expanded', String(active));
+      });
       panels.forEach((panel) => { panel.hidden = panel.dataset.qualityPanel !== selected; });
       if (empty) empty.hidden = true;
     });
   });
 
   resets.forEach((reset) => {
-    reset.addEventListener('click', () => {
-      terms.forEach((term) => term.setAttribute('aria-pressed', 'false'));
-      panels.forEach((panel) => { panel.hidden = true; });
-      if (empty) empty.hidden = false;
-    });
+    reset.addEventListener('click', () => closeSafeguards(true));
   });
 });
 
