@@ -268,28 +268,13 @@ const courseHref = withBase('/teaching/courses/dedc02');
       </div>
     </section>
 
-    <section class="slide" data-title="What is research design?" aria-hidden="true">
+    <section class="slide" data-title="Research design and its components" aria-hidden="true">
       <div class="slide-inner">
         <header class="slide-header"><span class="eyebrow">Research architecture</span></header>
         <div data-language="en">
-          <h2>A design is the logic of the whole study</h2>
-          <blockquote>How will this study obtain evidence capable of answering the question and supporting the intended claim?</blockquote>
-          <p class="takeaway">A design is not simply “qualitative,” “quantitative,” a survey or an interview. It is a justified system of decisions.</p>
-        </div>
-        <div data-language="zh" hidden lang="zh-Hant">
-          <h2>研究設計是整項研究的邏輯</h2>
-          <blockquote>本研究將如何取得能夠回答問題並支持預期主張的證據？</blockquote>
-          <p class="takeaway">研究設計不只是「質性」、「量化」、問卷或訪談，而是一套有理據、互相連結的決策。</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide" data-title="Design components" aria-hidden="true">
-      <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Research architecture</span></header>
-        <div data-language="en">
-          <h2>What must the design coordinate?</h2>
-          <div class="component-grid">
+          <h2>A design coordinates the whole study</h2>
+          <blockquote class="design-architecture-question">How will this study obtain evidence capable of answering the question and supporting the intended claim?</blockquote>
+          <div class="component-grid architecture-components" aria-label="Eight decisions coordinated by research design">
             <article><span>01</span><strong>Purpose and problem</strong></article>
             <article><span>02</span><strong>Framework and assumptions</strong></article>
             <article><span>03</span><strong>Research questions</strong></article>
@@ -299,11 +284,12 @@ const courseHref = withBase('/teaching/courses/dedc02');
             <article><span>07</span><strong>Sampling and access</strong></article>
             <article><span>08</span><strong>Quality and ethics</strong></article>
           </div>
-          <p class="takeaway">Changing one component may require changes elsewhere. Alignment is a property of the system.</p>
+          <p class="takeaway design-architecture-takeaway">A design is not simply “qualitative,” “quantitative,” a survey or an interview. Changing one decision may require changes elsewhere; alignment is a property of the system.</p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
-          <h2>研究設計必須協調甚麼？</h2>
-          <div class="component-grid">
+          <h2>研究設計協調<br />整項研究</h2>
+          <blockquote class="design-architecture-question">本研究將如何取得能夠回答問題並支持預期主張的證據？</blockquote>
+          <div class="component-grid architecture-components" aria-label="研究設計協調的八項決策">
             <article><span>01</span><strong>目的與研究課題</strong></article>
             <article><span>02</span><strong>框架與假設</strong></article>
             <article><span>03</span><strong>研究問題</strong></article>
@@ -313,7 +299,7 @@ const courseHref = withBase('/teaching/courses/dedc02');
             <article><span>07</span><strong>抽樣與進入研究場域</strong></article>
             <article><span>08</span><strong>研究品質與倫理</strong></article>
           </div>
-          <p class="takeaway">改變一個元素，可能需要同時調整其他元素。對齊是整個系統的特性。</p>
+          <p class="takeaway design-architecture-takeaway">研究設計不只是「質性」、「量化」、問卷或訪談。改變一項決策，可能需要同時調整其他決策；對齊是整個系統的特性。</p>
         </div>
       </div>
     </section>
@@ -1097,7 +1083,7 @@ const courseHref = withBase('/teaching/courses/dedc02');
 
 <style>
   /* Hallmark · genre: editorial · macrostructure: Workbench · tone: technical · design-system: existing DEDC02 */
-  /* Hallmark · pre-emit critique: P5 H5 E4 S5 R5 V4 */
+  /* Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V4 */
   .design-chain, .quality-chain { grid-template-columns: repeat(7, auto); }
   .framework-contrast strong, .design-comparison strong { display: block; margin-top: .75rem; color: var(--lr-green); }
   .slide[data-title="Theoretical and conceptual frameworks"] h2 { max-width: 100%; margin-bottom: .7rem; font-size: clamp(2rem, 4vw, 3.4rem); }
@@ -1132,10 +1118,16 @@ const courseHref = withBase('/teaching/courses/dedc02');
   .direct-paths b { color: var(--lr-green-mid); }
   .direct-paths strong { color: var(--lr-green); }
   .framework-takeaway { margin-top: .7rem; font-size: .8rem; }
+  .slide[data-title="Research design and its components"] h2 { margin-bottom: var(--space-2xs); font-size: clamp(2rem, 3.6vw, 3.25rem); }
+  .design-architecture-question { max-width: 62ch; margin: var(--space-3xs) 0 var(--space-2xs); padding-block: var(--space-2xs); padding-inline: var(--space-xs) 0; border-inline-start-width: var(--space-3xs); font-size: clamp(1.08rem, 1.8vw, 1.4rem); line-height: 1.28; }
   .component-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .55rem; }
   .component-grid article { display: grid; min-height: 7rem; align-content: space-between; padding: .8rem; border-top: .3rem solid var(--lr-green-mid); background: var(--lr-green-soft); }
   .component-grid span, .level-cards span { color: var(--lr-green-mid); font-size: .7rem; font-weight: 800; letter-spacing: .1em; }
   .component-grid strong { font: 600 1.05rem/1.25 'Source Serif 4', Georgia, serif; }
+  .architecture-components { gap: var(--space-2xs); }
+  .architecture-components article { min-height: 3.5rem; grid-template-columns: auto minmax(0, 1fr); gap: var(--space-2xs); align-content: center; align-items: center; padding: var(--space-2xs) var(--space-xs); border: 1px solid var(--lr-line); background: var(--lr-green-pale); }
+  .architecture-components strong { font-family: var(--font-display); font-size: .84rem; line-height: 1.2; }
+  .design-architecture-takeaway { margin-top: var(--space-2xs); font-size: .8rem; }
   .level-cards article { min-height: 11rem; }
   .level-cards h3 { margin-top: .7rem; font-size: 1.35rem; }
   .design-family-map { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .65rem; }
