@@ -582,7 +582,7 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
       <div class="slide-inner">
         <header class="slide-header"><span class="eyebrow">Design families · Explore one branch</span></header>
         <div data-language="en" data-design-family-map>
-          <h2>One landscape, six design routes</h2>
+          <h2>Research questions lead to different design routes</h2>
           <p class="family-map-instruction">Choose the bubble that best matches the intended claim. Its next layer will spread out below.</p>
           <div class="family-spider" aria-label="Six research design families">
             <svg class="family-spider-lines" viewBox="0 0 1000 240" aria-hidden="true" focusable="false"><path d="M500 120 150 46M500 120 500 38M500 120 850 46M500 120 150 194M500 120 500 202M500 120 850 194" /></svg>
@@ -641,7 +641,7 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
           </div>
         </div>
         <div data-language="zh" hidden lang="zh-Hant" data-design-family-map>
-          <h2>一個研究版圖，六條設計路徑</h2>
+          <h2>研究問題引導不同的設計路徑</h2>
           <p class="family-map-instruction">選擇最符合預期主張的氣泡；下一層心智圖會在下方展開。</p>
           <div class="family-spider" aria-label="六種研究設計類型">
             <svg class="family-spider-lines" viewBox="0 0 1000 240" aria-hidden="true" focusable="false"><path d="M500 120 150 46M500 120 500 38M500 120 850 46M500 120 150 194M500 120 500 202M500 120 850 194" /></svg>
@@ -926,7 +926,7 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
       <div class="slide-inner">
         <header class="slide-header"><span class="eyebrow">Sampling map</span></header>
         <div data-language="en">
-          <h2>Two selection logics, eight visible methods</h2>
+          <h2>Sampling methods differ in how units enter a study</h2>
           <p class="intro-line">Before clicking, explain how units would enter the sample. Then reveal the method’s selection move, visual pattern and claim limit.</p>
           <div class="sampling-explorer" data-sampling-explorer>
             <div class="sampling-map" aria-label="Interactive map of sampling methods">
@@ -968,7 +968,7 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
           </div>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
-          <h2>兩種選取邏輯，八種可視方法</h2>
+          <h2>抽樣方法的差異在於研究單位如何進入樣本</h2>
           <p class="intro-line">點選前，先解釋單位會如何進入樣本；再揭示該方法的選取動作、圖像模式及主張限制。</p>
           <div class="sampling-explorer" data-sampling-explorer>
             <div class="sampling-map" aria-label="抽樣方法互動圖">
@@ -1054,7 +1054,6 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
               </article>
             </div>
           </div>
-          <p class="sample-size-takeaway">Shortcut formulas, lookup tables and “30 participants” are assumption-bound—not universal answers. Report the claim, inputs, unit, adjustments and final target.</p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
           <h2>並不存在通用的「良好樣本量」</h2>
@@ -1095,7 +1094,6 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
               </article>
             </div>
           </div>
-          <p class="sample-size-takeaway">捷徑公式、查表及「30 人」都受假設限制，並非通用答案。應報告主張、輸入條件、抽樣單位、各項調整及最終目標。</p>
         </div>
       </div>
     </section>
@@ -1680,7 +1678,6 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
   .sample-size-notes strong { color: var(--lr-green); }
   .sample-size-caution { margin: 0; color: var(--lr-muted); font-size: .61rem; line-height: 1.25; }
   .sample-size-caution::before { content: '△ '; color: var(--lr-warm); font-weight: 900; }
-  .sample-size-takeaway { margin: var(--space-2xs) 0 0; padding-top: var(--space-3xs); border-top: 1px solid var(--lr-line); color: var(--lr-green); font-size: .65rem; font-weight: 750; line-height: 1.25; }
 
   @keyframes sample-size-panel-in { from { opacity: 0; } to { opacity: 1; } }
 
@@ -1942,7 +1939,6 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
     .sample-size-sequence { grid-template-columns: repeat(5, auto); }
     .sample-size-sequence b:nth-of-type(n+3), .sample-size-sequence span:nth-of-type(n+4) { display: none; }
     .formula-band, .formula-band-text, .sample-size-notes { grid-template-columns: minmax(0, 1fr); }
-    .sample-size-workbench:has(.sample-size-panel:not([hidden])) + .sample-size-takeaway { display: none; }
     .validity-tabs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .validity-tabs button { min-width: 0; padding-inline: var(--space-2xs); font-size: .6rem; }
     .target-patterns { gap: var(--space-3xs); }
