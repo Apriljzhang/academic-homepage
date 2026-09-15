@@ -1359,10 +1359,10 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
           <h2>Quality Match</h2>
           <p class="intro-line">Match each safeguard or threat to the quality criterion it addresses most directly.</p>
           <div class="interactive-stack compact-activity" data-check-activity>
-            <div class="sort-row"><p>Groups differ before the intervention and no adjustment or comparison is made.</p><select data-answer="internal"><option value="">Choose…</option><option value="internal">Internal validity</option><option value="reliability">Reliability</option><option value="credibility">Credibility</option><option value="transfer">Transferability</option></select></div>
-            <div class="sort-row"><p>Two raters apply a scoring rubric inconsistently.</p><select data-answer="reliability"><option value="">Choose…</option><option value="internal">Internal validity</option><option value="reliability">Reliability</option><option value="credibility">Credibility</option><option value="transfer">Transferability</option></select></div>
-            <div class="sort-row"><p>Interpretations are tested against contrary cases and supported with low-inference evidence.</p><select data-answer="credibility"><option value="">Choose…</option><option value="internal">Internal validity</option><option value="reliability">Reliability</option><option value="credibility">Credibility</option><option value="transfer">Transferability</option></select></div>
-            <div class="sort-row"><p>The report richly describes the setting and participants so readers can judge contextual relevance.</p><select data-answer="transfer"><option value="">Choose…</option><option value="internal">Internal validity</option><option value="reliability">Reliability</option><option value="credibility">Credibility</option><option value="transfer">Transferability</option></select></div>
+            <div class="sort-row"><p>Groups differ before the intervention and no adjustment or comparison is made.</p><select data-answer="internal"><option value="">Choose…</option><option value="credibility">Credibility</option><option value="reliability">Reliability</option><option value="internal">Internal validity</option><option value="transfer">Transferability</option></select></div>
+            <div class="sort-row"><p>Two raters apply a scoring rubric inconsistently.</p><select data-answer="reliability"><option value="">Choose…</option><option value="transfer">Transferability</option><option value="internal">Internal validity</option><option value="credibility">Credibility</option><option value="reliability">Reliability</option></select></div>
+            <div class="sort-row"><p>Interpretations are tested against contrary cases and supported with low-inference evidence.</p><select data-answer="credibility"><option value="">Choose…</option><option value="reliability">Reliability</option><option value="credibility">Credibility</option><option value="transfer">Transferability</option><option value="internal">Internal validity</option></select></div>
+            <div class="sort-row"><p>The report richly describes the setting and participants so readers can judge contextual relevance.</p><select data-answer="transfer"><option value="">Choose…</option><option value="transfer">Transferability</option><option value="credibility">Credibility</option><option value="internal">Internal validity</option><option value="reliability">Reliability</option></select></div>
             <div class="activity-actions"><button type="button" data-check>Check matches</button><button type="button" data-clear>Clear</button><span class="activity-status" data-status role="status" aria-live="polite"></span></div>
           </div>
         </div>
@@ -1370,41 +1370,24 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
           <h2>研究品質配對</h2>
           <p class="intro-line">把每項保障或威脅配對至它最直接處理的品質準則。</p>
           <div class="interactive-stack compact-activity" data-check-activity>
-            <div class="sort-row"><p>介入前各組已存在差異，研究卻沒有調整或作出比較。</p><select data-answer="internal"><option value="">請選擇⋯⋯</option><option value="internal">內部效度</option><option value="reliability">信度</option><option value="credibility">可信性</option><option value="transfer">可轉移性</option></select></div>
-            <div class="sort-row"><p>兩名評分者以不一致方式使用評分規準。</p><select data-answer="reliability"><option value="">請選擇⋯⋯</option><option value="internal">內部效度</option><option value="reliability">信度</option><option value="credibility">可信性</option><option value="transfer">可轉移性</option></select></div>
-            <div class="sort-row"><p>研究以反例檢驗詮釋，並以低推論證據加以支持。</p><select data-answer="credibility"><option value="">請選擇⋯⋯</option><option value="internal">內部效度</option><option value="reliability">信度</option><option value="credibility">可信性</option><option value="transfer">可轉移性</option></select></div>
-            <div class="sort-row"><p>報告豐富描述場域與參與者，使讀者能判斷其他情境的相關性。</p><select data-answer="transfer"><option value="">請選擇⋯⋯</option><option value="internal">內部效度</option><option value="reliability">信度</option><option value="credibility">可信性</option><option value="transfer">可轉移性</option></select></div>
+            <div class="sort-row"><p>介入前各組已存在差異，研究卻沒有調整或作出比較。</p><select data-answer="internal"><option value="">請選擇⋯⋯</option><option value="credibility">可信性</option><option value="reliability">信度</option><option value="internal">內部效度</option><option value="transfer">可轉移性</option></select></div>
+            <div class="sort-row"><p>兩名評分者以不一致方式使用評分規準。</p><select data-answer="reliability"><option value="">請選擇⋯⋯</option><option value="transfer">可轉移性</option><option value="internal">內部效度</option><option value="credibility">可信性</option><option value="reliability">信度</option></select></div>
+            <div class="sort-row"><p>研究以反例檢驗詮釋，並以低推論證據加以支持。</p><select data-answer="credibility"><option value="">請選擇⋯⋯</option><option value="reliability">信度</option><option value="credibility">可信性</option><option value="transfer">可轉移性</option><option value="internal">內部效度</option></select></div>
+            <div class="sort-row"><p>報告豐富描述場域與參與者，使讀者能判斷其他情境的相關性。</p><select data-answer="transfer"><option value="">請選擇⋯⋯</option><option value="transfer">可轉移性</option><option value="credibility">可信性</option><option value="internal">內部效度</option><option value="reliability">信度</option></select></div>
             <div class="activity-actions"><button type="button" data-check>檢查配對</button><button type="button" data-clear>清除</button><span class="activity-status" data-status role="status" aria-live="polite"></span></div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="slide" data-title="Methodological alignment" aria-hidden="true">
+    <section class="slide alignment-audit" data-title="Whole-study alignment audit" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">The whole-study test</span></header>
+        <header class="slide-header"><span class="eyebrow">The whole-study test · Peer review</span></header>
         <div data-language="en">
-          <h2>Every decision must serve the same study</h2>
+          <h2>Audit and repair the chain</h2>
           <div class="alignment-flow">
             <span>Problem</span><b>→</b><span>Framework</span><b>→</b><span>Question</span><b>→</b><span>Claim</span><b>→</b><span>Design</span><b>→</b><span>Sample</span><b>→</b><span>Evidence</span><b>→</b><span>Quality</span>
           </div>
-          <p class="takeaway">Alignment gives every research choice a clear, visible role in answering the research question.</p>
-        </div>
-        <div data-language="zh" hidden lang="zh-Hant">
-          <h2>每項決策都必須服務同一研究</h2>
-          <div class="alignment-flow">
-            <span>課題</span><b>→</b><span>框架</span><b>→</b><span>問題</span><b>→</b><span>主張</span><b>→</b><span>設計</span><b>→</b><span>樣本</span><b>→</b><span>證據</span><b>→</b><span>品質</span>
-          </div>
-          <p class="takeaway">對齊並不表示所有元素都相同，而是每項選擇在回答研究問題時都有可見功能。</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide" data-title="Peer Alignment Audit" aria-hidden="true">
-      <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Peer review</span></header>
-        <div data-language="en">
-          <h2>Audit the chain, not the topic</h2>
           <div class="audit-grid">
             <article><span>1</span><p>Does the framework genuinely shape the question?</p></article>
             <article><span>2</span><p>Does the design permit the intended claim?</p></article>
@@ -1413,10 +1396,13 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
             <article><span>5</span><p>Does the quality safeguard address the main threat?</p></article>
             <article><span>6</span><p>Which word in the claim needs tighter boundaries?</p></article>
           </div>
-          <p class="takeaway">Give one precise diagnosis and one feasible repair. “Looks good” is not methodological feedback.</p>
+          <p class="takeaway">Use the chain to locate the weakest link, then propose one precise, feasible repair.</p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
-          <h2>審視對齊，而不是評論研究主題</h2>
+          <h2>審視研究鏈並提出修正</h2>
+          <div class="alignment-flow">
+            <span>課題</span><b>→</b><span>框架</span><b>→</b><span>問題</span><b>→</b><span>主張</span><b>→</b><span>設計</span><b>→</b><span>樣本</span><b>→</b><span>證據</span><b>→</b><span>品質</span>
+          </div>
           <div class="audit-grid">
             <article><span>1</span><p>框架是否真正影響研究問題？</p></article>
             <article><span>2</span><p>研究設計是否容許預期主張？</p></article>
@@ -1425,7 +1411,7 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
             <article><span>5</span><p>品質保障是否處理最主要威脅？</p></article>
             <article><span>6</span><p>主張中的哪個詞需要更嚴格的邊界？</p></article>
           </div>
-          <p class="takeaway">提出一項精確診斷及一項可行修正。「看起來不錯」並不是方法論回饋。</p>
+          <p class="takeaway">利用研究鏈找出最薄弱的一環，再提出一項精確而可行的修正。</p>
         </div>
       </div>
     </section>
@@ -1862,6 +1848,8 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
   .alignment-flow { display: grid; grid-template-columns: repeat(15, auto); gap: .25rem; align-items: center; }
   .alignment-flow span { display: grid; min-height: 5rem; place-items: center; padding: .5rem; border-top: .3rem solid var(--lr-green-mid); background: var(--lr-green-soft); font-size: .78rem; font-weight: 800; text-align: center; }
   .alignment-flow b { color: var(--lr-green-mid); }
+  .alignment-audit .alignment-flow span { min-height: 3.75rem; }
+  .alignment-audit .audit-grid { margin-top: .75rem; }
   .audit-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .55rem; }
   .audit-grid article { display: grid; grid-template-columns: 1.8rem 1fr; gap: .55rem; padding: .75rem; border: 1px solid var(--lr-line); background: var(--lr-green-pale); }
   .audit-grid span { display: grid; width: 1.55rem; height: 1.55rem; place-items: center; border-radius: 50%; background: var(--lr-green-mid); color: #fff; font-size: .7rem; font-weight: 800; }
