@@ -1545,11 +1545,9 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
   .decision-reveal summary::-webkit-details-marker, .example-step summary::-webkit-details-marker { display: none; }
   .decision-reveal summary { display: grid; min-height: 7.4rem; align-content: start; gap: var(--space-3xs); padding: var(--space-xs) 2.2rem var(--space-xs) var(--space-xs); }
   .decision-reveal summary::after, .example-step summary::after { content: '+'; position: absolute; inset-block-start: var(--space-xs); inset-inline-end: var(--space-xs); display: grid; place-items: center; color: var(--lr-green-mid); font-size: 1rem; font-weight: 800; line-height: 1; }
-  .decision-reveal summary::after { width: auto; height: auto; border: 0; border-radius: 0; }
-  .example-step summary::after { width: 1.55rem; height: 1.55rem; border: 1px solid var(--lr-green-mid); border-radius: 50%; }
+  .decision-reveal summary::after, .example-step summary::after { width: auto; height: auto; border: 0; border-radius: 0; }
   .decision-reveal[open] summary::after, .example-step[open] summary::after { content: '−'; }
-  .decision-reveal[open] summary::after { color: var(--lr-green-mid); }
-  .example-step[open] summary::after { background: var(--lr-green-mid); color: var(--lr-green-pale); }
+  .decision-reveal[open] summary::after, .example-step[open] summary::after { color: var(--lr-green-mid); }
   .decision-reveal summary:focus-visible, .example-step summary:focus-visible { outline: .18rem solid var(--lr-warm); outline-offset: .12rem; }
   .decision-reveal summary:active, .example-step summary:active { background: var(--lr-green-soft); }
   .decision-kicker { color: var(--lr-warm); font-size: .66rem; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
@@ -1570,7 +1568,7 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
   .example-step summary > span { grid-row: 1 / 3; display: grid; width: 1.35rem; height: 1.35rem; place-items: center; align-self: center; border-radius: 50%; background: var(--lr-green-mid); color: var(--lr-green-pale); font-size: .66rem; font-weight: 850; }
   .example-step summary > strong { color: var(--lr-green); font-size: .8rem; line-height: 1.15; }
   .example-step summary > small { color: var(--lr-muted); font-size: .64rem; line-height: 1.2; }
-  .example-step summary::after { inset-block-start: 50%; inset-inline-end: var(--space-2xs); width: 1.35rem; height: 1.35rem; font-size: .86rem; transform: translateY(-50%); }
+  .example-step summary::after { inset-block-start: 50%; inset-inline-end: var(--space-2xs); font-size: .86rem; transform: translateY(-50%); }
   .example-step > p { margin: 0; padding: var(--space-2xs); border-top: 1px solid var(--lr-line); color: var(--lr-muted); font-size: .69rem; line-height: 1.3; }
   .example-step > p strong { color: var(--lr-green); }
   .example-arrow { display: grid; place-items: center; color: var(--lr-green-mid); font-size: 1rem; font-weight: 900; }
