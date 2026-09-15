@@ -869,85 +869,121 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
           <h2>Sampling methods differ in how units enter a study</h2>
           <p class="intro-line">Before clicking, explain how units would enter the sample. Then reveal the method’s selection move, visual pattern and claim limit.</p>
           <div class="sampling-explorer" data-sampling-explorer>
-            <div class="sampling-map" aria-label="Interactive map of sampling methods">
-              <div class="sampling-root"><strong>Sampling methods</strong><span>How will units enter?</span></div>
-              <div class="sampling-families">
-                <section class="sampling-family sampling-family-probability">
-                  <header><strong>Probability</strong><span>Selection uses chance</span></header>
-                  <div class="sampling-method-grid">
-                    <button type="button" data-sampling-method="simple-random" aria-controls="sampling-en-simple-random" aria-pressed="false">Simple random</button>
-                    <button type="button" data-sampling-method="systematic" aria-controls="sampling-en-systematic" aria-pressed="false">Systematic</button>
-                    <button type="button" data-sampling-method="stratified" aria-controls="sampling-en-stratified" aria-pressed="false">Stratified</button>
-                    <button type="button" data-sampling-method="cluster" aria-controls="sampling-en-cluster" aria-pressed="false">Cluster</button>
-                  </div>
-                  <p class="sampling-more"><b>Also:</b> multistage · probability proportional to size</p>
-                </section>
-                <section class="sampling-family sampling-family-nonprobability">
-                  <header><strong>Non-probability</strong><span>Selection uses access or criteria</span></header>
-                  <div class="sampling-method-grid">
-                    <button type="button" data-sampling-method="convenience" aria-controls="sampling-en-convenience" aria-pressed="false">Convenience</button>
-                    <button type="button" data-sampling-method="purposive" aria-controls="sampling-en-purposive" aria-pressed="false">Purposive</button>
-                    <button type="button" data-sampling-method="snowball" aria-controls="sampling-en-snowball" aria-pressed="false">Snowball</button>
-                    <button type="button" data-sampling-method="quota" aria-controls="sampling-en-quota" aria-pressed="false">Quota</button>
-                  </div>
-                  <p class="sampling-more"><b>Also:</b> voluntary response · theoretical · consecutive</p>
-                </section>
-              </div>
-            </div>
-            <div class="sampling-detail-stage" aria-live="polite">
-              <div class="sampling-detail-empty" data-sampling-empty><strong>Pause before revealing</strong><p>Choose one method and predict: who can enter, how they are selected, and what claim becomes defensible?</p></div>
+            <div class="sampling-detail-stage sampling-detail-stage--left" aria-live="polite">
+              <div class="sampling-detail-empty" data-sampling-empty><strong>Probability details expand left</strong><p>Choose a method and predict how chance enters the selection process.</p></div>
               <article class="sampling-detail-card" id="sampling-en-simple-random" data-sampling-panel="simple-random" hidden><div class="sampling-crop crop-top-left"><img src={probabilitySamplingVisual} width="702" height="638" alt="Simple random sampling: individuals are selected across the full population" /></div><header><span>Probability</span><h3>Simple random</h3></header><p><b>Selection move</b> Give every unit an equal chance through a random mechanism.</p><p><b>Watch</b> A complete sampling frame is normally needed.</p></article>
               <article class="sampling-detail-card" id="sampling-en-systematic" data-sampling-panel="systematic" hidden><div class="sampling-crop crop-top-right"><img src={probabilitySamplingVisual} width="702" height="638" alt="Systematic sampling: individuals are selected at a regular interval" /></div><header><span>Probability</span><h3>Systematic</h3></header><p><b>Selection move</b> Choose a random start, then select every kth unit from an ordered frame.</p><p><b>Watch</b> A hidden pattern in the list can distort the sample.</p></article>
               <article class="sampling-detail-card" id="sampling-en-stratified" data-sampling-panel="stratified" hidden><div class="sampling-crop crop-bottom-left"><img src={probabilitySamplingVisual} width="702" height="638" alt="Stratified sampling: individuals are selected from every subgroup" /></div><header><span>Probability</span><h3>Stratified</h3></header><p><b>Selection move</b> Divide by a relevant characteristic, then randomly sample within every stratum.</p><p><b>Watch</b> The strata and allocation must fit the intended inference.</p></article>
               <article class="sampling-detail-card" id="sampling-en-cluster" data-sampling-panel="cluster" hidden><div class="sampling-crop crop-bottom-right"><img src={probabilitySamplingVisual} width="702" height="638" alt="Cluster sampling: entire natural groups are selected" /></div><header><span>Probability</span><h3>Cluster</h3></header><p><b>Selection move</b> Randomly choose natural groups, then include or sample units inside them.</p><p><b>Watch</b> Differences between clusters increase uncertainty.</p></article>
+            </div>
+            <section class="sampling-family sampling-family-probability">
+              <header><strong>Probability</strong><span>Selection uses chance</span></header>
+              <div class="sampling-method-grid" role="group">
+                <button type="button" data-sampling-method="simple-random" aria-controls="sampling-en-simple-random" aria-pressed="false">Simple random</button>
+                <button type="button" data-sampling-method="systematic" aria-controls="sampling-en-systematic" aria-pressed="false">Systematic</button>
+                <button type="button" data-sampling-method="stratified" aria-controls="sampling-en-stratified" aria-pressed="false">Stratified</button>
+                <button type="button" data-sampling-method="cluster" aria-controls="sampling-en-cluster" aria-pressed="false">Cluster</button>
+                <span class="sampling-method-note">Multistage random</span>
+                <span class="sampling-method-note sampling-method-note--long">Probability proportional to size</span>
+              </div>
+            </section>
+            <div class="sampling-root"><strong>Sampling methods</strong><span>How will units enter?</span></div>
+            <section class="sampling-family sampling-family-nonprobability">
+              <header><strong>Non-probability</strong><span>Selection uses access or criteria</span></header>
+              <div class="sampling-method-grid" role="group">
+                <button type="button" data-sampling-method="convenience" aria-controls="sampling-en-convenience" aria-pressed="false">Convenience</button>
+                <button type="button" data-sampling-method="purposive" aria-controls="sampling-en-purposive" aria-pressed="false">Purposive</button>
+                <button type="button" data-sampling-method="snowball" aria-controls="sampling-en-snowball" aria-pressed="false">Snowball</button>
+                <button type="button" data-sampling-method="quota" aria-controls="sampling-en-quota" aria-pressed="false">Quota</button>
+                <span class="sampling-method-note">Maximum variation</span>
+                <span class="sampling-method-note">Homogeneous</span>
+                <span class="sampling-method-note">Critical case</span>
+                <span class="sampling-method-note">Theory-based</span>
+                <span class="sampling-method-note sampling-method-note--long">Confirming / disconfirming</span>
+                <span class="sampling-method-note">Extreme case</span>
+                <span class="sampling-method-note">Typical case</span>
+                <span class="sampling-method-note">Intensity</span>
+                <span class="sampling-method-note sampling-method-note--long">Politically important case</span>
+                <span class="sampling-method-note">Random purposeful</span>
+                <span class="sampling-method-note">Stratified purposeful</span>
+                <span class="sampling-method-note">Criterion</span>
+                <span class="sampling-method-note">Opportunistic</span>
+                <span class="sampling-method-note">Mixed purposeful</span>
+                <span class="sampling-method-note sampling-method-note--long">Multistage purposeful random</span>
+                <span class="sampling-method-note sampling-method-note--long">Multistage purposeful</span>
+                <span class="sampling-method-note">Voluntary response</span>
+                <span class="sampling-method-note">Consecutive</span>
+              </div>
+            </section>
+            <div class="sampling-detail-stage sampling-detail-stage--right" aria-live="polite">
+              <div class="sampling-detail-empty" data-sampling-empty><strong>Non-probability details expand right</strong><p>Choose a method and predict how access or criteria shape who enters.</p></div>
               <article class="sampling-detail-card" id="sampling-en-convenience" data-sampling-panel="convenience" hidden><div class="sampling-crop crop-top-left"><img src={nonProbabilitySamplingVisual} width="702" height="638" alt="Convenience sampling: the most accessible individuals enter the sample" /></div><header><span>Non-probability</span><h3>Convenience</h3></header><p><b>Selection move</b> Recruit the units easiest for the researcher to reach.</p><p><b>Claim limit</b> Accessibility can create strong selection bias; do not assume population representativeness.</p></article>
               <article class="sampling-detail-card" id="sampling-en-purposive" data-sampling-panel="purposive" hidden><div class="sampling-crop crop-top-right"><img src={nonProbabilitySamplingVisual} width="702" height="638" alt="Purposive sampling: information-rich participants are deliberately selected" /></div><header><span>Non-probability</span><h3>Purposive</h3></header><p><b>Selection move</b> Deliberately choose information-rich cases using explicit criteria.</p><p><b>Claim limit</b> Supports depth about a phenomenon, not population prevalence.</p></article>
               <article class="sampling-detail-card" id="sampling-en-snowball" data-sampling-panel="snowball" hidden><div class="sampling-crop crop-bottom-left"><img src={nonProbabilitySamplingVisual} width="702" height="638" alt="Snowball sampling: initial participants refer others in their networks" /></div><header><span>Non-probability</span><h3>Snowball</h3></header><p><b>Selection move</b> Begin with seed participants who refer others in a hard-to-reach network.</p><p><b>Claim limit</b> Network ties shape who becomes visible and who remains missing.</p></article>
               <article class="sampling-detail-card" id="sampling-en-quota" data-sampling-panel="quota" hidden><div class="sampling-crop crop-bottom-right"><img src={nonProbabilitySamplingVisual} width="702" height="638" alt="Quota sampling: predetermined subgroup totals are filled non-randomly" /></div><header><span>Non-probability</span><h3>Quota</h3></header><p><b>Selection move</b> Set subgroup targets, then recruit non-randomly until each quota is filled.</p><p><b>Claim limit</b> Composition is controlled, but selection within each quota is still non-random.</p></article>
             </div>
           </div>
+          <p class="sampling-source-note">Extended schemes adapted from <a href="https://doi.org/10.2167/eri421.0" target="_blank" rel="noreferrer">Collins, Onwuegbuzie, and Jiao (2006), Table 1</a>. Dashed bubbles name additional schemes; the eight illustrated methods remain clickable.</p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
           <h2>抽樣方法的差異在於研究單位如何進入樣本</h2>
           <p class="intro-line">點選前，先解釋單位會如何進入樣本；再揭示該方法的選取動作、圖像模式及主張限制。</p>
           <div class="sampling-explorer" data-sampling-explorer>
-            <div class="sampling-map" aria-label="抽樣方法互動圖">
-              <div class="sampling-root"><strong>抽樣方法</strong><span>單位如何進入樣本？</span></div>
-              <div class="sampling-families">
-                <section class="sampling-family sampling-family-probability">
-                  <header><strong>機率抽樣</strong><span>以機會機制選取</span></header>
-                  <div class="sampling-method-grid">
-                    <button type="button" data-sampling-method="simple-random" aria-controls="sampling-zh-simple-random" aria-pressed="false">簡單隨機</button>
-                    <button type="button" data-sampling-method="systematic" aria-controls="sampling-zh-systematic" aria-pressed="false">系統抽樣</button>
-                    <button type="button" data-sampling-method="stratified" aria-controls="sampling-zh-stratified" aria-pressed="false">分層抽樣</button>
-                    <button type="button" data-sampling-method="cluster" aria-controls="sampling-zh-cluster" aria-pressed="false">叢集抽樣</button>
-                  </div>
-                  <p class="sampling-more"><b>其他：</b>多階段抽樣 · 按規模比例抽樣</p>
-                </section>
-                <section class="sampling-family sampling-family-nonprobability">
-                  <header><strong>非機率抽樣</strong><span>按可接觸性或準則選取</span></header>
-                  <div class="sampling-method-grid">
-                    <button type="button" data-sampling-method="convenience" aria-controls="sampling-zh-convenience" aria-pressed="false">便利抽樣</button>
-                    <button type="button" data-sampling-method="purposive" aria-controls="sampling-zh-purposive" aria-pressed="false">目的抽樣</button>
-                    <button type="button" data-sampling-method="snowball" aria-controls="sampling-zh-snowball" aria-pressed="false">滾雪球抽樣</button>
-                    <button type="button" data-sampling-method="quota" aria-controls="sampling-zh-quota" aria-pressed="false">配額抽樣</button>
-                  </div>
-                  <p class="sampling-more"><b>其他：</b>自願回應 · 理論抽樣 · 連續抽樣</p>
-                </section>
-              </div>
-            </div>
-            <div class="sampling-detail-stage" aria-live="polite">
-              <div class="sampling-detail-empty" data-sampling-empty><strong>揭示前先停一停</strong><p>選擇一種方法並預測：誰可以加入、如何被選取，以及能支持甚麼主張？</p></div>
+            <div class="sampling-detail-stage sampling-detail-stage--left" aria-live="polite">
+              <div class="sampling-detail-empty" data-sampling-empty><strong>機率抽樣詳情向左展開</strong><p>選擇一種方法，先預測機會機制如何進入選取過程。</p></div>
               <article class="sampling-detail-card" id="sampling-zh-simple-random" data-sampling-panel="simple-random" hidden><div class="sampling-crop crop-top-left"><img src={probabilitySamplingVisual} width="702" height="638" alt="簡單隨機抽樣：從整個群體隨機選取個體" /></div><header><span>機率抽樣</span><h3>簡單隨機</h3></header><p><b>選取動作</b> 透過隨機機制，讓每個單位擁有相同的入選機會。</p><p><b>注意</b> 通常需要涵蓋完整群體的抽樣框。</p></article>
               <article class="sampling-detail-card" id="sampling-zh-systematic" data-sampling-panel="systematic" hidden><div class="sampling-crop crop-top-right"><img src={probabilitySamplingVisual} width="702" height="638" alt="系統抽樣：按固定間隔選取個體" /></div><header><span>機率抽樣</span><h3>系統抽樣</h3></header><p><b>選取動作</b> 隨機決定起點，再從有序名單每隔第 k 個單位抽取。</p><p><b>注意</b> 名單中的隱藏規律可能扭曲樣本。</p></article>
               <article class="sampling-detail-card" id="sampling-zh-stratified" data-sampling-panel="stratified" hidden><div class="sampling-crop crop-bottom-left"><img src={probabilitySamplingVisual} width="702" height="638" alt="分層抽樣：從每一子群中選取個體" /></div><header><span>機率抽樣</span><h3>分層抽樣</h3></header><p><b>選取動作</b> 按重要特徵分層，再在每一層內隨機抽取。</p><p><b>注意</b> 分層方式及比例配置必須符合預期推論。</p></article>
               <article class="sampling-detail-card" id="sampling-zh-cluster" data-sampling-panel="cluster" hidden><div class="sampling-crop crop-bottom-right"><img src={probabilitySamplingVisual} width="702" height="638" alt="叢集抽樣：選取完整的自然群組" /></div><header><span>機率抽樣</span><h3>叢集抽樣</h3></header><p><b>選取動作</b> 隨機選取自然群組，再納入或抽取群組內的單位。</p><p><b>注意</b> 叢集之間的差異會增加不確定性。</p></article>
+            </div>
+            <section class="sampling-family sampling-family-probability">
+              <header><strong>機率抽樣</strong><span>以機會機制選取</span></header>
+              <div class="sampling-method-grid" role="group">
+                <button type="button" data-sampling-method="simple-random" aria-controls="sampling-zh-simple-random" aria-pressed="false">簡單隨機</button>
+                <button type="button" data-sampling-method="systematic" aria-controls="sampling-zh-systematic" aria-pressed="false">系統抽樣</button>
+                <button type="button" data-sampling-method="stratified" aria-controls="sampling-zh-stratified" aria-pressed="false">分層抽樣</button>
+                <button type="button" data-sampling-method="cluster" aria-controls="sampling-zh-cluster" aria-pressed="false">叢集抽樣</button>
+                <span class="sampling-method-note">多階段隨機抽樣</span>
+                <span class="sampling-method-note sampling-method-note--long">按規模比例抽樣</span>
+              </div>
+            </section>
+            <div class="sampling-root"><strong>抽樣方法</strong><span>單位如何進入樣本？</span></div>
+            <section class="sampling-family sampling-family-nonprobability">
+              <header><strong>非機率抽樣</strong><span>按可接觸性或準則選取</span></header>
+              <div class="sampling-method-grid" role="group">
+                <button type="button" data-sampling-method="convenience" aria-controls="sampling-zh-convenience" aria-pressed="false">便利抽樣</button>
+                <button type="button" data-sampling-method="purposive" aria-controls="sampling-zh-purposive" aria-pressed="false">目的抽樣</button>
+                <button type="button" data-sampling-method="snowball" aria-controls="sampling-zh-snowball" aria-pressed="false">滾雪球抽樣</button>
+                <button type="button" data-sampling-method="quota" aria-controls="sampling-zh-quota" aria-pressed="false">配額抽樣</button>
+                <span class="sampling-method-note">最大差異抽樣</span>
+                <span class="sampling-method-note">同質抽樣</span>
+                <span class="sampling-method-note">關鍵個案抽樣</span>
+                <span class="sampling-method-note">理論導向抽樣</span>
+                <span class="sampling-method-note sampling-method-note--long">驗證／反證個案</span>
+                <span class="sampling-method-note">極端個案抽樣</span>
+                <span class="sampling-method-note">典型個案抽樣</span>
+                <span class="sampling-method-note">強度抽樣</span>
+                <span class="sampling-method-note sampling-method-note--long">政治重要個案</span>
+                <span class="sampling-method-note">隨機目的抽樣</span>
+                <span class="sampling-method-note">分層目的抽樣</span>
+                <span class="sampling-method-note">準則抽樣</span>
+                <span class="sampling-method-note">機會性抽樣</span>
+                <span class="sampling-method-note">混合目的抽樣</span>
+                <span class="sampling-method-note sampling-method-note--long">多階段目的—隨機抽樣</span>
+                <span class="sampling-method-note sampling-method-note--long">多階段目的抽樣</span>
+                <span class="sampling-method-note">自願回應</span>
+                <span class="sampling-method-note">連續抽樣</span>
+              </div>
+            </section>
+            <div class="sampling-detail-stage sampling-detail-stage--right" aria-live="polite">
+              <div class="sampling-detail-empty" data-sampling-empty><strong>非機率抽樣詳情向右展開</strong><p>選擇一種方法，先預測可接觸性或準則如何影響誰能加入。</p></div>
               <article class="sampling-detail-card" id="sampling-zh-convenience" data-sampling-panel="convenience" hidden><div class="sampling-crop crop-top-left"><img src={nonProbabilitySamplingVisual} width="702" height="638" alt="便利抽樣：最容易接觸的個體進入樣本" /></div><header><span>非機率抽樣</span><h3>便利抽樣</h3></header><p><b>選取動作</b> 招募研究者最容易接觸的單位。</p><p><b>主張限制</b> 可接觸性可能造成強烈選擇偏差，不能假設樣本代表整個群體。</p></article>
               <article class="sampling-detail-card" id="sampling-zh-purposive" data-sampling-panel="purposive" hidden><div class="sampling-crop crop-top-right"><img src={nonProbabilitySamplingVisual} width="702" height="638" alt="目的抽樣：刻意選取資訊豐富的參與者" /></div><header><span>非機率抽樣</span><h3>目的抽樣</h3></header><p><b>選取動作</b> 按明確準則，刻意選取資訊豐富的個案。</p><p><b>主張限制</b> 支持深入理解現象，不支持估計群體盛行率。</p></article>
               <article class="sampling-detail-card" id="sampling-zh-snowball" data-sampling-panel="snowball" hidden><div class="sampling-crop crop-bottom-left"><img src={nonProbabilitySamplingVisual} width="702" height="638" alt="滾雪球抽樣：最初參與者轉介其網絡中的其他人" /></div><header><span>非機率抽樣</span><h3>滾雪球抽樣</h3></header><p><b>選取動作</b> 由種子參與者開始，透過轉介接觸難以接近的網絡。</p><p><b>主張限制</b> 網絡連結會決定誰被看見，以及誰仍然缺席。</p></article>
               <article class="sampling-detail-card" id="sampling-zh-quota" data-sampling-panel="quota" hidden><div class="sampling-crop crop-bottom-right"><img src={nonProbabilitySamplingVisual} width="702" height="638" alt="配額抽樣：以非隨機方式填滿預定的子群人數" /></div><header><span>非機率抽樣</span><h3>配額抽樣</h3></header><p><b>選取動作</b> 設定子群目標，再以非隨機方式招募，直至填滿每項配額。</p><p><b>主張限制</b> 樣本組成受到控制，但每項配額內仍不是隨機選取。</p></article>
             </div>
           </div>
+          <p class="sampling-source-note">擴展抽樣方案改編自 <a href="https://doi.org/10.2167/eri421.0" target="_blank" rel="noreferrer">Collins、Onwuegbuzie 與 Jiao（2006），表 1</a>。虛線圓泡列出其他方案；八種附圖方法仍可點選。</p>
         </div>
       </div>
     </section>
@@ -984,84 +1020,118 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
       <div class="slide-inner">
         <header class="slide-header"><span class="eyebrow">Sampling logic</span></header>
         <div data-language="en">
-          <h2>There is no universal “good sample size”</h2>
-          <p class="sample-size-intro">Begin with the claim. Select a route, predict which inputs matter, then reveal the calculation logic.</p>
-          <div class="sample-size-sequence" aria-label="Sample size planning sequence"><span>Claim</span><b>→</b><span>Assumptions</span><b>→</b><span>Base n</span><b>→</b><span>Adjust</span><b>→</b><span>Recruit</span></div>
+          <h2>What makes a sample size “good”?</h2>
+          <div class="sample-adequacy-definition">
+            <p><strong>A good sample size is adequate for the intended claim.</strong> Quantitative adequacy means enough precision or power under stated assumptions. Qualitative adequacy means enough information-rich evidence for the design and analytic purpose.</p>
+            <div class="adequacy-criteria" aria-label="Four tests of sample adequacy"><span><b>Claim fit</b>Who or what will the result describe?</span><span><b>Design fit</b>What comparison, estimate or interpretation is planned?</span><span><b>Uncertainty</b>How much error, variation or analytic depth matters?</span><span><b>Transparency</b>Which assumptions and stopping rules will be reported?</span></div>
+          </div>
+          <p class="sample-size-intro">Common practices offer planning anchors. Select a route, inspect the cited recommendations, then justify how the final target fits the present study.</p>
           <div class="sample-size-workbench" data-sample-size-explorer>
-            <nav class="sample-size-routes" aria-label="Choose a sample size planning route">
-              <button type="button" data-sample-size-route="proportion" aria-controls="sample-size-en-proportion" aria-pressed="false"><strong>Estimate a proportion</strong><span>Precision</span></button>
-              <button type="button" data-sample-size-route="comparison" aria-controls="sample-size-en-comparison" aria-pressed="false"><strong>Compare two groups</strong><span>Power</span></button>
-              <button type="button" data-sample-size-route="cluster" aria-controls="sample-size-en-cluster" aria-pressed="false"><strong>Clustered design</strong><span>Design effect</span></button>
-              <button type="button" data-sample-size-route="qualitative" aria-controls="sample-size-en-qualitative" aria-pressed="false"><strong>Qualitative study</strong><span>Information adequacy</span></button>
+            <nav class="sample-size-routes" aria-label="Choose a sample size practice">
+              <button type="button" data-sample-size-route="quantitative" aria-controls="sample-size-en-quantitative" aria-pressed="false"><strong>Quantitative</strong><span>Power benchmarks</span></button>
+              <button type="button" data-sample-size-route="qualitative" aria-controls="sample-size-en-qualitative" aria-pressed="false"><strong>Qualitative</strong><span>Design suggestions</span></button>
+              <button type="button" data-sample-size-route="focus-groups" aria-controls="sample-size-en-focus-groups" aria-pressed="false"><strong>Focus groups</strong><span>People per group</span></button>
+              <button type="button" data-sample-size-route="adjustments" aria-controls="sample-size-en-adjustments" aria-pressed="false"><strong>Adjustments</strong><span>From base n to recruitment</span></button>
             </nav>
             <div class="sample-size-stage" aria-live="polite">
-              <div class="sample-size-empty" data-sample-size-empty><strong>Pause before calculating</strong><p>Are you estimating a population value, detecting a difference, adjusting for grouped data, or seeking information-rich cases?</p></div>
-              <article id="sample-size-en-proportion" class="sample-size-panel" data-sample-size-panel="proportion" hidden>
-                <header><span>Precision route</span><h3>One population proportion</h3></header>
-                <div class="formula-band"><strong>n₀ = z²p(1 − p) / e²</strong><small>z confidence · p expected proportion · e margin of error</small></div>
-                <div class="sample-size-notes"><p><b>Worked example</b> 95% confidence, p = .50 and e = .05 gives n₀ = 384.16 → <strong>385</strong>.</p><p><b>Finite population</b> If N = 1,000, n = n₀ / [1 + (n₀ − 1)/N] → <strong>278</strong>.</p></div>
-                <p class="sample-size-caution">Valid for a simple random estimate of one proportion; then adjust for design and nonresponse.</p>
-              </article>
-              <article id="sample-size-en-comparison" class="sample-size-panel" data-sample-size-panel="comparison" hidden>
-                <header><span>Power route</span><h3>A minimum meaningful difference</h3></header>
-                <div class="formula-band"><strong>n/group ≈ 2(z<sub>1−α/2</sub> + z<sub>1−β</sub>)²σ² / Δ²</strong><small>α false-positive risk · 1−β power · σ variation · Δ target difference</small></div>
-                <div class="sample-size-notes"><p><b>Worked example</b> α = .05, power = 80%, standardised effect d = .50 → about <strong>63 per group</strong>.</p><p><b>Recruitment target</b> 126 completers with 15% attrition: 126 / .85 → <strong>149 recruits</strong>.</p></div>
-                <p class="sample-size-caution">Smaller effects, greater variation, lower take-up and unequal allocation usually increase the required n.</p>
-              </article>
-              <article id="sample-size-en-cluster" class="sample-size-panel" data-sample-size-panel="cluster" hidden>
-                <header><span>Design adjustment</span><h3>People share a classroom, school or site</h3></header>
-                <div class="formula-band"><strong>DE = 1 + (m − 1)ρ</strong><small>m average cluster size · ρ intracluster correlation · adjusted n = base n × DE</small></div>
-                <div class="sample-size-notes"><p><b>Worked example</b> m = 25 and ρ = .05 gives DE = <strong>2.20</strong>.</p><p><b>Apply it</b> A base total of 126 becomes 126 × 2.20 → <strong>278</strong>, before attrition.</p></div>
-                <p class="sample-size-caution">The number of independent clusters matters; adding clusters is often more useful than adding people within the same cluster.</p>
+              <div class="sample-size-empty" data-sample-size-empty><strong>Start with the study’s claim</strong><p>Choose the practice closest to the intended design. Treat each number as a conditional planning anchor.</p></div>
+              <article id="sample-size-en-quantitative" class="sample-size-panel" data-sample-size-panel="quantitative" hidden>
+                <header><span>Published planning benchmarks</span><h3>Quantitative designs</h3></header>
+                <div class="recommendation-grid recommendation-grid--three">
+                  <p><b>Correlational</b><strong>64</strong> for a one-tailed hypothesis; <strong>82</strong> for a two-tailed hypothesis.<cite>Onwuegbuzie et al., 2004</cite></p>
+                  <p><b>Causal-comparative</b><strong>51 per group</strong> for one-tailed; <strong>64 per group</strong> for two-tailed.<cite>Onwuegbuzie et al., 2004</cite></p>
+                  <p><b>Experimental</b><strong>21 per group</strong> for a one-tailed hypothesis.<cite>Onwuegbuzie et al., 2004</cite></p>
+                </div>
+                <p class="sample-size-caution">These benchmarks assume a medium effect, .80 power and α = .05. Tail direction, expected effect, variance, allocation and analysis can change the required sample.</p>
               </article>
               <article id="sample-size-en-qualitative" class="sample-size-panel" data-sample-size-panel="qualitative" hidden>
-                <header><span>Information route</span><h3>Information adequacy and saturation</h3></header>
-                <div class="formula-band formula-band-text"><strong>Adequacy = fit to purpose + information richness + analytic depth</strong><small>Saturation can support a stopping decision when it fits the design.</small></div>
-                <div class="sample-size-notes"><p><b>Plan from</b> design, participant specificity, variation sought, access, data quality and the depth of analysis.</p><p><b>Saturation and stopping</b> Define whether you seek code, meaning or theoretical saturation, then document when additional cases cease to add relevant insights. Use another design-specific adequacy criterion where saturation does not fit.</p></div>
-                <p class="sample-size-caution">A pilot or resource ceiling can test feasibility, but neither alone demonstrates adequate evidence.</p>
+                <header><span>Published design suggestions</span><h3>Qualitative designs</h3></header>
+                <div class="recommendation-grid recommendation-grid--five">
+                  <p><b>Case study</b><strong>3–5 participants</strong><cite>Creswell, 2002</cite></p>
+                  <p><b>Phenomenology</b><strong>≤10 interviews; ≥6 participants</strong><cite>Creswell, 1998; Morse, 1994</cite></p>
+                  <p><b>Grounded theory</b><strong>15–20 or 20–30</strong><cite>Creswell, 2002; Creswell, 1998</cite></p>
+                  <p><b>Ethnography</b><strong>1 cultural group; 30–50 interviews</strong><cite>Creswell, 2002; Morse, 1994</cite></p>
+                  <p><b>Ethological study</b><strong>100–200 observation units</strong><cite>Morse, 1994</cite></p>
+                </div>
+                <p class="sample-size-caution">Use these as design-specific starting points. Information richness, participant specificity, variation and analytic depth determine adequacy; define and document saturation when it is an appropriate stopping criterion.</p>
+              </article>
+              <article id="sample-size-en-focus-groups" class="sample-size-panel" data-sample-size-panel="focus-groups" hidden>
+                <header><span>Method-level suggestions</span><h3>Participants in each focus group</h3></header>
+                <div class="focus-group-ranges">
+                  <p><strong>6–9</strong><cite>Krueger, 2000</cite></p>
+                  <p><strong>6–10</strong><cite>Langford et al., 2002; Morgan, 1997</cite></p>
+                  <p><strong>6–12</strong><cite>Johnson &amp; Christensen, 2004; Bernard, 1995</cite></p>
+                  <p><strong>8–12</strong><cite>Baumgartner et al., 2002</cite></p>
+                </div>
+                <div class="formula-band formula-band-text"><strong>Group size and number of groups answer different planning questions</strong><small>Plan enough interaction within each group and enough groups to cover relevant variation.</small></div>
+                <p class="sample-size-caution">Report how participants were composed across groups and how the stopping decision was reached.</p>
+              </article>
+              <article id="sample-size-en-adjustments" class="sample-size-panel" data-sample-size-panel="adjustments" hidden>
+                <header><span>From planning to fieldwork</span><h3>Adjust the initial target for the way the study will run</h3></header>
+                <div class="sample-size-sequence" aria-label="Sample size adjustment sequence"><span>Claim</span><b>→</b><span>Base n</span><b>→</b><span>Design effect</span><b>→</b><span>Attrition</span><b>→</b><span>Recruit</span></div>
+                <div class="sample-size-notes"><p><b>Clustering</b>Increase the target when participants share classrooms, schools or sites because members of the same group may respond similarly.</p><p><b>Nonresponse or attrition</b>Recruit above the number of complete cases needed. For example, retaining 278 participants with 85% expected retention requires a target of about 328 recruits.</p></div>
+                <p class="sample-size-caution">The base n is the sample required under the initial statistical model before clustering, attrition, unequal allocation or other design adjustments.</p>
               </article>
             </div>
           </div>
+          <p class="sample-size-source">Recommendations compiled in <a href="https://doi.org/10.2167/eri421.0" target="_blank" rel="noreferrer">Collins, Onwuegbuzie, and Jiao (2006), Table 2</a>. They are planning references whose assumptions should be checked for the present study.</p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
-          <h2>並不存在通用的「良好樣本量」</h2>
-          <p class="sample-size-intro">先由研究主張出發。選擇路徑，預測哪些輸入條件重要，再揭示計算邏輯。</p>
-          <div class="sample-size-sequence" aria-label="樣本量規劃流程"><span>主張</span><b>→</b><span>假設</span><b>→</b><span>基礎 n</span><b>→</b><span>調整</span><b>→</b><span>招募</span></div>
+          <h2>甚麼令樣本量稱得上「良好」？</h2>
+          <div class="sample-adequacy-definition">
+            <p><strong>良好樣本量足以支持預期主張。</strong>量化研究需要在清楚假設下提供足夠精確度或統計功效；質性研究則需要與設計及分析目的相稱的資訊豐富證據。</p>
+            <div class="adequacy-criteria" aria-label="樣本充分性的四項檢驗"><span><b>主張切合度</b>結果將描述誰或甚麼？</span><span><b>設計切合度</b>計劃作出哪種比較、估計或詮釋？</span><span><b>不確定性</b>多少誤差、變異或分析深度才重要？</span><span><b>透明度</b>將報告哪些假設及停止準則？</span></div>
+          </div>
+          <p class="sample-size-intro">常見做法提供規劃錨點。選擇一條路徑，閱讀附有引文的建議，再說明最終目標如何切合當前研究。</p>
           <div class="sample-size-workbench" data-sample-size-explorer>
-            <nav class="sample-size-routes" aria-label="選擇樣本量規劃路徑">
-              <button type="button" data-sample-size-route="proportion" aria-controls="sample-size-zh-proportion" aria-pressed="false"><strong>估計一項比例</strong><span>精確度</span></button>
-              <button type="button" data-sample-size-route="comparison" aria-controls="sample-size-zh-comparison" aria-pressed="false"><strong>比較兩組</strong><span>統計功效</span></button>
-              <button type="button" data-sample-size-route="cluster" aria-controls="sample-size-zh-cluster" aria-pressed="false"><strong>叢集設計</strong><span>設計效應</span></button>
-              <button type="button" data-sample-size-route="qualitative" aria-controls="sample-size-zh-qualitative" aria-pressed="false"><strong>質性研究</strong><span>資訊充分性</span></button>
+            <nav class="sample-size-routes" aria-label="選擇一項樣本量做法">
+              <button type="button" data-sample-size-route="quantitative" aria-controls="sample-size-zh-quantitative" aria-pressed="false"><strong>量化研究</strong><span>統計功效基準</span></button>
+              <button type="button" data-sample-size-route="qualitative" aria-controls="sample-size-zh-qualitative" aria-pressed="false"><strong>質性研究</strong><span>設計建議</span></button>
+              <button type="button" data-sample-size-route="focus-groups" aria-controls="sample-size-zh-focus-groups" aria-pressed="false"><strong>焦點小組</strong><span>每組人數</span></button>
+              <button type="button" data-sample-size-route="adjustments" aria-controls="sample-size-zh-adjustments" aria-pressed="false"><strong>調整</strong><span>由基礎 n 至招募</span></button>
             </nav>
             <div class="sample-size-stage" aria-live="polite">
-              <div class="sample-size-empty" data-sample-size-empty><strong>計算前先停一停</strong><p>你要估計群體數值、偵測差異、調整群組資料，還是尋找資訊豐富的個案？</p></div>
-              <article id="sample-size-zh-proportion" class="sample-size-panel" data-sample-size-panel="proportion" hidden>
-                <header><span>精確度路徑</span><h3>一項群體比例</h3></header>
-                <div class="formula-band"><strong>n₀ = z²p(1 − p) / e²</strong><small>z 置信水平 · p 預期比例 · e 誤差範圍</small></div>
-                <div class="sample-size-notes"><p><b>計算例子</b> 95% 置信水平、p = .50、e = .05：n₀ = 384.16 → <strong>385</strong>。</p><p><b>有限群體</b> 若 N = 1,000，n = n₀ / [1 + (n₀ − 1)/N] → <strong>278</strong>。</p></div>
-                <p class="sample-size-caution">適用於以簡單隨機樣本估計一項比例；其後仍須按研究設計及無回應作調整。</p>
-              </article>
-              <article id="sample-size-zh-comparison" class="sample-size-panel" data-sample-size-panel="comparison" hidden>
-                <header><span>統計功效路徑</span><h3>可被視為有意義的最小差異</h3></header>
-                <div class="formula-band"><strong>每組 n ≈ 2(z<sub>1−α/2</sub> + z<sub>1−β</sub>)²σ² / Δ²</strong><small>α 假陽性風險 · 1−β 功效 · σ 變異 · Δ 目標差異</small></div>
-                <div class="sample-size-notes"><p><b>計算例子</b> α = .05、功效 = 80%、標準化效果 d = .50 → 每組約 <strong>63 人</strong>。</p><p><b>招募目標</b> 126 名完成者、預計流失 15%：126 / .85 → <strong>招募 149 人</strong>。</p></div>
-                <p class="sample-size-caution">效果較小、變異較大、參與率較低或分組不平均，通常都需要較大的 n。</p>
-              </article>
-              <article id="sample-size-zh-cluster" class="sample-size-panel" data-sample-size-panel="cluster" hidden>
-                <header><span>設計調整</span><h3>參與者同屬班級、學校或場域</h3></header>
-                <div class="formula-band"><strong>DE = 1 + (m − 1)ρ</strong><small>m 平均叢集大小 · ρ 組內相關 · 調整後 n = 基礎 n × DE</small></div>
-                <div class="sample-size-notes"><p><b>計算例子</b> m = 25、ρ = .05，DE = <strong>2.20</strong>。</p><p><b>套用調整</b> 基礎總數 126 × 2.20 → <strong>278</strong>，尚未計入流失。</p></div>
-                <p class="sample-size-caution">獨立叢集的數目很重要；增加叢集通常比只在同一叢集內增加人數更有用。</p>
+              <div class="sample-size-empty" data-sample-size-empty><strong>先由研究主張出發</strong><p>選擇最接近預期設計的做法，並把每個數字視為有條件的規劃錨點。</p></div>
+              <article id="sample-size-zh-quantitative" class="sample-size-panel" data-sample-size-panel="quantitative" hidden>
+                <header><span>已發表的規劃基準</span><h3>量化研究設計</h3></header>
+                <div class="recommendation-grid recommendation-grid--three">
+                  <p><b>相關研究</b>單尾假設 <strong>64 人</strong>；雙尾假設 <strong>82 人</strong>。<cite>Onwuegbuzie et al., 2004</cite></p>
+                  <p><b>因果比較研究</b>單尾每組 <strong>51 人</strong>；雙尾每組 <strong>64 人</strong>。<cite>Onwuegbuzie et al., 2004</cite></p>
+                  <p><b>實驗研究</b>單尾假設每組 <strong>21 人</strong>。<cite>Onwuegbuzie et al., 2004</cite></p>
+                </div>
+                <p class="sample-size-caution">這些基準假設中等效果、.80 統計功效及 α = .05。尾向、預期效果、變異、分配及分析方法都可能改變所需樣本。</p>
               </article>
               <article id="sample-size-zh-qualitative" class="sample-size-panel" data-sample-size-panel="qualitative" hidden>
-                <header><span>資訊路徑</span><h3>資訊充分性與飽和</h3></header>
-                <div class="formula-band formula-band-text"><strong>充分性 = 切合目的 + 資訊豐富度 + 分析深度</strong><small>若與研究設計相符，飽和可支持停止抽樣的決定。</small></div>
-                <div class="sample-size-notes"><p><b>規劃依據</b> 研究設計、參與者特定性、所需差異、可接觸性、資料品質及分析深度。</p><p><b>飽和與停止</b> 界定所指的是編碼、意義或理論飽和，並記錄新增個案何時不再帶來相關洞見。若飽和不適用，則採用與研究設計相符的充分性準則。</p></div>
-                <p class="sample-size-caution">先導研究或資源上限可檢驗可行性，但兩者本身都不能證明證據充分。</p>
+                <header><span>已發表的設計建議</span><h3>質性研究設計</h3></header>
+                <div class="recommendation-grid recommendation-grid--five">
+                  <p><b>個案研究</b><strong>3–5 名參與者</strong><cite>Creswell, 2002</cite></p>
+                  <p><b>現象學</b><strong>≤10 次訪談；≥6 名參與者</strong><cite>Creswell, 1998; Morse, 1994</cite></p>
+                  <p><b>紮根理論</b><strong>15–20 或 20–30 人</strong><cite>Creswell, 2002; Creswell, 1998</cite></p>
+                  <p><b>民族誌</b><strong>1 個文化群體；30–50 次訪談</strong><cite>Creswell, 2002; Morse, 1994</cite></p>
+                  <p><b>行為觀察研究</b><strong>100–200 個觀察單位</strong><cite>Morse, 1994</cite></p>
+                </div>
+                <p class="sample-size-caution">把這些數字視為設計特定的起點。資訊豐富度、參與者特定性、所需差異及分析深度共同決定充分性；若飽和適合作為停止準則，應先界定並記錄它。</p>
+              </article>
+              <article id="sample-size-zh-focus-groups" class="sample-size-panel" data-sample-size-panel="focus-groups" hidden>
+                <header><span>研究方法層面的建議</span><h3>每個焦點小組的參與者人數</h3></header>
+                <div class="focus-group-ranges">
+                  <p><strong>6–9 人</strong><cite>Krueger, 2000</cite></p>
+                  <p><strong>6–10 人</strong><cite>Langford et al., 2002; Morgan, 1997</cite></p>
+                  <p><strong>6–12 人</strong><cite>Johnson &amp; Christensen, 2004; Bernard, 1995</cite></p>
+                  <p><strong>8–12 人</strong><cite>Baumgartner et al., 2002</cite></p>
+                </div>
+                <div class="formula-band formula-band-text"><strong>每組人數與小組數量是兩項不同的規劃問題</strong><small>每組需要足夠互動，也需要足夠小組涵蓋相關差異。</small></div>
+                <p class="sample-size-caution">報告各組參與者的組成方式，以及如何作出停止收集資料的決定。</p>
+              </article>
+              <article id="sample-size-zh-adjustments" class="sample-size-panel" data-sample-size-panel="adjustments" hidden>
+                <header><span>由規劃走向田野</span><h3>按照研究實際進行方式調整初始目標</h3></header>
+                <div class="sample-size-sequence" aria-label="樣本量調整流程"><span>主張</span><b>→</b><span>基礎 n</span><b>→</b><span>設計效應</span><b>→</b><span>流失</span><b>→</b><span>招募</span></div>
+                <div class="sample-size-notes"><p><b>叢集</b>參與者同屬班級、學校或場域時，組內成員可能較相似，因此應提高目標樣本量。</p><p><b>無回應或流失</b>招募人數應高於所需完整個案數。例如，預期留存率為 85%，若要保留 278 名參與者，招募目標約為 328 人。</p></div>
+                <p class="sample-size-caution">基礎 n 指初始統計模型要求的樣本量，尚未計入叢集、流失、不等比例分配或其他設計調整。</p>
               </article>
             </div>
           </div>
+          <p class="sample-size-source">建議彙整自 <a href="https://doi.org/10.2167/eri421.0" target="_blank" rel="noreferrer">Collins、Onwuegbuzie 與 Jiao（2006），表 2</a>。這些數字是規劃參考，使用時應檢查它們的假設是否適用於當前研究。</p>
         </div>
       </div>
     </section>
@@ -1552,11 +1622,18 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
   }
   .design-comparison article { min-height: 10.5rem; }
   .slide[data-title="Sample adequacy"] h2 { max-width: 100%; margin-bottom: var(--space-3xs); font-size: clamp(1.9rem, 3.3vw, 2.8rem); }
-  .sample-size-intro { max-width: 78ch; margin: 0 0 var(--space-3xs); color: var(--lr-muted); font-size: .74rem; line-height: 1.25; }
-  .sample-size-sequence { display: grid; grid-template-columns: repeat(9, auto); gap: var(--space-3xs); align-items: center; justify-content: start; margin-bottom: var(--space-2xs); padding-block: var(--space-3xs); border-block: 1px solid var(--lr-line); }
+  .slide[data-title="Sample adequacy"] [data-language] { width: 100%; min-width: 0; }
+  .sample-adequacy-definition { display: grid; min-width: 0; grid-template-columns: minmax(15rem, .82fr) minmax(0, 1.6fr); gap: var(--space-xs); align-items: stretch; margin-bottom: var(--space-2xs); padding-block: var(--space-2xs); border-block: 1px solid var(--lr-green-mid); }
+  .sample-adequacy-definition > p { margin: 0; color: var(--lr-muted); font-size: .7rem; line-height: 1.32; }
+  .sample-adequacy-definition > p strong { display: block; margin-bottom: var(--space-3xs); color: var(--lr-green); font: 700 .9rem/1.15 var(--font-display); }
+  .adequacy-criteria { display: grid; min-width: 0; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-3xs); }
+  .adequacy-criteria span { display: grid; min-width: 0; align-content: start; gap: var(--space-3xs); padding: var(--space-2xs); background: var(--lr-green-soft); color: var(--lr-muted); font-size: .58rem; line-height: 1.2; }
+  .adequacy-criteria b { color: var(--lr-green); font-size: .61rem; }
+  .sample-size-intro { max-width: 75ch; margin: 0 0 var(--space-3xs); color: var(--lr-muted); font-size: .7rem; line-height: 1.25; }
+  .sample-size-sequence { display: grid; grid-template-columns: repeat(9, auto); gap: var(--space-3xs); align-items: center; justify-content: start; margin: 0 0 var(--space-2xs); padding-block: var(--space-3xs); border-block: 1px solid var(--lr-line); }
   .sample-size-sequence span { color: var(--lr-green); font-size: .65rem; font-weight: 850; letter-spacing: .03em; white-space: nowrap; }
   .sample-size-sequence b { color: var(--lr-green-mid); font-size: .72rem; }
-  .sample-size-workbench { display: grid; min-width: 0; grid-template-columns: 12.5rem minmax(0, 1fr); gap: var(--space-2xs); }
+  .sample-size-workbench { display: grid; min-width: 0; grid-template-columns: 11.5rem minmax(0, 1fr); gap: var(--space-2xs); }
   .sample-size-routes { display: grid; min-width: 0; grid-template-rows: repeat(4, minmax(0, 1fr)); gap: var(--space-3xs); }
   .sample-size-routes button { display: grid; min-width: 0; min-height: 3.7rem; align-content: center; gap: var(--space-3xs); border: 1px solid var(--lr-line); border-block-start: var(--space-2xs) solid var(--lr-green-mid); padding: var(--space-2xs) var(--space-xs); background: var(--lr-green-pale); color: var(--lr-green); font-family: var(--font-body); text-align: start; cursor: pointer; transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
   .sample-size-routes button strong { font-size: .7rem; line-height: 1.1; white-space: nowrap; }
@@ -1566,12 +1643,12 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
   .sample-size-routes button:focus-visible { outline: .18rem solid var(--lr-warm); outline-offset: .14rem; }
   .sample-size-routes button:active { transform: translateY(1px); }
   .sample-size-routes button:disabled { cursor: not-allowed; opacity: .5; }
-  .sample-size-stage { min-width: 0; min-height: 16rem; border: 1px solid var(--lr-line); background: var(--lr-green-pale); }
-  .sample-size-empty { display: grid; min-height: 15.9rem; place-content: center; gap: var(--space-2xs); padding: var(--space-sm); text-align: center; }
+  .sample-size-stage { min-width: 0; min-height: 15rem; border: 1px solid var(--lr-line); background: var(--lr-green-pale); }
+  .sample-size-empty { display: grid; min-height: 14.9rem; place-content: center; gap: var(--space-2xs); padding: var(--space-sm); text-align: center; }
   .sample-size-empty[hidden] { display: none; }
   .sample-size-empty strong { color: var(--lr-green); font: 700 1.15rem/1.1 var(--font-display); }
   .sample-size-empty p { max-width: 44ch; margin: 0; color: var(--lr-muted); font-size: .72rem; line-height: 1.35; }
-  .sample-size-panel { display: grid; min-width: 0; gap: var(--space-2xs); padding: var(--space-xs); animation: sample-size-panel-in var(--dur-short) var(--ease-out) both; }
+  .sample-size-panel { display: grid; min-width: 0; gap: var(--space-2xs); padding: var(--space-2xs) var(--space-xs); animation: sample-size-panel-in var(--dur-short) var(--ease-out) both; }
   .sample-size-panel[hidden] { display: none; }
   .sample-size-panel header { display: grid; min-width: 0; gap: 0; }
   .sample-size-panel header span { color: var(--lr-warm); font-size: .58rem; font-weight: 850; letter-spacing: .08em; line-height: 1; text-transform: uppercase; }
@@ -1582,12 +1659,24 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
   .formula-band sub { font-size: .62em; }
   .formula-band-text { grid-template-columns: minmax(0, 1.35fr) minmax(0, .65fr); }
   .formula-band-text strong { font-size: .8rem; }
+  .recommendation-grid { display: grid; min-width: 0; gap: var(--space-3xs); }
+  .recommendation-grid--three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .recommendation-grid--five { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .recommendation-grid p { display: grid; min-width: 0; align-content: start; gap: var(--space-3xs); margin: 0; padding: var(--space-2xs); border-block-start: var(--space-3xs) solid var(--lr-green-mid); background: var(--lr-green-soft); color: var(--lr-muted); font-size: .58rem; line-height: 1.18; }
+  .recommendation-grid b { color: var(--lr-green); font-size: .6rem; }
+  .recommendation-grid strong { color: var(--lr-green); font: 700 .73rem/1.1 var(--font-display); }
+  .recommendation-grid cite, .focus-group-ranges cite { color: var(--lr-warm); font-size: .52rem; font-style: normal; line-height: 1.12; }
+  .focus-group-ranges { display: grid; min-width: 0; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-3xs); }
+  .focus-group-ranges p { display: grid; gap: var(--space-3xs); margin: 0; padding: var(--space-2xs); border-block: 1px solid var(--lr-line); text-align: center; }
+  .focus-group-ranges strong { color: var(--lr-green); font: 700 1.15rem/1 var(--font-display); font-variant-numeric: tabular-nums; }
   .sample-size-notes { display: grid; min-width: 0; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2xs); }
   .sample-size-notes p { margin: 0; padding: var(--space-2xs); border-block-start: var(--space-3xs) solid var(--lr-green-mid); color: var(--lr-muted); font-size: .64rem; line-height: 1.28; }
   .sample-size-notes b { display: block; margin-bottom: var(--space-3xs); color: var(--lr-green); font-size: .6rem; letter-spacing: .03em; text-transform: uppercase; }
-  .sample-size-notes strong { color: var(--lr-green); }
+  .sample-size-notes strong { display: block; margin-bottom: var(--space-3xs); color: var(--lr-green); }
   .sample-size-caution { margin: 0; color: var(--lr-muted); font-size: .61rem; line-height: 1.25; }
   .sample-size-caution::before { content: '△ '; color: var(--lr-warm); font-weight: 900; }
+  .sample-size-source, .sampling-source-note { margin: var(--space-3xs) 0 0; color: var(--lr-muted); font-size: .55rem; line-height: 1.2; }
+  .sample-size-source a, .sampling-source-note a { color: var(--lr-warm); font-weight: 750; }
 
   @keyframes sample-size-panel-in { from { opacity: 0; } to { opacity: 1; } }
 
@@ -1642,33 +1731,40 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
   .sampling-stack article { display: grid; grid-template-columns: minmax(13rem, .75fr) minmax(0, 1.4fr); gap: .8rem; padding: .65rem .8rem; border-left: .3rem solid var(--lr-green-mid); background: var(--lr-green-pale); }
   .sampling-stack span { color: var(--lr-muted); }
   .slide[data-title="Sampling methods map"] h2 { max-width: 100%; margin-bottom: var(--space-3xs); font-size: clamp(1.85rem, 3.2vw, 2.8rem); }
+  .slide[data-title="Sampling methods map"] [data-language] { width: 100%; min-width: 0; }
   .slide[data-title="Sampling methods map"] .intro-line { max-width: 72ch; margin-bottom: var(--space-2xs); font-size: .76rem; line-height: 1.3; }
-  .sampling-explorer { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(17rem, .7fr); gap: var(--space-2xs); min-width: 0; }
-  .sampling-map { position: relative; min-width: 0; min-height: 24.5rem; padding-top: calc(var(--space-xl) + var(--space-md)); }
-  .sampling-root { position: absolute; inset-block-start: 0; inset-inline-start: 50%; z-index: 2; display: grid; width: 9rem; min-height: 3.4rem; place-content: center; border: 1px solid var(--lr-green-mid); border-radius: 50%; background: var(--lr-green-mid); color: var(--lr-green-pale); text-align: center; transform: translateX(-50%); }
-  .sampling-root::after { content: ''; position: absolute; inset-block-start: 100%; inset-inline-start: 50%; width: 1px; height: 1.2rem; background: var(--lr-line); }
+  .sampling-explorer { display: grid; width: 100%; max-width: 100%; grid-template-columns: minmax(10rem, .95fr) minmax(9rem, .78fr) 5rem minmax(17rem, 1.25fr) minmax(10rem, .95fr); gap: var(--space-2xs); min-width: 0; align-items: center; }
+  .sampling-root { position: relative; z-index: 2; display: grid; width: 5.4rem; height: 5.4rem; place-content: center; border: 1px solid var(--lr-green-mid); border-radius: 50%; background: var(--lr-green-mid); color: var(--lr-green-pale); text-align: center; }
+  .sampling-root::before, .sampling-root::after { content: ''; position: absolute; inset-block-start: 50%; width: var(--space-2xs); height: 1px; background: var(--lr-line); }
+  .sampling-root::before { inset-inline-end: 100%; }
+  .sampling-root::after { inset-inline-start: 100%; }
   .sampling-root strong { font: 700 .86rem/1.05 var(--font-display); }
   .sampling-root span { margin-top: var(--space-3xs); font-size: .56rem; line-height: 1.1; }
-  .sampling-families { position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2xs); height: 100%; }
-  .sampling-families::before { content: ''; position: absolute; inset-block-start: -.65rem; inset-inline: 25%; height: 1px; background: var(--lr-line); }
   .sampling-family { position: relative; display: grid; min-width: 0; align-content: start; gap: var(--space-2xs); padding: var(--space-2xs); border: 1px solid var(--lr-line); background: var(--lr-green-pale); }
-  .sampling-family::before { content: ''; position: absolute; inset-block-end: 100%; inset-inline-start: 50%; width: 1px; height: .65rem; background: var(--lr-line); }
+  .sampling-family::before, .sampling-family::after { content: ''; position: absolute; inset-block-start: 50%; width: var(--space-2xs); height: 1px; background: var(--lr-line); }
+  .sampling-family::before { inset-inline-end: 100%; }
+  .sampling-family::after { inset-inline-start: 100%; }
   .sampling-family-nonprobability { background: var(--lr-green-soft); }
   .sampling-family > header { display: grid; justify-items: center; gap: 0; min-width: 0; text-align: center; }
   .sampling-family > header strong { color: var(--lr-green); font: 700 1rem/1.05 var(--font-display); }
   .sampling-family > header span { color: var(--lr-muted); font-size: .62rem; line-height: 1.1; }
   .sampling-method-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2xs); }
-  .sampling-method-grid button { min-width: 0; min-height: 4.25rem; border: 1px solid var(--lr-line); border-radius: 50%; padding: var(--space-3xs); background: var(--lr-green-pale); color: var(--lr-green); font-family: var(--font-body); font-size: .68rem; font-weight: 850; line-height: 1; white-space: nowrap; cursor: pointer; transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out), opacity var(--dur-micro) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
+  .sampling-family-nonprobability .sampling-method-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .sampling-method-grid :is(button, .sampling-method-note) { display: grid; min-width: 0; min-height: 2.75rem; place-items: center; border: 1px solid var(--lr-line); border-radius: 50%; padding: var(--space-3xs); background: var(--lr-green-pale); color: var(--lr-green); font-family: var(--font-body); font-size: .55rem; font-weight: 850; line-height: 1.05; text-align: center; overflow-wrap: anywhere; }
+  .sampling-method-grid button { cursor: pointer; transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out), opacity var(--dur-micro) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
+  .sampling-method-note { border-style: dashed; background: color-mix(in srgb, var(--lr-green-soft) 62%, var(--lr-green-pale)); color: var(--lr-muted); }
+  .sampling-method-note--long { font-size: .46rem; line-height: 1.02; }
   .sampling-method-grid button[aria-pressed="true"], .sampling-method-grid button[data-state="success"] { border-style: double; background: var(--lr-green-mid); color: var(--lr-green-pale); }
   .sampling-method-grid button[data-state="error"] { border-style: double; border-color: var(--lr-warm); }
   .sampling-method-grid button[data-state="loading"] { cursor: progress; opacity: .72; }
   .sampling-method-grid button:focus-visible { outline: .18rem solid var(--lr-warm); outline-offset: .14rem; }
   .sampling-method-grid button:active { transform: translateY(1px); }
   .sampling-method-grid button:disabled { cursor: not-allowed; opacity: .45; }
-  .sampling-more { align-self: end; margin: 0; padding-top: var(--space-3xs); border-top: 1px dashed var(--lr-line); color: var(--lr-muted); font-size: .59rem; line-height: 1.2; text-align: center; }
-  .sampling-more b { color: var(--lr-green); }
-  .sampling-detail-stage { min-width: 0; min-height: 24.5rem; border: 1px solid var(--lr-line); background: var(--lr-green-pale); }
-  .sampling-detail-empty { display: grid; min-height: 24.4rem; place-content: center; gap: var(--space-2xs); padding: var(--space-sm); text-align: center; }
+  .sampling-detail-stage { position: relative; min-width: 0; min-height: 28.5rem; border: 1px solid var(--lr-line); background: var(--lr-green-pale); }
+  .sampling-detail-stage::after { content: ''; position: absolute; inset-block-start: 50%; width: var(--space-2xs); height: 1px; background: var(--lr-line); }
+  .sampling-detail-stage--left::after { inset-inline-start: 100%; }
+  .sampling-detail-stage--right::after { inset-inline-end: 100%; }
+  .sampling-detail-empty { display: grid; min-height: 28.4rem; place-content: center; gap: var(--space-2xs); padding: var(--space-xs); text-align: center; }
   .sampling-detail-empty[hidden] { display: none; }
   .sampling-detail-empty strong { color: var(--lr-green); font: 700 1.15rem/1.1 var(--font-display); }
   .sampling-detail-empty p { max-width: 32ch; margin: 0; color: var(--lr-muted); font-size: .76rem; line-height: 1.35; }
@@ -1804,11 +1900,20 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
     .family-stage, .family-stage-empty, .family-inquiry { min-height: 15rem; }
     .design-token-bank { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .paper-match-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .sampling-explorer { grid-template-columns: minmax(0, 1fr); }
-    .sampling-map, .sampling-detail-stage, .sampling-detail-empty { min-height: 0; }
+    .sampling-explorer { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
+    .sampling-root { grid-column: 1 / -1; justify-self: center; order: 0; }
+    .sampling-family-probability { order: 1; }
+    .sampling-family-nonprobability { order: 2; }
+    .sampling-detail-stage--left { order: 3; }
+    .sampling-detail-stage--right { order: 4; }
+    .sampling-root::before, .sampling-root::after, .sampling-family::before, .sampling-family::after, .sampling-detail-stage::after { display: none; }
+    .sampling-detail-stage, .sampling-detail-empty { min-height: 15rem; }
+    .sample-adequacy-definition { grid-template-columns: minmax(0, 1fr); }
+    .adequacy-criteria { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .sample-size-workbench { grid-template-columns: minmax(0, 1fr); }
     .sample-size-routes { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: none; }
     .sample-size-stage, .sample-size-empty { min-height: 0; }
+    .recommendation-grid--five { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .target-patterns { gap: var(--space-2xs); }
     .quality-terminology-map { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
     .quality-map-bridge { display: none; }
@@ -1843,13 +1948,18 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
     .design-token-bank, .paper-match-grid { grid-template-columns: 1fr; }
     .paper-study { min-height: 0; }
     .paper-match-footer { align-items: flex-start; flex-direction: column; }
-    .sampling-map { padding-top: 0; }
-    .sampling-root { position: relative; inset-inline-start: auto; width: 8rem; margin: 0 auto var(--space-2xs); transform: none; }
-    .sampling-root::after, .sampling-families::before, .sampling-family::before { display: none; }
-    .sampling-families { grid-template-columns: minmax(0, 1fr); height: auto; }
-    .sampling-detail-empty { min-height: 9rem; }
-    .sample-size-sequence { grid-template-columns: repeat(5, auto); }
-    .sample-size-sequence b:nth-of-type(n+3), .sample-size-sequence span:nth-of-type(n+4) { display: none; }
+    .sampling-explorer { grid-template-columns: minmax(0, 1fr); }
+    .sampling-root { grid-column: auto; }
+    .sampling-family-probability { order: 1; }
+    .sampling-detail-stage--left { order: 2; }
+    .sampling-family-nonprobability { order: 3; }
+    .sampling-detail-stage--right { order: 4; }
+    .sampling-detail-stage, .sampling-detail-empty { min-height: 0; }
+    .sampling-detail-empty { padding-block: var(--space-sm); }
+    .sampling-family-nonprobability .sampling-method-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .adequacy-criteria, .recommendation-grid--three, .recommendation-grid--five, .focus-group-ranges { grid-template-columns: minmax(0, 1fr); }
+    .sample-size-sequence { display: flex; flex-wrap: wrap; }
+    .sample-size-sequence b:nth-of-type(n+3), .sample-size-sequence span:nth-of-type(n+4) { display: inline; }
     .formula-band, .formula-band-text, .sample-size-notes { grid-template-columns: minmax(0, 1fr); }
     .validity-tabs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .validity-tabs button { min-width: 0; padding-inline: var(--space-2xs); font-size: .6rem; }

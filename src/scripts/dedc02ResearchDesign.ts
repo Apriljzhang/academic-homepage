@@ -284,16 +284,24 @@ document.querySelectorAll<HTMLElement>('[data-design-match]').forEach((activity)
 document.querySelectorAll<HTMLElement>('[data-sampling-explorer]').forEach((explorer) => {
   const methods = Array.from(explorer.querySelectorAll<HTMLButtonElement>('[data-sampling-method]'));
   const panels = Array.from(explorer.querySelectorAll<HTMLElement>('[data-sampling-panel]'));
-  const empty = explorer.querySelector<HTMLElement>('[data-sampling-empty]');
+  const emptyStates = Array.from(explorer.querySelectorAll<HTMLElement>('[data-sampling-empty]'));
 
   methods.forEach((method) => {
     method.addEventListener('click', () => {
       const selected = method.dataset.samplingMethod || '';
-      methods.forEach((item) => item.setAttribute('aria-pressed', String(item === method)));
-      panels.forEach((panel) => {
-        panel.hidden = panel.dataset.samplingPanel !== selected;
-      });
-      if (empty) empty.hidden = true;
+      const wasSelected = method.getAttribute('aria-pressed') === 'true';
+
+      methods.forEach((item) => item.setAttribute('aria-pressed', 'false'));
+      panels.forEach((panel) => { panel.hidden = true; });
+
+      if (wasSelected) {
+        emptyStates.forEach((empty) => { empty.hidden = false; });
+        return;
+      }
+
+      method.setAttribute('aria-pressed', 'true');
+      panels.forEach((panel) => { panel.hidden = panel.dataset.samplingPanel !== selected; });
+      emptyStates.forEach((empty) => { empty.hidden = true; });
     });
   });
 });
