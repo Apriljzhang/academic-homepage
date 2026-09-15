@@ -6,6 +6,144 @@ import '../../../../styles/dedc02-literature-review.css';
 const title = '4. Research Design & Alignment · DEDC02';
 const description = 'An interactive lesson on frameworks, research design, sampling, validity, trustworthiness and methodological alignment.';
 const courseHref = withBase('/teaching/courses/dedc02');
+const probabilitySamplingVisual = withBase('/teaching/courses/dedc02/assets/sampling-probability-methods.png');
+const nonProbabilitySamplingVisual = withBase('/teaching/courses/dedc02/assets/sampling-non-probability-methods.png');
+const qualityTerms = [
+  {
+    id: 'quant-reliability', family: 'quant', labelEn: 'Reliability', labelZh: '信度',
+    mapEn: 'internal consistency · stability/test-retest · inter-rater/equivalent forms · measurement error',
+    mapZh: '內部一致性 · 穩定性／重測 · 評分者間／等值形式 · 測量誤差',
+    indicatorEn: 'Scores or ratings remain sufficiently consistent under the conditions in which they will be interpreted.',
+    indicatorZh: '分數或評分在預定詮釋條件下保持足夠一致。',
+    issueEn: 'Random error, instrument drift, unstable administration or disagreement among raters.',
+    issueZh: '隨機誤差、工具漂移、施測不穩定或評分者之間不一致。',
+    strategiesEn: ['Standardise administration and scoring', 'Train and calibrate observers or raters', 'Estimate the relevant evidence: omega/alpha, test-retest, inter-rater agreement or measurement error'],
+    strategiesZh: ['標準化施測與評分程序', '培訓及校準觀察者或評分者', '按用途估計相關證據：omega／alpha、重測信度、評分者間一致性或測量誤差']
+  },
+  {
+    id: 'quant-construct', family: 'quant', labelEn: 'Construct validity', labelZh: '構念效度',
+    mapEn: 'content/face · structural · convergent/discriminant · criterion: concurrent/predictive',
+    mapZh: '內容／表面 · 結構 · 聚合／區辨 · 效標：同時／預測',
+    indicatorEn: 'The content, structure and relationships of scores accord with the intended construct and use.',
+    indicatorZh: '分數的內容、結構及關係符合預定構念與用途。',
+    issueEn: 'Construct under-representation, irrelevant variance, method effects or an ill-fitting score structure.',
+    issueZh: '構念代表不足、無關變異、方法效應或分數結構不相符。',
+    strategiesEn: ['Map items and indicators to theory', 'Use expert and participant review, piloting or cognitive interviews', 'Test structural, convergent, discriminant and criterion-related evidence'],
+    strategiesZh: ['把題項與指標對應至理論', '採用專家及參與者審查、先導測試或認知訪談', '檢驗結構、聚合、區辨及效標關聯證據']
+  },
+  {
+    id: 'quant-internal', family: 'quant', labelEn: 'Internal validity', labelZh: '內部效度',
+    mapEn: 'causal warrant · confounding · selection · history/maturation · contamination',
+    mapZh: '因果理據 · 混淆 · 選擇 · 歷史／成熟 · 污染',
+    indicatorEn: 'The observed difference can plausibly be attributed to the proposed cause rather than a rival explanation.',
+    indicatorZh: '觀察到的差異可合理歸因於所提出的原因，而非其他競爭性解釋。',
+    issueEn: 'Confounding, selection bias, history, maturation, differential attrition or treatment contamination.',
+    issueZh: '混淆、選擇偏誤、歷史、成熟、差異流失或處理污染。',
+    strategiesEn: ['Randomise when the claim and context permit', 'Use defensible comparison, baseline and timing structures', 'Standardise procedures, blind where feasible and run sensitivity checks'],
+    strategiesZh: ['在主張與情境容許時採用隨機化', '採用具理據的比較、基線及時間結構', '標準化程序，在可行情況下設盲並進行敏感度檢查']
+  },
+  {
+    id: 'quant-external', family: 'quant', labelEn: 'External validity', labelZh: '外部效度',
+    mapEn: 'population · setting · time · treatment · outcome boundaries',
+    mapZh: '群體 · 場域 · 時間 · 處理 · 結果邊界',
+    indicatorEn: 'The sample, setting and conditions make the intended scope of generalisation defensible and explicit.',
+    indicatorZh: '樣本、場域及條件使預定推廣範圍具有理據並清晰可見。',
+    issueEn: 'A narrow or selected sample, context-specific effects, or claims that travel beyond the evidence.',
+    issueZh: '樣本狹窄或受選擇、效果依賴情境，或主張超越證據邊界。',
+    strategiesEn: ['Align sampling with the target population', 'Describe context and inclusion boundaries', 'Replicate across settings and examine heterogeneity before extending claims'],
+    strategiesZh: ['使抽樣對齊目標群體', '描述情境及納入邊界', '在不同場域重複研究並檢視異質性後才延伸主張']
+  },
+  {
+    id: 'quant-statistical', family: 'quant', labelEn: 'Statistical conclusion validity', labelZh: '統計結論效度',
+    mapEn: 'power · precision · model assumptions · multiplicity · missingness',
+    mapZh: '功效 · 精確度 · 模型假設 · 多重檢驗 · 缺失資料',
+    indicatorEn: 'Estimates are sufficiently precise and the analysis supports the stated statistical inference.',
+    indicatorZh: '估計具有足夠精確度，而分析能支持所述統計推論。',
+    issueEn: 'Low power, model misspecification, assumption violations, multiple testing or biased missing data.',
+    issueZh: '功效不足、模型錯設、違反假設、多重檢驗或具偏誤的缺失資料。',
+    strategiesEn: ['Plan power or precision before collection', 'Check assumptions and model fit', 'Report effect sizes and intervals; pre-plan missing-data and multiplicity decisions'],
+    strategiesZh: ['在蒐集資料前規劃功效或精確度', '檢查假設與模型配適', '報告效果量與區間，並預先規劃缺失資料及多重檢驗決策']
+  },
+  {
+    id: 'qual-credibility', family: 'qual', labelEn: 'Credibility', labelZh: '可信性',
+    mapEn: 'evidence–interpretation fit · engagement · participant meanings',
+    mapZh: '證據－詮釋配合 · 投入 · 參與者意義',
+    indicatorEn: 'Interpretations are well grounded in relevant evidence and offer a plausible account of participants’ meanings or the phenomenon.',
+    indicatorZh: '詮釋充分植根於相關證據，並對參與者意義或研究現象提出可信解釋。',
+    issueEn: 'Shallow engagement, leading data collection, unsupported themes or selective attention to confirming material.',
+    issueZh: '投入不足、引導式資料蒐集、主題缺乏支持，或只關注確認既有觀點的材料。',
+    strategiesEn: ['Sustain engagement appropriate to the design', 'Use triangulation only where sources or perspectives genuinely complement one another', 'Treat participant feedback as further evidence; pursue negative cases and peer debriefing'],
+    strategiesZh: ['按研究設計保持合適而充分的投入', '只在資料來源或觀點真正互補時採用三角互證', '把參與者回饋視為新增證據，並追查負面個案及進行同儕檢視']
+  },
+  {
+    id: 'qual-dependability', family: 'qual', labelEn: 'Dependability', labelZh: '依賴性',
+    mapEn: 'coherent process · documented change · audit trail',
+    mapZh: '過程連貫 · 變更有記錄 · 審查軌跡',
+    indicatorEn: 'The research process is logical, traceable and documented well enough to understand how decisions developed.',
+    indicatorZh: '研究過程合乎邏輯、可追溯，並有足夠記錄說明決策如何發展。',
+    issueEn: 'Unrecorded changes, inconsistent interviewing or coding, and decisions that cannot be reconstructed.',
+    issueZh: '變更未被記錄、訪談或編碼不一致，以及無法重建的決策。',
+    strategiesEn: ['Maintain an audit trail and decision log', 'Use protocols, analytic memos and versioned coding structures', 'Use code-recode or stepwise peer review when compatible with the analytic approach'],
+    strategiesZh: ['保存審查軌跡及決策日誌', '採用研究程序、分析備忘錄及版本化編碼結構', '在符合分析取向時採用重新編碼或分階段同儕檢視']
+  },
+  {
+    id: 'qual-confirmability', family: 'qual', labelEn: 'Confirmability', labelZh: '可確認性',
+    mapEn: 'traceability to evidence · neutrality through reflexive accountability',
+    mapZh: '可追溯至證據 · 透過反思責任維持中立',
+    indicatorEn: 'Readers can trace interpretations to evidence and see how researcher assumptions were examined.',
+    indicatorZh: '讀者能把詮釋追溯至證據，並看出研究者如何檢視自身假設。',
+    issueEn: 'Cherry-picking, undocumented interpretive leaps or unchecked researcher preferences.',
+    issueZh: '選擇性取材、詮釋跳躍沒有記錄，或研究者偏好未經檢視。',
+    strategiesEn: ['Link claims to excerpts, cases and analytic records', 'Keep reflexive journals and positionality records', 'Invite audit or peer challenge of interpretations'],
+    strategiesZh: ['把主張連結至摘錄、個案及分析記錄', '保存反思日誌及位置性記錄', '邀請審查或同儕挑戰研究詮釋']
+  },
+  {
+    id: 'qual-transferability', family: 'qual', labelEn: 'Transferability', labelZh: '可轉移性',
+    mapEn: 'thick context · purposeful variation · boundary conditions',
+    mapZh: '厚實情境 · 目的性差異 · 邊界條件',
+    indicatorEn: 'Context and case characteristics are described well enough for readers to judge relevance elsewhere.',
+    indicatorZh: '情境與個案特徵描述充分，讓讀者判斷研究在其他地方的相關性。',
+    issueEn: 'Thin contextual description, hidden sampling logic or universal claims from situated accounts.',
+    issueZh: '情境描述薄弱、抽樣邏輯隱藏，或由特定情境敘述作出普遍主張。',
+    strategiesEn: ['Provide thick description of setting, participants and conditions', 'Explain purposeful sampling and variation sought', 'State boundary conditions and invite case-to-case comparison'],
+    strategiesZh: ['厚實描述場域、參與者及條件', '說明目的抽樣及所尋求的差異', '列明邊界條件，讓讀者進行個案間比較']
+  },
+  {
+    id: 'qual-reflexivity', family: 'qual', labelEn: 'Reflexivity & authenticity', labelZh: '反思性與真實性',
+    mapEn: 'positionality · relationships · power · diverse voices',
+    mapZh: '位置性 · 關係 · 權力 · 多元聲音',
+    indicatorEn: 'Researcher position, relationships and influence are visible, while differing perspectives are represented fairly.',
+    indicatorZh: '研究者的位置、關係及影響清晰可見，而不同觀點得到公平呈現。',
+    issueEn: 'Role blindness, unequal power, a dominant single voice or representation detached from participants’ contexts.',
+    issueZh: '忽略自身角色、權力不平等、單一聲音主導，或呈現脫離參與者情境。',
+    strategiesEn: ['Write a situated positionality account', 'Document relationships and reflexive decisions throughout the study', 'Seek discordant and less-heard perspectives; examine how representation was produced'],
+    strategiesZh: ['撰寫具情境的位置性說明', '持續記錄研究關係及反思決策', '尋找不一致及較少被聽見的觀點，並檢視研究呈現如何形成']
+  },
+  {
+    id: 'qual-challenge', family: 'qual', labelEn: 'Challenge', labelZh: '挑戰',
+    mapEn: 'negative cases · rival interpretations · tensions',
+    mapZh: '負面個案 · 競爭性詮釋 · 張力',
+    indicatorEn: 'The analysis actively tests its developing account against contradictions and plausible alternatives.',
+    indicatorZh: '分析主動以矛盾證據及合理替代解釋檢驗逐步形成的說法。',
+    issueEn: 'Premature closure, confirmation bias or smoothing away contradictions and minority cases.',
+    issueZh: '過早定論、確認偏誤，或把矛盾及少數個案抹平。',
+    strategiesEn: ['Search systematically for deviant or negative cases', 'Develop and compare rival explanations', 'Use peer debriefing or alternative coding to pressure-test the account'],
+    strategiesZh: ['有系統地尋找偏離或負面個案', '發展並比較競爭性解釋', '透過同儕檢視或替代編碼測試研究解釋']
+  },
+  {
+    id: 'qual-transparency', family: 'qual', labelEn: 'Transparency & analyzability', labelZh: '透明度與可分析性',
+    mapEn: 'collection → processing → interpretation → reporting',
+    mapZh: '蒐集 → 處理 → 詮釋 → 報告',
+    indicatorEn: 'Readers can follow how evidence moved from collection through processing and analysis into the reported claims.',
+    indicatorZh: '讀者能追蹤證據如何由蒐集、處理與分析轉化為報告中的主張。',
+    issueEn: 'Black-box coding, selective reporting, undocumented procedural changes or an unclear evidence-to-claim chain.',
+    issueZh: '黑箱式編碼、選擇性報告、程序變更沒有記錄，或證據至主張的連結不清。',
+    strategiesEn: ['Describe collection and analytic procedures with reasons', 'Record changes, code development and interpretation steps', 'Use evidence displays or excerpts and report limitations transparently'],
+    strategiesZh: ['說明資料蒐集及分析程序與理由', '記錄變更、編碼發展及詮釋步驟', '採用證據展示或摘錄，並透明報告限制']
+  }
+];
+const quantitativeQualityTerms = qualityTerms.filter((term) => term.family === 'quant');
+const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'qual');
 ---
 
 <CourseSlideLayout {title} {description}>
@@ -306,24 +444,80 @@ const courseHref = withBase('/teaching/courses/dedc02');
 
     <section class="slide" data-title="Methodology, design and methods" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Do not collapse the levels</span></header>
+        <header class="slide-header"><span class="eyebrow">Pause · predict · reveal</span></header>
         <div data-language="en">
           <h2>Three related decisions</h2>
-          <div class="grid-3 level-cards">
-            <article class="panel accent"><span>WHY</span><h3>Methodology</h3><p>The rationale and principles governing how knowledge will be produced.</p></article>
-            <article class="panel accent"><span>ARCHITECTURE</span><h3>Research design</h3><p>The overall structure connecting questions, evidence, comparison, timing and inference.</p></article>
-            <article class="panel accent"><span>HOW</span><h3>Methods</h3><p>The procedures used to generate and analyse particular forms of data.</p></article>
+          <p class="decision-instruction">Read each question first. Commit to an answer, then open the card.</p>
+          <div class="decision-reveal-grid">
+            <details class="decision-reveal" name="decision-level-en">
+              <summary><span class="decision-kicker">Worldview</span><h3>Methodology</h3><p>What counts as knowledge, and how can we know it?</p></summary>
+              <div class="decision-answer"><p><strong>Broad and philosophical.</strong> The worldview and principles guiding how knowledge is produced.</p><p class="decision-examples">Positivism · interpretivism · constructivism · pragmatism</p></div>
+            </details>
+            <details class="decision-reveal decision-reveal--centre" name="decision-level-en">
+              <summary><span class="decision-kicker">Blueprint</span><h3>Research design</h3><p>How will the study be structured to answer the question?</p></summary>
+              <div class="decision-answer"><p><strong>Strategic and structural.</strong> The plan connecting questions, evidence, comparison, timing and inference.</p><p class="decision-examples">Experiment · descriptive survey · correlational study · case study</p></div>
+            </details>
+            <details class="decision-reveal" name="decision-level-en">
+              <summary><span class="decision-kicker">Tools</span><h3>Research methods</h3><p>Which procedures will generate and analyse the required evidence?</p></summary>
+              <div class="decision-answer"><p><strong>Specific and practical.</strong> The procedures and techniques used to generate and analyse data.</p><p class="decision-examples">Questionnaire · interview · observation · statistical analysis</p></div>
+            </details>
           </div>
-          <p class="takeaway">“I will use interviews” states a method. It does not yet state or justify a research design.</p>
+          <div class="connected-example">
+            <div class="connected-example-head"><span>One study, three aligned choices</span><p><strong>Example question:</strong> How satisfied are secondary students with AI-supported feedback?</p></div>
+            <div class="example-chain" aria-label="Connected example from methodology to methods">
+              <details class="example-step">
+                <summary><span>1</span><strong>Methodology</strong><small>Which worldview fits?</small></summary>
+                <p><strong>Positivist orientation</strong> — satisfaction is treated as a measurable pattern across learners.</p>
+              </details>
+              <span class="example-arrow" aria-hidden="true">→</span>
+              <details class="example-step">
+                <summary><span>2</span><strong>Research design</strong><small>Which blueprint follows?</small></summary>
+                <p><strong>Quantitative descriptive survey</strong> — estimates how satisfaction is distributed in the defined student population.</p>
+              </details>
+              <span class="example-arrow" aria-hidden="true">→</span>
+              <details class="example-step">
+                <summary><span>3</span><strong>Methods</strong><small>Which tools provide the evidence?</small></summary>
+                <p><strong>Structured questionnaire + descriptive statistics</strong> — Likert items; frequencies, percentages, mean and spread.</p>
+              </details>
+            </div>
+          </div>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
           <h2>三個相關但不同的決策</h2>
-          <div class="grid-3 level-cards">
-            <article class="panel accent"><span>為何</span><h3>方法論</h3><p>規範研究如何產生知識的理據與原則。</p></article>
-            <article class="panel accent"><span>架構</span><h3>研究設計</h3><p>把研究問題、證據、比較、時序與推論連結起來的整體結構。</p></article>
-            <article class="panel accent"><span>如何</span><h3>方法</h3><p>產生及分析特定資料形式的程序。</p></article>
+          <p class="decision-instruction">先閱讀每張卡片的問題，想好自己的答案，再點擊揭示。</p>
+          <div class="decision-reveal-grid">
+            <details class="decision-reveal" name="decision-level-zh">
+              <summary><span class="decision-kicker">世界觀</span><h3>方法論</h3><p>甚麼算作知識？我們如何認識它？</p></summary>
+              <div class="decision-answer"><p><strong>廣泛而具哲學性。</strong>指導研究如何產生知識的世界觀與原則。</p><p class="decision-examples">實證主義 · 詮釋主義 · 建構主義 · 實用主義</p></div>
+            </details>
+            <details class="decision-reveal decision-reveal--centre" name="decision-level-zh">
+              <summary><span class="decision-kicker">藍圖</span><h3>研究設計</h3><p>研究應如何組織，才能回答研究問題？</p></summary>
+              <div class="decision-answer"><p><strong>策略性與結構性。</strong>把研究問題、證據、比較、時序與推論連結起來的計劃。</p><p class="decision-examples">實驗 · 描述性調查 · 相關研究 · 個案研究</p></div>
+            </details>
+            <details class="decision-reveal" name="decision-level-zh">
+              <summary><span class="decision-kicker">工具</span><h3>研究方法</h3><p>哪些程序能產生及分析所需證據？</p></summary>
+              <div class="decision-answer"><p><strong>具體而實際。</strong>用來產生及分析資料的程序與技術。</p><p class="decision-examples">問卷 · 訪談 · 觀察 · 統計分析</p></div>
+            </details>
           </div>
-          <p class="takeaway">「我會進行訪談」只說明方法，尚未說明或論證研究設計。</p>
+          <div class="connected-example">
+            <div class="connected-example-head"><span>一項研究，三個對齊的選擇</span><p><strong>例題：</strong>中學生對人工智能輔助回饋的滿意程度如何？</p></div>
+            <div class="example-chain" aria-label="從方法論到研究方法的連貫例子">
+              <details class="example-step">
+                <summary><span>1</span><strong>方法論</strong><small>哪種世界觀合適？</small></summary>
+                <p><strong>實證主義取向</strong>——把滿意度視為可在學習者群體中測量的模式。</p>
+              </details>
+              <span class="example-arrow" aria-hidden="true">→</span>
+              <details class="example-step">
+                <summary><span>2</span><strong>研究設計</strong><small>由此需要哪種藍圖？</small></summary>
+                <p><strong>量化描述性調查設計</strong>——估計已界定學生群體中滿意度的分布。</p>
+              </details>
+              <span class="example-arrow" aria-hidden="true">→</span>
+              <details class="example-step">
+                <summary><span>3</span><strong>研究方法</strong><small>哪些工具提供證據？</small></summary>
+                <p><strong>結構式問卷＋描述統計</strong>——Likert 題項；頻數、百分比、平均數與離散程度。</p>
+              </details>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -384,150 +578,126 @@ const courseHref = withBase('/teaching/courses/dedc02');
       </div>
     </section>
 
-    <section class="slide" data-title="Descriptive and survey designs" aria-hidden="true">
+    <section class="slide" data-title="Interactive design family spider map" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Design family</span></header>
-        <div data-language="en">
-          <h2>Describe a population, condition or pattern</h2>
-          <div class="grid-3">
-            <article class="panel accent"><h3>Best suited to</h3><p>Prevalence, distributions, characteristics, attitudes or reported practices.</p></article>
-            <article class="panel accent"><h3>Design decisions</h3><p>Target population, sampling frame, measurement quality and response coverage.</p></article>
-            <article class="panel accent"><h3>Claim boundary</h3><p>A one-time survey can describe or associate; it usually cannot establish that one variable caused another.</p></article>
+        <header class="slide-header"><span class="eyebrow">Design families · Explore one branch</span></header>
+        <div data-language="en" data-design-family-map>
+          <h2>One landscape, six design routes</h2>
+          <p class="family-map-instruction">Choose the bubble that best matches the intended claim. Its next layer will spread out below.</p>
+          <div class="family-spider" aria-label="Six research design families">
+            <svg class="family-spider-lines" viewBox="0 0 1000 240" aria-hidden="true" focusable="false"><path d="M500 120 150 46M500 120 500 38M500 120 850 46M500 120 150 194M500 120 500 202M500 120 850 194" /></svg>
+            <div class="family-spider-core"><span>Research<br />question</span><small>intended claim</small></div>
+            <button class="family-bubble family-bubble--1" type="button" data-family-select="descriptive-en" aria-controls="descriptive-en" aria-pressed="false"><strong>Descriptive / survey</strong><small>Pattern or estimate</small></button>
+            <button class="family-bubble family-bubble--2" type="button" data-family-select="correlational-en" aria-controls="correlational-en" aria-pressed="false"><strong>Correlational</strong><small>Association or prediction</small></button>
+            <button class="family-bubble family-bubble--3" type="button" data-family-select="experimental-en" aria-controls="experimental-en" aria-pressed="false"><strong>Experimental / quasi</strong><small>Difference or effect</small></button>
+            <button class="family-bubble family-bubble--4" type="button" data-family-select="case-en" aria-controls="case-en" aria-pressed="false"><strong>Case study</strong><small>Bounded complexity</small></button>
+            <button class="family-bubble family-bubble--5" type="button" data-family-select="experience-en" aria-controls="experience-en" aria-pressed="false"><strong>Phenomenology / narrative</strong><small>Experience or story</small></button>
+            <button class="family-bubble family-bubble--6 family-bubble--long" type="button" data-family-select="process-en" aria-controls="process-en" aria-pressed="false"><strong>Ethnography / grounded theory / action research</strong><small>Culture, process or change</small></button>
           </div>
-          <p class="instruction"><strong>Ask:</strong> Whom should the estimate represent, and does the achieved sample support that scope?</p>
+          <div class="family-detail" data-family-detail aria-live="polite">
+            <p class="family-detail-prompt" data-family-prompt>Select a design-family bubble to examine its purpose, decisions, evidence and claim boundary.</p>
+            <section class="family-branch" id="descriptive-en" data-family-branch hidden>
+              <article><h3>Best suited to</h3><p>Prevalence, distributions, characteristics, attitudes or reported practices.</p></article>
+              <article><h3>Design decisions</h3><p>Target population, sampling frame, measurement quality and response coverage.</p></article>
+              <div class="family-branch-centre"><svg viewBox="0 0 96 72" aria-hidden="true" focusable="false"><path d="M15 58V14M15 58H82"/><rect x="25" y="39" width="10" height="19"/><rect x="43" y="28" width="10" height="30"/><rect x="61" y="18" width="10" height="40"/></svg><strong>Describe</strong><small>a population or pattern</small></div>
+              <article><h3>Claim boundary</h3><p>A one-time survey can describe or associate; it usually cannot establish causation.</p></article>
+              <article><h3>Ask</h3><p>Whom should the estimate represent, and does the achieved sample support that scope?</p></article>
+            </section>
+            <section class="family-branch" id="correlational-en" data-family-branch hidden>
+              <article><h3>Best suited to</h3><p>Whether variables move together and whether one set helps predict another.</p></article>
+              <article><h3>Design decisions</h3><p>Construct definition, temporal ordering, plausible confounders and a justified model.</p></article>
+              <div class="family-branch-centre"><svg viewBox="0 0 96 72" aria-hidden="true" focusable="false"><path d="M14 58 80 16"/><circle cx="24" cy="50" r="4"/><circle cx="38" cy="39" r="4"/><circle cx="51" cy="42" r="4"/><circle cx="64" cy="25" r="4"/><circle cx="77" cy="20" r="4"/></svg><strong>Relate</strong><small>variation and association</small></div>
+              <article><h3>Claim boundary</h3><p>Prediction is not automatically explanation; association is not automatically causation.</p></article>
+              <article><h3>Ask</h3><p>Which alternative explanation could produce the same observed association?</p></article>
+            </section>
+            <section class="family-branch" id="experimental-en" data-family-branch hidden>
+              <article><h3>Experiment</h3><p>Manipulates a condition and uses random assignment where feasible to strengthen comparability.</p></article>
+              <article><h3>Quasi-experiment</h3><p>Examines an intervention without random assignment and addresses pre-existing differences.</p></article>
+              <div class="family-branch-centre"><svg viewBox="0 0 96 72" aria-hidden="true" focusable="false"><circle cx="26" cy="25" r="12"/><circle cx="70" cy="25" r="12"/><path d="M38 25H56M52 20l6 5-6 5M22 51h52"/></svg><strong>Evaluate change</strong><small>comparison over time</small></div>
+              <article><h3>Evidence</h3><p>Comparison, before/after evidence, implementation fidelity and alternative explanations.</p></article>
+              <article><h3>Claim boundary</h3><p>A pre-test and post-test alone do not prove that the intervention caused the change.</p></article>
+            </section>
+            <section class="family-branch" id="case-en" data-family-branch hidden>
+              <article><h3>The case</h3><p>A person, programme, class, school, event or organisation.</p></article>
+              <article><h3>The boundary</h3><p>Define the place, period, participants and activity included.</p></article>
+              <div class="family-branch-centre"><svg viewBox="0 0 96 72" aria-hidden="true" focusable="false"><rect x="16" y="10" width="64" height="52" rx="3"/><circle cx="35" cy="29" r="5"/><circle cx="59" cy="29" r="5"/><path d="M29 48h38"/></svg><strong>Bounded case</strong><small>understood in context</small></div>
+              <article><h3>The evidence</h3><p>Use multiple relevant sources to understand the case, not merely one interview.</p></article>
+              <article><h3>The claim</h3><p>Explain the case deeply; do not treat it as a statistical sample of all cases.</p></article>
+            </section>
+            <section class="family-branch" id="experience-en" data-family-branch hidden>
+              <article><h3>Phenomenology</h3><p>Investigates the structure and meaning of a shared lived experience.</p></article>
+              <article><h3>Narrative research</h3><p>Investigates how people construct experience through sequence, turning points and voice.</p></article>
+              <div class="family-branch-centre"><svg viewBox="0 0 96 72" aria-hidden="true" focusable="false"><path d="M13 16h34v24H28l-9 9v-9h-6zM50 29h33v24H72l-9 9v-9H50z"/><path d="M20 24h20M20 31h14M57 37h19M57 44h13"/></svg><strong>Meaning</strong><small>experience or story</small></div>
+              <article><h3>Shared method</h3><p>Both may use interviews, but the analytic object and intended account differ.</p></article>
+              <article><h3>Ask</h3><p>Is the object the meaning of an experience, or how a life is organised as a story?</p></article>
+            </section>
+            <section class="family-branch" id="process-en" data-family-branch hidden>
+              <article><h3>Ethnography</h3><p>Understands practices and meanings in a social setting through sustained engagement.</p></article>
+              <article><h3>Grounded theory</h3><p>Develops a process-oriented account through iterative collection, comparison and analysis.</p></article>
+              <div class="family-branch-centre"><svg viewBox="0 0 96 72" aria-hidden="true" focusable="false"><path d="M29 18a25 25 0 0 1 38 10M68 22l-1 9-9-2M67 54a25 25 0 0 1-38-10M28 50l1-9 9 2"/><circle cx="48" cy="36" r="8"/></svg><strong>Process</strong><small>culture, theory or change</small></div>
+              <article><h3>Action research</h3><p>Improves practice through planned cycles of action, evidence and reflection with participants.</p></article>
+              <article><h3>Claim boundary</h3><p>The label must change how the study is organised; it is not a synonym for “qualitative.”</p></article>
+            </section>
+          </div>
         </div>
-        <div data-language="zh" hidden lang="zh-Hant">
-          <h2>描述群體、狀況或模式</h2>
-          <div class="grid-3">
-            <article class="panel accent"><h3>適合回答</h3><p>盛行率、分布、特徵、態度或自陳實踐。</p></article>
-            <article class="panel accent"><h3>設計決策</h3><p>目標群體、抽樣框、測量品質及回應覆蓋程度。</p></article>
-            <article class="panel accent"><h3>主張邊界</h3><p>一次性調查可以描述或分析關聯，但通常不能確立一個變項造成另一個變項。</p></article>
+        <div data-language="zh" hidden lang="zh-Hant" data-design-family-map>
+          <h2>一個研究版圖，六條設計路徑</h2>
+          <p class="family-map-instruction">選擇最符合預期主張的氣泡；下一層心智圖會在下方展開。</p>
+          <div class="family-spider" aria-label="六種研究設計類型">
+            <svg class="family-spider-lines" viewBox="0 0 1000 240" aria-hidden="true" focusable="false"><path d="M500 120 150 46M500 120 500 38M500 120 850 46M500 120 150 194M500 120 500 202M500 120 850 194" /></svg>
+            <div class="family-spider-core"><span>研究<br />問題</span><small>預期主張</small></div>
+            <button class="family-bubble family-bubble--1" type="button" data-family-select="descriptive-zh" aria-controls="descriptive-zh" aria-pressed="false"><strong>描述性研究／調查</strong><small>模式或估計</small></button>
+            <button class="family-bubble family-bubble--2" type="button" data-family-select="correlational-zh" aria-controls="correlational-zh" aria-pressed="false"><strong>相關研究</strong><small>關聯或預測</small></button>
+            <button class="family-bubble family-bubble--3" type="button" data-family-select="experimental-zh" aria-controls="experimental-zh" aria-pressed="false"><strong>實驗／準實驗研究</strong><small>差異或效果</small></button>
+            <button class="family-bubble family-bubble--4" type="button" data-family-select="case-zh" aria-controls="case-zh" aria-pressed="false"><strong>個案研究</strong><small>有邊界的複雜性</small></button>
+            <button class="family-bubble family-bubble--5" type="button" data-family-select="experience-zh" aria-controls="experience-zh" aria-pressed="false"><strong>現象學／敘事研究</strong><small>經驗或故事</small></button>
+            <button class="family-bubble family-bubble--6" type="button" data-family-select="process-zh" aria-controls="process-zh" aria-pressed="false"><strong>民族誌／紮根理論／行動研究</strong><small>文化、過程或改變</small></button>
           </div>
-          <p class="instruction"><strong>要問：</strong>估計結果應代表誰？實際取得的樣本能否支持這個範圍？</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide" data-title="Correlational and predictive designs" aria-hidden="true">
-      <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Design family</span></header>
-        <div data-language="en">
-          <h2>Examine variation and association</h2>
-          <div class="grid-3">
-            <article class="panel accent"><h3>Best suited to</h3><p>Whether variables move together and whether one set helps predict another.</p></article>
-            <article class="panel accent"><h3>Design decisions</h3><p>Construct definition, temporal ordering, plausible confounders and a justified model.</p></article>
-            <article class="panel accent"><h3>Claim boundary</h3><p>Prediction is not automatically explanation; association is not automatically causation.</p></article>
+          <div class="family-detail" data-family-detail aria-live="polite">
+            <p class="family-detail-prompt" data-family-prompt>選擇一個研究設計氣泡，查看其目的、關鍵決策、證據及主張邊界。</p>
+            <section class="family-branch" id="descriptive-zh" data-family-branch hidden>
+              <article><h3>適合回答</h3><p>盛行率、分布、特徵、態度或自陳實踐。</p></article>
+              <article><h3>設計決策</h3><p>目標群體、抽樣框、測量品質及回應覆蓋程度。</p></article>
+              <div class="family-branch-centre"><svg viewBox="0 0 96 72" aria-hidden="true" focusable="false"><path d="M15 58V14M15 58H82"/><rect x="25" y="39" width="10" height="19"/><rect x="43" y="28" width="10" height="30"/><rect x="61" y="18" width="10" height="40"/></svg><strong>描述</strong><small>群體、狀況或模式</small></div>
+              <article><h3>主張邊界</h3><p>一次性調查可以描述或分析關聯，但通常不能確立因果。</p></article>
+              <article><h3>要問</h3><p>估計結果應代表誰？實際取得的樣本能否支持這個範圍？</p></article>
+            </section>
+            <section class="family-branch" id="correlational-zh" data-family-branch hidden>
+              <article><h3>適合回答</h3><p>變項是否共同變化，以及一組變項能否協助預測另一組變項。</p></article>
+              <article><h3>設計決策</h3><p>構念定義、時間先後、可能的混淆因素及有理據的模型。</p></article>
+              <div class="family-branch-centre"><svg viewBox="0 0 96 72" aria-hidden="true" focusable="false"><path d="M14 58 80 16"/><circle cx="24" cy="50" r="4"/><circle cx="38" cy="39" r="4"/><circle cx="51" cy="42" r="4"/><circle cx="64" cy="25" r="4"/><circle cx="77" cy="20" r="4"/></svg><strong>關聯</strong><small>變異與預測</small></div>
+              <article><h3>主張邊界</h3><p>預測不等於解釋；關聯也不等於因果。</p></article>
+              <article><h3>要問</h3><p>哪個其他解釋也可能產生同樣的關聯？</p></article>
+            </section>
+            <section class="family-branch" id="experimental-zh" data-family-branch hidden>
+              <article><h3>實驗研究</h3><p>操弄條件，並在可行情況下隨機分派，以提高組別可比較性。</p></article>
+              <article><h3>準實驗研究</h3><p>在沒有隨機分派下檢視介入，並明確處理原有組別差異。</p></article>
+              <div class="family-branch-centre"><svg viewBox="0 0 96 72" aria-hidden="true" focusable="false"><circle cx="26" cy="25" r="12"/><circle cx="70" cy="25" r="12"/><path d="M38 25H56M52 20l6 5-6 5M22 51h52"/></svg><strong>評估改變</strong><small>比較與時序</small></div>
+              <article><h3>所需證據</h3><p>比較、前後證據、實施忠實度及其他解釋。</p></article>
+              <article><h3>主張邊界</h3><p>只有前測與後測，並不足以證明介入造成改變。</p></article>
+            </section>
+            <section class="family-branch" id="case-zh" data-family-branch hidden>
+              <article><h3>個案</h3><p>個人、課程、班級、學校、事件或組織。</p></article>
+              <article><h3>邊界</h3><p>界定納入的地點、時期、參與者與活動。</p></article>
+              <div class="family-branch-centre"><svg viewBox="0 0 96 72" aria-hidden="true" focusable="false"><rect x="16" y="10" width="64" height="52" rx="3"/><circle cx="35" cy="29" r="5"/><circle cx="59" cy="29" r="5"/><path d="M29 48h38"/></svg><strong>有邊界的個案</strong><small>置於情境中理解</small></div>
+              <article><h3>證據</h3><p>使用多種相關來源理解個案，而不只是進行一次訪談。</p></article>
+              <article><h3>主張</h3><p>深入解釋個案，不把個案當成所有個案的統計樣本。</p></article>
+            </section>
+            <section class="family-branch" id="experience-zh" data-family-branch hidden>
+              <article><h3>現象學</h3><p>探討共同生活經驗的結構與意義。</p></article>
+              <article><h3>敘事研究</h3><p>探討人們如何透過時序、轉折點及聲音建構經驗。</p></article>
+              <div class="family-branch-centre"><svg viewBox="0 0 96 72" aria-hidden="true" focusable="false"><path d="M13 16h34v24H28l-9 9v-9h-6zM50 29h33v24H72l-9 9v-9H50z"/><path d="M20 24h20M20 31h14M57 37h19M57 44h13"/></svg><strong>意義</strong><small>經驗或故事</small></div>
+              <article><h3>共同方法</h3><p>兩者都可能使用訪談，但分析對象與預期解釋不同。</p></article>
+              <article><h3>要問</h3><p>研究對象是經驗的意義，還是生命如何組織成故事？</p></article>
+            </section>
+            <section class="family-branch" id="process-zh" data-family-branch hidden>
+              <article><h3>民族誌</h3><p>透過持續參與，理解社會場域中的實踐與意義。</p></article>
+              <article><h3>紮根理論</h3><p>透過反覆蒐集、比較及分析，發展過程導向的理論解釋。</p></article>
+              <div class="family-branch-centre"><svg viewBox="0 0 96 72" aria-hidden="true" focusable="false"><path d="M29 18a25 25 0 0 1 38 10M68 22l-1 9-9-2M67 54a25 25 0 0 1-38-10M28 50l1-9 9 2"/><circle cx="48" cy="36" r="8"/></svg><strong>過程</strong><small>文化、理論或改變</small></div>
+              <article><h3>行動研究</h3><p>與參與者透過行動、證據及反思循環研究並改善實踐。</p></article>
+              <article><h3>主張邊界</h3><p>設計名稱必須改變研究的組織方式，不能只是「質性研究」的同義詞。</p></article>
+            </section>
           </div>
-          <p class="instruction"><strong>Ask:</strong> Which alternative explanation could produce the same observed association?</p>
-        </div>
-        <div data-language="zh" hidden lang="zh-Hant">
-          <h2>檢視變異與關聯</h2>
-          <div class="grid-3">
-            <article class="panel accent"><h3>適合回答</h3><p>變項是否共同變化，以及一組變項能否協助預測另一組變項。</p></article>
-            <article class="panel accent"><h3>設計決策</h3><p>構念定義、時間先後、可能的混淆因素及有理據的模型。</p></article>
-            <article class="panel accent"><h3>主張邊界</h3><p>預測不等於解釋；關聯也不等於因果。</p></article>
-          </div>
-          <p class="instruction"><strong>要問：</strong>哪個其他解釋也可能產生同樣的關聯？</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide" data-title="Experimental and quasi-experimental designs" aria-hidden="true">
-      <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Design family</span></header>
-        <div data-language="en">
-          <h2>Estimate whether an intervention contributes to change</h2>
-          <div class="contrast design-comparison">
-            <article><h3>Experiment</h3><p>Manipulates a condition and uses random assignment where feasible to strengthen group comparability.</p></article>
-            <b>↔</b>
-            <article><h3>Quasi-experiment</h3><p>Examines an intervention without random assignment and must address pre-existing differences explicitly.</p></article>
-          </div>
-          <div class="evidence-strip"><span>Comparison</span><span>Before/after evidence</span><span>Implementation fidelity</span><span>Alternative explanations</span></div>
-          <p class="takeaway">A pre-test and post-test alone do not prove that the intervention caused the change.</p>
-        </div>
-        <div data-language="zh" hidden lang="zh-Hant">
-          <h2>估計介入是否促成改變</h2>
-          <div class="contrast design-comparison">
-            <article><h3>實驗研究</h3><p>操弄條件，並在可行情況下隨機分派，以提高組別的可比較性。</p></article>
-            <b>↔</b>
-            <article><h3>準實驗研究</h3><p>在沒有隨機分派下檢視介入，因此必須明確處理原有組別差異。</p></article>
-          </div>
-          <div class="evidence-strip"><span>比較</span><span>前後證據</span><span>實施忠實度</span><span>其他解釋</span></div>
-          <p class="takeaway">只有前測與後測，並不足以證明介入造成改變。</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide" data-title="Case study design" aria-hidden="true">
-      <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Design family</span></header>
-        <div data-language="en">
-          <h2>Study a bounded case in context</h2>
-          <div class="grid-4">
-            <article class="panel accent"><h3>The case</h3><p>A person, programme, class, school, event or organisation.</p></article>
-            <article class="panel accent"><h3>The boundary</h3><p>Define the place, period, participants and activity included.</p></article>
-            <article class="panel accent"><h3>The evidence</h3><p>Use multiple relevant sources to understand the case, not merely one interview.</p></article>
-            <article class="panel accent"><h3>The claim</h3><p>Explain the case deeply; do not treat it as a statistical sample of all cases.</p></article>
-          </div>
-          <p class="takeaway">“A case study” must identify what the case is and where its boundary lies.</p>
-        </div>
-        <div data-language="zh" hidden lang="zh-Hant">
-          <h2>在情境中研究一個有明確邊界的個案</h2>
-          <div class="grid-4">
-            <article class="panel accent"><h3>個案</h3><p>個人、課程、班級、學校、事件或組織。</p></article>
-            <article class="panel accent"><h3>邊界</h3><p>界定納入的地點、時期、參與者與活動。</p></article>
-            <article class="panel accent"><h3>證據</h3><p>使用多種相關來源理解個案，而不只是進行一次訪談。</p></article>
-            <article class="panel accent"><h3>主張</h3><p>深入解釋個案，不把個案當成所有個案的統計樣本。</p></article>
-          </div>
-          <p class="takeaway">使用「個案研究」時，必須清楚指出個案是甚麼，以及邊界在哪裡。</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide" data-title="Phenomenology and narrative research" aria-hidden="true">
-      <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Design family</span></header>
-        <div data-language="en">
-          <h2>Experience and story are not the same object</h2>
-          <div class="contrast design-comparison">
-            <article><h3>Phenomenology</h3><p>Investigates how people experience and make meaning of a shared phenomenon.</p><strong>Focus:</strong> the structure and meaning of lived experience.</article>
-            <b>↔</b>
-            <article><h3>Narrative research</h3><p>Investigates how people construct and communicate experience through stories.</p><strong>Focus:</strong> sequence, turning points, voice and context.</article>
-          </div>
-          <p class="takeaway">Both may use interviews, but the analytic object and intended account differ.</p>
-        </div>
-        <div data-language="zh" hidden lang="zh-Hant">
-          <h2>經驗與故事並不是同一研究對象</h2>
-          <div class="contrast design-comparison">
-            <article><h3>現象學</h3><p>探討人們如何經歷共同現象並賦予其意義。</p><strong>焦點：</strong>生活經驗的結構與意義。</article>
-            <b>↔</b>
-            <article><h3>敘事研究</h3><p>探討人們如何透過故事建構及表達經驗。</p><strong>焦點：</strong>時序、轉折點、聲音與情境。</article>
-          </div>
-          <p class="takeaway">兩者都可能使用訪談，但分析對象與預期產出的解釋不同。</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide" data-title="Ethnography, grounded theory and action research" aria-hidden="true">
-      <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Design family</span></header>
-        <div data-language="en">
-          <h2>Choose according to the object and purpose</h2>
-          <div class="grid-3">
-            <article class="panel accent"><h3>Ethnography</h3><p>Understand practices, meanings and relationships within a cultural or social setting through sustained engagement.</p></article>
-            <article class="panel accent"><h3>Grounded theory</h3><p>Develop a process-oriented theoretical account through iterative data collection, comparison and analysis.</p></article>
-            <article class="panel accent"><h3>Action research</h3><p>Investigate and improve practice through planned cycles of action, evidence and reflection with relevant participants.</p></article>
-          </div>
-          <p class="takeaway">The label must change how the study is organised. It is not a decorative synonym for “qualitative.”</p>
-        </div>
-        <div data-language="zh" hidden lang="zh-Hant">
-          <h2>根據研究對象與目的作出選擇</h2>
-          <div class="grid-3">
-            <article class="panel accent"><h3>民族誌</h3><p>透過持續參與，理解文化或社會場域中的實踐、意義與關係。</p></article>
-            <article class="panel accent"><h3>紮根理論</h3><p>透過反覆蒐集資料、比較及分析，發展以過程為核心的理論解釋。</p></article>
-            <article class="panel accent"><h3>行動研究</h3><p>與相關參與者透過行動、證據及反思的規劃循環，研究並改善實踐。</p></article>
-          </div>
-          <p class="takeaway">設計名稱必須改變研究的組織方式，不能只是「質性研究」的裝飾性同義詞。</p>
         </div>
       </div>
     </section>
@@ -586,25 +756,109 @@ const courseHref = withBase('/teaching/courses/dedc02');
       <div class="slide-inner">
         <header class="slide-header"><span class="eyebrow">Activity 2</span></header>
         <div data-language="en">
-          <h2>Design Match</h2>
-          <p class="intro-line">Choose the most defensible starting design. More information could change the decision, so justify every match.</p>
-          <div class="interactive-stack compact-activity" data-check-activity>
-            <div class="sort-row"><p>How common is generative-AI use among doctoral students across the university?</p><select data-answer="survey"><option value="">Choose…</option><option value="survey">Descriptive survey</option><option value="case">Case study</option><option value="experiment">Experiment</option><option value="phenom">Phenomenology</option></select></div>
-            <div class="sort-row"><p>Does a structured feedback intervention improve revision quality compared with usual practice?</p><select data-answer="experiment"><option value="">Choose…</option><option value="survey">Descriptive survey</option><option value="case">Case study</option><option value="experiment">Experiment / quasi-experiment</option><option value="phenom">Phenomenology</option></select></div>
-            <div class="sort-row"><p>How do first-generation doctoral students experience belonging during their first year?</p><select data-answer="phenom"><option value="">Choose…</option><option value="survey">Descriptive survey</option><option value="case">Case study</option><option value="experiment">Experiment</option><option value="phenom">Phenomenology</option></select></div>
-            <div class="sort-row"><p>How did one school implement and adapt a multilingual assessment policy?</p><select data-answer="case"><option value="">Choose…</option><option value="survey">Descriptive survey</option><option value="case">Case study</option><option value="experiment">Experiment</option><option value="phenom">Phenomenology</option></select></div>
-            <div class="activity-actions"><button type="button" data-check>Check matches</button><button type="button" data-clear>Clear</button><span class="activity-status" data-status role="status" aria-live="polite"></span></div>
+          <h2>Match six real studies to their designs</h2>
+          <p class="intro-line">Read the question or intended claim and the evidence clues. Drag each design to its study; select-then-place also works with a keyboard. A correct match unlocks the vault PDF.</p>
+          <div class="paper-match-board" data-design-match>
+            <div class="design-token-bank" aria-label="Research designs">
+              <button type="button" draggable="true" data-design-token="survey" aria-pressed="false">Descriptive / survey</button>
+              <button type="button" draggable="true" data-design-token="correlational" aria-pressed="false">Correlational / predictive</button>
+              <button type="button" draggable="true" data-design-token="experiment" aria-pressed="false">Experimental / quasi</button>
+              <button type="button" draggable="true" data-design-token="case" aria-pressed="false">Case study</button>
+              <button type="button" draggable="true" data-design-token="phenomenology" aria-pressed="false">Phenomenology / narrative</button>
+              <button type="button" draggable="true" data-design-token="action" aria-pressed="false">Culture / theory / change</button>
+            </div>
+            <div class="paper-match-grid">
+              <article class="paper-study" data-study-slot data-answer="case">
+                <header><span>Zhang &amp; Hyland · 2022</span><strong>Fostering engagement with feedback</strong></header>
+                <p><b>Questions</b> What feedback practices did one teacher use, and how did 33 students engage while writing and revising?</p>
+                <p class="paper-study-cue">One authentic university course · teacher, student and draft evidence · no researcher intervention</p>
+                <div class="paper-study-actions"><button type="button" class="paper-drop" data-paper-drop aria-label="Place a design for Zhang and Hyland’s study">Place design</button><a class="paper-download" href="/teaching/courses/dedc02/papers/zhang-hyland-2022-case-study.pdf" download hidden>Download PDF</a></div>
+              </article>
+              <article class="paper-study" data-study-slot data-answer="experiment">
+                <header><span>Chinpakdee &amp; Gu · 2024</span><strong>Explicit reading-strategy instruction</strong></header>
+                <p><b>Questions</b> What impact does a ten-week strategy intervention have on reading and perceived reading ability?</p>
+                <p class="paper-study-cue">Two intact classes · intervention n = 30 · comparison n = 32 · pre-, post- and delayed measures</p>
+                <div class="paper-study-actions"><button type="button" class="paper-drop" data-paper-drop aria-label="Place a design for Chinpakdee and Gu’s study">Place design</button><a class="paper-download" href="/teaching/courses/dedc02/papers/chinpakdee-gu-2024-quasi-experiment.pdf" download hidden>Download PDF</a></div>
+              </article>
+              <article class="paper-study" data-study-slot data-answer="survey">
+                <header><span>Ahmadi Safa &amp; Nasiri · 2025</span><strong>Fairness in classroom assessment</strong></header>
+                <p><b>Questions</b> What do Iranian high-school EFL teachers regard as fair, and do views differ by teaching context?</p>
+                <p class="paper-study-cue">105 teachers · validated 35-item questionnaire · descriptive statistics and group comparisons</p>
+                <div class="paper-study-actions"><button type="button" class="paper-drop" data-paper-drop aria-label="Place a design for Ahmadi Safa and Nasiri’s study">Place design</button><a class="paper-download" href="/teaching/courses/dedc02/papers/ahmadi-safa-nasiri-2025-survey.pdf" download hidden>Download PDF</a></div>
+              </article>
+              <article class="paper-study" data-study-slot data-answer="action">
+                <header><span>Yung · 2023</span><strong>Packaging songs as exam practice</strong></header>
+                <p><b>Intended claim</b> Framing communicative song activities as exam practice can engage exam-oriented secondary learners.</p>
+                <p class="paper-study-cue">Six-week classroom innovation · two classes of 32 · observation, reflection, teacher and student comments</p>
+                <div class="paper-study-actions"><button type="button" class="paper-drop" data-paper-drop aria-label="Place a design for Yung’s study">Place design</button><a class="paper-download" href="/teaching/courses/dedc02/papers/yung-2023-action-research.pdf" download hidden>Download PDF</a></div>
+              </article>
+              <article class="paper-study" data-study-slot data-answer="correlational">
+                <header><span>Zhang · 2021</span><strong>High-stakes testing and learning activity</strong></header>
+                <p><b>Claim tested</b> Test perceptions predict extracurricular learning directly and through self-efficacy, with exam timing as a moderator.</p>
+                <p class="paper-study-cue">Cross-sectional survey · 470 test takers · covariance-based SEM with moderated mediation</p>
+                <div class="paper-study-actions"><button type="button" class="paper-drop" data-paper-drop aria-label="Place a design for Zhang’s study">Place design</button><a class="paper-download" href="/teaching/courses/dedc02/papers/zhang-2021-correlational.pdf" download hidden>Download PDF</a></div>
+              </article>
+              <article class="paper-study" data-study-slot data-answer="phenomenology">
+                <header><span>Braund et al. · 2021</span><strong>Formative assessment and co-regulation</strong></header>
+                <p><b>Questions</b> How do educators experience their relationship, and how might both practices increase student agency?</p>
+                <p class="paper-study-cue">Eight kindergarten classrooms · repeated interviews · 448 hours of observation · thematic analysis</p>
+                <div class="paper-study-actions"><button type="button" class="paper-drop" data-paper-drop aria-label="Place a design for Braund and colleagues’ study">Place design</button><a class="paper-download" href="/teaching/courses/dedc02/papers/braund-et-al-2021-phenomenology.pdf" download hidden>Download PDF</a></div>
+              </article>
+            </div>
+            <div class="paper-match-footer"><button type="button" data-design-reset>Reset activity</button><span data-design-status role="status" aria-live="polite">0 of 6 studies matched.</span></div>
           </div>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
-          <h2>研究設計配對</h2>
-          <p class="intro-line">選擇最站得住腳的初步設計。更多資料可能改變決定，因此每項配對都需要理據。</p>
-          <div class="interactive-stack compact-activity" data-check-activity>
-            <div class="sort-row"><p>全校博士生使用生成式人工智能的情況有多普遍？</p><select data-answer="survey"><option value="">請選擇⋯⋯</option><option value="survey">描述性調查</option><option value="case">個案研究</option><option value="experiment">實驗研究</option><option value="phenom">現象學</option></select></div>
-            <div class="sort-row"><p>與一般做法相比，結構化回饋介入能否改善修訂品質？</p><select data-answer="experiment"><option value="">請選擇⋯⋯</option><option value="survey">描述性調查</option><option value="case">個案研究</option><option value="experiment">實驗／準實驗研究</option><option value="phenom">現象學</option></select></div>
-            <div class="sort-row"><p>第一代大學生背景的博士生如何經歷第一年的歸屬感？</p><select data-answer="phenom"><option value="">請選擇⋯⋯</option><option value="survey">描述性調查</option><option value="case">個案研究</option><option value="experiment">實驗研究</option><option value="phenom">現象學</option></select></div>
-            <div class="sort-row"><p>某一所學校如何實施及調整多語評估政策？</p><select data-answer="case"><option value="">請選擇⋯⋯</option><option value="survey">描述性調查</option><option value="case">個案研究</option><option value="experiment">實驗研究</option><option value="phenom">現象學</option></select></div>
-            <div class="activity-actions"><button type="button" data-check>檢查配對</button><button type="button" data-clear>清除</button><span class="activity-status" data-status role="status" aria-live="polite"></span></div>
+          <h2>把六項真實研究與設計配對</h2>
+          <p class="intro-line">閱讀研究問題或預期主張及證據線索，把每種設計拖到相應研究；鍵盤亦可先選設計再放置。配對正確後會解鎖資料庫中的 PDF。</p>
+          <div class="paper-match-board" data-design-match>
+            <div class="design-token-bank" aria-label="研究設計">
+              <button type="button" draggable="true" data-design-token="survey" aria-pressed="false">描述性研究／調查</button>
+              <button type="button" draggable="true" data-design-token="correlational" aria-pressed="false">相關／預測研究</button>
+              <button type="button" draggable="true" data-design-token="experiment" aria-pressed="false">實驗／準實驗研究</button>
+              <button type="button" draggable="true" data-design-token="case" aria-pressed="false">個案研究</button>
+              <button type="button" draggable="true" data-design-token="phenomenology" aria-pressed="false">現象學／敘事研究</button>
+              <button type="button" draggable="true" data-design-token="action" aria-pressed="false">文化／理論／改變</button>
+            </div>
+            <div class="paper-match-grid">
+              <article class="paper-study" data-study-slot data-answer="case">
+                <header><span>Zhang 與 Hyland · 2022</span><strong>促進學生投入回饋</strong></header>
+                <p><b>研究問題</b> 一名教師採用了哪些回饋做法？33 名學生在寫作和修訂時如何投入其中？</p>
+                <p class="paper-study-cue">一門真實的大學課程 · 教師、學生與草稿證據 · 研究者沒有介入</p>
+                <div class="paper-study-actions"><button type="button" class="paper-drop" data-paper-drop aria-label="為 Zhang 與 Hyland 的研究放置設計">放置設計</button><a class="paper-download" href="/teaching/courses/dedc02/papers/zhang-hyland-2022-case-study.pdf" download hidden>下載 PDF</a></div>
+              </article>
+              <article class="paper-study" data-study-slot data-answer="experiment">
+                <header><span>Chinpakdee 與 Gu · 2024</span><strong>明示閱讀策略教學</strong></header>
+                <p><b>研究問題</b> 十週策略介入對閱讀表現及學生對自身閱讀能力的看法有何影響？</p>
+                <p class="paper-study-cue">兩個原有班級 · 介入組 30 人 · 比較組 32 人 · 前測、後測及延後測量</p>
+                <div class="paper-study-actions"><button type="button" class="paper-drop" data-paper-drop aria-label="為 Chinpakdee 與 Gu 的研究放置設計">放置設計</button><a class="paper-download" href="/teaching/courses/dedc02/papers/chinpakdee-gu-2024-quasi-experiment.pdf" download hidden>下載 PDF</a></div>
+              </article>
+              <article class="paper-study" data-study-slot data-answer="survey">
+                <header><span>Ahmadi Safa 與 Nasiri · 2025</span><strong>課堂評估的公平性</strong></header>
+                <p><b>研究問題</b> 伊朗高中英語教師如何理解公平評估？不同教學情境的看法是否有差異？</p>
+                <p class="paper-study-cue">105 名教師 · 已驗證的 35 題問卷 · 描述統計及組別比較</p>
+                <div class="paper-study-actions"><button type="button" class="paper-drop" data-paper-drop aria-label="為 Ahmadi Safa 與 Nasiri 的研究放置設計">放置設計</button><a class="paper-download" href="/teaching/courses/dedc02/papers/ahmadi-safa-nasiri-2025-survey.pdf" download hidden>下載 PDF</a></div>
+              </article>
+              <article class="paper-study" data-study-slot data-answer="action">
+                <header><span>Yung · 2023</span><strong>把歌曲活動包裝成考試練習</strong></header>
+                <p><b>預期主張</b> 把歌曲溝通活動連繫考試練習，可以讓考試導向的中學生投入溝通語言教學。</p>
+                <p class="paper-study-cue">六週課堂創新 · 兩班各 32 人 · 觀察、反思及師生意見</p>
+                <div class="paper-study-actions"><button type="button" class="paper-drop" data-paper-drop aria-label="為 Yung 的研究放置設計">放置設計</button><a class="paper-download" href="/teaching/courses/dedc02/papers/yung-2023-action-research.pdf" download hidden>下載 PDF</a></div>
+              </article>
+              <article class="paper-study" data-study-slot data-answer="correlational">
+                <header><span>Zhang · 2021</span><strong>高風險考試與課外學習活動</strong></header>
+                <p><b>檢驗主張</b> 考試觀感會直接及透過自我效能預測課外學習，而臨近考試的程度會調節這些路徑。</p>
+                <p class="paper-study-cue">橫斷面調查 · 470 名考生 · 共變數結構方程模型及調節式中介分析</p>
+                <div class="paper-study-actions"><button type="button" class="paper-drop" data-paper-drop aria-label="為 Zhang 的研究放置設計">放置設計</button><a class="paper-download" href="/teaching/courses/dedc02/papers/zhang-2021-correlational.pdf" download hidden>下載 PDF</a></div>
+              </article>
+              <article class="paper-study" data-study-slot data-answer="phenomenology">
+                <header><span>Braund 等人 · 2021</span><strong>形成性評估與共同調節</strong></header>
+                <p><b>研究問題</b> 教育工作者如何經驗兩者的關係？兩種做法可如何提升學生能動性？</p>
+                <p class="paper-study-cue">八個幼稚園課堂 · 重複訪談 · 448 小時觀察 · 主題分析</p>
+                <div class="paper-study-actions"><button type="button" class="paper-drop" data-paper-drop aria-label="為 Braund 等人的研究放置設計">放置設計</button><a class="paper-download" href="/teaching/courses/dedc02/papers/braund-et-al-2021-phenomenology.pdf" download hidden>下載 PDF</a></div>
+              </article>
+            </div>
+            <div class="paper-match-footer"><button type="button" data-design-reset>重新開始</button><span data-design-status role="status" aria-live="polite">已配對 0／6 項研究。</span></div>
           </div>
         </div>
       </div>
@@ -668,58 +922,92 @@ const courseHref = withBase('/teaching/courses/dedc02');
       </div>
     </section>
 
-    <section class="slide" data-title="Probability sampling" aria-hidden="true">
+    <section class="slide" data-title="Sampling methods map" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Sampling logic</span></header>
+        <header class="slide-header"><span class="eyebrow">Sampling map</span></header>
         <div data-language="en">
-          <h2>Probability sampling supports population inference</h2>
-          <div class="grid-4">
-            <article class="panel accent"><h3>Simple random</h3><p>Every unit has a known, non-zero selection chance through a random procedure.</p></article>
-            <article class="panel accent"><h3>Systematic</h3><p>Select every kth unit after a random starting point, if the list has no harmful pattern.</p></article>
-            <article class="panel accent"><h3>Stratified</h3><p>Sample within meaningful subgroups to protect representation or improve precision.</p></article>
-            <article class="panel accent"><h3>Cluster / multistage</h3><p>Select natural groups, then possibly sample units within selected groups.</p></article>
+          <h2>Two selection logics, eight visible methods</h2>
+          <p class="intro-line">Before clicking, explain how units would enter the sample. Then reveal the method’s selection move, visual pattern and claim limit.</p>
+          <div class="sampling-explorer" data-sampling-explorer>
+            <div class="sampling-map" aria-label="Interactive map of sampling methods">
+              <div class="sampling-root"><strong>Sampling methods</strong><span>How will units enter?</span></div>
+              <div class="sampling-families">
+                <section class="sampling-family sampling-family-probability">
+                  <header><strong>Probability</strong><span>Selection uses chance</span></header>
+                  <div class="sampling-method-grid">
+                    <button type="button" data-sampling-method="simple-random" aria-controls="sampling-en-simple-random" aria-pressed="false">Simple random</button>
+                    <button type="button" data-sampling-method="systematic" aria-controls="sampling-en-systematic" aria-pressed="false">Systematic</button>
+                    <button type="button" data-sampling-method="stratified" aria-controls="sampling-en-stratified" aria-pressed="false">Stratified</button>
+                    <button type="button" data-sampling-method="cluster" aria-controls="sampling-en-cluster" aria-pressed="false">Cluster</button>
+                  </div>
+                  <p class="sampling-more"><b>Also:</b> multistage · probability proportional to size</p>
+                </section>
+                <section class="sampling-family sampling-family-nonprobability">
+                  <header><strong>Non-probability</strong><span>Selection uses access or criteria</span></header>
+                  <div class="sampling-method-grid">
+                    <button type="button" data-sampling-method="convenience" aria-controls="sampling-en-convenience" aria-pressed="false">Convenience</button>
+                    <button type="button" data-sampling-method="purposive" aria-controls="sampling-en-purposive" aria-pressed="false">Purposive</button>
+                    <button type="button" data-sampling-method="snowball" aria-controls="sampling-en-snowball" aria-pressed="false">Snowball</button>
+                    <button type="button" data-sampling-method="quota" aria-controls="sampling-en-quota" aria-pressed="false">Quota</button>
+                  </div>
+                  <p class="sampling-more"><b>Also:</b> voluntary response · theoretical · consecutive</p>
+                </section>
+              </div>
+            </div>
+            <div class="sampling-detail-stage" aria-live="polite">
+              <div class="sampling-detail-empty" data-sampling-empty><strong>Pause before revealing</strong><p>Choose one method and predict: who can enter, how they are selected, and what claim becomes defensible?</p></div>
+              <article class="sampling-detail-card" id="sampling-en-simple-random" data-sampling-panel="simple-random" hidden><div class="sampling-crop crop-top-left"><img src={probabilitySamplingVisual} width="702" height="638" alt="Simple random sampling: individuals are selected across the full population" /></div><header><span>Probability</span><h3>Simple random</h3></header><p><b>Selection move</b> Give every unit an equal chance through a random mechanism.</p><p><b>Watch</b> A complete sampling frame is normally needed.</p></article>
+              <article class="sampling-detail-card" id="sampling-en-systematic" data-sampling-panel="systematic" hidden><div class="sampling-crop crop-top-right"><img src={probabilitySamplingVisual} width="702" height="638" alt="Systematic sampling: individuals are selected at a regular interval" /></div><header><span>Probability</span><h3>Systematic</h3></header><p><b>Selection move</b> Choose a random start, then select every kth unit from an ordered frame.</p><p><b>Watch</b> A hidden pattern in the list can distort the sample.</p></article>
+              <article class="sampling-detail-card" id="sampling-en-stratified" data-sampling-panel="stratified" hidden><div class="sampling-crop crop-bottom-left"><img src={probabilitySamplingVisual} width="702" height="638" alt="Stratified sampling: individuals are selected from every subgroup" /></div><header><span>Probability</span><h3>Stratified</h3></header><p><b>Selection move</b> Divide by a relevant characteristic, then randomly sample within every stratum.</p><p><b>Watch</b> The strata and allocation must fit the intended inference.</p></article>
+              <article class="sampling-detail-card" id="sampling-en-cluster" data-sampling-panel="cluster" hidden><div class="sampling-crop crop-bottom-right"><img src={probabilitySamplingVisual} width="702" height="638" alt="Cluster sampling: entire natural groups are selected" /></div><header><span>Probability</span><h3>Cluster</h3></header><p><b>Selection move</b> Randomly choose natural groups, then include or sample units inside them.</p><p><b>Watch</b> Differences between clusters increase uncertainty.</p></article>
+              <article class="sampling-detail-card" id="sampling-en-convenience" data-sampling-panel="convenience" hidden><div class="sampling-crop crop-top-left"><img src={nonProbabilitySamplingVisual} width="702" height="638" alt="Convenience sampling: the most accessible individuals enter the sample" /></div><header><span>Non-probability</span><h3>Convenience</h3></header><p><b>Selection move</b> Recruit the units easiest for the researcher to reach.</p><p><b>Claim limit</b> Accessibility can create strong selection bias; do not assume population representativeness.</p></article>
+              <article class="sampling-detail-card" id="sampling-en-purposive" data-sampling-panel="purposive" hidden><div class="sampling-crop crop-top-right"><img src={nonProbabilitySamplingVisual} width="702" height="638" alt="Purposive sampling: information-rich participants are deliberately selected" /></div><header><span>Non-probability</span><h3>Purposive</h3></header><p><b>Selection move</b> Deliberately choose information-rich cases using explicit criteria.</p><p><b>Claim limit</b> Supports depth about a phenomenon, not population prevalence.</p></article>
+              <article class="sampling-detail-card" id="sampling-en-snowball" data-sampling-panel="snowball" hidden><div class="sampling-crop crop-bottom-left"><img src={nonProbabilitySamplingVisual} width="702" height="638" alt="Snowball sampling: initial participants refer others in their networks" /></div><header><span>Non-probability</span><h3>Snowball</h3></header><p><b>Selection move</b> Begin with seed participants who refer others in a hard-to-reach network.</p><p><b>Claim limit</b> Network ties shape who becomes visible and who remains missing.</p></article>
+              <article class="sampling-detail-card" id="sampling-en-quota" data-sampling-panel="quota" hidden><div class="sampling-crop crop-bottom-right"><img src={nonProbabilitySamplingVisual} width="702" height="638" alt="Quota sampling: predetermined subgroup totals are filled non-randomly" /></div><header><span>Non-probability</span><h3>Quota</h3></header><p><b>Selection move</b> Set subgroup targets, then recruit non-randomly until each quota is filled.</p><p><b>Claim limit</b> Composition is controlled, but selection within each quota is still non-random.</p></article>
+            </div>
           </div>
-          <p class="takeaway">Random selection is about how units enter the sample. It is not the same as random assignment to conditions.</p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
-          <h2>機率抽樣支持群體推論</h2>
-          <div class="grid-4">
-            <article class="panel accent"><h3>簡單隨機抽樣</h3><p>每個單位都透過隨機程序，擁有已知且非零的入選機會。</p></article>
-            <article class="panel accent"><h3>系統抽樣</h3><p>隨機決定起點後，每隔第 k 個單位抽取一次，前提是名單沒有造成偏差的規律。</p></article>
-            <article class="panel accent"><h3>分層抽樣</h3><p>在有意義的子群內抽樣，以保障代表性或提高估計精確度。</p></article>
-            <article class="panel accent"><h3>叢集／多階段抽樣</h3><p>先選取自然群組，再視需要於入選群組內抽取單位。</p></article>
+          <h2>兩種選取邏輯，八種可視方法</h2>
+          <p class="intro-line">點選前，先解釋單位會如何進入樣本；再揭示該方法的選取動作、圖像模式及主張限制。</p>
+          <div class="sampling-explorer" data-sampling-explorer>
+            <div class="sampling-map" aria-label="抽樣方法互動圖">
+              <div class="sampling-root"><strong>抽樣方法</strong><span>單位如何進入樣本？</span></div>
+              <div class="sampling-families">
+                <section class="sampling-family sampling-family-probability">
+                  <header><strong>機率抽樣</strong><span>以機會機制選取</span></header>
+                  <div class="sampling-method-grid">
+                    <button type="button" data-sampling-method="simple-random" aria-controls="sampling-zh-simple-random" aria-pressed="false">簡單隨機</button>
+                    <button type="button" data-sampling-method="systematic" aria-controls="sampling-zh-systematic" aria-pressed="false">系統抽樣</button>
+                    <button type="button" data-sampling-method="stratified" aria-controls="sampling-zh-stratified" aria-pressed="false">分層抽樣</button>
+                    <button type="button" data-sampling-method="cluster" aria-controls="sampling-zh-cluster" aria-pressed="false">叢集抽樣</button>
+                  </div>
+                  <p class="sampling-more"><b>其他：</b>多階段抽樣 · 按規模比例抽樣</p>
+                </section>
+                <section class="sampling-family sampling-family-nonprobability">
+                  <header><strong>非機率抽樣</strong><span>按可接觸性或準則選取</span></header>
+                  <div class="sampling-method-grid">
+                    <button type="button" data-sampling-method="convenience" aria-controls="sampling-zh-convenience" aria-pressed="false">便利抽樣</button>
+                    <button type="button" data-sampling-method="purposive" aria-controls="sampling-zh-purposive" aria-pressed="false">目的抽樣</button>
+                    <button type="button" data-sampling-method="snowball" aria-controls="sampling-zh-snowball" aria-pressed="false">滾雪球抽樣</button>
+                    <button type="button" data-sampling-method="quota" aria-controls="sampling-zh-quota" aria-pressed="false">配額抽樣</button>
+                  </div>
+                  <p class="sampling-more"><b>其他：</b>自願回應 · 理論抽樣 · 連續抽樣</p>
+                </section>
+              </div>
+            </div>
+            <div class="sampling-detail-stage" aria-live="polite">
+              <div class="sampling-detail-empty" data-sampling-empty><strong>揭示前先停一停</strong><p>選擇一種方法並預測：誰可以加入、如何被選取，以及能支持甚麼主張？</p></div>
+              <article class="sampling-detail-card" id="sampling-zh-simple-random" data-sampling-panel="simple-random" hidden><div class="sampling-crop crop-top-left"><img src={probabilitySamplingVisual} width="702" height="638" alt="簡單隨機抽樣：從整個群體隨機選取個體" /></div><header><span>機率抽樣</span><h3>簡單隨機</h3></header><p><b>選取動作</b> 透過隨機機制，讓每個單位擁有相同的入選機會。</p><p><b>注意</b> 通常需要涵蓋完整群體的抽樣框。</p></article>
+              <article class="sampling-detail-card" id="sampling-zh-systematic" data-sampling-panel="systematic" hidden><div class="sampling-crop crop-top-right"><img src={probabilitySamplingVisual} width="702" height="638" alt="系統抽樣：按固定間隔選取個體" /></div><header><span>機率抽樣</span><h3>系統抽樣</h3></header><p><b>選取動作</b> 隨機決定起點，再從有序名單每隔第 k 個單位抽取。</p><p><b>注意</b> 名單中的隱藏規律可能扭曲樣本。</p></article>
+              <article class="sampling-detail-card" id="sampling-zh-stratified" data-sampling-panel="stratified" hidden><div class="sampling-crop crop-bottom-left"><img src={probabilitySamplingVisual} width="702" height="638" alt="分層抽樣：從每一子群中選取個體" /></div><header><span>機率抽樣</span><h3>分層抽樣</h3></header><p><b>選取動作</b> 按重要特徵分層，再在每一層內隨機抽取。</p><p><b>注意</b> 分層方式及比例配置必須符合預期推論。</p></article>
+              <article class="sampling-detail-card" id="sampling-zh-cluster" data-sampling-panel="cluster" hidden><div class="sampling-crop crop-bottom-right"><img src={probabilitySamplingVisual} width="702" height="638" alt="叢集抽樣：選取完整的自然群組" /></div><header><span>機率抽樣</span><h3>叢集抽樣</h3></header><p><b>選取動作</b> 隨機選取自然群組，再納入或抽取群組內的單位。</p><p><b>注意</b> 叢集之間的差異會增加不確定性。</p></article>
+              <article class="sampling-detail-card" id="sampling-zh-convenience" data-sampling-panel="convenience" hidden><div class="sampling-crop crop-top-left"><img src={nonProbabilitySamplingVisual} width="702" height="638" alt="便利抽樣：最容易接觸的個體進入樣本" /></div><header><span>非機率抽樣</span><h3>便利抽樣</h3></header><p><b>選取動作</b> 招募研究者最容易接觸的單位。</p><p><b>主張限制</b> 可接觸性可能造成強烈選擇偏差，不能假設樣本代表整個群體。</p></article>
+              <article class="sampling-detail-card" id="sampling-zh-purposive" data-sampling-panel="purposive" hidden><div class="sampling-crop crop-top-right"><img src={nonProbabilitySamplingVisual} width="702" height="638" alt="目的抽樣：刻意選取資訊豐富的參與者" /></div><header><span>非機率抽樣</span><h3>目的抽樣</h3></header><p><b>選取動作</b> 按明確準則，刻意選取資訊豐富的個案。</p><p><b>主張限制</b> 支持深入理解現象，不支持估計群體盛行率。</p></article>
+              <article class="sampling-detail-card" id="sampling-zh-snowball" data-sampling-panel="snowball" hidden><div class="sampling-crop crop-bottom-left"><img src={nonProbabilitySamplingVisual} width="702" height="638" alt="滾雪球抽樣：最初參與者轉介其網絡中的其他人" /></div><header><span>非機率抽樣</span><h3>滾雪球抽樣</h3></header><p><b>選取動作</b> 由種子參與者開始，透過轉介接觸難以接近的網絡。</p><p><b>主張限制</b> 網絡連結會決定誰被看見，以及誰仍然缺席。</p></article>
+              <article class="sampling-detail-card" id="sampling-zh-quota" data-sampling-panel="quota" hidden><div class="sampling-crop crop-bottom-right"><img src={nonProbabilitySamplingVisual} width="702" height="638" alt="配額抽樣：以非隨機方式填滿預定的子群人數" /></div><header><span>非機率抽樣</span><h3>配額抽樣</h3></header><p><b>選取動作</b> 設定子群目標，再以非隨機方式招募，直至填滿每項配額。</p><p><b>主張限制</b> 樣本組成受到控制，但每項配額內仍不是隨機選取。</p></article>
+            </div>
           </div>
-          <p class="takeaway">隨機抽樣關乎單位如何進入樣本，並不等同於把參與者隨機分派至不同條件。</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide" data-title="Non-probability sampling" aria-hidden="true">
-      <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Sampling logic</span></header>
-        <div data-language="en">
-          <h2>Select for access, composition or information</h2>
-          <div class="grid-6">
-            <article class="panel"><h3>Convenience</h3><p>Use readily accessible units.</p></article>
-            <article class="panel"><h3>Volunteer</h3><p>Participants self-select after an invitation.</p></article>
-            <article class="panel"><h3>Purposive</h3><p>Select cases relevant to the research purpose.</p></article>
-            <article class="panel"><h3>Snowball</h3><p>Participants help reach others in a network.</p></article>
-            <article class="panel"><h3>Quota</h3><p>Fill planned subgroup categories without random selection.</p></article>
-            <article class="panel"><h3>Theoretical</h3><p>Select further cases to develop an emerging theoretical account.</p></article>
-          </div>
-          <p class="takeaway">Non-probability does not mean careless. State the selection logic and limit claims to what it can support.</p>
-        </div>
-        <div data-language="zh" hidden lang="zh-Hant">
-          <h2>按可接觸性、組成或資訊價值選取</h2>
-          <div class="grid-6">
-            <article class="panel"><h3>便利抽樣</h3><p>使用容易接觸的單位。</p></article>
-            <article class="panel"><h3>志願者抽樣</h3><p>參與者回應邀請後自行選擇加入。</p></article>
-            <article class="panel"><h3>目的抽樣</h3><p>選取與研究目的相關的個案。</p></article>
-            <article class="panel"><h3>滾雪球抽樣</h3><p>由參與者協助接觸其網絡中的其他人。</p></article>
-            <article class="panel"><h3>配額抽樣</h3><p>在沒有隨機選取下填滿預定子群類別。</p></article>
-            <article class="panel"><h3>理論抽樣</h3><p>為發展正在形成的理論解釋而選取後續個案。</p></article>
-          </div>
-          <p class="takeaway">非機率抽樣不等於隨意。必須說明選取邏輯，並把主張限制在該邏輯能支持的範圍內。</p>
         </div>
       </div>
     </section>
@@ -729,21 +1017,85 @@ const courseHref = withBase('/teaching/courses/dedc02');
         <header class="slide-header"><span class="eyebrow">Sampling logic</span></header>
         <div data-language="en">
           <h2>There is no universal “good sample size”</h2>
-          <div class="contrast design-comparison">
-            <article><h3>Quantitative adequacy</h3><p>Depends on the target inference, expected variation or effect, precision, design structure, planned analysis and likely missingness.</p></article>
-            <b>↔</b>
-            <article><h3>Qualitative adequacy</h3><p>Depends on the design, specificity of participants, richness and relevance of evidence, variation sought and depth of analysis.</p></article>
+          <p class="sample-size-intro">Begin with the claim. Select a route, predict which inputs matter, then reveal the calculation logic.</p>
+          <div class="sample-size-sequence" aria-label="Sample size planning sequence"><span>Claim</span><b>→</b><span>Assumptions</span><b>→</b><span>Base n</span><b>→</b><span>Adjust</span><b>→</b><span>Recruit</span></div>
+          <div class="sample-size-workbench" data-sample-size-explorer>
+            <nav class="sample-size-routes" aria-label="Choose a sample size planning route">
+              <button type="button" data-sample-size-route="proportion" aria-controls="sample-size-en-proportion" aria-pressed="false"><strong>Estimate a proportion</strong><span>Precision</span></button>
+              <button type="button" data-sample-size-route="comparison" aria-controls="sample-size-en-comparison" aria-pressed="false"><strong>Compare two groups</strong><span>Power</span></button>
+              <button type="button" data-sample-size-route="cluster" aria-controls="sample-size-en-cluster" aria-pressed="false"><strong>Clustered design</strong><span>Design effect</span></button>
+              <button type="button" data-sample-size-route="qualitative" aria-controls="sample-size-en-qualitative" aria-pressed="false"><strong>Qualitative study</strong><span>Information adequacy</span></button>
+            </nav>
+            <div class="sample-size-stage" aria-live="polite">
+              <div class="sample-size-empty" data-sample-size-empty><strong>Pause before calculating</strong><p>Are you estimating a population value, detecting a difference, adjusting for grouped data, or seeking information-rich cases?</p></div>
+              <article id="sample-size-en-proportion" class="sample-size-panel" data-sample-size-panel="proportion" hidden>
+                <header><span>Precision route</span><h3>One population proportion</h3></header>
+                <div class="formula-band"><strong>n₀ = z²p(1 − p) / e²</strong><small>z confidence · p expected proportion · e margin of error</small></div>
+                <div class="sample-size-notes"><p><b>Worked example</b> 95% confidence, p = .50 and e = .05 gives n₀ = 384.16 → <strong>385</strong>.</p><p><b>Finite population</b> If N = 1,000, n = n₀ / [1 + (n₀ − 1)/N] → <strong>278</strong>.</p></div>
+                <p class="sample-size-caution">Valid for a simple random estimate of one proportion; then adjust for design and nonresponse.</p>
+              </article>
+              <article id="sample-size-en-comparison" class="sample-size-panel" data-sample-size-panel="comparison" hidden>
+                <header><span>Power route</span><h3>A minimum meaningful difference</h3></header>
+                <div class="formula-band"><strong>n/group ≈ 2(z<sub>1−α/2</sub> + z<sub>1−β</sub>)²σ² / Δ²</strong><small>α false-positive risk · 1−β power · σ variation · Δ target difference</small></div>
+                <div class="sample-size-notes"><p><b>Worked example</b> α = .05, power = 80%, standardised effect d = .50 → about <strong>63 per group</strong>.</p><p><b>Recruitment target</b> 126 completers with 15% attrition: 126 / .85 → <strong>149 recruits</strong>.</p></div>
+                <p class="sample-size-caution">Smaller effects, greater variation, lower take-up and unequal allocation usually increase the required n.</p>
+              </article>
+              <article id="sample-size-en-cluster" class="sample-size-panel" data-sample-size-panel="cluster" hidden>
+                <header><span>Design adjustment</span><h3>People share a classroom, school or site</h3></header>
+                <div class="formula-band"><strong>DE = 1 + (m − 1)ρ</strong><small>m average cluster size · ρ intracluster correlation · adjusted n = base n × DE</small></div>
+                <div class="sample-size-notes"><p><b>Worked example</b> m = 25 and ρ = .05 gives DE = <strong>2.20</strong>.</p><p><b>Apply it</b> A base total of 126 becomes 126 × 2.20 → <strong>278</strong>, before attrition.</p></div>
+                <p class="sample-size-caution">The number of independent clusters matters; adding clusters is often more useful than adding people within the same cluster.</p>
+              </article>
+              <article id="sample-size-en-qualitative" class="sample-size-panel" data-sample-size-panel="qualitative" hidden>
+                <header><span>Information route</span><h3>No defensible universal formula</h3></header>
+                <div class="formula-band formula-band-text"><strong>Adequacy = fit to purpose + information richness + analytic depth</strong><small>Plan a reasoned range and a transparent stopping rule.</small></div>
+                <div class="sample-size-notes"><p><b>Plan from</b> design, participant specificity, variation sought, access, data quality and the depth of analysis.</p><p><b>Stop and justify</b> when additional cases no longer materially change the analysis, or when a design-specific adequacy criterion is met.</p></div>
+                <p class="sample-size-caution">A pilot or resource ceiling can test feasibility, but neither alone demonstrates adequate evidence.</p>
+              </article>
+            </div>
           </div>
-          <p class="takeaway">“Large” is not automatically representative; “small” is not automatically inadequate. Justify adequacy for the question and design.</p>
+          <p class="sample-size-takeaway">Shortcut formulas, lookup tables and “30 participants” are assumption-bound—not universal answers. Report the claim, inputs, unit, adjustments and final target.</p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
           <h2>並不存在通用的「良好樣本量」</h2>
-          <div class="contrast design-comparison">
-            <article><h3>量化研究的充分性</h3><p>取決於目標推論、預期變異或效果、精確度、設計結構、計劃分析及可能的缺失資料。</p></article>
-            <b>↔</b>
-            <article><h3>質性研究的充分性</h3><p>取決於研究設計、參與者的特定性、證據的豐富與相關程度、所需差異及分析深度。</p></article>
+          <p class="sample-size-intro">先由研究主張出發。選擇路徑，預測哪些輸入條件重要，再揭示計算邏輯。</p>
+          <div class="sample-size-sequence" aria-label="樣本量規劃流程"><span>主張</span><b>→</b><span>假設</span><b>→</b><span>基礎 n</span><b>→</b><span>調整</span><b>→</b><span>招募</span></div>
+          <div class="sample-size-workbench" data-sample-size-explorer>
+            <nav class="sample-size-routes" aria-label="選擇樣本量規劃路徑">
+              <button type="button" data-sample-size-route="proportion" aria-controls="sample-size-zh-proportion" aria-pressed="false"><strong>估計一項比例</strong><span>精確度</span></button>
+              <button type="button" data-sample-size-route="comparison" aria-controls="sample-size-zh-comparison" aria-pressed="false"><strong>比較兩組</strong><span>統計功效</span></button>
+              <button type="button" data-sample-size-route="cluster" aria-controls="sample-size-zh-cluster" aria-pressed="false"><strong>叢集設計</strong><span>設計效應</span></button>
+              <button type="button" data-sample-size-route="qualitative" aria-controls="sample-size-zh-qualitative" aria-pressed="false"><strong>質性研究</strong><span>資訊充分性</span></button>
+            </nav>
+            <div class="sample-size-stage" aria-live="polite">
+              <div class="sample-size-empty" data-sample-size-empty><strong>計算前先停一停</strong><p>你要估計群體數值、偵測差異、調整群組資料，還是尋找資訊豐富的個案？</p></div>
+              <article id="sample-size-zh-proportion" class="sample-size-panel" data-sample-size-panel="proportion" hidden>
+                <header><span>精確度路徑</span><h3>一項群體比例</h3></header>
+                <div class="formula-band"><strong>n₀ = z²p(1 − p) / e²</strong><small>z 置信水平 · p 預期比例 · e 誤差範圍</small></div>
+                <div class="sample-size-notes"><p><b>計算例子</b> 95% 置信水平、p = .50、e = .05：n₀ = 384.16 → <strong>385</strong>。</p><p><b>有限群體</b> 若 N = 1,000，n = n₀ / [1 + (n₀ − 1)/N] → <strong>278</strong>。</p></div>
+                <p class="sample-size-caution">適用於以簡單隨機樣本估計一項比例；其後仍須按研究設計及無回應作調整。</p>
+              </article>
+              <article id="sample-size-zh-comparison" class="sample-size-panel" data-sample-size-panel="comparison" hidden>
+                <header><span>統計功效路徑</span><h3>可被視為有意義的最小差異</h3></header>
+                <div class="formula-band"><strong>每組 n ≈ 2(z<sub>1−α/2</sub> + z<sub>1−β</sub>)²σ² / Δ²</strong><small>α 假陽性風險 · 1−β 功效 · σ 變異 · Δ 目標差異</small></div>
+                <div class="sample-size-notes"><p><b>計算例子</b> α = .05、功效 = 80%、標準化效果 d = .50 → 每組約 <strong>63 人</strong>。</p><p><b>招募目標</b> 126 名完成者、預計流失 15%：126 / .85 → <strong>招募 149 人</strong>。</p></div>
+                <p class="sample-size-caution">效果較小、變異較大、參與率較低或分組不平均，通常都需要較大的 n。</p>
+              </article>
+              <article id="sample-size-zh-cluster" class="sample-size-panel" data-sample-size-panel="cluster" hidden>
+                <header><span>設計調整</span><h3>參與者同屬班級、學校或場域</h3></header>
+                <div class="formula-band"><strong>DE = 1 + (m − 1)ρ</strong><small>m 平均叢集大小 · ρ 組內相關 · 調整後 n = 基礎 n × DE</small></div>
+                <div class="sample-size-notes"><p><b>計算例子</b> m = 25、ρ = .05，DE = <strong>2.20</strong>。</p><p><b>套用調整</b> 基礎總數 126 × 2.20 → <strong>278</strong>，尚未計入流失。</p></div>
+                <p class="sample-size-caution">獨立叢集的數目很重要；增加叢集通常比只在同一叢集內增加人數更有用。</p>
+              </article>
+              <article id="sample-size-zh-qualitative" class="sample-size-panel" data-sample-size-panel="qualitative" hidden>
+                <header><span>資訊路徑</span><h3>沒有站得住腳的通用公式</h3></header>
+                <div class="formula-band formula-band-text"><strong>充分性 = 切合目的 + 資訊豐富度 + 分析深度</strong><small>規劃一個有理據的範圍及透明的停止準則。</small></div>
+                <div class="sample-size-notes"><p><b>規劃依據</b> 研究設計、參與者特定性、所需差異、可接觸性、資料品質及分析深度。</p><p><b>停止與論證</b> 當新增個案不再實質改變分析，或已符合該設計的充分性準則。</p></div>
+                <p class="sample-size-caution">先導研究或資源上限可檢驗可行性，但兩者本身都不能證明證據充分。</p>
+              </article>
+            </div>
           </div>
-          <p class="takeaway">「大」不一定具有代表性，「小」也不一定不充分。應根據研究問題與設計論證其充分性。</p>
+          <p class="sample-size-takeaway">捷徑公式、查表及「30 人」都受假設限制，並非通用答案。應報告主張、輸入條件、抽樣單位、各項調整及最終目標。</p>
         </div>
       </div>
     </section>
@@ -809,55 +1161,175 @@ const courseHref = withBase('/teaching/courses/dedc02');
         <header class="slide-header"><span class="eyebrow">Quantitative quality</span></header>
         <div data-language="en">
           <h2>Different threats require different safeguards</h2>
-          <div class="quality-matrix">
-            <article><strong>Construct validity</strong><span>Does the operational measure represent the intended construct?</span></article>
-            <article><strong>Internal validity</strong><span>Can rival explanations for an observed difference be ruled down?</span></article>
-            <article><strong>External validity</strong><span>To which populations, settings, measures and periods might findings apply?</span></article>
-            <article><strong>Statistical conclusion validity</strong><span>Are the data and analyses adequate for the inference?</span></article>
-            <article><strong>Reliability</strong><span>Are scores or observations sufficiently consistent for their intended use?</span></article>
+          <p class="validity-intro">First distinguish hitting the intended target from producing a consistent pattern.</p>
+          <div class="validity-workbench" data-validity-workbench>
+            <nav class="validity-tabs" aria-label="Validity and reliability learning sequence">
+              <button type="button" data-validity-tab="targets" aria-controls="validity-en-targets" aria-pressed="true">1 · Read the targets</button>
+              <button type="button" data-validity-tab="terms" aria-controls="validity-en-terms" aria-pressed="false">2 · Map the terms</button>
+            </nav>
+            <section id="validity-en-targets" class="validity-panel" data-validity-panel="targets">
+              <div class="target-patterns">
+                <figure>
+                  <svg viewBox="0 0 120 120" role="img" aria-label="Shots are dispersed and away from the centre: neither reliable nor valid">
+                    <g class="target-board"><circle cx="60" cy="60" r="48"/><circle cx="60" cy="60" r="36"/><circle cx="60" cy="60" r="24"/><circle cx="60" cy="60" r="12"/><path d="M8 60h104M60 8v104"/></g>
+                    <g class="target-shots"><circle cx="20" cy="27" r="3"/><circle cx="31" cy="18" r="3"/><circle cx="43" cy="34" r="3"/><circle cx="55" cy="17" r="3"/><circle cx="69" cy="29" r="3"/><circle cx="80" cy="16" r="3"/><circle cx="94" cy="32" r="3"/><circle cx="27" cy="45" r="3"/><circle cx="73" cy="43" r="3"/></g>
+                  </svg>
+                  <figcaption><strong>Neither</strong><span>Scattered and off target</span></figcaption>
+                </figure>
+                <figure>
+                  <svg viewBox="0 0 120 120" role="img" aria-label="Shots are dispersed around the centre: accurate on average but unreliable">
+                    <g class="target-board"><circle cx="60" cy="60" r="48"/><circle cx="60" cy="60" r="36"/><circle cx="60" cy="60" r="24"/><circle cx="60" cy="60" r="12"/><path d="M8 60h104M60 8v104"/></g>
+                    <g class="target-shots"><circle cx="22" cy="56" r="3"/><circle cx="34" cy="30" r="3"/><circle cx="58" cy="25" r="3"/><circle cx="86" cy="35" r="3"/><circle cx="96" cy="62" r="3"/><circle cx="80" cy="88" r="3"/><circle cx="52" cy="96" r="3"/><circle cx="31" cy="79" r="3"/><circle cx="66" cy="64" r="3"/></g>
+                  </svg>
+                  <figcaption><strong>Valid on average</strong><span>Centred but inconsistent</span></figcaption>
+                </figure>
+                <figure>
+                  <svg viewBox="0 0 120 120" role="img" aria-label="Shots form a tight cluster away from the centre: reliable but invalid">
+                    <g class="target-board"><circle cx="60" cy="60" r="48"/><circle cx="60" cy="60" r="36"/><circle cx="60" cy="60" r="24"/><circle cx="60" cy="60" r="12"/><path d="M8 60h104M60 8v104"/></g>
+                    <g class="target-shots"><circle cx="82" cy="35" r="3"/><circle cx="88" cy="38" r="3"/><circle cx="84" cy="42" r="3"/><circle cx="91" cy="44" r="3"/><circle cx="78" cy="43" r="3"/><circle cx="86" cy="48" r="3"/><circle cx="94" cy="37" r="3"/><circle cx="81" cy="31" r="3"/></g>
+                  </svg>
+                  <figcaption><strong>Reliable, not valid</strong><span>Consistent systematic bias</span></figcaption>
+                </figure>
+                <figure>
+                  <svg viewBox="0 0 120 120" role="img" aria-label="Shots form a tight cluster at the centre: reliable and valid">
+                    <g class="target-board"><circle cx="60" cy="60" r="48"/><circle cx="60" cy="60" r="36"/><circle cx="60" cy="60" r="24"/><circle cx="60" cy="60" r="12"/><path d="M8 60h104M60 8v104"/></g>
+                    <g class="target-shots"><circle cx="55" cy="55" r="3"/><circle cx="62" cy="53" r="3"/><circle cx="67" cy="58" r="3"/><circle cx="58" cy="62" r="3"/><circle cx="64" cy="65" r="3"/><circle cx="53" cy="67" r="3"/><circle cx="60" cy="59" r="3"/><circle cx="68" cy="68" r="3"/></g>
+                  </svg>
+                  <figcaption><strong>Reliable and valid</strong><span>Consistent and on target</span></figcaption>
+                </figure>
+              </div>
+              <div class="validity-definitions"><p><strong>Reliability asks:</strong> Do repeated scores or observations cluster together?</p><p><strong>Validity asks:</strong> Do the evidence and inference hit the intended target?</p></div>
+              <p class="validity-note">The target is a teaching analogy: validity also concerns constructs, causal explanations, generalisation and statistical conclusions.</p>
+            </section>
+            <section id="validity-en-terms" class="validity-panel" data-validity-panel="terms" hidden>
+              <div class="quality-map-core"><strong>Research quality</strong><span>What makes this inference or interpretation defensible?</span></div>
+              <div class="quality-terminology-map">
+                <section class="quality-map-branch quality-map-quant">
+                  <header><span>Quantitative studies</span><h3>Validity + reliability</h3></header>
+                  <div class="quality-map-nodes">{quantitativeQualityTerms.map((term) => <article><strong>{term.labelEn}</strong><span>{term.mapEn}</span></article>)}</div>
+                  <p>Older “internal/external reliability” labels are clearer when unpacked as consistency, stability, equivalence and rater agreement.</p>
+                </section>
+                <div class="quality-map-bridge"><strong>Related questions</strong><span>not one-to-one translations</span></div>
+                <section class="quality-map-branch quality-map-qual">
+                  <header><span>Qualitative studies</span><h3>Trustworthiness + methodological integrity</h3></header>
+                  <div class="quality-map-nodes">{qualitativeQualityTerms.map((term) => <article><strong>{term.labelEn}</strong><span>{term.mapEn}</span></article>)}</div>
+                  <p>Dependability is not test-retest reliability; transferability is not statistical generalisability. Each answers a different quality question.</p>
+                </section>
+              </div>
+              <p class="quality-map-footer"><strong>Across the whole study:</strong> make decisions transparent from collection → processing → analysis → reporting; usefulness follows only when claims are methodologically supported.</p>
+            </section>
           </div>
-          <p class="takeaway">A reliable measure can still measure the wrong construct. Reliability alone does not establish validity.</p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
           <h2>不同威脅需要不同保障</h2>
-          <div class="quality-matrix">
-            <article><strong>構念效度</strong><span>操作化測量是否代表研究所指的構念？</span></article>
-            <article><strong>內部效度</strong><span>能否減少對觀察差異的其他競爭性解釋？</span></article>
-            <article><strong>外部效度</strong><span>研究發現可能適用於哪些群體、場域、測量及時期？</span></article>
-            <article><strong>統計結論效度</strong><span>資料與分析是否足以支持該項推論？</span></article>
-            <article><strong>信度</strong><span>分數或觀察是否在預期用途下具有足夠一致性？</span></article>
+          <p class="validity-intro">首先區分是否擊中預期目標，以及是否產生一致的結果模式。</p>
+          <div class="validity-workbench" data-validity-workbench>
+            <nav class="validity-tabs" aria-label="效度與信度學習次序">
+              <button type="button" data-validity-tab="targets" aria-controls="validity-zh-targets" aria-pressed="true">1 · 閱讀靶圖</button>
+              <button type="button" data-validity-tab="terms" aria-controls="validity-zh-terms" aria-pressed="false">2 · 繪製術語圖</button>
+            </nav>
+            <section id="validity-zh-targets" class="validity-panel" data-validity-panel="targets">
+              <div class="target-patterns">
+                <figure>
+                  <svg viewBox="0 0 120 120" role="img" aria-label="落點分散並偏離中心：既不可靠也無效">
+                    <g class="target-board"><circle cx="60" cy="60" r="48"/><circle cx="60" cy="60" r="36"/><circle cx="60" cy="60" r="24"/><circle cx="60" cy="60" r="12"/><path d="M8 60h104M60 8v104"/></g>
+                    <g class="target-shots"><circle cx="20" cy="27" r="3"/><circle cx="31" cy="18" r="3"/><circle cx="43" cy="34" r="3"/><circle cx="55" cy="17" r="3"/><circle cx="69" cy="29" r="3"/><circle cx="80" cy="16" r="3"/><circle cx="94" cy="32" r="3"/><circle cx="27" cy="45" r="3"/><circle cx="73" cy="43" r="3"/></g>
+                  </svg>
+                  <figcaption><strong>兩者皆無</strong><span>分散且偏離目標</span></figcaption>
+                </figure>
+                <figure>
+                  <svg viewBox="0 0 120 120" role="img" aria-label="落點散布於中心四周：平均準確但不可靠">
+                    <g class="target-board"><circle cx="60" cy="60" r="48"/><circle cx="60" cy="60" r="36"/><circle cx="60" cy="60" r="24"/><circle cx="60" cy="60" r="12"/><path d="M8 60h104M60 8v104"/></g>
+                    <g class="target-shots"><circle cx="22" cy="56" r="3"/><circle cx="34" cy="30" r="3"/><circle cx="58" cy="25" r="3"/><circle cx="86" cy="35" r="3"/><circle cx="96" cy="62" r="3"/><circle cx="80" cy="88" r="3"/><circle cx="52" cy="96" r="3"/><circle cx="31" cy="79" r="3"/><circle cx="66" cy="64" r="3"/></g>
+                  </svg>
+                  <figcaption><strong>平均而言具效度</strong><span>居中但不一致</span></figcaption>
+                </figure>
+                <figure>
+                  <svg viewBox="0 0 120 120" role="img" aria-label="落點緊密但偏離中心：可靠但無效">
+                    <g class="target-board"><circle cx="60" cy="60" r="48"/><circle cx="60" cy="60" r="36"/><circle cx="60" cy="60" r="24"/><circle cx="60" cy="60" r="12"/><path d="M8 60h104M60 8v104"/></g>
+                    <g class="target-shots"><circle cx="82" cy="35" r="3"/><circle cx="88" cy="38" r="3"/><circle cx="84" cy="42" r="3"/><circle cx="91" cy="44" r="3"/><circle cx="78" cy="43" r="3"/><circle cx="86" cy="48" r="3"/><circle cx="94" cy="37" r="3"/><circle cx="81" cy="31" r="3"/></g>
+                  </svg>
+                  <figcaption><strong>有信度、無效度</strong><span>一致的系統偏誤</span></figcaption>
+                </figure>
+                <figure>
+                  <svg viewBox="0 0 120 120" role="img" aria-label="落點緊密集中於中心：可靠而有效">
+                    <g class="target-board"><circle cx="60" cy="60" r="48"/><circle cx="60" cy="60" r="36"/><circle cx="60" cy="60" r="24"/><circle cx="60" cy="60" r="12"/><path d="M8 60h104M60 8v104"/></g>
+                    <g class="target-shots"><circle cx="55" cy="55" r="3"/><circle cx="62" cy="53" r="3"/><circle cx="67" cy="58" r="3"/><circle cx="58" cy="62" r="3"/><circle cx="64" cy="65" r="3"/><circle cx="53" cy="67" r="3"/><circle cx="60" cy="59" r="3"/><circle cx="68" cy="68" r="3"/></g>
+                  </svg>
+                  <figcaption><strong>有信度亦有效度</strong><span>一致且擊中目標</span></figcaption>
+                </figure>
+              </div>
+              <div class="validity-definitions"><p><strong>信度問：</strong>重複得到的分數或觀察是否彼此接近？</p><p><strong>效度問：</strong>證據及推論是否擊中研究所指的目標？</p></div>
+              <p class="validity-note">靶圖只是一個教學比喻：效度亦涉及構念、因果解釋、推廣範圍及統計結論。</p>
+            </section>
+            <section id="validity-zh-terms" class="validity-panel" data-validity-panel="terms" hidden>
+              <div class="quality-map-core"><strong>研究品質</strong><span>甚麼使這項推論或詮釋站得住腳？</span></div>
+              <div class="quality-terminology-map">
+                <section class="quality-map-branch quality-map-quant">
+                  <header><span>量化研究</span><h3>效度 + 信度</h3></header>
+                  <div class="quality-map-nodes">{quantitativeQualityTerms.map((term) => <article><strong>{term.labelZh}</strong><span>{term.mapZh}</span></article>)}</div>
+                  <p>與其使用較含糊的「內部／外部信度」，不如拆解為一致性、穩定性、等值性及評分者一致。</p>
+                </section>
+                <div class="quality-map-bridge"><strong>相關問題</strong><span>並非逐一對譯</span></div>
+                <section class="quality-map-branch quality-map-qual">
+                  <header><span>質性研究</span><h3>可信賴性 + 方法完整性</h3></header>
+                  <div class="quality-map-nodes">{qualitativeQualityTerms.map((term) => <article><strong>{term.labelZh}</strong><span>{term.mapZh}</span></article>)}</div>
+                  <p>依賴性不等於重測信度，可轉移性亦不等於統計推廣；每個術語回答不同的品質問題。</p>
+                </section>
+              </div>
+              <p class="quality-map-footer"><strong>貫穿整項研究：</strong>使決策由蒐集 → 處理 → 分析 → 報告均透明可見；只有主張得到方法支持，研究結果才可能有用。</p>
+            </section>
           </div>
-          <p class="takeaway">一項測量即使具有信度，也可能測量了錯誤的構念。只有信度並不能建立效度。</p>
         </div>
       </div>
     </section>
 
-    <section class="slide" data-title="Trustworthiness" aria-hidden="true">
+    <section class="slide" data-title="Quality safeguards explorer" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Qualitative quality</span></header>
+        <header class="slide-header"><span class="eyebrow">Quality in action</span></header>
         <div data-language="en">
-          <h2>Make the interpretive process defensible</h2>
-          <div class="grid-6">
-            <article class="panel"><h3>Credibility</h3><p>Is the account well grounded in relevant evidence and engagement?</p></article>
-            <article class="panel"><h3>Dependability</h3><p>Is the research process documented and logically consistent?</p></article>
-            <article class="panel"><h3>Confirmability</h3><p>Can readers see how interpretations developed from evidence?</p></article>
-            <article class="panel"><h3>Transferability</h3><p>Is context described well enough for readers to judge relevance elsewhere?</p></article>
-            <article class="panel"><h3>Reflexivity</h3><p>How did the researcher’s position and decisions shape the inquiry?</p></article>
-            <article class="panel"><h3>Challenge</h3><p>Were negative cases, tensions and alternative interpretations pursued?</p></article>
+          <h2>Move from a quality threat to a safeguard</h2>
+          <p class="quality-explorer-intro">Choose a term. Identify what convincing evidence would look like, name the issue, then select techniques that address that issue.</p>
+          <div class="quality-explorer" data-quality-explorer>
+            <div class="quality-term-selector">
+              <section><header><strong>Quantitative</strong><span>measurement + inference</span></header><div>{quantitativeQualityTerms.map((term) => <button type="button" data-quality-term={term.id} aria-controls={`quality-en-${term.id}`} aria-pressed="false">{term.labelEn}</button>)}</div></section>
+              <section><header><strong>Qualitative</strong><span>interpretation + process</span></header><div>{qualitativeQualityTerms.map((term) => <button type="button" data-quality-term={term.id} aria-controls={`quality-en-${term.id}`} aria-pressed="false">{term.labelEn}</button>)}</div></section>
+            </div>
+            <div class="quality-guidance-stage" aria-live="polite">
+              <div class="quality-guidance-empty" data-quality-empty><strong>No strategy is an automatic certificate</strong><p>Predict the threat first. A technique improves quality only when it fits the design and addresses that named threat.</p></div>
+              {qualityTerms.map((term) => (
+                <article id={`quality-en-${term.id}`} class="quality-guidance" data-quality-panel={term.id} hidden>
+                  <header><span>{term.family === 'quant' ? 'Quantitative quality' : 'Qualitative quality'}</span><h3>{term.labelEn}</h3></header>
+                  <button class="quality-reset" type="button" data-quality-reset>← All terms</button>
+                  <dl><div><dt>Indicator</dt><dd>{term.indicatorEn}</dd></div><div><dt>Issue</dt><dd>{term.issueEn}</dd></div></dl>
+                  <div class="quality-strategies"><strong>Safeguards to consider</strong><ul>{term.strategiesEn.map((strategy) => <li>{strategy}</li>)}</ul></div>
+                </article>
+              ))}
+            </div>
           </div>
-          <p class="takeaway">Member checking, triangulation or prolonged engagement are strategies, not automatic certificates. Use those that address the actual threat.</p>
+          <p class="quality-explorer-footer">Document why each safeguard fits the claim, design and threat—not merely that it was used.</p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
-          <h2>使詮釋過程具有充分理據</h2>
-          <div class="grid-6">
-            <article class="panel"><h3>可信性</h3><p>研究解釋是否充分植根於相關證據與投入？</p></article>
-            <article class="panel"><h3>依賴性</h3><p>研究過程是否有記錄並保持邏輯一致？</p></article>
-            <article class="panel"><h3>可確認性</h3><p>讀者能否看出詮釋如何從證據發展而來？</p></article>
-            <article class="panel"><h3>可轉移性</h3><p>情境描述是否足以讓讀者判斷結果在其他地方的相關性？</p></article>
-            <article class="panel"><h3>反思性</h3><p>研究者的位置與決策如何塑造研究？</p></article>
-            <article class="panel"><h3>挑戰</h3><p>是否追查負面個案、張力與其他可能詮釋？</p></article>
+          <h2>由品質威脅走向保障策略</h2>
+          <p class="quality-explorer-intro">選擇一個術語。先辨識具說服力的證據、說明問題，再選取真正處理該問題的技巧。</p>
+          <div class="quality-explorer" data-quality-explorer>
+            <div class="quality-term-selector">
+              <section><header><strong>量化研究</strong><span>測量 + 推論</span></header><div>{quantitativeQualityTerms.map((term) => <button type="button" data-quality-term={term.id} aria-controls={`quality-zh-${term.id}`} aria-pressed="false">{term.labelZh}</button>)}</div></section>
+              <section><header><strong>質性研究</strong><span>詮釋 + 過程</span></header><div>{qualitativeQualityTerms.map((term) => <button type="button" data-quality-term={term.id} aria-controls={`quality-zh-${term.id}`} aria-pressed="false">{term.labelZh}</button>)}</div></section>
+            </div>
+            <div class="quality-guidance-stage" aria-live="polite">
+              <div class="quality-guidance-empty" data-quality-empty><strong>沒有任何策略可以自動保證品質</strong><p>先預測威脅。只有技巧符合研究設計並處理已命名的威脅，才可能提升品質。</p></div>
+              {qualityTerms.map((term) => (
+                <article id={`quality-zh-${term.id}`} class="quality-guidance" data-quality-panel={term.id} hidden>
+                  <header><span>{term.family === 'quant' ? '量化研究品質' : '質性研究品質'}</span><h3>{term.labelZh}</h3></header>
+                  <button class="quality-reset" type="button" data-quality-reset>← 所有術語</button>
+                  <dl><div><dt>指標</dt><dd>{term.indicatorZh}</dd></div><div><dt>問題</dt><dd>{term.issueZh}</dd></div></dl>
+                  <div class="quality-strategies"><strong>可考慮的保障策略</strong><ul>{term.strategiesZh.map((strategy) => <li>{strategy}</li>)}</ul></div>
+                </article>
+              ))}
+            </div>
           </div>
-          <p class="takeaway">成員檢核、三角互證或長期投入都是策略，不是自動認證。應選用能處理實際威脅的策略。</p>
+          <p class="quality-explorer-footer">記錄每項保障為何符合研究主張、設計及威脅，而不只是列出曾經使用。</p>
         </div>
       </div>
     </section>
@@ -924,7 +1396,7 @@ const courseHref = withBase('/teaching/courses/dedc02');
           <div class="alignment-flow">
             <span>Problem</span><b>→</b><span>Framework</span><b>→</b><span>Question</span><b>→</b><span>Claim</span><b>→</b><span>Design</span><b>→</b><span>Sample</span><b>→</b><span>Evidence</span><b>→</b><span>Quality</span>
           </div>
-          <p class="takeaway">Alignment does not mean every element is identical. It means each choice has a visible function in answering the question.</p>
+          <p class="takeaway">Alignment gives every research choice a clear, visible role in answering the research question.</p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
           <h2>每項決策都必須服務同一研究</h2>
@@ -932,58 +1404,6 @@ const courseHref = withBase('/teaching/courses/dedc02');
             <span>課題</span><b>→</b><span>框架</span><b>→</b><span>問題</span><b>→</b><span>主張</span><b>→</b><span>設計</span><b>→</b><span>樣本</span><b>→</b><span>證據</span><b>→</b><span>品質</span>
           </div>
           <p class="takeaway">對齊並不表示所有元素都相同，而是每項選擇在回答研究問題時都有可見功能。</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide" data-title="Activity 6: Study Architecture I" aria-hidden="true">
-      <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Activity 6 · Build</span></header>
-        <div data-language="en">
-          <h2>Study Architecture: purpose and logic</h2>
-          <div class="canvas-grid">
-            <label><span>Problem and purpose</span><textarea data-save="problem" placeholder="What matters, to whom, and what remains unresolved?"></textarea></label>
-            <label><span>Framework</span><textarea data-save="framework" placeholder="Which theory or study-specific concept map guides the inquiry, and how?"></textarea></label>
-            <label><span>Research question</span><textarea data-save="question" placeholder="Write the question in a form the proposed study can answer."></textarea></label>
-            <label><span>Intended claim</span><textarea data-save="claim" placeholder="What kind of answer do you intend to support, and within what boundary?"></textarea></label>
-          </div>
-          <p class="instruction">Read across all four boxes. Circle any concept that changes meaning between boxes.</p>
-        </div>
-        <div data-language="zh" hidden lang="zh-Hant">
-          <h2>研究架構：目的與邏輯</h2>
-          <div class="canvas-grid">
-            <label><span>研究課題與目的</span><textarea data-save="problem-zh" placeholder="甚麼課題重要、對誰重要，以及尚未解決甚麼？"></textarea></label>
-            <label><span>框架</span><textarea data-save="framework-zh" placeholder="哪項理論或研究專屬概念圖引導研究？如何引導？"></textarea></label>
-            <label><span>研究問題</span><textarea data-save="question-zh" placeholder="把問題寫成擬議研究能夠回答的形式。"></textarea></label>
-            <label><span>預期主張</span><textarea data-save="claim-zh" placeholder="你要支持哪類答案？其適用邊界是甚麼？"></textarea></label>
-          </div>
-          <p class="instruction">橫向閱讀四個方格，把在不同方格中意思改變的概念圈出來。</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide" data-title="Activity 6: Study Architecture II" aria-hidden="true">
-      <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Activity 6 · Test</span></header>
-        <div data-language="en">
-          <h2>Study Architecture: evidence and limits</h2>
-          <div class="canvas-grid">
-            <label><span>Design and rationale</span><textarea data-save="design" placeholder="Which design family fits, and why is it stronger than the nearest alternative?"></textarea></label>
-            <label><span>Sample and access</span><textarea data-save="sample" placeholder="What is sampled, how is it selected, and what access is realistic?"></textarea></label>
-            <label><span>Quality safeguard</span><textarea data-save="quality" placeholder="Name the main threat and a design-stage response."></textarea></label>
-            <label><span>Feasibility and ethics flag</span><textarea data-save="ethics" placeholder="What issue must be resolved before data collection can begin?"></textarea></label>
-          </div>
-          <p class="instruction">Do not draft instruments or IRB forms here. Record the decisions that the next lessons must develop.</p>
-        </div>
-        <div data-language="zh" hidden lang="zh-Hant">
-          <h2>研究架構：證據與限制</h2>
-          <div class="canvas-grid">
-            <label><span>設計與理據</span><textarea data-save="design-zh" placeholder="哪個設計類型最合適？為何優於最接近的替代選擇？"></textarea></label>
-            <label><span>樣本與進入場域</span><textarea data-save="sample-zh" placeholder="抽取甚麼、如何選取，以及哪些進入方式切實可行？"></textarea></label>
-            <label><span>品質保障</span><textarea data-save="quality-zh" placeholder="指出主要威脅及一項在設計階段採取的回應。"></textarea></label>
-            <label><span>可行性與倫理提示</span><textarea data-save="ethics-zh" placeholder="開始蒐集資料前，必須解決哪個問題？"></textarea></label>
-          </div>
-          <p class="instruction">此處不擬定研究工具或 IRB 表格，只記錄後續課堂需要發展的決策。</p>
         </div>
       </div>
     </section>
@@ -1060,7 +1480,7 @@ const courseHref = withBase('/teaching/courses/dedc02');
   <nav class="deck-controls" aria-label="Slide controls">
     <a class="home-button" href={courseHref} aria-label="Back to DEDC02">⌂</a>
     <button type="button" data-nav="previous" aria-label="Previous slide">←</button>
-    <button class="slide-count" type="button" data-overview aria-label="Open slide overview"><span>1</span>/<span data-slide-total>38</span></button>
+    <button class="slide-count" type="button" data-overview aria-label="Open slide overview"><span>1</span>/<span data-slide-total>32</span></button>
     <button type="button" data-nav="next" aria-label="Next slide">→</button>
     <button type="button" data-fullscreen aria-label="Toggle fullscreen">⛶</button>
     <div class="progress-track" aria-hidden="true"><span></span></div>
@@ -1082,7 +1502,7 @@ const courseHref = withBase('/teaching/courses/dedc02');
 </CourseSlideLayout>
 
 <style>
-  /* Hallmark · genre: editorial · macrostructure: Workbench · tone: technical · design-system: existing DEDC02 */
+  /* Hallmark · genre: editorial · macrostructure: Terminology map / threat-to-safeguard explorer · tone: technical · palette: forest-green on warm paper · fingerprint: target-to-map-to-guidance reveal · contrast: pass (40–41) · mobile: pass (34, 49–57) */
   /* Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V4 */
   .design-chain, .quality-chain { grid-template-columns: repeat(7, auto); }
   .framework-contrast strong, .design-comparison strong { display: block; margin-top: .75rem; color: var(--lr-green); }
@@ -1122,19 +1542,188 @@ const courseHref = withBase('/teaching/courses/dedc02');
   .design-architecture-question { max-width: 62ch; margin: var(--space-3xs) 0 var(--space-2xs); padding-block: var(--space-2xs); padding-inline: var(--space-xs) 0; border-inline-start-width: var(--space-3xs); font-size: clamp(1.08rem, 1.8vw, 1.4rem); line-height: 1.28; }
   .component-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .55rem; }
   .component-grid article { display: grid; min-height: 7rem; align-content: space-between; padding: .8rem; border-top: .3rem solid var(--lr-green-mid); background: var(--lr-green-soft); }
-  .component-grid span, .level-cards span { color: var(--lr-green-mid); font-size: .7rem; font-weight: 800; letter-spacing: .1em; }
+  .component-grid span { color: var(--lr-green-mid); font-size: .7rem; font-weight: 800; letter-spacing: .1em; }
   .component-grid strong { font: 600 1.05rem/1.25 'Source Serif 4', Georgia, serif; }
   .architecture-components { gap: var(--space-2xs); }
   .architecture-components article { min-height: 3.5rem; grid-template-columns: auto minmax(0, 1fr); gap: var(--space-2xs); align-content: center; align-items: center; padding: var(--space-2xs) var(--space-xs); border: 1px solid var(--lr-line); background: var(--lr-green-pale); }
   .architecture-components strong { font-family: var(--font-display); font-size: .84rem; line-height: 1.2; }
   .design-architecture-takeaway { margin-top: var(--space-2xs); font-size: .8rem; }
-  .level-cards article { min-height: 11rem; }
-  .level-cards h3 { margin-top: .7rem; font-size: 1.35rem; }
+  .slide[data-title="Methodology, design and methods"] h2 { margin-bottom: var(--space-3xs); font-size: clamp(2rem, 3.6vw, 3.25rem); }
+  .decision-instruction { max-width: 60ch; margin: 0 0 var(--space-2xs); color: var(--lr-muted); font-size: .82rem; }
+  .decision-reveal-grid { display: grid; grid-template-columns: minmax(0, .94fr) minmax(0, 1.12fr) minmax(0, .94fr); gap: var(--space-2xs); }
+  .decision-reveal { min-width: 0; border: 1px solid var(--lr-line); background: var(--lr-green-pale); }
+  .decision-reveal--centre { border-color: var(--lr-green-mid); }
+  .decision-reveal summary, .example-step summary { position: relative; cursor: pointer; list-style: none; }
+  .decision-reveal summary::-webkit-details-marker, .example-step summary::-webkit-details-marker { display: none; }
+  .decision-reveal summary { display: grid; min-height: 7.4rem; align-content: start; gap: var(--space-3xs); padding: var(--space-xs) 2.2rem var(--space-xs) var(--space-xs); }
+  .decision-reveal summary::after, .example-step summary::after { content: '+'; position: absolute; inset-block-start: var(--space-xs); inset-inline-end: var(--space-xs); display: grid; width: 1.55rem; height: 1.55rem; place-items: center; border: 1px solid var(--lr-green-mid); border-radius: 50%; color: var(--lr-green-mid); font-size: 1rem; font-weight: 800; line-height: 1; }
+  .decision-reveal[open] summary::after, .example-step[open] summary::after { content: '−'; background: var(--lr-green-mid); color: var(--lr-green-pale); }
+  .decision-reveal summary:focus-visible, .example-step summary:focus-visible { outline: .18rem solid var(--lr-warm); outline-offset: .12rem; }
+  .decision-reveal summary:active, .example-step summary:active { background: var(--lr-green-soft); }
+  .decision-kicker { color: var(--lr-warm); font-size: .66rem; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
+  .decision-reveal h3 { margin: 0; color: var(--lr-green); font: 700 1.18rem/1.2 var(--font-display); }
+  .decision-reveal summary p { max-width: 30ch; margin: 0; color: var(--lr-muted); font-size: .76rem; line-height: 1.3; }
+  .decision-answer { padding: var(--space-xs); border-top: 1px solid var(--lr-line); background: var(--lr-green-soft); }
+  .decision-answer p { margin: 0; color: var(--lr-muted); font-size: .74rem; line-height: 1.35; }
+  .decision-answer strong { color: var(--lr-green); }
+  .decision-answer .decision-examples { margin-top: var(--space-3xs); color: var(--lr-green); font-size: .67rem; font-weight: 750; }
+  .connected-example { margin-top: var(--space-xs); padding-top: var(--space-xs); border-top: 1px solid var(--lr-line); }
+  .connected-example-head { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--space-xs); align-items: baseline; margin-bottom: var(--space-2xs); }
+  .connected-example-head > span { color: var(--lr-warm); font-size: .68rem; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
+  .connected-example-head p { margin: 0; color: var(--lr-muted); font-size: .76rem; line-height: 1.3; }
+  .connected-example-head strong { color: var(--lr-green); }
+  .example-chain { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1.12fr) auto minmax(0, 1fr); gap: var(--space-3xs); align-items: stretch; }
+  .example-step { min-width: 0; border: 1px solid var(--lr-line); background: var(--lr-green-pale); }
+  .example-step summary { display: grid; min-height: 4.15rem; grid-template-columns: 1.45rem minmax(0, 1fr); gap: 0 var(--space-3xs); align-content: center; padding: var(--space-2xs) 2.1rem var(--space-2xs) var(--space-2xs); }
+  .example-step summary > span { grid-row: 1 / 3; display: grid; width: 1.35rem; height: 1.35rem; place-items: center; align-self: center; border-radius: 50%; background: var(--lr-green-mid); color: var(--lr-green-pale); font-size: .66rem; font-weight: 850; }
+  .example-step summary > strong { color: var(--lr-green); font-size: .8rem; line-height: 1.15; }
+  .example-step summary > small { color: var(--lr-muted); font-size: .64rem; line-height: 1.2; }
+  .example-step summary::after { inset-block-start: 50%; inset-inline-end: var(--space-2xs); width: 1.35rem; height: 1.35rem; font-size: .86rem; transform: translateY(-50%); }
+  .example-step > p { margin: 0; padding: var(--space-2xs); border-top: 1px solid var(--lr-line); color: var(--lr-muted); font-size: .69rem; line-height: 1.3; }
+  .example-step > p strong { color: var(--lr-green); }
+  .example-arrow { display: grid; place-items: center; color: var(--lr-green-mid); font-size: 1rem; font-weight: 900; }
+
+  @media (hover: hover) and (pointer: fine) {
+    .decision-reveal summary:hover, .example-step summary:hover { background: var(--lr-green-soft); }
+  }
   .design-family-map { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .65rem; }
   .design-family-map article { display: grid; min-height: 8rem; align-content: space-between; padding: .85rem; border: 1px solid var(--lr-line); border-top-width: .32rem; background: var(--lr-green-pale); }
   .design-family-map span { color: var(--lr-muted); font-size: .78rem; font-weight: 700; text-transform: uppercase; }
   .design-family-map strong { color: var(--lr-green); font: 600 1.12rem/1.25 'Source Serif 4', Georgia, serif; }
+  .slide[data-title="Interactive design family spider map"] h2 { margin-bottom: var(--space-3xs); font-size: clamp(1.85rem, 3.2vw, 2.8rem); }
+  .slide[data-title="Interactive design family spider map"] [lang="zh-Hant"] h2 { max-width: 100%; }
+  .family-map-instruction { max-width: 66ch; margin: 0 0 var(--space-3xs); color: var(--lr-muted); font-size: .78rem; line-height: 1.3; }
+  .family-spider { position: relative; height: 13.2rem; min-width: 0; }
+  .family-spider-lines { position: absolute; inset: 0; width: 100%; height: 100%; color: var(--lr-line); }
+  .family-spider-lines path { fill: none; stroke: currentColor; stroke-width: 1.4; vector-effect: non-scaling-stroke; }
+  .family-spider-core { position: absolute; left: 50%; top: 50%; z-index: 2; display: grid; width: 6.2rem; height: 6.2rem; place-content: center; border: 1px solid var(--lr-green-mid); border-radius: 50%; background: var(--lr-green-mid); color: var(--lr-green-pale); text-align: center; transform: translate(-50%, -50%); }
+  .family-spider-core span { font: 700 .88rem/1.05 var(--font-display); }
+  .family-spider-core small { margin-top: var(--space-3xs); color: var(--lr-green-pale); font-size: .58rem; line-height: 1.1; }
+  .family-bubble { position: absolute; z-index: 2; display: grid; width: 16rem; min-height: 3.6rem; place-content: center; gap: .08rem; border: 1px solid var(--lr-line); border-radius: 50%; padding: var(--space-2xs) var(--space-xs); background: var(--lr-green-pale); color: var(--lr-green); font-family: var(--font-body); text-align: center; cursor: pointer; transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
+  .family-bubble strong { font-size: .75rem; line-height: 1.12; white-space: nowrap; }
+  .family-bubble small { color: var(--lr-muted); font-size: .59rem; line-height: 1.15; white-space: nowrap; }
+  .family-bubble[aria-pressed="true"] { border-color: var(--lr-green-mid); background: var(--lr-green-mid); color: var(--lr-green-pale); }
+  .family-bubble[aria-pressed="true"] small { color: var(--lr-green-pale); }
+  .family-bubble:focus-visible { outline: .18rem solid var(--lr-warm); outline-offset: .16rem; }
+  .family-bubble:active { transform: translateY(1px); }
+  .family-bubble:disabled { cursor: not-allowed; opacity: .55; }
+  .family-bubble--1 { left: 0; top: 0; }
+  .family-bubble--2 { left: 50%; top: 0; transform: translateX(-50%); }
+  .family-bubble--2:active { transform: translate(-50%, 1px); }
+  .family-bubble--3 { right: 0; top: 0; }
+  .family-bubble--4 { left: 0; bottom: 0; }
+  .family-bubble--5 { left: 50%; bottom: 0; transform: translateX(-50%); }
+  .family-bubble--5:active { transform: translate(-50%, 1px); }
+  .family-bubble--6 { right: 0; bottom: 0; }
+  .family-bubble--long strong { font-size: .62rem; }
+  .family-detail { min-height: 10.8rem; padding-top: var(--space-2xs); border-top: 1px solid var(--lr-line); }
+  .family-detail-prompt { display: grid; min-height: 9.5rem; place-items: center; margin: 0; color: var(--lr-muted); font-size: .8rem; text-align: center; }
+  .family-branch { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) 7.5rem minmax(0, 1fr); grid-template-rows: repeat(2, minmax(4.55rem, auto)); gap: var(--space-2xs) var(--space-md); animation: family-branch-in var(--dur-short) var(--ease-out) both; }
+  .family-branch[hidden] { display: none; }
+  .family-branch::before, .family-branch::after { content: ''; position: absolute; z-index: 0; background: var(--lr-line); }
+  .family-branch::before { left: 18%; right: 18%; top: 50%; height: 1px; }
+  .family-branch::after { top: 18%; bottom: 18%; left: 50%; width: 1px; }
+  .family-branch article { position: relative; z-index: 1; min-width: 0; padding: var(--space-2xs) var(--space-xs); border: 1px solid var(--lr-line); background: var(--lr-green-pale); }
+  .family-branch article:nth-of-type(1) { grid-column: 1; grid-row: 1; }
+  .family-branch article:nth-of-type(2) { grid-column: 3; grid-row: 1; }
+  .family-branch article:nth-of-type(3) { grid-column: 1; grid-row: 2; }
+  .family-branch article:nth-of-type(4) { grid-column: 3; grid-row: 2; }
+  .family-branch article h3 { margin: 0 0 .12rem; color: var(--lr-green); font-size: .73rem; line-height: 1.15; }
+  .family-branch article p { margin: 0; color: var(--lr-muted); font-size: .64rem; line-height: 1.25; }
+  .family-branch-centre { position: relative; z-index: 2; grid-column: 2; grid-row: 1 / 3; display: grid; min-width: 0; align-content: center; justify-items: center; padding: var(--space-3xs); border: 1px solid var(--lr-green-mid); border-radius: 50%; background: var(--lr-green-soft); color: var(--lr-green-mid); text-align: center; }
+  .family-branch-centre svg { width: 4rem; height: 3rem; fill: none; stroke: currentColor; stroke-width: 2; }
+  .family-branch-centre svg rect { fill: var(--lr-green-mid); stroke: none; }
+  .family-branch-centre strong { color: var(--lr-green); font: 700 .7rem/1.1 var(--font-display); }
+  .family-branch-centre small { max-width: 12ch; margin-top: .12rem; color: var(--lr-muted); font-size: .56rem; line-height: 1.1; }
+
+  @keyframes family-branch-in { from { opacity: 0; } to { opacity: 1; } }
+
+  @media (hover: hover) and (pointer: fine) {
+    .family-bubble:hover { background: var(--lr-green-soft); }
+    .family-bubble[aria-pressed="true"]:hover { background: var(--lr-green-mid); }
+  }
   .design-comparison article { min-height: 10.5rem; }
+  .slide[data-title="Sample adequacy"] h2 { max-width: 100%; margin-bottom: var(--space-3xs); font-size: clamp(1.9rem, 3.3vw, 2.8rem); }
+  .sample-size-intro { max-width: 78ch; margin: 0 0 var(--space-3xs); color: var(--lr-muted); font-size: .74rem; line-height: 1.25; }
+  .sample-size-sequence { display: grid; grid-template-columns: repeat(9, auto); gap: var(--space-3xs); align-items: center; justify-content: start; margin-bottom: var(--space-2xs); padding-block: var(--space-3xs); border-block: 1px solid var(--lr-line); }
+  .sample-size-sequence span { color: var(--lr-green); font-size: .65rem; font-weight: 850; letter-spacing: .03em; white-space: nowrap; }
+  .sample-size-sequence b { color: var(--lr-green-mid); font-size: .72rem; }
+  .sample-size-workbench { display: grid; min-width: 0; grid-template-columns: 12.5rem minmax(0, 1fr); gap: var(--space-2xs); }
+  .sample-size-routes { display: grid; min-width: 0; grid-template-rows: repeat(4, minmax(0, 1fr)); gap: var(--space-3xs); }
+  .sample-size-routes button { display: grid; min-width: 0; min-height: 3.7rem; align-content: center; gap: var(--space-3xs); border: 1px solid var(--lr-line); border-block-start: var(--space-2xs) solid var(--lr-green-mid); padding: var(--space-2xs) var(--space-xs); background: var(--lr-green-pale); color: var(--lr-green); font-family: var(--font-body); text-align: start; cursor: pointer; transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
+  .sample-size-routes button strong { font-size: .7rem; line-height: 1.1; white-space: nowrap; }
+  .sample-size-routes button span { color: var(--lr-muted); font-size: .59rem; line-height: 1.1; }
+  .sample-size-routes button[aria-pressed="true"] { background: var(--lr-green-mid); color: var(--lr-green-pale); }
+  .sample-size-routes button[aria-pressed="true"] span { color: var(--lr-green-pale); }
+  .sample-size-routes button:focus-visible { outline: .18rem solid var(--lr-warm); outline-offset: .14rem; }
+  .sample-size-routes button:active { transform: translateY(1px); }
+  .sample-size-routes button:disabled { cursor: not-allowed; opacity: .5; }
+  .sample-size-stage { min-width: 0; min-height: 16rem; border: 1px solid var(--lr-line); background: var(--lr-green-pale); }
+  .sample-size-empty { display: grid; min-height: 15.9rem; place-content: center; gap: var(--space-2xs); padding: var(--space-sm); text-align: center; }
+  .sample-size-empty[hidden] { display: none; }
+  .sample-size-empty strong { color: var(--lr-green); font: 700 1.15rem/1.1 var(--font-display); }
+  .sample-size-empty p { max-width: 44ch; margin: 0; color: var(--lr-muted); font-size: .72rem; line-height: 1.35; }
+  .sample-size-panel { display: grid; min-width: 0; gap: var(--space-2xs); padding: var(--space-xs); animation: sample-size-panel-in var(--dur-short) var(--ease-out) both; }
+  .sample-size-panel[hidden] { display: none; }
+  .sample-size-panel header { display: grid; min-width: 0; gap: 0; }
+  .sample-size-panel header span { color: var(--lr-warm); font-size: .58rem; font-weight: 850; letter-spacing: .08em; line-height: 1; text-transform: uppercase; }
+  .sample-size-panel h3 { margin: 0; color: var(--lr-green); font: 700 1.12rem/1.1 var(--font-display); }
+  .formula-band { display: grid; min-width: 0; grid-template-columns: minmax(13rem, auto) minmax(0, 1fr); gap: var(--space-xs); align-items: center; padding: var(--space-2xs) var(--space-xs); border-block: 1px solid var(--lr-line); background: var(--lr-green-soft); }
+  .formula-band strong { overflow-wrap: anywhere; color: var(--lr-green); font: 700 .9rem/1.15 var(--font-display); }
+  .formula-band small { color: var(--lr-muted); font-size: .59rem; line-height: 1.25; }
+  .formula-band sub { font-size: .62em; }
+  .formula-band-text { grid-template-columns: minmax(0, 1.35fr) minmax(0, .65fr); }
+  .formula-band-text strong { font-size: .8rem; }
+  .sample-size-notes { display: grid; min-width: 0; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2xs); }
+  .sample-size-notes p { margin: 0; padding: var(--space-2xs); border-block-start: var(--space-3xs) solid var(--lr-green-mid); color: var(--lr-muted); font-size: .64rem; line-height: 1.28; }
+  .sample-size-notes b { display: block; margin-bottom: var(--space-3xs); color: var(--lr-green); font-size: .6rem; letter-spacing: .03em; text-transform: uppercase; }
+  .sample-size-notes strong { color: var(--lr-green); }
+  .sample-size-caution { margin: 0; color: var(--lr-muted); font-size: .61rem; line-height: 1.25; }
+  .sample-size-caution::before { content: '△ '; color: var(--lr-warm); font-weight: 900; }
+  .sample-size-takeaway { margin: var(--space-2xs) 0 0; padding-top: var(--space-3xs); border-top: 1px solid var(--lr-line); color: var(--lr-green); font-size: .65rem; font-weight: 750; line-height: 1.25; }
+
+  @keyframes sample-size-panel-in { from { opacity: 0; } to { opacity: 1; } }
+
+  @media (hover: hover) and (pointer: fine) {
+    .sample-size-routes button:not(:disabled):hover { background: var(--lr-green-soft); }
+    .sample-size-routes button[aria-pressed="true"]:hover { background: var(--lr-green-mid); color: var(--lr-green-pale); }
+  }
+  .slide[data-title="Activity 2: Design Match"] h2 { max-width: 100%; margin-bottom: var(--space-3xs); font-size: clamp(1.75rem, 3vw, 2.55rem); }
+  .slide[data-title="Activity 2: Design Match"] .intro-line { max-width: 90ch; margin-bottom: var(--space-2xs); font-size: .76rem; line-height: 1.3; }
+  .paper-match-board { display: grid; gap: var(--space-2xs); }
+  .design-token-bank { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: var(--space-3xs); padding-block: var(--space-3xs); border-block: 1px solid var(--lr-line); }
+  .design-token-bank button, .paper-drop, [data-design-reset] { min-height: 2.75rem; border: 1px solid var(--lr-green-mid); background: var(--lr-green-pale); color: var(--lr-green); font-family: var(--font-body); font-size: .64rem; font-weight: 800; line-height: 1; white-space: nowrap; cursor: grab; transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out), opacity var(--dur-micro) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
+  .design-token-bank button[aria-pressed="true"] { background: var(--lr-green-mid); color: var(--lr-green-pale); }
+  .design-token-bank button.is-dragging { opacity: .55; cursor: grabbing; }
+  .design-token-bank button:focus-visible, .paper-drop:focus-visible, [data-design-reset]:focus-visible, .paper-download:focus-visible { outline: .18rem solid var(--lr-warm); outline-offset: .14rem; }
+  .design-token-bank button:active, .paper-drop:active, [data-design-reset]:active, .paper-download:active { transform: translateY(1px); }
+  .design-token-bank button:disabled { cursor: not-allowed; opacity: .45; }
+  .paper-match-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-3xs); }
+  .paper-study { position: relative; display: grid; min-width: 0; min-height: 8.25rem; grid-template-rows: auto auto auto 1fr; gap: .22rem; padding: var(--space-2xs); border: 1px solid var(--lr-line); background: var(--lr-green-pale); }
+  .paper-study header { display: grid; gap: .05rem; min-width: 0; }
+  .paper-study header span { color: var(--lr-warm); font-size: .64rem; font-weight: 850; line-height: 1.1; }
+  .paper-study header strong { overflow-wrap: anywhere; color: var(--lr-green); font-size: .76rem; line-height: 1.1; }
+  .paper-study p { margin: 0; color: var(--lr-muted); font-size: .65rem; line-height: 1.22; }
+  .paper-study p b { color: var(--lr-green); }
+  .paper-study-cue { padding-top: .18rem; border-top: 1px dashed var(--lr-line); }
+  .paper-study-actions { display: flex; align-items: center; align-self: end; gap: var(--space-3xs); min-width: 0; }
+  .paper-drop, [data-design-reset] { min-height: 2.5rem; padding-inline: var(--space-2xs); cursor: pointer; }
+  .paper-drop:disabled, [data-design-reset]:disabled { cursor: not-allowed; opacity: .72; }
+  .paper-drop { flex: 1 1 auto; border-style: dashed; }
+  .paper-drop.is-over { background: var(--lr-green-soft); color: var(--lr-green); }
+  .paper-study.is-correct { border-color: var(--lr-green-mid); }
+  .paper-study.is-correct .paper-drop { border-style: solid; background: var(--lr-green-mid); color: var(--lr-green-pale); }
+  .paper-study.is-incorrect .paper-drop { border-color: var(--lr-warm); border-style: double; }
+  .paper-download { display: inline-grid; min-height: 2.5rem; place-items: center; padding-inline: var(--space-2xs); border: 1px solid var(--lr-warm); color: var(--lr-warm); font-size: .64rem; font-weight: 850; line-height: 1; text-decoration: none; white-space: nowrap; transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
+  .paper-download[hidden] { display: none; }
+  .paper-match-footer { display: flex; min-height: 2.75rem; align-items: center; gap: var(--space-2xs); }
+  .paper-match-footer span { color: var(--lr-muted); font-size: .7rem; line-height: 1.2; }
+
+  @media (hover: hover) and (pointer: fine) {
+    .design-token-bank button:not(:disabled):hover, .paper-drop:hover, [data-design-reset]:hover { background: var(--lr-green-soft); }
+    .paper-study.is-correct .paper-drop:hover { background: var(--lr-green-mid); color: var(--lr-green-pale); }
+    .paper-download:hover { background: var(--lr-warm); color: var(--lr-green-pale); }
+  }
   .evidence-strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .5rem; margin-top: .8rem; }
   .evidence-strip span { padding: .55rem; border: 1px solid var(--lr-line); color: var(--lr-green); font-size: .8rem; font-weight: 750; text-align: center; }
   .decision-list { display: grid; gap: .48rem; margin: 0; padding: 0; counter-reset: decision; list-style: none; }
@@ -1144,18 +1733,156 @@ const courseHref = withBase('/teaching/courses/dedc02');
   .sampling-stack { display: grid; gap: .45rem; }
   .sampling-stack article { display: grid; grid-template-columns: minmax(13rem, .75fr) minmax(0, 1.4fr); gap: .8rem; padding: .65rem .8rem; border-left: .3rem solid var(--lr-green-mid); background: var(--lr-green-pale); }
   .sampling-stack span { color: var(--lr-muted); }
+  .slide[data-title="Sampling methods map"] h2 { max-width: 100%; margin-bottom: var(--space-3xs); font-size: clamp(1.85rem, 3.2vw, 2.8rem); }
+  .slide[data-title="Sampling methods map"] .intro-line { max-width: 72ch; margin-bottom: var(--space-2xs); font-size: .76rem; line-height: 1.3; }
+  .sampling-explorer { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(17rem, .7fr); gap: var(--space-2xs); min-width: 0; }
+  .sampling-map { position: relative; min-width: 0; min-height: 24.5rem; padding-top: calc(var(--space-xl) + var(--space-md)); }
+  .sampling-root { position: absolute; inset-block-start: 0; inset-inline-start: 50%; z-index: 2; display: grid; width: 9rem; min-height: 3.4rem; place-content: center; border: 1px solid var(--lr-green-mid); border-radius: 50%; background: var(--lr-green-mid); color: var(--lr-green-pale); text-align: center; transform: translateX(-50%); }
+  .sampling-root::after { content: ''; position: absolute; inset-block-start: 100%; inset-inline-start: 50%; width: 1px; height: 1.2rem; background: var(--lr-line); }
+  .sampling-root strong { font: 700 .86rem/1.05 var(--font-display); }
+  .sampling-root span { margin-top: var(--space-3xs); font-size: .56rem; line-height: 1.1; }
+  .sampling-families { position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2xs); height: 100%; }
+  .sampling-families::before { content: ''; position: absolute; inset-block-start: -.65rem; inset-inline: 25%; height: 1px; background: var(--lr-line); }
+  .sampling-family { position: relative; display: grid; min-width: 0; align-content: start; gap: var(--space-2xs); padding: var(--space-2xs); border: 1px solid var(--lr-line); background: var(--lr-green-pale); }
+  .sampling-family::before { content: ''; position: absolute; inset-block-end: 100%; inset-inline-start: 50%; width: 1px; height: .65rem; background: var(--lr-line); }
+  .sampling-family-nonprobability { background: var(--lr-green-soft); }
+  .sampling-family > header { display: grid; justify-items: center; gap: 0; min-width: 0; text-align: center; }
+  .sampling-family > header strong { color: var(--lr-green); font: 700 1rem/1.05 var(--font-display); }
+  .sampling-family > header span { color: var(--lr-muted); font-size: .62rem; line-height: 1.1; }
+  .sampling-method-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2xs); }
+  .sampling-method-grid button { min-width: 0; min-height: 4.25rem; border: 1px solid var(--lr-line); border-radius: 50%; padding: var(--space-3xs); background: var(--lr-green-pale); color: var(--lr-green); font-family: var(--font-body); font-size: .68rem; font-weight: 850; line-height: 1; white-space: nowrap; cursor: pointer; transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out), opacity var(--dur-micro) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
+  .sampling-method-grid button[aria-pressed="true"], .sampling-method-grid button[data-state="success"] { border-style: double; background: var(--lr-green-mid); color: var(--lr-green-pale); }
+  .sampling-method-grid button[data-state="error"] { border-style: double; border-color: var(--lr-warm); }
+  .sampling-method-grid button[data-state="loading"] { cursor: progress; opacity: .72; }
+  .sampling-method-grid button:focus-visible { outline: .18rem solid var(--lr-warm); outline-offset: .14rem; }
+  .sampling-method-grid button:active { transform: translateY(1px); }
+  .sampling-method-grid button:disabled { cursor: not-allowed; opacity: .45; }
+  .sampling-more { align-self: end; margin: 0; padding-top: var(--space-3xs); border-top: 1px dashed var(--lr-line); color: var(--lr-muted); font-size: .59rem; line-height: 1.2; text-align: center; }
+  .sampling-more b { color: var(--lr-green); }
+  .sampling-detail-stage { min-width: 0; min-height: 24.5rem; border: 1px solid var(--lr-line); background: var(--lr-green-pale); }
+  .sampling-detail-empty { display: grid; min-height: 24.4rem; place-content: center; gap: var(--space-2xs); padding: var(--space-sm); text-align: center; }
+  .sampling-detail-empty[hidden] { display: none; }
+  .sampling-detail-empty strong { color: var(--lr-green); font: 700 1.15rem/1.1 var(--font-display); }
+  .sampling-detail-empty p { max-width: 32ch; margin: 0; color: var(--lr-muted); font-size: .76rem; line-height: 1.35; }
+  .sampling-detail-card { display: grid; gap: var(--space-2xs); min-width: 0; padding: var(--space-2xs); animation: sampling-panel-in var(--dur-short) var(--ease-out) both; }
+  .sampling-detail-card[hidden] { display: none; }
+  .sampling-detail-card header { display: grid; gap: 0; min-width: 0; }
+  .sampling-detail-card header span { color: var(--lr-warm); font-size: .59rem; font-weight: 850; letter-spacing: .06em; line-height: 1; text-transform: uppercase; }
+  .sampling-detail-card h3 { margin: 0; color: var(--lr-green); font: 700 1.22rem/1.05 var(--font-display); }
+  .sampling-detail-card p { margin: 0; color: var(--lr-muted); font-size: .68rem; line-height: 1.3; }
+  .sampling-detail-card p b { color: var(--lr-green); }
+  .sampling-crop { position: relative; min-width: 0; overflow: clip; aspect-ratio: 1.4; border: 1px solid var(--lr-line); background: var(--lr-green-pale); }
+  .sampling-crop img { position: absolute; inset-block-start: 0; inset-inline-start: 0; display: block; width: 200%; max-width: none; height: auto; }
+  .sampling-crop.crop-top-right img { transform: translateX(-50%); }
+  .sampling-crop.crop-bottom-left img { transform: translateY(-50%); }
+  .sampling-crop.crop-bottom-right img { transform: translate(-50%, -50%); }
+
+  @keyframes sampling-panel-in { from { opacity: 0; } to { opacity: 1; } }
+
+  @media (hover: hover) and (pointer: fine) {
+    .sampling-method-grid button:not(:disabled):hover { background: var(--lr-green-mid); color: var(--lr-green-pale); }
+  }
+  .slide[data-title="Validity and reliability"] h2 { max-width: 100%; margin-bottom: var(--space-3xs); font-size: clamp(1.9rem, 3.4vw, 2.9rem); }
+  .validity-intro { max-width: 72ch; margin: 0 0 var(--space-2xs); color: var(--lr-muted); font-size: .76rem; line-height: 1.3; }
+  .validity-workbench { min-width: 0; }
+  .validity-tabs { display: flex; align-items: center; gap: var(--space-3xs); margin-bottom: var(--space-2xs); padding-bottom: var(--space-2xs); border-bottom: 1px solid var(--lr-line); }
+  .validity-tabs button { min-height: 2.75rem; border: 1px solid var(--lr-green-mid); padding-inline: var(--space-xs); background: var(--lr-green-pale); color: var(--lr-green); font-family: var(--font-body); font-size: .68rem; font-weight: 850; line-height: 1; white-space: nowrap; cursor: pointer; transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
+  .validity-tabs button[aria-pressed="true"] { background: var(--lr-green-mid); color: var(--lr-green-pale); }
+  .validity-tabs button:focus-visible { outline: .18rem solid var(--lr-warm); outline-offset: .14rem; }
+  .validity-tabs button:active { transform: translateY(1px); }
+  .validity-tabs button:disabled { cursor: not-allowed; opacity: .5; }
+  .validity-panel { animation: validity-panel-in var(--dur-short) var(--ease-out) both; }
+  .validity-panel[hidden] { display: none; }
+  .target-patterns { display: grid; min-width: 0; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-xs); }
+  .target-patterns figure { display: grid; min-width: 0; justify-items: center; gap: var(--space-3xs); margin: 0; padding: var(--space-2xs); border-block-start: 1px solid var(--lr-line); }
+  .target-patterns svg { display: block; width: min(100%, 8.4rem); height: auto; }
+  .target-board { fill: none; stroke: var(--lr-warm); stroke-width: 2.5; }
+  .target-board path { stroke: var(--lr-line); stroke-width: 1; }
+  .target-board circle:last-of-type { fill: var(--lr-warm); }
+  .target-shots { fill: var(--lr-green); stroke: var(--lr-green-pale); stroke-width: 1; }
+  .target-patterns figcaption { display: grid; min-width: 0; gap: var(--space-3xs); text-align: center; }
+  .target-patterns figcaption strong { color: var(--lr-green); font: 700 .78rem/1.1 var(--font-display); }
+  .target-patterns figcaption span { color: var(--lr-muted); font-size: .61rem; line-height: 1.15; }
+  .validity-definitions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-xs); margin-top: var(--space-2xs); padding-block: var(--space-2xs); border-block: 1px solid var(--lr-line); }
+  .validity-definitions p { margin: 0; color: var(--lr-muted); font-size: .7rem; line-height: 1.3; }
+  .validity-definitions strong { color: var(--lr-green); }
+  .validity-note { margin: var(--space-3xs) 0 0; color: var(--lr-muted); font-size: .62rem; line-height: 1.25; }
+  .validity-note::before { content: '△ '; color: var(--lr-warm); font-weight: 900; }
+  .quality-map-core { display: grid; max-width: 34rem; grid-template-columns: auto minmax(0, 1fr); gap: var(--space-xs); align-items: center; margin: 0 auto var(--space-2xs); padding: var(--space-2xs) var(--space-xs); border-block: 1px solid var(--lr-green-mid); text-align: start; }
+  .quality-map-core strong { color: var(--lr-green); font: 700 .86rem/1.1 var(--font-display); white-space: nowrap; }
+  .quality-map-core span { color: var(--lr-muted); font-size: .62rem; line-height: 1.2; }
+  .quality-terminology-map { display: grid; min-width: 0; grid-template-columns: minmax(0, 1fr) 6.5rem minmax(0, 1fr); gap: var(--space-xs); align-items: center; }
+  .quality-map-branch { min-width: 0; padding: var(--space-2xs); border: 1px solid var(--lr-line); background: var(--lr-green-pale); }
+  .quality-map-branch > header { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--space-xs); align-items: baseline; padding-bottom: var(--space-3xs); border-bottom: 1px solid var(--lr-line); }
+  .quality-map-branch > header span { color: var(--lr-warm); font-size: .56rem; font-weight: 850; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
+  .quality-map-branch h3 { margin: 0; color: var(--lr-green); font: 700 .78rem/1.1 var(--font-display); text-align: end; }
+  .quality-map-nodes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3xs); margin-top: var(--space-3xs); }
+  .quality-map-nodes article { min-width: 0; padding: var(--space-3xs) var(--space-2xs); border-block-start: 1px solid var(--lr-green-mid); background: var(--lr-green-soft); }
+  .quality-map-nodes strong { display: block; overflow-wrap: anywhere; color: var(--lr-green); font-size: .6rem; line-height: 1.1; }
+  .quality-map-nodes span { display: block; margin-top: var(--space-3xs); color: var(--lr-muted); font-size: .49rem; line-height: 1.18; }
+  .quality-map-branch > p { margin: var(--space-3xs) 0 0; color: var(--lr-muted); font-size: .49rem; line-height: 1.2; }
+  .quality-map-bridge { position: relative; display: grid; min-height: 6.5rem; place-content: center; gap: var(--space-3xs); border: 1px solid var(--lr-green-mid); border-radius: 50%; background: var(--lr-green-soft); text-align: center; }
+  .quality-map-bridge::before, .quality-map-bridge::after { content: ''; position: absolute; top: 50%; width: var(--space-xs); height: 1px; background: var(--lr-line); }
+  .quality-map-bridge::before { right: 100%; }
+  .quality-map-bridge::after { left: 100%; }
+  .quality-map-bridge strong { color: var(--lr-green); font: 700 .66rem/1.05 var(--font-display); }
+  .quality-map-bridge span { color: var(--lr-muted); font-size: .48rem; line-height: 1.15; }
+  .quality-map-footer { margin: var(--space-2xs) 0 0; padding-top: var(--space-3xs); border-top: 1px solid var(--lr-line); color: var(--lr-muted); font-size: .56rem; line-height: 1.2; text-align: center; }
+  .quality-map-footer strong { color: var(--lr-green); }
+
+  @keyframes validity-panel-in { from { opacity: 0; } to { opacity: 1; } }
+
+  @media (hover: hover) and (pointer: fine) {
+    .validity-tabs button:not([aria-pressed="true"]):not(:disabled):hover { background: var(--lr-green-soft); }
+  }
   .quality-questions { margin-top: .8rem; }
   .quality-matrix { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem; }
   .quality-matrix article { display: grid; grid-template-columns: minmax(10rem, .62fr) minmax(0, 1.4fr); gap: .65rem; padding: .7rem .8rem; border: 1px solid var(--lr-line); }
   .quality-matrix article:last-child { grid-column: 1 / -1; }
   .quality-matrix span { color: var(--lr-muted); font-size: .88rem; line-height: 1.38; }
+  .slide[data-title="Quality safeguards explorer"] h2 { max-width: 100%; margin-bottom: var(--space-3xs); font-size: clamp(1.9rem, 3.3vw, 2.8rem); }
+  .quality-explorer-intro { max-width: 78ch; margin: 0 0 var(--space-2xs); color: var(--lr-muted); font-size: .72rem; line-height: 1.25; }
+  .quality-explorer { display: grid; min-width: 0; grid-template-columns: minmax(0, 1.15fr) minmax(19rem, .85fr); gap: var(--space-2xs); }
+  .quality-term-selector { display: grid; min-width: 0; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2xs); }
+  .quality-term-selector section { min-width: 0; padding: var(--space-2xs); border: 1px solid var(--lr-line); background: var(--lr-green-pale); }
+  .quality-term-selector section > header { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-2xs); margin-bottom: var(--space-3xs); padding-bottom: var(--space-3xs); border-bottom: 1px solid var(--lr-line); }
+  .quality-term-selector header strong { color: var(--lr-green); font: 700 .82rem/1.1 var(--font-display); }
+  .quality-term-selector header span { color: var(--lr-muted); font-size: .5rem; line-height: 1; white-space: nowrap; }
+  .quality-term-selector section > div { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3xs); }
+  .quality-term-selector button { min-width: 0; min-height: 2.65rem; border: 1px solid var(--lr-line); padding-inline: var(--space-3xs); background: var(--lr-green-soft); color: var(--lr-green); font-family: var(--font-body); font-size: .54rem; font-weight: 800; line-height: 1; white-space: nowrap; cursor: pointer; transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
+  .quality-term-selector button[aria-pressed="true"] { border-color: var(--lr-green-mid); background: var(--lr-green-mid); color: var(--lr-green-pale); }
+  .quality-term-selector button:focus-visible, .quality-reset:focus-visible { outline: .18rem solid var(--lr-warm); outline-offset: .14rem; }
+  .quality-term-selector button:active, .quality-reset:active { transform: translateY(1px); }
+  .quality-term-selector button:disabled, .quality-reset:disabled { cursor: not-allowed; opacity: .5; }
+  .quality-guidance-stage { min-width: 0; min-height: 18.5rem; border: 1px solid var(--lr-line); background: var(--lr-green-pale); }
+  .quality-guidance-empty { display: grid; min-height: 18.4rem; place-content: center; gap: var(--space-2xs); padding: var(--space-sm); text-align: center; }
+  .quality-guidance-empty[hidden] { display: none; }
+  .quality-guidance-empty strong { color: var(--lr-green); font: 700 1rem/1.1 var(--font-display); }
+  .quality-guidance-empty p { max-width: 38ch; margin: 0; color: var(--lr-muted); font-size: .68rem; line-height: 1.3; }
+  .quality-guidance { display: grid; min-width: 0; gap: var(--space-2xs); padding: var(--space-xs); animation: quality-guidance-in var(--dur-short) var(--ease-out) both; }
+  .quality-guidance[hidden] { display: none; }
+  .quality-guidance > header { display: grid; gap: 0; }
+  .quality-guidance > header span { color: var(--lr-warm); font-size: .56rem; font-weight: 850; letter-spacing: .06em; text-transform: uppercase; }
+  .quality-guidance h3 { margin: 0; color: var(--lr-green); font: 700 1.15rem/1.1 var(--font-display); }
+  .quality-guidance dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2xs); margin: 0; }
+  .quality-guidance dl div { padding: var(--space-2xs); border-block-start: 1px solid var(--lr-green-mid); }
+  .quality-guidance dt { color: var(--lr-green); font-size: .58rem; font-weight: 850; letter-spacing: .04em; text-transform: uppercase; }
+  .quality-guidance dd { margin: var(--space-3xs) 0 0; color: var(--lr-muted); font-size: .62rem; line-height: 1.25; }
+  .quality-strategies { padding: var(--space-2xs); border-block: 1px solid var(--lr-line); background: var(--lr-green-soft); }
+  .quality-strategies > strong { color: var(--lr-green); font-size: .62rem; }
+  .quality-strategies ul { display: grid; gap: var(--space-3xs); margin: var(--space-3xs) 0 0; padding-inline-start: var(--space-sm); }
+  .quality-strategies li { color: var(--lr-muted); font-size: .59rem; line-height: 1.22; }
+  .quality-reset { display: none; }
+  .quality-explorer-footer { margin: var(--space-2xs) 0 0; padding-top: var(--space-3xs); border-top: 1px solid var(--lr-line); color: var(--lr-green); font-size: .62rem; font-weight: 750; line-height: 1.2; }
+
+  @keyframes quality-guidance-in { from { opacity: 0; } to { opacity: 1; } }
+
+  @media (hover: hover) and (pointer: fine) {
+    .quality-term-selector button:not([aria-pressed="true"]):not(:disabled):hover, .quality-reset:not(:disabled):hover { background: var(--lr-green-pale); }
+  }
   .alignment-flow { display: grid; grid-template-columns: repeat(15, auto); gap: .25rem; align-items: center; }
   .alignment-flow span { display: grid; min-height: 5rem; place-items: center; padding: .5rem; border-top: .3rem solid var(--lr-green-mid); background: var(--lr-green-soft); font-size: .78rem; font-weight: 800; text-align: center; }
   .alignment-flow b { color: var(--lr-green-mid); }
-  .canvas-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; }
-  .canvas-grid label { display: grid; gap: .35rem; padding: .65rem; border-top: .3rem solid var(--lr-green-mid); background: var(--lr-green-soft); color: var(--lr-green); font-size: .8rem; font-weight: 800; }
-  .canvas-grid textarea { min-height: 6.1rem; font-weight: 400; }
-  .slide[data-title^="Activity 6:"] h2 { max-width: 100%; font-size: clamp(2.35rem, 4vw, 3.3rem); }
   .audit-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .55rem; }
   .audit-grid article { display: grid; grid-template-columns: 1.8rem 1fr; gap: .55rem; padding: .75rem; border: 1px solid var(--lr-line); background: var(--lr-green-pale); }
   .audit-grid span { display: grid; width: 1.55rem; height: 1.55rem; place-items: center; border-radius: 50%; background: var(--lr-green-mid); color: #fff; font-size: .7rem; font-weight: 800; }
@@ -1165,27 +1892,151 @@ const courseHref = withBase('/teaching/courses/dedc02');
   @media (max-width: 880px) {
     .component-grid, .design-family-map, .audit-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .framework-workbench { grid-template-columns: 1fr; }
+    .decision-reveal-grid { grid-template-columns: 1fr; }
+    .decision-reveal summary { min-height: 0; }
+    .example-chain { grid-template-columns: 1fr; }
+    .example-arrow { min-height: .7rem; transform: rotate(90deg); }
+    .family-spider { display: grid; height: auto; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2xs); }
+    .family-spider-lines { display: none; }
+    .family-spider-core { position: static; grid-column: 1 / -1; width: 5.4rem; height: 5.4rem; justify-self: center; transform: none; }
+    .family-bubble { position: static; width: 100%; min-height: 3.5rem; border-radius: var(--radius-card); transform: none; }
+    .family-bubble--2:active, .family-bubble--5:active { transform: translateY(1px); }
+    .design-token-bank { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .paper-match-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .sampling-explorer { grid-template-columns: minmax(0, 1fr); }
+    .sampling-map, .sampling-detail-stage, .sampling-detail-empty { min-height: 0; }
+    .sample-size-workbench { grid-template-columns: minmax(0, 1fr); }
+    .sample-size-routes { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: none; }
+    .sample-size-stage, .sample-size-empty { min-height: 0; }
+    .target-patterns { gap: var(--space-2xs); }
     .alignment-flow { grid-template-columns: 1fr; }
     .alignment-flow b { display: none; }
     .alignment-flow span { min-height: 0; }
   }
 
   @media (max-width: 560px) {
-    .component-grid, .design-family-map, .evidence-strip, .quality-matrix, .canvas-grid, .audit-grid { grid-template-columns: 1fr; }
+    .component-grid, .design-family-map, .evidence-strip, .quality-matrix, .audit-grid { grid-template-columns: 1fr; }
     .framework-study-source { align-items: flex-start; flex-direction: column; }
     .theory-chain { grid-template-columns: 1fr; gap: .35rem; }
     .theory-chain li { min-height: 0; text-align: start; }
     .theory-chain li:not(:last-child)::after { content: '↓'; inset-inline: 0; inset-block-start: auto; bottom: -.75rem; text-align: center; transform: none; }
     .concept-model { grid-template-columns: 1fr; }
     .concept-arrow { transform: rotate(90deg); text-align: center; }
+    .connected-example-head { grid-template-columns: 1fr; gap: var(--space-3xs); }
+    .connected-example-head > span { white-space: normal; }
+    .family-spider { grid-template-columns: 1fr; }
+    .family-spider-core { grid-column: auto; }
+    .family-detail { min-height: 0; }
+    .family-detail-prompt { min-height: 5rem; }
+    .family-branch { display: flex; flex-direction: column; }
+    .family-branch::before, .family-branch::after { display: none; }
+    .family-branch-centre { order: -1; width: 7rem; min-height: 7rem; align-self: center; }
+    .design-token-bank, .paper-match-grid { grid-template-columns: 1fr; }
+    .paper-study { min-height: 0; }
+    .paper-match-footer { align-items: flex-start; flex-direction: column; }
+    .sampling-map { padding-top: 0; }
+    .sampling-root { position: relative; inset-inline-start: auto; width: 8rem; margin: 0 auto var(--space-2xs); transform: none; }
+    .sampling-root::after, .sampling-families::before, .sampling-family::before { display: none; }
+    .sampling-families { grid-template-columns: minmax(0, 1fr); height: auto; }
+    .sampling-detail-empty { min-height: 9rem; }
+    .sample-size-sequence { grid-template-columns: repeat(5, auto); }
+    .sample-size-sequence b:nth-of-type(n+3), .sample-size-sequence span:nth-of-type(n+4) { display: none; }
+    .formula-band, .formula-band-text, .sample-size-notes { grid-template-columns: minmax(0, 1fr); }
+    .sample-size-workbench:has(.sample-size-panel:not([hidden])) + .sample-size-takeaway { display: none; }
+    .validity-tabs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .validity-tabs button { min-width: 0; padding-inline: var(--space-2xs); font-size: .6rem; }
+    .target-patterns { gap: var(--space-3xs); }
+    .target-patterns figure { padding-inline: 0; }
+    .target-patterns figcaption strong { font-size: .63rem; }
+    .target-patterns figcaption span { font-size: .52rem; }
+    .validity-definitions { gap: var(--space-2xs); }
+    .validity-definitions p { font-size: .62rem; }
+    .slide[data-title="Validity and reliability"] [data-language]:has([data-validity-panel="terms"]:not([hidden])) .validity-intro { display: none; }
+    .quality-terminology-map { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3xs); align-items: stretch; }
+    .quality-map-bridge { display: none; }
+    .quality-map-branch { padding: var(--space-3xs); }
+    .quality-map-branch > header { grid-template-columns: minmax(0, 1fr); gap: var(--space-3xs); }
+    .quality-map-branch h3 { text-align: start; }
+    .quality-map-nodes { grid-template-columns: minmax(0, 1fr); }
+    .quality-map-branch > p { display: none; }
+    .quality-map-footer { font-size: .5rem; }
+    .validity-panel .quality-matrix { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3xs); }
+    .validity-panel .quality-matrix article, .validity-panel .quality-matrix article:last-child { grid-column: auto; grid-template-columns: minmax(0, 1fr); gap: var(--space-3xs); padding: var(--space-2xs); }
+    .validity-panel .quality-matrix article:last-child { grid-column: 1 / -1; }
+    .validity-panel .quality-matrix strong { font-size: .68rem; line-height: 1.15; }
+    .validity-panel .quality-matrix span { font-size: .6rem; line-height: 1.22; }
     .quality-matrix article, .quality-matrix article:last-child { grid-column: auto; grid-template-columns: 1fr; }
+    .quality-explorer { grid-template-columns: minmax(0, 1fr); }
+    .quality-term-selector { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .quality-term-selector section { padding: var(--space-3xs); }
+    .quality-term-selector section > header { display: grid; gap: var(--space-3xs); }
+    .quality-term-selector section > div { grid-template-columns: minmax(0, 1fr); }
+    .quality-term-selector button { min-height: 1.75rem; font-size: .48rem; }
+    .quality-explorer:has(.quality-guidance-empty:not([hidden])) .quality-guidance-stage { display: none; }
+    .quality-explorer:has(.quality-guidance:not([hidden])) .quality-term-selector { display: none; }
+    .slide[data-title="Quality safeguards explorer"] [data-language]:has(.quality-guidance:not([hidden])) .quality-explorer-intro,
+    .slide[data-title="Quality safeguards explorer"] [data-language]:has(.quality-guidance:not([hidden])) .quality-explorer-footer { display: none; }
+    .quality-guidance-stage { min-height: 0; }
+    .quality-guidance { padding: var(--space-2xs); }
+    .quality-guidance dl { grid-template-columns: minmax(0, 1fr); }
+    .quality-reset { display: inline-flex; width: fit-content; min-height: 2.25rem; align-items: center; border: 1px solid var(--lr-green-mid); padding-inline: var(--space-2xs); background: var(--lr-green-pale); color: var(--lr-green); font-family: var(--font-body); font-size: .56rem; font-weight: 800; line-height: 1; white-space: nowrap; cursor: pointer; transition: background-color var(--dur-micro) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
     .decision-list li, .sampling-stack article { grid-template-columns: 1fr; }
   }
 
   @media (prefers-reduced-motion: reduce) {
     .framework-study-links a { transition-duration: 0ms; }
+    .family-bubble { transition-duration: 0ms; }
+    .family-branch { animation-duration: 0ms; }
+    .design-token-bank button, .paper-drop, [data-design-reset], .paper-download { transition-duration: 0ms; }
+    .sampling-method-grid button { transition-duration: 0ms; }
+    .sampling-detail-card { animation-duration: 0ms; }
+    .sample-size-routes button { transition-duration: 0ms; }
+    .sample-size-panel { animation-duration: 0ms; }
+    .validity-tabs button { transition-duration: 0ms; }
+    .validity-panel { animation-duration: 0ms; }
+    .quality-term-selector button, .quality-reset { transition-duration: 0ms; }
+    .quality-guidance { animation-duration: 0ms; }
   }
 </style>
+
+<script is:inline>
+  const initialiseDesignFamilyMaps = () => {
+    document.querySelectorAll('[data-design-family-map]').forEach((map) => {
+      if (map.dataset.familyMapReady === 'true') return;
+      map.dataset.familyMapReady = 'true';
+
+      const buttons = Array.from(map.querySelectorAll('[data-family-select]'));
+      const branches = Array.from(map.querySelectorAll('[data-family-branch]'));
+      const prompt = map.querySelector('[data-family-prompt]');
+
+      buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const targetId = button.dataset.familySelect;
+          const wasSelected = button.getAttribute('aria-pressed') === 'true';
+
+          buttons.forEach((item) => item.setAttribute('aria-pressed', 'false'));
+          branches.forEach((branch) => { branch.hidden = true; });
+
+          if (wasSelected) {
+            if (prompt) prompt.hidden = false;
+            return;
+          }
+
+          button.setAttribute('aria-pressed', 'true');
+          const target = map.querySelector(`#${targetId}`);
+          if (target) target.hidden = false;
+          if (prompt) prompt.hidden = true;
+        });
+      });
+    });
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initialiseDesignFamilyMaps, { once: true });
+  } else {
+    initialiseDesignFamilyMaps();
+  }
+</script>
 
 <script>
   import '../../../../scripts/dedc02ResearchDesign.ts';

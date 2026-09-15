@@ -1,5 +1,45 @@
 [
   {
+    "date": "2026-09-16",
+    "scope": "course-slides",
+    "macrostructure": "Terminology map / threat-to-safeguard explorer",
+    "theme": "custom",
+    "theme_axes": "light / roman-serif / chromatic-green",
+    "vibe": "sage-led scholarly comparative",
+    "enrichment": "quantitative-qualitative quality map and progressive guidance",
+    "brief": "Reintroduce reliability and validity across quantitative and qualitative studies with indicators, threats and safeguards"
+  },
+  {
+    "date": "2026-09-16",
+    "scope": "course-slide",
+    "macrostructure": "Workbench / visual concept-to-safeguard reveal",
+    "theme": "custom",
+    "theme_axes": "light / roman-serif / chromatic-green",
+    "vibe": "sage-led scholarly visual",
+    "enrichment": "hand-built accessible target diagrams",
+    "brief": "Introduce validity and reliability visually before revealing the safeguard taxonomy"
+  },
+  {
+    "date": "2026-09-16",
+    "scope": "course-slide",
+    "macrostructure": "Workbench / claim-to-calculation routes",
+    "theme": "custom",
+    "theme_axes": "light / roman-serif / chromatic-green",
+    "vibe": "sage-led scholarly technical",
+    "enrichment": "formula bands and progressive disclosure",
+    "brief": "Expand sample adequacy into a bilingual interactive sample-size calculation workbench"
+  },
+  {
+    "date": "2026-09-16",
+    "scope": "course-slide",
+    "macrostructure": "Workbench / interactive map",
+    "theme": "custom",
+    "theme_axes": "light / roman-serif / chromatic-green",
+    "vibe": "sage-led scholarly exploratory",
+    "enrichment": "cropped user-supplied sampling illustrations",
+    "brief": "Replace two sampling lists with one bilingual click-to-reveal sampling map"
+  },
+  {
     "date": "2026-08-08",
     "scope": "app",
     "macrostructure": "Marquee Hero / Long Document / Workbench",
