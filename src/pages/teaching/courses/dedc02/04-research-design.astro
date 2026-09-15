@@ -1075,9 +1075,9 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
                 <p class="sample-size-caution">The number of independent clusters matters; adding clusters is often more useful than adding people within the same cluster.</p>
               </article>
               <article id="sample-size-en-qualitative" class="sample-size-panel" data-sample-size-panel="qualitative" hidden>
-                <header><span>Information route</span><h3>No defensible universal formula</h3></header>
-                <div class="formula-band formula-band-text"><strong>Adequacy = fit to purpose + information richness + analytic depth</strong><small>Plan a reasoned range and a transparent stopping rule.</small></div>
-                <div class="sample-size-notes"><p><b>Plan from</b> design, participant specificity, variation sought, access, data quality and the depth of analysis.</p><p><b>Stop and justify</b> when additional cases no longer materially change the analysis, or when a design-specific adequacy criterion is met.</p></div>
+                <header><span>Information route</span><h3>Information adequacy and saturation</h3></header>
+                <div class="formula-band formula-band-text"><strong>Adequacy = fit to purpose + information richness + analytic depth</strong><small>Saturation can support a stopping decision when it fits the design.</small></div>
+                <div class="sample-size-notes"><p><b>Plan from</b> design, participant specificity, variation sought, access, data quality and the depth of analysis.</p><p><b>Saturation and stopping</b> Define whether you seek code, meaning or theoretical saturation, then document when additional cases cease to add relevant insights. Use another design-specific adequacy criterion where saturation does not fit.</p></div>
                 <p class="sample-size-caution">A pilot or resource ceiling can test feasibility, but neither alone demonstrates adequate evidence.</p>
               </article>
             </div>
@@ -1115,9 +1115,9 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
                 <p class="sample-size-caution">獨立叢集的數目很重要；增加叢集通常比只在同一叢集內增加人數更有用。</p>
               </article>
               <article id="sample-size-zh-qualitative" class="sample-size-panel" data-sample-size-panel="qualitative" hidden>
-                <header><span>資訊路徑</span><h3>沒有站得住腳的通用公式</h3></header>
-                <div class="formula-band formula-band-text"><strong>充分性 = 切合目的 + 資訊豐富度 + 分析深度</strong><small>規劃一個有理據的範圍及透明的停止準則。</small></div>
-                <div class="sample-size-notes"><p><b>規劃依據</b> 研究設計、參與者特定性、所需差異、可接觸性、資料品質及分析深度。</p><p><b>停止與論證</b> 當新增個案不再實質改變分析，或已符合該設計的充分性準則。</p></div>
+                <header><span>資訊路徑</span><h3>資訊充分性與飽和</h3></header>
+                <div class="formula-band formula-band-text"><strong>充分性 = 切合目的 + 資訊豐富度 + 分析深度</strong><small>若與研究設計相符，飽和可支持停止抽樣的決定。</small></div>
+                <div class="sample-size-notes"><p><b>規劃依據</b> 研究設計、參與者特定性、所需差異、可接觸性、資料品質及分析深度。</p><p><b>飽和與停止</b> 界定所指的是編碼、意義或理論飽和，並記錄新增個案何時不再帶來相關洞見。若飽和不適用，則採用與研究設計相符的充分性準則。</p></div>
                 <p class="sample-size-caution">先導研究或資源上限可檢驗可行性，但兩者本身都不能證明證據充分。</p>
               </article>
             </div>
@@ -1200,21 +1200,18 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
               <p class="validity-note">The target is a teaching analogy: validity also concerns constructs, causal explanations, generalisation and statistical conclusions.</p>
             </section>
             <section id="validity-en-terms" class="validity-panel" data-validity-panel="terms" hidden>
-              <div class="quality-map-core"><strong>Research quality</strong><span>What makes this inference or interpretation defensible?</span></div>
+              <div class="quality-map-core"><strong>Research quality</strong></div>
               <div class="quality-terminology-map">
                 <section class="quality-map-branch quality-map-quant">
                   <header><span>Quantitative studies</span><h3>Validity + reliability</h3></header>
-                  <div class="quality-map-nodes">{quantitativeQualityTerms.map((term) => <article><strong>{term.labelEn}</strong><span>{term.mapEn}</span></article>)}</div>
-                  <p>Older “internal/external reliability” labels are clearer when unpacked as consistency, stability, equivalence and rater agreement.</p>
+                  <div class="quality-map-nodes">{quantitativeQualityTerms.map((term) => <article><strong>{term.labelEn}</strong></article>)}</div>
                 </section>
-                <div class="quality-map-bridge"><strong>Related questions</strong><span>not one-to-one translations</span></div>
+                <div class="quality-map-bridge"><strong>Related questions</strong></div>
                 <section class="quality-map-branch quality-map-qual">
                   <header><span>Qualitative studies</span><h3>Trustworthiness + methodological integrity</h3></header>
-                  <div class="quality-map-nodes">{qualitativeQualityTerms.map((term) => <article><strong>{term.labelEn}</strong><span>{term.mapEn}</span></article>)}</div>
-                  <p>Dependability is not test-retest reliability; transferability is not statistical generalisability. Each answers a different quality question.</p>
+                  <div class="quality-map-nodes">{qualitativeQualityTerms.map((term) => <article><strong>{term.labelEn}</strong></article>)}</div>
                 </section>
               </div>
-              <p class="quality-map-footer"><strong>Across the whole study:</strong> make decisions transparent from collection → processing → analysis → reporting; usefulness follows only when claims are methodologically supported.</p>
             </section>
           </div>
         </div>
@@ -1261,21 +1258,18 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
               <p class="validity-note">靶圖只是一個教學比喻：效度亦涉及構念、因果解釋、推廣範圍及統計結論。</p>
             </section>
             <section id="validity-zh-terms" class="validity-panel" data-validity-panel="terms" hidden>
-              <div class="quality-map-core"><strong>研究品質</strong><span>甚麼使這項推論或詮釋站得住腳？</span></div>
+              <div class="quality-map-core"><strong>研究品質</strong></div>
               <div class="quality-terminology-map">
                 <section class="quality-map-branch quality-map-quant">
                   <header><span>量化研究</span><h3>效度 + 信度</h3></header>
-                  <div class="quality-map-nodes">{quantitativeQualityTerms.map((term) => <article><strong>{term.labelZh}</strong><span>{term.mapZh}</span></article>)}</div>
-                  <p>與其使用較含糊的「內部／外部信度」，不如拆解為一致性、穩定性、等值性及評分者一致。</p>
+                  <div class="quality-map-nodes">{quantitativeQualityTerms.map((term) => <article><strong>{term.labelZh}</strong></article>)}</div>
                 </section>
-                <div class="quality-map-bridge"><strong>相關問題</strong><span>並非逐一對譯</span></div>
+                <div class="quality-map-bridge"><strong>相關問題</strong></div>
                 <section class="quality-map-branch quality-map-qual">
                   <header><span>質性研究</span><h3>可信賴性 + 方法完整性</h3></header>
-                  <div class="quality-map-nodes">{qualitativeQualityTerms.map((term) => <article><strong>{term.labelZh}</strong><span>{term.mapZh}</span></article>)}</div>
-                  <p>依賴性不等於重測信度，可轉移性亦不等於統計推廣；每個術語回答不同的品質問題。</p>
+                  <div class="quality-map-nodes">{qualitativeQualityTerms.map((term) => <article><strong>{term.labelZh}</strong></article>)}</div>
                 </section>
               </div>
-              <p class="quality-map-footer"><strong>貫穿整項研究：</strong>使決策由蒐集 → 處理 → 分析 → 報告均透明可見；只有主張得到方法支持，研究結果才可能有用。</p>
             </section>
           </div>
         </div>
@@ -1805,9 +1799,8 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
   .validity-definitions strong { color: var(--lr-green); }
   .validity-note { margin: var(--space-3xs) 0 0; color: var(--lr-muted); font-size: .62rem; line-height: 1.25; }
   .validity-note::before { content: '△ '; color: var(--lr-warm); font-weight: 900; }
-  .quality-map-core { display: grid; max-width: 34rem; grid-template-columns: auto minmax(0, 1fr); gap: var(--space-xs); align-items: center; margin: 0 auto var(--space-2xs); padding: var(--space-2xs) var(--space-xs); border-block: 1px solid var(--lr-green-mid); text-align: start; }
+  .quality-map-core { display: grid; max-width: 34rem; place-items: center; margin: 0 auto var(--space-2xs); padding: var(--space-2xs) var(--space-xs); border-block: 1px solid var(--lr-green-mid); text-align: center; }
   .quality-map-core strong { color: var(--lr-green); font: 700 .86rem/1.1 var(--font-display); white-space: nowrap; }
-  .quality-map-core span { color: var(--lr-muted); font-size: .62rem; line-height: 1.2; }
   .quality-terminology-map { display: grid; min-width: 0; grid-template-columns: minmax(0, 1fr) 6.5rem minmax(0, 1fr); gap: var(--space-xs); align-items: center; }
   .quality-map-branch { min-width: 0; padding: var(--space-2xs); border: 1px solid var(--lr-line); background: var(--lr-green-pale); }
   .quality-map-branch > header { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--space-xs); align-items: baseline; padding-bottom: var(--space-3xs); border-bottom: 1px solid var(--lr-line); }
@@ -1816,16 +1809,11 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
   .quality-map-nodes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3xs); margin-top: var(--space-3xs); }
   .quality-map-nodes article { min-width: 0; padding: var(--space-3xs) var(--space-2xs); border-block-start: 1px solid var(--lr-green-mid); background: var(--lr-green-soft); }
   .quality-map-nodes strong { display: block; overflow-wrap: anywhere; color: var(--lr-green); font-size: .6rem; line-height: 1.1; }
-  .quality-map-nodes span { display: block; margin-top: var(--space-3xs); color: var(--lr-muted); font-size: .49rem; line-height: 1.18; }
-  .quality-map-branch > p { margin: var(--space-3xs) 0 0; color: var(--lr-muted); font-size: .49rem; line-height: 1.2; }
   .quality-map-bridge { position: relative; display: grid; min-height: 6.5rem; place-content: center; gap: var(--space-3xs); border: 1px solid var(--lr-green-mid); border-radius: 50%; background: var(--lr-green-soft); text-align: center; }
   .quality-map-bridge::before, .quality-map-bridge::after { content: ''; position: absolute; top: 50%; width: var(--space-xs); height: 1px; background: var(--lr-line); }
   .quality-map-bridge::before { right: 100%; }
   .quality-map-bridge::after { left: 100%; }
   .quality-map-bridge strong { color: var(--lr-green); font: 700 .66rem/1.05 var(--font-display); }
-  .quality-map-bridge span { color: var(--lr-muted); font-size: .48rem; line-height: 1.15; }
-  .quality-map-footer { margin: var(--space-2xs) 0 0; padding-top: var(--space-3xs); border-top: 1px solid var(--lr-line); color: var(--lr-muted); font-size: .56rem; line-height: 1.2; text-align: center; }
-  .quality-map-footer strong { color: var(--lr-green); }
 
   @keyframes validity-panel-in { from { opacity: 0; } to { opacity: 1; } }
 
@@ -1954,8 +1942,6 @@ const qualitativeQualityTerms = qualityTerms.filter((term) => term.family === 'q
     .quality-map-branch > header { grid-template-columns: minmax(0, 1fr); gap: var(--space-3xs); }
     .quality-map-branch h3 { text-align: start; }
     .quality-map-nodes { grid-template-columns: minmax(0, 1fr); }
-    .quality-map-branch > p { display: none; }
-    .quality-map-footer { font-size: .5rem; }
     .validity-panel .quality-matrix { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3xs); }
     .validity-panel .quality-matrix article, .validity-panel .quality-matrix article:last-child { grid-column: auto; grid-template-columns: minmax(0, 1fr); gap: var(--space-3xs); padding: var(--space-2xs); }
     .validity-panel .quality-matrix article:last-child { grid-column: 1 / -1; }
