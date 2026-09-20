@@ -13,7 +13,7 @@ function isActive(href: string): boolean {
   const target = normPath(new URL(href, Astro.url).pathname);
   if (target === '/') return current === '/';
 
-  for (const section of ['/research', '/teaching', '/service', '/blog', '/networking'] as const) {
+  for (const section of ['/research', '/teaching', '/service', '/networking'] as const) {
     const root = normPath(withBase(section));
     if (target === root) {
       return current === root || current.startsWith(`${root}/`);
@@ -44,132 +44,20 @@ const homeHref = withBase('/');
     >
       {
         navItems.map(({ href, label }) => (
-          label === 'Blog' ? (
-            <span class="relative inline-flex align-middle group">
-              <a
-                href={href}
-                aria-current={isActive(href) ? 'page' : undefined}
-                class:list={[
-                  'inline-flex items-center whitespace-nowrap border-b-2 border-transparent px-2.5 py-1 no-underline transition-colors duration-[var(--dur-micro)] focus-visible:outline-page',
-                  isActive(href)
-                    ? 'border-page bg-page/10 text-page'
-                    : 'text-page hover:border-page/60 hover:text-page',
-                ]}
-              >
-                {label}
-              </a>
-
-              <button
-                type="button"
-                data-blog-admin-trigger
-                class="pointer-events-none absolute right-0 top-full z-50 mt-2 hidden min-h-0 items-center whitespace-nowrap rounded-sm border border-page/40 bg-secondary px-2.5 py-1.5 text-xs font-semibold leading-none text-page shadow-sm opacity-0 transition-opacity duration-[var(--dur-short)] group-hover:pointer-events-auto group-hover:flex group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:flex group-focus-within:opacity-100"
-              >
-                Admin
-              </button>
-            </span>
-          ) : (
-            <a
-              href={href}
-              aria-current={isActive(href) ? 'page' : undefined}
-              class:list={[
-                'inline-flex items-center whitespace-nowrap border-b-2 border-transparent px-2.5 py-1 no-underline transition-colors duration-[var(--dur-micro)] focus-visible:outline-page',
-                isActive(href)
-                  ? 'border-page bg-page/10 text-page'
-                  : 'text-page hover:border-page/60 hover:text-page',
-              ]}
-            >
-              {label}
-            </a>
-          )
+          <a
+            href={href}
+            aria-current={isActive(href) ? 'page' : undefined}
+            class:list={[
+              'inline-flex items-center whitespace-nowrap border-b-2 border-transparent px-2.5 py-1 no-underline transition-colors duration-[var(--dur-micro)] focus-visible:outline-page',
+              isActive(href)
+                ? 'border-page bg-page/10 text-page'
+                : 'text-page hover:border-page/60 hover:text-page',
+            ]}
+          >
+            {label}
+          </a>
         ))
       }
     </nav>
   </div>
 </header>
-
-<dialog
-  id="blog-admin-dialog"
-  class="fixed left-1/2 top-1/2 m-0 -translate-x-1/2 -translate-y-1/2 rounded-lg border border-border bg-surface p-0 text-ink shadow-xl backdrop:bg-ink/30"
->
-  <form id="blog-admin-form" method="dialog" class="w-[min(92vw,28rem)] p-5">
-    <div class="flex items-center justify-between gap-3">
-      <p class="type-section-title">Admin</p>
-      <button class="rounded-sm border border-border bg-page px-3 py-1 text-sm font-semibold text-ink hover:bg-neutral-hover" value="cancel">
-        Close
-      </button>
-    </div>
-    <p class="mt-2 text-sm text-muted">Enter the password to enable blog editing on this device.</p>
-
-    <input
-      id="blog-admin-password"
-      type="password"
-      class="mt-4 w-full rounded-md border border-border bg-page px-3 py-2 text-sm"
-      placeholder="Password"
-      autocomplete="current-password"
-    />
-
-    <p id="blog-admin-msg" class="mt-3 text-sm text-muted"></p>
-
-    <div class="mt-5 flex items-center justify-end gap-2">
-      <button
-        type="submit"
-        id="blog-admin-confirm"
-        class="rounded-sm bg-primary px-4 py-2 text-sm font-semibold text-page hover:bg-main hover:text-main-ink"
-      >
-        Continue
-      </button>
-    </div>
-  </form>
-</dialog>
-
-<script>
-  (() => {
-    const triggers = Array.from(document.querySelectorAll("[data-blog-admin-trigger]"));
-    const dlg = document.getElementById("blog-admin-dialog");
-    if (!(dlg instanceof HTMLDialogElement)) return;
-    const input = document.getElementById("blog-admin-password");
-    const msg = document.getElementById("blog-admin-msg");
-    const confirm = document.getElementById("blog-admin-confirm");
-    const form = document.getElementById("blog-admin-form");
-    const password = "199044";
-
-    function open() {
-      try {
-        input && (input.value = "");
-        msg && (msg.textContent = "");
-      } catch {}
-      dlg.showModal();
-      setTimeout(() => input && input.focus(), 0);
-    }
-
-    triggers.forEach((t) => t.addEventListener("click", (e) => {
-      e.preventDefault();
-      open();
-    }));
-
-    function submit() {
-      const v = (input && input.value ? String(input.value) : "").trim();
-      if (v !== password) {
-        if (msg) msg.textContent = "Incorrect password.";
-        return false;
-      }
-      try {
-        window.sessionStorage.setItem("BLOG_ADMIN_KEY", password);
-      } catch {}
-      dlg.close();
-      // After unlocking, stay on /blog in "admin mode" (edit buttons appear there).
-      window.location.href = "/blog/";
-      return true;
-    }
-
-    form?.addEventListener("submit", (e) => {
-      e.preventDefault();
-      submit();
-    });
-
-    confirm?.addEventListener("click", (e) => {
-      e.preventDefault();
-      submit();
-    });
-  })();
-</script>
