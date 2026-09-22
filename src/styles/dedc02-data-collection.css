@@ -22,7 +22,7 @@ button, input, textarea { font: inherit; }
 .deck { min-height: 100dvh; overflow-x: hidden; background: #fff; color: var(--dc-ink); font-family: 'Source Sans 3', Arial, sans-serif; }
 .slide { display: none; min-height: 100dvh; overflow-y: auto; padding: clamp(1.3rem, 4.5vw, 4.5rem) clamp(1.3rem, 5vw, 5.5rem) 5.8rem; background: #fff; }
 .slide.is-active { display: block; animation: dc-enter 220ms ease-out; }
-.slide-inner { width: min(1120px, 100%); min-width: 0; min-height: calc(100dvh - 7.5rem); margin: 0 auto; display: flex; flex-direction: column; justify-content: flex-start; }
+.slide-inner { width: min(1120px, 100%); min-width: 0; min-height: calc(100dvh - 7.5rem); margin: 0 auto; display: flex; flex-direction: column; justify-content: center; }
 .slide-header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: clamp(1.15rem, 2.6vh, 1.9rem); padding-bottom: .72rem; border-bottom: 1px solid var(--dc-line); }
 .eyebrow { color: var(--dc-green); font-size: .77rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; }
 h1, h2, h3, p { margin-top: 0; }
@@ -85,7 +85,6 @@ h3 { margin-bottom: .45rem; color: var(--dc-ink); font-size: 1.08rem; line-heigh
 .reporting-strip { display: flex; flex-wrap: wrap; gap: .42rem; align-items: center; margin-top: .72rem; padding: .7rem; border-left: .32rem solid var(--dc-warm); background: var(--dc-warm-pale); color: #713f19; font-size: .85rem; line-height: 1.3; }
 .reporting-strip span { padding: .27rem .45rem; border-radius: 999px; background: rgba(255,255,255,.76); }
 
-.questionnaire-teaching-slide { justify-content: flex-start; }
 .questionnaire-teaching-slide h2 { max-width: 30ch; font-size: clamp(2.25rem, 4vw, 3.5rem); }
 .questionnaire-teaching-slide .intro-line { margin-bottom: .7rem; }
 .qsort-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .42rem; }
