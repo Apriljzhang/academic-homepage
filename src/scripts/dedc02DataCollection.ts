@@ -132,6 +132,15 @@ document.querySelectorAll<HTMLElement>('[data-question-clinic]').forEach((clinic
   });
 });
 
+document.querySelectorAll<HTMLButtonElement>('[data-guide-flip]').forEach((card) => {
+  card.addEventListener('click', () => {
+    const flipped = card.classList.toggle('is-flipped');
+    card.setAttribute('aria-pressed', String(flipped));
+    card.querySelector<HTMLElement>('[data-guide-front]')?.setAttribute('aria-hidden', String(flipped));
+    card.querySelector<HTMLElement>('[data-guide-back]')?.setAttribute('aria-hidden', String(!flipped));
+  });
+});
+
 document.querySelectorAll<HTMLDetailsElement>('.debug-card').forEach((card) => {
   card.querySelector<HTMLElement>('summary')?.addEventListener('click', (event) => {
     event.preventDefault();

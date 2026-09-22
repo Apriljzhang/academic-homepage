@@ -156,17 +156,17 @@ const evidencePairHeadings = [
 ];
 
 const fieldGuide = [
-  { id: 'participants', icon: '◉', en: 'Participants / cases', zh: '參與者／個案', promptEn: 'Who or what supplied the data? Why these cases? Who is absent?', promptZh: '誰或甚麼提供資料？為何是這些個案？誰沒有被包括？' },
-  { id: 'access', icon: '↗', en: 'Access & recruitment', zh: '接觸與招募', promptEn: 'How did the researcher reach people or materials? Who controlled access?', promptZh: '研究者如何接觸人員或材料？誰控制接觸途徑？' },
-  { id: 'source', icon: '⌁', en: 'Data source', zh: '資料來源', promptEn: 'What was collected? What evidence can this source provide? Which questions call for another source?', promptZh: '蒐集了甚麼？這種來源能提供甚麼證據？哪些問題需要另一來源？' },
-  { id: 'instrument', icon: '✦', en: 'Instrument / protocol', zh: '研究工具／程序表', promptEn: 'What questions, prompts, categories or record were actually used?', promptZh: '實際使用了哪些問題、提示、分類或紀錄？' },
-  { id: 'quality', icon: '◎', en: 'Question quality', zh: '問題品質', promptEn: 'What does a question assume? Which answers might it invite or block?', promptZh: '問題預設了甚麼？它可能邀請或阻礙哪些回答？' },
-  { id: 'pilot', icon: '↺', en: 'Pilot & refinement', zh: '先導與修訂', promptEn: 'Was the tool tried, translated, checked or revised before use?', promptZh: '工具在使用前有否試用、翻譯、檢查或修訂？' },
-  { id: 'procedure', icon: '→', en: 'Procedure', zh: '蒐集程序', promptEn: 'What happened first, next and last? Where, when and by whom?', promptZh: '首先、接著、最後發生甚麼？在哪裏、何時、由誰進行？' },
-  { id: 'recording', icon: '▣', en: 'Recording', zh: '紀錄與文件化', promptEn: 'How were responses, observations or documents captured and organised?', promptZh: '回答、觀察或文件如何被記錄和整理？' },
-  { id: 'ethics', icon: '◇', en: 'Participant care', zh: '參與者保障', promptEn: 'How were consent, withdrawal, discomfort, privacy and power handled?', promptZh: '如何處理同意、退出、不適、私隱與權力關係？' },
-  { id: 'role', icon: '◌', en: 'Researcher role', zh: '研究者角色', promptEn: 'What influence did the researcher or setting have on the data?', promptZh: '研究者或場域對資料有甚麼影響？' },
-  { id: 'management', icon: '□', en: 'Data management', zh: '資料管理', promptEn: 'Who can access the data, where will it be stored, and what happens afterwards?', promptZh: '誰可接觸資料、資料儲存在哪裏、之後如何處理？' },
+  { id: 'participants', icon: '◉', en: 'Participants / cases', zh: '參與者／個案', promptEn: 'Who or what supplied the data? Why these cases? Who is absent?', promptZh: '誰或甚麼提供資料？為何是這些個案？誰沒有被包括？', whyEn: 'This sets the boundary of whose experiences or records support the findings.', whyZh: '這界定了研究結果建基於哪些人的經驗或紀錄。' },
+  { id: 'access', icon: '↗', en: 'Access & recruitment', zh: '接觸與招募', promptEn: 'How did the researcher reach people or materials? Who controlled access?', promptZh: '研究者如何接觸人員或材料？誰控制接觸途徑？', whyEn: 'Access and recruitment shape who can participate and which perspectives are missing.', whyZh: '接觸與招募方式影響誰能參與，以及哪些觀點被遺漏。' },
+  { id: 'source', icon: '⌁', en: 'Data source', zh: '資料來源', promptEn: 'What was collected? What evidence can this source provide? Which questions call for another source?', promptZh: '蒐集了甚麼？這種來源能提供甚麼證據？哪些問題需要另一來源？', whyEn: 'Readers can judge whether each source answers the research question and where its limits lie.', whyZh: '讀者可判斷每種來源能否回答研究問題，以及其限制。' },
+  { id: 'instrument', icon: '✦', en: 'Instrument / protocol', zh: '研究工具／程序表', promptEn: 'What questions, prompts, categories or record were actually used?', promptZh: '實際使用了哪些問題、提示、分類或紀錄？', whyEn: 'The actual tool shows how evidence was elicited, observed or selected.', whyZh: '實際工具顯示證據如何被引出、觀察或選取。' },
+  { id: 'quality', icon: '◎', en: 'Question quality', zh: '問題品質', promptEn: 'What does a question assume? Which answers might it invite or block?', promptZh: '問題預設了甚麼？它可能邀請或阻礙哪些回答？', whyEn: 'Wording can guide, confuse or restrict responses and therefore affect interpretation.', whyZh: '措辭可能引導、混淆或限制回答，從而影響詮釋。' },
+  { id: 'pilot', icon: '↺', en: 'Pilot & refinement', zh: '先導與修訂', promptEn: 'Was the tool tried, translated, checked or revised before use?', promptZh: '工具在使用前有否試用、翻譯、檢查或修訂？', whyEn: 'These checks reveal problems before full collection and explain changes to the tool.', whyZh: '這些檢查可在正式蒐集前找出問題，並交代工具的改動。' },
+  { id: 'procedure', icon: '→', en: 'Procedure', zh: '蒐集程序', promptEn: 'What happened first, next and last? Where, when and by whom?', promptZh: '首先、接著、最後發生甚麼？在哪裏、何時、由誰進行？', whyEn: 'Sequence, setting and personnel affect what data can be produced and compared.', whyZh: '順序、場域及執行者影響可產生和比較的資料。' },
+  { id: 'recording', icon: '▣', en: 'Recording', zh: '紀錄與文件化', promptEn: 'How were responses, observations or documents captured and organised?', promptZh: '回答、觀察或文件如何被記錄和整理？', whyEn: 'The record links the original event or material to what was later analysed.', whyZh: '紀錄把原始事件或材料連結至其後的分析。' },
+  { id: 'ethics', icon: '◇', en: 'Participant care', zh: '參與者保障', promptEn: 'How were consent, withdrawal, discomfort, privacy and power handled?', promptZh: '如何處理同意、退出、不適、私隱與權力關係？', whyEn: 'These decisions protect participants and clarify the conditions under which data were obtained.', whyZh: '這些決策保障參與者，並交代資料在甚麼條件下取得。' },
+  { id: 'role', icon: '◌', en: 'Researcher role', zh: '研究者角色', promptEn: 'What influence did the researcher or setting have on the data?', promptZh: '研究者或場域對資料有甚麼影響？', whyEn: 'The researcher’s position and interactions may shape access, responses and interpretation.', whyZh: '研究者的位置與互動可能影響接觸、回答及詮釋。' },
+  { id: 'management', icon: '□', en: 'Data management', zh: '資料管理', promptEn: 'Who can access the data, where will it be stored, and what happens afterwards?', promptZh: '誰可接觸資料、資料儲存在哪裏、之後如何處理？', whyEn: 'A clear plan protects confidentiality and preserves an accountable evidence record.', whyZh: '清晰的計劃保障私隱，並保留可問責的證據紀錄。' },
 ];
 ---
 
@@ -285,16 +285,34 @@ const fieldGuide = [
         <div data-language="en">
           <h2>What should be included—and why?</h2>
           <div class="field-guide">
-            {fieldGuide.map((item) => <article class="panel"><span class="eyebrow">{item.icon}</span><h3>{item.en}</h3><p>State the decision and the evidence that supports it.</p></article>)}
+            {fieldGuide.map((item) => <button class="guide-card" type="button" data-guide-flip aria-pressed="false">
+              <span class="guide-card-inner">
+                <span class="guide-card-face guide-card-front" data-guide-front>
+                  <span class="guide-icon" aria-hidden="true">{item.icon}</span><strong>{item.en}</strong><small>Click to explore →</small>
+                </span>
+                <span class="guide-card-face guide-card-back" data-guide-back aria-hidden="true">
+                  <strong>{item.en}</strong><span class="guide-back-label">What to include</span><span>{item.promptEn}</span><span class="guide-back-label">Why it matters</span><span>{item.whyEn}</span>
+                </span>
+              </span>
+            </button>)}
           </div>
-          <p class="takeaway">Use these eleven elements as a reporting checklist after you have selected the instrument and procedure.</p>
+          <p class="takeaway">Select a card to reveal its guiding question and reason for inclusion. Use all eleven elements as a reporting checklist.</p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
           <h2>應包括甚麼？為甚麼？</h2>
           <div class="field-guide">
-            {fieldGuide.map((item) => <article class="panel"><span class="eyebrow">{item.icon}</span><h3>{item.zh}</h3><p>說明決策及其支持證據。</p></article>)}
+            {fieldGuide.map((item) => <button class="guide-card" type="button" data-guide-flip aria-pressed="false">
+              <span class="guide-card-inner">
+                <span class="guide-card-face guide-card-front" data-guide-front>
+                  <span class="guide-icon" aria-hidden="true">{item.icon}</span><strong>{item.zh}</strong><small>點選查看 →</small>
+                </span>
+                <span class="guide-card-face guide-card-back" data-guide-back aria-hidden="true">
+                  <strong>{item.zh}</strong><span class="guide-back-label">應包括甚麼</span><span>{item.promptZh}</span><span class="guide-back-label">為何重要</span><span>{item.whyZh}</span>
+                </span>
+              </span>
+            </button>)}
           </div>
-          <p class="takeaway">選定工具及程序後，可用這十一項內容作為報告檢查表。</p>
+          <p class="takeaway">點選卡片查看引導問題及納入原因，並以這十一項內容作為報告檢查表。</p>
         </div>
       </div>
     </section>
