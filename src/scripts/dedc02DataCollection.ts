@@ -217,45 +217,54 @@ document.querySelectorAll<HTMLTextAreaElement>('textarea[data-save]').forEach((f
 });
 
 document.querySelectorAll<HTMLElement>('[data-evidence-card]').forEach((card) => {
-  const select = card.querySelector<HTMLSelectElement>('[data-evidence-select]');
+  const choices = Array.from(card.querySelectorAll<HTMLInputElement>('[data-evidence-choice]'));
   const check = card.querySelector<HTMLButtonElement>('[data-evidence-check]');
-  const status = card.querySelector<HTMLElement>('[data-evidence-status]');
-  const reveal = card.querySelector<HTMLElement>('[data-evidence-reveal]');
   const matchId = card.dataset.matchId || '';
   const storageKey = `dedc02-w5-instrument-match-${matchId}`;
+  const peers = Array.from(document.querySelectorAll<HTMLElement>(`[data-evidence-card][data-match-id="${matchId}"]`));
+  const expected = (card.dataset.answer || '').split(',').sort().join(',');
+  const selectedValues = () => choices.filter((choice) => choice.checked).map((choice) => choice.value).sort();
 
-  const showResult = (value: string, announce = true) => {
-    const correct = Boolean(value) && value === card.dataset.answer;
-    if (reveal) reveal.hidden = !correct;
-    card.classList.toggle('is-matched', correct);
-    if (!status || !announce) return;
-    const chinese = card.closest<HTMLElement>('[data-language="zh"]') !== null;
-    if (!value) status.textContent = chinese ? '先選擇一種工具。' : 'Choose an instrument type first.';
-    else if (correct) status.textContent = chinese ? '配對正確。現在把你的筆記與報告指南比較。' : 'Matched. Compare your notes with the reporting guide.';
-    else status.textContent = chinese ? '再讀方法描述：這項工具實際如何生成或擷取資料？' : 'Read the Methods description again: how did this tool generate or extract data?';
+  const updateCards = (values: string[], checked: boolean) => {
+    const correct = checked && values.length > 0 && values.join(',') === expected;
+    peers.forEach((peer) => {
+      peer.querySelectorAll<HTMLInputElement>('[data-evidence-choice]').forEach((choice) => { choice.checked = values.includes(choice.value); });
+      peer.querySelectorAll<HTMLElement>('[data-evidence-download], [data-evidence-record]').forEach((link) => { link.hidden = !correct; });
+      peer.classList.toggle('is-matched', correct);
+      const status = peer.querySelector<HTMLElement>('[data-evidence-status]');
+      const chinese = peer.closest<HTMLElement>('[data-language="zh"]') !== null;
+      if (!status) return;
+      if (!values.length) status.textContent = chinese ? '先選擇至少一項工具。' : 'Choose at least one instrument.';
+      else if (correct) status.textContent = chinese ? '選擇正確。現在可下載全文，並完成報告問題。' : 'Correct. Download the paper and complete the reporting questions.';
+      else if (checked) status.textContent = chinese ? '再讀摘錄，檢查有否選多或漏選。' : 'Read the extract again. Check for an extra or missing choice.';
+      else status.textContent = chinese ? '選擇已儲存；準備好後按「檢查選擇」。' : 'Choice saved. Check when ready.';
+    });
   };
 
   try {
-    const saved = localStorage.getItem(storageKey) || '';
-    if (select && saved) {
-      select.value = saved;
-      showResult(saved, false);
-    }
+    const saved = (localStorage.getItem(storageKey) || '').split(',').filter(Boolean).sort();
+    const verified = localStorage.getItem(`${storageKey}-verified`) === '1';
+    if (saved.length) updateCards(saved, verified);
   } catch {}
 
-  select?.addEventListener('change', () => {
-    try { localStorage.setItem(storageKey, select.value); } catch {}
-    document.querySelectorAll<HTMLElement>(`[data-evidence-card][data-match-id="${matchId}"]`).forEach((peerCard) => {
-      const peerSelect = peerCard.querySelector<HTMLSelectElement>('[data-evidence-select]');
-      const peerReveal = peerCard.querySelector<HTMLElement>('[data-evidence-reveal]');
-      if (peerSelect && peerSelect !== select) peerSelect.value = select.value;
-      if (peerReveal) peerReveal.hidden = true;
-      peerCard.classList.remove('is-matched');
-    });
-    if (reveal) reveal.hidden = true;
-    card.classList.remove('is-matched');
+  choices.forEach((choice) => choice.addEventListener('change', () => {
+    const values = selectedValues();
+    try {
+      localStorage.setItem(storageKey, values.join(','));
+      localStorage.removeItem(`${storageKey}-verified`);
+    } catch {}
+    updateCards(values, false);
+  }));
+  check?.addEventListener('click', () => {
+    const values = selectedValues();
+    const correct = values.length > 0 && values.join(',') === expected;
+    try {
+      localStorage.setItem(storageKey, values.join(','));
+      if (correct) localStorage.setItem(`${storageKey}-verified`, '1');
+      else localStorage.removeItem(`${storageKey}-verified`);
+    } catch {}
+    updateCards(values, true);
   });
-  check?.addEventListener('click', () => showResult(select?.value || ''));
 });
 
 document.querySelectorAll<HTMLElement>('[data-audit-checklist]').forEach((checklist) => {

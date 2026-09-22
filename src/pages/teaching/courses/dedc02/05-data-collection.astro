@@ -8,14 +8,15 @@ const description = 'An inquiry-led DEDC02 lesson on instruments, data collectio
 const courseHref = withBase('/teaching/courses/dedc02');
 
 const instrumentOptions = [
-  { value: 'scale', en: 'Questionnaire / multi-item scale', zh: '問卷／多題量表' },
-  { value: 'interview', en: 'Semi-structured interview guide', zh: '半結構式訪談指南' },
-  { value: 'focus-group', en: 'Focus-group discussion protocol', zh: '焦點小組討論程序' },
-  { value: 'observation', en: 'Classroom observation protocol', zh: '課堂觀察程序' },
-  { value: 'performance', en: 'Performance task and analytic rubric', zh: '表現任務及分析式評分規準' },
-  { value: 'documents', en: 'Document / record extraction protocol', zh: '文件／紀錄擷取程序' },
-  { value: 'digital', en: 'Digital trace specification', zh: '數碼痕跡規格' },
-  { value: 'sensor', en: 'Sensor and physiological protocol', zh: '感測及生理測量程序' },
+  { value: 'scale', en: 'Questionnaire / scale', zh: '問卷／量表' },
+  { value: 'interview', en: 'Semi-structured interview', zh: '半結構式訪談' },
+  { value: 'focus-group', en: 'Focus-group protocol', zh: '焦點小組程序' },
+  { value: 'observation', en: 'Observation protocol', zh: '觀察程序' },
+  { value: 'performance', en: 'Performance + rubric', zh: '表現任務＋規準' },
+  { value: 'documents', en: 'Document / record review', zh: '文件／紀錄查閱' },
+  { value: 'fieldnotes', en: 'Field-note record', zh: '田野筆記紀錄' },
+  { value: 'digital', en: 'Digital event logs', zh: '數碼事件記錄' },
+  { value: 'sensor', en: 'Sensor protocol', zh: '感測程序' },
 ];
 
 const evidenceStudies = [
@@ -37,7 +38,7 @@ const evidenceStudies = [
   {
     id: 'braund-interview', answer: 'interview', marker: 'B',
     citation: 'Braund et al. (2021)',
-    title: 'Exploring formative assessment and co-regulation in kindergarten',
+    title: 'Exploring Formative Assessment and Co-Regulation in Kindergarten Through Interviews and Direct Observation',
     source: 'Frontiers in Education, 6:732373 · Methods p. 4',
     descriptionEn: 'Two semi-structured protocols were used at two time points: one elicited conceptions; the other elicited concrete practice examples. Four graduate students piloted the questions through think-alouds; interviews were audio-recorded and transcribed.',
     descriptionZh: '研究在兩個時間點使用兩份半結構式指南：一份引出觀念，另一份引出具體實踐例子。四名研究生以有聲思考試答問題；訪談經錄音及逐字轉錄。',
@@ -52,7 +53,7 @@ const evidenceStudies = [
   {
     id: 'rahman-focus-group', answer: 'focus-group', marker: 'C',
     citation: 'Rahman et al. (2021)',
-    title: 'Implementing a formative assessment model at secondary schools',
+    title: 'Implementing a formative assessment model at the secondary schools: attitudes and challenges',
     source: 'Language Testing in Asia, 11:18 · Methods pp. 6–7',
     descriptionEn: 'The study ran 12 focus groups, one in each school, with nine Grade 8 students selected to include different achievement levels. The protocol addressed understanding, attitudes, criteria, roles, barriers and recommendations; discussions were held in Bangla, transcribed and translated.',
     descriptionZh: '研究在 12 所學校各進行一組焦點小組，每組九名八年級學生，並涵蓋不同成績水平。程序探討理解、態度、準則、角色、障礙及建議；討論以孟加拉語進行、轉錄及翻譯。',
@@ -67,7 +68,7 @@ const evidenceStudies = [
   {
     id: 'moraes-observation', answer: 'observation', marker: 'D',
     citation: 'Moraes, Furtoso & Giraldo (2024)',
-    title: 'Developing pre-service teachers’ language assessment literacy',
+    title: 'Developing pre-service teachers’ language assessment literacy: an analysis of classroom tasks',
     source: 'Ilha do Desterro, 77 · Methods p. 8',
     descriptionEn: 'Observation protocols guided note-taking about tasks in two assessment courses. Researchers compared the observation record with course calendars to check that all tasks were listed, then connected those records to open- and closed-question questionnaire evidence.',
     descriptionZh: '觀察程序引導研究者記錄兩門評量課程中的任務；研究者把觀察紀錄與課程日程對照，檢查任務是否完整，再連結開放式及封閉式問卷證據。',
@@ -97,7 +98,7 @@ const evidenceStudies = [
   {
     id: 'rahman-documents', answer: 'documents', marker: 'F',
     citation: 'Rahman et al. (2021)',
-    title: 'Implementing a formative assessment model at secondary schools',
+    title: 'Implementing a formative assessment model at the secondary schools: attitudes and challenges',
     source: 'Language Testing in Asia, 11:18 · Methods pp. 6–8',
     descriptionEn: 'Alongside interviews and focus groups, the researchers used field notes and document analysis. They compared reported practice with the national Teacher’s Guide and consulted school grade sheets and registers to trace which assessment components were recorded.',
     descriptionZh: '除訪談及焦點小組外，研究者亦使用田野筆記和文件分析，把受訪者描述的做法與國家《教師指南》比較，並查閱學校成績表及登記冊，追蹤哪些評量項目有被記錄。',
@@ -112,7 +113,7 @@ const evidenceStudies = [
   {
     id: 'poole-traces', answer: 'digital', marker: 'G',
     citation: 'Poole, Coss & Clarke-Midura (2025)',
-    title: 'Developing stealth assessments for young Chinese learners’ L2 reading comprehension',
+    title: 'Developing stealth assessments to assess young Chinese learners’ L2 reading comprehension',
     source: 'Language Learning & Technology, 29(2) · Methods pp. 7–10',
     descriptionEn: 'Game log files stored movements and choices with timestamps in JSON after each session. The specification identified indicators such as reading time, prompted response, sentence length, glossary use, prior vocabulary knowledge, repeated exposure and comprehension outcomes.',
     descriptionZh: '遊戲記錄檔在每節結束後以 JSON 儲存移動、選擇及時間戳。規格界定閱讀時間、是否需要作答、句子長度、詞彙表使用、既有詞彙知識、重複接觸及理解結果等指標。',
@@ -127,7 +128,7 @@ const evidenceStudies = [
   {
     id: 'zhai-sensors', answer: 'sensor', marker: 'H',
     citation: 'Zhai & Aryadoust (2022)',
-    title: 'Metacognitive and neurocognitive signatures of academic listening test methods',
+    title: 'The Metacognitive and Neurocognitive Signatures of Test Methods in Academic Listening',
     source: 'Frontiers in Psychology, 13:930075 · Methods pp. 4–6',
     descriptionEn: 'During listening tests, the study combined a metacognitive questionnaire with gaze measures from a Tobii eye tracker and brain-activation measures from a customised fNIRS headcap. The protocol aligned devices, test phases and derived measures.',
     descriptionZh: '研究在聆聽測驗中結合後設認知問卷、Tobii 眼動儀的凝視指標，以及訂製 fNIRS 頭套的腦部活動指標；程序把裝置、測驗階段及衍生測量對齊。',
@@ -141,19 +142,80 @@ const evidenceStudies = [
   },
 ];
 
-const evidencePairs = [
-  evidenceStudies.slice(0, 2),
-  evidenceStudies.slice(2, 4),
-  evidenceStudies.slice(4, 6),
-  evidenceStudies.slice(6, 8),
-];
+const evidencePaperDetails = {
+  'fltss-scale': {
+    reference: 'Sadoughi, M., & Hejazi, S. Y. (2022). Development and validation of Foreign Language Teacher Support Scale (FLTSS). Language Testing in Asia, 12, Article 30.',
+    excerpt: 'All items were based on five-point Likert type scale, where a higher score indicated a higher level of perceived teacher support. […] In this stage, 8 items with CVI values lower than .7 were removed. The remaining items (n =25) had CVI values in the range of .75 to 1, which indicates the good content validity of the FLTSS.',
+    page: 'Methods, p. 5', answers: ['scale'],
+    questions: [
+      { id: 'origin', en: 'Where did the item pool come from, and how were items adapted or translated?', zh: '題項庫從何而來？題項如何改編或翻譯？' },
+      { id: 'structure', en: 'How many items and response points were retained? What does a higher score mean?', zh: '最後保留多少題、多少個回答等級？較高分代表甚麼？' },
+      { id: 'quality', en: 'What checks of content and scores are reported, and what evidence do they provide?', zh: '作者報告了哪些內容與分數品質檢查？這些檢查提供甚麼證據？' },
+    ],
+  },
+  'braund-interview': {
+    reference: 'Braund, H., DeLuca, C., Panadero, E., & Cheng, L. (2021). Exploring formative assessment and co-regulation in kindergarten through interviews and direct observation. Frontiers in Education, 6, Article 732373.',
+    excerpt: 'Two types of measures were used: interviews and classroom observations. The interviews were guided by a semi-structured interview protocol drafted for each time period (available in Supplementary Appendix B). […] The classroom observations were focused on documenting examples of teacher’s and peer’s behaviours aimed at developing self-regulation.',
+    page: 'Methods, p. 4', answers: ['interview', 'observation'],
+    questions: [
+      { id: 'content', en: 'What did the interview protocol seek at Time 1 and Time 2?', zh: '第一及第二個時間點的訪談指南各探討甚麼？' },
+      { id: 'pilot', en: 'Who piloted the interview questions, and what changed after the pilot?', zh: '誰先導試答了訪談問題？試答後作了甚麼修改？' },
+      { id: 'recording', en: 'How were interviews and observations recorded, and how much data was collected?', zh: '訪談與觀察如何記錄？蒐集了多少資料？' },
+    ],
+  },
+  'rahman-focus-group': {
+    reference: 'Rahman, K. A., Hasan, M. K., Namaziandost, E., & Seraj, P. M. I. (2021). Implementing a formative assessment model at the secondary schools: Attitudes and challenges. Language Testing in Asia, 11, Article 18.',
+    excerpt: 'Required data for the study were collected through semi-structured interviews with English teachers of grade 8 and head teachers and focus group discussions (FGDs) with students from twelve secondary schools of Bangladesh. […] Moreover, field notes and document analysis provided valuable data.',
+    page: 'Methods, pp. 6–7', answers: ['interview', 'focus-group', 'documents', 'fieldnotes'],
+    questions: [
+      { id: 'participants', en: 'Who joined the interviews and focus groups? How were focus-group members selected?', zh: '誰參加訪談及焦點小組？焦點小組成員如何選取？' },
+      { id: 'protocol', en: 'Which topics structured the interview and focus-group protocols? In what language were responses collected and processed?', zh: '訪談及焦點小組指南涵蓋哪些主題？回答以甚麼語言蒐集和處理？' },
+      { id: 'documents', en: 'What field notes and documents supplemented the talk data, and what did they help check?', zh: '哪些田野筆記及文件補充談話資料？它們有助核對甚麼？' },
+    ],
+  },
+  'moraes-observation': {
+    reference: 'Moraes, I. T., Furtoso, V. B., & Giraldo, F. (2024). Developing pre-service teachers’ language assessment literacy: An analysis of classroom tasks. Ilha do Desterro, 77.',
+    excerpt: 'During this stage, observation protocols were used to enable note-taking on the tasks that took place during the courses. These were later compared to the courses’ calendars to make sure all tasks carried out had been listed. Then, for stage two, these tasks were included in questionnaires given to pre-service teachers at the end of each course containing both open- and close-ended questions.',
+    page: 'Methods, p. 8', answers: ['observation', 'documents', 'scale'],
+    questions: [
+      { id: 'observation', en: 'What did the observation protocol record, and how was completeness checked?', zh: '觀察程序記錄甚麼？研究者如何檢查記錄是否完整？' },
+      { id: 'questionnaire', en: 'What item formats and topics did the questionnaire include? When was it administered?', zh: '問卷包括哪些題型及主題？何時施測？' },
+      { id: 'linkage', en: 'How did the calendars, observations and questionnaire answers connect?', zh: '課程日程、觀察紀錄及問卷回答如何連結？' },
+    ],
+  },
+  'uludag-rubric': {
+    reference: 'Uludag, P., McDonough, K., & Trofimovich, P. (2022). Exploring shared and individual assessment of paired oral interactions. Studies in Language Assessment, Early View.',
+    excerpt: 'An analytic rubric (see Appendix A) was adapted from an earlier research study by McDonough and Uludag (2021), consisting of four broad domains excluding nonverbal features: discourse management, collaborative communication, content development, and language accuracy and complexity. The original rubric was adapted by including fluency in the language category and adding rating scales to each descriptor within the four domains.',
+    page: 'Methods, p. 7', answers: ['performance'],
+    questions: [
+      { id: 'origin', en: 'Where did the rubric come from, and what was changed for this study?', zh: '評分規準從何而來？本研究作了甚麼修改？' },
+      { id: 'criteria', en: 'Which domains, descriptors and rating scales define a score?', zh: '哪些範疇、描述語及評分等級界定了分數？' },
+      { id: 'raters', en: 'Who rated the paired performances, in what format, and what scoring-quality checks were reported?', zh: '誰評量雙人表現、使用甚麼格式？作者報告了哪些評分品質檢查？' },
+    ],
+  },
+  'poole-traces': {
+    reference: 'Poole, F. J., Coss, M. D., & Clarke-Midura, J. (2025). Developing stealth assessments to assess young Chinese learners’ L2 reading comprehension. Language Learning & Technology, 29(2), 104–131.',
+    excerpt: 'Finally, data from log files that captured players’ in-game actions and reading behaviors were collected for all students. Specifically, players’ movements and choices along with corresponding timestamps were saved to a JSON file after each session’s gameplay and then automatically uploaded to a cloud-based database each time a player saved the game.',
+    page: 'Methods, p. 111', answers: ['digital'],
+    questions: [
+      { id: 'events', en: 'Which player events and fields were recorded? In what file format?', zh: '記錄了哪些玩家事件與欄位？檔案格式是甚麼？' },
+      { id: 'procedure', en: 'When and where were log files saved, transferred and cleaned?', zh: '記錄檔何時、在哪裏儲存、傳送及清理？' },
+      { id: 'indicators', en: 'How were raw events converted into reading-comprehension indicators, and how were those indicators checked?', zh: '原始事件如何轉化為閱讀理解指標？作者如何檢查這些指標？' },
+    ],
+  },
+  'zhai-sensors': {
+    reference: 'Zhai, J., & Aryadoust, V. (2022). The metacognitive and neurocognitive signatures of test methods in academic listening. Frontiers in Psychology, 13, Article 930075.',
+    excerpt: 'During the tests, the participants’ gaze behavior and brain activation data were collected by an eye-tracker and fNIRS, respectively (the setup information is in Table 1). The participants’ metacognitive awareness was measured after the listening tests. […] The MALQ adopts a six-point Likert scale ranging from “strongly disagree” to “strongly agree” and comprises 21 randomly ordered items […]',
+    page: 'Methods, pp. 4–5', answers: ['sensor', 'scale'],
+    questions: [
+      { id: 'constructs', en: 'What did each device and the metacognitive questionnaire measure? When was each used?', zh: '各裝置及後設認知問卷測量甚麼？各自在何時使用？' },
+      { id: 'scale', en: 'How many questionnaire items, response points and dimensions are reported?', zh: '問卷報告了多少題、多少個回答等級及哪些構面？' },
+      { id: 'setup', en: 'What device setup, calibration, synchronisation and derived measures are specified?', zh: '作者說明了哪些裝置配置、校準、同步及衍生指標？' },
+    ],
+  },
+};
 
-const evidencePairHeadings = [
-  { en: 'Elicit a learner’s account: fixed responses or guided talk?', zh: '引出學習者敘述：固定回答還是引導式對話？' },
-  { en: 'Trace interaction and practice: group talk or classroom observation?', zh: '追蹤互動及實踐：小組對話還是課堂觀察？' },
-  { en: 'Judge performance or inspect records: what makes the tool visible?', zh: '評量表現還是檢視紀錄：甚麼令工具可見？' },
-  { en: 'Capture generated traces: platform events or embodied signals?', zh: '捕捉生成痕跡：平台事件還是身體訊號？' },
-];
+const evidencePapers = evidenceStudies.filter((study) => study.id !== 'rahman-documents');
 
 const fieldGuide = [
   { id: 'participants', icon: '◉', en: 'Participants / cases', zh: '參與者／個案', promptEn: 'Who or what supplied the data? Why these cases? Who is absent?', promptZh: '誰或甚麼提供資料？為何是這些個案？誰沒有被包括？', whyEn: 'This sets the boundary of whose experiences or records support the findings.', whyZh: '這界定了研究結果建基於哪些人的經驗或紀錄。' },
@@ -622,79 +684,73 @@ const questionnaireItemTypes = [
       <div class="slide-inner">
         <header class="slide-header"><span class="eyebrow">Research instruments in published studies</span></header>
         <div data-language="en">
-          <h2>Read what the authors report before naming the instrument.</h2>
+          <h2>Read the Methods extract, then identify the instruments.</h2>
           <div class="instrument-lab-steps">
-            <article><span>1</span><h3>Open the paper</h3><p>Use the page cue to find the Methods description in the downloadable PDF.</p></article>
-            <article><span>2</span><h3>Record what is included</h3><p>Type the purpose, structure, prompts or items, administration, recording and quality checks you can verify.</p></article>
-            <article><span>3</span><h3>Match the instrument</h3><p>Choose the most precise label, check the match, then compare your notes with the revealed reporting guide.</p></article>
+            <article><span>1</span><h3>Read the extract</h3><p>Each paper has its own page with an exact passage from its Methods section and a full citation.</p></article>
+            <article><span>2</span><h3>Identify the instruments</h3><p>Select every relevant instrument named in the passage. A correct choice unlocks that paper’s PDF.</p></article>
+            <article><span>3</span><h3>Complete the reporting questions</h3><p>Use the extract and full paper to fill the blanks. If a detail is absent, write “not reported”.</p></article>
           </div>
-          <p class="takeaway">Your notes save automatically in this browser and will be added to the response section of your personal PDF.</p>
+          <p class="takeaway">Your answers save in this browser and appear in the response section of your personal PDF.</p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
-          <h2>先閱讀作者的報告，再為工具命名。</h2>
+          <h2>先閱讀方法節引文，再辨認研究工具。</h2>
           <div class="instrument-lab-steps">
-            <article><span>1</span><h3>開啟論文</h3><p>依頁碼提示，在可下載 PDF 的方法部分找出工具描述。</p></article>
-            <article><span>2</span><h3>記錄包括甚麼</h3><p>輸入你能核實的用途、結構、提示或題項、施測、紀錄及品質檢查。</p></article>
-            <article><span>3</span><h3>配對工具</h3><p>選擇最精確的標籤，檢查配對，再把筆記與揭示的報告指南比較。</p></article>
+            <article><span>1</span><h3>閱讀引文</h3><p>每篇論文各有一頁，列出完整引文及方法節的原文摘錄。</p></article>
+            <article><span>2</span><h3>辨認研究工具</h3><p>選出摘錄提及的所有相關工具。答對後可下載該論文的 PDF。</p></article>
+            <article><span>3</span><h3>回答報告問題</h3><p>根據摘錄及全文填寫空格。若沒有報告某項細節，請寫「未報告」。</p></article>
           </div>
-          <p class="takeaway">你的筆記會自動儲存在此瀏覽器，並加入個人 PDF 的回應部分。</p>
+          <p class="takeaway">你的答案會儲存在此瀏覽器，並加入個人 PDF 的回應部分。</p>
         </div>
       </div>
     </section>
 
-    {evidencePairs.map((pair, pairIndex) => (
-      <section class="slide" data-title={`Match instruments: ${pair.map((study) => study.citation).join(' and ')}`} aria-hidden="true">
+    {evidencePapers.map((study, paperIndex) => {
+      const detail = evidencePaperDetails[study.id as keyof typeof evidencePaperDetails];
+      return (
+      <section class="slide" data-title={`Instrument reading: ${study.citation}`} aria-hidden="true">
         <div class="slide-inner evidence-lab-slide">
-          <header class="slide-header"><span class="eyebrow">Instrument examples · {pairIndex + 1} / {evidencePairs.length}</span></header>
+          <header class="slide-header"><span class="eyebrow">Paper and instrument · {paperIndex + 1} / {evidencePapers.length}</span></header>
           <div data-language="en">
-            <h2>{evidencePairHeadings[pairIndex].en}</h2>
-            <div class="evidence-paper-grid">
-              {pair.map((study) => (
-                <article class="evidence-paper-card" data-evidence-card data-answer={study.answer} data-match-id={study.id}>
-                  <div class="evidence-paper-head"><span>{study.marker}</span><div><strong>{study.citation}</strong><small>{study.source}</small></div></div>
-                  <h3>{study.title}</h3>
-                  <p class="evidence-description">{study.descriptionEn}</p>
-                  <div class="evidence-paper-actions"><a href={study.pdf} download>Download PDF</a><a href={study.record} target="_blank" rel="noreferrer">Publication record ↗</a><small>{study.licence}</small></div>
-                  <label class="evidence-note"><span>What does the paper include when introducing this instrument?</span><textarea rows="3" maxlength="1800" data-save={`instrument-${study.id}`} data-response-label={study.noteEn} placeholder="Write only what you can verify in the paper…"></textarea></label>
-                  <div class="evidence-match-row">
-                    <select data-evidence-select aria-label={`Match an instrument to ${study.citation}`}>
-                      <option value="">Choose an instrument type…</option>
-                      {instrumentOptions.map((option) => <option value={option.value}>{option.en}</option>)}
-                    </select>
-                    <button type="button" data-evidence-check>Check match</button>
-                  </div>
-                  <p class="evidence-status" data-evidence-status aria-live="polite">Read, note, then match.</p>
-                  <div class="evidence-reveal" data-evidence-reveal hidden><strong>Matched instrument</strong><p>{study.revealEn}</p></div>
-                </article>
-              ))}
+            <h2>{study.title}</h2>
+            <p class="evidence-citation">{detail.reference}</p>
+            <div class="evidence-paper-layout" data-evidence-card data-answer={detail.answers.join(',')} data-match-id={study.id}>
+              <div class="evidence-reading">
+                <div class="evidence-extract"><strong>Methods wording · […] marks an omission</strong><blockquote lang="en">“{detail.excerpt}”</blockquote><cite>{detail.page}</cite></div>
+                <fieldset class="evidence-choice"><legend>1. Which instruments are described in this extract? Select all that apply.</legend><div class="evidence-choice-grid">
+                  {instrumentOptions.map((option) => <label><input type="checkbox" value={option.value} data-evidence-choice />{option.en}</label>)}
+                </div></fieldset>
+                <div class="evidence-match-row"><button type="button" data-evidence-check>Check choice</button><a href={study.pdf} download data-evidence-download hidden>Download full paper ↓</a><a href={study.record} target="_blank" rel="noreferrer" data-evidence-record hidden>Publication record ↗</a></div>
+                <p class="evidence-status" data-evidence-status role="status" aria-live="polite">Choose the instruments, then check.</p>
+                <small class="evidence-licence">PDF: {study.licence}</small>
+              </div>
+              <div class="evidence-writing"><h3>Find the reporting details</h3><p>Use the extract first; after unlocking the PDF, check the full Methods section. Write “not reported” when a detail is absent.</p>
+                {detail.questions.map((question, questionIndex) => <label class="evidence-question"><span>{questionIndex + 2}. {question.en}</span><textarea rows="2" maxlength="900" data-save={`instrument-${study.id}-${question.id}`} data-response-label={`${study.citation}: ${question.en}`} placeholder="Type what the paper reports, with a page cue…"></textarea></label>)}
+                <details class="evidence-previous-notes"><summary>Earlier notes (if any)</summary><textarea rows="2" maxlength="1800" data-save={`instrument-${study.id}`} data-response-label={study.noteEn}></textarea>{study.id === 'rahman-focus-group' && <textarea rows="2" maxlength="1800" data-save="instrument-rahman-documents" data-response-label="Rahman et al. paper: earlier notes on documents"></textarea>}</details>
+              </div>
             </div>
           </div>
           <div data-language="zh" hidden lang="zh-Hant">
-            <h2>{evidencePairHeadings[pairIndex].zh}</h2>
-            <div class="evidence-paper-grid">
-              {pair.map((study) => (
-                <article class="evidence-paper-card" data-evidence-card data-answer={study.answer} data-match-id={study.id}>
-                  <div class="evidence-paper-head"><span>{study.marker}</span><div><strong>{study.citation}</strong><small>{study.source}</small></div></div>
-                  <h3>{study.title}</h3>
-                  <p class="evidence-description">{study.descriptionZh}</p>
-                  <div class="evidence-paper-actions"><a href={study.pdf} download>下載 PDF</a><a href={study.record} target="_blank" rel="noreferrer">出版紀錄 ↗</a><small>{study.licence}</small></div>
-                  <label class="evidence-note"><span>論文在介紹此工具時包括甚麼？</span><textarea rows="3" maxlength="1800" data-save={`instrument-${study.id}`} data-response-label={study.noteZh} placeholder="只寫下你能在論文中核實的內容⋯⋯"></textarea></label>
-                  <div class="evidence-match-row">
-                    <select data-evidence-select aria-label={`為 ${study.citation} 配對工具`}>
-                      <option value="">選擇工具類型⋯⋯</option>
-                      {instrumentOptions.map((option) => <option value={option.value}>{option.zh}</option>)}
-                    </select>
-                    <button type="button" data-evidence-check>檢查配對</button>
-                  </div>
-                  <p class="evidence-status" data-evidence-status aria-live="polite">先閱讀、記錄，再配對。</p>
-                  <div class="evidence-reveal" data-evidence-reveal hidden><strong>配對工具</strong><p>{study.revealZh}</p></div>
-                </article>
-              ))}
+            <h2>{study.title}</h2>
+            <p class="evidence-citation">{detail.reference}</p>
+            <div class="evidence-paper-layout" data-evidence-card data-answer={detail.answers.join(',')} data-match-id={study.id}>
+              <div class="evidence-reading">
+                <div class="evidence-extract"><strong>方法節原文摘錄 · […] 表示省略</strong><blockquote lang="en">“{detail.excerpt}”</blockquote><cite>{detail.page}</cite></div>
+                <fieldset class="evidence-choice"><legend>1. 摘錄描述了哪些研究工具？選出所有適用答案。</legend><div class="evidence-choice-grid">
+                  {instrumentOptions.map((option) => <label><input type="checkbox" value={option.value} data-evidence-choice />{option.zh}</label>)}
+                </div></fieldset>
+                <div class="evidence-match-row"><button type="button" data-evidence-check>檢查選擇</button><a href={study.pdf} download data-evidence-download hidden>下載論文全文 ↓</a><a href={study.record} target="_blank" rel="noreferrer" data-evidence-record hidden>出版紀錄 ↗</a></div>
+                <p class="evidence-status" data-evidence-status role="status" aria-live="polite">先選擇工具，再檢查。</p>
+                <small class="evidence-licence">PDF：{study.licence}</small>
+              </div>
+              <div class="evidence-writing"><h3>找出工具報告細節</h3><p>先閱讀摘錄；解鎖 PDF 後再查閱完整方法節。若某細節缺失，請寫「未報告」。</p>
+                {detail.questions.map((question, questionIndex) => <label class="evidence-question"><span>{questionIndex + 2}. {question.zh}</span><textarea rows="2" maxlength="900" data-save={`instrument-${study.id}-${question.id}`} data-response-label={`${study.citation}：${question.zh}`} placeholder="寫下論文報告的內容及頁碼⋯⋯"></textarea></label>)}
+                <details class="evidence-previous-notes"><summary>先前的筆記（如有）</summary><textarea rows="2" maxlength="1800" data-save={`instrument-${study.id}`} data-response-label={study.noteZh}></textarea>{study.id === 'rahman-focus-group' && <textarea rows="2" maxlength="1800" data-save="instrument-rahman-documents" data-response-label="Rahman 等人論文：先前的文件筆記"></textarea>}</details>
+              </div>
             </div>
           </div>
         </div>
       </section>
-    ))}
+    );})}
 
     <section class="slide" data-title="The wider field of educational instruments" aria-hidden="true">
       <div class="slide-inner">
