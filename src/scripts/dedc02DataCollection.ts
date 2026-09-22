@@ -220,7 +220,6 @@ document.querySelectorAll<HTMLElement>('[data-evidence-card]').forEach((card) =>
   const choices = Array.from(card.querySelectorAll<HTMLInputElement>('[data-evidence-choice]'));
   const check = card.querySelector<HTMLButtonElement>('[data-evidence-check]');
   const matchId = card.dataset.matchId || '';
-  const storageKey = `dedc02-w5-instrument-match-${matchId}`;
   const peers = Array.from(document.querySelectorAll<HTMLElement>(`[data-evidence-card][data-match-id="${matchId}"]`));
   const expected = (card.dataset.answer || '').split(',').sort().join(',');
   const selectedValues = () => choices.filter((choice) => choice.checked).map((choice) => choice.value).sort();
@@ -237,32 +236,18 @@ document.querySelectorAll<HTMLElement>('[data-evidence-card]').forEach((card) =>
       if (!values.length) status.textContent = chinese ? '先選擇至少一項工具。' : 'Choose at least one instrument.';
       else if (correct) status.textContent = chinese ? '選擇正確。現在可下載全文，並完成報告問題。' : 'Correct. Download the paper and complete the reporting questions.';
       else if (checked) status.textContent = chinese ? '再讀摘錄，檢查有否選多或漏選。' : 'Read the extract again. Check for an extra or missing choice.';
-      else status.textContent = chinese ? '選擇已儲存；準備好後按「檢查選擇」。' : 'Choice saved. Check when ready.';
+      else status.textContent = chinese ? '準備好後按「檢查選擇」。' : 'Check your choice when ready.';
     });
   };
 
-  try {
-    const saved = (localStorage.getItem(storageKey) || '').split(',').filter(Boolean).sort();
-    const verified = localStorage.getItem(`${storageKey}-verified`) === '1';
-    if (saved.length) updateCards(saved, verified);
-  } catch {}
+  choices.forEach((choice) => { choice.checked = false; });
 
   choices.forEach((choice) => choice.addEventListener('change', () => {
     const values = selectedValues();
-    try {
-      localStorage.setItem(storageKey, values.join(','));
-      localStorage.removeItem(`${storageKey}-verified`);
-    } catch {}
     updateCards(values, false);
   }));
   check?.addEventListener('click', () => {
     const values = selectedValues();
-    const correct = values.length > 0 && values.join(',') === expected;
-    try {
-      localStorage.setItem(storageKey, values.join(','));
-      if (correct) localStorage.setItem(`${storageKey}-verified`, '1');
-      else localStorage.removeItem(`${storageKey}-verified`);
-    } catch {}
     updateCards(values, true);
   });
 });

@@ -129,7 +129,7 @@ h3 { margin-bottom: .45rem; color: var(--dc-ink); font-size: 1.08rem; line-heigh
 
 .evidence-lab-slide { justify-content: flex-start; }
 .evidence-lab-slide h2 { max-width: none; min-width: 0; margin-bottom: .2rem; overflow-wrap: anywhere; font-size: clamp(1.9rem, 3vw, 2.75rem); }
-.evidence-citation { margin: 0 0 .65rem; color: var(--dc-muted); font-size: .8rem; line-height: 1.35; }
+.evidence-citation { margin: 0 0 .65rem; color: var(--dc-muted); font-size: .8rem; line-height: 1.35; overflow-wrap: anywhere; }
 .evidence-paper-layout { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; align-items: start; }
 .evidence-reading { min-width: 0; }
 .evidence-writing { min-width: 0; padding: .75rem; border: 1px solid var(--dc-line); background: var(--dc-paper); }
@@ -153,8 +153,6 @@ h3 { margin-bottom: .45rem; color: var(--dc-ink); font-size: 1.08rem; line-heigh
 .evidence-writing > p { margin: 0 0 .45rem; color: var(--dc-muted); font-size: .75rem; line-height: 1.35; }
 .evidence-question { display: grid; gap: .2rem; margin-top: .45rem; color: var(--dc-ink); font-size: .77rem; font-weight: 800; line-height: 1.3; }
 .evidence-question textarea { min-height: 3.2rem; padding: .38rem .48rem; font-size: .73rem; line-height: 1.3; }
-.evidence-previous-notes { margin-top: .5rem; color: var(--dc-muted); font-size: .72rem; }
-.evidence-previous-notes textarea { width: 100%; margin-top: .3rem; font-size: .72rem; }
 
 .interview-architecture { display: grid; grid-template-columns: repeat(5, auto); gap: .4rem; align-items: center; }
 .interview-architecture article { min-height: 11rem; }
@@ -360,7 +358,7 @@ textarea:focus { outline: .18rem solid rgba(31,107,69,.16); border-color: var(--
   .evidence-reading, .evidence-writing { padding: .4rem; }
   .evidence-extract { padding: .4rem; }
   .evidence-extract blockquote { font-size: .67rem; line-height: 1.25; }
-  .evidence-choice-grid, .evidence-match-row, .evidence-status, .evidence-licence, .evidence-question textarea, .evidence-previous-notes { display: none; }
+  .evidence-choice-grid, .evidence-match-row, .evidence-status, .evidence-licence, .evidence-question textarea { display: none; }
   .evidence-question { margin-top: .18rem; font-size: .68rem; }
   .interview-trap-grid { gap: .25rem; }
   .interview-trap summary { min-height: 0; padding: .3rem .5rem; font-size: .66rem; line-height: 1.2; }
