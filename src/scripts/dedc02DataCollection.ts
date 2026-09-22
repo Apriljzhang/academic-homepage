@@ -46,11 +46,6 @@ globalTranslate?.addEventListener('click', () => {
   slide.dataset.language = toChinese ? 'zh' : 'en';
   slide.querySelectorAll<HTMLElement>('[data-language="en"]').forEach((panel) => { panel.hidden = toChinese; });
   slide.querySelectorAll<HTMLElement>('[data-language="zh"]').forEach((panel) => { panel.hidden = !toChinese; });
-  document.querySelectorAll<HTMLElement>('[data-guide-prompt]').forEach((prompt) => {
-    const item = prompt.dataset.guidePrompt || '';
-    const selected = prompt.closest<HTMLElement>('[data-guide-explorer]')?.dataset.selectedGuide || '';
-    prompt.hidden = !selected || item !== selected || prompt.closest<HTMLElement>('[data-language]')?.dataset.language !== slide.dataset.language;
-  });
   syncGlobalTranslate();
 });
 
@@ -117,24 +112,6 @@ timerReset?.addEventListener('click', () => {
   paintTimer();
 });
 
-document.querySelectorAll<HTMLElement>('[data-guide-explorer]').forEach((explorer) => {
-  const buttons = Array.from(explorer.querySelectorAll<HTMLButtonElement>('[data-guide-item]'));
-  const prompts = Array.from(explorer.querySelectorAll<HTMLElement>('[data-guide-prompt]'));
-  buttons.forEach((button) => {
-    button.addEventListener('click', () => {
-      const selected = button.dataset.guideItem || '';
-      const wasSelected = explorer.dataset.selectedGuide === selected;
-      explorer.dataset.selectedGuide = wasSelected ? '' : selected;
-      buttons.forEach((item) => item.setAttribute('aria-pressed', String(!wasSelected && item === button)));
-      prompts.forEach((prompt) => {
-        const matchesItem = prompt.dataset.guidePrompt === selected;
-        const matchesLanguage = prompt.closest<HTMLElement>('[data-language]')?.dataset.language === explorer.closest<HTMLElement>('.slide')?.dataset.language;
-        prompt.hidden = wasSelected || !matchesItem || !matchesLanguage;
-      });
-    });
-  });
-});
-
 document.querySelectorAll<HTMLElement>('[data-question-clinic]').forEach((clinic) => {
   const question = clinic.querySelector<HTMLElement>('[data-clinic-question]');
   const lenses = Array.from(clinic.querySelectorAll<HTMLButtonElement>('[data-clinic-lens]'));
@@ -153,38 +130,6 @@ document.querySelectorAll<HTMLElement>('[data-question-clinic]').forEach((clinic
     panels.forEach((panel) => { panel.hidden = true; });
     question?.classList.remove('is-being-examined');
   });
-});
-
-document.querySelectorAll<HTMLElement>('[data-procedure-builder]').forEach((builder) => {
-  const cards = Array.from(builder.querySelectorAll<HTMLButtonElement>('[data-procedure-card]'));
-  const timeline = builder.querySelector<HTMLElement>('[data-procedure-timeline]');
-  const reset = builder.querySelector<HTMLButtonElement>('[data-procedure-reset]');
-  const status = builder.querySelector<HTMLElement>('[data-procedure-status]');
-  const update = () => {
-    const chosen = cards.filter((card) => card.getAttribute('aria-pressed') === 'true');
-    if (timeline) {
-      timeline.replaceChildren(...chosen.map((card) => {
-        const item = document.createElement('span');
-        item.textContent = card.textContent?.trim() || '';
-        return item;
-      }));
-    }
-    if (status) {
-      const chinese = builder.closest<HTMLElement>('.slide')?.dataset.language === 'zh';
-      status.textContent = chosen.length
-        ? (chinese ? `已選擇 ${chosen.length} 個需要說明的程序決策。現在討論它們的先後與理由。` : `${chosen.length} procedure decisions selected. Now discuss their order and rationale.`)
-        : (chinese ? '選擇你認為研究者必須說明的程序決策。' : 'Select the procedure decisions a researcher must make visible.');
-    }
-  };
-  cards.forEach((card) => card.addEventListener('click', () => {
-    card.setAttribute('aria-pressed', String(card.getAttribute('aria-pressed') !== 'true'));
-    update();
-  }));
-  reset?.addEventListener('click', () => {
-    cards.forEach((card) => card.setAttribute('aria-pressed', 'false'));
-    update();
-  });
-  update();
 });
 
 document.querySelectorAll<HTMLDetailsElement>('.debug-card').forEach((card) => {
@@ -217,6 +162,18 @@ document.querySelectorAll<HTMLElement>('[data-audit-checklist]').forEach((checkl
       status.textContent = chinese ? `已標示 ${count} 項。把未標示的項目變成同儕提問。` : `${count} items marked. Turn every unmarked item into a peer-review question.`;
     }
   }));
+});
+
+const pdfDialog = document.querySelector<HTMLDialogElement>('.pdf-dialog');
+const pdfMessage = document.querySelector<HTMLTextAreaElement>('[data-pdf-message]');
+const pdfMessagePrint = document.querySelector<HTMLElement>('[data-pdf-message-print]');
+document.querySelectorAll<HTMLElement>('[data-pdf-open]').forEach((button) => {
+  button.addEventListener('click', () => pdfDialog?.showModal());
+});
+document.querySelector('[data-pdf-download]')?.addEventListener('click', () => {
+  if (pdfMessagePrint) pdfMessagePrint.textContent = pdfMessage?.value.trim() || 'My data collection plan and activity responses.';
+  pdfDialog?.close();
+  window.print();
 });
 
 document.addEventListener('keydown', (event) => {

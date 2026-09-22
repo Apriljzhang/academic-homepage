@@ -23,6 +23,15 @@ const fieldGuide = [
 ---
 
 <CourseSlideLayout {title} {description}>
+  <section class="pdf-cover" aria-hidden="true">
+    <span class="eyebrow">DEDC02 · Advanced Research Method</span>
+    <h1>Data Collection<br />Evidence Lab</h1>
+    <div class="pdf-message-block">
+      <h2>Personal message</h2>
+      <p data-pdf-message-print></p>
+    </div>
+  </section>
+
   <div class="top-tools" aria-label="Language and timer controls">
     <button class="translate-button" type="button" aria-pressed="false" data-global-translate>中文</button>
     <div class="compact-timer" aria-label="Activity timer">
@@ -53,21 +62,21 @@ const fieldGuide = [
       <div class="slide-inner">
         <header class="slide-header"><span class="eyebrow">The work of the lesson</span></header>
         <div data-language="en">
-          <h2>Investigate how procedures generate evidence.</h2>
+          <h2>Choose and document instruments that generate defensible evidence.</h2>
           <ol class="number-list">
-            <li><span>Extract the data-collection trail from previous PhD theses.</span></li>
-            <li><span>Use prompts to examine instruments and question quality.</span></li>
-            <li><span>Test what a stated procedure permits a researcher to claim.</span></li>
-            <li><span>Build and peer-audit a concise protocol for your manuscript project.</span></li>
+            <li><span>Match a research question to the kind of evidence it needs.</span></li>
+            <li><span>Compare questionnaire and interview as representative quantitative and qualitative instruments.</span></li>
+            <li><span>Specify what an instrument and collection procedure need to report.</span></li>
+            <li><span>Build and peer-audit a concise collection plan for your manuscript project.</span></li>
           </ol>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
-          <h2>探究程序如何產生證據。</h2>
+          <h2>選擇並記錄能產生可論證證據的工具。</h2>
           <ol class="number-list">
-            <li><span>從歷屆博士論文抽取資料蒐集的證據軌跡。</span></li>
-            <li><span>運用提示檢視研究工具及問題品質。</span></li>
-            <li><span>檢驗既定程序讓研究者可以作出甚麼主張。</span></li>
-            <li><span>為文稿項目建立精簡方案，並進行同儕審視。</span></li>
+            <li><span>把研究問題配對至所需證據類型。</span></li>
+            <li><span>比較問卷與訪談，作為量化與質性工具的代表例子。</span></li>
+            <li><span>具體說明工具及蒐集程序需要報告的內容。</span></li>
+            <li><span>為文稿項目建立精簡蒐集方案，並進行同儕審視。</span></li>
           </ol>
         </div>
       </div>
@@ -117,167 +126,159 @@ const fieldGuide = [
 
     <section class="slide" data-title="Data-Collection Field Guide" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Field guide for inquiry</span></header>
+        <header class="slide-header"><span class="eyebrow">Method-chapter reporting checklist</span></header>
         <div data-language="en">
-          <h2>Eleven places to look in a method chapter.</h2>
+          <h2>What a data-collection account makes visible.</h2>
           <div class="field-guide">
-            {fieldGuide.map((item) => <article class="panel"><span class="eyebrow">{item.icon}</span><h3>{item.en}</h3><p>Locate the stated decision and record its evidence.</p></article>)}
+            {fieldGuide.map((item) => <article class="panel"><span class="eyebrow">{item.icon}</span><h3>{item.en}</h3><p>State the decision and the evidence that supports it.</p></article>)}
           </div>
+          <p class="takeaway">Use these eleven elements as a reporting checklist after you have selected the instrument and procedure.</p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
-          <h2>方法章節中值得尋找的十一項內容。</h2>
+          <h2>資料蒐集說明需要清楚呈現甚麼。</h2>
           <div class="field-guide">
-            {fieldGuide.map((item) => <article class="panel"><span class="eyebrow">{item.icon}</span><h3>{item.zh}</h3><p>找出已說明的決策並記錄證據。</p></article>)}
+            {fieldGuide.map((item) => <article class="panel"><span class="eyebrow">{item.icon}</span><h3>{item.zh}</h3><p>說明決策及其支持證據。</p></article>)}
           </div>
+          <p class="takeaway">選定工具及程序後，可用這十一項內容作為報告檢查表。</p>
         </div>
       </div>
     </section>
 
-    <section class="slide" data-title="Use the field guide" aria-hidden="true">
+    <section class="slide" data-title="Choose a data-collection instrument" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Explore by asking</span></header>
-        <div class="field-guide-explorer" data-guide-explorer>
-          <div data-language="en">
-            <h2>Choose an item. Let the prompt guide your reading.</h2>
-            <div class="field-guide">
-              {fieldGuide.map((item) => <button class="guide-card" type="button" data-guide-item={item.id} aria-pressed="false"><span class="guide-icon">{item.icon}</span><strong>{item.en}</strong><small>Ask a better question</small></button>)}
-            </div>
-            {fieldGuide.map((item) => <p class="guide-prompt" data-guide-prompt={item.id} hidden>{item.promptEn}</p>)}
-          </div>
-          <div data-language="zh" hidden lang="zh-Hant">
-            <h2>選擇一項，讓提示引導你的閱讀。</h2>
-            <div class="field-guide">
-              {fieldGuide.map((item) => <button class="guide-card" type="button" data-guide-item={item.id} aria-pressed="false"><span class="guide-icon">{item.icon}</span><strong>{item.zh}</strong><small>提出更好的問題</small></button>)}
-            </div>
-            {fieldGuide.map((item) => <p class="guide-prompt" data-guide-prompt={item.id} hidden>{item.promptZh}</p>)}
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide" data-title="Thesis Evidence Hunt" aria-hidden="true">
-      <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Inquiry material</span></header>
+        <header class="slide-header"><span class="eyebrow">Instrument choice</span></header>
         <div data-language="en">
-          <h2>Read a thesis as an evidence dossier.</h2>
-          <div class="thesis-dossier">
-            <div class="thesis-stack">
-              <article class="thesis-page"><span>01</span><div><h3>Abstract &amp; questions</h3><p>What kind of answer is being sought?</p></div></article>
-              <article class="thesis-page"><span>02</span><div><h3>Participants &amp; setting</h3><p>Who or what is eligible to provide evidence?</p></div></article>
-              <article class="thesis-page"><span>03</span><div><h3>Data collection</h3><p>What does the thesis say actually happened?</p></div></article>
-              <article class="thesis-page"><span>04</span><div><h3>Appendix &amp; ethics</h3><p>What documents make the procedure inspectable?</p></div></article>
-            </div>
-            <div class="dossier-board">
-              <article><h3>Find</h3><p>Underline the direct evidence for one Field Guide item.</p></article>
-              <article><h3>Cite</h3><p>Record the page number. A claim needs a traceable source.</p></article>
-              <article><h3>Question</h3><p>Write one point that is unclear, missing or over-claimed.</p></article>
-              <article><h3>Transfer</h3><p>Decide whether the same issue exists in your own project.</p></article>
-            </div>
+          <h2>Match the instrument to the evidence your question needs.</h2>
+          <div class="instrument-choice-map" aria-label="Research question to data-collection instrument map">
+            <article><span class="choice-number">01</span><h3>How widespread? How do groups differ?</h3><p><strong>Evidence:</strong> structured responses across people, settings or occasions.</p><b>Questionnaire</b><small>Representative quantitative example</small></article>
+            <article><span class="choice-number">02</span><h3>How is an experience understood or navigated?</h3><p><strong>Evidence:</strong> accounts, meanings, examples and explanations.</p><b>Semi-structured interview</b><small>Representative qualitative example</small></article>
+            <article><span class="choice-number">03</span><h3>What happens in practice? What trace remains?</h3><p><strong>Evidence:</strong> observed action, interaction, documents or artefacts.</p><b>Observation / document protocol</b><small>Useful companion instruments</small></article>
           </div>
+          <p class="takeaway">Choose the evidence first. The instrument is the practical tool that creates, captures or selects that evidence.</p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
-          <h2>把博士論文當成一份證據檔案閱讀。</h2>
-          <div class="thesis-dossier">
-            <div class="thesis-stack">
-              <article class="thesis-page"><span>01</span><div><h3>摘要及問題</h3><p>研究想尋求哪類答案？</p></div></article>
-              <article class="thesis-page"><span>02</span><div><h3>參與者及場域</h3><p>誰或甚麼有資格提供證據？</p></div></article>
-              <article class="thesis-page"><span>03</span><div><h3>資料蒐集</h3><p>論文說明實際發生了甚麼？</p></div></article>
-              <article class="thesis-page"><span>04</span><div><h3>附錄及倫理</h3><p>哪些文件令程序可以被檢視？</p></div></article>
-            </div>
-            <div class="dossier-board">
-              <article><h3>尋找</h3><p>為《指南》一項內容畫出直接證據。</p></article>
-              <article><h3>標示</h3><p>記錄頁碼；主張需要可追溯的來源。</p></article>
-              <article><h3>提問</h3><p>寫下一項不清楚、遺漏或過度主張之處。</p></article>
-              <article><h3>轉移</h3><p>判斷自己的項目是否也有同一問題。</p></article>
-            </div>
+          <h2>把工具配對至研究問題所需的證據。</h2>
+          <div class="instrument-choice-map" aria-label="由研究問題至資料蒐集工具的地圖">
+            <article><span class="choice-number">01</span><h3>情況有多普遍？群體有何差異？</h3><p><strong>證據：</strong>跨人士、場域或時段的結構化回答。</p><b>問卷</b><small>具代表性的量化例子</small></article>
+            <article><span class="choice-number">02</span><h3>人如何理解或經歷某種現象？</h3><p><strong>證據：</strong>敘述、意義、例子及解釋。</p><b>半結構式訪談</b><small>具代表性的質性例子</small></article>
+            <article><span class="choice-number">03</span><h3>實務中發生甚麼？留下甚麼痕跡？</h3><p><strong>證據：</strong>觀察到的行動、互動、文件或材料。</p><b>觀察／文件程序表</b><small>有用的補充工具</small></article>
           </div>
+          <p class="takeaway">先選擇證據。工具是產生、捕捉或選取該證據的實際方法。</p>
         </div>
       </div>
     </section>
 
-    <section class="slide" data-title="Evidence Dossier" aria-hidden="true">
+    <section class="slide" data-title="Questionnaire and interview: two anchor examples" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Student record</span></header>
+        <header class="slide-header"><span class="eyebrow">Two representative instruments</span></header>
         <div data-language="en">
-          <h2>Complete the dossier with page evidence.</h2>
-          <div class="grid-3">
-            <article class="panel soft"><h3>What is claimed?</h3><p>Copy the research question or stated aim. Avoid paraphrasing it too soon.</p></article>
-            <article class="panel soft"><h3>What generated evidence?</h3><p>Identify the person, event, artefact or response that supplied the data.</p></article>
-            <article class="panel soft"><h3>What remains unknown?</h3><p>Frame an author query: “How did you decide…?” or “What happened if…?”</p></article>
+          <h2>Questionnaires organise responses; interviews develop accounts.</h2>
+          <div class="instrument-contrast">
+            <article class="questionnaire-card"><span>QUESTIONNAIRE · QUANTITATIVE</span><h3>Pattern-oriented evidence</h3><p><strong>Typical question:</strong> How common is X? How do responses vary across groups?</p><p><strong>Instrument:</strong> standardised items and response options administered consistently.</p><p><strong>Produces:</strong> a dataset for description, comparison or association.</p></article>
+            <article class="interview-card"><span>INTERVIEW · QUALITATIVE</span><h3>Meaning-oriented evidence</h3><p><strong>Typical question:</strong> How do people experience, explain or respond to X?</p><p><strong>Instrument:</strong> an interview guide with an opening invitation and adaptable probes.</p><p><strong>Produces:</strong> recorded accounts for interpretation and thematic development.</p></article>
           </div>
-          <p class="instruction">Your group reconstructs the chain a reader needs to evaluate.</p>
+          <p class="takeaway">Both instruments require a clear link between research question, participant, prompt or item, recording method and intended claim.</p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
-          <h2>以頁面證據完成這份檔案。</h2>
-          <div class="grid-3">
-            <article class="panel soft"><h3>主張是甚麼？</h3><p>準確抄下研究問題或目標，並暫時保留原有措辭。</p></article>
-            <article class="panel soft"><h3>甚麼產生證據？</h3><p>指出提供資料的人、事件、材料或回答。</p></article>
-            <article class="panel soft"><h3>還有甚麼未知？</h3><p>把它改寫成作者查詢：「你如何決定⋯⋯？」或「如果⋯⋯會怎樣？」</p></article>
+          <h2>問卷整理回答；訪談發展敘述。</h2>
+          <div class="instrument-contrast">
+            <article class="questionnaire-card"><span>問卷 · 量化</span><h3>聚焦模式的證據</h3><p><strong>典型問題：</strong>X 有多常見？不同群體的回答如何變化？</p><p><strong>工具：</strong>以一致方式施測的標準化題項及回答選項。</p><p><strong>產生：</strong>可供描述、比較或檢視關聯的資料集。</p></article>
+            <article class="interview-card"><span>訪談 · 質性</span><h3>聚焦意義的證據</h3><p><strong>典型問題：</strong>人如何經歷、解釋或回應 X？</p><p><strong>工具：</strong>包含開場邀請及可靈活運用追問的訪談指南。</p><p><strong>產生：</strong>可供詮釋及形成主題的錄音敘述。</p></article>
           </div>
-          <p class="instruction">小組重建讀者需要用來評估的證據鏈。</p>
+          <p class="takeaway">兩種工具都需要把研究問題、參與者、題項或提示、紀錄方式及預期主張清楚連結。</p>
         </div>
       </div>
     </section>
 
-    <section class="slide" data-title="Data sources" aria-hidden="true">
+    <section class="slide" data-title="Questionnaire: design and report" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Compare what a source makes possible</span></header>
+        <header class="slide-header"><span class="eyebrow">Quantitative worked example</span></header>
         <div data-language="en">
-          <h2>Sources leave different traces.</h2>
-          <div class="source-gallery">
-            <article class="source-card"><span class="source-icon">◉</span><h3>Interview</h3><p>What accounts, meanings or examples can a participant articulate?</p></article>
-            <article class="source-card"><span class="source-icon">◫</span><h3>Observation</h3><p>What is visible in action, interaction, setting and sequence?</p></article>
-            <article class="source-card"><span class="source-icon">▤</span><h3>Questionnaire</h3><p>What response pattern can the instrument capture across people or occasions?</p></article>
-            <article class="source-card"><span class="source-icon">▣</span><h3>Document / artefact</h3><p>What trace already exists, and whose perspective does it represent?</p></article>
+          <h2>Build a questionnaire from construct to usable data.</h2>
+          <div class="instrument-chain" aria-label="Questionnaire design chain">
+            <article><span>01</span><h3>Construct</h3><p>Define the concept and the population or setting.</p></article><b>→</b>
+            <article><span>02</span><h3>Items</h3><p>Draft or adapt prompts that represent the construct.</p></article><b>→</b>
+            <article><span>03</span><h3>Response format</h3><p>Choose options, anchors, scale range and timeframe.</p></article><b>→</b>
+            <article><span>04</span><h3>Administration</h3><p>Specify mode, invitation, setting and collection window.</p></article><b>→</b>
+            <article><span>05</span><h3>Dataset</h3><p>Plan coding, scoring, missing-data decisions and storage.</p></article>
           </div>
-          <p class="takeaway">Ask of every source: <strong>What can it show? Which questions require another source?</strong></p>
+          <div class="reporting-strip"><strong>Report:</strong><span>instrument source or development</span><span>items and response anchors</span><span>adaptation, translation or pilot</span><span>administration and response pattern</span><span>scoring and data handling</span></div>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
-          <h2>不同來源留下不同證據痕跡。</h2>
-          <div class="source-gallery">
-            <article class="source-card"><span class="source-icon">◉</span><h3>訪談</h3><p>參與者可以清楚表達哪些敘述、意義或例子？</p></article>
-            <article class="source-card"><span class="source-icon">◫</span><h3>觀察</h3><p>行動、互動、場域及順序中有哪些可見內容？</p></article>
-            <article class="source-card"><span class="source-icon">▤</span><h3>問卷</h3><p>工具能夠捕捉不同人士或時段的哪類回答模式？</p></article>
-            <article class="source-card"><span class="source-icon">▣</span><h3>文件／材料</h3><p>已有甚麼痕跡？它代表誰的觀點？</p></article>
+          <h2>由構念建立可用的問卷資料。</h2>
+          <div class="instrument-chain" aria-label="問卷設計鏈">
+            <article><span>01</span><h3>構念</h3><p>界定概念及目標群體或場域。</p></article><b>→</b>
+            <article><span>02</span><h3>題項</h3><p>草擬或調整能代表構念的提示。</p></article><b>→</b>
+            <article><span>03</span><h3>回答形式</h3><p>選擇選項、標籤、量表範圍及時間框架。</p></article><b>→</b>
+            <article><span>04</span><h3>施測</h3><p>說明方式、邀請、場域及蒐集期間。</p></article><b>→</b>
+            <article><span>05</span><h3>資料集</h3><p>規劃編碼、計分、缺失資料決策及儲存。</p></article>
           </div>
-          <p class="takeaway">每項來源都要問：<strong>它能顯示甚麼？哪些問題需要另一來源？</strong></p>
+          <div class="reporting-strip"><strong>報告：</strong><span>工具來源或發展過程</span><span>題項及回答標籤</span><span>調整、翻譯或先導</span><span>施測及回答情況</span><span>計分及資料處理</span></div>
         </div>
       </div>
     </section>
 
-    <section class="slide" data-title="Instrument Forensics" aria-hidden="true">
+    <section class="slide" data-title="Questionnaire: item and administration checks" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Read the actual tool</span></header>
+        <header class="slide-header"><span class="eyebrow">Quantitative design checks</span></header>
         <div data-language="en">
-          <h2>Examine the item, response format, recording frame and revision history.</h2>
-          <div class="instrument-table">
-            <article><span class="instrument-symbol">?</span><h3>Question / prompt</h3><p>What words invite a response, and what concepts do they bring into the room?</p></article>
-            <article><span class="instrument-symbol">☷</span><h3>Response format</h3><p>What may the participant say, select, describe, rank or demonstrate?</p></article>
-            <article><span class="instrument-symbol">⌗</span><h3>Recording frame</h3><p>What is kept: audio, field notes, ratings, documents, screenshots or logs?</p></article>
-            <article><span class="instrument-symbol">↺</span><h3>Revision history</h3><p>What was piloted, translated, adapted or changed - and why?</p></article>
+          <h2>Make every response interpretable.</h2>
+          <div class="design-check-grid">
+            <article><span>ITEM</span><h3>One idea, defined timeframe</h3><p>Ask about one construct or behaviour and state the relevant period.</p></article>
+            <article><span>WORDING</span><h3>Neutral, accessible language</h3><p>Use wording participants can understand in the chosen language and context.</p></article>
+            <article><span>OPTIONS</span><h3>Complete, meaningful response choices</h3><p>Align categories or scale anchors with the question and intended comparison.</p></article>
+            <article><span>TEST</span><h3>Pilot the experience</h3><p>Check instructions, length, routing, translations and completion conditions.</p></article>
+            <article><span>ADMINISTER</span><h3>Document the invitation and mode</h3><p>Report who received it, how, where and under which conditions.</p></article>
+            <article><span>HANDLE</span><h3>Plan data decisions</h3><p>Record coding, scoring, missing responses, identifiers and secure storage.</p></article>
           </div>
-          <p class="instruction">Open a thesis appendix. Find one actual item. Trace it back to a research question and forward to the evidence it could yield.</p>
+          <p class="instruction"><strong>Questionnaire prompt:</strong> Draft one item for your construct. Add its response options, timeframe and the decision you will report after piloting.</p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
-          <h2>檢視題項、回答形式、紀錄框架及修訂歷史。</h2>
-          <div class="instrument-table">
-            <article><span class="instrument-symbol">?</span><h3>問題／提示</h3><p>哪些文字邀請回答？它們把哪些概念帶入對話？</p></article>
-            <article><span class="instrument-symbol">☷</span><h3>回答形式</h3><p>參與者可以說、選擇、描述、排序或展示甚麼？</p></article>
-            <article><span class="instrument-symbol">⌗</span><h3>紀錄框架</h3><p>保留了甚麼：錄音、田野筆記、評分、文件、截圖或紀錄？</p></article>
-            <article><span class="instrument-symbol">↺</span><h3>修訂歷史</h3><p>哪些部分曾先導、翻譯、改編或修改，為甚麼？</p></article>
+          <h2>讓每項回答都能被清楚詮釋。</h2>
+          <div class="design-check-grid">
+            <article><span>題項</span><h3>一個概念，清晰時間框架</h3><p>詢問一項構念或行為，並說明相關時段。</p></article>
+            <article><span>措辭</span><h3>中性而易明</h3><p>使用參與者在選定語言及情境中能理解的措辭。</p></article>
+            <article><span>選項</span><h3>完整而有意義的回答選項</h3><p>使類別或量表標籤配合問題及預期比較。</p></article>
+            <article><span>測試</span><h3>先導整個回答經驗</h3><p>檢查指示、長度、跳題、翻譯及完成條件。</p></article>
+            <article><span>施測</span><h3>記錄邀請及方式</h3><p>報告誰收到問卷、如何收到、在哪裏及在甚麼條件下完成。</p></article>
+            <article><span>處理</span><h3>規劃資料決策</h3><p>記錄編碼、計分、缺失回答、識別資料及安全儲存。</p></article>
           </div>
-          <p class="instruction">打開論文附錄，找出一條實際題項；由它回溯至研究問題，再前推至它可能產生的證據。</p>
+          <p class="instruction"><strong>問卷提示：</strong>為你的構念草擬一題，加入回答選項、時間框架及先導後需要報告的決策。</p>
         </div>
       </div>
     </section>
 
-    <section class="slide" data-title="Question Clinic" aria-hidden="true">
+    <section class="slide" data-title="Interview: design and report" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Question-quality inquiry</span></header>
+        <header class="slide-header"><span class="eyebrow">Qualitative worked example</span></header>
         <div data-language="en">
-          <h2>Interrogate the question before judging it.</h2>
+          <h2>Design an interview guide that invites rich, relevant accounts.</h2>
+          <div class="interview-architecture">
+            <article><span>01</span><h3>Opening invitation</h3><p>Invite a concrete account connected to the research question.</p></article><b>→</b>
+            <article><span>02</span><h3>Responsive probes</h3><p>Ask for examples, sequence, meaning, comparison or clarification.</p></article><b>→</b>
+            <article><span>03</span><h3>Recording and memo</h3><p>Capture the account and document context, relationship and researcher decisions.</p></article>
+          </div>
+          <div class="reporting-strip"><strong>Report:</strong><span>participant selection and setting</span><span>interview format, duration and mode</span><span>guide development and any pilot</span><span>interviewer role and relationship</span><span>recording, transcription, translation and changes</span></div>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>設計能邀請豐富、相關敘述的訪談指南。</h2>
+          <div class="interview-architecture">
+            <article><span>01</span><h3>開場邀請</h3><p>邀請與研究問題相連的具體敘述。</p></article><b>→</b>
+            <article><span>02</span><h3>回應式追問</h3><p>追問例子、順序、意義、比較或釐清。</p></article><b>→</b>
+            <article><span>03</span><h3>紀錄及備忘</h3><p>捕捉敘述，並記錄情境、關係及研究者決策。</p></article>
+          </div>
+          <div class="reporting-strip"><strong>報告：</strong><span>參與者選取及場域</span><span>訪談形式、時長及方式</span><span>指南發展及任何先導</span><span>訪談者角色及關係</span><span>錄音、謄寫、翻譯及改變</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Interview question clinic" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Interview design check</span></header>
+        <div data-language="en">
+          <h2>Diagnose the question and draft a neutral alternative.</h2>
           <div class="clinic-layout" data-question-clinic>
-            <blockquote class="clinic-question" data-clinic-question>“Isn’t it clear that online learning is less effective than face-to-face instruction?”</blockquote>
+            <blockquote class="clinic-question" data-clinic-question>“Online learning is less effective than face-to-face instruction. How far do you agree?”</blockquote>
             <div class="clinic-lenses">
               <button type="button" data-clinic-lens="assumption" aria-pressed="false">① What assumption does it carry?</button>
               <button type="button" data-clinic-lens="response" aria-pressed="false">② What kind of answer could it generate?</button>
@@ -290,9 +291,9 @@ const fieldGuide = [
           </div>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
-          <h2>在判斷問題前，先審視它。</h2>
+          <h2>診斷問題並草擬中性的替代說法。</h2>
           <div class="clinic-layout" data-question-clinic>
-            <blockquote class="clinic-question" data-clinic-question>「難道網上學習不明顯比面授學習成效較低嗎？」</blockquote>
+            <blockquote class="clinic-question" data-clinic-question>「網上學習比面授學習成效較低。你在多大程度上同意？」</blockquote>
             <div class="clinic-lenses">
               <button type="button" data-clinic-lens="assumption" aria-pressed="false">① 它帶有甚麼預設？</button>
               <button type="button" data-clinic-lens="response" aria-pressed="false">② 它可能產生哪類回答？</button>
@@ -307,70 +308,56 @@ const fieldGuide = [
       </div>
     </section>
 
-    <section class="slide" data-title="From question to probe" aria-hidden="true">
+    <section class="slide" data-title="Interview guide: opening and probes" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Instrument redesign</span></header>
+        <header class="slide-header"><span class="eyebrow">Interview guide moves</span></header>
         <div data-language="en">
-          <h2>A better question needs a thoughtful next move.</h2>
+          <h2>Move from an opening invitation to a fuller account.</h2>
           <div class="grid-3">
             <article class="panel soft"><h3>Invite an account</h3><p>“Can you describe a recent occasion when…?”</p></article>
             <article class="panel soft"><h3>Ask for an example</h3><p>“What happened then? Could you walk me through it?”</p></article>
             <article class="panel soft"><h3>Check your reading</h3><p>“I heard you say… Have I understood that correctly?”</p></article>
           </div>
-          <p class="takeaway">Use the old question bank as a clinic: diagnose the assumption, anticipated evidence and possible repair.</p>
+          <p class="takeaway">In the methods chapter, report the guide structure and explain how prompts changed in response to the conversation.</p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
-          <h2>較好的問題，需要有心思的下一步。</h2>
+          <h2>由開場邀請發展至更完整的敘述。</h2>
           <div class="grid-3">
             <article class="panel soft"><h3>邀請敘述</h3><p>「你可否描述最近一次⋯⋯的經歷？」</p></article>
             <article class="panel soft"><h3>請求例子</h3><p>「之後發生甚麼？你可否帶我逐步了解？」</p></article>
             <article class="panel soft"><h3>核對理解</h3><p>「我聽到你說⋯⋯，我的理解正確嗎？」</p></article>
           </div>
-          <p class="takeaway">把舊題庫當成診所：診斷預設、預期證據及可能修訂。</p>
+          <p class="takeaway">在方法章節中報告指南結構，並說明提示如何因應對話而調整。</p>
         </div>
       </div>
     </section>
 
-    <section class="slide" data-title="Procedure Reconstruction" aria-hidden="true">
+    <section class="slide" data-title="Collection procedure: make the sequence visible" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Make decisions visible</span></header>
+        <header class="slide-header"><span class="eyebrow">Procedure reporting</span></header>
         <div data-language="en">
-          <h2>Reconstruct the procedure from the evidence available.</h2>
-          <div class="procedure-builder" data-procedure-builder>
-            <div>
-              <div class="procedure-card-bank">
-                <button class="procedure-card" type="button" data-procedure-card aria-pressed="false">Access &amp; gatekeeper</button>
-                <button class="procedure-card" type="button" data-procedure-card aria-pressed="false">Recruitment invitation</button>
-                <button class="procedure-card" type="button" data-procedure-card aria-pressed="false">Consent &amp; withdrawal</button>
-                <button class="procedure-card" type="button" data-procedure-card aria-pressed="false">Instrument / version</button>
-                <button class="procedure-card" type="button" data-procedure-card aria-pressed="false">Setting &amp; researcher role</button>
-                <button class="procedure-card" type="button" data-procedure-card aria-pressed="false">Recording &amp; handling</button>
-                <button class="procedure-card" type="button" data-procedure-card aria-pressed="false">Change / contingency</button>
-                <button class="procedure-card" type="button" data-procedure-card aria-pressed="false">Secure storage</button>
-              </div>
-              <button class="small-button" type="button" data-procedure-reset>Clear the board</button>
-            </div>
-            <aside class="timeline-board"><h3>Procedure decisions selected</h3><p>Choose what the thesis must explain. Then debate its order and rationale.</p><div class="procedure-timeline" data-procedure-timeline></div><p class="activity-status" data-procedure-status></p></aside>
+          <h2>Show how participants and data move through the study.</h2>
+          <div class="procedure-flow" aria-label="Data collection procedure sequence">
+            <article><span>01</span><h3>Access &amp; eligibility</h3><p>Who can be approached, and under which criteria?</p></article><b>→</b>
+            <article><span>02</span><h3>Invitation &amp; consent</h3><p>What do people receive before deciding?</p></article><b>→</b>
+            <article><span>03</span><h3>Collection encounter</h3><p>Where, how and by whom is the questionnaire or interview conducted?</p></article><b>→</b>
+            <article><span>04</span><h3>Record &amp; quality check</h3><p>How are responses captured, checked and connected to context?</p></article><b>→</b>
+            <article><span>05</span><h3>De-identify &amp; store</h3><p>How are identifiers, access and retention managed?</p></article><b>→</b>
+            <article><span>06</span><h3>Decision log</h3><p>Which changes, refusals or contingencies are documented?</p></article>
           </div>
+          <p class="takeaway">Report each step with the people involved, setting, mode, record and any change.</p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
-          <h2>根據已有證據重建程序。</h2>
-          <div class="procedure-builder" data-procedure-builder>
-            <div>
-              <div class="procedure-card-bank">
-                <button class="procedure-card" type="button" data-procedure-card aria-pressed="false">接觸及守門人</button>
-                <button class="procedure-card" type="button" data-procedure-card aria-pressed="false">招募邀請</button>
-                <button class="procedure-card" type="button" data-procedure-card aria-pressed="false">同意及退出</button>
-                <button class="procedure-card" type="button" data-procedure-card aria-pressed="false">工具／版本</button>
-                <button class="procedure-card" type="button" data-procedure-card aria-pressed="false">場域及研究者角色</button>
-                <button class="procedure-card" type="button" data-procedure-card aria-pressed="false">紀錄及處理</button>
-                <button class="procedure-card" type="button" data-procedure-card aria-pressed="false">改變／應變</button>
-                <button class="procedure-card" type="button" data-procedure-card aria-pressed="false">安全儲存</button>
-              </div>
-              <button class="small-button" type="button" data-procedure-reset>清除畫板</button>
-            </div>
-            <aside class="timeline-board"><h3>已選取的程序決策</h3><p>選擇論文必須說明的事項，再討論其先後與理由。</p><div class="procedure-timeline" data-procedure-timeline></div><p class="activity-status" data-procedure-status></p></aside>
+          <h2>清楚呈現參與者及資料如何在研究中流動。</h2>
+          <div class="procedure-flow" aria-label="資料蒐集程序順序">
+            <article><span>01</span><h3>接觸及資格</h3><p>可接觸誰？以哪些準則決定資格？</p></article><b>→</b>
+            <article><span>02</span><h3>邀請及同意</h3><p>參與者決定前會收到甚麼？</p></article><b>→</b>
+            <article><span>03</span><h3>蒐集互動</h3><p>問卷或訪談在哪裏、如何及由誰進行？</p></article><b>→</b>
+            <article><span>04</span><h3>紀錄及品質檢查</h3><p>回答如何被捕捉、檢查及連結至情境？</p></article><b>→</b>
+            <article><span>05</span><h3>去識別及儲存</h3><p>如何處理識別資料、存取權及保存期？</p></article><b>→</b>
+            <article><span>06</span><h3>決策紀錄</h3><p>如何記錄改變、拒絕或應變安排？</p></article>
           </div>
+          <p class="takeaway">報告每一步涉及的人員、場域、方式、紀錄及任何改變。</p>
         </div>
       </div>
     </section>
@@ -401,26 +388,28 @@ const fieldGuide = [
       </div>
     </section>
 
-    <section class="slide" data-title="Methods Reviewer #2" aria-hidden="true">
+    <section class="slide" data-title="Brief evidence check" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Evidence-based critique</span></header>
+        <header class="slide-header"><span class="eyebrow">Optional thesis check</span></header>
         <div data-language="en">
-          <h2>Formulate a precise reviewer query.</h2>
-          <div class="warrant-court">
-            <article class="court-side"><h3>Locate</h3><p>Point to the exact thesis page and quoted procedure detail.</p></article>
-            <article class="court-centre"><span class="court-symbol">?</span><h3>What does the stated procedure allow the reader to conclude?</h3></article>
-            <article class="court-side"><h3>Query</h3><p>Ask for the missing decision, boundary, reason or safeguard.</p></article>
+          <h2>Use a previous thesis to test one reporting decision.</h2>
+          <div class="brief-check-grid">
+            <article><span>01</span><h3>Instrument</h3><p>Find the named questionnaire, guide or protocol and its source.</p></article>
+            <article><span>02</span><h3>Procedure</h3><p>Locate the collection sequence, setting and mode.</p></article>
+            <article><span>03</span><h3>Record</h3><p>Find how responses, recordings or documents were captured.</p></article>
+            <article><span>04</span><h3>Query</h3><p>Write one precise question about a decision you cannot locate.</p></article>
           </div>
-          <p class="takeaway">Useful reviewer language: <em>“Please clarify how…”, “The procedure appears to…; how did you address…?”, “What evidence supports…?”</em></p>
+          <p class="takeaway">Use this short check to sharpen your own reporting plan; the instrument and procedure remain the central work of the lesson.</p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
-          <h2>形成一條精確的審稿查詢。</h2>
-          <div class="warrant-court">
-            <article class="court-side"><h3>定位</h3><p>指出確切論文頁碼及相關程序細節。</p></article>
-            <article class="court-centre"><span class="court-symbol">?</span><h3>既定程序讓讀者可以作出甚麼結論？</h3></article>
-            <article class="court-side"><h3>查詢</h3><p>詢問遺漏的決策、邊界、理由或保障措施。</p></article>
+          <h2>利用過往博士論文檢視一項報告決策。</h2>
+          <div class="brief-check-grid">
+            <article><span>01</span><h3>工具</h3><p>找出列明的問卷、指南或程序表及其來源。</p></article>
+            <article><span>02</span><h3>程序</h3><p>找出蒐集順序、場域及方式。</p></article>
+            <article><span>03</span><h3>紀錄</h3><p>找出回答、錄音或文件如何被捕捉。</p></article>
+            <article><span>04</span><h3>查詢</h3><p>就一項未能找到的決策寫下一條精確問題。</p></article>
           </div>
-          <p class="takeaway">有用的審稿語言：<em>「請說明如何⋯⋯」、「程序似乎⋯⋯；你如何處理⋯⋯？」、「甚麼證據支持⋯⋯？」</em></p>
+          <p class="takeaway">把這項簡短檢視用於完善自己的報告計劃；工具及程序仍是本課的核心工作。</p>
         </div>
       </div>
     </section>
@@ -571,7 +560,7 @@ const fieldGuide = [
       </div>
     </section>
 
-    <section class="slide" data-title="Leave with a better question" aria-hidden="true">
+    <section class="slide" data-title="Exit: collection decision" aria-hidden="true">
       <div class="slide-inner">
         <header class="slide-header"><span class="eyebrow">Exit reflection</span></header>
         <div data-language="en">
@@ -585,6 +574,22 @@ const fieldGuide = [
             <div><h2>帶走一項決策、一項風險及一條問題。</h2><p class="lead small">好的方法章節會讓讀者檢視證據的決策、保障及限制。</p><div class="grid-3"><article class="panel soft"><h3>決策</h3><p>你現在會在蒐集計劃中具體說明甚麼？</p></article><article class="panel soft"><h3>風險</h3><p>甚麼需要保障、替代方案或作者查詢？</p></article><article class="panel soft"><h3>問題</h3><p>你會問同儕、導師或未來參與者甚麼？</p></article></div></div>
             <aside class="closing-stamp"><div><strong>追蹤<br />證據。</strong><span>追蹤程序。</span></div></aside>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Personal PDF" aria-hidden="true">
+      <div class="slide-inner title-slide">
+        <header class="slide-header"><span class="eyebrow">Keep your work</span></header>
+        <div data-language="en">
+          <h1>Keep the<br />collection<br />plan visible</h1>
+          <p class="lead">Save the lesson and your collection-plan responses as a personal PDF.</p>
+          <div class="closing-actions"><button type="button" class="pdf-cta" data-pdf-open>Create your personal PDF</button><a class="course-return" href={courseHref}>DEDC02 course materials</a></div>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h1>讓蒐集<br />計劃清晰<br />可見</h1>
+          <p class="lead">把本課內容及你的蒐集計劃回應儲存為個人 PDF。</p>
+          <div class="closing-actions"><button type="button" class="pdf-cta" data-pdf-open>建立你的個人 PDF</button><a class="course-return" href={courseHref}>DEDC02 課程材料</a></div>
         </div>
       </div>
     </section>
@@ -603,6 +608,14 @@ const fieldGuide = [
     <div class="overview-head"><h2>Data Collection Evidence Lab</h2><button type="button" data-close-overview aria-label="Close overview">×</button></div>
     <ol></ol>
     <p>Use ← →, Page Up / Page Down or swipe. Press O for overview and F for fullscreen.</p>
+  </dialog>
+
+  <dialog class="tool-dialog pdf-dialog">
+    <form method="dialog" class="tool-dialog-head"><h2>Personal PDF</h2><button value="close" aria-label="Close PDF options">×</button></form>
+    <p>Add a note to the first page of your copy.</p>
+    <label class="pdf-message-entry"><span>Your message</span><textarea maxlength="1200" data-pdf-message placeholder="Write your collection decision, reminder or next step here…"></textarea></label>
+    <div class="tool-actions"><button type="button" data-pdf-download>Create PDF</button></div>
+    <p class="tool-status">In the print window, select “Save as PDF”.</p>
   </dialog>
 
   <script>
