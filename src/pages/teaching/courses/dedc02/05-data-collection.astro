@@ -67,7 +67,7 @@ const fieldGuide = [
             <li><span>Match a research question to the kind of evidence it needs.</span></li>
             <li><span>Compare questionnaire and interview as representative quantitative and qualitative instruments.</span></li>
             <li><span>Specify what an instrument and collection procedure need to report.</span></li>
-            <li><span>Build and peer-audit a concise collection plan for your manuscript project.</span></li>
+            <li><span>Compare candidate instruments and prepare an accountable collection plan.</span></li>
           </ol>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
@@ -76,7 +76,7 @@ const fieldGuide = [
             <li><span>把研究問題配對至所需證據類型。</span></li>
             <li><span>比較問卷與訪談，作為量化與質性工具的代表例子。</span></li>
             <li><span>具體說明工具及蒐集程序需要報告的內容。</span></li>
-            <li><span>為文稿項目建立精簡蒐集方案，並進行同儕審視。</span></li>
+            <li><span>比較可用工具，並建立可說明、可問責的蒐集方案。</span></li>
           </ol>
         </div>
       </div>
@@ -168,33 +168,12 @@ const fieldGuide = [
       </div>
     </section>
 
-    <section class="slide" data-title="Questionnaire and interview: two anchor examples" aria-hidden="true">
-      <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Two representative instruments</span></header>
-        <div data-language="en">
-          <h2>Questionnaires organise responses; interviews develop accounts.</h2>
-          <div class="instrument-contrast">
-            <article class="questionnaire-card"><span>QUESTIONNAIRE · QUANTITATIVE</span><h3>Pattern-oriented evidence</h3><p><strong>Typical question:</strong> How common is X? How do responses vary across groups?</p><p><strong>Instrument:</strong> standardised items and response options administered consistently.</p><p><strong>Produces:</strong> a dataset for description, comparison or association.</p></article>
-            <article class="interview-card"><span>INTERVIEW · QUALITATIVE</span><h3>Meaning-oriented evidence</h3><p><strong>Typical question:</strong> How do people experience, explain or respond to X?</p><p><strong>Instrument:</strong> an interview guide with an opening invitation and adaptable probes.</p><p><strong>Produces:</strong> recorded accounts for interpretation and thematic development.</p></article>
-          </div>
-          <p class="takeaway">Both instruments require a clear link between research question, participant, prompt or item, recording method and intended claim.</p>
-        </div>
-        <div data-language="zh" hidden lang="zh-Hant">
-          <h2>問卷整理回答；訪談發展敘述。</h2>
-          <div class="instrument-contrast">
-            <article class="questionnaire-card"><span>問卷 · 量化</span><h3>聚焦模式的證據</h3><p><strong>典型問題：</strong>X 有多常見？不同群體的回答如何變化？</p><p><strong>工具：</strong>以一致方式施測的標準化題項及回答選項。</p><p><strong>產生：</strong>可供描述、比較或檢視關聯的資料集。</p></article>
-            <article class="interview-card"><span>訪談 · 質性</span><h3>聚焦意義的證據</h3><p><strong>典型問題：</strong>人如何經歷、解釋或回應 X？</p><p><strong>工具：</strong>包含開場邀請及可靈活運用追問的訪談指南。</p><p><strong>產生：</strong>可供詮釋及形成主題的錄音敘述。</p></article>
-          </div>
-          <p class="takeaway">兩種工具都需要把研究問題、參與者、題項或提示、紀錄方式及預期主張清楚連結。</p>
-        </div>
-      </div>
-    </section>
-
     <section class="slide" data-title="Questionnaire: design and report" aria-hidden="true">
       <div class="slide-inner">
         <header class="slide-header"><span class="eyebrow">Quantitative worked example</span></header>
         <div data-language="en">
           <h2>Build a questionnaire from construct to usable data.</h2>
+          <p class="instruction"><strong>Ask AI:</strong> In research methods, what do <em>survey</em>, <em>questionnaire</em> and <em>scale</em> mean? How are they related, how do they differ, and when should each term be used? Give one example that distinguishes a survey study, a questionnaire instrument and a multi-item scale.</p>
           <div class="instrument-chain" aria-label="Questionnaire design chain">
             <article><span>01</span><h3>Construct</h3><p>Define the concept and the population or setting.</p></article><b>→</b>
             <article><span>02</span><h3>Items</h3><p>Draft or adapt prompts that represent the construct.</p></article><b>→</b>
@@ -206,6 +185,7 @@ const fieldGuide = [
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
           <h2>由構念建立可用的問卷資料。</h2>
+          <p class="instruction"><strong>向 AI 提問：</strong>在研究方法中，<em>調查</em>、<em>問卷</em>及<em>量表</em>分別指甚麼？它們如何相關、有何差異，以及甚麼時候應使用哪一個術語？請用一個例子區分調查研究、問卷工具及多題量表。</p>
           <div class="instrument-chain" aria-label="問卷設計鏈">
             <article><span>01</span><h3>構念</h3><p>界定概念及目標群體或場域。</p></article><b>→</b>
             <article><span>02</span><h3>題項</h3><p>草擬或調整能代表構念的提示。</p></article><b>→</b>
@@ -224,26 +204,52 @@ const fieldGuide = [
         <div data-language="en">
           <h2>Make every response interpretable.</h2>
           <div class="design-check-grid">
-            <article><span>ITEM</span><h3>One idea, defined timeframe</h3><p>Ask about one construct or behaviour and state the relevant period.</p></article>
-            <article><span>WORDING</span><h3>Neutral, accessible language</h3><p>Use wording participants can understand in the chosen language and context.</p></article>
-            <article><span>OPTIONS</span><h3>Complete, meaningful response choices</h3><p>Align categories or scale anchors with the question and intended comparison.</p></article>
-            <article><span>TEST</span><h3>Pilot the experience</h3><p>Check instructions, length, routing, translations and completion conditions.</p></article>
+            <article><span>CONSTRUCT</span><h3>Blueprint the content</h3><p>Define the construct, dimensions, population and evidence each item must represent.</p></article>
+            <article><span>ITEM</span><h3>One idea, neutral wording, defined timeframe</h3><p>Use language participants can understand and ask about one concept or behaviour at a time.</p></article>
+            <article><span>RESPONSE</span><h3>Options that match the question</h3><p>Make categories complete and distinct; label anchors and distinguish a response format from a multi-item scale.</p></article>
+            <article><span>PILOT</span><h3>Check the response process</h3><p>Use cognitive interviewing or piloting to inspect interpretation, routing, burden, translation and completion conditions.</p></article>
             <article><span>ADMINISTER</span><h3>Document the invitation and mode</h3><p>Report who received it, how, where and under which conditions.</p></article>
-            <article><span>HANDLE</span><h3>Plan data decisions</h3><p>Record coding, scoring, missing responses, identifiers and secure storage.</p></article>
+            <article><span>SCORE</span><h3>Predefine score and quality decisions</h3><p>Record coding, reverse-keyed items, missing responses, reliability evidence and the intended interpretation of scores.</p></article>
           </div>
           <p class="instruction"><strong>Questionnaire prompt:</strong> Draft one item for your construct. Add its response options, timeframe and the decision you will report after piloting.</p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
           <h2>讓每項回答都能被清楚詮釋。</h2>
           <div class="design-check-grid">
-            <article><span>題項</span><h3>一個概念，清晰時間框架</h3><p>詢問一項構念或行為，並說明相關時段。</p></article>
-            <article><span>措辭</span><h3>中性而易明</h3><p>使用參與者在選定語言及情境中能理解的措辭。</p></article>
-            <article><span>選項</span><h3>完整而有意義的回答選項</h3><p>使類別或量表標籤配合問題及預期比較。</p></article>
-            <article><span>測試</span><h3>先導整個回答經驗</h3><p>檢查指示、長度、跳題、翻譯及完成條件。</p></article>
+            <article><span>構念</span><h3>建立內容藍圖</h3><p>界定構念、面向、目標群體，以及每道題項需要代表的證據。</p></article>
+            <article><span>題項</span><h3>一個概念、中性措辭、清晰時段</h3><p>使用參與者能理解的語言，每次只詢問一項概念或行為。</p></article>
+            <article><span>回答</span><h3>配合問題的選項</h3><p>類別應完整而互不重疊；標示回答錨點，並區分回答形式與多題量表。</p></article>
+            <article><span>先導</span><h3>檢查回答歷程</h3><p>以認知訪談或先導檢視理解、跳題、負擔、翻譯及完成條件。</p></article>
             <article><span>施測</span><h3>記錄邀請及方式</h3><p>報告誰收到問卷、如何收到、在哪裏及在甚麼條件下完成。</p></article>
-            <article><span>處理</span><h3>規劃資料決策</h3><p>記錄編碼、計分、缺失回答、識別資料及安全儲存。</p></article>
+            <article><span>計分</span><h3>預先界定計分及品質決策</h3><p>記錄編碼、反向題、缺失回答、信度證據及分數的預期詮釋。</p></article>
           </div>
           <p class="instruction"><strong>問卷提示：</strong>為你的構念草擬一題，加入回答選項、時間框架及先導後需要報告的決策。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Interview: choose the format" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Interview inquiry before question writing</span></header>
+        <div data-language="en">
+          <h2>Which interview arrangement fits the evidence you need?</h2>
+          <p class="instruction"><strong>Ask AI:</strong> Compare structured, semi-structured and unstructured interviews, then compare individual interviews, dyads and focus groups. For each option, explain the kinds of research questions and interactional evidence it suits, the interviewer skill it requires, and one ethical or reporting issue to anticipate.</p>
+          <div class="grid-4">
+            <article class="panel soft"><h3>Structure</h3><p>Structured · semi-structured · unstructured</p></article>
+            <article class="panel soft"><h3>Configuration</h3><p>Individual · dyad · focus group</p></article>
+            <article class="panel soft"><h3>Mode</h3><p>In person · phone · video · walking or elicitation interview</p></article>
+            <article class="panel soft"><h3>Record</h3><p>Audio · video · field notes · transcript · translation decisions</p></article>
+          </div>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>哪種訪談安排最配合你需要的證據？</h2>
+          <p class="instruction"><strong>向 AI 提問：</strong>比較結構式、半結構式及非結構式訪談，再比較個別訪談、雙人訪談及焦點小組。請說明每種選擇適合哪類研究問題及互動證據、需要甚麼訪談技巧，以及一項需要預先處理的倫理或報告問題。</p>
+          <div class="grid-4">
+            <article class="panel soft"><h3>結構程度</h3><p>結構式 · 半結構式 · 非結構式</p></article>
+            <article class="panel soft"><h3>參與配置</h3><p>個別 · 雙人 · 焦點小組</p></article>
+            <article class="panel soft"><h3>進行方式</h3><p>面談 · 電話 · 視像 · 步行或引導材料訪談</p></article>
+            <article class="panel soft"><h3>紀錄</h3><p>錄音 · 錄影 · 田野筆記 · 謄寫 · 翻譯決策</p></article>
+          </div>
         </div>
       </div>
     </section>
@@ -253,19 +259,23 @@ const fieldGuide = [
         <header class="slide-header"><span class="eyebrow">Qualitative worked example</span></header>
         <div data-language="en">
           <h2>Design an interview guide that invites rich, relevant accounts.</h2>
-          <div class="interview-architecture">
-            <article><span>01</span><h3>Opening invitation</h3><p>Invite a concrete account connected to the research question.</p></article><b>→</b>
-            <article><span>02</span><h3>Responsive probes</h3><p>Ask for examples, sequence, meaning, comparison or clarification.</p></article><b>→</b>
-            <article><span>03</span><h3>Recording and memo</h3><p>Capture the account and document context, relationship and researcher decisions.</p></article>
+          <div class="instrument-chain" aria-label="Interview design chain">
+            <article><span>01</span><h3>Purpose &amp; format</h3><p>Connect the research question to the interview structure, configuration and mode.</p></article><b>→</b>
+            <article><span>02</span><h3>Guide sequence</h3><p>Move from rapport and an opening invitation to core topics and a careful close.</p></article><b>→</b>
+            <article><span>03</span><h3>Responsive probes</h3><p>Ask for examples, sequence, meaning, comparison, contradiction or clarification.</p></article><b>→</b>
+            <article><span>04</span><h3>Record &amp; process</h3><p>Plan audio or video, field notes, transcription, translation and secure handling.</p></article><b>→</b>
+            <article><span>05</span><h3>Reflexive record</h3><p>Document relationships, interviewer decisions, changes and the conditions of the account.</p></article>
           </div>
           <div class="reporting-strip"><strong>Report:</strong><span>participant selection and setting</span><span>interview format, duration and mode</span><span>guide development and any pilot</span><span>interviewer role and relationship</span><span>recording, transcription, translation and changes</span></div>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
           <h2>設計能邀請豐富、相關敘述的訪談指南。</h2>
-          <div class="interview-architecture">
-            <article><span>01</span><h3>開場邀請</h3><p>邀請與研究問題相連的具體敘述。</p></article><b>→</b>
-            <article><span>02</span><h3>回應式追問</h3><p>追問例子、順序、意義、比較或釐清。</p></article><b>→</b>
-            <article><span>03</span><h3>紀錄及備忘</h3><p>捕捉敘述，並記錄情境、關係及研究者決策。</p></article>
+          <div class="instrument-chain" aria-label="訪談設計鏈">
+            <article><span>01</span><h3>目的及形式</h3><p>把研究問題連結至訪談的結構、參與配置及進行方式。</p></article><b>→</b>
+            <article><span>02</span><h3>指南順序</h3><p>由建立關係及開場邀請，發展至核心主題及審慎收結。</p></article><b>→</b>
+            <article><span>03</span><h3>回應式追問</h3><p>追問例子、順序、意義、比較、矛盾或釐清。</p></article><b>→</b>
+            <article><span>04</span><h3>紀錄及處理</h3><p>規劃錄音或錄影、田野筆記、謄寫、翻譯及安全處理。</p></article><b>→</b>
+            <article><span>05</span><h3>反思紀錄</h3><p>記錄關係、訪談者決策、改變及敘述產生的條件。</p></article>
           </div>
           <div class="reporting-strip"><strong>報告：</strong><span>參與者選取及場域</span><span>訪談形式、時長及方式</span><span>指南發展及任何先導</span><span>訪談者角色及關係</span><span>錄音、謄寫、翻譯及改變</span></div>
         </div>
@@ -332,6 +342,90 @@ const fieldGuide = [
       </div>
     </section>
 
+    <section class="slide" data-title="Educational instruments: elicited and observed evidence" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Educational instruments · field map I</span></header>
+        <div data-language="en">
+          <h2>Instruments can elicit responses, talk, action and performance.</h2>
+          <div class="design-check-grid" aria-label="Instruments for elicited and observed educational evidence">
+            <article><span>SELF-REPORT</span><h3>Questionnaire, scale &amp; diary</h3><p>Item set · multi-item scale or inventory · checklist · journal · experience-sampling prompt</p></article>
+            <article><span>INTERVIEW</span><h3>Individual or dyadic talk</h3><p>Structured, semi-structured or unstructured interview guide</p></article>
+            <article><span>GROUP TALK</span><h3>Focus group</h3><p>Moderator guide · group task · interaction-recording protocol</p></article>
+            <article><span>OBSERVATION</span><h3>Action and interaction</h3><p>Observation schedule · field-note protocol · classroom interaction code · audio/video record</p></article>
+            <article><span>PERFORMANCE</span><h3>Assessment and work</h3><p>Achievement test · quiz · performance task · rubric · portfolio or concept-map protocol</p></article>
+            <article><span>PROCESS</span><h3>Thinking and recall</h3><p>Think-aloud protocol · stimulated-recall guide · cognitive interview</p></article>
+          </div>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>工具可以引出回答、談話、行動及表現。</h2>
+          <div class="design-check-grid" aria-label="引出及觀察教育證據的工具">
+            <article><span>自陳</span><h3>問卷、量表及日誌</h3><p>題項組 · 多題量表或量庫 · 核對表 · 學習札記 · 經驗抽樣提示</p></article>
+            <article><span>訪談</span><h3>個別或雙人對話</h3><p>結構式、半結構式或非結構式訪談指南</p></article>
+            <article><span>小組對話</span><h3>焦點小組</h3><p>主持指南 · 小組任務 · 互動紀錄程序</p></article>
+            <article><span>觀察</span><h3>行動及互動</h3><p>觀察表 · 田野筆記程序 · 課堂互動編碼表 · 錄音／錄影紀錄</p></article>
+            <article><span>表現</span><h3>評量及作品</h3><p>成就測驗 · 小測 · 表現任務 · 評分規準 · 作品集或概念圖程序</p></article>
+            <article><span>歷程</span><h3>思考及回憶</h3><p>有聲思考程序 · 刺激回憶指南 · 認知訪談</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Educational instruments: records and generated traces" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Educational instruments · field map II</span></header>
+        <div data-language="en">
+          <h2>Other instruments select, extract or generate records and traces.</h2>
+          <div class="design-check-grid" aria-label="Instruments for educational records and traces">
+            <article><span>DOCUMENTS</span><h3>Documents and artefacts</h3><p>Selection rule and extraction form for policies, curricula, lesson plans, feedback or student work</p></article>
+            <article><span>DIGITAL</span><h3>Learning-platform traces</h3><p>LMS log specification · clickstream · discussion export · screen record · app analytics</p></article>
+            <article><span>ADMIN</span><h3>Institutional records</h3><p>Extraction form for attendance, grades, enrolment, demographics or support-service records</p></article>
+            <article><span>SOCIAL</span><h3>Relationships and networks</h3><p>Sociometric roster · peer nomination · network matrix · interaction log</p></article>
+            <article><span>PARTICIPATORY</span><h3>Visual and participant-generated evidence</h3><p>Photo elicitation · drawing or mapping prompt · participant-generated media protocol</p></article>
+            <article><span>SENSOR</span><h3>Embodied and environmental traces</h3><p>Eye-tracking protocol · wearable or physiological sensor · movement or location record</p></article>
+          </div>
+          <p class="takeaway">Name the exact instrument or protocol. A method label such as “survey,” “interview” or “observation” is not yet an inspectable tool.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>另一些工具用於選取、擷取或生成紀錄及痕跡。</h2>
+          <div class="design-check-grid" aria-label="教育紀錄及痕跡工具">
+            <article><span>文件</span><h3>文件及作品</h3><p>用於政策、課程、教案、回饋或學生作品的選取規則及資料擷取表</p></article>
+            <article><span>數碼</span><h3>學習平台痕跡</h3><p>LMS 記錄規格 · 點擊流 · 討論匯出 · 螢幕錄製 · 應用程式分析</p></article>
+            <article><span>行政</span><h3>機構紀錄</h3><p>用於出席、成績、註冊、人口資料或支援服務紀錄的擷取表</p></article>
+            <article><span>社會</span><h3>關係及網絡</h3><p>社會關係名冊 · 同儕提名 · 網絡矩陣 · 互動紀錄</p></article>
+            <article><span>參與式</span><h3>視覺及參與者生成證據</h3><p>相片引談 · 繪圖或地圖提示 · 參與者生成媒體程序</p></article>
+            <article><span>感測</span><h3>身體及環境痕跡</h3><p>眼動追蹤程序 · 穿戴式或生理感測器 · 動作或位置紀錄</p></article>
+          </div>
+          <p class="takeaway">應列明確切工具或程序；「調查」、「訪談」或「觀察」等方法標籤仍未構成可檢視的工具。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Explore educational instruments with AI" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">AI inquiry · compare before choosing</span></header>
+        <div data-language="en">
+          <h2>Ask what each instrument makes possible—and what it leaves out.</h2>
+          <div class="grid-4">
+            <article class="panel"><h3>Define it</h3><p>“Is this a data source, collection method, instrument or protocol? Define the distinction and name the concrete tool.”</p></article>
+            <article class="panel"><h3>Match it</h3><p>“Which educational research questions, participants and settings fit this instrument? What form of evidence would it generate?”</p></article>
+            <article class="panel"><h3>Stress-test it</h3><p>“What might this instrument miss, distort or burden? What validity, trustworthiness, accessibility and ethics issues need attention?”</p></article>
+            <article class="panel"><h3>Compare it</h3><p>“Compare three plausible instruments for the same question. When would each be preferable, and what combination could provide complementary evidence?”</p></article>
+          </div>
+          <p class="instruction"><strong>Your turn:</strong> Give AI one research question from your project and ask it to propose three instruments. Verify every definition, challenge the ranking, and write your own evidence-based choice.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>追問每種工具能帶來甚麼，又會遺漏甚麼。</h2>
+          <div class="grid-4">
+            <article class="panel"><h3>界定</h3><p>「這是資料來源、蒐集方法、工具還是程序？請界定差異，並列明具體工具。」</p></article>
+            <article class="panel"><h3>配對</h3><p>「哪類教育研究問題、參與者及場域適合這項工具？它會產生哪種證據？」</p></article>
+            <article class="panel"><h3>壓力測試</h3><p>「這項工具可能遺漏、扭曲或增加甚麼負擔？需處理哪些效度、可信性、可及性及倫理問題？」</p></article>
+            <article class="panel"><h3>比較</h3><p>「就同一問題比較三項可行工具。甚麼情況下各自較合適？哪種組合可提供互補證據？」</p></article>
+          </div>
+          <p class="instruction"><strong>輪到你：</strong>向 AI 提供你項目中的一條研究問題，要求提出三項工具。核實每個定義、質疑排序，並寫下你自己的循證選擇。</p>
+        </div>
+      </div>
+    </section>
+
     <section class="slide" data-title="Collection procedure: make the sequence visible" aria-hidden="true">
       <div class="slide-inner">
         <header class="slide-header"><span class="eyebrow">Procedure reporting</span></header>
@@ -388,157 +482,11 @@ const fieldGuide = [
       </div>
     </section>
 
-    <section class="slide" data-title="Brief evidence check" aria-hidden="true">
-      <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Optional thesis check</span></header>
-        <div data-language="en">
-          <h2>Use a previous thesis to test one reporting decision.</h2>
-          <div class="brief-check-grid">
-            <article><span>01</span><h3>Instrument</h3><p>Find the named questionnaire, guide or protocol and its source.</p></article>
-            <article><span>02</span><h3>Procedure</h3><p>Locate the collection sequence, setting and mode.</p></article>
-            <article><span>03</span><h3>Record</h3><p>Find how responses, recordings or documents were captured.</p></article>
-            <article><span>04</span><h3>Query</h3><p>Write one precise question about a decision you cannot locate.</p></article>
-          </div>
-          <p class="takeaway">Use this short check to sharpen your own reporting plan; the instrument and procedure remain the central work of the lesson.</p>
-        </div>
-        <div data-language="zh" hidden lang="zh-Hant">
-          <h2>利用過往博士論文檢視一項報告決策。</h2>
-          <div class="brief-check-grid">
-            <article><span>01</span><h3>工具</h3><p>找出列明的問卷、指南或程序表及其來源。</p></article>
-            <article><span>02</span><h3>程序</h3><p>找出蒐集順序、場域及方式。</p></article>
-            <article><span>03</span><h3>紀錄</h3><p>找出回答、錄音或文件如何被捕捉。</p></article>
-            <article><span>04</span><h3>查詢</h3><p>就一項未能找到的決策寫下一條精確問題。</p></article>
-          </div>
-          <p class="takeaway">把這項簡短檢視用於完善自己的報告計劃；工具及程序仍是本課的核心工作。</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide" data-title="What the source can support" aria-hidden="true">
-      <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Claim boundary</span></header>
-        <div data-language="en">
-          <h2>Specify the scope and boundary of the evidence.</h2>
-          <div class="grid-3">
-            <article class="panel soft"><h3>The evidence supports…</h3><p>Write the narrowest conclusion that follows directly from the procedure and source.</p></article>
-            <article class="panel soft"><h3>Questions requiring further evidence…</h3><p>Name a question that requires another source, another design choice or cautious language.</p></article>
-            <article class="panel soft"><h3>The author should make visible…</h3><p>Identify one decision that would let readers evaluate the boundary fairly.</p></article>
-          </div>
-        </div>
-        <div data-language="zh" hidden lang="zh-Hant">
-          <h2>清楚說明證據的範圍及邊界。</h2>
-          <div class="grid-3">
-            <article class="panel soft"><h3>證據支持⋯⋯</h3><p>寫下可由程序及來源直接推出的最窄結論。</p></article>
-            <article class="panel soft"><h3>需要進一步證據的問題⋯⋯</h3><p>指出需要另一來源、設計決策或審慎語言的問題。</p></article>
-            <article class="panel soft"><h3>作者應清楚說明⋯⋯</h3><p>找出一項有助讀者公平評估邊界的決策。</p></article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide" data-title="Your Evidence-to-Procedure Canvas" aria-hidden="true">
-      <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Transfer to your manuscript project</span></header>
-        <div data-language="en">
-          <h2>Build the smallest defensible collection plan.</h2>
-          <div class="canvas-flow"><span>Research<br />question</span><b>→</b><span>Needed<br />evidence</span><b>→</b><span>Source &amp;<br />instrument</span><b>→</b><span>Procedure &amp;<br />safeguard</span><b>→</b><span>Bounded<br />claim</span></div>
-          <p class="takeaway">Develop one evidence route and make it visible enough for a peer to question, improve and later attach to an ethics application.</p>
-        </div>
-        <div data-language="zh" hidden lang="zh-Hant">
-          <h2>建立精簡、可論證的蒐集方案。</h2>
-          <div class="canvas-flow"><span>研究<br />問題</span><b>→</b><span>所需<br />證據</span><b>→</b><span>來源及<br />工具</span><b>→</b><span>程序及<br />保障</span><b>→</b><span>有邊界的<br />主張</span></div>
-          <p class="takeaway">建立一條證據路徑，並清楚呈現，讓同儕可以提問、改進，並在日後附入倫理申請。</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide" data-title="Canvas: evidence and tool" aria-hidden="true">
-      <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Personal canvas · saved in this browser</span></header>
-        <div data-language="en">
-          <h2>Specify the evidence and tool.</h2>
-          <div class="writing-grid">
-            <label>Research question<textarea data-save="question" placeholder="What exactly do you need to understand, describe, compare or explain?"></textarea></label>
-            <label>Needed evidence<textarea data-save="evidence" placeholder="What would count as a credible answer to this question?"></textarea></label>
-            <label>Data source<textarea data-save="source" placeholder="Who, what, event or artefact could provide that evidence?"></textarea></label>
-            <label>Instrument / protocol<textarea data-save="instrument" placeholder="What exact questions, prompts, categories or records are needed?"></textarea></label>
-          </div>
-        </div>
-        <div data-language="zh" hidden lang="zh-Hant">
-          <h2>具體說明證據及工具。</h2>
-          <div class="writing-grid">
-            <label>研究問題<textarea data-save="question" placeholder="你需要理解、描述、比較或解釋甚麼？"></textarea></label>
-            <label>所需證據<textarea data-save="evidence" placeholder="甚麼可以構成這條問題的可信答案？"></textarea></label>
-            <label>資料來源<textarea data-save="source" placeholder="誰、甚麼、哪個事件或材料可以提供該證據？"></textarea></label>
-            <label>工具／程序表<textarea data-save="instrument" placeholder="需要哪些確切問題、提示、分類或紀錄？"></textarea></label>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide" data-title="Canvas: procedure and care" aria-hidden="true">
-      <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Personal canvas · saved in this browser</span></header>
-        <div data-language="en">
-          <h2>Specify the procedure and its safeguards.</h2>
-          <div class="writing-grid">
-            <label>Procedure sequence<textarea data-save="procedure" placeholder="How will access, invitation, consent, collection, recording and storage unfold?"></textarea></label>
-            <label>Participant care &amp; ethics<textarea data-save="care" placeholder="What needs protection? What happens if someone declines, withdraws or becomes uncomfortable?"></textarea></label>
-            <label>Quality / researcher-role decision<textarea data-save="quality" placeholder="What will you make visible so readers can judge how the evidence was produced?"></textarea></label>
-            <label>Claim boundary &amp; contingency<textarea data-save="boundary" placeholder="Which claim boundary remains with this source? What is your plan if access or collection changes?"></textarea></label>
-          </div>
-        </div>
-        <div data-language="zh" hidden lang="zh-Hant">
-          <h2>具體說明程序及保障措施。</h2>
-          <div class="writing-grid">
-            <label>程序順序<textarea data-save="procedure" placeholder="接觸、邀請、同意、蒐集、紀錄及儲存將如何展開？"></textarea></label>
-            <label>參與者保障及倫理<textarea data-save="care" placeholder="需要保障甚麼？如有人拒絕、退出或感到不適，會怎樣處理？"></textarea></label>
-            <label>品質／研究者角色決策<textarea data-save="quality" placeholder="你會清楚呈現甚麼，讓讀者能判斷證據如何產生？"></textarea></label>
-            <label>主張邊界及應變<textarea data-save="boundary" placeholder="此來源仍有哪些主張邊界？如接觸或蒐集改變，計劃是甚麼？"></textarea></label>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide" data-title="Peer audit" aria-hidden="true">
-      <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Make a peer’s questions useful</span></header>
-        <div data-language="en">
-          <h2>Can another group trace your evidence route?</h2>
-          <div class="audit-layout" data-audit-checklist>
-            <div class="audit-choice-grid">
-              <button class="audit-choice" type="button" data-audit-choice aria-pressed="false">The research question and needed evidence are explicit.</button>
-              <button class="audit-choice" type="button" data-audit-choice aria-pressed="false">The source is fit for that evidence, with a stated boundary.</button>
-              <button class="audit-choice" type="button" data-audit-choice aria-pressed="false">The instrument is concrete enough to inspect.</button>
-              <button class="audit-choice" type="button" data-audit-choice aria-pressed="false">The collection sequence has an accountable logic.</button>
-              <button class="audit-choice" type="button" data-audit-choice aria-pressed="false">Participant care and data protection are visible.</button>
-              <button class="audit-choice" type="button" data-audit-choice aria-pressed="false">A risk or change has a response plan.</button>
-            </div>
-            <aside><p class="audit-callout">For every unmarked item, write one precise peer question that names the missing decision.</p><p class="activity-status" data-audit-status></p></aside>
-          </div>
-        </div>
-        <div data-language="zh" hidden lang="zh-Hant">
-          <h2>另一組能追蹤你的證據路徑嗎？</h2>
-          <div class="audit-layout" data-audit-checklist>
-            <div class="audit-choice-grid">
-              <button class="audit-choice" type="button" data-audit-choice aria-pressed="false">研究問題及所需證據已清楚說明。</button>
-              <button class="audit-choice" type="button" data-audit-choice aria-pressed="false">來源適合所需證據，並已說明邊界。</button>
-              <button class="audit-choice" type="button" data-audit-choice aria-pressed="false">工具足夠具體，可以被檢視。</button>
-              <button class="audit-choice" type="button" data-audit-choice aria-pressed="false">蒐集順序具有可說明的邏輯。</button>
-              <button class="audit-choice" type="button" data-audit-choice aria-pressed="false">參與者保障及資料保護清晰可見。</button>
-              <button class="audit-choice" type="button" data-audit-choice aria-pressed="false">一項風險或改變已有回應方案。</button>
-            </div>
-            <aside><p class="audit-callout">每一項未標示內容都要寫一條精確同儕提問，指出遺漏的決策。</p><p class="activity-status" data-audit-status></p></aside>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="slide" data-title="IRB handoff" aria-hidden="true">
       <div class="slide-inner">
         <header class="slide-header"><span class="eyebrow">Preparation for ethical review</span></header>
         <div data-language="en">
-          <h2>Turn your canvas into an accountable preparation pack.</h2>
+          <h2>Turn your collection decisions into an accountable preparation pack.</h2>
           <div class="irb-pack">
             <article><span>▤</span><h3>Protocol</h3><p>Your purpose, participants, procedure, foreseeable risks and decision logic.</p></article>
             <article><span>✦</span><h3>Instrument</h3><p>The actual interview guide, questionnaire, observation form or document-selection rule.</p></article>
@@ -548,7 +496,7 @@ const fieldGuide = [
           <p class="takeaway">A protocol prepares the study for review. Begin human-participant data collection after the required approval.</p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
-          <h2>把你的畫布轉化為具責任的準備包。</h2>
+          <h2>把你的蒐集決策轉化為具責任的準備包。</h2>
           <div class="irb-pack">
             <article><span>▤</span><h3>研究方案</h3><p>研究目的、參與者、程序、可預見風險及決策邏輯。</p></article>
             <article><span>✦</span><h3>研究工具</h3><p>實際的訪談指南、問卷、觀察表或文件選取規則。</p></article>
