@@ -1,9 +1,11 @@
 ---
 import CourseSlideLayout from '../../../../layouts/CourseSlideLayout.astro';
+import { withBase } from '../../../../utils/paths';
 import '../../../../styles/dedc02-data-collection.css';
 
 const title = '5. Data Collection Evidence Lab · DEDC02';
 const description = 'An inquiry-led DEDC02 lesson on instruments, data collection procedures and evidence-based protocol design.';
+const courseHref = withBase('/teaching/courses/dedc02');
 
 const fieldGuide = [
   { id: 'participants', icon: '◉', en: 'Participants / cases', zh: '參與者／個案', promptEn: 'Who or what supplied the data? Why these cases? Who is absent?', promptZh: '誰或甚麼提供資料？為何是這些個案？誰沒有被包括？' },
@@ -35,15 +37,12 @@ const fieldGuide = [
     <section class="slide is-active" data-title="Data Collection Evidence Lab" aria-hidden="false">
       <div class="slide-inner title-slide">
         <header class="slide-header"><span class="eyebrow">DEDC02 · Advanced Research Method</span></header>
-        <div class="title-copy" data-language="en">
-          <p class="title-kicker">05 · Inquiry workshop</p>
-          <div class="title-rule"></div>
+        <div class="title-rule"></div>
+        <div data-language="en">
           <h1>Data<br />Collection<br />Evidence Lab</h1>
           <p class="lead">Trace how a study moved from its question to defensible evidence - then build an accountable procedure for your own project.</p>
         </div>
-        <div class="title-copy" data-language="zh" hidden lang="zh-Hant">
-          <p class="title-kicker">05 · 探究工作坊</p>
-          <div class="title-rule"></div>
+        <div data-language="zh" hidden lang="zh-Hant">
           <h1>資料蒐集<br />證據實驗室</h1>
           <p class="lead">追蹤研究如何由問題走向可論證的證據，並為自己的研究建立具責任的蒐集程序。</p>
         </div>
@@ -591,15 +590,19 @@ const fieldGuide = [
     </section>
   </main>
 
-  <div class="slide-controls" aria-label="Slide controls">
-    <div class="nav-tools"><button type="button" data-overview>Overview</button><button type="button" data-fullscreen>Fullscreen</button></div>
+  <nav class="deck-controls" aria-label="Slide controls">
+    <a class="home-button" href={courseHref} aria-label="Back to DEDC02">⌂</a>
+    <button type="button" data-nav="prev" aria-label="Previous slide">←</button>
+    <button class="slide-count" type="button" data-overview aria-label="Open slide overview"><span>1</span>/<span data-slide-total>0</span></button>
+    <button type="button" data-nav="next" aria-label="Next slide">→</button>
+    <button type="button" data-fullscreen aria-label="Toggle fullscreen">⛶</button>
     <div class="progress-track" aria-hidden="true"><span></span></div>
-    <div class="nav-steps"><button type="button" data-nav="prev" aria-label="Previous slide">←</button><span class="slide-count"><span>1</span>/<b data-slide-total>0</b></span><button type="button" data-nav="next" aria-label="Next slide">→</button></div>
-  </div>
+  </nav>
 
   <dialog class="overview-dialog">
-    <header><h2>Lesson overview</h2><button class="small-button" type="button" data-close-overview>Close</button></header>
+    <div class="overview-head"><h2>Data Collection Evidence Lab</h2><button type="button" data-close-overview aria-label="Close overview">×</button></div>
     <ol></ol>
+    <p>Use ← →, Page Up / Page Down or swipe. Press O for overview and F for fullscreen.</p>
   </dialog>
 
   <script>
