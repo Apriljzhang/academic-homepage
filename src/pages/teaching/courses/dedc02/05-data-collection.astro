@@ -168,6 +168,27 @@ const fieldGuide = [
   { id: 'role', icon: '◌', en: 'Researcher role', zh: '研究者角色', promptEn: 'What influence did the researcher or setting have on the data?', promptZh: '研究者或場域對資料有甚麼影響？', whyEn: 'The researcher’s position and interactions may shape access, responses and interpretation.', whyZh: '研究者的位置與互動可能影響接觸、回答及詮釋。' },
   { id: 'management', icon: '□', en: 'Data management', zh: '資料管理', promptEn: 'Who can access the data, where will it be stored, and what happens afterwards?', promptZh: '誰可接觸資料、資料儲存在哪裏、之後如何處理？', whyEn: 'A clear plan protects confidentiality and preserves an accountable evidence record.', whyZh: '清晰的計劃保障私隱，並保留可問責的證據紀錄。' },
 ];
+
+const questionnaireContents = [
+  { id: 'opening', en: 'Purpose, time and participation rights', zh: '目的、所需時間與參與權利', answer: 'form', whyEn: 'An opening or linked information sheet helps participants decide whether to take part, including privacy and withdrawal information.', whyZh: '問卷開首或連結的資訊說明有助參與者決定是否參與，包括私隱及退出安排。' },
+  { id: 'instructions', en: 'Clear instructions and reference periods', zh: '清晰指示及作答時段', answer: 'form', whyEn: 'Respondents need to know how to answer and which period each question concerns.', whyZh: '受訪者需要知道如何作答，以及每題所指的時段。' },
+  { id: 'items', en: 'Topic groups, items and answer choices', zh: '主題分組、題項及答案選項', answer: 'form', whyEn: 'These are the questions and response routes that produce evidence for the study.', whyZh: '這些問題及作答途徑為研究產生證據。' },
+  { id: 'background', en: 'Background questions relevant to the study', zh: '與研究相關的背景問題', answer: 'form', whyEn: 'Ask only for context needed to interpret findings or describe respondents.', whyZh: '只詢問詮釋結果或描述受訪者所需的背景資料。' },
+  { id: 'routing', en: 'Skip directions, closing and contact details', zh: '跳題指示、結語及聯絡方式', answer: 'form', whyEn: 'Routing keeps questions relevant; a closing tells respondents how to seek clarification.', whyZh: '跳題令問題保持相關；結語讓受訪者知道如何查詢。' },
+  { id: 'development', en: 'Item sources, adaptation and pilot log', zh: '題項來源、改編與先導紀錄', answer: 'record', whyEn: 'The researcher documents these decisions in the methods account or supporting materials.', whyZh: '研究者在方法說明或補充材料中記錄這些決策。' },
+  { id: 'analysis', en: 'Coding, scoring and missing-data rules', zh: '編碼、計分及缺失資料規則', answer: 'record', whyEn: 'These rules guide analysis; respondents see only the instructions needed to answer.', whyZh: '這些規則指導分析；受訪者只需看到作答所需的指示。' },
+  { id: 'excess', en: 'Every personal detail that might be useful later', zh: '日後可能有用的所有個人資料', answer: 'omit', whyEn: 'Unnecessary personal questions add burden and privacy risk without answering the research question.', whyZh: '不必要的個人問題增加負擔及私隱風險，卻無助回答研究問題。' },
+];
+
+const questionnaireItemTypes = [
+  { id: 'binary', icon: '◐', en: 'Yes / no', zh: '是／否', exampleEn: 'Did you attend a peer-feedback session this term? Yes / No.', exampleZh: '本學期你有否參加同儕回饋活動？有／沒有。', useEn: 'A genuine two-way event or eligibility check.', useZh: '真正只有兩種情況的事件或篩選問題。', cautionEn: 'Do not force a two-way answer when degree or uncertainty matters.', cautionZh: '若程度或不確定性重要，避免強迫二選一。' },
+  { id: 'choice', icon: '☷', en: 'Single / multiple choice', zh: '單選／多選', exampleEn: 'Which feedback sources did you use? Select all: teacher, peer, AI tool, other, none (alone).', exampleZh: '你使用過哪些回饋來源？可選多項：教師、同儕、人工智能工具、其他、沒有（單獨選）。', useEn: 'Known categories that respondents can recognise.', useZh: '受訪者能辨認的已知類別。', cautionEn: 'Say whether one or several answers are allowed; check that choices are complete and distinct.', cautionZh: '說明可選一項或多項，並檢查選項是否完整及清晰區分。' },
+  { id: 'rating', icon: '▥', en: 'Rating / frequency', zh: '評分／頻率', exampleEn: 'In the past four weeks, how often did you revisit written feedback? Never · Once · 2–3 times · Weekly or more.', exampleZh: '過去四週你多常重看書面回饋？從不／一次／兩至三次／每週或以上。', useEn: 'The degree, intensity or frequency of one response.', useZh: '一項回答的程度、強度或頻率。', cautionEn: 'Label the anchors and timeframe. One rating item is not automatically a validated scale.', cautionZh: '標示選項及時段；單一評分題不會自動成為已驗證量表。' },
+  { id: 'ranking', icon: '↕', en: 'Ranking', zh: '排序', exampleEn: 'Rank your top three supports for revising an essay: teacher feedback, peer feedback, exemplars, revision time.', exampleZh: '請從教師回饋、同儕回饋、範例及修訂時間中，排列對修改文章最有幫助的三項。', useEn: 'Relative priorities among a short, comparable list.', useZh: '在少量可比較選項之間識別相對優先次序。', cautionEn: 'Ranking shows order, not the size of the gaps between choices.', cautionZh: '排序只顯示先後，不能顯示選項間差距的大小。' },
+  { id: 'numeric', icon: '#', en: 'Number / count', zh: '數值／次數', exampleEn: 'How many peer-feedback sessions did you attend this term? ___ sessions.', exampleZh: '本學期你參加了多少次同儕回饋活動？___ 次。', useEn: 'An exact count or amount the respondent can reasonably recall.', useZh: '受訪者能合理回憶的確切次數或數量。', cautionEn: 'State the unit and period; consider whether exact recall is realistic.', cautionZh: '說明單位與時段，並考慮能否準確回憶。' },
+  { id: 'open', icon: '✎', en: 'Open response', zh: '開放式回答', exampleEn: 'What helped you use feedback in your last assignment?', exampleZh: '在上一次作業中，甚麼幫助你運用回饋？', useEn: 'Reasons, examples or experiences that fixed choices may miss.', useZh: '固定選項可能遺漏的原因、例子或經驗。', cautionEn: 'Allow room to answer and plan how text responses will be analysed.', cautionZh: '提供足夠作答空間，並規劃如何分析文字回答。' },
+  { id: 'constant', icon: '∑', en: 'Constant sum', zh: '固定總分分配', exampleEn: 'Distribute 10 points across teacher, peer and self-review to show their contribution to your last revision.', exampleZh: '把 10 分分配予教師、同儕及自我檢視，表示它們對你上次修訂的貢獻。', useEn: 'Relative weight when respondents can make a meaningful trade-off.', useZh: '受訪者能作出有意義取捨時，比較各選項的相對比重。', cautionEn: 'The points must add to the stated total; this task can be demanding.', cautionZh: '分數必須合計至指定總分；這種作答較費心力。' },
+];
 ---
 
 <CourseSlideLayout {title} {description}>
@@ -367,6 +388,88 @@ const fieldGuide = [
             <article><span>05</span><h3>資料集</h3><p>規劃編碼、計分、缺失資料決策及儲存。</p></article>
           </div>
           <div class="reporting-strip"><strong>報告：</strong><span>工具來源或發展過程</span><span>題項及回答標籤</span><span>調整、翻譯或先導</span><span>施測及回答情況</span><span>計分及資料處理</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="What belongs in a questionnaire?" aria-hidden="true">
+      <div class="slide-inner questionnaire-teaching-slide">
+        <header class="slide-header"><span class="eyebrow">Questionnaire design · decide before revealing</span></header>
+        <div data-language="en">
+          <h2>What should respondents see?</h2>
+          <p class="intro-line">Place each element in the respondent-facing questionnaire or linked information, the researcher’s design record, or neither. Decide on all eight before checking.</p>
+          <div class="qsort-activity" data-qsort-activity>
+            <div class="qsort-grid">
+              {questionnaireContents.map((item) => <article class="qsort-card" data-qsort-card data-answer={item.answer}>
+                <h3>{item.en}</h3>
+                <div class="qsort-options" role="group" aria-label={`Place ${item.en}`}>
+                  <button type="button" data-qsort-choice="form" aria-pressed="false">Questionnaire</button>
+                  <button type="button" data-qsort-choice="record" aria-pressed="false">Design record</button>
+                  <button type="button" data-qsort-choice="omit" aria-pressed="false">Leave out</button>
+                </div>
+                <p class="qsort-feedback" data-qsort-feedback hidden><strong>{item.answer === 'form' ? 'Questionnaire' : item.answer === 'record' ? 'Design record' : 'Leave out'}:</strong> {item.whyEn}</p>
+              </article>)}
+            </div>
+            <div class="qsort-actions"><button type="button" data-qsort-check>Check placements</button><button type="button" data-qsort-reset>Start again</button><span data-qsort-status role="status" aria-live="polite">Make your choices first.</span></div>
+          </div>
+          <p class="source-note">Cohen et al. (2018), ch. 24, pp. 471–504.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>受訪者應看到甚麼？</h2>
+          <p class="intro-line">把每項內容歸入受訪者看到的問卷或相關資訊、研究者的設計紀錄，或兩者都不需要。完成八項判斷後再檢查。</p>
+          <div class="qsort-activity" data-qsort-activity>
+            <div class="qsort-grid">
+              {questionnaireContents.map((item) => <article class="qsort-card" data-qsort-card data-answer={item.answer}>
+                <h3>{item.zh}</h3>
+                <div class="qsort-options" role="group" aria-label={`為${item.zh}選擇位置`}>
+                  <button type="button" data-qsort-choice="form" aria-pressed="false">問卷</button>
+                  <button type="button" data-qsort-choice="record" aria-pressed="false">設計紀錄</button>
+                  <button type="button" data-qsort-choice="omit" aria-pressed="false">不加入</button>
+                </div>
+                <p class="qsort-feedback" data-qsort-feedback hidden><strong>{item.answer === 'form' ? '問卷' : item.answer === 'record' ? '設計紀錄' : '不加入'}：</strong>{item.whyZh}</p>
+              </article>)}
+            </div>
+            <div class="qsort-actions"><button type="button" data-qsort-check>檢查分類</button><button type="button" data-qsort-reset>重新開始</button><span data-qsort-status role="status" aria-live="polite">先作出選擇。</span></div>
+          </div>
+          <p class="source-note">Cohen 等（2018），第 24 章，頁 471–504。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Choose a questionnaire item type" aria-hidden="true">
+      <div class="slide-inner questionnaire-teaching-slide">
+        <header class="slide-header"><span class="eyebrow">Questionnaire design · item types</span></header>
+        <div data-language="en">
+          <h2>Choose the answer an item needs.</h2>
+          <p class="intro-line">An item may ask for a fact, behaviour, perception or explanation. Select a response format to inspect an example, its purpose and one caution.</p>
+          <div data-qtype-picker>
+            <div class="qtype-options">
+              {questionnaireItemTypes.map((item) => <button type="button" data-qtype-option={item.id} aria-expanded="false" aria-controls={`qtype-en-${item.id}`}><span aria-hidden="true">{item.icon}</span>{item.en}</button>)}
+            </div>
+            <div class="qtype-panels">
+              {questionnaireItemTypes.map((item) => <article class="qtype-panel" id={`qtype-en-${item.id}`} data-qtype-panel={item.id} hidden>
+                <h3>{item.en}</h3><p><strong>Example</strong>{item.exampleEn}</p><p><strong>Use when</strong>{item.useEn}</p><p><strong>Check</strong>{item.cautionEn}</p>
+              </article>)}
+            </div>
+          </div>
+          <p class="takeaway"><strong>Two more design decisions:</strong> a matrix arranges several items with shared response options; a filter or skip question routes respondents past items that do not apply.</p>
+          <p class="source-note">Cohen et al. (2018), ch. 24, pp. 475–488.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>按所需回答選擇題型。</h2>
+          <p class="intro-line">題項可詢問事實、行為、看法或解釋。點選回答形式，查看例子、適用情況及一項注意事項。</p>
+          <div data-qtype-picker>
+            <div class="qtype-options">
+              {questionnaireItemTypes.map((item) => <button type="button" data-qtype-option={item.id} aria-expanded="false" aria-controls={`qtype-zh-${item.id}`}><span aria-hidden="true">{item.icon}</span>{item.zh}</button>)}
+            </div>
+            <div class="qtype-panels">
+              {questionnaireItemTypes.map((item) => <article class="qtype-panel" id={`qtype-zh-${item.id}`} data-qtype-panel={item.id} hidden>
+                <h3>{item.zh}</h3><p><strong>例子</strong>{item.exampleZh}</p><p><strong>適用於</strong>{item.useZh}</p><p><strong>檢查</strong>{item.cautionZh}</p>
+              </article>)}
+            </div>
+          </div>
+          <p class="takeaway"><strong>另外兩項設計決策：</strong>矩陣把採用相同回答選項的題項排在一起；篩選或跳題指示讓受訪者略過不適用的問題。</p>
+          <p class="source-note">Cohen 等（2018），第 24 章，頁 475–488。</p>
         </div>
       </div>
     </section>

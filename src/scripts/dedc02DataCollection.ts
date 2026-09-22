@@ -141,6 +141,62 @@ document.querySelectorAll<HTMLButtonElement>('[data-guide-flip]').forEach((card)
   });
 });
 
+document.querySelectorAll<HTMLElement>('[data-qsort-activity]').forEach((activity) => {
+  const cards = Array.from(activity.querySelectorAll<HTMLElement>('[data-qsort-card]'));
+  const status = activity.querySelector<HTMLElement>('[data-qsort-status]');
+  const chinese = activity.closest('[data-language="zh"]') !== null;
+
+  cards.forEach((card) => {
+    const choices = Array.from(card.querySelectorAll<HTMLButtonElement>('[data-qsort-choice]'));
+    choices.forEach((choice) => choice.addEventListener('click', () => {
+      card.dataset.choice = choice.dataset.qsortChoice;
+      choices.forEach((button) => button.setAttribute('aria-pressed', String(button === choice)));
+      card.classList.remove('is-correct', 'is-incorrect');
+      const feedback = card.querySelector<HTMLElement>('[data-qsort-feedback]');
+      if (feedback) feedback.hidden = true;
+      if (status) status.textContent = chinese ? '選擇已更新；完成後再檢查。' : 'Selection updated. Check when ready.';
+    }));
+  });
+
+  activity.querySelector<HTMLButtonElement>('[data-qsort-check]')?.addEventListener('click', () => {
+    if (cards.some((card) => !card.dataset.choice)) {
+      if (status) status.textContent = chinese ? '請先為每張卡片選擇類別。' : 'Choose a category for every card first.';
+      return;
+    }
+    let correct = 0;
+    cards.forEach((card) => {
+      const matches = card.dataset.choice === card.dataset.answer;
+      if (matches) correct += 1;
+      card.classList.toggle('is-correct', matches);
+      card.classList.toggle('is-incorrect', !matches);
+      const feedback = card.querySelector<HTMLElement>('[data-qsort-feedback]');
+      if (feedback) feedback.hidden = false;
+    });
+    if (status) status.textContent = chinese ? `${correct}／${cards.length} 項正確。檢視每張卡片的原因。` : `${correct} of ${cards.length} correct. Read the reason on each card.`;
+  });
+
+  activity.querySelector<HTMLButtonElement>('[data-qsort-reset]')?.addEventListener('click', () => {
+    cards.forEach((card) => {
+      delete card.dataset.choice;
+      card.classList.remove('is-correct', 'is-incorrect');
+      card.querySelectorAll<HTMLButtonElement>('[data-qsort-choice]').forEach((button) => button.setAttribute('aria-pressed', 'false'));
+      const feedback = card.querySelector<HTMLElement>('[data-qsort-feedback]');
+      if (feedback) feedback.hidden = true;
+    });
+    if (status) status.textContent = chinese ? '先作出選擇。' : 'Make your choices first.';
+  });
+});
+
+document.querySelectorAll<HTMLElement>('[data-qtype-picker]').forEach((picker) => {
+  const options = Array.from(picker.querySelectorAll<HTMLButtonElement>('[data-qtype-option]'));
+  const panels = Array.from(picker.querySelectorAll<HTMLElement>('[data-qtype-panel]'));
+  options.forEach((option) => option.addEventListener('click', () => {
+    const selected = option.getAttribute('aria-expanded') !== 'true';
+    options.forEach((button) => button.setAttribute('aria-expanded', String(selected && button === option)));
+    panels.forEach((panel) => { panel.hidden = !selected || panel.dataset.qtypePanel !== option.dataset.qtypeOption; });
+  }));
+});
+
 document.querySelectorAll<HTMLDetailsElement>('.debug-card').forEach((card) => {
   card.querySelector<HTMLElement>('summary')?.addEventListener('click', (event) => {
     event.preventDefault();

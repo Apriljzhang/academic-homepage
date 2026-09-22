@@ -81,6 +81,37 @@ h3 { margin-bottom: .45rem; color: var(--dc-ink); font-size: 1.08rem; line-heigh
 .reporting-strip { display: flex; flex-wrap: wrap; gap: .42rem; align-items: center; margin-top: .72rem; padding: .7rem; border-left: .32rem solid var(--dc-warm); background: var(--dc-warm-pale); color: #713f19; font-size: .85rem; line-height: 1.3; }
 .reporting-strip span { padding: .27rem .45rem; border-radius: 999px; background: rgba(255,255,255,.76); }
 
+.questionnaire-teaching-slide { justify-content: flex-start; }
+.questionnaire-teaching-slide h2 { max-width: 30ch; font-size: clamp(2.25rem, 4vw, 3.5rem); }
+.questionnaire-teaching-slide .intro-line { margin-bottom: .7rem; }
+.qsort-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .42rem; }
+.qsort-card { min-width: 0; padding: .52rem .64rem; border: 1px solid var(--dc-line); border-left: .27rem solid var(--dc-green); background: #fff; }
+.qsort-card:nth-child(2n) { background: var(--dc-pale); }
+.qsort-card.is-correct { border-color: var(--dc-green); background: var(--dc-mint); }
+.qsort-card.is-incorrect { border-color: var(--dc-red); background: #fff7f4; }
+.qsort-card h3 { margin: 0 0 .38rem; font-size: .91rem; }
+.qsort-options { display: flex; flex-wrap: wrap; gap: .25rem; }
+.qsort-options button { border: 1px solid var(--dc-line); border-radius: .3rem; padding: .25rem .43rem; background: #fff; color: var(--dc-ink); font-size: .7rem; font-weight: 700; cursor: pointer; }
+.qsort-options button[aria-pressed="true"] { border-color: var(--dc-green); background: var(--dc-green); color: #fff; }
+.qsort-feedback { margin: .42rem 0 0; color: var(--dc-ink); font-size: .72rem; line-height: 1.3; }
+.qsort-feedback[hidden] { display: none; }
+.qsort-actions { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; margin-top: .65rem; }
+.qsort-actions button { border: 1px solid var(--dc-green); border-radius: .35rem; padding: .4rem .65rem; background: var(--dc-green); color: #fff; font-size: .76rem; font-weight: 800; cursor: pointer; }
+.qsort-actions button[data-qsort-reset] { background: #fff; color: var(--dc-green); }
+.qsort-actions [role="status"] { color: var(--dc-muted); font-size: .76rem; }
+.questionnaire-teaching-slide .source-note { margin-top: .55rem; }
+
+.qtype-options { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .48rem; }
+.qtype-options button { display: flex; flex-direction: column; gap: .35rem; min-height: 5rem; border: 1px solid var(--dc-line); border-top: .28rem solid var(--dc-green); padding: .65rem; background: #fff; color: var(--dc-ink); font-weight: 800; text-align: left; cursor: pointer; }
+.qtype-options button[aria-expanded="true"] { background: var(--dc-mint); border-color: var(--dc-green); }
+.qtype-options button span { color: var(--dc-green); font-size: 1.15rem; }
+.qtype-panels { margin-top: .6rem; }
+.qtype-panel { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5rem; padding: .75rem .85rem; border-left: .32rem solid var(--dc-warm); background: var(--dc-warm-pale); }
+.qtype-panel[hidden] { display: none; }
+.qtype-panel h3 { grid-column: 1 / -1; margin: 0; }
+.qtype-panel p { margin: 0; color: #70411e; font-size: .82rem; line-height: 1.35; }
+.qtype-panel p strong { display: block; margin-bottom: .15rem; color: #633613; font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; }
+
 .design-check-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .55rem; }
 .design-check-grid article { min-height: 8.2rem; }
 .design-check-grid article:nth-child(2n) { background: #fff; }
@@ -254,6 +285,7 @@ textarea:focus { outline: .18rem solid rgba(31,107,69,.16); border-color: var(--
   .slide-header { padding-right: 10rem; }
   .home-button, [data-fullscreen] { display: none; }
   .field-guide, .source-gallery, .instrument-table, .irb-pack, .design-check-grid, .brief-check-grid, .instrument-lab-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .qtype-options { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .instrument-choice-map, .instrument-contrast, .claim-wall, .thesis-dossier, .clinic-layout, .audit-layout, .closing-figure { grid-template-columns: 1fr; }
   .warrant-court { grid-template-columns: 1fr; }
   .court-centre { min-height: 8rem; }
@@ -265,6 +297,8 @@ textarea:focus { outline: .18rem solid rgba(31,107,69,.16); border-color: var(--
   h1 { font-size: clamp(3.3rem, 17vw, 5.6rem); }
   h2 { max-width: 100%; font-size: clamp(2rem, 9vw, 2.7rem); }
   .field-guide, .source-gallery, .instrument-table, .irb-pack, .grid-2, .grid-3, .grid-4, .writing-grid, .audit-choice-grid, .dossier-board, .design-check-grid, .brief-check-grid, .instrument-lab-steps, .evidence-paper-grid { grid-template-columns: 1fr; }
+  .qsort-grid, .qtype-panel { grid-template-columns: 1fr; }
+  .qtype-options { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .overview-dialog ol { grid-template-columns: 1fr; }
   .guide-card, .guide-card-inner { min-height: 10.5rem; }
 }
@@ -291,6 +325,16 @@ textarea:focus { outline: .18rem solid rgba(31,107,69,.16); border-color: var(--
   .slide { display: block !important; width: 13.333in; min-height: 7.5in; padding: .42in .62in; page-break-after: always; animation: none !important; }
   .slide-inner { min-height: 6.6in; }
   .deck-controls, .overview-dialog, .tool-dialog, .top-tools, .activity-actions { display: none !important; }
+  .qsort-grid, .qtype-panels { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .2rem; }
+  .qsort-card { padding: .3rem .38rem; }
+  .qsort-card h3 { font-size: .73rem; }
+  .qsort-options, .qsort-actions, .qtype-options { display: none; }
+  .qsort-feedback, .qsort-feedback[hidden] { display: block; font-size: .62rem; line-height: 1.2; }
+  .qtype-panels { display: grid; }
+  .qtype-panel, .qtype-panel[hidden] { display: block; padding: .3rem .38rem; }
+  .qtype-panel h3 { margin-bottom: .12rem; font-size: .72rem; }
+  .qtype-panel p { margin-top: .1rem; font-size: .58rem; line-height: 1.18; }
+  .qtype-panel p strong { display: inline; margin-right: .18rem; font-size: .54rem; }
   .field-guide { gap: .25rem; }
   .guide-card, .guide-card-inner { min-height: 0; height: auto; perspective: none; }
   .guide-card-inner, .guide-card.is-flipped .guide-card-inner { transform: none; }
