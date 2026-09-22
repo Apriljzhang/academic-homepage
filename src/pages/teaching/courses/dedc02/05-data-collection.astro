@@ -10,7 +10,7 @@ const courseHref = withBase('/teaching/courses/dedc02');
 const fieldGuide = [
   { id: 'participants', icon: '◉', en: 'Participants / cases', zh: '參與者／個案', promptEn: 'Who or what supplied the data? Why these cases? Who is absent?', promptZh: '誰或甚麼提供資料？為何是這些個案？誰沒有被包括？' },
   { id: 'access', icon: '↗', en: 'Access & recruitment', zh: '接觸與招募', promptEn: 'How did the researcher reach people or materials? Who controlled access?', promptZh: '研究者如何接觸人員或材料？誰控制接觸途徑？' },
-  { id: 'source', icon: '⌁', en: 'Data source', zh: '資料來源', promptEn: 'What was collected? What could this source reveal - and not reveal?', promptZh: '蒐集了甚麼？這種來源能揭示甚麼，又不能揭示甚麼？' },
+  { id: 'source', icon: '⌁', en: 'Data source', zh: '資料來源', promptEn: 'What was collected? What evidence can this source provide? Which questions call for another source?', promptZh: '蒐集了甚麼？這種來源能提供甚麼證據？哪些問題需要另一來源？' },
   { id: 'instrument', icon: '✦', en: 'Instrument / protocol', zh: '研究工具／程序表', promptEn: 'What questions, prompts, categories or record were actually used?', promptZh: '實際使用了哪些問題、提示、分類或紀錄？' },
   { id: 'quality', icon: '◎', en: 'Question quality', zh: '問題品質', promptEn: 'What does a question assume? Which answers might it invite or block?', promptZh: '問題預設了甚麼？它可能邀請或阻礙哪些回答？' },
   { id: 'pilot', icon: '↺', en: 'Pilot & refinement', zh: '先導與修訂', promptEn: 'Was the tool tried, translated, checked or revised before use?', promptZh: '工具在使用前有否試用、翻譯、檢查或修訂？' },
@@ -53,7 +53,7 @@ const fieldGuide = [
       <div class="slide-inner">
         <header class="slide-header"><span class="eyebrow">The work of the lesson</span></header>
         <div data-language="en">
-          <h2>We will investigate procedures, not memorise a list.</h2>
+          <h2>Investigate how procedures generate evidence.</h2>
           <ol class="number-list">
             <li><span>Extract the data-collection trail from previous PhD theses.</span></li>
             <li><span>Use prompts to examine instruments and question quality.</span></li>
@@ -62,7 +62,7 @@ const fieldGuide = [
           </ol>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
-          <h2>我們會探究程序，而非背誦清單。</h2>
+          <h2>探究程序如何產生證據。</h2>
           <ol class="number-list">
             <li><span>從歷屆博士論文抽取資料蒐集的證據軌跡。</span></li>
             <li><span>運用提示檢視研究工具及問題品質。</span></li>
@@ -103,31 +103,31 @@ const fieldGuide = [
           <div class="trail" aria-label="Research question to claim evidence trail">
             <span>Research<br />question</span><b>→</b><span>Needed<br />evidence</span><b>→</b><span>Data<br />source</span><b>→</b><span>Instrument<br />or protocol</span><b>→</b><span>Procedure</span><b>→</b><span>Defensible<br />claim</span>
           </div>
-          <p class="takeaway">A label such as “interviews” is not a procedure. A procedure makes visible how evidence was generated and what its boundaries are.</p>
+          <p class="takeaway">A procedure makes visible how evidence was generated and what its boundaries are.</p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
           <h2>資料蒐集是研究問題與主張之間的橋樑。</h2>
           <div class="trail" aria-label="研究問題至主張的證據軌跡">
             <span>研究<br />問題</span><b>→</b><span>所需<br />證據</span><b>→</b><span>資料<br />來源</span><b>→</b><span>研究工具<br />或程序表</span><b>→</b><span>蒐集程序</span><b>→</b><span>可論證的<br />主張</span>
           </div>
-          <p class="takeaway">「訪談」之類的標籤並不是程序。程序應清楚顯示證據如何產生，以及其邊界。</p>
+          <p class="takeaway">程序應清楚顯示證據如何產生，以及其邊界。</p>
         </div>
       </div>
     </section>
 
     <section class="slide" data-title="Data-Collection Field Guide" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">A field guide, not a lecture</span></header>
+        <header class="slide-header"><span class="eyebrow">Field guide for inquiry</span></header>
         <div data-language="en">
           <h2>Eleven places to look in a method chapter.</h2>
           <div class="field-guide">
-            {fieldGuide.map((item) => <article class="panel"><span class="eyebrow">{item.icon}</span><h3>{item.en}</h3><p>Locate the decision; do not infer it.</p></article>)}
+            {fieldGuide.map((item) => <article class="panel"><span class="eyebrow">{item.icon}</span><h3>{item.en}</h3><p>Locate the stated decision and record its evidence.</p></article>)}
           </div>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
           <h2>方法章節中值得尋找的十一項內容。</h2>
           <div class="field-guide">
-            {fieldGuide.map((item) => <article class="panel"><span class="eyebrow">{item.icon}</span><h3>{item.zh}</h3><p>找出已說明的決策，而非自行推測。</p></article>)}
+            {fieldGuide.map((item) => <article class="panel"><span class="eyebrow">{item.icon}</span><h3>{item.zh}</h3><p>找出已說明的決策並記錄證據。</p></article>)}
           </div>
         </div>
       </div>
@@ -205,16 +205,16 @@ const fieldGuide = [
             <article class="panel soft"><h3>What generated evidence?</h3><p>Identify the person, event, artefact or response that supplied the data.</p></article>
             <article class="panel soft"><h3>What remains unknown?</h3><p>Frame an author query: “How did you decide…?” or “What happened if…?”</p></article>
           </div>
-          <p class="instruction">Your group is not judging whether the thesis is “good” or “bad”. It is reconstructing the chain that a reader needs to evaluate.</p>
+          <p class="instruction">Your group reconstructs the chain a reader needs to evaluate.</p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
           <h2>以頁面證據完成這份檔案。</h2>
           <div class="grid-3">
-            <article class="panel soft"><h3>主張是甚麼？</h3><p>抄下研究問題或目標；不要過早改寫。</p></article>
+            <article class="panel soft"><h3>主張是甚麼？</h3><p>準確抄下研究問題或目標，並暫時保留原有措辭。</p></article>
             <article class="panel soft"><h3>甚麼產生證據？</h3><p>指出提供資料的人、事件、材料或回答。</p></article>
             <article class="panel soft"><h3>還有甚麼未知？</h3><p>把它改寫成作者查詢：「你如何決定⋯⋯？」或「如果⋯⋯會怎樣？」</p></article>
           </div>
-          <p class="instruction">小組並非評判論文「好」或「壞」，而是重建讀者需要用來評估的證據鏈。</p>
+          <p class="instruction">小組重建讀者需要用來評估的證據鏈。</p>
         </div>
       </div>
     </section>
@@ -230,7 +230,7 @@ const fieldGuide = [
             <article class="source-card"><span class="source-icon">▤</span><h3>Questionnaire</h3><p>What response pattern can the instrument capture across people or occasions?</p></article>
             <article class="source-card"><span class="source-icon">▣</span><h3>Document / artefact</h3><p>What trace already exists, and whose perspective does it represent?</p></article>
           </div>
-          <p class="takeaway">Ask of every source: <strong>What can it show? What can it not show alone?</strong></p>
+          <p class="takeaway">Ask of every source: <strong>What can it show? Which questions require another source?</strong></p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
           <h2>不同來源留下不同證據痕跡。</h2>
@@ -240,7 +240,7 @@ const fieldGuide = [
             <article class="source-card"><span class="source-icon">▤</span><h3>問卷</h3><p>工具能夠捕捉不同人士或時段的哪類回答模式？</p></article>
             <article class="source-card"><span class="source-icon">▣</span><h3>文件／材料</h3><p>已有甚麼痕跡？它代表誰的觀點？</p></article>
           </div>
-          <p class="takeaway">每項來源都要問：<strong>它能顯示甚麼？單靠它又不能顯示甚麼？</strong></p>
+          <p class="takeaway">每項來源都要問：<strong>它能顯示甚麼？哪些問題需要另一來源？</strong></p>
         </div>
       </div>
     </section>
@@ -249,7 +249,7 @@ const fieldGuide = [
       <div class="slide-inner">
         <header class="slide-header"><span class="eyebrow">Read the actual tool</span></header>
         <div data-language="en">
-          <h2>An instrument is more than its label.</h2>
+          <h2>Examine the item, response format, recording frame and revision history.</h2>
           <div class="instrument-table">
             <article><span class="instrument-symbol">?</span><h3>Question / prompt</h3><p>What words invite a response, and what concepts do they bring into the room?</p></article>
             <article><span class="instrument-symbol">☷</span><h3>Response format</h3><p>What may the participant say, select, describe, rank or demonstrate?</p></article>
@@ -259,7 +259,7 @@ const fieldGuide = [
           <p class="instruction">Open a thesis appendix. Find one actual item. Trace it back to a research question and forward to the evidence it could yield.</p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
-          <h2>研究工具不只是它的名稱。</h2>
+          <h2>檢視題項、回答形式、紀錄框架及修訂歷史。</h2>
           <div class="instrument-table">
             <article><span class="instrument-symbol">?</span><h3>問題／提示</h3><p>哪些文字邀請回答？它們把哪些概念帶入對話？</p></article>
             <article><span class="instrument-symbol">☷</span><h3>回答形式</h3><p>參與者可以說、選擇、描述、排序或展示甚麼？</p></article>
@@ -273,7 +273,7 @@ const fieldGuide = [
 
     <section class="slide" data-title="Question Clinic" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Examine, do not simply label</span></header>
+        <header class="slide-header"><span class="eyebrow">Question-quality inquiry</span></header>
         <div data-language="en">
           <h2>Interrogate the question before judging it.</h2>
           <div class="clinic-layout" data-question-clinic>
@@ -283,7 +283,7 @@ const fieldGuide = [
               <button type="button" data-clinic-lens="response" aria-pressed="false">② What kind of answer could it generate?</button>
               <button type="button" data-clinic-lens="repair" aria-pressed="false">③ How might you repair it?</button>
               <p class="clinic-panel" data-clinic-panel="assumption" hidden>It assumes that one mode is less effective and invites the participant to accept that comparison before speaking.</p>
-              <p class="clinic-panel" data-clinic-panel="response" hidden>It may produce agreement, resistance or a general opinion, but not necessarily an account of a particular learning experience.</p>
+              <p class="clinic-panel" data-clinic-panel="response" hidden>It may produce agreement, resistance or a general opinion. A follow-up can invite an account of a particular learning experience.</p>
               <p class="clinic-panel" data-clinic-panel="repair" hidden>Try: “How, if at all, have your learning experiences differed across online and face-to-face settings?” Then ask for an example.</p>
               <button class="small-button" type="button" data-clinic-reset>Reset lenses</button>
             </div>
@@ -298,7 +298,7 @@ const fieldGuide = [
               <button type="button" data-clinic-lens="response" aria-pressed="false">② 它可能產生哪類回答？</button>
               <button type="button" data-clinic-lens="repair" aria-pressed="false">③ 可以如何修訂？</button>
               <p class="clinic-panel" data-clinic-panel="assumption" hidden>它預設其中一種方式成效較低，並在參與者發言前邀請其接受這個比較。</p>
-              <p class="clinic-panel" data-clinic-panel="response" hidden>它或會帶來同意、抗拒或概括意見，卻未必帶來特定學習經驗的敘述。</p>
+              <p class="clinic-panel" data-clinic-panel="response" hidden>它或會帶來同意、抗拒或概括意見；再運用追問邀請特定學習經驗的敘述。</p>
               <p class="clinic-panel" data-clinic-panel="repair" hidden>可改為：「在網上與面授情境中，你的學習經驗有何不同（如有）？」然後請對方舉例。</p>
               <button class="small-button" type="button" data-clinic-reset>重設提示鏡</button>
             </div>
@@ -317,7 +317,7 @@ const fieldGuide = [
             <article class="panel soft"><h3>Ask for an example</h3><p>“What happened then? Could you walk me through it?”</p></article>
             <article class="panel soft"><h3>Check your reading</h3><p>“I heard you say… Have I understood that correctly?”</p></article>
           </div>
-          <p class="takeaway">Use the old question bank as a clinic: diagnose the assumption, anticipated evidence and possible repair. Avoid a binary “appropriate / inappropriate” answer.</p>
+          <p class="takeaway">Use the old question bank as a clinic: diagnose the assumption, anticipated evidence and possible repair.</p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
           <h2>較好的問題，需要有心思的下一步。</h2>
@@ -326,7 +326,7 @@ const fieldGuide = [
             <article class="panel soft"><h3>請求例子</h3><p>「之後發生甚麼？你可否帶我逐步了解？」</p></article>
             <article class="panel soft"><h3>核對理解</h3><p>「我聽到你說⋯⋯，我的理解正確嗎？」</p></article>
           </div>
-          <p class="takeaway">把舊題庫當成診所：診斷預設、預期證據及可能修訂。避免只判斷「恰當／不恰當」。</p>
+          <p class="takeaway">把舊題庫當成診所：診斷預設、預期證據及可能修訂。</p>
         </div>
       </div>
     </section>
@@ -335,7 +335,7 @@ const fieldGuide = [
       <div class="slide-inner">
         <header class="slide-header"><span class="eyebrow">Make decisions visible</span></header>
         <div data-language="en">
-          <h2>Reconstruct the procedure - do not fill the gaps with assumptions.</h2>
+          <h2>Reconstruct the procedure from the evidence available.</h2>
           <div class="procedure-builder" data-procedure-builder>
             <div>
               <div class="procedure-card-bank">
@@ -354,7 +354,7 @@ const fieldGuide = [
           </div>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
-          <h2>重建程序，不要以推測填補缺口。</h2>
+          <h2>根據已有證據重建程序。</h2>
           <div class="procedure-builder" data-procedure-builder>
             <div>
               <div class="procedure-card-bank">
@@ -405,7 +405,7 @@ const fieldGuide = [
       <div class="slide-inner">
         <header class="slide-header"><span class="eyebrow">Evidence-based critique</span></header>
         <div data-language="en">
-          <h2>Write a reviewer query, not a verdict.</h2>
+          <h2>Formulate a precise reviewer query.</h2>
           <div class="warrant-court">
             <article class="court-side"><h3>Locate</h3><p>Point to the exact thesis page and quoted procedure detail.</p></article>
             <article class="court-centre"><span class="court-symbol">?</span><h3>What does the stated procedure allow the reader to conclude?</h3></article>
@@ -414,7 +414,7 @@ const fieldGuide = [
           <p class="takeaway">Useful reviewer language: <em>“Please clarify how…”, “The procedure appears to…; how did you address…?”, “What evidence supports…?”</em></p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
-          <h2>寫下審稿查詢，而非判決。</h2>
+          <h2>形成一條精確的審稿查詢。</h2>
           <div class="warrant-court">
             <article class="court-side"><h3>定位</h3><p>指出確切論文頁碼及相關程序細節。</p></article>
             <article class="court-centre"><span class="court-symbol">?</span><h3>既定程序讓讀者可以作出甚麼結論？</h3></article>
@@ -429,18 +429,18 @@ const fieldGuide = [
       <div class="slide-inner">
         <header class="slide-header"><span class="eyebrow">Claim boundary</span></header>
         <div data-language="en">
-          <h2>Evidence can be rich and still have a boundary.</h2>
+          <h2>Specify the scope and boundary of the evidence.</h2>
           <div class="grid-3">
             <article class="panel soft"><h3>The evidence supports…</h3><p>Write the narrowest conclusion that follows directly from the procedure and source.</p></article>
-            <article class="panel soft"><h3>The evidence does not settle…</h3><p>Name a question that requires another source, another design choice or cautious language.</p></article>
+            <article class="panel soft"><h3>Questions requiring further evidence…</h3><p>Name a question that requires another source, another design choice or cautious language.</p></article>
             <article class="panel soft"><h3>The author should make visible…</h3><p>Identify one decision that would let readers evaluate the boundary fairly.</p></article>
           </div>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
-          <h2>證據可以豐富，但仍然有其邊界。</h2>
+          <h2>清楚說明證據的範圍及邊界。</h2>
           <div class="grid-3">
             <article class="panel soft"><h3>證據支持⋯⋯</h3><p>寫下可由程序及來源直接推出的最窄結論。</p></article>
-            <article class="panel soft"><h3>證據未能決定⋯⋯</h3><p>指出需要另一來源、設計決策或審慎語言的問題。</p></article>
+            <article class="panel soft"><h3>需要進一步證據的問題⋯⋯</h3><p>指出需要另一來源、設計決策或審慎語言的問題。</p></article>
             <article class="panel soft"><h3>作者應清楚說明⋯⋯</h3><p>找出一項有助讀者公平評估邊界的決策。</p></article>
           </div>
         </div>
@@ -453,12 +453,12 @@ const fieldGuide = [
         <div data-language="en">
           <h2>Build the smallest defensible collection plan.</h2>
           <div class="canvas-flow"><span>Research<br />question</span><b>→</b><span>Needed<br />evidence</span><b>→</b><span>Source &amp;<br />instrument</span><b>→</b><span>Procedure &amp;<br />safeguard</span><b>→</b><span>Bounded<br />claim</span></div>
-          <p class="takeaway">Do not design the whole study here. Make one evidence route visible enough for a peer to question, improve and later attach to an ethics application.</p>
+          <p class="takeaway">Develop one evidence route and make it visible enough for a peer to question, improve and later attach to an ethics application.</p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
-          <h2>建立最小但可論證的蒐集方案。</h2>
+          <h2>建立精簡、可論證的蒐集方案。</h2>
           <div class="canvas-flow"><span>研究<br />問題</span><b>→</b><span>所需<br />證據</span><b>→</b><span>來源及<br />工具</span><b>→</b><span>程序及<br />保障</span><b>→</b><span>有邊界的<br />主張</span></div>
-          <p class="takeaway">這裏不是設計整個研究；只需把一條證據路徑清楚呈現，讓同儕可以提問、改進，並在日後附入倫理申請。</p>
+          <p class="takeaway">建立一條證據路徑，並清楚呈現，讓同儕可以提問、改進，並在日後附入倫理申請。</p>
         </div>
       </div>
     </section>
@@ -496,7 +496,7 @@ const fieldGuide = [
             <label>Procedure sequence<textarea data-save="procedure" placeholder="How will access, invitation, consent, collection, recording and storage unfold?"></textarea></label>
             <label>Participant care &amp; ethics<textarea data-save="care" placeholder="What needs protection? What happens if someone declines, withdraws or becomes uncomfortable?"></textarea></label>
             <label>Quality / researcher-role decision<textarea data-save="quality" placeholder="What will you make visible so readers can judge how the evidence was produced?"></textarea></label>
-            <label>Claim boundary &amp; contingency<textarea data-save="boundary" placeholder="What will this source not establish alone? What is your plan if access or collection changes?"></textarea></label>
+            <label>Claim boundary &amp; contingency<textarea data-save="boundary" placeholder="Which claim boundary remains with this source? What is your plan if access or collection changes?"></textarea></label>
           </div>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
@@ -505,7 +505,7 @@ const fieldGuide = [
             <label>程序順序<textarea data-save="procedure" placeholder="接觸、邀請、同意、蒐集、紀錄及儲存將如何展開？"></textarea></label>
             <label>參與者保障及倫理<textarea data-save="care" placeholder="需要保障甚麼？如有人拒絕、退出或感到不適，會怎樣處理？"></textarea></label>
             <label>品質／研究者角色決策<textarea data-save="quality" placeholder="你會清楚呈現甚麼，讓讀者能判斷證據如何產生？"></textarea></label>
-            <label>主張邊界及應變<textarea data-save="boundary" placeholder="單靠此來源不能證實甚麼？如接觸或蒐集改變，計劃是甚麼？"></textarea></label>
+            <label>主張邊界及應變<textarea data-save="boundary" placeholder="此來源仍有哪些主張邊界？如接觸或蒐集改變，計劃是甚麼？"></textarea></label>
           </div>
         </div>
       </div>
@@ -525,7 +525,7 @@ const fieldGuide = [
               <button class="audit-choice" type="button" data-audit-choice aria-pressed="false">Participant care and data protection are visible.</button>
               <button class="audit-choice" type="button" data-audit-choice aria-pressed="false">A risk or change has a response plan.</button>
             </div>
-            <aside><p class="audit-callout">For every unmarked item, write one precise peer question. Do not write “be clearer”; name the missing decision.</p><p class="activity-status" data-audit-status></p></aside>
+            <aside><p class="audit-callout">For every unmarked item, write one precise peer question that names the missing decision.</p><p class="activity-status" data-audit-status></p></aside>
           </div>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
@@ -539,7 +539,7 @@ const fieldGuide = [
               <button class="audit-choice" type="button" data-audit-choice aria-pressed="false">參與者保障及資料保護清晰可見。</button>
               <button class="audit-choice" type="button" data-audit-choice aria-pressed="false">一項風險或改變已有回應方案。</button>
             </div>
-            <aside><p class="audit-callout">每一項未標示內容都要寫一條精確同儕提問。不要只說「更清楚」；要指出遺漏的決策。</p><p class="activity-status" data-audit-status></p></aside>
+            <aside><p class="audit-callout">每一項未標示內容都要寫一條精確同儕提問，指出遺漏的決策。</p><p class="activity-status" data-audit-status></p></aside>
           </div>
         </div>
       </div>
@@ -547,7 +547,7 @@ const fieldGuide = [
 
     <section class="slide" data-title="IRB handoff" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Prepare, do not collect yet</span></header>
+        <header class="slide-header"><span class="eyebrow">Preparation for ethical review</span></header>
         <div data-language="en">
           <h2>Turn your canvas into an accountable preparation pack.</h2>
           <div class="irb-pack">
@@ -556,7 +556,7 @@ const fieldGuide = [
             <article><span>◇</span><h3>Recruitment &amp; consent</h3><p>What people receive before deciding whether to participate.</p></article>
             <article><span>□</span><h3>Data plan</h3><p>Identifiers, storage, access, retention and destruction decisions.</p></article>
           </div>
-          <p class="takeaway">A protocol is a plan, not permission to collect human-participant data. Collection begins only after the required approval.</p>
+          <p class="takeaway">A protocol prepares the study for review. Begin human-participant data collection after the required approval.</p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
           <h2>把你的畫布轉化為具責任的準備包。</h2>
@@ -566,7 +566,7 @@ const fieldGuide = [
             <article><span>◇</span><h3>招募及同意</h3><p>參與者決定是否參與前會收到的資料。</p></article>
             <article><span>□</span><h3>資料計劃</h3><p>識別資料、儲存、存取、保存及銷毀的決策。</p></article>
           </div>
-          <p class="takeaway">研究方案是計劃，並非蒐集人類參與者資料的許可；只有在取得所需批准後才可開始蒐集。</p>
+          <p class="takeaway">研究方案為倫理審查作準備；取得所需批准後才可開始蒐集人類參與者資料。</p>
         </div>
       </div>
     </section>
@@ -576,14 +576,14 @@ const fieldGuide = [
         <header class="slide-header"><span class="eyebrow">Exit reflection</span></header>
         <div data-language="en">
           <div class="closing-figure">
-            <div><h2>Leave with one decision, one risk and one question.</h2><p class="lead small">A good method section does not hide uncertainty. It makes the decisions, safeguards and limits of evidence available for scrutiny.</p><div class="grid-3"><article class="panel soft"><h3>Decision</h3><p>What will you now specify in your collection plan?</p></article><article class="panel soft"><h3>Risk</h3><p>What needs a safeguard, alternative or author query?</p></article><article class="panel soft"><h3>Question</h3><p>What will you ask your peer, supervisor or future participant?</p></article></div></div>
-            <aside class="closing-stamp"><div><strong>Trace the<br />evidence.</strong><span>Do not infer the procedure.</span></div></aside>
+            <div><h2>Leave with one decision, one risk and one question.</h2><p class="lead small">A good method section makes the decisions, safeguards and limits of evidence available for scrutiny.</p><div class="grid-3"><article class="panel soft"><h3>Decision</h3><p>What will you now specify in your collection plan?</p></article><article class="panel soft"><h3>Risk</h3><p>What needs a safeguard, alternative or author query?</p></article><article class="panel soft"><h3>Question</h3><p>What will you ask your peer, supervisor or future participant?</p></article></div></div>
+            <aside class="closing-stamp"><div><strong>Trace the<br />evidence.</strong><span>Trace the procedure.</span></div></aside>
           </div>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
           <div class="closing-figure">
-            <div><h2>帶走一項決策、一項風險及一條問題。</h2><p class="lead small">好的方法章節不會隱藏不確定性；它會讓讀者檢視證據的決策、保障及限制。</p><div class="grid-3"><article class="panel soft"><h3>決策</h3><p>你現在會在蒐集計劃中具體說明甚麼？</p></article><article class="panel soft"><h3>風險</h3><p>甚麼需要保障、替代方案或作者查詢？</p></article><article class="panel soft"><h3>問題</h3><p>你會問同儕、導師或未來參與者甚麼？</p></article></div></div>
-            <aside class="closing-stamp"><div><strong>追蹤<br />證據。</strong><span>不要推測程序。</span></div></aside>
+            <div><h2>帶走一項決策、一項風險及一條問題。</h2><p class="lead small">好的方法章節會讓讀者檢視證據的決策、保障及限制。</p><div class="grid-3"><article class="panel soft"><h3>決策</h3><p>你現在會在蒐集計劃中具體說明甚麼？</p></article><article class="panel soft"><h3>風險</h3><p>甚麼需要保障、替代方案或作者查詢？</p></article><article class="panel soft"><h3>問題</h3><p>你會問同儕、導師或未來參與者甚麼？</p></article></div></div>
+            <aside class="closing-stamp"><div><strong>追蹤<br />證據。</strong><span>追蹤程序。</span></div></aside>
           </div>
         </div>
       </div>
