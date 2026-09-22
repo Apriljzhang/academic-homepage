@@ -147,7 +147,50 @@ document.querySelectorAll<HTMLTextAreaElement>('textarea[data-save]').forEach((f
     document.querySelectorAll<HTMLTextAreaElement>(`textarea[data-save="${field.dataset.save || ''}"]`).forEach((peer) => {
       if (peer !== field) peer.value = field.value;
     });
+    buildPdfResponseSummary();
   });
+});
+
+document.querySelectorAll<HTMLElement>('[data-evidence-card]').forEach((card) => {
+  const select = card.querySelector<HTMLSelectElement>('[data-evidence-select]');
+  const check = card.querySelector<HTMLButtonElement>('[data-evidence-check]');
+  const status = card.querySelector<HTMLElement>('[data-evidence-status]');
+  const reveal = card.querySelector<HTMLElement>('[data-evidence-reveal]');
+  const matchId = card.dataset.matchId || '';
+  const storageKey = `dedc02-w5-instrument-match-${matchId}`;
+
+  const showResult = (value: string, announce = true) => {
+    const correct = Boolean(value) && value === card.dataset.answer;
+    if (reveal) reveal.hidden = !correct;
+    card.classList.toggle('is-matched', correct);
+    if (!status || !announce) return;
+    const chinese = card.closest<HTMLElement>('[data-language="zh"]') !== null;
+    if (!value) status.textContent = chinese ? '先選擇一種工具。' : 'Choose an instrument type first.';
+    else if (correct) status.textContent = chinese ? '配對正確。現在把你的筆記與報告指南比較。' : 'Matched. Compare your notes with the reporting guide.';
+    else status.textContent = chinese ? '再讀方法描述：這項工具實際如何生成或擷取資料？' : 'Read the Methods description again: how did this tool generate or extract data?';
+  };
+
+  try {
+    const saved = localStorage.getItem(storageKey) || '';
+    if (select && saved) {
+      select.value = saved;
+      showResult(saved, false);
+    }
+  } catch {}
+
+  select?.addEventListener('change', () => {
+    try { localStorage.setItem(storageKey, select.value); } catch {}
+    document.querySelectorAll<HTMLElement>(`[data-evidence-card][data-match-id="${matchId}"]`).forEach((peerCard) => {
+      const peerSelect = peerCard.querySelector<HTMLSelectElement>('[data-evidence-select]');
+      const peerReveal = peerCard.querySelector<HTMLElement>('[data-evidence-reveal]');
+      if (peerSelect && peerSelect !== select) peerSelect.value = select.value;
+      if (peerReveal) peerReveal.hidden = true;
+      peerCard.classList.remove('is-matched');
+    });
+    if (reveal) reveal.hidden = true;
+    card.classList.remove('is-matched');
+  });
+  check?.addEventListener('click', () => showResult(select?.value || ''));
 });
 
 document.querySelectorAll<HTMLElement>('[data-audit-checklist]').forEach((checklist) => {
@@ -167,11 +210,39 @@ document.querySelectorAll<HTMLElement>('[data-audit-checklist]').forEach((checkl
 const pdfDialog = document.querySelector<HTMLDialogElement>('.pdf-dialog');
 const pdfMessage = document.querySelector<HTMLTextAreaElement>('[data-pdf-message]');
 const pdfMessagePrint = document.querySelector<HTMLElement>('[data-pdf-message-print]');
+const pdfResponseSummary = document.querySelector<HTMLElement>('[data-pdf-response-summary]');
+
+function buildPdfResponseSummary() {
+  if (!pdfResponseSummary) return;
+  pdfResponseSummary.replaceChildren();
+  const seen = new Set<string>();
+  document.querySelectorAll<HTMLTextAreaElement>('textarea[data-save]').forEach((field) => {
+    const responseKey = field.dataset.save || '';
+    const response = field.value.trim();
+    if (!responseKey || !response || seen.has(responseKey)) return;
+    seen.add(responseKey);
+    const item = document.createElement('article');
+    const heading = document.createElement('h2');
+    const body = document.createElement('p');
+    heading.textContent = field.dataset.responseLabel || responseKey;
+    body.textContent = response;
+    item.append(heading, body);
+    pdfResponseSummary.append(item);
+  });
+  if (!pdfResponseSummary.childElementCount) {
+    const empty = document.createElement('p');
+    empty.textContent = 'No saved activity responses yet.';
+    pdfResponseSummary.append(empty);
+  }
+}
+buildPdfResponseSummary();
+window.addEventListener('beforeprint', buildPdfResponseSummary);
 document.querySelectorAll<HTMLElement>('[data-pdf-open]').forEach((button) => {
   button.addEventListener('click', () => pdfDialog?.showModal());
 });
 document.querySelector('[data-pdf-download]')?.addEventListener('click', () => {
   if (pdfMessagePrint) pdfMessagePrint.textContent = pdfMessage?.value.trim() || 'My data collection plan and activity responses.';
+  buildPdfResponseSummary();
   pdfDialog?.close();
   window.print();
 });

@@ -7,6 +7,154 @@ const title = '5. Data Collection Evidence Lab · DEDC02';
 const description = 'An inquiry-led DEDC02 lesson on instruments, data collection procedures and evidence-based protocol design.';
 const courseHref = withBase('/teaching/courses/dedc02');
 
+const instrumentOptions = [
+  { value: 'scale', en: 'Questionnaire / multi-item scale', zh: '問卷／多題量表' },
+  { value: 'interview', en: 'Semi-structured interview guide', zh: '半結構式訪談指南' },
+  { value: 'focus-group', en: 'Focus-group discussion protocol', zh: '焦點小組討論程序' },
+  { value: 'observation', en: 'Classroom observation protocol', zh: '課堂觀察程序' },
+  { value: 'performance', en: 'Performance task and analytic rubric', zh: '表現任務及分析式評分規準' },
+  { value: 'documents', en: 'Document / record extraction protocol', zh: '文件／紀錄擷取程序' },
+  { value: 'digital', en: 'Digital trace specification', zh: '數碼痕跡規格' },
+  { value: 'sensor', en: 'Sensor and physiological protocol', zh: '感測及生理測量程序' },
+];
+
+const evidenceStudies = [
+  {
+    id: 'fltss-scale', answer: 'scale', marker: 'A',
+    citation: 'Sadoughi & Hejazi (2022)',
+    title: 'Development and validation of Foreign Language Teacher Support Scale (FLTSS)',
+    source: 'Language Testing in Asia, 12:30 · Methods pp. 4–5',
+    descriptionEn: 'The authors adapted existing items, translated and back-translated them, added interview-generated items, used expert content review, and retained 25 five-point items covering emotional, instrumental, appraisal and informational support.',
+    descriptionZh: '作者改編既有題項，進行翻譯及回譯，加入由訪談生成的題項，再作專家內容審查；最後保留 25 個五點題項，涵蓋情感、工具性、評價及資訊支援。',
+    revealEn: 'Questionnaire / multi-item scale. The inspectable instrument includes a construct definition, item set, response scale, subscales and evidence from development and validation checks.',
+    revealZh: '問卷／多題量表。可檢視的工具包括構念界定、題項組、作答量尺、分量表，以及發展和驗證檢查的證據。',
+    noteEn: 'FLTSS paper: what the authors report about the instrument',
+    noteZh: 'FLTSS 論文：作者如何介紹工具',
+    pdf: withBase('/papers/dedc02/data-collection/sadoughi-hejazi-2022-fltss.pdf'),
+    record: 'https://doi.org/10.1186/s40468-022-00186-1',
+    licence: 'CC BY 4.0',
+  },
+  {
+    id: 'braund-interview', answer: 'interview', marker: 'B',
+    citation: 'Braund et al. (2021)',
+    title: 'Exploring formative assessment and co-regulation in kindergarten',
+    source: 'Frontiers in Education, 6:732373 · Methods p. 4',
+    descriptionEn: 'Two semi-structured protocols were used at two time points: one elicited conceptions; the other elicited concrete practice examples. Four graduate students piloted the questions through think-alouds; interviews were audio-recorded and transcribed.',
+    descriptionZh: '研究在兩個時間點使用兩份半結構式指南：一份引出觀念，另一份引出具體實踐例子。四名研究生以有聲思考試答問題；訪談經錄音及逐字轉錄。',
+    revealEn: 'Semi-structured interview guide. Report the topic domains, opening questions and probes, piloting, interviewer role, mode and setting, duration, recording and transcription.',
+    revealZh: '半結構式訪談指南。應報告主題範圍、開場問題及追問、先導測試、訪談者角色、方式及場域、時長、錄音及轉錄。',
+    noteEn: 'Braund et al. paper: what the authors report about the instrument',
+    noteZh: 'Braund 等人論文：作者如何介紹工具',
+    pdf: withBase('/papers/dedc02/data-collection/braund-et-al-2021-interview-observation.pdf'),
+    record: 'https://doi.org/10.3389/feduc.2021.732373',
+    licence: 'CC BY 4.0',
+  },
+  {
+    id: 'rahman-focus-group', answer: 'focus-group', marker: 'C',
+    citation: 'Rahman et al. (2021)',
+    title: 'Implementing a formative assessment model at secondary schools',
+    source: 'Language Testing in Asia, 11:18 · Methods pp. 6–7',
+    descriptionEn: 'The study ran 12 focus groups, one in each school, with nine Grade 8 students selected to include different achievement levels. The protocol addressed understanding, attitudes, criteria, roles, barriers and recommendations; discussions were held in Bangla, transcribed and translated.',
+    descriptionZh: '研究在 12 所學校各進行一組焦點小組，每組九名八年級學生，並涵蓋不同成績水平。程序探討理解、態度、準則、角色、障礙及建議；討論以孟加拉語進行、轉錄及翻譯。',
+    revealEn: 'Focus-group discussion protocol. Its design includes the group composition, moderator guide, prompts that invite interaction, group size, language, recording and an account of how group dynamics are handled.',
+    revealZh: '焦點小組討論程序。設計包括小組組成、主持指南、促進互動的提示、小組人數、語言、紀錄方式，以及如何處理小組動態。',
+    noteEn: 'Rahman et al. paper: what the authors report about the focus-group instrument',
+    noteZh: 'Rahman 等人論文：作者如何介紹焦點小組工具',
+    pdf: withBase('/papers/dedc02/data-collection/rahman-et-al-2021-sba.pdf'),
+    record: 'https://doi.org/10.1186/s40468-021-00136-3',
+    licence: 'CC BY 4.0',
+  },
+  {
+    id: 'moraes-observation', answer: 'observation', marker: 'D',
+    citation: 'Moraes, Furtoso & Giraldo (2024)',
+    title: 'Developing pre-service teachers’ language assessment literacy',
+    source: 'Ilha do Desterro, 77 · Methods p. 8',
+    descriptionEn: 'Observation protocols guided note-taking about tasks in two assessment courses. Researchers compared the observation record with course calendars to check that all tasks were listed, then connected those records to open- and closed-question questionnaire evidence.',
+    descriptionZh: '觀察程序引導研究者記錄兩門評量課程中的任務；研究者把觀察紀錄與課程日程對照，檢查任務是否完整，再連結開放式及封閉式問卷證據。',
+    revealEn: 'Classroom observation protocol. It specifies the observation focus, unit and setting; field-note or coding format; observer role and timing; contextual records; and checks on completeness or consistency.',
+    revealZh: '課堂觀察程序。應列明觀察焦點、單位及場域、田野筆記或編碼格式、觀察者角色及時間、情境紀錄，以及完整性或一致性檢查。',
+    noteEn: 'Moraes et al. paper: what the authors report about the observation instrument',
+    noteZh: 'Moraes 等人論文：作者如何介紹觀察工具',
+    pdf: withBase('/papers/dedc02/data-collection/moraes-et-al-2024-classroom-tasks.pdf'),
+    record: 'https://doi.org/10.5007/2175-8026.2024.e96898',
+    licence: 'CC BY 4.0',
+  },
+  {
+    id: 'uludag-rubric', answer: 'performance', marker: 'E',
+    citation: 'Uludag, McDonough & Trofimovich (2022)',
+    title: 'Exploring shared and individual assessment of paired oral interactions',
+    source: 'Studies in Language Assessment · Methods pp. 6–9',
+    descriptionEn: 'Six ten-minute paired interactions were sampled and presented as audio or video. Sixty trained raters used an analytic rubric covering discourse management, collaborative communication, content development, and language accuracy and complexity.',
+    descriptionZh: '研究抽取六段各十分鐘的雙人互動，以錄音或錄影呈現。60 名受訓評分員使用分析式評分規準，評量話語管理、協作溝通、內容發展及語言準確度與複雜度。',
+    revealEn: 'Performance task and analytic rubric. The instrument bundle includes the task prompt, performance conditions, recording, criteria and descriptors, score scale, rater training and scoring-quality checks.',
+    revealZh: '表現任務及分析式評分規準。工具組合包括任務提示、表現條件、紀錄、準則及描述語、分數量尺、評分員培訓及評分品質檢查。',
+    noteEn: 'Uludag et al. paper: what the authors report about the performance instrument',
+    noteZh: 'Uludag 等人論文：作者如何介紹表現工具',
+    pdf: withBase('/papers/dedc02/data-collection/uludag-et-al-2022-paired-speaking.pdf'),
+    record: 'https://www.altaanz.org/studies-in-language-assessment.html',
+    licence: 'CC BY 4.0',
+  },
+  {
+    id: 'rahman-documents', answer: 'documents', marker: 'F',
+    citation: 'Rahman et al. (2021)',
+    title: 'Implementing a formative assessment model at secondary schools',
+    source: 'Language Testing in Asia, 11:18 · Methods pp. 6–8',
+    descriptionEn: 'Alongside interviews and focus groups, the researchers used field notes and document analysis. They compared reported practice with the national Teacher’s Guide and consulted school grade sheets and registers to trace which assessment components were recorded.',
+    descriptionZh: '除訪談及焦點小組外，研究者亦使用田野筆記和文件分析，把受訪者描述的做法與國家《教師指南》比較，並查閱學校成績表及登記冊，追蹤哪些評量項目有被記錄。',
+    revealEn: 'Document / record extraction protocol. Define the corpus and inclusion rules, document provenance and dates, fields or features to extract, extraction form, missing records, permissions and comparison procedure.',
+    revealZh: '文件／紀錄擷取程序。應界定材料集合及納入規則、文件來源及日期、擷取欄位或特徵、擷取表、遺漏紀錄、使用權限及比較程序。',
+    noteEn: 'Rahman et al. paper: what the authors report about documentary evidence',
+    noteZh: 'Rahman 等人論文：作者如何介紹文件證據',
+    pdf: withBase('/papers/dedc02/data-collection/rahman-et-al-2021-sba.pdf'),
+    record: 'https://doi.org/10.1186/s40468-021-00136-3',
+    licence: 'CC BY 4.0',
+  },
+  {
+    id: 'poole-traces', answer: 'digital', marker: 'G',
+    citation: 'Poole, Coss & Clarke-Midura (2025)',
+    title: 'Developing stealth assessments for young Chinese learners’ L2 reading comprehension',
+    source: 'Language Learning & Technology, 29(2) · Methods pp. 7–10',
+    descriptionEn: 'Game log files stored movements and choices with timestamps in JSON after each session. The specification identified indicators such as reading time, prompted response, sentence length, glossary use, prior vocabulary knowledge, repeated exposure and comprehension outcomes.',
+    descriptionZh: '遊戲記錄檔在每節結束後以 JSON 儲存移動、選擇及時間戳。規格界定閱讀時間、是否需要作答、句子長度、詞彙表使用、既有詞彙知識、重複接觸及理解結果等指標。',
+    revealEn: 'Digital trace specification. Report which events are logged, timestamps and identifiers, platform and file format, variable definitions, collection window, exclusions, cleaning, linkage, consent and privacy.',
+    revealZh: '數碼痕跡規格。應報告記錄哪些事件、時間戳及識別碼、平台及檔案格式、變項定義、蒐集時段、排除、清理、資料連結、同意及私隱。',
+    noteEn: 'Poole et al. paper: what the authors report about the digital-trace instrument',
+    noteZh: 'Poole 等人論文：作者如何介紹數碼痕跡工具',
+    pdf: withBase('/papers/dedc02/data-collection/poole-et-al-2025-game-logs.pdf'),
+    record: 'https://hdl.handle.net/10125/73613',
+    licence: 'CC BY-NC-ND 4.0',
+  },
+  {
+    id: 'zhai-sensors', answer: 'sensor', marker: 'H',
+    citation: 'Zhai & Aryadoust (2022)',
+    title: 'Metacognitive and neurocognitive signatures of academic listening test methods',
+    source: 'Frontiers in Psychology, 13:930075 · Methods pp. 4–6',
+    descriptionEn: 'During listening tests, the study combined a metacognitive questionnaire with gaze measures from a Tobii eye tracker and brain-activation measures from a customised fNIRS headcap. The protocol aligned devices, test phases and derived measures.',
+    descriptionZh: '研究在聆聽測驗中結合後設認知問卷、Tobii 眼動儀的凝視指標，以及訂製 fNIRS 頭套的腦部活動指標；程序把裝置、測驗階段及衍生測量對齊。',
+    revealEn: 'Sensor and physiological protocol. Specify device and placement, calibration, sampling and synchronisation, task phases, derived measures, artefact and exclusion rules, participant burden, safety and data governance.',
+    revealZh: '感測及生理測量程序。應列明裝置及位置、校準、取樣及同步、任務階段、衍生測量、雜訊及排除規則、參與者負擔、安全及資料治理。',
+    noteEn: 'Zhai and Aryadoust paper: what the authors report about the sensor instrument',
+    noteZh: 'Zhai 及 Aryadoust 論文：作者如何介紹感測工具',
+    pdf: withBase('/papers/dedc02/data-collection/zhai-aryadoust-2022-sensors.pdf'),
+    record: 'https://doi.org/10.3389/fpsyg.2022.930075',
+    licence: 'CC BY 4.0',
+  },
+];
+
+const evidencePairs = [
+  evidenceStudies.slice(0, 2),
+  evidenceStudies.slice(2, 4),
+  evidenceStudies.slice(4, 6),
+  evidenceStudies.slice(6, 8),
+];
+
+const evidencePairHeadings = [
+  { en: 'Elicit a learner’s account: fixed responses or guided talk?', zh: '引出學習者敘述：固定回答還是引導式對話？' },
+  { en: 'Trace interaction and practice: group talk or classroom observation?', zh: '追蹤互動及實踐：小組對話還是課堂觀察？' },
+  { en: 'Judge performance or inspect records: what makes the tool visible?', zh: '評量表現還是檢視紀錄：甚麼令工具可見？' },
+  { en: 'Capture generated traces: platform events or embodied signals?', zh: '捕捉生成痕跡：平台事件還是身體訊號？' },
+];
+
 const fieldGuide = [
   { id: 'participants', icon: '◉', en: 'Participants / cases', zh: '參與者／個案', promptEn: 'Who or what supplied the data? Why these cases? Who is absent?', promptZh: '誰或甚麼提供資料？為何是這些個案？誰沒有被包括？' },
   { id: 'access', icon: '↗', en: 'Access & recruitment', zh: '接觸與招募', promptEn: 'How did the researcher reach people or materials? Who controlled access?', promptZh: '研究者如何接觸人員或材料？誰控制接觸途徑？' },
@@ -30,6 +178,13 @@ const fieldGuide = [
       <h2>Personal message</h2>
       <p data-pdf-message-print></p>
     </div>
+  </section>
+
+  <section class="pdf-response-summary" aria-hidden="true">
+    <span class="eyebrow">DEDC02 · My evidence notes</span>
+    <h1>Instrument-reading responses</h1>
+    <p>These are the notes saved from this browser when the PDF was created.</p>
+    <div data-pdf-response-summary></div>
   </section>
 
   <div class="top-tools" aria-label="Language and timer controls">
@@ -342,60 +497,110 @@ const fieldGuide = [
       </div>
     </section>
 
-    <section class="slide" data-title="Educational instruments: elicited and observed evidence" aria-hidden="true">
+    <section class="slide" data-title="Match vault studies to their instruments" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Educational instruments · field map I</span></header>
+        <header class="slide-header"><span class="eyebrow">Instrument evidence lab · real papers</span></header>
         <div data-language="en">
-          <h2>Instruments can elicit responses, talk, action and performance.</h2>
-          <div class="design-check-grid" aria-label="Instruments for elicited and observed educational evidence">
-            <article><span>SELF-REPORT</span><h3>Questionnaire, scale &amp; diary</h3><p>Item set · multi-item scale or inventory · checklist · journal · experience-sampling prompt</p></article>
-            <article><span>INTERVIEW</span><h3>Individual or dyadic talk</h3><p>Structured, semi-structured or unstructured interview guide</p></article>
-            <article><span>GROUP TALK</span><h3>Focus group</h3><p>Moderator guide · group task · interaction-recording protocol</p></article>
-            <article><span>OBSERVATION</span><h3>Action and interaction</h3><p>Observation schedule · field-note protocol · classroom interaction code · audio/video record</p></article>
-            <article><span>PERFORMANCE</span><h3>Assessment and work</h3><p>Achievement test · quiz · performance task · rubric · portfolio or concept-map protocol</p></article>
-            <article><span>PROCESS</span><h3>Thinking and recall</h3><p>Think-aloud protocol · stimulated-recall guide · cognitive interview</p></article>
+          <h2>Read what the authors report before naming the instrument.</h2>
+          <div class="instrument-lab-steps">
+            <article><span>1</span><h3>Open the paper</h3><p>Use the page cue to find the Methods description in the downloadable PDF.</p></article>
+            <article><span>2</span><h3>Record what is included</h3><p>Type the purpose, structure, prompts or items, administration, recording and quality checks you can verify.</p></article>
+            <article><span>3</span><h3>Match the instrument</h3><p>Choose the most precise label, check the match, then compare your notes with the revealed reporting guide.</p></article>
           </div>
+          <p class="takeaway">Your notes save automatically in this browser and will be added to the response section of your personal PDF.</p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
-          <h2>工具可以引出回答、談話、行動及表現。</h2>
-          <div class="design-check-grid" aria-label="引出及觀察教育證據的工具">
-            <article><span>自陳</span><h3>問卷、量表及日誌</h3><p>題項組 · 多題量表或量庫 · 核對表 · 學習札記 · 經驗抽樣提示</p></article>
-            <article><span>訪談</span><h3>個別或雙人對話</h3><p>結構式、半結構式或非結構式訪談指南</p></article>
-            <article><span>小組對話</span><h3>焦點小組</h3><p>主持指南 · 小組任務 · 互動紀錄程序</p></article>
-            <article><span>觀察</span><h3>行動及互動</h3><p>觀察表 · 田野筆記程序 · 課堂互動編碼表 · 錄音／錄影紀錄</p></article>
-            <article><span>表現</span><h3>評量及作品</h3><p>成就測驗 · 小測 · 表現任務 · 評分規準 · 作品集或概念圖程序</p></article>
-            <article><span>歷程</span><h3>思考及回憶</h3><p>有聲思考程序 · 刺激回憶指南 · 認知訪談</p></article>
+          <h2>先閱讀作者的報告，再為工具命名。</h2>
+          <div class="instrument-lab-steps">
+            <article><span>1</span><h3>開啟論文</h3><p>依頁碼提示，在可下載 PDF 的方法部分找出工具描述。</p></article>
+            <article><span>2</span><h3>記錄包括甚麼</h3><p>輸入你能核實的用途、結構、提示或題項、施測、紀錄及品質檢查。</p></article>
+            <article><span>3</span><h3>配對工具</h3><p>選擇最精確的標籤，檢查配對，再把筆記與揭示的報告指南比較。</p></article>
           </div>
+          <p class="takeaway">你的筆記會自動儲存在此瀏覽器，並加入個人 PDF 的回應部分。</p>
         </div>
       </div>
     </section>
 
-    <section class="slide" data-title="Educational instruments: records and generated traces" aria-hidden="true">
-      <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Educational instruments · field map II</span></header>
-        <div data-language="en">
-          <h2>Other instruments select, extract or generate records and traces.</h2>
-          <div class="design-check-grid" aria-label="Instruments for educational records and traces">
-            <article><span>DOCUMENTS</span><h3>Documents and artefacts</h3><p>Selection rule and extraction form for policies, curricula, lesson plans, feedback or student work</p></article>
-            <article><span>DIGITAL</span><h3>Learning-platform traces</h3><p>LMS log specification · clickstream · discussion export · screen record · app analytics</p></article>
-            <article><span>ADMIN</span><h3>Institutional records</h3><p>Extraction form for attendance, grades, enrolment, demographics or support-service records</p></article>
-            <article><span>SOCIAL</span><h3>Relationships and networks</h3><p>Sociometric roster · peer nomination · network matrix · interaction log</p></article>
-            <article><span>PARTICIPATORY</span><h3>Visual and participant-generated evidence</h3><p>Photo elicitation · drawing or mapping prompt · participant-generated media protocol</p></article>
-            <article><span>SENSOR</span><h3>Embodied and environmental traces</h3><p>Eye-tracking protocol · wearable or physiological sensor · movement or location record</p></article>
+    {evidencePairs.map((pair, pairIndex) => (
+      <section class="slide" data-title={`Evidence match: ${pair.map((study) => study.citation).join(' and ')}`} aria-hidden="true">
+        <div class="slide-inner evidence-lab-slide">
+          <header class="slide-header"><span class="eyebrow">Instrument evidence lab · {pairIndex + 1} / {evidencePairs.length}</span></header>
+          <div data-language="en">
+            <h2>{evidencePairHeadings[pairIndex].en}</h2>
+            <div class="evidence-paper-grid">
+              {pair.map((study) => (
+                <article class="evidence-paper-card" data-evidence-card data-answer={study.answer} data-match-id={study.id}>
+                  <div class="evidence-paper-head"><span>{study.marker}</span><div><strong>{study.citation}</strong><small>{study.source}</small></div></div>
+                  <h3>{study.title}</h3>
+                  <p class="evidence-description">{study.descriptionEn}</p>
+                  <div class="evidence-paper-actions"><a href={study.pdf} download>Download PDF</a><a href={study.record} target="_blank" rel="noreferrer">Publication record ↗</a><small>{study.licence}</small></div>
+                  <label class="evidence-note"><span>What does the paper include when introducing this instrument?</span><textarea rows="3" maxlength="1800" data-save={`instrument-${study.id}`} data-response-label={study.noteEn} placeholder="Write only what you can verify in the paper…"></textarea></label>
+                  <div class="evidence-match-row">
+                    <select data-evidence-select aria-label={`Match an instrument to ${study.citation}`}>
+                      <option value="">Choose an instrument type…</option>
+                      {instrumentOptions.map((option) => <option value={option.value}>{option.en}</option>)}
+                    </select>
+                    <button type="button" data-evidence-check>Check match</button>
+                  </div>
+                  <p class="evidence-status" data-evidence-status aria-live="polite">Read, note, then match.</p>
+                  <div class="evidence-reveal" data-evidence-reveal hidden><strong>Matched instrument</strong><p>{study.revealEn}</p></div>
+                </article>
+              ))}
+            </div>
           </div>
-          <p class="takeaway">Name the exact instrument or protocol. A method label such as “survey,” “interview” or “observation” is not yet an inspectable tool.</p>
+          <div data-language="zh" hidden lang="zh-Hant">
+            <h2>{evidencePairHeadings[pairIndex].zh}</h2>
+            <div class="evidence-paper-grid">
+              {pair.map((study) => (
+                <article class="evidence-paper-card" data-evidence-card data-answer={study.answer} data-match-id={study.id}>
+                  <div class="evidence-paper-head"><span>{study.marker}</span><div><strong>{study.citation}</strong><small>{study.source}</small></div></div>
+                  <h3>{study.title}</h3>
+                  <p class="evidence-description">{study.descriptionZh}</p>
+                  <div class="evidence-paper-actions"><a href={study.pdf} download>下載 PDF</a><a href={study.record} target="_blank" rel="noreferrer">出版紀錄 ↗</a><small>{study.licence}</small></div>
+                  <label class="evidence-note"><span>論文在介紹此工具時包括甚麼？</span><textarea rows="3" maxlength="1800" data-save={`instrument-${study.id}`} data-response-label={study.noteZh} placeholder="只寫下你能在論文中核實的內容⋯⋯"></textarea></label>
+                  <div class="evidence-match-row">
+                    <select data-evidence-select aria-label={`為 ${study.citation} 配對工具`}>
+                      <option value="">選擇工具類型⋯⋯</option>
+                      {instrumentOptions.map((option) => <option value={option.value}>{option.zh}</option>)}
+                    </select>
+                    <button type="button" data-evidence-check>檢查配對</button>
+                  </div>
+                  <p class="evidence-status" data-evidence-status aria-live="polite">先閱讀、記錄，再配對。</p>
+                  <div class="evidence-reveal" data-evidence-reveal hidden><strong>配對工具</strong><p>{study.revealZh}</p></div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    ))}
+
+    <section class="slide" data-title="The wider field of educational instruments" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Educational instruments · wider field</span></header>
+        <div data-language="en">
+          <h2>The examples open onto a wider instrument landscape.</h2>
+          <div class="design-check-grid" aria-label="Wider field of educational instruments">
+            <article><span>ELICITED</span><h3>Self-report and talk</h3><p>Questionnaire · scale · diary · experience sampling · interview · focus group</p></article>
+            <article><span>OBSERVED</span><h3>Action and interaction</h3><p>Observation schedule · field notes · interaction code · audio/video protocol</p></article>
+            <article><span>PERFORMED</span><h3>Assessment and process</h3><p>Test · performance task · rubric · portfolio · think-aloud · stimulated recall</p></article>
+            <article><span>RECORDED</span><h3>Documents and administration</h3><p>Selection rule and extraction form for policy, curriculum, student work, attendance or grades</p></article>
+            <article><span>GENERATED</span><h3>Digital and relational traces</h3><p>LMS log · clickstream · discussion export · sociometric roster · network matrix</p></article>
+            <article><span>PARTICIPATORY + SENSOR</span><h3>Visual, embodied and environmental traces</h3><p>Photo elicitation · mapping prompt · participant media · eye tracking · wearable or physiological sensor</p></article>
+          </div>
+          <p class="takeaway">A study may use several instruments. Name each concrete tool and show the distinct evidence function it serves.</p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
-          <h2>另一些工具用於選取、擷取或生成紀錄及痕跡。</h2>
-          <div class="design-check-grid" aria-label="教育紀錄及痕跡工具">
-            <article><span>文件</span><h3>文件及作品</h3><p>用於政策、課程、教案、回饋或學生作品的選取規則及資料擷取表</p></article>
-            <article><span>數碼</span><h3>學習平台痕跡</h3><p>LMS 記錄規格 · 點擊流 · 討論匯出 · 螢幕錄製 · 應用程式分析</p></article>
-            <article><span>行政</span><h3>機構紀錄</h3><p>用於出席、成績、註冊、人口資料或支援服務紀錄的擷取表</p></article>
-            <article><span>社會</span><h3>關係及網絡</h3><p>社會關係名冊 · 同儕提名 · 網絡矩陣 · 互動紀錄</p></article>
-            <article><span>參與式</span><h3>視覺及參與者生成證據</h3><p>相片引談 · 繪圖或地圖提示 · 參與者生成媒體程序</p></article>
-            <article><span>感測</span><h3>身體及環境痕跡</h3><p>眼動追蹤程序 · 穿戴式或生理感測器 · 動作或位置紀錄</p></article>
+          <h2>這些例子通向更廣闊的工具版圖。</h2>
+          <div class="design-check-grid" aria-label="更廣闊的教育研究工具版圖">
+            <article><span>引出</span><h3>自陳及對話</h3><p>問卷 · 量表 · 日誌 · 經驗抽樣 · 訪談 · 焦點小組</p></article>
+            <article><span>觀察</span><h3>行動及互動</h3><p>觀察表 · 田野筆記 · 互動編碼 · 錄音／錄影程序</p></article>
+            <article><span>表現</span><h3>評量及歷程</h3><p>測驗 · 表現任務 · 評分規準 · 作品集 · 有聲思考 · 刺激回憶</p></article>
+            <article><span>紀錄</span><h3>文件及行政資料</h3><p>用於政策、課程、學生作品、出席或成績的選取規則及擷取表</p></article>
+            <article><span>生成</span><h3>數碼及關係痕跡</h3><p>LMS 記錄 · 點擊流 · 討論匯出 · 社會關係名冊 · 網絡矩陣</p></article>
+            <article><span>參與式＋感測</span><h3>視覺、身體及環境痕跡</h3><p>相片引談 · 地圖提示 · 參與者媒體 · 眼動追蹤 · 穿戴式或生理感測器</p></article>
           </div>
-          <p class="takeaway">應列明確切工具或程序；「調查」、「訪談」或「觀察」等方法標籤仍未構成可檢視的工具。</p>
+          <p class="takeaway">一項研究可以使用多種工具；請逐一列明具體工具，並說明各自獨特的證據功能。</p>
         </div>
       </div>
     </section>
