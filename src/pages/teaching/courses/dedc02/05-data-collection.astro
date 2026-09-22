@@ -3,7 +3,7 @@ import CourseSlideLayout from '../../../../layouts/CourseSlideLayout.astro';
 import { withBase } from '../../../../utils/paths';
 import '../../../../styles/dedc02-data-collection.css';
 
-const title = '5. Data Collection Evidence Lab · DEDC02';
+const title = '5. Data Collection Decisions · DEDC02';
 const description = 'An inquiry-led DEDC02 lesson on instruments, data collection procedures and evidence-based protocol design.';
 const courseHref = withBase('/teaching/courses/dedc02');
 
@@ -173,7 +173,7 @@ const fieldGuide = [
 <CourseSlideLayout {title} {description}>
   <section class="pdf-cover" aria-hidden="true">
     <span class="eyebrow">DEDC02 · Advanced Research Method</span>
-    <h1>Data Collection<br />Evidence Lab</h1>
+    <h1>Data Collection<br />Decisions</h1>
     <div class="pdf-message-block">
       <h2>Personal message</h2>
       <p data-pdf-message-print></p>
@@ -197,17 +197,17 @@ const fieldGuide = [
     </div>
   </div>
 
-  <main class="deck" aria-label="Data Collection Evidence Lab slide deck">
-    <section class="slide is-active" data-title="Data Collection Evidence Lab" aria-hidden="false">
+  <main class="deck" aria-label="Data Collection Decisions slide deck">
+    <section class="slide is-active" data-title="Data Collection Decisions" aria-hidden="false">
       <div class="slide-inner title-slide">
         <header class="slide-header"><span class="eyebrow">DEDC02 · Advanced Research Method</span></header>
         <div class="title-rule"></div>
         <div data-language="en">
-          <h1>Data<br />Collection<br />Evidence Lab</h1>
+          <h1>Data<br />Collection<br />Decisions</h1>
           <p class="lead">Trace how a study moved from its question to defensible evidence - then build an accountable procedure for your own project.</p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
-          <h1>資料蒐集<br />證據實驗室</h1>
+          <h1>資料蒐集<br />研究決策</h1>
           <p class="lead">追蹤研究如何由問題走向可論證的證據，並為自己的研究建立具責任的蒐集程序。</p>
         </div>
       </div>
@@ -279,7 +279,7 @@ const fieldGuide = [
       </div>
     </section>
 
-    <section class="slide" data-title="Data-Collection Field Guide" aria-hidden="true">
+    <section class="slide" data-title="What to report about data collection" aria-hidden="true">
       <div class="slide-inner">
         <header class="slide-header"><span class="eyebrow">Inquiry question</span></header>
         <div data-language="en">
@@ -437,7 +437,7 @@ const fieldGuide = [
       </div>
     </section>
 
-    <section class="slide" data-title="Interview question clinic" aria-hidden="true">
+    <section class="slide" data-title="Review an interview question" aria-hidden="true">
       <div class="slide-inner">
         <header class="slide-header"><span class="eyebrow">Interview design check</span></header>
         <div data-language="en">
@@ -499,7 +499,7 @@ const fieldGuide = [
 
     <section class="slide" data-title="Match vault studies to their instruments" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Instrument evidence lab · real papers</span></header>
+        <header class="slide-header"><span class="eyebrow">Research instruments in published studies</span></header>
         <div data-language="en">
           <h2>Read what the authors report before naming the instrument.</h2>
           <div class="instrument-lab-steps">
@@ -522,9 +522,9 @@ const fieldGuide = [
     </section>
 
     {evidencePairs.map((pair, pairIndex) => (
-      <section class="slide" data-title={`Evidence match: ${pair.map((study) => study.citation).join(' and ')}`} aria-hidden="true">
+      <section class="slide" data-title={`Match instruments: ${pair.map((study) => study.citation).join(' and ')}`} aria-hidden="true">
         <div class="slide-inner evidence-lab-slide">
-          <header class="slide-header"><span class="eyebrow">Instrument evidence lab · {pairIndex + 1} / {evidencePairs.length}</span></header>
+          <header class="slide-header"><span class="eyebrow">Instrument examples · {pairIndex + 1} / {evidencePairs.length}</span></header>
           <div data-language="en">
             <h2>{evidencePairHeadings[pairIndex].en}</h2>
             <div class="evidence-paper-grid">
@@ -663,7 +663,7 @@ const fieldGuide = [
 
     <section class="slide" data-title="Procedure red flags" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Procedure stress test</span></header>
+        <header class="slide-header"><span class="eyebrow">Risks in the collection procedure</span></header>
         <div data-language="en">
           <h2>Where could the evidence trail break?</h2>
           <div class="grid-4">
@@ -687,11 +687,11 @@ const fieldGuide = [
       </div>
     </section>
 
-    <section class="slide" data-title="IRB handoff" aria-hidden="true">
+    <section class="slide" data-title="Prepare for ethical review" aria-hidden="true">
       <div class="slide-inner">
         <header class="slide-header"><span class="eyebrow">Preparation for ethical review</span></header>
         <div data-language="en">
-          <h2>Turn your collection decisions into an accountable preparation pack.</h2>
+          <h2>Prepare the documents needed for ethical review.</h2>
           <div class="irb-pack">
             <article><span>▤</span><h3>Protocol</h3><p>Your purpose, participants, procedure, foreseeable risks and decision logic.</p></article>
             <article><span>✦</span><h3>Instrument</h3><p>The actual interview guide, questionnaire, observation form or document-selection rule.</p></article>
@@ -758,7 +758,7 @@ const fieldGuide = [
   </nav>
 
   <dialog class="overview-dialog">
-    <div class="overview-head"><h2>Data Collection Evidence Lab</h2><button type="button" data-close-overview aria-label="Close overview">×</button></div>
+    <div class="overview-head"><h2>Data Collection Decisions</h2><button type="button" data-close-overview aria-label="Close overview">×</button></div>
     <ol></ol>
     <p>Use ← →, Page Up / Page Down or swipe. Press O for overview and F for fullscreen.</p>
   </dialog>
