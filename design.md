@@ -64,6 +64,17 @@ Green is the dominant site colour: sage carries navigation, primary structure, a
 - Map meaning is communicated by shape and labels as well as colour.
 - Focus uses the functional coral token.
 
+## DEDC02 lesson slide decks
+
+The DEDC02 teaching decks are a presentation variant of this site system. Their white canvas and deep-green teaching contrast are intentional; they continue to use Source Serif 4 for display text and Source Sans 3 for body text. Use Week 5 (`src/pages/teaching/courses/dedc02/05-data-collection.astro` and `src/styles/dedc02-data-collection.css`) as the visual reference for future lessons.
+
+- Keep the slide canvas white, with deep-green headings (`#0f4a32`), green actions (`#1f6b45`), muted text (`#607b6d`), pale-green panels (`#edf7f0`) and fine rules (`#bad8c5`). Use warm colour only for a distinct instructional role.
+- Give each slide an eyebrow label above a thin, full-width rule. Place the title directly below it. Title slides also use a short green rule before the main heading.
+- Use the same maximum content width (1120px), slide padding, type scale and fixed control positions as the Week 5 deck. Short slides centre their content vertically; dense or expanded activities start higher and remain scrollable. Do not top-align every slide simply to make heading coordinates identical.
+- Keep the language switch and timer together at the upper right and navigation centred at the bottom. On narrow screens, place the heading below the controls rather than reserving a narrow text strip beside them.
+- Preserve lesson-specific diagrams, question-led activities and interaction logic. Check both languages, expanded states, desktop projection and mobile widths when creating or revising a deck.
+- The Week 3–4 decks share `src/styles/dedc02-literature-review.css`; Week 5 uses `src/styles/dedc02-data-collection.css`. When adding a deck, reuse their shell rules and document any deliberate exception rather than introducing a new default layout.
+
 ## Exports
 
 ### tokens.css

@@ -21,6 +21,7 @@
 
 .slide {
   display: none;
+  height: 100dvh;
   min-height: 100dvh;
   overflow-y: auto;
   padding: clamp(1.3rem, 4.5vw, 4.5rem) clamp(1.3rem, 5vw, 5.5rem) 5.8rem;
@@ -442,8 +443,7 @@ textarea:focus, select:focus { outline: .18rem solid rgba(31,107,69,.16); border
   .exit-review-video { grid-template-columns: 1fr; }
   .sort-row { grid-template-columns: 1fr; }
   .overview-dialog ol { grid-template-columns: 1fr; }
-  .compact-timer { display: none; }
-  .slide-header { padding-right: 4.5rem; }
+  .slide-header { margin-top: 3.2rem; padding-right: 0; }
 }
 
 @page { size: 13.333in 7.5in; margin: 0; }
@@ -454,7 +454,7 @@ textarea:focus, select:focus { outline: .18rem solid rgba(31,107,69,.16); border
   .pdf-message-block h2 { font-size: 2rem; }
   .pdf-message-block p { white-space: pre-wrap; color: var(--lr-muted); font-size: 1.05rem; line-height: 1.5; }
   .deck { min-height: 0; overflow: visible; }
-  .slide { display: block !important; width: 13.333in; min-height: 7.5in; padding: .42in .62in; page-break-after: always; animation: none !important; }
+  .slide { display: block !important; width: 13.333in; height: auto; min-height: 7.5in; overflow: visible; padding: .42in .62in; page-break-after: always; animation: none !important; }
   .slide-inner { min-height: 6.6in; }
   .deck-controls, .overview-dialog, .tool-dialog, .top-tools, .activity-actions { display: none !important; }
   select { appearance: none; }
