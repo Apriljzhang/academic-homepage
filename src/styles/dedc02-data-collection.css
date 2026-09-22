@@ -64,7 +64,7 @@ h3 { margin-bottom: .45rem; color: var(--dc-ink); font-size: 1.08rem; line-heigh
 
 .instrument-choice-map { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .65rem; }
 .instrument-choice-map article, .questionnaire-card, .interview-card, .design-check-grid article, .brief-check-grid article { min-width: 0; padding: .85rem .95rem; border-top: .34rem solid var(--dc-green); background: var(--dc-mint); }
-.choice-number, .instrument-chain article span, .interview-architecture article span, .procedure-flow article span, .brief-check-grid article span { display: grid; width: 1.9rem; height: 1.9rem; place-items: center; margin-bottom: .7rem; border-radius: 50%; background: var(--dc-green); color: #fff; font-size: .72rem; font-weight: 800; }
+.choice-number, .instrument-chain article span, .interview-architecture article span, .brief-check-grid article span { display: grid; width: 1.9rem; height: 1.9rem; place-items: center; margin-bottom: .7rem; border-radius: 50%; background: var(--dc-green); color: #fff; font-size: .72rem; font-weight: 800; }
 .instrument-choice-map p, .instrument-contrast p, .design-check-grid p, .brief-check-grid p { margin: .35rem 0; color: var(--dc-muted); font-size: .87rem; line-height: 1.38; }
 .instrument-choice-map b { display: block; margin-top: .65rem; color: var(--dc-green-deep); font: 700 1.12rem/1.16 'Source Serif 4', Georgia, serif; }
 .instrument-choice-map small { display: block; margin-top: .22rem; color: var(--dc-muted); font-size: .75rem; }
@@ -76,12 +76,12 @@ h3 { margin-bottom: .45rem; color: var(--dc-ink); font-size: 1.08rem; line-heigh
 .questionnaire-card > span { color: #2d6988; }
 .interview-card > span { color: var(--dc-warm); }
 
-.instrument-chain, .procedure-flow { display: grid; grid-template-columns: repeat(9, auto); gap: .3rem; align-items: center; }
-.instrument-chain article, .interview-architecture article, .procedure-flow article { min-width: 0; padding: .72rem; border-top: .3rem solid var(--dc-green); background: var(--dc-mint); }
+.instrument-chain { display: grid; grid-template-columns: repeat(9, auto); gap: .3rem; align-items: center; }
+.instrument-chain article, .interview-architecture article { min-width: 0; padding: .72rem; border-top: .3rem solid var(--dc-green); background: var(--dc-mint); }
 .instrument-chain article { min-height: 9.75rem; }
-.instrument-chain h3, .interview-architecture h3, .procedure-flow h3 { font-size: .93rem; }
-.instrument-chain p, .interview-architecture p, .procedure-flow p { margin: .25rem 0 0; color: var(--dc-muted); font-size: .78rem; line-height: 1.33; }
-.instrument-chain b, .interview-architecture b, .procedure-flow b { color: var(--dc-green); font-size: 1.3rem; }
+.instrument-chain h3, .interview-architecture h3 { font-size: .93rem; }
+.instrument-chain p, .interview-architecture p { margin: .25rem 0 0; color: var(--dc-muted); font-size: .78rem; line-height: 1.33; }
+.instrument-chain b, .interview-architecture b { color: var(--dc-green); font-size: 1.3rem; }
 .reporting-strip { display: flex; flex-wrap: wrap; gap: .42rem; align-items: center; margin-top: .72rem; padding: .7rem; border-left: .32rem solid var(--dc-warm); background: var(--dc-warm-pale); color: #713f19; font-size: .85rem; line-height: 1.3; }
 .reporting-strip span { padding: .27rem .45rem; border-radius: 999px; background: rgba(255,255,255,.76); }
 
@@ -158,9 +158,6 @@ h3 { margin-bottom: .45rem; color: var(--dc-ink); font-size: 1.08rem; line-heigh
 .interview-architecture article { min-height: 11rem; }
 .interview-architecture article:nth-of-type(2) { border-color: var(--dc-warm); background: var(--dc-warm-pale); }
 
-.procedure-flow { grid-template-columns: repeat(11, auto); }
-.procedure-flow article { min-height: 10.4rem; }
-.procedure-flow article:nth-of-type(2n) { background: #fff; }
 .brief-check-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .6rem; }
 .brief-check-grid article { min-height: 11rem; }
 
@@ -305,9 +302,9 @@ textarea:focus { outline: .18rem solid rgba(31,107,69,.16); border-color: var(--
   .evidence-choice-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .warrant-court { grid-template-columns: 1fr; }
   .court-centre { min-height: 8rem; }
-  .trail, .canvas-flow, .instrument-chain, .interview-architecture, .procedure-flow { grid-template-columns: 1fr; }
-  .trail b, .canvas-flow b, .instrument-chain b, .interview-architecture b, .procedure-flow b { display: none; }
-  .trail span, .canvas-flow span, .instrument-chain article, .interview-architecture article, .procedure-flow article { min-height: 0; }
+  .trail, .canvas-flow, .instrument-chain, .interview-architecture { grid-template-columns: 1fr; }
+  .trail b, .canvas-flow b, .instrument-chain b, .interview-architecture b { display: none; }
+  .trail span, .canvas-flow span, .instrument-chain article, .interview-architecture article { min-height: 0; }
 }
 @media (max-width: 600px) {
   h1 { font-size: clamp(3.3rem, 17vw, 5.6rem); }
