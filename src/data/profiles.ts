@@ -5,15 +5,19 @@ export const googleScholarProfileUrl =
 /** Official School of Education staff profile (City University of Macau). */
 export const cityUStaffProfileUrl = 'https://soe.cityu.edu.mo/en/staffs-1/387' as const;
 
+/** Canonical Scopus author profile. */
+export const scopusAuthorProfileUrl =
+  'https://www.scopus.com/authid/detail.uri?authorId=59513309400' as const;
+
 /** Research identifiers and aggregator profiles — shown as compact chips (no section blurb). */
 export const academicIds = {
   googleScholar: {
     label: 'Google Scholar',
     href: googleScholarProfileUrl,
   },
-  cityuProfile: {
-    label: 'CityU Macau',
-    href: cityUStaffProfileUrl,
+  scopus: {
+    label: 'Scopus',
+    href: scopusAuthorProfileUrl,
   },
   researchGate: {
     label: 'ResearchGate',
@@ -27,7 +31,7 @@ export const academicIds = {
 
 /** Display order for academic profile links. */
 export const academicProfileLinks = [
-  academicIds.cityuProfile,
+  academicIds.scopus,
   academicIds.orcid,
   academicIds.researchGate,
   academicIds.googleScholar,
