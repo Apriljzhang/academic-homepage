@@ -13,6 +13,7 @@ import { withBase } from '../../utils/paths';
 
 const title = `Training · ${person.fullDisplayName}`;
 const description = `English for Academic Purposes and interactive professional-development materials — ${person.fullDisplayName}.`;
+const doingResearchPath = withBase('/teaching/courses/dedc02');
 const studentPath = withBase('/teaching/training/app/');
 const hostPath = withBase('/teaching/training/app/host');
 const themePath = withBase(`/teaching/training/${eapTrainingTheme.slug}`);
@@ -32,51 +33,49 @@ const themePath = withBase(`/teaching/training/${eapTrainingTheme.slug}`);
             Browse the open materials below or enter an access code for a training room.
           </p>
 
-          <section class="mt-10" aria-labelledby="eap-theme-heading">
-            <div class="rounded-xl border border-border bg-surface p-5 sm:p-6">
-              <div class="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
-                <div class="max-w-3xl">
-                  <p class="type-label text-secondary">Training theme · {eapTrainingTheme.shortTitle}</p>
-                  <h2 id="eap-theme-heading" class="mt-2 font-serif text-2xl font-semibold text-ink sm:text-3xl">
-                    {eapTrainingTheme.title}
-                  </h2>
-                  <p class="type-card-title mt-2 text-secondary">{eapTrainingTheme.context}</p>
-                  <p class="type-body mt-3 text-muted">{eapTrainingTheme.description}</p>
-                </div>
-                <a
-                  href={themePath}
-                  class="inline-flex shrink-0 items-center rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white no-underline hover:opacity-95"
-                >
-                  Open theme →
-                </a>
-              </div>
-            </div>
-          </section>
+          <h2 class="type-label mt-8 text-secondary">Courses</h2>
+          <ul class="mt-3 grid gap-2 sm:grid-cols-2" aria-label="Courses">
+            <li>
+              <a href={doingResearchPath} class="group flex min-h-24 items-center justify-between gap-3 rounded-lg border border-border bg-surface px-4 py-3 no-underline transition hover:border-secondary hover:bg-main-faint">
+                <span>
+                  <span class="block text-xs font-semibold uppercase tracking-[0.12em] text-secondary">Research methods</span>
+                  <span class="mt-1 block text-base font-semibold text-ink group-hover:text-secondary">Doing Research</span>
+                </span>
+                <span class="shrink-0 text-lg text-secondary" aria-hidden="true">→</span>
+              </a>
+            </li>
+            <li>
+              <a href={themePath} class="group flex min-h-24 items-center justify-between gap-3 rounded-lg border border-border bg-surface px-4 py-3 no-underline transition hover:border-secondary hover:bg-main-faint">
+                <span>
+                  <span class="block text-xs font-semibold uppercase tracking-[0.12em] text-secondary">Training theme · {eapTrainingTheme.shortTitle}</span>
+                  <span id="eap-theme-heading" class="mt-1 block text-base font-semibold text-ink group-hover:text-secondary">{eapTrainingTheme.title}</span>
+                  <span class="mt-1 block text-sm text-muted">{eapTrainingTheme.context}</span>
+                </span>
+                <span class="shrink-0 text-lg text-secondary" aria-hidden="true">→</span>
+              </a>
+            </li>
+          </ul>
 
           <h2 class="type-label mt-10 text-secondary">Selected workshops</h2>
-          <ul class="mt-4 space-y-4">
-            <li class="rounded-xl border border-border bg-surface p-5">
-              <p class="type-label text-muted">January 2026</p>
-              <h2 class="type-card-title mt-1">
+          <ul class="mt-3 space-y-2">
+            <li class="rounded-lg border border-border bg-surface px-4 py-3">
+              <p class="text-xs font-semibold uppercase tracking-[0.12em] text-muted">January 2026</p>
+              <h2 class="mt-1 text-base font-semibold text-ink">
                 Foundations and GenAI tools of Formative Assessment: Identifying the ‘Why’ and ‘How’
               </h2>
-              <p class="mt-2 text-sm text-muted">
+              <p class="mt-1 text-sm text-muted">
                 ILTA Symposium · Lembaga Peperiksaan Malaysia · Selangor, Malaysia
               </p>
-              <p class="mt-3 text-sm leading-relaxed text-muted">
-                Interactive professional development on formative assessment principles, classroom strategies, and
-                GenAI-assisted tools for education officers and teachers.
-              </p>
             </li>
-            <li class="rounded-xl border border-border bg-surface p-5">
-              <p class="type-label text-muted">July 2026</p>
-              <h2 class="type-card-title mt-1">
+            <li class="rounded-lg border border-border bg-surface px-4 py-3">
+              <p class="text-xs font-semibold uppercase tracking-[0.12em] text-muted">July 2026</p>
+              <h2 class="mt-1 text-base font-semibold text-ink">
                 Formative Assessment Frameworks & GenAI
               </h2>
-              <p class="mt-2 text-sm text-muted">
+              <p class="mt-1 text-sm text-muted">
                 International Training and Testing Centre (ITTC) summer training · Capital Normal University
               </p>
-              <div class="mt-4 flex flex-wrap items-center gap-3">
+              <div class="mt-3 flex flex-wrap items-center gap-2">
                 <a
                   href={studentPath}
                   class="inline-flex rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white no-underline hover:opacity-95"
