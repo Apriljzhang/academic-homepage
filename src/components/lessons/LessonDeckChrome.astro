@@ -1,0 +1,33 @@
+---
+import '../../styles/lesson-deck.css';
+interface Props { courseHref: string; lessonTitle: string; courseLabel?: string; }
+const { courseHref, lessonTitle, courseLabel = 'DEDC02 course materials' } = Astro.props;
+---
+
+<div class="lesson-tools" aria-label="Language and timer controls" data-lesson-chrome>
+  <button class="lesson-language" type="button" data-global-translate data-translate-current aria-pressed="false" title="Translate the current slide">中文</button>
+  <div class="lesson-timer" aria-label="Activity timer" data-timer-ding>
+    <input type="number" min="0.1" max="999" step="0.5" inputmode="decimal" placeholder="min" aria-label="Timer minutes" data-timer-minutes />
+    <output data-timer-output hidden aria-live="polite">00:00</output>
+    <button type="button" data-timer-start>Start</button>
+    <button type="button" data-timer-reset aria-label="Reset timer" title="Reset timer">↻</button>
+    <span class="visually-hidden" data-timer-status role="status" aria-live="assertive"></span>
+  </div>
+</div>
+
+<nav class="deck-controls lesson-controls" aria-label="Slide controls" data-lesson-chrome>
+  <a class="lesson-home" href={courseHref} aria-label={`Back to ${courseLabel}`} title="Course materials">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" /></svg>
+  </a>
+  <button type="button" data-nav="previous" aria-label="Previous slide" title="Previous slide">←</button>
+  <button class="slide-count" type="button" data-overview aria-label="Open slide overview" title="Slide overview"><span data-current-slide>1</span><span aria-hidden="true">/</span><span data-slide-total>—</span></button>
+  <button type="button" data-nav="next" aria-label="Next slide" title="Next slide">→</button>
+  <button type="button" data-fullscreen aria-label="Toggle fullscreen" title="Full screen">⛶</button>
+  <div class="progress-track" aria-hidden="true"><span></span></div>
+</nav>
+
+<dialog class="overview-dialog lesson-overview" aria-labelledby="lesson-overview-title" data-lesson-chrome>
+  <div class="overview-head"><h2 id="lesson-overview-title">{lessonTitle}</h2><button type="button" data-close-overview aria-label="Close overview">×</button></div>
+  <ol></ol>
+  <p>Use ← →, Page Up / Page Down or swipe. Press O for overview and F for fullscreen.</p>
+</dialog>

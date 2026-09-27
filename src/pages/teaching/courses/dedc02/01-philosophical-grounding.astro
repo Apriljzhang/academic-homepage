@@ -1,5 +1,6 @@
 ---
 import CourseSlideLayout from '../../../../layouts/CourseSlideLayout.astro';
+import LessonDeckChrome from '../../../../components/lessons/LessonDeckChrome.astro';
 import { withBase } from '../../../../utils/paths';
 
 const title = '1. Philosophical Grounding · DEDC02';
@@ -35,16 +36,8 @@ const exitQuestions = [
 ];
 ---
 
-<CourseSlideLayout {title} {description}>
-  <div class="slide-tools" aria-label="Slide tools">
-    <button type="button" class="translate-button" data-translate-current aria-pressed="false">中文</button>
-    <div class="global-timer" aria-label="Presentation timer" data-timer-ding>
-      <input type="number" min="1" max="999" inputmode="numeric" placeholder="min" aria-label="Timer minutes" data-timer-minutes />
-      <button type="button" data-timer-start>Start</button>
-      <output data-timer-output hidden>00:00</output>
-      <button type="button" data-timer-reset aria-label="Reset timer">↺</button>
-    </div>
-  </div>
+<CourseSlideLayout {title} {description} lessonDeck>
+  <LessonDeckChrome {courseHref} lessonTitle="Philosophical Grounding" />
 
   <main class="deck" aria-label="Philosophical Grounding slide deck">
     <section class="slide is-active title-slide" data-title="Orientation · Philosophical Grounding" aria-hidden="false">
@@ -447,19 +440,6 @@ const exitQuestions = [
     </section>
   </main>
 
-  <nav class="deck-controls" aria-label="Slide controls">
-    <a class="home-button" href={courseHref} aria-label="Back to DEDC02 course materials"><span class="home-glyph" aria-hidden="true"></span></a>
-    <button type="button" data-nav="previous" aria-label="Previous slide">←</button>
-    <button class="slide-count" type="button" data-overview aria-label="Open slide overview"><span data-current-slide>1</span> / <span data-slide-total>19</span></button>
-    <button type="button" data-nav="next" aria-label="Next slide">→</button>
-    <button type="button" data-fullscreen aria-label="Enter full screen">⛶</button>
-    <span class="progress-track" aria-hidden="true"><span></span></span>
-  </nav>
-
-  <dialog class="overview-dialog" aria-labelledby="overview-title">
-    <div><h2 id="overview-title">Slides</h2><button type="button" data-close-overview aria-label="Close overview">×</button></div>
-    <ol></ol>
-  </dialog>
 </CourseSlideLayout>
 
 <style>

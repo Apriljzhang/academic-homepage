@@ -1,5 +1,6 @@
 ---
 import CourseSlideLayout from '../../../../layouts/CourseSlideLayout.astro';
+import LessonDeckChrome from '../../../../components/lessons/LessonDeckChrome.astro';
 import { withBase } from '../../../../utils/paths';
 
 const title = '2. Research Questions, Hypotheses and Variables · DEDC02';
@@ -9,7 +10,7 @@ const comicHref = withBase('/teaching/courses/dedc02/the-claus-hypothesis.png');
 const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation.png');
 ---
 
-<CourseSlideLayout {title} {description}>
+<CourseSlideLayout {title} {description} lessonDeck>
   <section class="pdf-cover" aria-hidden="true">
     <span class="eyebrow">DEDC02 · Advanced Research Method · Orientation</span>
     <h1>Research<br />Questions</h1>
@@ -19,23 +20,14 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
     </div>
   </section>
 
-  <div class="top-tools" aria-label="Language and timer controls">
-    <button class="translate-button global-translate" type="button" aria-pressed="false" data-global-translate>中文</button>
-    <div class="compact-timer" aria-label="Activity timer">
-      <input type="number" min="0.1" step="0.5" inputmode="decimal" placeholder="min" aria-label="Timer minutes" data-timer-minutes />
-      <output data-timer-output hidden aria-live="polite">00:00</output>
-      <button type="button" data-timer-start>Start</button>
-      <button type="button" class="timer-reset-button" data-timer-reset aria-label="Reset timer">↻</button>
-      <span class="visually-hidden" data-timer-status role="status" aria-live="assertive"></span>
-    </div>
-  </div>
+  <LessonDeckChrome {courseHref} lessonTitle="Research Questions, Hypotheses and Variables" />
 
   <main class="deck" aria-label="Research Questions slide deck">
     <section class="slide is-active" data-title="Orientation · Research questions, hypotheses and variables" aria-hidden="false">
       <div class="slide-inner title-slide">
         <header class="slide-header title-header">
           <span class="eyebrow">DEDC02 · Advanced Research Method · Orientation</span>
-          <button class="translate-button" type="button" aria-pressed="false">中文</button>
+
         </header>
         <div class="title-rule"></div>
         <div class="language-panel" data-language="en">
@@ -51,7 +43,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
 
     <section class="slide" data-title="Orientation · Learning aims" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Orientation</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Orientation</span></header>
         <div class="language-panel" data-language="en">
           <h2>By the end, you can…</h2>
           <ol class="number-list">
@@ -75,7 +67,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
 
     <section class="slide" data-title="Instruction · Research questions and paradigms" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Instruction</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Instruction</span></header>
         <div class="language-panel" data-language="en">
           <h2>Research questions and paradigm</h2>
           <p class="lead">How different research paradigms shape research questions for the same topic:</p>
@@ -91,7 +83,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
 
     <section class="slide" data-title="Example · Paradigms applied to AI literacy" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Example</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Example</span></header>
         <div class="language-panel" data-language="en">
           <h2>Three paradigms, one topic</h2>
           <div class="paradigm-three">
@@ -113,7 +105,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
 
     <section class="slide" data-title="How-to · Identify a research problem and check the topic" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">How-to</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">How-to</span></header>
         <div class="language-panel" data-language="en">
           <h2>Research problem</h2>
           <p class="intro-line">Use the shared case: it is unclear whether structured AI-literacy instruction creates enough guided AI practice to improve students’ AI-literacy scores. To locate a research problem in any study, ask:</p>
@@ -159,7 +151,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
 
     <section class="slide" data-title="Activity · Build your research chain" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Activity</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Activity</span></header>
         <div class="language-panel" data-language="en">
           <h2>Building up your research</h2>
           <p class="activity-prompt"><strong>Your turn:</strong> use your own study to draft a topic, problem, purpose and research question. Your wording will reappear in a later activity, where you can revise it.</p>
@@ -241,7 +233,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
 
     <section class="slide" data-title="Activity · Narrow a question with PICO" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Activity</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Activity</span></header>
         <div class="language-panel" data-language="en">
           <h2>Narrow a question with PICO</h2>
           <div class="narrowing-activity">
@@ -297,7 +289,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
 
     <section class="slide" data-title="Instruction · Types and questions to avoid" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Instruction</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Instruction</span></header>
         <div class="language-panel" data-language="en">
           <h2>Types of research questions</h2>
           <div class="type-grid">
@@ -357,7 +349,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
 
     <section class="slide" data-title="Activity · Revise research questions" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Activity</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Activity</span></header>
         <div class="language-panel" data-language="en">
           <h2>Revise your research questions</h2>
           <p class="intro-line">Refine the topic, problem, purpose and question so they fit one feasible study.</p>
@@ -383,7 +375,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
 
     <section class="slide" data-title="How-to · Scope research questions" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">How-to</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">How-to</span></header>
         <div class="language-panel" data-language="en">
           <details class="question-reveal">
             <summary>How many research questions should I have?</summary>
@@ -417,7 +409,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
 
     <section class="slide" data-title="Instruction · Questions and hypotheses" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Instruction</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Instruction</span></header>
         <div class="language-panel" data-language="en">
           <h2>Research questions and hypotheses</h2>
           <div class="compare-table">
@@ -439,7 +431,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
 
     <section class="slide" data-title="Instruction · What is a hypothesis?" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Instruction</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Instruction</span></header>
         <div class="language-panel" data-language="en">
           <h2>Hypothesis</h2>
           <div class="hypothesis-introduction">
@@ -477,7 +469,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
 
     <section class="slide" data-title="Example · Null and alternative hypotheses" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Example</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Example</span></header>
         <div class="language-panel" data-language="en">
           <h2>Null and alternative hypotheses</h2>
           <div class="hypothesis-pair">
@@ -507,7 +499,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
 
     <section class="slide hypothesis-types-slide" data-title="Instruction · Types of hypotheses" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Instruction</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Instruction</span></header>
         <div class="language-panel" data-language="en">
           <h2>Types of hypotheses</h2>
           <p class="intro-line">First decide whether you are comparing groups or examining an association. Then decide whether prior theory or evidence justifies predicting a direction.</p>
@@ -549,7 +541,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
 
     <section class="slide" data-title="How-to · Write a hypothesis" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">How-to</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">How-to</span></header>
         <div class="language-panel" data-language="en">
           <h2>How to write the hypothesis</h2>
           <ol class="hypothesis-steps">
@@ -575,7 +567,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
 
     <section class="slide" data-title="How-to · Hypothesis templates" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">How-to</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">How-to</span></header>
         <div class="language-panel" data-language="en">
           <h2>Hypothesis templates</h2>
           <p class="intro-line">Replace the brackets with your own population, variables, measures and comparison. Use a direction only when theory or prior evidence supports it.</p>
@@ -603,7 +595,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
 
     <section class="slide" data-title="Activity · Strengthen a hypothesis" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Activity</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Activity</span></header>
         <div class="language-panel" data-language="en">
           <h2>Full hypothesis examples</h2>
           <p class="intro-line">Improve each weak hypothesis by typing a more precise, testable version. Then reveal the referenced answer and compare your wording.</p>
@@ -653,7 +645,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
 
     <section class="slide hypothesis-avoid-slide" data-title="Check · Hypotheses to avoid" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header hypothesis-avoid-header"><span class="eyebrow">Check</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header hypothesis-avoid-header"><span class="eyebrow">Check</span></header>
         <div class="language-panel" data-language="en">
           <h2>Hypothesis to Avoid</h2>
           <div class="hypothesis-avoid-grid">
@@ -717,7 +709,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
 
     <section class="slide" data-title="Instruction · Concept, construct and variable" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Instruction</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Instruction</span></header>
         <div class="language-panel" data-language="en">
           <h2>Concept, construct and variable</h2>
           <div class="concept-grid">
@@ -739,7 +731,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
 
     <section class="slide" data-title="Activity · Identify the family of variables" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Activity</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Activity</span></header>
         <div class="language-panel" data-language="en">
           <h2>The family of variables</h2>
           <p class="activity-prompt"><strong>First try:</strong> identify possible outcomes, predictors, and controls of your own study before learning the formal labels.</p>
@@ -763,7 +755,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
 
     <section class="slide concept-measure-slide" data-title="How-to · Move from abstract to measurable" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">How-to</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">How-to</span></header>
         <div class="language-panel" data-language="en">
           <h2>Move from abstract to measurable</h2>
           <div class="illustration-layout">
@@ -815,7 +807,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
 
     <section class="slide operationalization-slide" data-title="Instruction · Operationalization" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Instruction</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Instruction</span></header>
         <div class="language-panel" data-language="en">
           <h2>Operationalization</h2>
           <p class="lead small-lead">Start with an open question. Operationalization specifies who is studied, what happens, what is measured and when, so that a testable hypothesis can be stated.</p>
@@ -859,7 +851,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
 
     <section class="slide" data-title="Instruction · Types of variables" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Instruction</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Instruction</span></header>
         <div class="language-panel" data-language="en">
           <h2>Types of variables</h2>
           <p class="lead small-lead">Ask two questions in order. First identify the job a variable does in the study; then identify the data type used to measure it. Open a leaf to reveal its explanation and example.</p>
@@ -927,7 +919,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
 
     <section class="slide relationship-types-slide" data-title="Instruction · Types of variable relationships" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Instruction</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Instruction</span></header>
         <div class="language-panel" data-language="en">
           <h2>Types of variable relationships</h2>
           <p class="lead small-lead">Read the arrow before interpreting a model: variables may move together, one may predict another, or a third may change the relationship between them.</p>
@@ -993,7 +985,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
 
     <section class="slide" data-title="Example · A variable model in action" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Example</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Example</span></header>
         <div class="language-panel" data-language="en">
           <h2>How variables work together</h2>
           <div class="variable-illustration">
@@ -1053,7 +1045,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
 
     <section class="slide variable-match-slide relationship-map-slide" data-title="Activity · Drag variable types into relationship maps" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Activity</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Activity</span></header>
         <div class="language-panel" data-language="en">
           <h2>Drag variable types into relationship maps</h2>
           <p class="lead small-lead">Rectangles represent observed variables; ovals represent latent constructs. Use the arrows and each shape's position to decide what belongs in it.</p>
@@ -1215,7 +1207,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
 
     <section class="slide literature-activity-slide" data-title="Activity · Build literature-search keywords" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Activity</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Activity</span></header>
         <div class="language-panel" data-language="en">
           <h2>Build literature-search keywords</h2>
           <p class="lead small-lead">A literature search locates relevant sources; a literature review evaluates, connects and synthesises the sources you select. Start your search terms with the topic, research question or hypothesis, and variables.</p>
@@ -1257,27 +1249,13 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
 
     <section class="slide" data-title="Exit · Create your personal PDF" aria-hidden="true">
       <div class="slide-inner closing-slide">
-        <header class="slide-header"><span class="eyebrow">Exit</span><button class="translate-button" type="button" aria-pressed="false">中文</button></header>
+        <header class="slide-header"><span class="eyebrow">Exit</span></header>
         <div class="language-panel" data-language="en"><h1 class="closing-title">Thank you!</h1><div class="closing-actions"><button type="button" class="pdf-cta" data-pdf-open>Create your personal PDF</button><a class="course-return" href={courseHref}>DEDC02 course materials</a></div></div>
         <div class="language-panel" data-language="zh" hidden lang="zh-Hant"><h1 class="closing-title">謝謝！</h1><div class="closing-actions"><button type="button" class="pdf-cta" data-pdf-open>建立你的個人 PDF</button><a class="course-return" href={courseHref}>DEDC02 課程材料</a></div></div>
       </div>
     </section>
   </main>
 
-  <nav class="deck-controls" aria-label="Slide controls">
-    <a class="home-button" href={courseHref} aria-label="Back to DEDC02 course materials"><span class="home-glyph" aria-hidden="true"></span></a>
-    <button type="button" data-nav="previous" aria-label="Previous slide">←</button>
-    <button class="slide-count" type="button" data-overview aria-label="Open slide overview"><span>1</span>/<span data-slide-total>34</span></button>
-    <button type="button" data-nav="next" aria-label="Next slide">→</button>
-    <button type="button" data-fullscreen aria-label="Toggle fullscreen">⛶</button>
-    <div class="progress-track" aria-hidden="true"><span></span></div>
-  </nav>
-
-  <dialog class="overview-dialog">
-    <div class="overview-head"><h2>Research Questions, Hypotheses and Variables</h2><button type="button" data-close-overview aria-label="Close overview">×</button></div>
-    <ol></ol>
-    <p>Use ← →, Page Up / Page Down or swipe. Press O for overview and F for fullscreen.</p>
-  </dialog>
 
   <dialog class="tool-dialog pdf-dialog">
     <form method="dialog" class="tool-dialog-head"><h2>Personal PDF</h2><button value="close" aria-label="Close PDF options">×</button></form>
@@ -1928,6 +1906,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
 </style>
 
 <script>
+  import { syncLessonNavigation, bindLessonShortcuts } from '../../../../scripts/lessonDeck';
   const slides = Array.from(document.querySelectorAll<HTMLElement>('.slide'));
   const currentLabel = document.querySelector<HTMLElement>('.slide-count span');
   const totalLabel = document.querySelector<HTMLElement>('[data-slide-total]');
@@ -1954,6 +1933,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
       slide.setAttribute('aria-hidden', String(!active));
     });
     if (currentLabel) currentLabel.textContent = String(current + 1);
+  syncLessonNavigation(current, slides.length);
     if (progress) progress.style.width = `${((current + 1) / slides.length) * 100}%`;
     overviewList?.querySelectorAll('li').forEach((item, itemIndex) => item.classList.toggle('is-current', itemIndex === current));
     history.replaceState(null, '', `#slide-${current + 1}`);
@@ -2355,22 +2335,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
   });
   window.addEventListener('afterprint', () => { document.title = originalTitle; });
 
-  document.addEventListener('keydown', (event) => {
-    if (event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement) return;
-    if (event.key === 'ArrowRight' || event.key === 'PageDown' || event.key === ' ') { event.preventDefault(); showSlide(current + 1); }
-    if (event.key === 'ArrowLeft' || event.key === 'PageUp') { event.preventDefault(); showSlide(current - 1); }
-    if (event.key === 'Home') showSlide(0);
-    if (event.key === 'End') showSlide(slides.length - 1);
-    if (event.key.toLowerCase() === 'o') overview?.showModal();
-    if (event.key.toLowerCase() === 'f') document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen();
-  });
-
-  let touchX = 0;
-  document.addEventListener('touchstart', (event) => { touchX = event.changedTouches[0]?.clientX || 0; }, { passive: true });
-  document.addEventListener('touchend', (event) => {
-    const dx = (event.changedTouches[0]?.clientX || 0) - touchX;
-    if (Math.abs(dx) > 70) showSlide(current + (dx < 0 ? 1 : -1));
-  }, { passive: true });
+  bindLessonShortcuts(showSlide, () => current, slides.length, overview);
 
   const initialHash = Number(location.hash.replace('#slide-', ''));
   showSlide(Number.isFinite(initialHash) && initialHash > 0 ? initialHash - 1 : 0);

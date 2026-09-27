@@ -1,3 +1,5 @@
+import { syncLessonNavigation, bindLessonShortcuts } from './lessonDeck';
+
 const slides = Array.from(document.querySelectorAll<HTMLElement>('.slide'));
 const currentLabel = document.querySelector<HTMLElement>('.slide-count span');
 const totalLabel = document.querySelector<HTMLElement>('[data-slide-total]');
@@ -29,6 +31,7 @@ function showSlide(index: number) {
     slide.setAttribute('aria-hidden', String(!active));
   });
   if (currentLabel) currentLabel.textContent = String(current + 1);
+  syncLessonNavigation(current, slides.length);
   if (progress) progress.style.width = `${((current + 1) / slides.length) * 100}%`;
   overviewList?.querySelectorAll('li').forEach((item, itemIndex) => item.classList.toggle('is-current', itemIndex === current));
   history.replaceState(null, '', `#slide-${current + 1}`);
@@ -306,22 +309,7 @@ document.querySelector('[data-pdf-download]')?.addEventListener('click', () => {
   window.print();
 });
 
-document.addEventListener('keydown', (event) => {
-  if (event.defaultPrevented || event.target instanceof HTMLButtonElement || event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement || event.target instanceof HTMLSelectElement) return;
-  if (event.key === 'ArrowRight' || event.key === 'PageDown' || event.key === ' ') { event.preventDefault(); showSlide(current + 1); }
-  if (event.key === 'ArrowLeft' || event.key === 'PageUp') { event.preventDefault(); showSlide(current - 1); }
-  if (event.key === 'Home') showSlide(0);
-  if (event.key === 'End') showSlide(slides.length - 1);
-  if (event.key.toLowerCase() === 'o') overview?.showModal();
-  if (event.key.toLowerCase() === 'f') document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen();
-});
-
-let touchX = 0;
-document.addEventListener('touchstart', (event) => { touchX = event.changedTouches[0]?.clientX || 0; }, { passive: true });
-document.addEventListener('touchend', (event) => {
-  const dx = (event.changedTouches[0]?.clientX || 0) - touchX;
-  if (Math.abs(dx) > 70) showSlide(current + (dx < 0 ? 1 : -1));
-}, { passive: true });
+bindLessonShortcuts(showSlide, () => current, slides.length, overview);
 
 const initialHash = Number(location.hash.replace('#slide-', ''));
 showSlide(Number.isFinite(initialHash) && initialHash > 0 ? initialHash - 1 : 0);

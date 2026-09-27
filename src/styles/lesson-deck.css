@@ -1,0 +1,85 @@
+/* Shared HTML lesson design. See docs/lesson-design.md. */
+body.lesson-deck {
+  --lesson-ink: #0f4a32;
+  --lesson-green: #1f6b45;
+  --lesson-soft: #edf7f0;
+  --lesson-line: #bad8c5;
+  --lesson-muted: #607b6d;
+  --lesson-width: 1120px;
+  font-family: 'Source Sans 3', Arial, sans-serif;
+}
+body.lesson-deck [data-lesson-chrome], body.lesson-deck [data-lesson-chrome] * { box-sizing: border-box; }
+body.lesson-deck [data-lesson-chrome] { font-family: 'Source Sans 3', Arial, sans-serif; }
+body.lesson-deck [data-lesson-chrome] button, body.lesson-deck [data-lesson-chrome] input { font: inherit; }
+body.lesson-deck [data-lesson-chrome] button { cursor: pointer; }
+body.lesson-deck :is(button, a, input, textarea, select, summary):focus-visible { outline: 3px solid var(--lesson-green); outline-offset: 3px; }
+body.lesson-deck .lesson-tools {
+  position: fixed; z-index: 25; top: max(1.25rem, env(safe-area-inset-top));
+  right: max(1.25rem, calc((100vw - var(--lesson-width)) / 2), env(safe-area-inset-right));
+  display: flex; align-items: center; gap: .5rem; color: var(--lesson-green);
+}
+body.lesson-deck .lesson-language, body.lesson-deck .lesson-timer {
+  border: 1px solid var(--lesson-line); border-radius: 999px; background: rgba(255,255,255,.97);
+  box-shadow: 0 .25rem 1rem rgba(15,74,50,.06);
+}
+body.lesson-deck .lesson-language { min-width: 3.5rem; min-height: 44px; padding: .45rem .75rem; color: var(--lesson-green); font-size: .875rem; font-weight: 600; }
+body.lesson-deck .lesson-language[aria-pressed="true"] { background: var(--lesson-green); color: #fff; }
+body.lesson-deck .lesson-timer { display: flex; align-items: center; gap: .15rem; padding: 0 .2rem 0 .5rem; min-height: 44px; }
+body.lesson-deck .lesson-timer input { width: 3.6rem; height: 36px; border: 0; border-right: 1px solid var(--lesson-line); border-radius: 0; padding: .25rem; background: transparent; color: var(--lesson-ink); font-size: 1rem; text-align: center; }
+body.lesson-deck .lesson-timer button { min-height: 44px; border: 0; border-radius: 999px; padding: .4rem .6rem; background: transparent; color: var(--lesson-green); font-size: .875rem; font-weight: 600; }
+body.lesson-deck .lesson-timer output { min-width: 3.4rem; padding: 0 .25rem; color: var(--lesson-ink); font-size: .875rem; font-variant-numeric: tabular-nums; }
+body.lesson-deck .lesson-controls {
+  position: fixed; z-index: 25; left: 50%; bottom: max(.8rem, env(safe-area-inset-bottom));
+  display: flex; align-items: center; gap: .2rem; transform: translateX(-50%);
+  border: 1px solid var(--lesson-line); border-radius: 999px; padding: .3rem;
+  background: rgba(255,255,255,.97); box-shadow: 0 .3rem 1rem rgba(15,74,50,.08);
+}
+body.lesson-deck .lesson-controls :is(button, a) { display: flex; flex: 0 0 auto; align-items: center; justify-content: center; gap: .3rem; min-width: 44px; min-height: 44px; border: 0; border-radius: 999px; padding: .4rem .65rem; background: transparent; color: var(--lesson-green); font: 600 .875rem/1 'Source Sans 3', Arial, sans-serif; text-decoration: none; }
+body.lesson-deck .lesson-controls .slide-count { min-width: 4.5rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
+body.lesson-deck .lesson-controls button:disabled { opacity: .35; cursor: default; }
+body.lesson-deck .lesson-controls :is(button, a):hover:not(:disabled), body.lesson-deck .lesson-timer button:hover { background: var(--lesson-soft); }
+body.lesson-deck .lesson-controls .progress-track { position: absolute; right: .8rem; bottom: -.35rem; left: .8rem; width: auto; height: 2px; overflow: hidden; border-radius: 2px; background: var(--lesson-soft); }
+body.lesson-deck .lesson-controls .progress-track span { display: block; height: 100%; background: var(--lesson-green); }
+body.lesson-deck .lesson-overview, body.lesson-deck .tool-dialog { width: min(820px, calc(100vw - 2rem)); margin: auto; max-height: 82dvh; overflow-y: auto; border: 1px solid var(--lesson-line); border-radius: .6rem; padding: 1.25rem; background: #fff; color: var(--lesson-ink); font-family: 'Source Sans 3', Arial, sans-serif; }
+body.lesson-deck :is(.lesson-overview, .tool-dialog)::backdrop { background: rgba(15,74,50,.35); }
+body.lesson-deck :is(.overview-head, .tool-dialog-head) { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; padding-bottom: .75rem; border-bottom: 1px solid var(--lesson-line); }
+body.lesson-deck :is(.overview-head, .tool-dialog-head) h2 { max-width: none; margin: 0; color: var(--lesson-ink); font: 600 clamp(1.4rem, 3vw, 1.9rem)/1.15 'Source Serif 4', Georgia, serif; letter-spacing: -.02em; }
+body.lesson-deck :is(.overview-head, .tool-dialog-head) button { flex-shrink: 0; width: 44px; height: 44px; border: 0; border-radius: 50%; padding: 0; background: transparent; color: var(--lesson-green); font-size: 1.8rem; }
+body.lesson-deck .lesson-overview ol { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: .4rem 1.4rem; margin: 1rem 0; padding-left: 1.6rem; list-style: decimal; }
+body.lesson-deck .lesson-overview li button { width: 100%; min-height: 44px; border: 0; border-radius: .3rem; padding: .55rem; background: transparent; color: var(--lesson-ink); font-size: .95rem; line-height: 1.35; text-align: left; }
+body.lesson-deck .lesson-overview li.is-current, body.lesson-deck .lesson-overview li button:hover { background: var(--lesson-soft); }
+body.lesson-deck .lesson-overview > p { margin: 1rem 0 0; color: var(--lesson-muted); font-size: .875rem; line-height: 1.45; }
+body.lesson-deck .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* Screen geometry is shared; lesson-specific diagrams retain their own styles. */
+@media screen {
+  body.lesson-deck [hidden] { display: none !important; }
+  body.lesson-deck .deck { color: var(--lesson-ink); font-family: 'Source Sans 3', Arial, sans-serif; }
+  body.lesson-deck .slide { height: 100dvh; min-height: 100dvh; padding: 6.5rem clamp(1.25rem,5vw,5.5rem) 6rem; overflow-y: auto; background: #fff; }
+  body.lesson-deck .slide-inner { width: min(var(--lesson-width),100%); min-width: 0; min-height: calc(100dvh - 12.5rem); margin: 0 auto; padding-top: 0; display: flex; flex-direction: column; justify-content: flex-start; }
+  body.lesson-deck .slide-header { display: flex; align-items: center; gap: 1rem; width: 100%; margin: 0 0 1.5rem; padding-bottom: .75rem; border-bottom: 1px solid var(--lesson-line); }
+  body.lesson-deck .deck .eyebrow { color: var(--lesson-green); font-size: .77rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; }
+  body.lesson-deck .deck .slide-inner > .eyebrow { display: block; width: 100%; margin: 0 0 1.5rem; padding-bottom: .75rem; border-bottom: 1px solid var(--lesson-line); }
+  body.lesson-deck .deck .slide-header .eyebrow { margin: 0; padding: 0; border: 0; }
+  body.lesson-deck .deck h1 { max-width: 100%; margin: 0 0 1rem; color: var(--lesson-ink); font: 600 clamp(3.3rem,7vw,7rem)/.94 'Source Serif 4', Georgia, serif; letter-spacing: -.045em; overflow-wrap: break-word; }
+  body.lesson-deck .deck h2 { color: var(--lesson-ink); font-family: 'Source Serif 4', Georgia, serif; font-weight: 600; }
+  body.lesson-deck .deck .lead { max-width: 66ch; color: var(--lesson-muted); font-size: clamp(1.1rem,2vw,1.45rem); line-height: 1.5; }
+  body.lesson-deck .deck .lead.small { font-size: clamp(1rem,1.6vw,1.2rem); }
+  body.lesson-deck :is(.title-rule,.short-rule) { width: 4.2rem; height: .34rem; margin: 0 0 2rem; border-radius: 1rem; background: var(--lesson-green); }
+  body.lesson-deck .source-note { color: var(--lesson-muted); font-size: .8rem; line-height: 1.4; }
+}
+@media screen and (max-width: 600px) {
+  body.lesson-deck .lesson-tools { top: max(.75rem,env(safe-area-inset-top)); right: max(.75rem,env(safe-area-inset-right)); gap: .35rem; }
+  body.lesson-deck .slide { padding: 5.75rem 1.25rem 6rem; }
+  body.lesson-deck .slide-inner { min-height: calc(100dvh - 11.75rem); }
+  body.lesson-deck .deck h1 { font-size: clamp(2.5rem,12vw,4.5rem); }
+  body.lesson-deck .deck h2 { max-width: 100%; font-size: clamp(1.8rem,8vw,2.7rem); line-height: 1.05; overflow-wrap: break-word; }
+  body.lesson-deck .lesson-overview ol { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body.lesson-deck .slide.is-active { animation: none; }
+  body.lesson-deck *, body.lesson-deck *::before, body.lesson-deck *::after { scroll-behavior: auto; transition: none; }
+}
+@media print {
+  body.lesson-deck [data-lesson-chrome], body.lesson-deck .tool-dialog { display: none !important; }
+}

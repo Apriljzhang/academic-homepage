@@ -1,5 +1,6 @@
 ---
 import CourseSlideLayout from '../../../../layouts/CourseSlideLayout.astro';
+import LessonDeckChrome from '../../../../components/lessons/LessonDeckChrome.astro';
 import { withBase } from '../../../../utils/paths';
 import '../../../../styles/dedc02-literature-review.css';
 
@@ -8,7 +9,7 @@ const description = 'An interactive lesson on literature review structure, argum
 const courseHref = withBase('/teaching/courses/dedc02');
 ---
 
-<CourseSlideLayout {title} {description}>
+<CourseSlideLayout {title} {description} lessonDeck>
   <section class="pdf-cover" aria-hidden="true">
     <span class="eyebrow">DEDC02 · Advanced Research Method</span>
     <h1>Literature<br />Review</h1>
@@ -18,15 +19,7 @@ const courseHref = withBase('/teaching/courses/dedc02');
     </div>
   </section>
 
-  <div class="top-tools" aria-label="Language and timer controls">
-    <button class="translate-button" type="button" aria-pressed="false" data-global-translate>中文</button>
-    <div class="compact-timer" aria-label="Activity timer">
-      <input type="number" min="0.1" step="0.5" inputmode="decimal" placeholder="Timer" aria-label="Timer duration" data-timer-minutes />
-      <output data-timer-output hidden aria-live="polite">00:00</output>
-      <button type="button" data-timer-start>Start</button>
-      <button type="button" data-timer-reset aria-label="Reset timer">↻</button>
-    </div>
-  </div>
+  <LessonDeckChrome {courseHref} lessonTitle="Literature Review" />
 
   <main class="deck" aria-label="Literature Review slide deck">
     <section class="slide is-active" data-title="Literature Review" aria-hidden="false">
@@ -1030,20 +1023,6 @@ const courseHref = withBase('/teaching/courses/dedc02');
     </section>
   </main>
 
-  <nav class="deck-controls" aria-label="Slide controls">
-    <a class="home-button" href={courseHref} aria-label="Back to DEDC02">⌂</a>
-    <button type="button" data-nav="previous" aria-label="Previous slide">←</button>
-    <button class="slide-count" type="button" data-overview aria-label="Open slide overview"><span>1</span>/<span data-slide-total>33</span></button>
-    <button type="button" data-nav="next" aria-label="Next slide">→</button>
-    <button type="button" data-fullscreen aria-label="Toggle fullscreen">⛶</button>
-    <div class="progress-track" aria-hidden="true"><span></span></div>
-  </nav>
-
-  <dialog class="overview-dialog">
-    <div class="overview-head"><h2>Literature Review</h2><button type="button" data-close-overview aria-label="Close overview">×</button></div>
-    <ol></ol>
-    <p>Use ← →, Page Up / Page Down or swipe. Press O for overview and F for fullscreen.</p>
-  </dialog>
 
   <dialog class="tool-dialog pdf-dialog">
     <form method="dialog" class="tool-dialog-head"><h2>Personal PDF</h2><button value="close" aria-label="Close PDF options">×</button></form>

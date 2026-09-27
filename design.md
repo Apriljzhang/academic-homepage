@@ -30,6 +30,10 @@ Existing information architecture and component ownership remain unchanged.
 
 Green is the dominant site colour: sage carries navigation, primary structure, and AJZ's identity. A very dark green is reserved only for readable text placed directly on sage; it is never used as a large surface. Dark brown carries long-form text, brick occupies a smaller emphasis role, and clean cream carries the page; blush remains a secondary supporting tint. The AJZ favicon uses the same sage, cream, and brick-red palette as the website.
 
+## Interactive lesson presentations
+
+DEDC02 lessons and future HTML lesson presentations use the white-and-green presentation system specified in [HTML lesson design requirements](docs/lesson-design.md). Reuse the shared lesson controls and styles; their positions, order, typography, accessibility and responsive behaviour are required. Course indexes continue to follow the editorial site theme with compact numbered lesson links.
+
 ## Typography
 
 - Display: Source Serif 4, weight 600, normal style.
