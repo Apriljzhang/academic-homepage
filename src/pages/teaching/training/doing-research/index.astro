@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import SiteHeader from '../../../../components/SiteHeader.astro';
+import SiteFooter from '../../../../components/SiteFooter.astro';
+import PageShell from '../../../../components/PageShell.astro';
+import { person } from '../../../../data/cv';
+import { doingResearchTheme } from '../../../../data/training';
+import { withBase } from '../../../../utils/paths';
+
+const title = `${doingResearchTheme.title} · ${person.fullDisplayName}`;
+const description = doingResearchTheme.description;
+---
+
+<BaseLayout {title} {description}>
+  <SiteHeader />
+  <main id="main-content" class="min-h-[50vh] w-full bg-page">
+    <PageShell accentBar>
+      <p class="type-label text-secondary">Research methods and publication practice</p>
+      <h1 class="mt-2 font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">Doing Research</h1>
+      <p class="type-intro mt-4">{doingResearchTheme.description}</p>
+
+      <section class="mt-8 max-w-4xl border-t border-border pt-6" aria-labelledby="topics-heading">
+        <h2 id="topics-heading" class="type-label text-secondary">Topics</h2>
+        <ol class="mt-4 grid gap-2 sm:grid-cols-2">
+          {doingResearchTheme.sessions.map((session) => (
+            <li>
+              <a href={withBase(`/teaching/training/${doingResearchTheme.slug}/${session.slug}`)} class="group flex min-h-20 items-center justify-between gap-3 rounded-lg border border-border bg-surface px-4 py-3 no-underline transition hover:border-secondary hover:bg-main-faint">
+                <span>
+                  <span class="block text-xs font-semibold uppercase tracking-[0.12em] text-secondary">Topic {session.number}</span>
+                  <span class="mt-1 block text-base font-semibold text-ink group-hover:text-secondary">{session.title}</span>
+                </span>
+                <span class="shrink-0 text-lg text-secondary" aria-hidden="true">→</span>
+              </a>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <a href={withBase('/teaching/training')} class="mt-8 inline-flex text-sm font-semibold">← Back to Training</a>
+    </PageShell>
+  </main>
+  <SiteFooter />
+</BaseLayout>

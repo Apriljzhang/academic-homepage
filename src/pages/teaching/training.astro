@@ -8,12 +8,12 @@ import MainWithAside from '../../components/MainWithAside.astro';
 import TeachingSectionAside from '../../components/TeachingSectionAside.astro';
 import { teachingSubnav } from '../../data/sectionNav';
 import { person } from '../../data/cv';
-import { eapTrainingTheme } from '../../data/training';
+import { doingResearchTheme, eapTrainingTheme } from '../../data/training';
 import { withBase } from '../../utils/paths';
 
 const title = `Training · ${person.fullDisplayName}`;
-const description = `English for Academic Purposes and interactive professional-development materials — ${person.fullDisplayName}.`;
-const doingResearchPath = withBase('/teaching/courses/dedc02');
+const description = `Doing Research, English for Academic Purposes and professional-development materials — ${person.fullDisplayName}.`;
+const doingResearchPath = withBase(`/teaching/training/${doingResearchTheme.slug}`);
 const studentPath = withBase('/teaching/training/app/');
 const hostPath = withBase('/teaching/training/app/host');
 const themePath = withBase(`/teaching/training/${eapTrainingTheme.slug}`);

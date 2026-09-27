@@ -13,6 +13,17 @@ export type TrainingTheme = {
   sessions: readonly TrainingSession[];
 };
 
+export const doingResearchTheme = {
+  slug: 'doing-research',
+  shortTitle: 'Doing Research',
+  title: 'Doing Research',
+  context: 'Research methods and publication practice',
+  description: 'Practical topics for making informed decisions throughout a research project.',
+  sessions: [
+    { number: 1, slug: 'journals-and-indexes', title: 'Understanding Journals and Indexes' },
+  ],
+} as const satisfies TrainingTheme;
+
 export const eapTrainingTheme = {
   slug: 'english-for-academic-purposes',
   shortTitle: 'EAP',
