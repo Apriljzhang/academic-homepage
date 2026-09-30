@@ -56,16 +56,32 @@ const description = `Professional service, conference leadership, journal editor
             </li>
             <li class="rounded-xl border border-border bg-surface p-5">
               <a
+                href={withBase('/service/journal-reviewer')}
+                class="type-card-title no-underline hover:text-primary"
+              >
+                Journal reviewer →
+              </a>
+              <p class="mt-2 text-sm text-muted">
+                Peer review of research in language education and educational technology, with attention to methods, evidence, ethics, and reporting.
+              </p>
+            </li>
+          </ul>
+
+          <section class="mt-8" aria-labelledby="april-heading">
+            <div class="rounded-xl border border-border bg-surface p-5">
+              <a
+                id="april-heading"
                 href={withBase('/service/april')}
                 class="type-card-title no-underline hover:text-primary"
               >
                 APRIL skill →
               </a>
-              <p class="mt-2 text-sm text-muted">
-                An open-source Codex skill suite for planning, writing, reviewing, and revising academic journal papers.
+              <p class="mt-2 max-w-3xl text-sm text-muted">
+                APRIL (Academic Paper Research &amp; Inquiry Lab) is an open-source Codex skill suite that supports transparent, staged workflows for planning, writing, reviewing, and revising academic journal papers.
               </p>
-            </li>
-          </ul>
+            </div>
+          </section>
+
           <ProfessionalMembershipsContent variant="inline" />
         </div>
         <ServiceSectionAside slot="aside" />

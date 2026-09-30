@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import PageShell from '../../components/PageShell.astro';
+import SectionSubnav from '../../components/SectionSubnav.astro';
+import MainWithAside from '../../components/MainWithAside.astro';
+import ServiceSectionAside from '../../components/ServiceSectionAside.astro';
+import { serviceSubnav } from '../../data/sectionNav';
+import { person } from '../../data/cv';
+
+const title = `Journal reviewer · ${person.fullDisplayName}`;
+const description = `Peer-review service in language education and educational technology — ${person.fullDisplayName}.`;
+---
+
+<BaseLayout {title} {description}>
+  <SiteHeader />
+  <main id="main-content" class="min-h-[50vh] w-full bg-page">
+    <PageShell accentBar>
+      <h1 class="font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">
+        Journal reviewer
+      </h1>
+
+      <MainWithAside asideLabel="Service menu" wide>
+        <div>
+          <SectionSubnav ariaLabel="Service section" items={serviceSubnav} />
+
+          <div class="type-body mt-8 !max-w-none space-y-5 text-pretty text-muted">
+            <p>
+              I contribute peer review to research in language education and educational technology. My reviews examine whether the design, analysis, theoretical framing, ethics, and reporting support the claims being made.
+            </p>
+            <p>
+              Recent reviews have included quasi-experimental research on virtual-reality-supported EFL reading, design-based research on offline digital folktales for local-language learning, and a review article on feedback research and L2 writing.
+            </p>
+          </div>
+
+          <section class="mt-10" aria-labelledby="review-focus-heading">
+            <h2 id="review-focus-heading" class="type-section-title">
+              Review focus
+            </h2>
+            <ul class="mt-5 grid gap-4 sm:grid-cols-2">
+              <li class="rounded-xl border border-border bg-surface p-5 text-sm leading-relaxed text-muted">
+                Research design, sampling, measures, and quantitative or qualitative analytic transparency
+              </li>
+              <li class="rounded-xl border border-border bg-surface p-5 text-sm leading-relaxed text-muted">
+                Alignment among theoretical framing, evidence, interpretation, and the scope of conclusions
+              </li>
+              <li class="rounded-xl border border-border bg-surface p-5 text-sm leading-relaxed text-muted">
+                Ethical safeguards and clear documentation for research involving school-aged learners
+              </li>
+              <li class="rounded-xl border border-border bg-surface p-5 text-sm leading-relaxed text-muted">
+                Constructive recommendations that strengthen methodological rigour, evidential grounding, and reporting quality
+              </li>
+            </ul>
+          </section>
+        </div>
+        <ServiceSectionAside slot="aside" />
+      </MainWithAside>
+    </PageShell>
+  </main>
+  <SiteFooter />
+</BaseLayout>

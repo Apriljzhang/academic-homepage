@@ -434,7 +434,7 @@ export const homeSectionCards = [
     title: 'Service',
     kicker: 'Conferences & engagement',
     description:
-      'AALA 2026 conference leadership, journal editorship, the APRIL academic-writing skill, and conference presentations.',
+      'AALA 2026 conference leadership, journal editorship and peer review, the APRIL academic-writing skill, and conference presentations.',
     accent: 'red' as const,
   },
 ] as const;
