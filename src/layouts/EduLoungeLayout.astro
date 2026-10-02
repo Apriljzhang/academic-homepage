@@ -1,0 +1,71 @@
+---
+import '../styles/edu-lounge.css';
+import '@fontsource/ibm-plex-sans/400.css';
+import '@fontsource/ibm-plex-sans/500.css';
+import '@fontsource/ibm-plex-sans/600.css';
+import '@fontsource/ibm-plex-serif/600.css';
+import { withBase } from '../utils/paths';
+
+const title = 'Edu Lounge Education Limited | Research in conversation';
+const description = 'Edu Lounge creates space for open discussion of research through academic publishing. Explore our work and find our WeChat and Xiaohongshu channels.';
+const canonical = new URL(withBase('/edu-lounge'), Astro.site);
+const logo = new URL(withBase('/edu-lounge/wordmark.svg'), Astro.site);
+const shareImage = new URL(withBase('/edu-lounge/icon.png'), Astro.site);
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Edu Lounge Education Limited',
+  alternateName: 'Edu Lounge',
+  url: canonical.href,
+  logo: logo.href,
+  sameAs: ['https://www.xiaohongshu.com/user/profile/66f17f38000000001b017573'],
+};
+---
+
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical.href} />
+    <meta property="og:image" content={shareImage.href} />
+    <meta property="og:image:alt" content="Edu Lounge square logo" />
+    <meta property="og:image:width" content="2048" />
+    <meta property="og:image:height" content="2048" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="icon" type="image/svg+xml" href={withBase('/edu-lounge/icon.svg')} />
+    <link rel="apple-touch-icon" href={withBase('/edu-lounge/icon.png')} />
+    <link rel="canonical" href={canonical.href} />
+    <title>{title}</title>
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)} />
+  </head>
+  <body class="edu-site">
+    <a class="edu-skip" href="#main-content">Skip to content</a>
+    <header class="edu-header">
+      <div class="edu-frame edu-header-inner">
+        <a class="edu-brand" href={withBase('/edu-lounge')} aria-label="Edu Lounge home">
+          <img src={withBase('/edu-lounge/wordmark.svg')} width="1613" height="316" alt="Edu Lounge" />
+        </a>
+        <nav class="edu-nav" aria-label="Edu Lounge navigation">
+          <a href="#about">About</a>
+          <a href="#work">Our work</a>
+          <a href="#products">Products</a>
+          <a href="#follow">Follow</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main-content" class="edu-frame">
+      <slot />
+    </main>
+    <footer class="edu-footer">
+      <div class="edu-frame edu-footer-inner">
+        <p>© Edu Lounge Education Limited</p>
+        <a href={withBase('/service')}>April Jiawei Zhang · Service</a>
+      </div>
+    </footer>
+  </body>
+</html>

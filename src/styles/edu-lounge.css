@@ -1,0 +1,297 @@
+/* Hallmark · pre-emit critique: P5 H4 E4 S5 R5 V4
+ * genre: editorial · macrostructure: Long Document · tone: formal and restrained
+ * theme: independent Edu Lounge institutional system · enrichment: approved logo
+ * nav: compact masthead · footer: inline colophon
+ */
+@import './edu-lounge-tokens.css';
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body.edu-site {
+  margin: 0;
+  min-height: 100dvh;
+  padding-bottom: 0;
+  overflow-x: clip;
+  background: var(--edu-paper);
+  color: var(--edu-ink);
+  font-family: var(--edu-font);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.edu-site a {
+  color: var(--edu-olive);
+  text-decoration-color: var(--edu-rule);
+}
+
+.edu-site a:hover {
+  color: var(--edu-terracotta);
+  text-decoration-color: currentColor;
+}
+
+.edu-site a:focus-visible {
+  outline: 2px solid var(--edu-terracotta);
+  outline-offset: 4px;
+}
+
+.edu-frame {
+  width: min(100%, 76rem);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 4rem);
+}
+
+.edu-skip {
+  position: absolute;
+  inset-block-start: -5rem;
+  inset-inline-start: 1rem;
+  z-index: 50;
+  padding: 0.75rem 1rem;
+  background: var(--edu-paper);
+}
+
+.edu-skip:focus {
+  inset-block-start: 0.75rem;
+}
+
+.edu-header {
+  border-bottom: 1px solid var(--edu-soft-rule);
+}
+
+.edu-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  column-gap: 2rem;
+  row-gap: 1rem;
+  padding-block: 1.25rem;
+}
+
+.edu-brand {
+  display: inline-flex;
+  flex: 0 1 auto;
+  align-items: center;
+  min-height: 3rem;
+  text-decoration: none;
+}
+
+.edu-brand img {
+  display: block;
+  width: clamp(12rem, 22vw, 16.5rem);
+  height: auto;
+}
+
+.edu-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  align-items: center;
+}
+
+.edu-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  white-space: nowrap;
+  color: var(--edu-ink);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+
+.edu-nav a:hover,
+.edu-nav a:focus-visible {
+  color: var(--edu-olive);
+  border-bottom-color: var(--edu-olive);
+}
+
+.edu-hero {
+  padding-block: clamp(3rem, 8vw, 6.75rem) clamp(3rem, 7vw, 5.5rem);
+  border-bottom: 1px solid var(--edu-rule);
+}
+
+.edu-kicker {
+  margin: 0 0 1.1rem;
+  color: var(--edu-olive);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.edu-hero h1 {
+  max-width: 17ch;
+  margin: 0;
+  color: var(--edu-olive);
+  font-family: var(--edu-display);
+  font-size: clamp(2.4rem, 5.5vw, 4.75rem);
+  font-weight: 600;
+  letter-spacing: -0.028em;
+  line-height: 1.08;
+  overflow-wrap: anywhere;
+}
+
+.edu-lede {
+  max-width: 60ch;
+  margin: 2rem 0 0;
+  font-size: clamp(1.125rem, 1.5vw, 1.3125rem);
+  line-height: 1.6;
+}
+
+.edu-document {
+  width: min(100%, 50rem);
+  padding-block: 1rem 5rem;
+}
+
+.edu-section {
+  padding-block: clamp(2.5rem, 5vw, 4rem);
+  scroll-margin-top: 2rem;
+}
+
+.edu-section + .edu-section {
+  border-top: 1px solid var(--edu-soft-rule);
+}
+
+.edu-section h2 {
+  margin: 0 0 1.25rem;
+  color: var(--edu-olive);
+  font-family: var(--edu-display);
+  font-size: clamp(1.4rem, 2vw, 1.75rem);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.edu-section p {
+  max-width: 68ch;
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.edu-section p:last-child {
+  margin-bottom: 0;
+}
+
+.edu-scope {
+  margin: 1.5rem 0 0;
+}
+
+.edu-scope > div,
+.edu-company-info dl > div {
+  display: grid;
+  grid-template-columns: minmax(0, 13rem) minmax(0, 1fr);
+  gap: 0.5rem 2rem;
+  padding-block: 1rem;
+  border-top: 1px solid var(--edu-soft-rule);
+}
+
+.edu-scope dt,
+.edu-company-info dt {
+  color: var(--edu-olive);
+  font-weight: 600;
+}
+
+.edu-scope dd,
+.edu-company-info dd {
+  margin: 0;
+}
+
+.edu-links {
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.edu-links li {
+  border-top: 1px solid var(--edu-soft-rule);
+}
+
+.edu-links li:last-child {
+  border-bottom: 1px solid var(--edu-soft-rule);
+}
+
+.edu-links a {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.25rem 1.25rem;
+  padding-block: 0.9rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.edu-link-detail {
+  white-space: nowrap;
+  color: var(--edu-terracotta);
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+.edu-company-info {
+  color: var(--edu-muted);
+}
+
+.edu-company-info dl {
+  margin: 0;
+  font-size: 0.9375rem;
+}
+
+.edu-footer {
+  border-top: 1px solid var(--edu-rule);
+}
+
+.edu-footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.25rem 2rem;
+  padding-block: 1.5rem;
+  color: var(--edu-muted);
+  font-size: 0.875rem;
+}
+
+.edu-footer p {
+  margin: 0;
+}
+
+.edu-footer a {
+  white-space: nowrap;
+}
+
+@media (max-width: 39.99rem) {
+  .edu-header-inner {
+    align-items: flex-start;
+  }
+
+  .edu-nav {
+    width: 100%;
+    gap: 0 1rem;
+  }
+
+  .edu-scope > div,
+  .edu-company-info dl > div {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .edu-site a {
+    transition-duration: 0ms;
+  }
+}

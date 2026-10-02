@@ -1,0 +1,81 @@
+---
+import EduLoungeLayout from '../../layouts/EduLoungeLayout.astro';
+
+const wechatPost = 'https://mp.weixin.qq.com/s/ul1yJQILIbkKyeRlh6F49g';
+const xiaohongshu = 'https://www.xiaohongshu.com/user/profile/66f17f38000000001b017573';
+---
+
+<EduLoungeLayout>
+  <section class="edu-hero" aria-labelledby="edu-title">
+    <p class="edu-kicker">Edu Lounge Education Limited</p>
+    <h1 id="edu-title">Research, in conversation.</h1>
+    <p class="edu-lede">
+      Research deserves open, thoughtful discussion—with the ease of a conversation in a lounge. Edu Lounge begins with academic publishing for everyone who studies, teaches, writes, or cares about research.
+    </p>
+  </section>
+
+  <div class="edu-document">
+    <section id="about" class="edu-section" aria-labelledby="about-title">
+      <h2 id="about-title">About Edu Lounge</h2>
+      <p>
+        Research can be rigorous and open at the same time. Our first public work is <span lang="zh-Hans">Edu Lounge 学术系列</span>, a Chinese-language collection of academic posts that gives readers a way into papers, journals, scholars, conferences, methods, writing, opportunities, and developments in the field.
+      </p>
+      <p>
+        This site is the official home for the company’s identity, current activity, future offerings, and verified company information.
+      </p>
+    </section>
+
+    <section id="work" class="edu-section" aria-labelledby="work-title">
+      <h2 id="work-title">Our work</h2>
+      <p>Our current public activity is academic publishing designed to start thoughtful discussion. The editorial scope includes:</p>
+      <dl class="edu-scope">
+        <div>
+          <dt>Reading research</dt>
+          <dd>Research papers, methods, and academic writing.</dd>
+        </div>
+        <div>
+          <dt>Following the field</dt>
+          <dd>Journals, special issues, calls, and academic opportunities.</dd>
+        </div>
+        <div>
+          <dt>Connecting ideas and people</dt>
+          <dd>Scholars, conferences, and developments across academic communities.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section id="products" class="edu-section" aria-labelledby="products-title">
+      <h2 id="products-title">Products</h2>
+      <p>
+        An online catalogue is planned. There are no products listed for purchase at present. Product descriptions, availability, prices, and purchasing details will appear here when confirmed.
+      </p>
+    </section>
+
+    <section id="follow" class="edu-section" aria-labelledby="follow-title">
+      <h2 id="follow-title">Read and follow</h2>
+      <p>For current publications and updates, visit our official social channels.</p>
+      <ul class="edu-links">
+        <li>
+          <a href={wechatPost} target="_blank" rel="noopener noreferrer">
+            <span>WeChat Official Account</span>
+            <span class="edu-link-detail">Read our first post ↗</span>
+          </a>
+        </li>
+        <li>
+          <a href={xiaohongshu} target="_blank" rel="noopener noreferrer">
+            <span>Xiaohongshu</span>
+            <span class="edu-link-detail">View our profile ↗</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="edu-section edu-company-info" aria-labelledby="details-title">
+      <h2 id="details-title">Company information</h2>
+      <dl>
+        <div><dt>Company name</dt><dd>Edu Lounge Education Limited</dd></div>
+        <div><dt>Registration reference</dt><dd>To be added after 1 December 2026, once verified.</dd></div>
+      </dl>
+    </section>
+  </div>
+</EduLoungeLayout>

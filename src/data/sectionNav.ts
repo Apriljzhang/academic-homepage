@@ -20,5 +20,6 @@ export const serviceSubnav = [
   { href: withBase('/service/journal-editor'), label: 'Journal editor' },
   { href: withBase('/service/journal-reviewer'), label: 'Journal reviewer' },
   { href: withBase('/service/presentations'), label: 'Conference Presenter' },
+  { href: withBase('/edu-lounge'), label: 'Edu Lounge' },
   { href: withBase('/service/april'), label: 'APRIL skill' },
 ] as const;

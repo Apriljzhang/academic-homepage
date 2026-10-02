@@ -1,0 +1,13 @@
+/* Edu Lounge brand tokens. Kept separate from the personal site's design system. */
+:root {
+  --edu-paper: #f7f1e3;
+  --edu-surface: #fbf8f0;
+  --edu-ink: #40392e;
+  --edu-muted: #5d5c50;
+  --edu-olive: #4e5a36;
+  --edu-terracotta: #8c4322;
+  --edu-rule: #c9c3ae;
+  --edu-soft-rule: #ded9ca;
+  --edu-font: 'IBM Plex Sans', ui-sans-serif, sans-serif;
+  --edu-display: 'IBM Plex Serif', ui-serif, serif;
+}
