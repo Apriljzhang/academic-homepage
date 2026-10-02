@@ -148,6 +148,13 @@ body.edu-site {
   overflow-wrap: anywhere;
 }
 
+.edu-slogan img {
+  width: auto;
+  height: 0.98em;
+  margin-inline-start: 0.12em;
+  vertical-align: -0.14em;
+}
+
 .edu-lede {
   max-width: 60ch;
   margin: 2rem 0 0;

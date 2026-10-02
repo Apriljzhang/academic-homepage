@@ -2,26 +2,43 @@
 import EduLoungeLayout from '../../layouts/EduLoungeLayout.astro';
 
 const wechatPost = 'https://mp.weixin.qq.com/s/ul1yJQILIbkKyeRlh6F49g';
+const xiaohongshu = 'https://www.xiaohongshu.com/user/profile/66f17f38000000001b017573';
 ---
 
 <EduLoungeLayout
   title="Our work | Edu Lounge Education Limited"
-  description="Explore Edu Lounge's academic publishing and the Edu Lounge Academic Series."
+  description="Explore Edu Lounge's research-related posts on WeChat and Xiaohongshu."
   path="/edu-lounge/work"
   current="work"
 >
   <article class="edu-page">
     <header class="edu-page-intro">
       <h1>Our work</h1>
-      <p>Academic publishing that opens conversations around research.</p>
+      <p>Research-related posts that open conversations across academic communities.</p>
     </header>
 
     <div class="edu-page-body">
+      <h2>Where we publish</h2>
+      <p>We share research-related posts on WeChat and Xiaohongshu. Follow the channels to read our work and join the conversation.</p>
+      <ul class="edu-links">
+        <li>
+          <a href={wechatPost} target="_blank" rel="noopener noreferrer">
+            <span>First WeChat post</span>
+            <span class="edu-link-detail">Read the post ↗</span>
+          </a>
+        </li>
+        <li>
+          <a href={xiaohongshu} target="_blank" rel="noopener noreferrer">
+            <span>Xiaohongshu profile</span>
+            <span class="edu-link-detail">View our posts ↗</span>
+          </a>
+        </li>
+      </ul>
+
       <h2>Edu Lounge Academic Series</h2>
       <p>
-        Our first public work is a Chinese-language collection of academic posts. It gives readers a way into papers, journals, scholars, conferences, methods, writing, opportunities, and developments in the field.
+        Our first public series is a Chinese-language collection of academic posts. It gives readers a way into papers, journals, scholars, conferences, methods, writing, opportunities, and developments in the field.
       </p>
-      <p><a class="edu-text-link" href={wechatPost} target="_blank" rel="noopener noreferrer">Read our first post on WeChat <span aria-hidden="true">↗</span></a></p>
 
       <h2>Editorial scope</h2>
       <dl class="edu-scope">
