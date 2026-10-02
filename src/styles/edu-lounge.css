@@ -206,6 +206,10 @@ body.edu-site {
   margin: 0;
 }
 
+.edu-company-info address {
+  font-style: normal;
+}
+
 .edu-links {
   margin: 1.5rem 0 0;
   padding: 0;
