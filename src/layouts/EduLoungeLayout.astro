@@ -6,9 +6,21 @@ import '@fontsource/ibm-plex-sans/600.css';
 import '@fontsource/ibm-plex-serif/600.css';
 import { withBase } from '../utils/paths';
 
-const title = 'Edu Lounge Education Limited | Research in conversation';
-const description = 'Edu Lounge creates space for open discussion of research through academic publishing. Explore our work and find our WeChat and Xiaohongshu channels.';
-const canonical = new URL(withBase('/edu-lounge'), Astro.site);
+interface Props {
+  title?: string;
+  description?: string;
+  path?: string;
+  current?: 'about' | 'work' | 'products' | 'contact';
+}
+
+const {
+  title = 'Edu Lounge Education Limited | Research in conversation',
+  description = 'Edu Lounge creates space for open discussion of research through academic publishing. Explore our work and find our WeChat and Xiaohongshu channels.',
+  path = '/edu-lounge',
+  current,
+} = Astro.props;
+const canonical = new URL(withBase(path), Astro.site);
+const home = new URL(withBase('/edu-lounge'), Astro.site);
 const logo = new URL(withBase('/edu-lounge/wordmark.svg'), Astro.site);
 const shareImage = new URL(withBase('/edu-lounge/icon.png'), Astro.site);
 const structuredData = {
@@ -16,7 +28,7 @@ const structuredData = {
   '@type': 'Organization',
   name: 'Edu Lounge Education Limited',
   alternateName: 'Edu Lounge',
-  url: canonical.href,
+  url: home.href,
   logo: logo.href,
   email: 'apriljzhang@outlook.com',
   address: 'Avenue of Ocean Garden No.522-526, Yu Yuan and Gui Yuan Building (Ocean Plaza) Third Floor, Block F, Room 2671, Taipa, Macau',
@@ -53,10 +65,10 @@ const structuredData = {
           <img src={withBase('/edu-lounge/wordmark.svg')} width="1613" height="316" alt="Edu Lounge" />
         </a>
         <nav class="edu-nav" aria-label="Edu Lounge navigation">
-          <a href="#about">About</a>
-          <a href="#work">Our work</a>
-          <a href="#products">Products</a>
-          <a href="#contact">Contact</a>
+          <a href={withBase('/edu-lounge/about')} aria-current={current === 'about' ? 'page' : undefined}>About</a>
+          <a href={withBase('/edu-lounge/work')} aria-current={current === 'work' ? 'page' : undefined}>Our work</a>
+          <a href={withBase('/edu-lounge/products')} aria-current={current === 'products' ? 'page' : undefined}>Products</a>
+          <a href={withBase('/edu-lounge/contact')} aria-current={current === 'contact' ? 'page' : undefined}>Contact</a>
         </nav>
       </div>
     </header>

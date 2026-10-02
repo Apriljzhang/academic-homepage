@@ -1,0 +1,55 @@
+---
+import EduLoungeLayout from '../../layouts/EduLoungeLayout.astro';
+
+const wechatPost = 'https://mp.weixin.qq.com/s/ul1yJQILIbkKyeRlh6F49g';
+const xiaohongshu = 'https://www.xiaohongshu.com/user/profile/66f17f38000000001b017573';
+---
+
+<EduLoungeLayout
+  title="Contact | Edu Lounge Education Limited"
+  description="Contact Edu Lounge by email, follow our official social channels, and view company details."
+  path="/edu-lounge/contact"
+  current="contact"
+>
+  <article class="edu-page">
+    <header class="edu-page-intro">
+      <h1>Contact and follow</h1>
+      <p>Write to us, or follow our publications and updates.</p>
+    </header>
+
+    <div class="edu-page-body">
+      <ul class="edu-links">
+        <li>
+          <a href="mailto:apriljzhang@outlook.com">
+            <span>apriljzhang@outlook.com</span>
+            <span class="edu-link-detail">Send an email ↗</span>
+          </a>
+        </li>
+        <li>
+          <a href={wechatPost} target="_blank" rel="noopener noreferrer">
+            <span>WeChat Official Account</span>
+            <span class="edu-link-detail">Read our first post ↗</span>
+          </a>
+        </li>
+        <li>
+          <a href={xiaohongshu} target="_blank" rel="noopener noreferrer">
+            <span>Xiaohongshu</span>
+            <span class="edu-link-detail">View our profile ↗</span>
+          </a>
+        </li>
+      </ul>
+
+      <section class="edu-company-info" aria-labelledby="details-title">
+        <h2 id="details-title">Company information</h2>
+        <dl>
+          <div><dt>Company name</dt><dd>Edu Lounge Education Limited</dd></div>
+          <div>
+            <dt>Address</dt>
+            <dd><address>Avenue of Ocean Garden No.522-526, Yu Yuan and Gui Yuan Building (Ocean Plaza) Third Floor, Block F, Room 2671, Taipa, Macau</address></dd>
+          </div>
+          <div><dt>Registration reference</dt><dd>To be added after 1 December 2026, once verified.</dd></div>
+        </dl>
+      </section>
+    </div>
+  </article>
+</EduLoungeLayout>

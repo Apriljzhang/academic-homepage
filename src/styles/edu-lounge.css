@@ -1,5 +1,5 @@
 /* Hallmark · pre-emit critique: P5 H4 E4 S5 R5 V4
- * genre: editorial · macrostructure: Long Document · tone: formal and restrained
+ * genre: editorial · macrostructure: Route Index / Long Document · tone: formal and restrained
  * theme: independent Edu Lounge institutional system · enrichment: approved logo
  * nav: compact masthead · footer: inline colophon
  */
@@ -17,6 +17,8 @@ html {
 }
 
 body.edu-site {
+  display: flex;
+  flex-direction: column;
   margin: 0;
   min-height: 100dvh;
   padding-bottom: 0;
@@ -26,6 +28,10 @@ body.edu-site {
   font-family: var(--edu-font);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+}
+
+.edu-site main {
+  flex: 1;
 }
 
 .edu-site a {
@@ -110,7 +116,8 @@ body.edu-site {
 }
 
 .edu-nav a:hover,
-.edu-nav a:focus-visible {
+.edu-nav a:focus-visible,
+.edu-nav a[aria-current='page'] {
   color: var(--edu-olive);
   border-bottom-color: var(--edu-olive);
 }
@@ -148,22 +155,80 @@ body.edu-site {
   line-height: 1.6;
 }
 
-.edu-document {
+.edu-home-hero {
+  padding-block-end: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.edu-home-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding-block: clamp(1.5rem, 3vw, 2.75rem) clamp(3rem, 6vw, 5rem);
+}
+
+.edu-home-links a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+  padding: 1.25rem 1.5rem 1.25rem 0;
+  border-bottom: 1px solid var(--edu-soft-rule);
+  color: var(--edu-muted);
+  text-decoration: none;
+}
+
+.edu-home-links a:nth-child(odd) {
+  margin-right: 1.5rem;
+}
+
+.edu-home-link-title {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  color: var(--edu-olive);
+  font-family: var(--edu-display);
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+  font-weight: 600;
+}
+
+.edu-home-links a:hover .edu-home-link-title,
+.edu-home-links a:focus-visible .edu-home-link-title {
+  color: var(--edu-terracotta);
+}
+
+.edu-page {
+  padding-block: clamp(3rem, 8vw, 6rem) clamp(4rem, 8vw, 7rem);
+}
+
+.edu-page-intro {
+  max-width: 54rem;
+  padding-bottom: clamp(2rem, 5vw, 3.5rem);
+  border-bottom: 1px solid var(--edu-rule);
+}
+
+.edu-page-intro h1 {
+  margin: 0;
+  color: var(--edu-olive);
+  font-family: var(--edu-display);
+  font-size: clamp(2.4rem, 5.5vw, 4.5rem);
+  font-weight: 600;
+  letter-spacing: -0.028em;
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+
+.edu-page-intro p {
+  max-width: 52ch;
+  margin: 1.5rem 0 0;
+  font-size: clamp(1.125rem, 1.5vw, 1.3125rem);
+}
+
+.edu-page-body {
   width: min(100%, 50rem);
-  padding-block: 1rem 5rem;
+  padding-top: clamp(2rem, 5vw, 3.5rem);
 }
 
-.edu-section {
-  padding-block: clamp(2.5rem, 5vw, 4rem);
-  scroll-margin-top: 2rem;
-}
-
-.edu-section + .edu-section {
-  border-top: 1px solid var(--edu-soft-rule);
-}
-
-.edu-section h2 {
-  margin: 0 0 1.25rem;
+.edu-page-body h2 {
+  margin: 2.5rem 0 1rem;
   color: var(--edu-olive);
   font-family: var(--edu-display);
   font-size: clamp(1.4rem, 2vw, 1.75rem);
@@ -171,15 +236,18 @@ body.edu-site {
   line-height: 1.25;
 }
 
-.edu-section p {
+.edu-page-body h2:first-child {
+  margin-top: 0;
+}
+
+.edu-page-body p {
   max-width: 68ch;
-  margin: 0 0 1rem;
-  font-size: 1rem;
+  margin: 0 0 1.25rem;
   line-height: 1.7;
 }
 
-.edu-section p:last-child {
-  margin-bottom: 0;
+.edu-text-link {
+  font-weight: 600;
 }
 
 .edu-scope {
@@ -211,7 +279,7 @@ body.edu-site {
 }
 
 .edu-links {
-  margin: 1.5rem 0 0;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
@@ -245,6 +313,11 @@ body.edu-site {
 
 .edu-company-info {
   color: var(--edu-muted);
+  margin-top: 3.5rem;
+}
+
+.edu-company-info h2 {
+  margin-bottom: 1.5rem;
 }
 
 .edu-company-info dl {
@@ -282,6 +355,18 @@ body.edu-site {
   .edu-nav {
     width: 100%;
     gap: 0 1rem;
+  }
+
+  .edu-home-links {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .edu-home-links a:nth-child(odd) {
+    margin-right: 0;
+  }
+
+  .edu-links a > span:first-child {
+    overflow-wrap: anywhere;
   }
 
   .edu-scope > div,

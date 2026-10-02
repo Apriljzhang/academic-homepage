@@ -1,0 +1,25 @@
+---
+import EduLoungeLayout from '../../layouts/EduLoungeLayout.astro';
+import { withBase } from '../../utils/paths';
+---
+
+<EduLoungeLayout
+  title="Products | Edu Lounge Education Limited"
+  description="Information about current and future products from Edu Lounge Education Limited."
+  path="/edu-lounge/products"
+  current="products"
+>
+  <article class="edu-page">
+    <header class="edu-page-intro">
+      <h1>Products</h1>
+      <p>An online catalogue is planned.</p>
+    </header>
+
+    <div class="edu-page-body">
+      <p>
+        There are no products listed for purchase at present. Product descriptions, availability, prices, and purchasing details will appear here when confirmed.
+      </p>
+      <p>For enquiries about Edu Lounge, please <a class="edu-text-link" href={withBase('/edu-lounge/contact')}>contact us <span aria-hidden="true">↗</span></a>.</p>
+    </div>
+  </article>
+</EduLoungeLayout>

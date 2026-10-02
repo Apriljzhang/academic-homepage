@@ -1,6 +1,16 @@
 [
   {
     "date": "2026-10-02",
+    "scope": "edu-lounge-company-routes",
+    "macrostructure": "Route Index / Long Document",
+    "theme": "custom",
+    "theme_axes": "light / roman-serif / chromatic-olive",
+    "vibe": "formal open academic conversation",
+    "enrichment": "approved Edu Lounge logo",
+    "brief": "Split the Edu Lounge company site into separate English pages"
+  },
+  {
+    "date": "2026-10-02",
     "scope": "edu-lounge-company-page",
     "macrostructure": "Long Document",
     "theme": "custom",

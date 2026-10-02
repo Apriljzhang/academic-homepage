@@ -1,0 +1,43 @@
+---
+import EduLoungeLayout from '../../layouts/EduLoungeLayout.astro';
+
+const wechatPost = 'https://mp.weixin.qq.com/s/ul1yJQILIbkKyeRlh6F49g';
+---
+
+<EduLoungeLayout
+  title="Our work | Edu Lounge Education Limited"
+  description="Explore Edu Lounge's academic publishing and the Edu Lounge Academic Series."
+  path="/edu-lounge/work"
+  current="work"
+>
+  <article class="edu-page">
+    <header class="edu-page-intro">
+      <h1>Our work</h1>
+      <p>Academic publishing that opens conversations around research.</p>
+    </header>
+
+    <div class="edu-page-body">
+      <h2>Edu Lounge Academic Series</h2>
+      <p>
+        Our first public work is a Chinese-language collection of academic posts. It gives readers a way into papers, journals, scholars, conferences, methods, writing, opportunities, and developments in the field.
+      </p>
+      <p><a class="edu-text-link" href={wechatPost} target="_blank" rel="noopener noreferrer">Read our first post on WeChat <span aria-hidden="true">↗</span></a></p>
+
+      <h2>Editorial scope</h2>
+      <dl class="edu-scope">
+        <div>
+          <dt>Reading research</dt>
+          <dd>Research papers, methods, and academic writing.</dd>
+        </div>
+        <div>
+          <dt>Following the field</dt>
+          <dd>Journals, special issues, calls, and academic opportunities.</dd>
+        </div>
+        <div>
+          <dt>Connecting ideas and people</dt>
+          <dd>Scholars, conferences, and developments across academic communities.</dd>
+        </div>
+      </dl>
+    </div>
+  </article>
+</EduLoungeLayout>

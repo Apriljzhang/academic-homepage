@@ -1,12 +1,10 @@
 ---
 import EduLoungeLayout from '../../layouts/EduLoungeLayout.astro';
-
-const wechatPost = 'https://mp.weixin.qq.com/s/ul1yJQILIbkKyeRlh6F49g';
-const xiaohongshu = 'https://www.xiaohongshu.com/user/profile/66f17f38000000001b017573';
+import { withBase } from '../../utils/paths';
 ---
 
 <EduLoungeLayout>
-  <section class="edu-hero" aria-labelledby="edu-title">
+  <section class="edu-hero edu-home-hero" aria-labelledby="edu-title">
     <p class="edu-kicker">Edu Lounge Education Limited</p>
     <h1 id="edu-title">Research, in conversation.</h1>
     <p class="edu-lede">
@@ -14,78 +12,22 @@ const xiaohongshu = 'https://www.xiaohongshu.com/user/profile/66f17f38000000001b
     </p>
   </section>
 
-  <div class="edu-document">
-    <section id="about" class="edu-section" aria-labelledby="about-title">
-      <h2 id="about-title">About Edu Lounge</h2>
-      <p>
-        Research can be rigorous and open at the same time. Our first public work is <span lang="zh-Hans">Edu Lounge 学术系列</span>, a Chinese-language collection of academic posts that gives readers a way into papers, journals, scholars, conferences, methods, writing, opportunities, and developments in the field.
-      </p>
-      <p>
-        This site is the official home for the company’s identity, current activity, future offerings, and verified company information.
-      </p>
-    </section>
-
-    <section id="work" class="edu-section" aria-labelledby="work-title">
-      <h2 id="work-title">Our work</h2>
-      <p>Our current public activity is academic publishing designed to start thoughtful discussion. The editorial scope includes:</p>
-      <dl class="edu-scope">
-        <div>
-          <dt>Reading research</dt>
-          <dd>Research papers, methods, and academic writing.</dd>
-        </div>
-        <div>
-          <dt>Following the field</dt>
-          <dd>Journals, special issues, calls, and academic opportunities.</dd>
-        </div>
-        <div>
-          <dt>Connecting ideas and people</dt>
-          <dd>Scholars, conferences, and developments across academic communities.</dd>
-        </div>
-      </dl>
-    </section>
-
-    <section id="products" class="edu-section" aria-labelledby="products-title">
-      <h2 id="products-title">Products</h2>
-      <p>
-        An online catalogue is planned. There are no products listed for purchase at present. Product descriptions, availability, prices, and purchasing details will appear here when confirmed.
-      </p>
-    </section>
-
-    <section id="contact" class="edu-section" aria-labelledby="contact-title">
-      <h2 id="contact-title">Contact and follow</h2>
-      <p>For enquiries, write to us. For publications and updates, visit our official social channels.</p>
-      <ul class="edu-links">
-        <li>
-          <a href="mailto:apriljzhang@outlook.com">
-            <span>apriljzhang@outlook.com</span>
-            <span class="edu-link-detail">Send an email ↗</span>
-          </a>
-        </li>
-        <li>
-          <a href={wechatPost} target="_blank" rel="noopener noreferrer">
-            <span>WeChat Official Account</span>
-            <span class="edu-link-detail">Read our first post ↗</span>
-          </a>
-        </li>
-        <li>
-          <a href={xiaohongshu} target="_blank" rel="noopener noreferrer">
-            <span>Xiaohongshu</span>
-            <span class="edu-link-detail">View our profile ↗</span>
-          </a>
-        </li>
-      </ul>
-    </section>
-
-    <section class="edu-section edu-company-info" aria-labelledby="details-title">
-      <h2 id="details-title">Company information</h2>
-      <dl>
-        <div><dt>Company name</dt><dd>Edu Lounge Education Limited</dd></div>
-        <div>
-          <dt>Address</dt>
-          <dd><address>Avenue of Ocean Garden No.522-526, Yu Yuan and Gui Yuan Building (Ocean Plaza) Third Floor, Block F, Room 2671, Taipa, Macau</address></dd>
-        </div>
-        <div><dt>Registration reference</dt><dd>To be added after 1 December 2026, once verified.</dd></div>
-      </dl>
-    </section>
-  </div>
+  <nav class="edu-home-links" aria-label="Explore Edu Lounge">
+    <a href={withBase('/edu-lounge/about')}>
+      <span class="edu-home-link-title">About <span aria-hidden="true">↗</span></span>
+      <span>Our purpose and the idea behind the lounge.</span>
+    </a>
+    <a href={withBase('/edu-lounge/work')}>
+      <span class="edu-home-link-title">Our work <span aria-hidden="true">↗</span></span>
+      <span>Academic publishing and the Edu Lounge Academic Series.</span>
+    </a>
+    <a href={withBase('/edu-lounge/products')}>
+      <span class="edu-home-link-title">Products <span aria-hidden="true">↗</span></span>
+      <span>Information about future offerings.</span>
+    </a>
+    <a href={withBase('/edu-lounge/contact')}>
+      <span class="edu-home-link-title">Contact <span aria-hidden="true">↗</span></span>
+      <span>Company details and ways to follow our work.</span>
+    </a>
+  </nav>
 </EduLoungeLayout>
