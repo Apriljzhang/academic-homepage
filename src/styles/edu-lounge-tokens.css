@@ -1,13 +1,36 @@
 /* Edu Lounge brand tokens. Kept separate from the personal site's design system. */
 :root {
-  --edu-paper: #f7f1e3;
-  --edu-surface: #fbf8f0;
-  --edu-ink: #40392e;
-  --edu-muted: #5d5c50;
-  --edu-olive: #4e5a36;
-  --edu-terracotta: #8c4322;
-  --edu-rule: #c9c3ae;
-  --edu-soft-rule: #ded9ca;
+  --edu-paper: oklch(95.90% 0.0196 87.51);
+  --edu-surface: oklch(97.92% 0.0110 89.72);
+  --edu-ink: oklch(34.84% 0.0208 79.08);
+  --edu-muted: oklch(47.20% 0.0188 103.19);
+  --edu-olive: oklch(44.73% 0.0571 123.70);
+  --edu-terracotta: oklch(47.03% 0.1095 43.38);
+  --edu-rule: oklch(81.63% 0.0294 93.80);
+  --edu-soft-rule: oklch(88.52% 0.0209 91.60);
   --edu-font: 'IBM Plex Sans', ui-sans-serif, sans-serif;
   --edu-display: 'IBM Plex Serif', ui-serif, serif;
+  --edu-space-3xs: 0.25rem;
+  --edu-space-2xs: 0.5rem;
+  --edu-space-xs: 0.75rem;
+  --edu-space-sm: 1rem;
+  --edu-space-md: 1.5rem;
+  --edu-space-lg: 2rem;
+  --edu-space-xl: 3rem;
+  --edu-space-2xl: 4rem;
+  --edu-space-3xl: 6rem;
+  --edu-text-sm: 0.875rem;
+  --edu-text-base: 1rem;
+  --edu-text-md: 1.25rem;
+  --edu-text-xl: 1.953rem;
+  --edu-text-display: clamp(2.6rem, 5vw + 1rem, 5.25rem);
+  --edu-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --edu-ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --edu-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --edu-dur-micro: 120ms;
+  --edu-dur-short: 220ms;
+  --edu-dur-long: 420ms;
+  --edu-rule-thin: 1px;
+  --edu-radius-card: 0;
+  --edu-z-raised: 10;
 }

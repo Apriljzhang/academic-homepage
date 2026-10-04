@@ -1,8 +1,8 @@
 {
-  "date": "2026-08-08",
-  "framework": "Astro 6 with Tailwind CSS 4",
-  "fonts": ["Source Serif 4", "Source Sans 3"],
-  "palette_source": "src/styles/global.css and tokens.css",
-  "motion": "Framer Motion on interactive map only",
-  "spacing": "Tailwind utilities with a four-point semantic token scale"
+  "date": "2026-10-05",
+  "framework": "Astro 7.3.5 with Tailwind CSS 4.3.3",
+  "fonts": ["Source Serif 4", "Source Sans 3", "IBM Plex Serif", "IBM Plex Sans"],
+  "palette_source": "design.md, tokens.css, and src/styles/edu-lounge-tokens.css",
+  "motion": "Framer Motion is installed; the Edu Lounge company page is motion-free",
+  "spacing": "Four-point semantic token scales for the main site and Edu Lounge"
 }

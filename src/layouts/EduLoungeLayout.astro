@@ -14,10 +14,9 @@ interface Props {
 }
 
 const {
-  title = 'Dare to Do | Edu Lounge Education Limited',
-  description = 'Dare to Do. Edu Lounge creates space for open discussion of research through posts on WeChat and Xiaohongshu.',
+  title = 'Edu Lounge Education Limited',
+  description = 'Edu Lounge Education Limited is an education company in Macao.',
   path = '/edu-lounge',
-  current,
 } = Astro.props;
 const canonical = new URL(withBase(path), Astro.site);
 const home = new URL(withBase('/edu-lounge'), Astro.site);
@@ -30,9 +29,6 @@ const structuredData = {
   alternateName: 'Edu Lounge',
   url: home.href,
   logo: logo.href,
-  email: 'apriljzhang@outlook.com',
-  address: 'Avenue of Ocean Garden No.522-526, Yu Yuan and Gui Yuan Building (Ocean Plaza) Third Floor, Block F, Room 2671, Taipa, Macau',
-  sameAs: ['https://www.xiaohongshu.com/user/profile/66f17f38000000001b017573'],
 };
 ---
 
@@ -40,7 +36,7 @@ const structuredData = {
 <html lang="en-GB">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
@@ -61,15 +57,10 @@ const structuredData = {
     <a class="edu-skip" href="#main-content">Skip to content</a>
     <header class="edu-header">
       <div class="edu-frame edu-header-inner">
-        <a class="edu-brand" href={withBase('/edu-lounge')} aria-label="Edu Lounge home">
+        <div class="edu-brand" aria-label="Edu Lounge">
           <img src={withBase('/edu-lounge/wordmark.svg')} width="1613" height="316" alt="Edu Lounge" />
-        </a>
-        <nav class="edu-nav" aria-label="Edu Lounge navigation">
-          <a href={withBase('/edu-lounge/about')} aria-current={current === 'about' ? 'page' : undefined}>About</a>
-          <a href={withBase('/edu-lounge/work')} aria-current={current === 'work' ? 'page' : undefined}>Our work</a>
-          <a href={withBase('/edu-lounge/products')} aria-current={current === 'products' ? 'page' : undefined}>Products</a>
-          <a href={withBase('/edu-lounge/contact')} aria-current={current === 'contact' ? 'page' : undefined}>Contact</a>
-        </nav>
+        </div>
+        <p class="edu-header-context">Macao</p>
       </div>
     </header>
     <main id="main-content" class="edu-frame">
@@ -77,8 +68,8 @@ const structuredData = {
     </main>
     <footer class="edu-footer">
       <div class="edu-frame edu-footer-inner">
+        <img src={withBase('/edu-lounge/wordmark.svg')} width="1613" height="316" alt="" aria-hidden="true" />
         <p>© Edu Lounge Education Limited</p>
-        <a href={withBase('/service')}>April Jiawei Zhang · Service</a>
       </div>
     </footer>
   </body>

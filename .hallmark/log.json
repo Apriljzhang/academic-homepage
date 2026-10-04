@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-10-05",
+    "scope": "edu-lounge-company-page",
+    "macrostructure": "Split Studio",
+    "theme": "custom",
+    "theme_axes": "light / roman-serif / chromatic-olive",
+    "vibe": "austere institutional factual",
+    "enrichment": "approved Edu Lounge wordmark",
+    "brief": "Rebuild the Edu Lounge page as a concise company and registered-activities introduction without a registered-names block"
+  },
+  {
     "date": "2026-10-02",
     "scope": "edu-lounge-company-routes",
     "macrostructure": "Route Index / Long Document",
