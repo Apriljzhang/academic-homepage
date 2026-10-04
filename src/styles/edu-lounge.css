@@ -333,10 +333,6 @@ body.edu-site {
 }
 
 @media (min-width: 60rem) {
-  .edu-company-intro {
-    min-height: 31rem;
-  }
-
   .edu-activities {
     grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
     gap: clamp(var(--edu-space-2xl), 7vw, var(--edu-space-3xl));
