@@ -28,6 +28,7 @@ body.lesson-deck .lesson-timer { display: flex; align-items: center; gap: .15rem
 body.lesson-deck .lesson-timer input { width: 3.6rem; height: 36px; border: 0; border-right: 1px solid var(--lesson-line); border-radius: 0; padding: .25rem; background: transparent; color: var(--lesson-ink); font-size: 1rem; text-align: center; }
 body.lesson-deck .lesson-timer button { min-height: 44px; border: 0; border-radius: 999px; padding: .4rem .6rem; background: transparent; color: var(--lesson-green); font-size: .875rem; font-weight: 600; }
 body.lesson-deck .lesson-timer output { min-width: 3.4rem; padding: 0 .25rem; color: var(--lesson-ink); font-size: .875rem; font-variant-numeric: tabular-nums; }
+body.lesson-deck .lesson-timer output.is-finished { color: #a94734; font-weight: 700; }
 body.lesson-deck .lesson-controls {
   position: fixed; z-index: 25; left: 50%; bottom: max(.8rem, env(safe-area-inset-bottom));
   display: flex; align-items: center; gap: .2rem; transform: translateX(-50%);

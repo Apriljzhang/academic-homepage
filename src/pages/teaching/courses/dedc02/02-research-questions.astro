@@ -1907,6 +1907,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
 
 <script>
   import { syncLessonNavigation, bindLessonShortcuts } from '../../../../scripts/lessonDeck';
+  import { initLessonTimer } from '../../../../scripts/lessonTimer';
   const slides = Array.from(document.querySelectorAll<HTMLElement>('.slide'));
   const currentLabel = document.querySelector<HTMLElement>('.slide-count span');
   const totalLabel = document.querySelector<HTMLElement>('[data-slide-total]');
@@ -2194,119 +2195,7 @@ const correlationComicHref = withBase('/teaching/courses/dedc02/xkcd-correlation
     });
   });
 
-  const timerInput = document.querySelector<HTMLInputElement>('[data-timer-minutes]');
-  const timerStart = document.querySelector<HTMLButtonElement>('[data-timer-start]');
-  const timerReset = document.querySelector<HTMLButtonElement>('[data-timer-reset]');
-  const timerOutput = document.querySelector<HTMLOutputElement>('[data-timer-output]');
-  const timerStatus = document.querySelector<HTMLElement>('[data-timer-status]');
-  let timerRemainingMs = 0;
-  let timerDeadline = 0;
-  let timerInterval = 0;
-  let timerDisplayActive = false;
-  let audioContext: AudioContext | null = null;
-
-  function formatTime(milliseconds: number) {
-    const seconds = Math.max(0, Math.ceil(milliseconds / 1000));
-    return `${String(Math.floor(seconds / 60)).padStart(2, '0')}:${String(seconds % 60).padStart(2, '0')}`;
-  }
-
-  function paintTimer() {
-    const time = formatTime(timerRemainingMs);
-    if (timerOutput) { timerOutput.textContent = time; timerOutput.hidden = !timerDisplayActive; }
-    if (timerInput) timerInput.hidden = timerDisplayActive;
-  }
-
-  async function primeAudio() {
-    const AudioContextClass = window.AudioContext || (window as typeof window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
-    if (!AudioContextClass) return;
-    audioContext ||= new AudioContextClass();
-    if (audioContext.state === 'suspended') await audioContext.resume();
-  }
-
-  function playDing() {
-    if (!audioContext) return;
-    const now = audioContext.currentTime;
-    const gain = audioContext.createGain();
-    gain.gain.setValueAtTime(0.0001, now);
-    gain.gain.exponentialRampToValueAtTime(0.24, now + 0.02);
-    gain.gain.exponentialRampToValueAtTime(0.0001, now + 1.1);
-    gain.connect(audioContext.destination);
-    [880, 1320].forEach((frequency) => {
-      const oscillator = audioContext!.createOscillator();
-      oscillator.type = 'sine';
-      oscillator.frequency.setValueAtTime(frequency, now);
-      oscillator.connect(gain);
-      oscillator.start(now);
-      oscillator.stop(now + 1.1);
-    });
-  }
-
-  function stopTimer() {
-    window.clearInterval(timerInterval);
-    timerInterval = 0;
-  }
-
-  function finishTimer() {
-    stopTimer();
-    timerRemainingMs = 0;
-    paintTimer();
-    if (timerStart) timerStart.textContent = 'Start';
-    if (timerStatus) timerStatus.textContent = 'Time is up.';
-    timerOutput?.classList.add('is-finished');
-    playDing();
-    window.setTimeout(() => timerOutput?.classList.remove('is-finished'), 1200);
-  }
-
-  function tickTimer() {
-    timerRemainingMs = Math.max(0, timerDeadline - Date.now());
-    if (timerRemainingMs <= 0) finishTimer();
-    else paintTimer();
-  }
-
-  timerStart?.addEventListener('click', async () => {
-    if (timerInterval) {
-      timerRemainingMs = Math.max(0, timerDeadline - Date.now());
-      stopTimer();
-      timerStart.textContent = 'Resume';
-      if (timerStatus) timerStatus.textContent = 'Paused.';
-      paintTimer();
-      return;
-    }
-    if (timerRemainingMs <= 0) {
-      const minutes = Number(timerInput?.value || 0);
-      if (!Number.isFinite(minutes) || minutes <= 0) {
-        if (timerStatus) timerStatus.textContent = 'Enter a time greater than 0 minutes.';
-        timerInput?.focus();
-        return;
-      }
-      timerRemainingMs = minutes * 60_000;
-    }
-    timerDisplayActive = true;
-    await primeAudio();
-    timerDeadline = Date.now() + timerRemainingMs;
-    timerStart.textContent = 'Pause';
-    if (timerStatus) timerStatus.textContent = 'Timer running. A ding will sound when time is up.';
-    timerOutput?.classList.remove('is-finished');
-    paintTimer();
-    timerInterval = window.setInterval(tickTimer, 250);
-  });
-
-  timerReset?.addEventListener('click', () => {
-    stopTimer();
-    timerRemainingMs = 0;
-    timerDeadline = 0;
-    timerDisplayActive = false;
-    if (timerStart) timerStart.textContent = 'Start';
-    if (timerStatus) timerStatus.textContent = '';
-    if (timerInput) timerInput.value = '';
-    timerOutput?.classList.remove('is-finished');
-    paintTimer();
-    timerInput?.focus();
-  });
-
-  timerInput?.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') { event.preventDefault(); timerStart?.click(); }
-  });
+  initLessonTimer();
 
   const pdfDialog = document.querySelector<HTMLDialogElement>('.pdf-dialog');
   const pdfMessage = document.querySelector<HTMLTextAreaElement>('[data-pdf-message]');

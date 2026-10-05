@@ -1,4 +1,5 @@
 import { syncLessonNavigation, bindLessonShortcuts } from './lessonDeck';
+import { initLessonTimer } from './lessonTimer';
 
 const slides = Array.from(document.querySelectorAll<HTMLElement>('.slide'));
 const currentLabel = document.querySelector<HTMLElement>('.slide-count span');
@@ -68,52 +69,7 @@ document.querySelector('[data-overview]')?.addEventListener('click', () => overv
 document.querySelector('[data-close-overview]')?.addEventListener('click', () => overview?.close());
 document.querySelector('[data-fullscreen]')?.addEventListener('click', () => document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen());
 
-const timerInput = document.querySelector<HTMLInputElement>('[data-timer-minutes]');
-const timerStart = document.querySelector<HTMLButtonElement>('[data-timer-start]');
-const timerReset = document.querySelector<HTMLButtonElement>('[data-timer-reset]');
-const timerOutput = document.querySelector<HTMLOutputElement>('[data-timer-output]');
-let timerRemaining = 0;
-let timerInterval = 0;
-
-function paintTimer() {
-  if (!timerOutput) return;
-  timerOutput.hidden = timerRemaining <= 0;
-  timerOutput.textContent = `${String(Math.floor(timerRemaining / 60)).padStart(2, '0')}:${String(timerRemaining % 60).padStart(2, '0')}`;
-}
-
-timerStart?.addEventListener('click', () => {
-  if (timerInterval) {
-    window.clearInterval(timerInterval);
-    timerInterval = 0;
-    timerStart.textContent = 'Start';
-    return;
-  }
-  if (timerRemaining <= 0) {
-    const minutes = Number(timerInput?.value || 0);
-    if (minutes <= 0) { timerInput?.focus(); return; }
-    timerRemaining = Math.round(minutes * 60);
-    paintTimer();
-  }
-  timerStart.textContent = 'Pause';
-  timerInterval = window.setInterval(() => {
-    timerRemaining = Math.max(0, timerRemaining - 1);
-    paintTimer();
-    if (!timerRemaining) {
-      window.clearInterval(timerInterval);
-      timerInterval = 0;
-      timerStart.textContent = 'Start';
-    }
-  }, 1000);
-});
-
-timerReset?.addEventListener('click', () => {
-  window.clearInterval(timerInterval);
-  timerInterval = 0;
-  timerRemaining = 0;
-  if (timerStart) timerStart.textContent = 'Start';
-  if (timerInput) timerInput.value = '';
-  paintTimer();
-});
+initLessonTimer();
 
 document.querySelectorAll<HTMLElement>('[data-question-clinic]').forEach((clinic) => {
   const question = clinic.querySelector<HTMLElement>('[data-clinic-question]');

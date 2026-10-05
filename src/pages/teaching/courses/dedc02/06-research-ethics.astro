@@ -1,0 +1,666 @@
+---
+import CourseSlideLayout from '../../../../layouts/CourseSlideLayout.astro';
+import LessonDeckChrome from '../../../../components/lessons/LessonDeckChrome.astro';
+import { withBase } from '../../../../utils/paths';
+import '../../../../styles/dedc02-research-ethics.css';
+
+const title = '6. Research Ethics · DEDC02';
+const description = 'A bilingual, inquiry-led doctoral workshop on research ethics, consent, risk, confidentiality, data management and IRB application reasoning.';
+const courseHref = withBase('/teaching/courses/dedc02');
+
+const phases = [
+  { time: '0–8', en: 'Opening dilemma', zh: '開場倫理兩難', modeEn: 'Individual vote → paired defence', modeZh: '個人投票→同伴論證' },
+  { time: '8–20', en: 'Ethical lens', zh: '倫理判斷框架', modeEn: 'Discussion and evidence', modeZh: '討論與證據' },
+  { time: '20–40', en: 'Application anatomy', zh: '申請表結構', modeEn: 'Document audit and drafting', modeZh: '文件審核與草擬' },
+  { time: '40–60', en: 'Consent studio', zh: '知情同意工作室', modeEn: 'Role play and rewriting', modeZh: '角色扮演與改寫' },
+  { time: '60–80', en: 'Risk rehearsal', zh: '風險應對演練', modeEn: 'Scenario triage', modeZh: '情境分流' },
+  { time: '80–100', en: 'Data stewardship', zh: '資料管理', modeEn: 'Lifecycle mapping', modeZh: '資料生命週期圖' },
+  { time: '100–125', en: 'IRB design clinic', zh: 'IRB設計診所', modeEn: 'Group production and peer review', modeZh: '小組產出與同儕評閱' },
+  { time: '125–130', en: 'Defence and exit', zh: '論證與離堂', modeEn: 'One decision, one revision', modeZh: '一項決策、一項修訂' },
+];
+
+const principles = [
+  { n: '01', en: 'Value and harm', zh: '價值與傷害', qEn: 'What might this study contribute, and whose costs may it create?', qZh: '研究有何貢獻？誰可能承擔代價？' },
+  { n: '02', en: 'Dignity and rights', zh: '尊嚴與權利', qEn: 'Whose perspective, access or refusal is being overlooked?', qZh: '誰的觀點、參與機會或拒絕權被忽略？' },
+  { n: '03', en: 'Voluntary choice', zh: '自願選擇', qEn: 'Can someone decline without pressure or disadvantage?', qZh: '參與者能否不受壓力或不利影響地拒絕？' },
+  { n: '04', en: 'Integrity', zh: '誠信', qEn: 'Does the plan truthfully describe what will happen?', qZh: '方案是否如實說明實際會發生的事？' },
+  { n: '05', en: 'Accountability', zh: '問責', qEn: 'Who acts if a risk, disclosure or breach occurs?', qZh: '若出現風險、披露或資料外洩，誰負責行動？' },
+  { n: '06', en: 'Independence', zh: '獨立性', qEn: 'How could dual roles or incentives shape the study?', qZh: '雙重角色或誘因如何影響研究？' },
+];
+
+const applicationFields = [
+  { en: 'Purpose and design', zh: '目的與設計', askEn: 'Why is this question worth asking, and why are these methods necessary?', askZh: '為何值得研究此問題？為何需要採用這些方法？' },
+  { en: 'People and recruitment', zh: '參與者與招募', askEn: 'Who is approached, by whom, where, and with what power relationship?', askZh: '誰會被邀請？由誰、在何處邀請？涉及甚麼權力關係？' },
+  { en: 'Procedures and instruments', zh: '程序與工具', askEn: 'What exactly will participants do, see, answer or allow access to?', askZh: '參與者具體會做、看、回答甚麼？研究者可查閱甚麼？' },
+  { en: 'Consent and choice', zh: '同意與選擇', askEn: 'How are participation, recording and future use explained and decided?', askZh: '如何說明及決定參與、錄音錄影與日後使用？' },
+  { en: 'Risk and response', zh: '風險與應對', askEn: 'What is foreseeable, how is it reduced, and who responds if it happens?', askZh: '哪些風險可預見？如何降低？若發生，誰會回應？' },
+  { en: 'Data and outputs', zh: '資料與成果', askEn: 'What is collected, stored, accessed, retained, shared or destroyed?', askZh: '蒐集、儲存、存取、保存、分享或銷毀甚麼資料？' },
+];
+
+const lifecycle = [
+  { n: '1', en: 'Collect', zh: '蒐集', qEn: 'What is the minimum data needed? Are identifiers necessary?', qZh: '最少需要甚麼資料？是否必須收集身份資料？' },
+  { n: '2', en: 'Transfer', zh: '傳輸', qEn: 'How do files move from device or platform to approved storage?', qZh: '檔案如何由裝置或平台移至獲准儲存位置？' },
+  { n: '3', en: 'Separate', zh: '分隔', qEn: 'Where is the identity key kept, and who can reach it?', qZh: '身份對照表存放何處？誰可接觸？' },
+  { n: '4', en: 'Use', zh: '使用', qEn: 'Who has access, and can a tool or vendor see the raw data?', qZh: '誰有存取權？工具或供應商可否看見原始資料？' },
+  { n: '5', en: 'Report', zh: '報告', qEn: 'Could quotes or small-group details reveal a person or school?', qZh: '引文或小群體細節會否暴露個人或學校？' },
+  { n: '6', en: 'Retain / dispose', zh: '保存／銷毀', qEn: 'What period, location, owner and deletion route are justified?', qZh: '保存期限、地點、責任人及銷毀方法有何理據？' },
+];
+
+const reviewChecks = [
+  { en: 'The application and attachments describe the same people, tasks and data.', zh: '申請表與附件對參與者、任務及資料的描述一致。' },
+  { en: 'A person can decline or withdraw without a teacher or gatekeeper penalising them.', zh: '參與者可拒絕或退出，且不會受教師或守門人不利對待。' },
+  { en: 'Each important risk has a prevention step, a response and a named owner.', zh: '每項重要風險均有預防措施、應對方法及負責人。' },
+  { en: 'The consent text states what is recorded, who sees it and the limits to withdrawal.', zh: '同意文件說明紀錄內容、存取者及退出資料的限制。' },
+  { en: 'The data plan names tools, locations, access, retention and disposal.', zh: '資料計劃列明工具、地點、權限、保存及銷毀。' },
+  { en: 'Claims about anonymity, benefit and approval match what can actually be promised.', zh: '關於匿名、益處及批准的承諾符合實際情況。' },
+];
+---
+
+<CourseSlideLayout {title} {description} lessonDeck>
+  <section class="ethics-print-cover" aria-hidden="true">
+    <span>DEDC02 · Advanced Research Method</span>
+    <h1>Research Ethics<br />and IRB Practice</h1>
+    <p>My decisions, safeguards and reviewer questions</p>
+  </section>
+  <section class="ethics-print-notes" aria-hidden="true">
+    <span>DEDC02 · Personal workshop notes</span>
+    <h1>Ethics application working sheet</h1>
+    <div data-print-notes></div>
+  </section>
+
+  <LessonDeckChrome {courseHref} lessonTitle="Research Ethics and IRB Practice" />
+  <main class="deck" aria-label="Research Ethics and IRB Practice slide deck">
+    <section class="slide is-active" data-title="Research Ethics and IRB Practice" aria-hidden="false">
+      <div class="slide-inner title-slide">
+        <header class="slide-header"><span class="eyebrow">DEDC02 · Advanced Research Method · Lesson 6</span></header>
+        <div class="title-rule"></div>
+        <div data-language="en">
+          <h1>Research<br />Ethics</h1>
+          <p class="lead">A practical IRB workshop: make defensible choices about people, consent, risk and data before the form becomes a promise.</p>
+          <p class="course-cue">Bring your proposed study. Use a fictional or de-identified version in shared discussion.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h1>研究倫理<br />與IRB實作</h1>
+          <p class="lead">在申請表成為承諾之前，先對參與者、同意、風險及資料作出可論證的決策。</p>
+          <p class="course-cue">請帶來你的擬議研究；在全班討論時使用虛構或去識別版本。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Today’s 130-minute route" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">The route · 130 minutes</span></header>
+        <div data-language="en">
+          <h2>Investigate, decide, write, defend.</h2>
+          <div class="phase-grid">
+            {phases.map((phase) => <article><b>{phase.time}</b><strong>{phase.en}</strong><span>{phase.modeEn}</span></article>)}
+          </div>
+          <p class="takeaway">Output: a coherent draft application package and a short list of decisions that still need evidence or approval.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>探究、決定、寫作、論證。</h2>
+          <div class="phase-grid">
+            {phases.map((phase) => <article><b>{phase.time}</b><strong>{phase.zh}</strong><span>{phase.modeZh}</span></article>)}
+          </div>
+          <p class="takeaway">本課產出：相互一致的申請材料草稿，以及仍需證據或批准的決策清單。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Opening dilemma" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">0–8 min · Vote → defend</span></header>
+        <div data-language="en">
+          <h2>A teacher invites their own students into a doctoral study.</h2>
+          <p class="lead small">Fictional case: the study uses classroom writing, interviews and AI-platform logs from 16-year-old students. The invitation is about to go into the class chat.</p>
+          <p class="prompt-label">Which first redesign best addresses the immediate pressure to participate?</p>
+          <div class="choice-row" data-choice-group>
+            <button type="button" data-choice="a" aria-pressed="false">A · Ask students to sign during class</button>
+            <button type="button" data-choice="b" aria-pressed="false">B · Use an independent invitation route</button>
+            <button type="button" data-choice="c" aria-pressed="false">C · Keep only the platform logs</button>
+            <p data-choice-feedback role="status">Choose privately, then defend your choice with a partner.</p>
+          </div>
+          <details class="reveal"><summary>Compare the reasoning after discussion</summary><p><strong>B</strong> tackles the teacher–student power relationship most directly. It still leaves questions about student assent, guardian permission, school access, recording, platform data and who learns who declined. Removing interviews alone does not settle those issues.</p></details>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>教師邀請自己任教的學生參與博士研究。</h2>
+          <p class="lead small">虛構案例：研究使用16歲學生的課堂寫作、訪談及AI平台紀錄；邀請即將發送至班級群組。</p>
+          <p class="prompt-label">哪項初步修改最能處理參與壓力？</p>
+          <div class="choice-row" data-choice-group>
+            <button type="button" data-choice="a" aria-pressed="false">A · 在課堂上請學生簽名</button>
+            <button type="button" data-choice="b" aria-pressed="false">B · 由獨立渠道發出邀請</button>
+            <button type="button" data-choice="c" aria-pressed="false">C · 只保留平台紀錄</button>
+            <p data-choice-feedback role="status">先自行選擇，再向同伴解釋理由。</p>
+          </div>
+          <details class="reveal"><summary>討論後比較推理</summary><p><strong>B</strong> 最直接處理師生權力關係，但仍須考慮學生同意參與、監護人許可、學校准入、錄音錄影、平台資料，以及誰會知道哪些人拒絕參與。單單取消訪談不能解決所有問題。</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Six ethical questions" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">8–20 min · Ethical lens</span></header>
+        <div data-language="en">
+          <h2>Turn principles into questions about this study.</h2>
+          <div class="principle-grid">
+            {principles.map((item) => <article><b>{item.n}</b><h3>{item.en}</h3><p>{item.qEn}</p></article>)}
+          </div>
+          <p class="source-note">Adapted as teaching questions from the <a href="https://www.ukri.org/councils/esrc/guidance-for-applicants/research-ethics-guidance/framework-for-research-ethics/our-core-principles/" target="_blank" rel="noopener noreferrer">ESRC framework’s six principles</a>. Discuss which principle changes the fictional design most.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>把原則轉化為針對研究的問題。</h2>
+          <div class="principle-grid">
+            {principles.map((item) => <article><b>{item.n}</b><h3>{item.zh}</h3><p>{item.qZh}</p></article>)}
+          </div>
+          <p class="source-note">根據<a href="https://www.ukri.org/councils/esrc/guidance-for-applicants/research-ethics-guidance/framework-for-research-ethics/our-core-principles/" target="_blank" rel="noopener noreferrer">ESRC六項原則</a>轉化為教學問題。討論哪一項原則最能改變案例的設計。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Ethics across the project" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Ethics is a continuing decision</span></header>
+        <div data-language="en">
+          <h2>What can a form settle, and what needs ongoing judgement?</h2>
+          <div class="comparison">
+            <article><span>Before collection</span><h3>Design and review</h3><p>Specify recruitment, consent, instruments, foreseeable risks and data routes; obtain required permissions and ethics approval.</p></article>
+            <article><span>During collection</span><h3>Notice and respond</h3><p>Revisit consent; watch for distress, pressure, unintended disclosure and changes to the approved procedure.</p></article>
+            <article><span>After collection</span><h3>Protect and report</h3><p>Limit access, check identifiability in quotations, honour the data plan and review any future use.</p></article>
+          </div>
+          <p class="takeaway">A course application draft is a reasoning exercise. It does not grant permission to recruit or collect human-participant data.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>表格能處理甚麼？甚麼需要持續判斷？</h2>
+          <div class="comparison">
+            <article><span>蒐集前</span><h3>設計與審查</h3><p>具體說明招募、同意、工具、可預見風險及資料流向；取得所需准許及倫理批准。</p></article>
+            <article><span>蒐集中</span><h3>察覺與回應</h3><p>持續確認同意；留意不適、壓力、意外披露，以及對已獲批程序的變更。</p></article>
+            <article><span>蒐集後</span><h3>保障與報告</h3><p>限制存取、檢查引文可識別性、遵守資料計劃，並審視日後使用。</p></article>
+          </div>
+          <p class="takeaway">課堂申請草稿是倫理推理練習，並不授予招募或蒐集人類參與者資料的許可。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Case dossier" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">20–40 min · Application anatomy</span></header>
+        <div data-language="en">
+          <h2>Read the case like an ethics reviewer.</h2>
+          <div class="case-layout">
+            <article class="case-file"><span>Fictional proposal</span><h3>AI writing feedback in secondary school</h3><ul><li>The teacher-researcher recruits their own class.</li><li>Student drafts, interviews and platform logs are combined.</li><li>Interview quotations may appear in a journal article.</li><li>The draft says: “Participation is voluntary and all data are anonymous.”</li></ul></article>
+            <div class="note-entry"><label for="case-gaps-en">Write three questions that the proposal still cannot answer.</label><textarea id="case-gaps-en" data-save="case-gaps" data-response-label="Case: unanswered reviewer questions" placeholder="Who recruits? What data leave the platform? Who can identify a quotation?"></textarea><p>Compare your questions with a partner; agree on the one that could change the design.</p></div>
+          </div>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>以倫理審查者角度閱讀案例。</h2>
+          <div class="case-layout">
+            <article class="case-file"><span>虛構研究方案</span><h3>中學AI寫作回饋</h3><ul><li>教師研究者招募自己任教的班級。</li><li>合併學生草稿、訪談及平台紀錄。</li><li>期刊論文可能使用訪談引文。</li><li>草稿寫道：「參與完全自願，所有資料均匿名。」</li></ul></article>
+            <div class="note-entry"><label for="case-gaps-zh">寫下三條方案尚未回答的問題。</label><textarea id="case-gaps-zh" data-save="case-gaps" data-response-label="案例：審查者未獲回答的問題" placeholder="由誰招募？甚麼資料離開平台？引文可否識別個人？"></textarea><p>與同伴比較問題，商定最可能改變研究設計的一條。</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Application form: six connected claims" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Application reading</span></header>
+        <div data-language="en">
+          <h2>Each field makes a claim that the attachments must support.</h2>
+          <div class="field-grid">
+            {applicationFields.map((field) => <details><summary>{field.en}</summary><p>{field.askEn}</p></details>)}
+          </div>
+          <p class="source-note">Use the current <a href="https://soe.cityu.edu.mo/en/notice/393" target="_blank" rel="noopener noreferrer">CityU School of Education ethics notice and form</a> for the local process. The prompts here are a teaching map, not a substitute for the designated form.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>每個欄位的主張都需要附件支持。</h2>
+          <div class="field-grid">
+            {applicationFields.map((field) => <details><summary>{field.zh}</summary><p>{field.askZh}</p></details>)}
+          </div>
+          <p class="source-note">本地流程請參閱現行<a href="https://soe.cityu.edu.mo/en/notice/393" target="_blank" rel="noopener noreferrer">澳門城市大學教育學院倫理通知及表格</a>。此處問題只作教學地圖，不能取代指定表格。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Find the contradictions" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Document audit · pair work</span></header>
+        <div data-language="en">
+          <h2>Where does this application contradict itself?</h2>
+          <div class="audit-grid">
+            <details><summary>Form: “No identifiable data.”<small>Attachment: audio interviews and named recruitment list.</small></summary><p>Audio and the list may identify participants. Explain separation, access and the precise meaning of any de-identification claim.</p></details>
+            <details><summary>Form: “No foreseeable risk.”<small>Invitation: the teacher asks their own students in class.</small></summary><p>Consider pressure, grades and relationships. Redesign the invitation and who sees participation decisions.</p></details>
+            <details><summary>Consent: “Withdraw at any time.”<small>Analysis: quotations are published after transcription.</small></summary><p>Give a realistic withdrawal procedure and explain the point after which removing data may no longer be possible.</p></details>
+            <details><summary>Data plan: “Only researchers have access.”<small>Method: third-party AI transcription.</small></summary><p>Identify the provider, transfer, settings, permission and any approved alternative before making the access claim.</p></details>
+          </div>
+          <p class="instruction"><strong>Pairs:</strong> open only after naming the contradiction and writing one repair in your notes.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>申請材料在哪裏互相矛盾？</h2>
+          <div class="audit-grid">
+            <details><summary>表格：「不收集可識別資料。」<small>附件：錄音訪談及具名招募名單。</small></summary><p>錄音及名單可能識別參與者。須說明分隔、權限，以及「去識別」一詞的準確含義。</p></details>
+            <details><summary>表格：「沒有可預見風險。」<small>邀請函：教師在課堂邀請自己的學生。</small></summary><p>考慮壓力、成績及關係；重新設計邀請方式及參與決定的知情範圍。</p></details>
+            <details><summary>同意書：「可隨時撤回。」<small>分析計劃：逐字稿引文將發表。</small></summary><p>提供可執行的退出程序，並說明資料在甚麼階段可能已無法移除。</p></details>
+            <details><summary>資料計劃：「只有研究者可存取。」<small>方法：使用第三方AI轉錄。</small></summary><p>在作出存取承諾前，辨明供應商、傳輸、設定、許可及已獲准的替代方案。</p></details>
+          </div>
+          <p class="instruction"><strong>兩人一組：</strong>先指出矛盾並寫下一項修正，再打開說明。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Draft the application spine" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Application writing · 8 minutes</span></header>
+        <div data-language="en">
+          <h2>Make your own study legible to a reviewer.</h2>
+          <div class="writing-grid">
+            <label>Purpose and evidence<textarea data-save="purpose-evidence" data-response-label="Purpose and evidence" placeholder="What question is asked, and why are these data necessary?"></textarea></label>
+            <label>People and recruitment<textarea data-save="people-recruitment" data-response-label="People and recruitment" placeholder="Who is approached, by whom, where, and how can they decline?"></textarea></label>
+            <label>Procedure and attachments<textarea data-save="procedure-attachments" data-response-label="Procedure and attachments" placeholder="What happens in order? Which actual instruments or materials will reviewers see?"></textarea></label>
+          </div>
+          <p class="takeaway">Use specific verbs: invite, record, transfer, store, restrict, respond, delete. Mark unknown decisions as questions.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>讓審查者看得懂你的研究。</h2>
+          <div class="writing-grid">
+            <label>目的與證據<textarea data-save="purpose-evidence" data-response-label="目的與證據" placeholder="研究問題是甚麼？為何需要這些資料？"></textarea></label>
+            <label>參與者與招募<textarea data-save="people-recruitment" data-response-label="參與者與招募" placeholder="邀請誰？由誰、在何處邀請？如何拒絕？"></textarea></label>
+            <label>程序與附件<textarea data-save="procedure-attachments" data-response-label="程序與附件" placeholder="研究按甚麼次序進行？審查者會看到哪些實際工具或材料？"></textarea></label>
+          </div>
+          <p class="takeaway">使用具體動詞：邀請、記錄、傳輸、儲存、限制、回應、銷毀。尚未決定的事項應標示為問題。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Consent is a process" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">40–60 min · Consent studio</span></header>
+        <div data-language="en">
+          <h2>What must a person understand to make a real choice?</h2>
+          <div class="consent-chain">
+            <article><b>01</b><h3>Invitation</h3><p>Why me? Who asks? Can I take time?</p></article>
+            <article><b>02</b><h3>Information</h3><p>What happens, for how long, and with which data?</p></article>
+            <article><b>03</b><h3>Choice</h3><p>Can I refuse parts such as recording or future sharing?</p></article>
+            <article><b>04</b><h3>Continuity</h3><p>Can I pause, skip, withdraw or ask later?</p></article>
+          </div>
+          <p class="takeaway">A signature records a decision. Accessible information, freedom from pressure and a feasible withdrawal route make that decision meaningful.</p>
+          <p class="source-note">Grounded in <a href="https://www.ukri.org/councils/esrc/guidance-for-applicants/research-ethics-guidance/consent/" target="_blank" rel="noopener noreferrer">ESRC consent guidance</a> and the <a href="https://www.bera.ac.uk/publication/ethical-guidelines-for-educational-research-fifth-edition-2024" target="_blank" rel="noopener noreferrer">BERA educational research guidelines</a>.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>參與者要明白甚麼，才能真正作出選擇？</h2>
+          <div class="consent-chain">
+            <article><b>01</b><h3>邀請</h3><p>為何邀請我？誰邀請？我可以考慮多久？</p></article>
+            <article><b>02</b><h3>資訊</h3><p>要做甚麼、多久、涉及哪些資料？</p></article>
+            <article><b>03</b><h3>選擇</h3><p>我可否拒絕錄音或日後分享等部分？</p></article>
+            <article><b>04</b><h3>持續確認</h3><p>我可否暫停、跳題、退出或日後提問？</p></article>
+          </div>
+          <p class="takeaway">簽名只記錄決定；易懂的資訊、免於壓力及可行的退出途徑，才能讓決定有意義。</p>
+          <p class="source-note">依據<a href="https://www.ukri.org/councils/esrc/guidance-for-applicants/research-ethics-guidance/consent/" target="_blank" rel="noopener noreferrer">ESRC同意指引</a>及<a href="https://www.bera.ac.uk/publication/ethical-guidelines-for-educational-research-fifth-edition-2024" target="_blank" rel="noopener noreferrer">BERA教育研究倫理指引</a>。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Consent role play" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Role play · 10 minutes</span></header>
+        <div data-language="en">
+          <h2>Rehearse the invitation before writing the form.</h2>
+          <div class="role-grid">
+            <article><span>Researcher</span><p>Explain the study in one minute. State who sees the choice, what is recorded and how refusal affects the class.</p></article>
+            <article><span>Prospective participant</span><p>Ask: “Will my teacher know if I refuse?” “Can I join without an interview?” “What happens to my drafts?”</p></article>
+            <article><span>Observer</span><p>Listen for accessible wording, real alternatives, a pause for questions and promises the project can keep.</p></article>
+          </div>
+          <p class="instruction"><strong>Three rounds:</strong> 2 min invitation and questions · 1 min feedback · swap roles. Use an adult stand-in for the fictional minor; this is a classroom simulation.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>先演練邀請，再寫同意書。</h2>
+          <div class="role-grid">
+            <article><span>研究者</span><p>用一分鐘解釋研究，說明誰會知道參與決定、記錄甚麼，以及拒絕是否影響課堂。</p></article>
+            <article><span>準參與者</span><p>發問：「我拒絕，老師會知道嗎？」「我可否只參與部分活動？」「我的作文會怎樣處理？」</p></article>
+            <article><span>觀察者</span><p>留意措辭是否易懂、是否有真正選擇、能否提問，以及承諾是否可行。</p></article>
+          </div>
+          <p class="instruction"><strong>三輪：</strong>邀請及提問2分鐘、回饋1分鐘，然後交換角色。虛構案例的未成年參與者由成人同學模擬；這只是課堂演練。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Repair the consent text" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Consent writing · 7 minutes</span></header>
+        <div data-language="en">
+          <h2>Replace promises this study cannot keep.</h2>
+          <blockquote class="flawed-text">“By signing, you agree to all activities and future uses. All data are anonymous. There are no risks. You can withdraw at any time.”</blockquote>
+          <label class="note-entry">Write two replacement sentences about recording, confidentiality or withdrawal.<textarea data-save="consent-revision" data-response-label="Revised consent wording" placeholder="Participation in the interview is optional... / We will remove names from transcripts, but..."></textarea></label>
+          <details class="reveal"><summary>Compare a possible revision</summary><p>“You may join the writing activity without agreeing to an interview or audio recording. We will remove names from the transcript, but the research team can identify recordings while they are stored; quotations may be recognisable in a small school. You can request removal of your interview data until [a justified stage/date], before results are combined or published.” The actual study must fill and justify the bracketed limit.</p></details>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>改寫研究無法兌現的承諾。</h2>
+          <blockquote class="flawed-text">「簽名即表示同意所有活動及日後用途。所有資料均匿名，研究沒有風險。你可隨時撤回。」</blockquote>
+          <label class="note-entry">寫下兩句修訂文字，處理錄音、保密或退出。<textarea data-save="consent-revision" data-response-label="修訂後的知情同意措辭" placeholder="參與訪談屬自願……／逐字稿會移除姓名，但……"></textarea></label>
+          <details class="reveal"><summary>比較一種可能的修訂</summary><p>「你可參與寫作活動而不接受訪談或錄音。我們會從逐字稿移除姓名，但研究團隊在保存期間仍可能透過錄音識別你；在小型學校，引文也可能被認出。你可在〔須說明理由的階段／日期〕前要求移除訪談資料，之後資料可能已合併分析或發表。」實際研究須填寫並解釋方括號內限制。</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Risk is more than a checkbox" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">60–80 min · Risk rehearsal</span></header>
+        <div data-language="en">
+          <h2>Describe a risk as a pathway, not a label.</h2>
+          <div class="risk-equation"><span>Activity</span><b>→</b><span>Possible harm</span><b>→</b><span>Prevention</span><b>→</b><span>Response</span><b>→</b><span>Remaining risk</span></div>
+          <div class="risk-grid">
+            <article><h3>Social / educational</h3><p>A teacher knows who refused; a classroom group may infer who spoke.</p></article>
+            <article><h3>Emotional</h3><p>An interview revisits conflict, failure or exclusion.</p></article>
+            <article><h3>Privacy / reputation</h3><p>A quotation, voice or platform trace identifies a person or school.</p></article>
+            <article><h3>Researcher / bystander</h3><p>A field visit or incidental recording affects people outside the intended sample.</p></article>
+          </div>
+          <p class="source-note">The <a href="https://www.ukri.org/councils/esrc/guidance-for-applicants/research-ethics-guidance/risk-and-benefit/" target="_blank" rel="noopener noreferrer">ESRC risk and benefit guidance</a> asks researchers to anticipate harms, justify their likelihood and magnitude, and plan responsibilities.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>把風險寫成一條可能發生的路徑，而非標籤。</h2>
+          <div class="risk-equation"><span>活動</span><b>→</b><span>可能傷害</span><b>→</b><span>預防</span><b>→</b><span>應對</span><b>→</b><span>剩餘風險</span></div>
+          <div class="risk-grid">
+            <article><h3>社會／教育</h3><p>教師知道誰拒絕；班級可能推斷誰接受訪談。</p></article>
+            <article><h3>情緒</h3><p>訪談觸及衝突、失敗或排斥經歷。</p></article>
+            <article><h3>私隱／聲譽</h3><p>引文、聲音或平台痕跡識別個人或學校。</p></article>
+            <article><h3>研究者／旁觀者</h3><p>田野工作或意外錄音影響原定樣本以外的人。</p></article>
+          </div>
+          <p class="source-note"><a href="https://www.ukri.org/councils/esrc/guidance-for-applicants/research-ethics-guidance/risk-and-benefit/" target="_blank" rel="noopener noreferrer">ESRC風險與益處指引</a>要求研究者預視傷害、解釋可能性及程度，並規劃責任。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="What would you do next?" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Scenario triage · groups of three</span></header>
+        <div data-language="en">
+          <h2>Rehearse the response while the stakes are low.</h2>
+          <div class="scenario-grid">
+            <article><span>01 · Distress</span><p>An interviewee becomes upset and asks whether the recording can be erased.</p><details><summary>Discuss, then open</summary><p>Pause the interview, check the person’s choice and immediate needs, follow the approved support pathway, and explain the realistic withdrawal and deletion process. Record the incident through the agreed route.</p></details></article>
+            <article><span>02 · Disclosure</span><p>A participant reports a serious safety concern after you promised “complete confidentiality.”</p><details><summary>Discuss, then open</summary><p>The promise was too broad. Follow the pre-agreed disclosure and safeguarding process, limit disclosure to people authorised to act, and explain limits to confidentiality at consent.</p></details></article>
+            <article><span>03 · Scope change</span><p>A school offers additional attendance records after the study begins.</p><details><summary>Discuss, then open</summary><p>Do not silently add the dataset. Check purpose, permission, participant information, data plan and whether review or amendment is needed before access or analysis.</p></details></article>
+          </div>
+          <p class="instruction">For one scenario, state a trigger, first action, responsible person and record of the decision.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>趁風險尚未發生，先演練應對。</h2>
+          <div class="scenario-grid">
+            <article><span>01 · 不適</span><p>受訪者感到難過，並問能否刪除錄音。</p><details><summary>先討論，再打開</summary><p>暫停訪談，了解參與者選擇與即時需要，依已批准的支援途徑處理，解釋可行的退出及刪除程序，並按既定路徑記錄事件。</p></details></article>
+            <article><span>02 · 披露</span><p>參與者透露嚴重安全問題，而你曾承諾「完全保密」。</p><details><summary>先討論，再打開</summary><p>這項承諾過於絕對。依預先商定的披露及保障程序處理，只向有權採取行動的人披露，並在同意階段說明保密界限。</p></details></article>
+            <article><span>03 · 範圍變更</span><p>研究開始後，學校提出提供額外的出席紀錄。</p><details><summary>先討論，再打開</summary><p>不能默默加入新資料。先核對目的、許可、參與者資訊及資料計劃，並確定存取或分析前是否需修訂審查。</p></details></article>
+          </div>
+          <p class="instruction">選一個情境，說明觸發條件、第一步、負責人及決策紀錄。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Write a risk response" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Risk writing · 7 minutes</span></header>
+        <div data-language="en">
+          <h2>Make one safeguard operational.</h2>
+          <div class="writing-grid two">
+            <label>Foreseeable pathway<textarea data-save="risk-pathway" data-response-label="Foreseeable risk pathway" placeholder="If [activity] exposes [person] to [harm], especially because..."></textarea></label>
+            <label>Prevention, response, owner<textarea data-save="risk-response" data-response-label="Risk prevention and response" placeholder="We will prevent this by... If it occurs, [role] will... The remaining risk is..."></textarea></label>
+          </div>
+          <p class="takeaway">“Minimal risk” is a conclusion to justify. It does not replace a description of what could happen.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>把一項保障措施寫成可執行步驟。</h2>
+          <div class="writing-grid two">
+            <label>可預見的風險路徑<textarea data-save="risk-pathway" data-response-label="可預見的風險路徑" placeholder="若〔活動〕令〔人士〕面對〔傷害〕，尤其因為……"></textarea></label>
+            <label>預防、應對、負責人<textarea data-save="risk-response" data-response-label="風險預防與應對" placeholder="我們會以……預防。如發生，〔角色〕會……。剩餘風險是……"></textarea></label>
+          </div>
+          <p class="takeaway">「風險很低」是需要論證的結論，不能代替對可能發生事件的描述。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Privacy, anonymity and confidentiality" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">80–100 min · Data stewardship</span></header>
+        <div data-language="en">
+          <h2>Choose words that match the actual data.</h2>
+          <div class="comparison">
+            <article><span>Privacy</span><h3>Control over access</h3><p>Who is approached, observed or recorded, and in which setting?</p></article>
+            <article><span>Confidentiality</span><h3>Control over disclosure</h3><p>Researchers may know identity but restrict who sees it and what is published.</p></article>
+            <article><span>Anonymity</span><h3>No practical identification</h3><p>A name removed from audio or a small-school quotation does not automatically make the source anonymous.</p></article>
+          </div>
+          <p class="instruction"><strong>Quick test:</strong> if a team member can relink the recording to a name, which term should the consent form avoid?</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>用語須符合資料的實際狀況。</h2>
+          <div class="comparison">
+            <article><span>私隱</span><h3>控制接觸</h3><p>誰在甚麼場景被邀請、觀察或錄音？</p></article>
+            <article><span>保密</span><h3>控制披露</h3><p>研究者可能知道身份，但限制誰可查閱，以及發表甚麼。</p></article>
+            <article><span>匿名</span><h3>實際無法識別</h3><p>從錄音或小型學校引文刪除姓名，並不會自動令資料匿名。</p></article>
+          </div>
+          <p class="instruction"><strong>快速判斷：</strong>若團隊成員可把錄音與姓名重新配對，同意書應避免哪個用語？</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Map the data lifecycle" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Data mapping · pair work</span></header>
+        <div data-language="en">
+          <h2>Follow one interview file from creation to disposal.</h2>
+          <div class="lifecycle-grid">
+            {lifecycle.map((step) => <details><summary><b>{step.n}</b>{step.en}</summary><p>{step.qEn}</p></details>)}
+          </div>
+          <p class="instruction">Sketch the route on paper. Mark every place where a person, device, service or file copy gains access.</p>
+          <p class="source-note">See <a href="https://www.ukri.org/councils/esrc/guidance-for-applicants/research-ethics-guidance/data-requirements/" target="_blank" rel="noopener noreferrer">ESRC data requirements</a> and its project-lifecycle approach.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>追蹤一份訪談錄音由產生至銷毀的路徑。</h2>
+          <div class="lifecycle-grid">
+            {lifecycle.map((step) => <details><summary><b>{step.n}</b>{step.zh}</summary><p>{step.qZh}</p></details>)}
+          </div>
+          <p class="instruction">在紙上畫出路徑，標出每個可接觸資料的人、裝置、服務及檔案副本。</p>
+          <p class="source-note">參閱<a href="https://www.ukri.org/councils/esrc/guidance-for-applicants/research-ethics-guidance/data-requirements/" target="_blank" rel="noopener noreferrer">ESRC資料要求</a>及其研究生命週期取向。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Write the data plan" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Data-plan writing · 7 minutes</span></header>
+        <div data-language="en">
+          <h2>Write a plan another team member could follow.</h2>
+          <div class="writing-grid two">
+            <label>Collection and minimisation<textarea data-save="data-minimise" data-response-label="Data collection and minimisation" placeholder="We collect... We do not collect... The link to identity is..."></textarea></label>
+            <label>Storage and access<textarea data-save="data-access" data-response-label="Data storage and access" placeholder="Files move from... to... Only these roles can access..."></textarea></label>
+            <label>Tools and sharing<textarea data-save="data-tools" data-response-label="Tools and data sharing" placeholder="Transcription or AI tools... Provider access... Future reuse or sharing..."></textarea></label>
+            <label>Retention and disposal<textarea data-save="data-retention" data-response-label="Data retention and disposal" placeholder="We retain... for... under... Then..."></textarea></label>
+          </div>
+          <p class="takeaway">Use a justified period and approved location for your project; this slide supplies no universal retention rule.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>寫出其他團隊成員也能執行的資料計劃。</h2>
+          <div class="writing-grid two">
+            <label>蒐集與最少化<textarea data-save="data-minimise" data-response-label="資料蒐集與最少化" placeholder="我們蒐集……但不蒐集……；身份對照資料是……"></textarea></label>
+            <label>儲存與存取<textarea data-save="data-access" data-response-label="資料儲存與存取" placeholder="檔案由……移至……；只有……可存取。"></textarea></label>
+            <label>工具與分享<textarea data-save="data-tools" data-response-label="工具與資料分享" placeholder="轉錄或AI工具……；供應商存取……；日後重用或分享……"></textarea></label>
+            <label>保存與銷毀<textarea data-save="data-retention" data-response-label="資料保存與銷毀" placeholder="我們在……保存……，為期……；之後……"></textarea></label>
+          </div>
+          <p class="takeaway">保存期限及地點須符合你的研究及獲批要求；本頁不提供通用年限。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Three edge-case stations" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Rotate perspectives · 8 minutes</span></header>
+        <div data-language="en">
+          <h2>What changes when the context changes?</h2>
+          <div class="station-grid">
+            <article><b>01</b><h3>Children and young people</h3><p>Whose permission and whose assent matter? How will refusal be recognised during an activity?</p></article>
+            <article><b>02</b><h3>Insider researcher</h3><p>What can a student or colleague decline when the researcher also grades or manages them?</p></article>
+            <article><b>03</b><h3>AI and platform traces</h3><p>What does the provider collect or retain? Where do raw prompts, voices or logs travel?</p></article>
+          </div>
+          <p class="instruction">At each station, write one design change and one question for the reviewer. Rotate after two minutes.</p>
+          <p class="source-note">For a real education example, read BERA’s <a href="https://www.bera.ac.uk/publication/research-ethics-case-studies-2024-classroom-observation-for-insider-teacher-researchers" target="_blank" rel="noopener noreferrer">insider teacher-researcher case study</a>.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>研究情境改變時，倫理決策如何改變？</h2>
+          <div class="station-grid">
+            <article><b>01</b><h3>兒童與青少年</h3><p>需要誰的許可及誰的同意參與？活動中如何辨認拒絕？</p></article>
+            <article><b>02</b><h3>內部研究者</h3><p>若研究者亦為教師或主管，學生或同事能否自由拒絕？</p></article>
+            <article><b>03</b><h3>AI及平台痕跡</h3><p>供應商蒐集或保留甚麼？原始提示、聲音或紀錄流向何處？</p></article>
+          </div>
+          <p class="instruction">在每一站寫下一項設計修訂及一條給審查者的問題；每兩分鐘輪換。</p>
+          <p class="source-note">真實教育案例可參閱BERA的<a href="https://www.bera.ac.uk/publication/research-ethics-case-studies-2024-classroom-observation-for-insider-teacher-researchers" target="_blank" rel="noopener noreferrer">內部教師研究者個案</a>。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Build a coherent package" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">100–125 min · IRB design clinic</span></header>
+        <div data-language="en">
+          <h2>Review the package, not only the form.</h2>
+          <div class="package-grid">
+            <article><span>Core</span><h3>Application and protocol</h3><p>Purpose, people, procedure, benefits, risks, safeguards and responsibilities.</p></article>
+            <article><span>Participant-facing</span><h3>Recruitment and consent</h3><p>Invitation, information sheet, consent choices, assent or guardian materials where relevant.</p></article>
+            <article><span>Method-facing</span><h3>Instruments and permissions</h3><p>Questionnaires, guides, observation plans, access letters and debriefing where relevant.</p></article>
+            <article><span>Data-facing</span><h3>Data management</h3><p>Data-flow map, access roles, third-party services, retention and disposal.</p></article>
+          </div>
+          <p class="takeaway">Attach only what the proposed design actually needs. Every attachment should agree with the application.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>審閱整套文件，而非只看表格。</h2>
+          <div class="package-grid">
+            <article><span>核心</span><h3>申請表與方案</h3><p>目的、參與者、程序、益處、風險、保障及責任。</p></article>
+            <article><span>面向參與者</span><h3>招募與同意</h3><p>邀請函、資料說明、同意選項；需要時加入兒童同意參與及監護人材料。</p></article>
+            <article><span>面向方法</span><h3>工具與准許</h3><p>相關問卷、訪談指南、觀察方案、准入信及事後說明。</p></article>
+            <article><span>面向資料</span><h3>資料管理</h3><p>資料流向圖、存取角色、第三方服務、保存與銷毀。</p></article>
+          </div>
+          <p class="takeaway">只附上研究設計真正需要的材料；每份附件都須與申請表一致。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Group application clinic" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Group production · 15 minutes</span></header>
+        <div data-language="en">
+          <h2>Produce three connected pieces for your project.</h2>
+          <div class="studio-grid">
+            <article><b>1</b><h3>Protocol paragraph</h3><p>Who is invited, what happens, which data are generated and why?</p></article>
+            <article><b>2</b><h3>Consent excerpt</h3><p>One meaningful choice, one withdrawal condition and one confidentiality limit.</p></article>
+            <article><b>3</b><h3>Risk and data route</h3><p>One foreseeable harm, prevention, response owner and file pathway.</p></article>
+          </div>
+          <label class="note-entry">Group decision or unresolved reviewer question<textarea data-save="studio-decision" data-response-label="Group clinic decision" placeholder="We changed... because... / Before proceeding, we need to establish..."></textarea></label>
+          <p class="instruction">Use your real proposed study with no identifiable participant details in this browser. Name a gap if a decision cannot yet be justified.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>為自己的研究產出三份互相關聯的材料。</h2>
+          <div class="studio-grid">
+            <article><b>1</b><h3>研究方案段落</h3><p>邀請誰、進行甚麼、產生哪些資料，以及為何需要？</p></article>
+            <article><b>2</b><h3>同意文件摘錄</h3><p>一項有意義的選擇、一項退出條件及一項保密界限。</p></article>
+            <article><b>3</b><h3>風險及資料路徑</h3><p>一項可預見傷害、預防、應對負責人及檔案流向。</p></article>
+          </div>
+          <label class="note-entry">小組決策或尚未解決的審查問題<textarea data-save="studio-decision" data-response-label="小組工作室決策" placeholder="我們把……改為……，因為……／在開始前，我們仍須確認……"></textarea></label>
+          <p class="instruction">可使用自己的擬議研究，但不要在此瀏覽器輸入可識別參與者的資料；無法論證的決策應標為問題。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Peer review the package" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Peer review · 10 minutes</span></header>
+        <div data-language="en">
+          <h2>Test the whole package for consistency.</h2>
+          <div class="checklist" data-review-list>
+            {reviewChecks.map((check) => <button type="button" aria-pressed="false" data-review-check><span aria-hidden="true">□</span>{check.en}</button>)}
+            <p role="status" data-review-status>Mark each claim you can actually verify in the package.</p>
+          </div>
+          <p class="takeaway">Return one strength, one contradiction and one high-priority revision to the author group.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>核查整套材料是否一致。</h2>
+          <div class="checklist" data-review-list>
+            {reviewChecks.map((check) => <button type="button" aria-pressed="false" data-review-check><span aria-hidden="true">□</span>{check.zh}</button>)}
+            <p role="status" data-review-status>只標示你能從材料中實際核實的主張。</p>
+          </div>
+          <p class="takeaway">向原小組回饋一項優點、一處矛盾及一項最優先的修訂。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Defend one ethical decision" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">125–130 min · Defence and exit</span></header>
+        <div data-language="en">
+          <h2>State what changed—and why.</h2>
+          <div class="exit-frame"><p>“We changed <strong>_____</strong> because <strong>_____</strong>. This reduces <strong>_____</strong>. The remaining question is <strong>_____</strong>.”</p></div>
+          <label class="note-entry">My next revision<textarea data-save="exit-revision" data-response-label="Next ethics revision" placeholder="Our next change is... We need evidence or guidance about..."></textarea></label>
+          <p class="source-note">Ethics review is a checkpoint in a longer process of responsible decisions. Do not begin activities that require approval before it is granted.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>說明改了甚麼，以及原因。</h2>
+          <div class="exit-frame"><p>「我們把<strong>_____</strong>改為<strong>_____</strong>，因為<strong>_____</strong>。這降低了<strong>_____</strong>。尚未解決的問題是<strong>_____</strong>。」</p></div>
+          <label class="note-entry">我的下一項修訂<textarea data-save="exit-revision" data-response-label="下一項倫理修訂" placeholder="我們接下來會改……；仍需證據或指引解答……"></textarea></label>
+          <p class="source-note">倫理審查是持續負責任決策的一個關口；未取得所需批准前，不得開始須經批准的活動。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Sources and further reading" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Source trail</span></header>
+        <div data-language="en">
+          <h2>Check the guidance behind your decisions.</h2>
+          <div class="source-list">
+            <a href="https://soe.cityu.edu.mo/en/notice/393" target="_blank" rel="noopener noreferrer"><strong>CityU School of Education</strong><span>Ethics application process and current form link ↗</span></a>
+            <a href="https://www.bera.ac.uk/publication/ethical-guidelines-for-educational-research-fifth-edition-2024" target="_blank" rel="noopener noreferrer"><strong>BERA (2024)</strong><span>Ethical Guidelines for Educational Research, fifth edition ↗</span></a>
+            <a href="https://www.ukri.org/councils/esrc/guidance-for-applicants/research-ethics-guidance/framework-for-research-ethics/our-core-principles/" target="_blank" rel="noopener noreferrer"><strong>ESRC / UKRI</strong><span>Framework principles for social science ↗</span></a>
+            <a href="https://www.ukri.org/councils/esrc/guidance-for-applicants/research-ethics-guidance/consent/" target="_blank" rel="noopener noreferrer"><strong>ESRC / UKRI</strong><span>Consent and withdrawal guidance ↗</span></a>
+            <a href="https://www.ukri.org/councils/esrc/guidance-for-applicants/research-ethics-guidance/risk-and-benefit/" target="_blank" rel="noopener noreferrer"><strong>ESRC / UKRI</strong><span>Risk and benefit guidance ↗</span></a>
+            <a href="https://www.ukri.org/councils/esrc/guidance-for-applicants/research-ethics-guidance/data-requirements/" target="_blank" rel="noopener noreferrer"><strong>ESRC / UKRI</strong><span>Research data requirements ↗</span></a>
+            <a href="https://www.bera.ac.uk/publication/research-ethics-case-studies-2024-classroom-observation-for-insider-teacher-researchers" target="_blank" rel="noopener noreferrer"><strong>BERA case study</strong><span>Insider teacher-researchers ↗</span></a>
+          </div>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>查核你作決定所依據的指引。</h2>
+          <div class="source-list">
+            <a href="https://soe.cityu.edu.mo/en/notice/393" target="_blank" rel="noopener noreferrer"><strong>澳門城市大學教育學院</strong><span>倫理申請流程及現行表格連結 ↗</span></a>
+            <a href="https://www.bera.ac.uk/publication/ethical-guidelines-for-educational-research-fifth-edition-2024" target="_blank" rel="noopener noreferrer"><strong>BERA（2024）</strong><span>《教育研究倫理指引》第五版 ↗</span></a>
+            <a href="https://www.ukri.org/councils/esrc/guidance-for-applicants/research-ethics-guidance/framework-for-research-ethics/our-core-principles/" target="_blank" rel="noopener noreferrer"><strong>ESRC／UKRI</strong><span>社會科學研究倫理框架 ↗</span></a>
+            <a href="https://www.ukri.org/councils/esrc/guidance-for-applicants/research-ethics-guidance/consent/" target="_blank" rel="noopener noreferrer"><strong>ESRC／UKRI</strong><span>知情同意及退出指引 ↗</span></a>
+            <a href="https://www.ukri.org/councils/esrc/guidance-for-applicants/research-ethics-guidance/risk-and-benefit/" target="_blank" rel="noopener noreferrer"><strong>ESRC／UKRI</strong><span>風險與益處指引 ↗</span></a>
+            <a href="https://www.ukri.org/councils/esrc/guidance-for-applicants/research-ethics-guidance/data-requirements/" target="_blank" rel="noopener noreferrer"><strong>ESRC／UKRI</strong><span>研究資料要求 ↗</span></a>
+            <a href="https://www.bera.ac.uk/publication/research-ethics-case-studies-2024-classroom-observation-for-insider-teacher-researchers" target="_blank" rel="noopener noreferrer"><strong>BERA案例</strong><span>內部教師研究者 ↗</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Keep your working notes" aria-hidden="true">
+      <div class="slide-inner title-slide">
+        <header class="slide-header"><span class="eyebrow">Keep the reasoning visible</span></header>
+        <div data-language="en">
+          <div class="title-rule"></div>
+          <h1>Write the<br />safeguard.</h1>
+          <p class="lead">Keep the decisions and questions you drafted in this browser as a personal PDF.</p>
+          <div class="closing-actions"><button type="button" data-pdf-open>Create your personal PDF</button><a href={courseHref}>DEDC02 course materials</a></div>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <div class="title-rule"></div>
+          <h1>寫清<br />保障措施。</h1>
+          <p class="lead">把在此瀏覽器草擬的決策及問題儲存為個人PDF。</p>
+          <div class="closing-actions"><button type="button" data-pdf-open>建立個人PDF</button><a href={courseHref}>DEDC02課程材料</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <dialog class="tool-dialog pdf-dialog">
+    <form method="dialog" class="tool-dialog-head"><h2>Personal PDF</h2><button value="close" aria-label="Close PDF options">×</button></form>
+    <p>Your notes stay in this browser. The print window lets you choose “Save as PDF”.</p>
+    <div class="tool-actions"><button type="button" data-pdf-download>Create PDF</button></div>
+  </dialog>
+
+  <script>
+    import '../../../../scripts/dedc02ResearchEthics.ts';
+  </script>
+</CourseSlideLayout>
