@@ -211,6 +211,24 @@ button { font: inherit; }
 .credit-role summary:focus-visible { outline: .16rem solid var(--re-green); outline-offset: .12rem; }
 .credit-role p { margin: 0; border-top: 1px solid var(--re-line); padding: .52rem .6rem .62rem; color: var(--re-muted); font-size: .78rem; line-height: 1.32; }
 .credit-grid small { display: inline; margin-left: .4rem; color: var(--re-green); font-size: .78rem; }
+.evidence-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .45rem .65rem; }
+.evidence-card { min-width: 0; border: 1px solid var(--re-line); border-top: .25rem solid var(--re-green); background: var(--re-soft); }
+.evidence-card summary { display: flex; min-height: 3.5rem; align-items: center; justify-content: space-between; gap: .7rem; padding: .48rem .68rem; color: var(--re-ink); cursor: pointer; }
+.evidence-card summary::-webkit-details-marker { display: none; }
+.evidence-card summary::after { flex: 0 0 auto; color: var(--re-green); content: '+'; font-size: 1.05rem; font-weight: 800; }
+.evidence-card summary span, .evidence-card summary strong, .evidence-card summary small { display: block; }
+.evidence-card summary strong { font-size: .82rem; line-height: 1.2; }
+.evidence-card summary small { margin-top: .2rem; color: var(--re-green); font-size: .71rem; font-weight: 700; line-height: 1.2; }
+.evidence-card[open] { background: #fff; }
+.evidence-card[open] summary::after { content: '−'; }
+.evidence-card summary:focus-visible { outline: .16rem solid var(--re-green); outline-offset: .12rem; }
+.evidence-card > p { margin: 0; border-top: 1px solid var(--re-line); padding: .62rem .7rem .25rem; color: var(--re-muted); font-size: .8rem; line-height: 1.35; }
+.evidence-card > a { display: inline-block; margin: .3rem .7rem .68rem; font-size: .76rem; font-weight: 750; }
+.reporting-study { margin-bottom: .65rem; border-left: .3rem solid var(--re-green); padding: .62rem .78rem; background: var(--re-soft); }
+.reporting-study strong { display: block; color: var(--re-ink); font-size: .84rem; }
+.reporting-study p { margin: .3rem 0 0; color: var(--re-ink); font-size: .8rem; line-height: 1.35; }
+.reporting-study a { display: inline-block; margin-top: .38rem; font-size: .76rem; font-weight: 750; }
+.example-instruction { margin: 0 0 .45rem; color: var(--re-muted); font-size: .8rem; font-weight: 700; }
 .source-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .52rem; }
 .source-list a { display: flex; flex-direction: column; min-height: 4.5rem; padding: .72rem; border: 1px solid var(--re-line); border-left: .28rem solid var(--re-green); color: var(--re-ink); text-decoration: none; }
 .source-list a:hover { background: var(--re-soft); }
@@ -230,7 +248,7 @@ button { font: inherit; }
   .audit-pair { grid-template-columns: 1fr; }
   .cloud-map-row { grid-template-columns: 1fr; }
   .cloud-dialog { padding: .85rem; }
-  .principle-grid, .comparison, .case-layout, .field-grid, .audit-grid, .consent-chain, .consent-modes, .role-grid, .risk-grid, .scenario-grid, .lifecycle-grid, .station-grid, .package-grid, .checklist, .source-list, .choice-row, .integrity-trio, .integrity-four, .policy-grid, .credit-grid { grid-template-columns: 1fr; }
+  .principle-grid, .comparison, .case-layout, .field-grid, .audit-grid, .consent-chain, .consent-modes, .role-grid, .risk-grid, .scenario-grid, .lifecycle-grid, .station-grid, .package-grid, .checklist, .source-list, .choice-row, .integrity-trio, .integrity-four, .policy-grid, .credit-grid, .evidence-grid { grid-template-columns: 1fr; }
   .risk-equation { grid-template-columns: 1fr; }
   .risk-equation b { transform: rotate(90deg); text-align: center; }
   .choice-row [role="status"] { grid-column: 1; }

@@ -44,6 +44,99 @@ const reviewChecks = [
   { en: 'Claims about anonymity, benefit and approval match what can actually be promised.', zh: '關於匿名、益處及批准的承諾符合實際情況。' },
 ];
 
+const aiJournalPolicies = [
+  {
+    journal: 'Language Testing',
+    publisher: 'SAGE · journal-specific guidance',
+    summaryEn: 'Disclose the tool, use and purpose in Methods. Acknowledge generative language editing; research uses require critical evaluation. Participant qualitative data normally require consent before GenAI analysis, with privacy and accuracy safeguards.',
+    summaryZh: '在方法部分披露工具、用法及目的；以生成式AI進行語言編輯須致謝。研究用途須批判性評估；以GenAI分析參與者質性資料通常須事先取得同意，並處理私隱及準確性。',
+    href: 'https://journals.sagepub.com/pb-assets/cmscontent/ltj/LTJ%20Author%20guidelines%20on%20genAI_Oct_3_24-1731410134.pdf',
+  },
+  {
+    journal: 'ReCALL',
+    publisher: 'Cambridge · journal instructions',
+    summaryEn: 'A GenAI statement is required for every article, including explicit non-use. Report the tool and version, access route, dates, modifications, relevant proprietary information, potential bias and human responsibility.',
+    summaryZh: '每篇文章均須提交GenAI聲明，包括明確聲明未使用。報告工具與版本、存取途徑、使用日期、修改、相關專有資訊、潛在偏見及人類責任。',
+    href: 'https://www.cambridge.org/core/journals/recall/information/author-instructions/preparing-your-materials',
+  },
+  {
+    journal: 'TESOL Quarterly',
+    publisher: 'Wiley · journal-specific guidance',
+    summaryEn: 'The journal discourages AI-written manuscript sections. Disclose which tool was used and how in Materials and Methods or a similar section. Save and date outputs, record the program and version, and note any use for prompts, instruments, code, analysis or simulations.',
+    summaryZh: '期刊不鼓勵以AI撰寫稿件段落。在材料與方法或類似部分說明所用工具及其用法；儲存並標註輸出日期，記錄程式及版本，並披露用於提示、工具、程式碼、分析或模擬的情況。',
+    href: 'https://onlinelibrary.wiley.com/page/journal/15457249/homepage/forauthors.html',
+  },
+  {
+    journal: 'Applied Linguistics',
+    publisher: 'OUP · publisher-wide core policy',
+    summaryEn: 'Basic spelling, grammar and reference formatting are exempt. Substantial editing, translation, data work, code or explanatory images require disclosure in the cover letter and Acknowledgements, plus Methods when AI is integral to the research.',
+    summaryZh: '基本拼寫、文法及參考文獻格式處理可豁免披露。實質編輯、翻譯、資料處理、程式碼或說明性圖像須在投稿信與致謝中披露；若AI屬研究方法核心，亦須在方法部分說明。',
+    href: 'https://academic.oup.com/pages/for-authors/journals/preparing-and-submitting-your-manuscript/ai-principles-for-oxford-journals/policy-on-ai-use-and-disclosure-for-oxford-journals-authors',
+  },
+  {
+    journal: 'Computer Assisted Language Learning',
+    publisher: 'Taylor & Francis · publisher policy',
+    summaryEn: 'GenAI may not create a first draft or manuscript section. A declaration must name the tool and version and confirm author checks and responsibility. Research uses require ethics and reporting compliance, full methodological detail and retained prompt records.',
+    summaryZh: '生成式AI不得用於產生稿件初稿或段落。聲明須列明工具與版本，確認作者已核查並承擔責任。研究用途須符合倫理及報告規範，完整交代方法，並保留提示詞紀錄。',
+    href: 'https://authorservices.taylorandfrancis.com/editorial-policies/using-ai-in-your-research-and-manuscript-preparations/',
+  },
+  {
+    journal: 'System',
+    publisher: 'Elsevier · publisher policy',
+    summaryEn: 'Substantive manuscript assistance requires a separate declaration naming the tool, purpose and human oversight; basic spelling, grammar and punctuation checks are exempt. Research uses belong in Methods and must be reproducible and independently verified.',
+    summaryZh: '實質性稿件協助須以獨立聲明列明工具、目的及人工監督；基本拼寫、文法及標點檢查可豁免。研究用途須在方法部分交代，具備可重現性並經獨立核查。',
+    href: 'https://www.elsevier.com/about/policies-and-standards/generative-ai-policies-for-journals',
+  },
+];
+
+const aiDisclosureExamples = [
+  {
+    labelEn: 'System (2024) · readability and language',
+    labelZh: 'System（2024）· 可讀性與語言',
+    titleEn: 'Guo & Li · self-made AI writing chatbots',
+    titleZh: 'Guo與Li · 自製AI寫作聊天機器人',
+    summaryEn: 'They named ChatGPT, stated that it improved readability and language, and added that the authors reviewed and edited the output and accepted full responsibility.',
+    summaryZh: '作者列明ChatGPT，說明用於改善可讀性與語言，並聲明由作者審閱及修訂輸出，對全文承擔責任。',
+    href: 'https://doi.org/10.1016/j.system.2024.103362',
+  },
+  {
+    labelEn: 'System (2024) · proofreading',
+    labelZh: 'System（2024）· 校對',
+    titleEn: 'Wang et al. · conversational GenAI chatbots',
+    titleZh: 'Wang等人 · 會話式GenAI聊天機器人',
+    summaryEn: 'The declaration identified ChatGPT 4.0 and described one bounded task: proofreading the manuscript.',
+    summaryZh: '聲明列明ChatGPT 4.0，並把用途界定為一項具體任務：校對稿件。',
+    href: 'https://doi.org/10.1016/j.system.2024.103533',
+  },
+  {
+    labelEn: 'System (2025) · readability and proofreading',
+    labelZh: 'System（2025）· 可讀性與校對',
+    titleEn: 'Lázaro-Ibarrola et al. · multilingual reading',
+    titleZh: 'Lázaro-Ibarrola等人 · 多語閱讀',
+    summaryEn: 'They named Talk to Claude, specified readability improvement and proofreading, and recorded subsequent author review, editing and responsibility.',
+    summaryZh: '作者列明Talk to Claude，具體說明用於改善可讀性及校對，並交代其後由作者審閱、修訂及承擔責任。',
+    href: 'https://doi.org/10.1016/j.system.2025.103665',
+  },
+  {
+    labelEn: 'ReCALL (2026) · sentence-level revision',
+    labelZh: 'ReCALL（2026）· 句子層面修訂',
+    titleEn: 'Wang & Zhang · GenAI-supported informal learning',
+    titleZh: 'Wang與Zhang · GenAI輔助非正式學習',
+    summaryEn: 'Their dedicated statement named Grammarly for grammar, spelling and sentence-level revision of the initial draft, followed by author review, editing and responsibility.',
+    summaryZh: '獨立聲明列明Grammarly，用於初稿的文法、拼寫及句子層面修訂，其後由作者審閱、編輯及承擔責任。',
+    href: 'https://doi.org/10.1017/S0958344026100524',
+  },
+  {
+    labelEn: 'System (2026) · corrigendum after weak verification',
+    labelZh: 'System（2026）· 核查不足後的更正',
+    titleEn: 'Lin & Tsou · EMI professional development',
+    titleZh: 'Lin與Tsou · EMI專業發展',
+    summaryEn: 'The corrigendum disclosed GPT-4o for proofreading, reference management, APA 7 formatting and finding recent literature. Inadequate checking of AI-suggested references required five bibliographic corrections.',
+    summaryZh: '更正聲明披露以GPT-4o校對、管理參考文獻、處理APA 7格式及尋找近期文獻。由於對AI建議文獻的核查不足，後來須修正五項書目資料。',
+    href: 'https://doi.org/10.1016/j.system.2025.103903',
+  },
+];
+
 const creditRoles = [
   {
     en: 'Conceptualization',
@@ -687,48 +780,78 @@ const creditRoles = [
 
     <section class="slide" data-title="Journal policies on AI use" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">Language Testing and Elsevier · AI policies</span></header>
+        <header class="slide-header"><span class="eyebrow">Six applied-linguistics journals · current AI policies</span></header>
         <div data-language="en">
-          <h2>AI disclosure depends on the journal</h2>
-          <p class="source-context"><strong>Two publishing sources:</strong> <em>Language Testing</em> has its own <a href="https://journals.sagepub.com/pb-assets/cmscontent/ltj/LTJ%20Author%20guidelines%20on%20genAI_Oct_3_24-1731410134.pdf" target="_blank" rel="noopener noreferrer">October 2024 guidance ↗</a>; Elsevier publishes a broader <a href="https://www.elsevier.com/about/policies-and-standards/generative-ai-policies-for-journals" target="_blank" rel="noopener noreferrer">journal policy ↗</a> relevant to <em>System</em>. Both keep authors responsible for AI-assisted work.</p>
-          <div class="policy-grid">
-            <article><span>Language Testing · journal-specific guidance</span><p>Identify the tool, task and purpose. Acknowledge generative AI used for language editing; describe research use in Methods. AI analysis of participants’ qualitative data normally requires consent through ethics review, plus accuracy and privacy checks.</p><a href="https://journals.sagepub.com/pb-assets/cmscontent/ltj/LTJ%20Author%20guidelines%20on%20genAI_Oct_3_24-1731410134.pdf" target="_blank" rel="noopener noreferrer">Read the journal guidelines ↗</a></article>
-            <article><span>System · Elsevier publisher policy</span><p>Declare substantive AI assistance in manuscript preparation in a separate statement; basic spelling and grammar checks are exempt. Explain research-process use in Methods. Verify output and references, protect data, and keep authors accountable.</p><a href="https://www.elsevier.com/about/policies-and-standards/generative-ai-policies-for-journals" target="_blank" rel="noopener noreferrer">Read the current publisher policy ↗</a></article>
+          <h2>Six journals show why one disclosure cannot fit every submission</h2>
+          <p class="source-context">Policies checked on 6 October 2026. Some journals publish their own rules; others apply a publisher-wide core policy. Select each journal to compare what must be disclosed, where it belongs and what records authors should retain.</p>
+          <div class="evidence-grid">
+            {aiJournalPolicies.map((policy) => (
+              <details class="evidence-card">
+                <summary><span><strong>{policy.journal}</strong><small>{policy.publisher}</small></span></summary>
+                <p>{policy.summaryEn}</p>
+                <a href={policy.href} target="_blank" rel="noopener noreferrer">Read the current policy ↗</a>
+              </details>
+            ))}
           </div>
-          <p class="takeaway">Policies differ and can change. Before submitting, check the target journal’s current wording and protect participant data when using external tools.</p>
+          <p class="takeaway">Check the target journal again at submission. Record the tool, version, dates, task, affected material, human checks, data permissions and retained prompts or outputs when required.</p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
-          <h2>AI披露要求取決於目標期刊</h2>
-          <p class="source-context"><strong>兩項出版來源：</strong><em>Language Testing</em>有<a href="https://journals.sagepub.com/pb-assets/cmscontent/ltj/LTJ%20Author%20guidelines%20on%20genAI_Oct_3_24-1731410134.pdf" target="_blank" rel="noopener noreferrer">2024年10月的專屬指引 ↗</a>；Elsevier有適用於<em>System</em>等期刊的<a href="https://www.elsevier.com/about/policies-and-standards/generative-ai-policies-for-journals" target="_blank" rel="noopener noreferrer">出版社政策 ↗</a>。兩者均要求作者為AI輔助成果負責。</p>
-          <div class="policy-grid">
-            <article><span>Language Testing · 期刊專屬指引</span><p>說明工具、任務及目的；生成式AI用於語言編輯時在致謝披露，用於研究過程時在方法部分交代。以AI分析參與者的質性資料通常須在倫理審查中取得同意，並核查準確性與私隱風險。</p><a href="https://journals.sagepub.com/pb-assets/cmscontent/ltj/LTJ%20Author%20guidelines%20on%20genAI_Oct_3_24-1731410134.pdf" target="_blank" rel="noopener noreferrer">閱讀期刊指引 ↗</a></article>
-            <article><span>System · Elsevier出版社政策</span><p>以AI實質協助準備稿件，須作獨立聲明；基本拼寫及文法檢查獲豁免。研究過程中使用AI則在方法部分說明。作者須核查輸出與引文、保護資料並承擔責任。</p><a href="https://www.elsevier.com/about/policies-and-standards/generative-ai-policies-for-journals" target="_blank" rel="noopener noreferrer">閱讀現行出版社政策 ↗</a></article>
+          <h2>六種期刊說明：同一份披露不能適用所有投稿</h2>
+          <p class="source-context">政策查核日期：2026年10月6日。部分期刊發布專屬規則，其餘則套用出版社核心政策。點選各期刊，比較須披露的內容、放置位置及應保留的紀錄。</p>
+          <div class="evidence-grid">
+            {aiJournalPolicies.map((policy) => (
+              <details class="evidence-card">
+                <summary><span><strong>{policy.journal}</strong><small>{policy.publisher}</small></span></summary>
+                <p>{policy.summaryZh}</p>
+                <a href={policy.href} target="_blank" rel="noopener noreferrer">閱讀現行政策 ↗</a>
+              </details>
+            ))}
           </div>
-          <p class="takeaway">期刊政策各異，亦可能改變。投稿前查核目標期刊現行要求；使用外部工具時須保護參與者資料。</p>
+          <p class="takeaway">投稿時再次查核目標期刊。按要求記錄工具、版本、日期、任務、受影響材料、人工核查、資料許可，以及保留的提示詞或輸出。</p>
         </div>
       </div>
     </section>
 
     <section class="slide" data-title="Published AI disclosure examples" aria-hidden="true">
       <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">System · published disclosure and correction</span></header>
+        <header class="slide-header"><span class="eyebrow">Published disclosures · evidence from applied linguistics</span></header>
         <div data-language="en">
-          <h2>Published records show disclosure and its limits</h2>
-          <p class="source-context">A <em>System</em> article shows a writing-related AI declaration alongside participant protections. A separate <em>System</em> corrigendum shows why AI-suggested references still need independent verification.</p>
-          <div class="policy-grid">
-            <article><span>System (2025) · writing disclosure</span><h3>Lázaro-Ibarrola et al., young multilingual readers</h3><p>The article declares Talk to Claude for readability and proofreading, followed by author review. Its ethics statement also documents institutional approval, parental consent and children’s choice to participate.</p><a href="https://doi.org/10.1016/j.system.2025.103665" target="_blank" rel="noopener noreferrer">Inspect the article ↗</a></article>
-            <article><span>System (2026) · published correction</span><h3>Lin &amp; Tsou, EMI professional development</h3><p>A corrigendum explains that GPT-4o helped identify references. Several AI-suggested citations were insufficiently verified and needed correction. The authors remained responsible for checking primary sources.</p><a href="https://www.sciencedirect.com/science/article/pii/S0346251X25003136" target="_blank" rel="noopener noreferrer">Inspect the corrigendum ↗</a></article>
+          <h2>Published records show what authors actually disclose</h2>
+          <aside class="reporting-study">
+            <strong>Moorhouse et al. (2026) · 3,384 articles in 84 applied-linguistics journals</strong>
+            <p>Only 4.2% contained an AI-related formal disclosure: 2.8% reported use and 1.4% reported non-use. Reported uses centred on language editing, clarity and proofreading; statements often named the tool and asserted human review and responsibility.</p>
+            <a href="https://doi.org/10.1515/applirev-2025-0291" target="_blank" rel="noopener noreferrer">Read the disclosure study ↗</a>
+          </aside>
+          <p class="example-instruction">Select a published record to compare the level of detail.</p>
+          <div class="evidence-grid disclosure-grid">
+            {aiDisclosureExamples.map((example) => (
+              <details class="evidence-card">
+                <summary><span><strong>{example.labelEn}</strong><small>{example.titleEn}</small></span></summary>
+                <p>{example.summaryEn}</p>
+                <a href={example.href} target="_blank" rel="noopener noreferrer">Inspect the published record ↗</a>
+              </details>
+            ))}
           </div>
-          <p class="takeaway">Identify the tool, purpose, study stage, human checks and data permissions. A declaration makes use visible; verify the output independently.</p>
+          <p class="takeaway">A useful statement identifies the tool and version, task, location in the workflow, affected material and human verification. Research uses also need methodological detail, ethics and data permissions.</p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
-          <h2>已發表紀錄呈現披露及其局限</h2>
-          <p class="source-context">一篇<em>System</em>文章同時呈現AI寫作披露與參與者保障；另一篇獨立的<em>System</em>更正聲明則說明，AI建議的文獻仍須由作者獨立核查。</p>
-          <div class="policy-grid">
-            <article><span>System（2025）· 寫作披露</span><h3>Lázaro-Ibarrola等人的多語兒童閱讀研究</h3><p>文章聲明以Talk to Claude改善可讀性及校對，之後由作者審核。倫理聲明亦交代機構批准、家長同意及兒童可自行決定是否參與。</p><a href="https://doi.org/10.1016/j.system.2025.103665" target="_blank" rel="noopener noreferrer">查閱文章 ↗</a></article>
-            <article><span>System（2026）· 已發表更正</span><h3>Lin與Tsou的EMI教師發展研究</h3><p>更正聲明指出，GPT-4o曾協助找尋文獻。多項AI建議的引文核查不足，後來須予更正。作者仍須核對原始來源。</p><a href="https://www.sciencedirect.com/science/article/pii/S0346251X25003136" target="_blank" rel="noopener noreferrer">查閱更正聲明 ↗</a></article>
+          <h2>已發表紀錄呈現作者實際如何披露</h2>
+          <aside class="reporting-study">
+            <strong>Moorhouse等人（2026）· 84種應用語言學期刊的3,384篇文章</strong>
+            <p>僅4.2%含有AI相關正式披露：2.8%報告使用，1.4%報告未使用。已報告用途主要是語言編輯、提高清晰度及校對；聲明常列明工具，並強調人工審閱與作者責任。</p>
+            <a href="https://doi.org/10.1515/applirev-2025-0291" target="_blank" rel="noopener noreferrer">閱讀披露研究 ↗</a>
+          </aside>
+          <p class="example-instruction">點選已發表紀錄，比較披露細節的多寡。</p>
+          <div class="evidence-grid disclosure-grid">
+            {aiDisclosureExamples.map((example) => (
+              <details class="evidence-card">
+                <summary><span><strong>{example.labelZh}</strong><small>{example.titleZh}</small></span></summary>
+                <p>{example.summaryZh}</p>
+                <a href={example.href} target="_blank" rel="noopener noreferrer">查閱已發表紀錄 ↗</a>
+              </details>
+            ))}
           </div>
-          <p class="takeaway">找出工具、目的、研究階段、人工核查及資料使用許可。聲明使AI使用可見；輸出仍須獨立核查。</p>
+          <p class="takeaway">實用的聲明會列明工具與版本、任務、工作流程位置、受影響材料及人工核查。研究用途還須交代方法細節、倫理與資料許可。</p>
         </div>
       </div>
     </section>
