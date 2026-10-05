@@ -401,7 +401,7 @@ const creditRoles = [
       </div>
     </section>
 
-    <section class="slide" data-title="Privacy, anonymity and confidentiality" aria-hidden="true">
+    <section class="slide privacy-slide" data-title="Privacy, anonymity and confidentiality" aria-hidden="true">
       <div class="slide-inner">
         <header class="slide-header"><span class="eyebrow">ESRC / UKRI · privacy and confidentiality</span></header>
         <div data-language="en">
@@ -412,7 +412,16 @@ const creditRoles = [
             <article><span>Confidentiality</span><h3>Control over disclosure</h3><p>Researchers restrict access to known identities and control what is published.</p></article>
             <article><span>Anonymity</span><h3>Identity remains untraceable</h3><p>After names are removed, a voice recording or a quotation about a distinctive classroom experience may still reveal the participant’s identity.</p></article>
           </div>
-          <p class="instruction"><strong>Answer: “anonymous”.</strong> The team can identify the speaker by matching the recording to a name. The consent form should state who can access the identifiable recording and how it will be protected.</p>
+          <div class="ethics-quiz" data-ethics-quiz data-answer="anonymous">
+            <p class="prompt-label">The team keeps a list matching interview recordings to participants’ names. Which claim would be inaccurate in the consent form?</p>
+            <div class="quiz-options">
+              <button type="button" data-quiz-choice="anonymous" aria-pressed="false">A · “The recordings are anonymous.”</button>
+              <button type="button" data-quiz-choice="access" aria-pressed="false">B · “Only named researchers can access the recordings.”</button>
+              <button type="button" data-quiz-choice="storage" aria-pressed="false">C · “The recordings will be stored securely.”</button>
+            </div>
+            <p class="quiz-feedback" data-quiz-feedback data-correct="Correct." data-incorrect="The inaccurate claim is A." hidden role="status">The team can reconnect a recording to a name, so it is identifiable. The consent form should explain who can access it and how it will be protected.</p>
+          </div>
+          <p class="activity-print-answer"><strong>Answer: A.</strong> The recordings remain identifiable because the team can reconnect them to names. Explain access and safeguards in the consent form.</p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
           <h2>私隱、保密與匿名</h2>
@@ -422,7 +431,16 @@ const creditRoles = [
             <article><span>保密</span><h3>控制披露</h3><p>研究者掌握身份時，須限制查閱者及發表內容。</p></article>
             <article><span>匿名</span><h3>實際無法識別</h3><p>刪除姓名後，聲音或描述獨特課堂經歷的引文，仍可能使他人認出參與者。</p></article>
           </div>
-          <p class="instruction"><strong>答案：「匿名」。</strong>團隊可把錄音對應到姓名，從而辨識說話者。同意書應說明誰可查閱這些可識別的錄音，以及如何保護錄音。</p>
+          <div class="ethics-quiz" data-ethics-quiz data-answer="anonymous">
+            <p class="prompt-label">團隊保留一份把訪談錄音對應到參與者姓名的名單。同意書中哪項說法不準確？</p>
+            <div class="quiz-options">
+              <button type="button" data-quiz-choice="anonymous" aria-pressed="false">A ·「錄音是匿名的。」</button>
+              <button type="button" data-quiz-choice="access" aria-pressed="false">B ·「只有指定研究者可查閱錄音。」</button>
+              <button type="button" data-quiz-choice="storage" aria-pressed="false">C ·「錄音會安全保存。」</button>
+            </div>
+            <p class="quiz-feedback" data-quiz-feedback data-correct="答對。" data-incorrect="不準確的是A。" hidden role="status">團隊可把錄音重新對應到姓名，所以錄音仍可識別。同意書應說明查閱權限及保護措施。</p>
+          </div>
+          <p class="activity-print-answer"><strong>答案：A。</strong>團隊可把錄音重新對應到姓名，因此錄音仍可識別。同意書應說明查閱權限及保護措施。</p>
         </div>
       </div>
     </section>
@@ -543,24 +561,30 @@ const creditRoles = [
       <div class="slide-inner">
         <header class="slide-header"><span class="eyebrow">ALLEA (2023) · violations of research integrity</span></header>
         <div data-language="en">
-          <h2>Four ways the research record is distorted</h2>
+          <h2>Match the integrity issue</h2>
           <p class="source-context">The <a href="https://allea.org/wp-content/uploads/2023/06/European-Code-of-Conduct-Revised-Edition-2023.pdf" target="_blank" rel="noopener noreferrer">ALLEA code ↗</a> identifies fabrication, falsification and plagiarism as research misconduct. It also treats unjustified withholding of results and selective citation as unacceptable practices.</p>
-          <div class="integrity-four">
-            <article><h3>Fabrication</h3><p>Inventing an interview or response that never occurred.</p></article>
-            <article><h3>Falsification</h3><p>Changing a transcript, code or dataset to support a preferred result.</p></article>
-            <article><h3>Plagiarism</h3><p>Using another scholar’s words, ideas or materials without proper credit.</p></article>
-            <article><h3>Selective reporting</h3><p>Hiding contradictory cases or outcomes so findings appear stronger.</p></article>
+          <div class="integrity-match" data-integrity-match>
+            <p class="match-instruction">Choose one category for each example, then check the matches.</p>
+            <label class="match-row" data-match-answer="fabrication" data-match-reason="The interview did not occur; the evidence was invented."><span>1 · Invent an interview that never occurred.</span><select data-match-select aria-label="Category for example 1"><option value="">Choose a category</option><option value="fabrication">Fabrication</option><option value="falsification">Falsification</option><option value="plagiarism">Plagiarism</option><option value="selective">Selective reporting</option></select><strong class="match-print-label">Fabrication</strong></label>
+            <label class="match-row" data-match-answer="falsification" data-match-reason="Changing an existing transcript distorts the research record."><span>2 · Alter a transcript to support a preferred conclusion.</span><select data-match-select aria-label="Category for example 2"><option value="">Choose a category</option><option value="fabrication">Fabrication</option><option value="falsification">Falsification</option><option value="plagiarism">Plagiarism</option><option value="selective">Selective reporting</option></select><strong class="match-print-label">Falsification</strong></label>
+            <label class="match-row" data-match-answer="plagiarism" data-match-reason="The borrowed words are presented without credit."><span>3 · Copy another scholar’s wording without credit.</span><select data-match-select aria-label="Category for example 3"><option value="">Choose a category</option><option value="fabrication">Fabrication</option><option value="falsification">Falsification</option><option value="plagiarism">Plagiarism</option><option value="selective">Selective reporting</option></select><strong class="match-print-label">Plagiarism</strong></label>
+            <label class="match-row" data-match-answer="selective" data-match-reason="Contradictory cases are withheld without justification."><span>4 · Omit contradictory cases from the report without justification.</span><select data-match-select aria-label="Category for example 4"><option value="">Choose a category</option><option value="fabrication">Fabrication</option><option value="falsification">Falsification</option><option value="plagiarism">Plagiarism</option><option value="selective">Selective reporting</option></select><strong class="match-print-label">Selective reporting</strong></label>
+            <button type="button" class="match-check" data-match-check>Check matches</button>
+            <dialog class="match-feedback" data-match-feedback aria-label="Match results"><div data-match-output></div><button type="button" data-match-close>Close</button></dialog>
           </div>
           <p class="takeaway">Keep a traceable record of design changes, exclusions and analytic choices; report limits and disconfirming evidence.</p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
-          <h2>研究紀錄被扭曲的四種方式</h2>
+          <h2>把做法配對到研究誠信問題</h2>
           <p class="source-context"><a href="https://allea.org/wp-content/uploads/2023/06/European-Code-of-Conduct-Revised-Edition-2023.pdf" target="_blank" rel="noopener noreferrer">ALLEA守則 ↗</a>把捏造、篡改與剽竊列為研究不當行為，亦把無正當理由隱瞞結果及選擇性引用列為不可接受做法。</p>
-          <div class="integrity-four">
-            <article><h3>捏造</h3><p>虛構從未發生的訪談或回答。</p></article>
-            <article><h3>篡改</h3><p>修改逐字稿、編碼或資料集，以支持預期結果。</p></article>
-            <article><h3>剽竊</h3><p>使用他人的文字、構想或材料，卻沒有適當註明來源。</p></article>
-            <article><h3>選擇性報告</h3><p>隱去相反個案或結果，令研究發現顯得更有力。</p></article>
+          <div class="integrity-match" data-integrity-match>
+            <p class="match-instruction">為每個例子選一個類別，再核對配對。</p>
+            <label class="match-row" data-match-answer="fabrication" data-match-reason="訪談並未發生，證據是虛構的。"><span>1 · 虛構從未發生的訪談。</span><select data-match-select aria-label="例子一的類別"><option value="">選擇類別</option><option value="fabrication">捏造</option><option value="falsification">篡改</option><option value="plagiarism">剽竊</option><option value="selective">選擇性報告</option></select><strong class="match-print-label">捏造</strong></label>
+            <label class="match-row" data-match-answer="falsification" data-match-reason="修改已有逐字稿，扭曲了研究紀錄。"><span>2 · 修改逐字稿以支持預期結論。</span><select data-match-select aria-label="例子二的類別"><option value="">選擇類別</option><option value="fabrication">捏造</option><option value="falsification">篡改</option><option value="plagiarism">剽竊</option><option value="selective">選擇性報告</option></select><strong class="match-print-label">篡改</strong></label>
+            <label class="match-row" data-match-answer="plagiarism" data-match-reason="使用他人的文字，卻沒有註明來源。"><span>3 · 複製其他學者的文字而不註明來源。</span><select data-match-select aria-label="例子三的類別"><option value="">選擇類別</option><option value="fabrication">捏造</option><option value="falsification">篡改</option><option value="plagiarism">剽竊</option><option value="selective">選擇性報告</option></select><strong class="match-print-label">剽竊</strong></label>
+            <label class="match-row" data-match-answer="selective" data-match-reason="無正當理由隱去相反個案，使報告失衡。"><span>4 · 無正當理由地隱去報告中的相反個案。</span><select data-match-select aria-label="例子四的類別"><option value="">選擇類別</option><option value="fabrication">捏造</option><option value="falsification">篡改</option><option value="plagiarism">剽竊</option><option value="selective">選擇性報告</option></select><strong class="match-print-label">選擇性報告</strong></label>
+            <button type="button" class="match-check" data-match-check>核對配對</button>
+            <dialog class="match-feedback" data-match-feedback aria-label="配對結果"><div data-match-output></div><button type="button" data-match-close>關閉</button></dialog>
           </div>
           <p class="takeaway">保留可追溯的設計變更、排除及分析決定；報告研究限制與相反證據。</p>
         </div>

@@ -81,6 +81,57 @@ document.querySelectorAll<HTMLElement>('[data-choice-group]').forEach((group) =>
   }));
 });
 
+document.querySelectorAll<HTMLElement>('[data-ethics-quiz]').forEach((quiz) => {
+  const choices = Array.from(quiz.querySelectorAll<HTMLButtonElement>('[data-quiz-choice]'));
+  const feedback = quiz.querySelector<HTMLElement>('[data-quiz-feedback]');
+  const explanation = feedback?.textContent?.trim() || '';
+  choices.forEach((choice) => choice.addEventListener('click', () => {
+    const correct = choice.dataset.quizChoice === quiz.dataset.answer;
+    choices.forEach((button) => button.setAttribute('aria-pressed', String(button === choice)));
+    quiz.dataset.result = correct ? 'correct' : 'incorrect';
+    if (feedback) {
+      feedback.textContent = `${feedback.dataset[correct ? 'correct' : 'incorrect']} ${explanation}`;
+      feedback.hidden = false;
+    }
+  }));
+});
+
+document.querySelectorAll<HTMLElement>('[data-integrity-match]').forEach((activity) => {
+  const rows = Array.from(activity.querySelectorAll<HTMLElement>('[data-match-answer]'));
+  const feedback = activity.querySelector<HTMLDialogElement>('[data-match-feedback]');
+  const output = feedback?.querySelector<HTMLElement>('[data-match-output]');
+  const chinese = activity.closest('[data-language="zh"]') !== null;
+  rows.forEach((row) => row.querySelector<HTMLSelectElement>('[data-match-select]')?.addEventListener('change', () => {
+    row.removeAttribute('data-result');
+    if (feedback?.open) feedback.close();
+  }));
+  feedback?.querySelector<HTMLButtonElement>('[data-match-close]')?.addEventListener('click', () => feedback.close());
+  activity.querySelector<HTMLButtonElement>('[data-match-check]')?.addEventListener('click', () => {
+    if (!feedback || !output) return;
+    output.replaceChildren();
+    let correctCount = 0;
+    rows.forEach((row, index) => {
+      const select = row.querySelector<HTMLSelectElement>('[data-match-select]');
+      const value = select?.value || '';
+      const correct = value === row.dataset.matchAnswer;
+      if (correct) correctCount += 1;
+      row.dataset.result = !value ? 'pending' : correct ? 'correct' : 'incorrect';
+      const line = document.createElement('p');
+      if (!value) {
+        line.textContent = chinese ? `${index + 1} · 請先選擇類別。` : `${index + 1} · Choose a category first.`;
+      } else {
+        const label = select?.querySelector<HTMLOptionElement>(`option[value="${row.dataset.matchAnswer}"]`)?.textContent || '';
+        line.textContent = `${index + 1} · ${correct ? (chinese ? '正確' : 'Correct') : label}: ${row.dataset.matchReason || ''}`;
+      }
+      output.append(line);
+    });
+    const summary = document.createElement('strong');
+    summary.textContent = chinese ? `配對正確：${correctCount} / ${rows.length}` : `${correctCount} of ${rows.length} matched`;
+    output.prepend(summary);
+    feedback.showModal();
+  });
+});
+
 bindLessonShortcuts(showSlide, () => current, slides.length, overview);
 const initialHash = Number(location.hash.replace('#slide-', ''));
 const cloudView = new URLSearchParams(location.search).get('cloud');

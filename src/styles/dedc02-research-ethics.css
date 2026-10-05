@@ -97,6 +97,28 @@ button { font: inherit; }
 .choice-row button { min-height: 6.2rem; border: 1px solid var(--re-line); border-radius: .35rem; padding: .75rem; background: #fff; color: var(--re-ink); font-weight: 700; line-height: 1.3; text-align: left; cursor: pointer; }
 .choice-row button:hover, .choice-row button[aria-pressed="true"] { border-color: var(--re-green); background: var(--re-soft); }
 .choice-row [role="status"] { grid-column: 1 / -1; margin: .15rem 0; color: var(--re-muted); font-size: .86rem; }
+.ethics-quiz .prompt-label { margin: .75rem 0 .4rem; }
+.quiz-options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5rem; }
+.quiz-options button { min-height: 4rem; padding: .6rem .7rem; border: 1px solid var(--re-line); border-radius: .3rem; background: #fff; color: var(--re-ink); font-weight: 700; line-height: 1.25; text-align: left; cursor: pointer; }
+.quiz-options button:hover, .quiz-options button[aria-pressed="true"] { border-color: var(--re-green); background: var(--re-soft); }
+.ethics-quiz[data-result="incorrect"] .quiz-options button[aria-pressed="true"] { border-color: #a7642e; background: var(--re-warm); }
+.quiz-feedback { margin: .5rem 0 0; padding: .55rem .7rem; border-left: .28rem solid var(--re-green); background: var(--re-soft); font-size: .88rem; }
+.ethics-quiz[data-result="incorrect"] .quiz-feedback { border-color: #a7642e; background: var(--re-warm); }
+.privacy-slide .comparison article { min-height: 10rem; }
+.activity-print-answer { display: none; }
+.integrity-match { display: grid; gap: .38rem; }
+.match-instruction { margin: 0 0 .1rem; font-weight: 700; }
+.match-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(13rem, .45fr); gap: .8rem; align-items: center; min-height: 3rem; padding: .35rem .6rem; border-left: .28rem solid var(--re-green); background: var(--re-soft); font-size: .92rem; }
+.match-row[data-result="incorrect"] { border-color: #a7642e; background: var(--re-warm); }
+.match-row select { width: 100%; min-height: 2.25rem; padding: .3rem .5rem; border: 1px solid var(--re-line); border-radius: .2rem; background: #fff; color: var(--re-ink); font: inherit; }
+.match-print-label { display: none; }
+.match-check { justify-self: start; min-height: 2.4rem; margin-top: .2rem; padding: .35rem .75rem; border: 1px solid var(--re-green); border-radius: .2rem; background: var(--re-green); color: #fff; font-weight: 700; cursor: pointer; }
+.match-check:hover { background: var(--re-ink); }
+.match-feedback { width: min(650px, calc(100vw - 1.5rem)); max-height: 80dvh; margin: auto; padding: 1.1rem 1.2rem; overflow: auto; border: 1px solid var(--re-line); border-top: .35rem solid var(--re-green); border-radius: .25rem; background: #fff; color: var(--re-ink); box-shadow: 0 16px 44px #153d2d33; font: .96rem/1.4 'Source Sans 3', Arial, sans-serif; }
+.match-feedback::backdrop { background: #11291ecc; }
+.match-feedback strong { display: block; margin-bottom: .6rem; font-size: 1.25rem; }
+.match-feedback p { margin: .4rem 0; padding: .5rem .6rem; border-left: .23rem solid var(--re-green); background: var(--re-soft); }
+.match-feedback button { min-height: 2.4rem; margin-top: .6rem; padding: .35rem .8rem; border: 1px solid var(--re-green); border-radius: .2rem; background: var(--re-green); color: #fff; font-weight: 700; cursor: pointer; }
 .reveal { margin-top: .8rem; border-left: .3rem solid #a7642e; background: var(--re-warm); }
 .reveal summary { padding: .7rem .82rem; color: var(--re-warm-ink); font-weight: 700; cursor: pointer; }
 .reveal p { margin: 0; padding: 0 .82rem .8rem; color: #5f4534; font-size: .9rem; }
@@ -205,6 +227,7 @@ button { font: inherit; }
   .risk-equation { grid-template-columns: 1fr; }
   .risk-equation b { transform: rotate(90deg); text-align: center; }
   .choice-row [role="status"] { grid-column: 1; }
+  .quiz-options, .match-row { grid-template-columns: 1fr; }
   .deck h2 { font-size: clamp(1.85rem, 8vw, 2.6rem); }
   .cloud-inputs { grid-template-columns: 1fr; }
   .cloud-form { padding: .75rem; }
@@ -222,6 +245,9 @@ button { font: inherit; }
   .deck h1 { font-size: 4.3rem; }
   .deck h2 { font-size: 2.4rem; }
   .cloud-dialog, .closing-actions { display: none !important; }
+  .activity-print-answer { display: block; margin: .55rem 0 0; padding: .5rem .7rem; border-left: .28rem solid var(--re-green); background: var(--re-soft); font-size: .85rem; }
+  .integrity-match select, .match-check, .match-feedback { display: none !important; }
+  .match-print-label { display: block; }
   .deck details { break-inside: avoid; }
   .deck a { text-decoration: underline; }
 }
