@@ -45,10 +45,90 @@ const reviewChecks = [
 ];
 
 const creditRoles = [
-  ['Conceptualization', '研究構思'], ['Methodology', '研究方法'], ['Investigation', '研究執行'], ['Data curation', '資料整理'],
-  ['Formal analysis', '正式分析'], ['Validation', '驗證'], ['Software', '軟件'], ['Visualization', '視覺化'],
-  ['Resources', '資源'], ['Funding acquisition', '經費取得'], ['Project administration', '項目管理'], ['Supervision', '督導'],
-  ['Writing – original draft', '初稿撰寫'], ['Writing – review & editing', '審閱與修訂'],
+  {
+    en: 'Conceptualization',
+    zh: '研究構思',
+    detailEn: 'Develop or refine the overarching research ideas, goals and aims.',
+    detailZh: '提出、形成或發展整體研究理念、目標與宗旨。',
+  },
+  {
+    en: 'Methodology',
+    zh: '研究方法',
+    detailEn: 'Develop or design the methodology, including the creation of models.',
+    detailZh: '發展或設計研究方法，包括建立模型。',
+  },
+  {
+    en: 'Investigation',
+    zh: '研究執行',
+    detailEn: 'Carry out the research process, including experiments or data and evidence collection.',
+    detailZh: '執行研究過程，包括進行實驗或收集資料與證據。',
+  },
+  {
+    en: 'Data curation',
+    zh: '資料整理',
+    detailEn: 'Annotate, clean and maintain research data so it can be used now and reused later.',
+    detailZh: '為研究資料加註、清理及維護，以便首次使用及日後再利用。',
+  },
+  {
+    en: 'Formal analysis',
+    zh: '正式分析',
+    detailEn: 'Apply statistical, mathematical, computational or other formal techniques to analyse or synthesise data.',
+    detailZh: '運用統計、數學、計算或其他正式技術分析或綜合研究資料。',
+  },
+  {
+    en: 'Validation',
+    zh: '驗證',
+    detailEn: 'Verify the replication or reproducibility of results, experiments and other research outputs.',
+    detailZh: '核實研究結果、實驗及其他研究成果的可重複性或可再現性。',
+  },
+  {
+    en: 'Software',
+    zh: '軟件',
+    detailEn: 'Create, implement or test software, computer programs, code and supporting algorithms.',
+    detailZh: '建立、實作或測試軟件、電腦程式、程式碼及相關演算法。',
+  },
+  {
+    en: 'Visualization',
+    zh: '視覺化',
+    detailEn: 'Prepare, create or present the published work through visualisation and data presentation.',
+    detailZh: '透過視覺化及資料呈現，準備、製作或呈現已發表作品。',
+  },
+  {
+    en: 'Resources',
+    zh: '資源',
+    detailEn: 'Provide study materials, samples, instruments, computing resources or other analysis tools.',
+    detailZh: '提供研究材料、樣本、儀器、計算資源或其他分析工具。',
+  },
+  {
+    en: 'Funding acquisition',
+    zh: '經費取得',
+    detailEn: 'Obtain the financial support for the project that led to the publication.',
+    detailZh: '為產生該發表成果的研究項目取得經費支持。',
+  },
+  {
+    en: 'Project administration',
+    zh: '項目管理',
+    detailEn: 'Manage and coordinate the planning and execution of the research activity.',
+    detailZh: '管理及協調研究活動的規劃與執行。',
+  },
+  {
+    en: 'Supervision',
+    zh: '督導',
+    detailEn: 'Oversee and lead the research activity, including mentorship beyond the core team.',
+    detailZh: '督導及領導研究活動，包括指導核心團隊以外的人員。',
+  },
+  {
+    en: 'Writing – original draft',
+    zh: '初稿撰寫',
+    detailEn: 'Prepare and write the initial draft, including substantive translation.',
+    detailZh: '準備及撰寫作品初稿，包括實質性翻譯。',
+  },
+  {
+    en: 'Writing – review & editing',
+    zh: '審閱與修訂',
+    detailEn: 'Critically review, comment on or revise the work before or after publication.',
+    detailZh: '在發表前或發表後對作品進行批判性審閱、評論或修訂。',
+  },
 ];
 ---
 
@@ -544,14 +624,28 @@ const creditRoles = [
         <header class="slide-header"><span class="eyebrow">NISO CRediT · contributor role taxonomy</span></header>
         <div data-language="en">
           <h2>CRediT describes the work behind a paper</h2>
-          <p class="source-context"><a href="https://credit.niso.org/contributor-roles-defined/" target="_blank" rel="noopener noreferrer">NISO’s CRediT taxonomy ↗</a> names 14 contribution roles. It describes who did what; the target journal’s rules still determine who qualifies as an author.</p>
-          <div class="credit-grid">{creditRoles.map(([en]) => <span>{en}</span>)}</div>
+          <p class="source-context"><a href="https://credit.niso.org/contributor-roles-defined/" target="_blank" rel="noopener noreferrer">NISO’s CRediT taxonomy ↗</a> names 14 contribution roles. It describes who did what; the target journal’s rules still determine who qualifies as an author. Select a role to see what it covers.</p>
+          <div class="credit-grid">
+            {creditRoles.map((role) => (
+              <details class="credit-role">
+                <summary><span>{role.en}</span></summary>
+                <p>{role.detailEn}</p>
+              </details>
+            ))}
+          </div>
           <p class="takeaway"><strong>Example:</strong> Mei — Conceptualization, Methodology, Writing – original draft; Ravi — Investigation, Data curation, Writing – review &amp; editing. Determine authorship and author order separately under the journal’s criteria.</p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
           <h2>CRediT說明論文背後的實際工作</h2>
-          <p class="source-context"><a href="https://credit.niso.org/contributor-roles-defined/" target="_blank" rel="noopener noreferrer">NISO的CRediT分類法 ↗</a>列出14種貢獻角色，用來說明誰做了甚麼；作者資格仍須依目標期刊的規定判斷。</p>
-          <div class="credit-grid">{creditRoles.map(([en, zh]) => <span><strong>{en}</strong><small>{zh}</small></span>)}</div>
+          <p class="source-context"><a href="https://credit.niso.org/contributor-roles-defined/" target="_blank" rel="noopener noreferrer">NISO的CRediT分類法 ↗</a>列出14種貢獻角色，用來說明誰做了甚麼；作者資格仍須依目標期刊的規定判斷。點選角色可查看其含義。</p>
+          <div class="credit-grid">
+            {creditRoles.map((role) => (
+              <details class="credit-role">
+                <summary><span><strong>{role.en}</strong><small>{role.zh}</small></span></summary>
+                <p>{role.detailZh}</p>
+              </details>
+            ))}
+          </div>
           <p class="takeaway"><strong>例子：</strong>Mei：研究構思、研究方法、初稿撰寫；Ravi：研究執行、資料整理、審閱與修訂。作者資格與次序須另依期刊準則判斷。</p>
         </div>
       </div>
