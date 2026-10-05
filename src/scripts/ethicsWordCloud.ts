@@ -1,10 +1,37 @@
+import { ethicsWordMeanings, normalizeCloudTerm, type CloudMeaning } from '../data/dedc02EthicsWordMeanings';
+
 type CloudWord = { term: string; count: number };
 type CloudResults = { words: CloudWord[]; total: number };
+type DisplayMeaning = Pick<CloudMeaning, 'en' | 'zh'>;
 
 const supabaseUrl = import.meta.env.PUBLIC_SUPABASE_URL as string | undefined;
 const supabaseKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY as string | undefined;
 const functionUrl = supabaseUrl ? `${supabaseUrl}/functions/v1/dedc02-ethics-wordcloud` : '';
 const svgNS = 'http://www.w3.org/2000/svg';
+const mappingStorageKey = 'dedc02-ethics-word-mappings-v1';
+let toTraditional = (value: string) => value;
+const meaningKey = (value: string) => normalizeCloudTerm(toTraditional(value));
+const builtInMeanings = new Map<string, DisplayMeaning>();
+
+function displayWords(words: CloudWord[], language: 'en' | 'zh', custom: Map<string, DisplayMeaning>) {
+  const grouped = new Map<string, CloudWord>();
+  const unknown: CloudWord[] = [];
+  for (const word of words) {
+    const key = meaningKey(word.term);
+    const meaning = custom.get(key) || builtInMeanings.get(key)
+      || (/^[0-9]+([.,][0-9]+)?$/.test(key) ? { en: word.term, zh: word.term } : undefined);
+    if (!meaning) unknown.push(word);
+    const label = meaning ? meaning[language] : word.term;
+    const groupKey = meaning ? meaningKey(meaning.en) : `__raw__${normalizeCloudTerm(word.term)}`;
+    const existing = grouped.get(groupKey);
+    if (existing) existing.count += word.count;
+    else grouped.set(groupKey, { term: label, count: word.count });
+  }
+  return {
+    words: [...grouped.values()].sort((a, b) => b.count - a.count || a.term.localeCompare(b.term)),
+    unknown: unknown.sort((a, b) => b.count - a.count || a.term.localeCompare(b.term)),
+  };
+}
 
 function cloudUrl(view: 'student' | 'instructor'): string {
   const url = new URL(location.href);
@@ -91,15 +118,112 @@ export function initEthicsWordCloud() {
   const resetStatus = resetPanel?.querySelector<HTMLElement>('[data-cloud-reset-status]');
   const svg = instructorDialog?.querySelector<SVGSVGElement>('[data-cloud-svg]');
   const accessibleList = instructorDialog?.querySelector<HTMLElement>('[data-cloud-accessible-list]');
-  if (!slide || !studentDialog || !instructorDialog || !form || !clearButton || !submitStatus || !copyStatus || !resultStatus || !refreshButton || !resetButton || !resetPanel || !resetForm || !resetCode || !resetCancel || !resetStatus || !svg || !accessibleList) return;
+  const allSummary = instructorDialog?.querySelector<HTMLElement>('[data-cloud-all-summary]');
+  const allList = instructorDialog?.querySelector<HTMLElement>('[data-cloud-all-list]');
+  const mapPanel = instructorDialog?.querySelector<HTMLDetailsElement>('[data-cloud-map-panel]');
+  const mapSummary = mapPanel?.querySelector<HTMLElement>('[data-cloud-map-summary]');
+  const mapForm = mapPanel?.querySelector<HTMLFormElement>('[data-cloud-map-form]');
+  const mapRows = mapPanel?.querySelector<HTMLElement>('[data-cloud-map-rows]');
+  const mapStatus = mapPanel?.querySelector<HTMLElement>('[data-cloud-map-status]');
+  if (!slide || !studentDialog || !instructorDialog || !form || !clearButton || !submitStatus || !copyStatus || !resultStatus || !refreshButton || !resetButton || !resetPanel || !resetForm || !resetCode || !resetCancel || !resetStatus || !svg || !accessibleList || !allSummary || !allList || !mapPanel || !mapSummary || !mapForm || !mapRows || !mapStatus) return;
 
   let language: 'en' | 'zh' = 'en';
   let updating = false;
   let resetting = false;
   let resultVersion = 0;
+  let latestResult: CloudResults = { words: [], total: 0 };
+  let mappedRowsSignature = '';
+  let meaningLoaded = false;
+  let meaningLoading: Promise<void> | undefined;
+  const customMappings = new Map<string, DisplayMeaning>();
+  function ensureMeanings() {
+    meaningLoading ||= (async () => {
+      const { default: OpenCC } = await import('opencc-js/cn2t');
+      toTraditional = OpenCC.Converter({ from: 'cn', to: 'tw' });
+      for (const meaning of ethicsWordMeanings) {
+        for (const alias of [meaning.en, meaning.zh, ...meaning.aliases]) {
+          builtInMeanings.set(meaningKey(alias), meaning);
+        }
+      }
+      try {
+        const saved = JSON.parse(localStorage.getItem(mappingStorageKey) || '[]');
+        if (Array.isArray(saved)) {
+          for (const item of saved) {
+            if (Array.isArray(item) && item.length === 2 && typeof item[0] === 'string'
+              && typeof item[1]?.en === 'string' && typeof item[1]?.zh === 'string') {
+              customMappings.set(meaningKey(item[0]), { en: item[1].en, zh: toTraditional(item[1].zh) });
+            }
+          }
+        }
+      } catch { /* Continue with the shared vocabulary. */ }
+      meaningLoaded = true;
+    })();
+    return meaningLoading;
+  }
   const chinese = () => language === 'zh';
   const message = (en: string, zh: string) => chinese() ? zh : en;
   const dialogs = { student: studentDialog, instructor: instructorDialog };
+
+  function renderMapRows(unknown: CloudWord[]) {
+    const signature = JSON.stringify([language, unknown.map((word) => [word.term, word.count])]);
+    if (signature === mappedRowsSignature) return;
+    const drafts = new Map<string, { en: string; zh: string }>();
+    mapRows.querySelectorAll<HTMLElement>('.cloud-map-row').forEach((row) => {
+      const source = row.dataset.source || '';
+      drafts.set(source, {
+        en: row.querySelector<HTMLInputElement>('[data-map-en]')?.value || '',
+        zh: row.querySelector<HTMLInputElement>('[data-map-zh]')?.value || '',
+      });
+    });
+    mapRows.replaceChildren();
+    for (const word of unknown) {
+      const row = document.createElement('div');
+      row.className = 'cloud-map-row';
+      row.dataset.source = word.term;
+      const original = document.createElement('span');
+      original.className = 'cloud-map-original';
+      original.textContent = `${word.term} (${word.count})`;
+      row.append(original);
+      for (const target of ['en', 'zh'] as const) {
+        const label = document.createElement('label');
+        const caption = document.createElement('span');
+        caption.textContent = target === 'en' ? message('English', '英文') : message('Traditional Chinese', '繁體中文');
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.maxLength = 40;
+        input.dataset[target === 'en' ? 'mapEn' : 'mapZh'] = '';
+        input.value = drafts.get(word.term)?.[target] || '';
+        label.append(caption, input);
+        row.append(label);
+      }
+      mapRows.append(row);
+    }
+    mappedRowsSignature = signature;
+  }
+
+  function renderCloud() {
+    const grouped = displayWords(latestResult.words, language, customMappings);
+    drawCloud(svg, grouped.words, chinese());
+    accessibleList.textContent = grouped.words.map((word) => `${word.term} (${word.count})`).join(', ');
+    allSummary.textContent = message(`All displayed terms (${grouped.words.length})`, `所有顯示詞語（${grouped.words.length}）`);
+    allList.replaceChildren(...grouped.words.map((word) => {
+      const item = document.createElement('li');
+      item.textContent = `${word.term} (${word.count})`;
+      return item;
+    }));
+    mapPanel.hidden = grouped.unknown.length === 0;
+    if (grouped.unknown.length) {
+      mapSummary.textContent = message(`Map unfamiliar entries (${grouped.unknown.length})`, `配對未識別詞語（${grouped.unknown.length}）`);
+      renderMapRows(grouped.unknown);
+    } else {
+      mapPanel.open = false;
+      mapRows.replaceChildren();
+      mappedRowsSignature = '';
+    }
+    resultStatus.textContent = latestResult.total
+      ? message(`${latestResult.total} words or phrases submitted · ${grouped.words.length} displayed terms`, `已提交 ${latestResult.total} 個詞語或短語 · 顯示 ${grouped.words.length} 種詞語`)
+      : message('Waiting for student words…', '正在等待學生提交詞語…');
+  }
 
   function closeResetPanel() {
     resetForm.reset();
@@ -116,6 +240,7 @@ export function initEthicsWordCloud() {
     document.querySelectorAll<HTMLButtonElement>('.cloud-dialog [data-cloud-language]').forEach((button) => {
       button.textContent = next === 'zh' ? 'English' : '中文';
     });
+    if (instructorDialog.open && meaningLoaded) renderCloud();
   }
 
   function open(view: 'student' | 'instructor', updateUrl = true) {
@@ -194,18 +319,45 @@ export function initEthicsWordCloud() {
     updating = true;
     const version = resultVersion;
     try {
+      await ensureMeanings();
       const result = await requestCloud<CloudResults>({ action: 'results' });
       if (version !== resultVersion) return;
-      drawCloud(svg, result.words, chinese());
-      accessibleList.textContent = result.words.map((word) => `${word.term} (${word.count})`).join(', ');
-      resultStatus.textContent = result.total
-        ? message(`${result.total} words or phrases submitted · ${result.words.length} distinct`, `已提交 ${result.total} 個詞語或短語 · ${result.words.length} 種不同詞語`)
-        : message('Waiting for student words…', '正在等待學生提交詞語…');
+      latestResult = result;
+      renderCloud();
     } catch (error) { if (version === resultVersion) resultStatus.textContent = error instanceof Error ? error.message : String(error); }
     finally { updating = false; }
   }
 
   refreshButton.addEventListener('click', refresh);
+  mapForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const additions: Array<[string, DisplayMeaning]> = [];
+    for (const row of mapRows.querySelectorAll<HTMLElement>('.cloud-map-row')) {
+      const original = row.dataset.source || '';
+      const en = row.querySelector<HTMLInputElement>('[data-map-en]')?.value.normalize('NFKC').replace(/\s+/g, ' ').trim() || '';
+      const zh = row.querySelector<HTMLInputElement>('[data-map-zh]')?.value.normalize('NFKC').replace(/\s+/g, ' ').trim() || '';
+      if (!en && !zh) continue;
+      if (!/[A-Za-z]/.test(en) || /\p{Script=Han}/u.test(en) || !/\p{Script=Han}/u.test(zh) || en.length > 40 || zh.length > 40) {
+        mapStatus.textContent = message('For each mapped entry, add an English label and a Chinese label.', '每個配對詞語都須填寫英文及中文標籤。');
+        return;
+      }
+      const known = builtInMeanings.get(meaningKey(en)) || builtInMeanings.get(meaningKey(zh))
+        || [...customMappings.values()].find((meaning) => meaningKey(meaning.en) === meaningKey(en) || meaningKey(meaning.zh) === meaningKey(zh));
+      additions.push([meaningKey(original), known || { en, zh: toTraditional(zh) }]);
+    }
+    if (!additions.length) {
+      mapStatus.textContent = message('Enter labels for at least one entry.', '請至少為一個詞語填寫標籤。');
+      return;
+    }
+    for (const [key, labels] of additions) customMappings.set(key, labels);
+    try {
+      localStorage.setItem(mappingStorageKey, JSON.stringify([...customMappings]));
+      mapStatus.textContent = message('Mappings saved in this browser.', '配對已儲存在此瀏覽器。');
+    } catch {
+      mapStatus.textContent = message('Mappings applied for this visit, but this browser could not save them.', '本次瀏覽已套用配對，但瀏覽器未能儲存。');
+    }
+    renderCloud();
+  });
   resetButton.addEventListener('click', () => {
     resetPanel.hidden = false;
     resetButton.disabled = true;
@@ -229,8 +381,8 @@ export function initEthicsWordCloud() {
     resetStatus.textContent = message('Resetting word cloud…', '正在重設詞雲…');
     try {
       await requestCloud({ action: 'reset', resetCode: code });
-      drawCloud(svg, [], chinese());
-      accessibleList.textContent = '';
+      latestResult = { words: [], total: 0 };
+      renderCloud();
       resultStatus.textContent = message('Word cloud reset. Waiting for student words…', '詞雲已重設，正在等待學生提交詞語…');
       closeResetPanel();
     } catch (error) {

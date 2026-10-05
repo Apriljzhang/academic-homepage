@@ -114,6 +114,6 @@ Deno.serve(async (req: Request) => {
     if (previous) previous.count += 1;
     else counts.set(key, { term, count: 1 });
   }
-  const words = Array.from(counts.values()).sort((a, b) => b.count - a.count || a.term.localeCompare(b.term)).slice(0, 80);
+  const words = Array.from(counts.values()).sort((a, b) => b.count - a.count || a.term.localeCompare(b.term));
   return json(req, 200, { words, total: data?.length || 0, sessionCode: fixedSessionCode });
 });
