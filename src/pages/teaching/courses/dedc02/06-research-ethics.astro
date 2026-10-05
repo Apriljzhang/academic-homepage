@@ -43,6 +43,13 @@ const reviewChecks = [
   { en: 'The data plan names tools, locations, access, retention and disposal.', zh: '資料計劃列明工具、地點、權限、保存及銷毀。' },
   { en: 'Claims about anonymity, benefit and approval match what can actually be promised.', zh: '關於匿名、益處及批准的承諾符合實際情況。' },
 ];
+
+const creditRoles = [
+  ['Conceptualization', '研究構思'], ['Methodology', '研究方法'], ['Investigation', '研究執行'], ['Data curation', '資料整理'],
+  ['Formal analysis', '正式分析'], ['Validation', '驗證'], ['Software', '軟件'], ['Visualization', '視覺化'],
+  ['Resources', '資源'], ['Funding acquisition', '經費取得'], ['Project administration', '項目管理'], ['Supervision', '督導'],
+  ['Writing – original draft', '初稿撰寫'], ['Writing – review & editing', '審閱與修訂'],
+];
 ---
 
 <CourseSlideLayout {title} {description} lessonDeck>
@@ -54,11 +61,11 @@ const reviewChecks = [
         <div class="title-rule"></div>
         <div data-language="en">
           <h1>Research<br />Ethics and<br />Integrity</h1>
-          <p class="lead">A practical IRB workshop: make defensible choices about people, consent, risk and data before the form becomes a promise.</p>
+          <p class="lead">Follow one social science study from ethical design and IRB review through consent, risk, data and the integrity of its published record.</p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
           <h1>研究倫理<br />與研究誠信</h1>
-          <p class="lead">在申請表成為承諾之前，先對參與者、同意、風險及資料作出可論證的決策。</p>
+          <p class="lead">以一項社會科學研究貫穿倫理設計、IRB審查、知情同意、風險、資料管理及發表誠信。</p>
         </div>
       </div>
     </section>
@@ -73,6 +80,7 @@ const reviewChecks = [
             <li><strong>Read an IRB application critically</strong> for consistency across the form, recruitment, consent and methods.</li>
             <li><strong>Evaluate foreseeable risk</strong> and the safeguards and responsibilities it requires.</li>
             <li><strong>Explain consent and data protection</strong> in terms participants and reviewers can understand.</li>
+            <li><strong>Evaluate research integrity</strong> in authorship, reporting, conflicts of interest and AI use.</li>
           </ol>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
@@ -82,6 +90,7 @@ const reviewChecks = [
             <li><strong>批判閱讀IRB申請</strong>，核對表格、招募、同意與研究方法是否一致。</li>
             <li><strong>評估可預見風險</strong>，以及所需保障措施與責任分工。</li>
             <li><strong>解釋知情同意與資料保障</strong>，讓參與者與審查者明白。</li>
+            <li><strong>評估研究誠信</strong>，包括署名、報告、利益衝突及AI使用。</li>
           </ol>
         </div>
       </div>
@@ -145,7 +154,7 @@ const reviewChecks = [
           <div class="comparison">
             <article><span>Before collection</span><h3>Design and review</h3><p>Specify recruitment, consent, instruments, foreseeable risks and data routes; obtain required permissions and ethics approval.</p></article>
             <article><span>During collection</span><h3>Notice and respond</h3><p>Revisit consent; watch for distress, pressure, unintended disclosure and changes to the approved procedure.</p></article>
-            <article><span>After collection</span><h3>Protect and report</h3><p>Limit access, check identifiability in quotations, honour the data plan and review any future use.</p></article>
+            <article><span>After collection</span><h3>Protect and report</h3><p>Limit access, check quotations for identifiability, honour the data plan, report findings faithfully and credit contributors.</p></article>
           </div>
           <p class="takeaway">A course application draft is a reasoning exercise. It does not grant permission to recruit or collect human-participant data.</p>
         </div>
@@ -154,7 +163,7 @@ const reviewChecks = [
           <div class="comparison">
             <article><span>蒐集前</span><h3>設計與審查</h3><p>具體說明招募、同意、工具、可預見風險及資料流向；取得所需准許及倫理批准。</p></article>
             <article><span>蒐集中</span><h3>察覺與回應</h3><p>持續確認同意；留意不適、壓力、意外披露，以及對已獲批程序的變更。</p></article>
-            <article><span>蒐集後</span><h3>保障與報告</h3><p>限制存取、檢查引文可識別性、遵守資料計劃，並審視日後使用。</p></article>
+            <article><span>蒐集後</span><h3>保障與報告</h3><p>限制存取、檢查引文可識別性、遵守資料計劃、如實報告發現，並肯定貢獻者。</p></article>
           </div>
           <p class="takeaway">課堂申請草稿是倫理推理練習，並不授予招募或蒐集人類參與者資料的許可。</p>
         </div>
@@ -177,6 +186,32 @@ const reviewChecks = [
             <article class="case-file"><span>虛構研究方案</span><h3>中學AI寫作回饋</h3><ul><li>教師研究者招募自己任教的班級。</li><li>合併學生草稿、訪談及平台紀錄。</li><li>期刊論文可能使用訪談引文。</li><li>草稿寫道：「參與完全自願，所有資料均匿名。」</li></ul></article>
             <aside class="reviewer-prompts"><h3>審查者可能會問</h3><ul><li>誰邀請學生？誰會知道哪些人拒絕？</li><li>甚麼資料會離開AI平台？</li><li>引文能否識別學生或學校？</li></ul><p>哪一個答案最可能改變研究設計？與同伴討論。</p></aside>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="The IRB application package" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">IRB application package</span></header>
+        <div data-language="en">
+          <h2>Review the package, not only the form.</h2>
+          <div class="package-grid">
+            <article><span>Core</span><h3>Application and protocol</h3><p>Purpose, people, procedure, benefits, risks, safeguards and responsibilities.</p></article>
+            <article><span>Participant-facing</span><h3>Recruitment and consent</h3><p>Invitation, information sheet, consent choices, assent or guardian materials where relevant.</p></article>
+            <article><span>Method-facing</span><h3>Instruments and permissions</h3><p>Questionnaires, guides, observation plans, access letters and debriefing where relevant.</p></article>
+            <article><span>Data-facing</span><h3>Data management</h3><p>Data-flow map, access roles, third-party services, retention and disposal.</p></article>
+          </div>
+          <p class="takeaway">Attach only what the proposed design actually needs. Every attachment should agree with the application.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>審閱整套文件，而非只看表格。</h2>
+          <div class="package-grid">
+            <article><span>核心</span><h3>申請表與方案</h3><p>目的、參與者、程序、益處、風險、保障及責任。</p></article>
+            <article><span>面向參與者</span><h3>招募與同意</h3><p>邀請函、資料說明、同意選項；需要時加入兒童同意參與及監護人材料。</p></article>
+            <article><span>面向方法</span><h3>工具與准許</h3><p>相關問卷、訪談指南、觀察方案、准入信及事後說明。</p></article>
+            <article><span>面向資料</span><h3>資料管理</h3><p>資料流向圖、存取角色、第三方服務、保存與銷毀。</p></article>
+          </div>
+          <p class="takeaway">只附上研究設計真正需要的材料；每份附件都須與申請表一致。</p>
         </div>
       </div>
     </section>
@@ -402,47 +437,21 @@ const reviewChecks = [
           <h2>What changes when the context changes?</h2>
           <div class="station-grid">
             <article><b>01</b><h3>Children and young people</h3><p>Whose permission and whose assent matter? How will refusal be recognised during an activity?</p></article>
-            <article><b>02</b><h3>Insider researcher</h3><p>What can a student or colleague decline when the researcher also grades or manages them?</p></article>
-            <article><b>03</b><h3>AI and platform traces</h3><p>What does the provider collect or retain? Where do raw prompts, voices or logs travel?</p></article>
+            <article><b>02</b><h3>Dual roles</h3><p>When a researcher also teaches, grades or manages participants, can they freely refuse? Who recruits and sees the decision?</p></article>
+            <article><b>03</b><h3>Conflicts of interest</h3><p>Could a funder, platform vendor, promotion goal or personal relationship affect design, analysis or reporting? What must be disclosed and managed?</p></article>
           </div>
-          <p class="instruction">Choose the context closest to your research. Which safeguard would become more important?</p>
-          <p class="source-note">For a real education example, read BERA’s <a href="https://www.bera.ac.uk/publication/research-ethics-case-studies-2024-classroom-observation-for-insider-teacher-researchers" target="_blank" rel="noopener noreferrer">insider teacher-researcher case study</a>.</p>
+          <p class="takeaway">Context shapes both participant protection and the independence of the research record. Disclose competing interests; change roles or procedures where disclosure alone cannot remove pressure.</p>
+          <p class="source-note">See BERA’s <a href="https://www.bera.ac.uk/publication/research-ethics-case-studies-2024-classroom-observation-for-insider-teacher-researchers" target="_blank" rel="noopener noreferrer">insider teacher-researcher case</a> and the <a href="https://allea.org/wp-content/uploads/2023/06/European-Code-of-Conduct-Revised-Edition-2023.pdf" target="_blank" rel="noopener noreferrer">ALLEA research integrity code</a>.</p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
           <h2>研究情境改變時，倫理決策如何改變？</h2>
           <div class="station-grid">
             <article><b>01</b><h3>兒童與青少年</h3><p>需要誰的許可及誰的同意參與？活動中如何辨認拒絕？</p></article>
-            <article><b>02</b><h3>內部研究者</h3><p>若研究者亦為教師或主管，學生或同事能否自由拒絕？</p></article>
-            <article><b>03</b><h3>AI及平台痕跡</h3><p>供應商蒐集或保留甚麼？原始提示、聲音或紀錄流向何處？</p></article>
+            <article><b>02</b><h3>雙重角色</h3><p>研究者若同時任教、評分或管理參與者，對方能否自由拒絕？誰負責招募及知悉決定？</p></article>
+            <article><b>03</b><h3>利益衝突</h3><p>資助者、平台供應商、晉升目標或私人關係會否影響設計、分析及報告？哪些利益須披露及管理？</p></article>
           </div>
-          <p class="instruction">選出與自己研究最接近的情境。哪一項保障措施會變得更重要？</p>
-          <p class="source-note">真實教育案例可參閱BERA的<a href="https://www.bera.ac.uk/publication/research-ethics-case-studies-2024-classroom-observation-for-insider-teacher-researchers" target="_blank" rel="noopener noreferrer">內部教師研究者個案</a>。</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide" data-title="The IRB application package" aria-hidden="true">
-      <div class="slide-inner">
-        <header class="slide-header"><span class="eyebrow">IRB application package</span></header>
-        <div data-language="en">
-          <h2>Review the package, not only the form.</h2>
-          <div class="package-grid">
-            <article><span>Core</span><h3>Application and protocol</h3><p>Purpose, people, procedure, benefits, risks, safeguards and responsibilities.</p></article>
-            <article><span>Participant-facing</span><h3>Recruitment and consent</h3><p>Invitation, information sheet, consent choices, assent or guardian materials where relevant.</p></article>
-            <article><span>Method-facing</span><h3>Instruments and permissions</h3><p>Questionnaires, guides, observation plans, access letters and debriefing where relevant.</p></article>
-            <article><span>Data-facing</span><h3>Data management</h3><p>Data-flow map, access roles, third-party services, retention and disposal.</p></article>
-          </div>
-          <p class="takeaway">Attach only what the proposed design actually needs. Every attachment should agree with the application.</p>
-        </div>
-        <div data-language="zh" hidden lang="zh-Hant">
-          <h2>審閱整套文件，而非只看表格。</h2>
-          <div class="package-grid">
-            <article><span>核心</span><h3>申請表與方案</h3><p>目的、參與者、程序、益處、風險、保障及責任。</p></article>
-            <article><span>面向參與者</span><h3>招募與同意</h3><p>邀請函、資料說明、同意選項；需要時加入兒童同意參與及監護人材料。</p></article>
-            <article><span>面向方法</span><h3>工具與准許</h3><p>相關問卷、訪談指南、觀察方案、准入信及事後說明。</p></article>
-            <article><span>面向資料</span><h3>資料管理</h3><p>資料流向圖、存取角色、第三方服務、保存與銷毀。</p></article>
-          </div>
-          <p class="takeaway">只附上研究設計真正需要的材料；每份附件都須與申請表一致。</p>
+          <p class="takeaway">研究情境既影響參與者保障，也影響研究紀錄的獨立性。應披露競爭利益；若單靠披露不足以減低壓力，就須改變角色或程序。</p>
+          <p class="source-note">參閱BERA的<a href="https://www.bera.ac.uk/publication/research-ethics-case-studies-2024-classroom-observation-for-insider-teacher-researchers" target="_blank" rel="noopener noreferrer">內部教師研究者個案</a>及<a href="https://allea.org/wp-content/uploads/2023/06/European-Code-of-Conduct-Revised-Edition-2023.pdf" target="_blank" rel="noopener noreferrer">ALLEA研究誠信守則</a>。</p>
         </div>
       </div>
     </section>
@@ -455,17 +464,137 @@ const reviewChecks = [
           <ul class="checklist">
             {reviewChecks.map((check) => <li>{check.en}</li>)}
           </ul>
+          <p class="takeaway">These checks protect participants at the application stage. The same duty continues when the team analyses, credits and publishes the study.</p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
           <h2>提交前的六項核查。</h2>
           <ul class="checklist">
             {reviewChecks.map((check) => <li>{check.zh}</li>)}
           </ul>
+          <p class="takeaway">這些核查在申請階段保障參與者；研究團隊進行分析、肯定貢獻及發表時，同樣需要履行責任。</p>
         </div>
       </div>
     </section>
 
-    <section class="slide" data-title="Sources and further reading" aria-hidden="true">
+    <section class="slide" data-title="Authorship and author order" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">From conducting a study to reporting it</span></header>
+        <div data-language="en">
+          <h2>Who receives credit, and who takes responsibility?</h2>
+          <div class="integrity-trio">
+            <article><span>01 · Authorship</span><h3>Qualify for the byline</h3><p>Use the journal’s authorship criteria. In our school study, providing access, funding or general supervision alone does not settle authorship.</p></article>
+            <article><span>02 · Contribution</span><h3>Describe the work</h3><p>Record who designed, collected, analysed, drafted, revised and approved the work. Credit non-author help appropriately.</p></article>
+            <article><span>03 · Order</span><h3>Agree and revisit</h3><p>Discuss author order early, revisit it when work changes, and obtain all authors’ agreement before submission.</p></article>
+          </div>
+          <p class="takeaway">A contribution statement makes work visible; the byline and its order remain decisions the authors must justify together.</p>
+          <p class="source-note"><a href="https://allea.org/wp-content/uploads/2023/06/European-Code-of-Conduct-Revised-Edition-2023.pdf" target="_blank" rel="noopener noreferrer">ALLEA European Code of Conduct for Research Integrity (2023)</a>, publication and authorship practices.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>誰應獲得署名，誰須承擔責任？</h2>
+          <div class="integrity-trio">
+            <article><span>01 · 作者資格</span><h3>符合署名條件</h3><p>依目標期刊的作者準則判斷。在本課的學校案例中，提供准入、經費或一般督導，本身不足以決定署名。</p></article>
+            <article><span>02 · 貢獻</span><h3>說明實際工作</h3><p>記錄誰設計、蒐集、分析、撰寫、修訂及批准研究；以適當方式致謝非作者的協助。</p></article>
+            <article><span>03 · 次序</span><h3>及早商議並重議</h3><p>及早討論作者次序；工作有變時重新商議；投稿前取得所有作者同意。</p></article>
+          </div>
+          <p class="takeaway">貢獻聲明讓工作可見；作者名單及次序仍須由作者共同論證。</p>
+          <p class="source-note"><a href="https://allea.org/wp-content/uploads/2023/06/European-Code-of-Conduct-Revised-Edition-2023.pdf" target="_blank" rel="noopener noreferrer">ALLEA《歐洲研究誠信行為守則》（2023）</a>有關發表及署名的規範。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="CRediT contributor roles" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Authorship in practice · CRediT</span></header>
+        <div data-language="en">
+          <h2>CRediT: who did what?</h2>
+          <p class="lead small">The Contributor Role Taxonomy offers 14 roles that can make a team’s contributions transparent:</p>
+          <div class="credit-grid">{creditRoles.map(([en]) => <span>{en}</span>)}</div>
+          <p class="takeaway"><strong>Example:</strong> Mei — Conceptualization, Methodology, Writing – original draft; Ravi — Investigation, Data curation, Writing – review &amp; editing. A role label does not by itself determine authorship or author order.</p>
+          <p class="source-note">Role names and limitation: <a href="https://credit.niso.org/contributor-roles-defined/" target="_blank" rel="noopener noreferrer">NISO CRediT role descriptors</a>. Check the target journal’s authorship rules separately.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>CRediT：誰做了甚麼？</h2>
+          <p class="lead small">貢獻者角色分類法以14種角色呈現團隊貢獻：</p>
+          <div class="credit-grid">{creditRoles.map(([en, zh]) => <span><strong>{en}</strong><small>{zh}</small></span>)}</div>
+          <p class="takeaway"><strong>例子：</strong>Mei：研究構思、研究方法、初稿撰寫；Ravi：研究執行、資料整理、審閱與修訂。角色標籤本身不能決定作者資格或次序。</p>
+          <p class="source-note">角色名稱及限制參閱<a href="https://credit.niso.org/contributor-roles-defined/" target="_blank" rel="noopener noreferrer">NISO CRediT角色說明</a>；另須查核目標期刊的署名準則。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Integrity in the research record" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">From data to claims</span></header>
+        <div data-language="en">
+          <h2>How can the record become misleading?</h2>
+          <div class="integrity-four">
+            <article><h3>Fabrication</h3><p>Inventing an interview or response that never occurred.</p></article>
+            <article><h3>Falsification</h3><p>Changing a transcript, code or dataset to support a preferred result.</p></article>
+            <article><h3>Plagiarism</h3><p>Using another scholar’s words, ideas or materials without proper credit.</p></article>
+            <article><h3>Selective reporting</h3><p>Hiding contradictory cases or outcomes so findings appear stronger.</p></article>
+          </div>
+          <p class="takeaway">Keep a traceable record of design changes, exclusions and analytic choices; report limits and disconfirming evidence.</p>
+          <p class="source-note"><a href="https://allea.org/wp-content/uploads/2023/06/European-Code-of-Conduct-Revised-Edition-2023.pdf" target="_blank" rel="noopener noreferrer">ALLEA (2023)</a> defines fabrication, falsification and plagiarism, and identifies withholding results among unacceptable practices.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>研究紀錄如何變得誤導？</h2>
+          <div class="integrity-four">
+            <article><h3>捏造</h3><p>虛構從未發生的訪談或回答。</p></article>
+            <article><h3>篡改</h3><p>修改逐字稿、編碼或資料集，以支持預期結果。</p></article>
+            <article><h3>剽竊</h3><p>使用他人的文字、構想或材料，卻沒有適當註明來源。</p></article>
+            <article><h3>選擇性報告</h3><p>隱去相反個案或結果，令研究發現顯得更有力。</p></article>
+          </div>
+          <p class="takeaway">保留可追溯的設計變更、排除及分析決定；報告研究限制與相反證據。</p>
+          <p class="source-note"><a href="https://allea.org/wp-content/uploads/2023/06/European-Code-of-Conduct-Revised-Edition-2023.pdf" target="_blank" rel="noopener noreferrer">ALLEA（2023）</a>界定捏造、篡改與剽竊，亦將隱瞞研究結果列為不可接受做法。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Journal policies on AI use" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">AI disclosure · compare journal policies</span></header>
+        <div data-language="en">
+          <h2>What does the journal ask you to disclose?</h2>
+          <div class="policy-grid">
+            <article><span>Frontiers in Education</span><p>AI cannot be an author. Acknowledge generated or edited text or visuals; describe research-stage use in Methods where applicable. Name the tool, version, model and source; authors remain responsible.</p><a href="https://www.frontiersin.org/journals/education/for-authors/author-guidelines" target="_blank" rel="noopener noreferrer">Read the author guidelines ↗</a></article>
+            <article><span>PLOS One</span><p>AI cannot be an author. Disclose content generation/revision or research support: tool, affected stage and validation. Its current FAQ exempts basic spelling, grammar and clarity edits, but requires disclosure for code generation.</p><a href="https://journals.plos.org/plosone/s/ethical-publishing-practice" target="_blank" rel="noopener noreferrer">Read the publishing policy ↗</a></article>
+          </div>
+          <p class="takeaway">Policies differ and can change. Before submitting, check the target journal’s current wording and protect participant data when using external tools.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>期刊要求披露哪些AI使用？</h2>
+          <div class="policy-grid">
+            <article><span>Frontiers in Education</span><p>AI不可列為作者。生成或編輯文字／視覺材料須致謝；研究過程中使用AI時，適用情況下亦須在方法部分說明。列出工具、版本、模型及來源；作者仍須負責。</p><a href="https://www.frontiersin.org/journals/education/for-authors/author-guidelines" target="_blank" rel="noopener noreferrer">閱讀作者指引 ↗</a></article>
+            <article><span>PLOS One</span><p>AI不可列為作者。生成／修訂內容或支援研究時，須說明工具、受影響階段及驗證方式。現行常見問題將基本拼寫、文法及清晰度修改豁免，但生成程式碼須披露。</p><a href="https://journals.plos.org/plosone/s/ethical-publishing-practice" target="_blank" rel="noopener noreferrer">閱讀發表政策 ↗</a></article>
+          </div>
+          <p class="takeaway">期刊政策各異，亦可能改變。投稿前查核目標期刊現行要求；使用外部工具時須保護參與者資料。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Published AI disclosure examples" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Read published disclosures</span></header>
+        <div data-language="en">
+          <h2>Two articles, two different AI tasks.</h2>
+          <div class="policy-grid">
+            <article><span>Writing support · PLOS One (2025)</span><h3>Wang, translation study</h3><p>The acknowledgments disclose ChatGPT version 5 for grammar and style refinement of the manuscript, with responsibility for substance retained by the author.</p><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0335261" target="_blank" rel="noopener noreferrer">Inspect the article ↗</a></article>
+            <article><span>Research analysis · Frontiers in Education (2026)</span><h3>Sanz-Tejeda et al., evidence synthesis</h3><p>The Methods describe NotebookLM in preliminary thematic analysis, include prompts and explain subsequent full-text review; the article also carries a generative-AI statement.</p><a href="https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2025.1711718/full" target="_blank" rel="noopener noreferrer">Inspect the article ↗</a></article>
+          </div>
+          <p class="takeaway">When reading a disclosure, locate the task, study stage, tool/version, human checking and data permissions. A published example is evidence of practice, not a universal policy template.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>兩篇文章，兩種不同的AI任務。</h2>
+          <div class="policy-grid">
+            <article><span>寫作支援 · PLOS One（2025）</span><h3>Wang的翻譯研究</h3><p>致謝部分披露使用ChatGPT第5版潤飾論文的文法及文風，並表明作者對實質內容負責。</p><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0335261" target="_blank" rel="noopener noreferrer">查閱文章 ↗</a></article>
+            <article><span>研究分析 · Frontiers in Education（2026）</span><h3>Sanz-Tejeda等人的證據綜述</h3><p>方法部分說明以NotebookLM作初步主題分析，列出提示及其後的全文審閱；文章亦附生成式AI聲明。</p><a href="https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2025.1711718/full" target="_blank" rel="noopener noreferrer">查閱文章 ↗</a></article>
+          </div>
+          <p class="takeaway">閱讀披露時，找出任務、研究階段、工具／版本、人工核查及資料使用許可。已發表案例呈現做法，不能取代目標期刊政策。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Ethics sources and further reading" aria-hidden="true">
       <div class="slide-inner">
         <header class="slide-header"><span class="eyebrow">Source trail</span></header>
         <div data-language="en">
@@ -490,6 +619,34 @@ const reviewChecks = [
             <a href="https://www.ukri.org/councils/esrc/guidance-for-applicants/research-ethics-guidance/risk-and-benefit/" target="_blank" rel="noopener noreferrer"><strong>ESRC／UKRI</strong><span>風險與益處指引 ↗</span></a>
             <a href="https://www.ukri.org/councils/esrc/guidance-for-applicants/research-ethics-guidance/data-requirements/" target="_blank" rel="noopener noreferrer"><strong>ESRC／UKRI</strong><span>研究資料要求 ↗</span></a>
             <a href="https://www.bera.ac.uk/publication/research-ethics-case-studies-2024-classroom-observation-for-insider-teacher-researchers" target="_blank" rel="noopener noreferrer"><strong>BERA案例</strong><span>內部教師研究者 ↗</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Integrity and AI sources" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Source trail</span></header>
+        <div data-language="en">
+          <h2>Trace each integrity claim to its source.</h2>
+          <div class="source-list">
+            <a href="https://allea.org/wp-content/uploads/2023/06/European-Code-of-Conduct-Revised-Edition-2023.pdf" target="_blank" rel="noopener noreferrer"><strong>ALLEA (2023)</strong><span>Research integrity, authorship and misconduct ↗</span></a>
+            <a href="https://credit.niso.org/contributor-roles-defined/" target="_blank" rel="noopener noreferrer"><strong>NISO CRediT</strong><span>Fourteen contributor role definitions ↗</span></a>
+            <a href="https://www.frontiersin.org/journals/education/for-authors/author-guidelines" target="_blank" rel="noopener noreferrer"><strong>Frontiers in Education</strong><span>Author guidelines on generative AI ↗</span></a>
+            <a href="https://journals.plos.org/plosone/s/ethical-publishing-practice" target="_blank" rel="noopener noreferrer"><strong>PLOS One</strong><span>Current AI disclosure and FAQ policy ↗</span></a>
+            <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0335261" target="_blank" rel="noopener noreferrer"><strong>Wang (2025)</strong><span>Published language-editing acknowledgment ↗</span></a>
+            <a href="https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2025.1711718/full" target="_blank" rel="noopener noreferrer"><strong>Sanz-Tejeda et al. (2026)</strong><span>Published AI-in-analysis disclosure ↗</span></a>
+          </div>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>追溯各項研究誠信主張的來源。</h2>
+          <div class="source-list">
+            <a href="https://allea.org/wp-content/uploads/2023/06/European-Code-of-Conduct-Revised-Edition-2023.pdf" target="_blank" rel="noopener noreferrer"><strong>ALLEA（2023）</strong><span>研究誠信、署名與不當行為 ↗</span></a>
+            <a href="https://credit.niso.org/contributor-roles-defined/" target="_blank" rel="noopener noreferrer"><strong>NISO CRediT</strong><span>十四種貢獻者角色定義 ↗</span></a>
+            <a href="https://www.frontiersin.org/journals/education/for-authors/author-guidelines" target="_blank" rel="noopener noreferrer"><strong>Frontiers in Education</strong><span>生成式AI作者指引 ↗</span></a>
+            <a href="https://journals.plos.org/plosone/s/ethical-publishing-practice" target="_blank" rel="noopener noreferrer"><strong>PLOS One</strong><span>現行AI披露政策及常見問題 ↗</span></a>
+            <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0335261" target="_blank" rel="noopener noreferrer"><strong>Wang（2025）</strong><span>已發表論文中的語言編輯致謝 ↗</span></a>
+            <a href="https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2025.1711718/full" target="_blank" rel="noopener noreferrer"><strong>Sanz-Tejeda等（2026）</strong><span>已發表論文中的AI分析披露 ↗</span></a>
           </div>
         </div>
       </div>
