@@ -23,6 +23,11 @@ function json(req: Request, status: number, body: Record<string, unknown>): Resp
   return new Response(JSON.stringify(body), { status, headers: headers(req) });
 }
 
+async function sha256(value: string): Promise<string> {
+  const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(value));
+  return Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, '0')).join('');
+}
+
 function cleanTerm(value: unknown): string {
   const term = String(value || '').normalize('NFKC').replace(/[\u0000-\u001f\u007f]/g, ' ').replace(/\s+/g, ' ').trim();
   return term;
@@ -52,7 +57,15 @@ Deno.serve(async (req: Request) => {
   });
 
   const action = String(body.action || '');
-  if (action !== 'submit' && action !== 'results') return json(req, 400, { error: 'Unknown action' });
+  if (action !== 'submit' && action !== 'results' && action !== 'reset') return json(req, 400, { error: 'Unknown action' });
+  if (action === 'reset') {
+    const resetCode = String(body.resetCode || '').trim();
+    if (!/^[0-9]{6}$/.test(resetCode)) return json(req, 401, { error: 'Reset code not recognised' });
+    const codeHash = await sha256(resetCode);
+    const { data: key, error: keyError } = await db.from('dedc02_dashboard_keys')
+      .select('key_name').eq('key_name', 'ethics_wordcloud_reset').eq('code_hash', codeHash).maybeSingle();
+    if (keyError || !key) return json(req, 401, { error: 'Reset code not recognised' });
+  }
   const { data: session, error: sessionError } = await db.from('dedc02_ethics_cloud_sessions')
     .select('expires_at').eq('session_code', fixedSessionCode).maybeSingle();
   if (sessionError) return json(req, 500, { error: 'Could not check word cloud' });
@@ -65,6 +78,13 @@ Deno.serve(async (req: Request) => {
     const { error: renewError } = await db.from('dedc02_ethics_cloud_sessions')
       .upsert({ session_code: fixedSessionCode, expires_at: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString() }, { onConflict: 'session_code' });
     if (renewError) return json(req, 500, { error: 'Could not renew word cloud' });
+  }
+
+  if (action === 'reset') {
+    const { error } = await db.from('dedc02_ethics_cloud_words')
+      .delete().eq('session_code', fixedSessionCode);
+    if (error) return json(req, 500, { error: 'Could not reset word cloud' });
+    return json(req, 200, { ok: true });
   }
 
   if (action === 'submit') {

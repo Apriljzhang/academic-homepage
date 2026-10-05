@@ -688,6 +688,7 @@ const creditRoles = [
       </div>
       <div class="cloud-form-actions">
         <button type="submit" data-cloud-en="Send words" data-cloud-zh="提交詞語">Send words</button>
+        <button type="reset" class="cloud-secondary-button" data-cloud-en="Clear boxes" data-cloud-zh="清空輸入">Clear boxes</button>
         <p role="status" data-cloud-submit-status></p>
       </div>
     </form>
@@ -701,7 +702,15 @@ const creditRoles = [
       <div class="cloud-dialog-tools"><button type="button" data-cloud-language aria-label="Switch language">中文</button><button type="button" class="cloud-dialog-close" data-cloud-close aria-label="Close" title="Close">×</button></div>
     </div>
     <div class="cloud-display">
-      <div class="cloud-display-head"><p class="cloud-total" role="status" data-cloud-result-status></p><button type="button" data-cloud-refresh data-cloud-en="Refresh" data-cloud-zh="更新">Refresh</button></div>
+      <div class="cloud-display-head"><p class="cloud-total" role="status" data-cloud-result-status></p><div class="cloud-display-actions"><button type="button" data-cloud-refresh data-cloud-en="Refresh" data-cloud-zh="更新">Refresh</button><button type="button" data-cloud-reset data-cloud-en="Reset word cloud" data-cloud-zh="重設詞雲">Reset word cloud</button></div></div>
+      <div class="cloud-reset-panel" data-cloud-reset-panel hidden>
+        <p data-cloud-en="Enter the instructor reset code to permanently clear all submitted words." data-cloud-zh="輸入教師重設代碼，永久清除所有已提交的詞語。">Enter the instructor reset code to permanently clear all submitted words.</p>
+        <form data-cloud-reset-form>
+          <label><span data-cloud-en="Reset code" data-cloud-zh="重設代碼">Reset code</span><input type="password" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" autocomplete="off" data-cloud-reset-code /></label>
+          <div class="cloud-reset-actions"><button type="submit" data-cloud-en="Clear all words" data-cloud-zh="清除所有詞語">Clear all words</button><button type="button" data-cloud-reset-cancel data-cloud-en="Cancel" data-cloud-zh="取消">Cancel</button></div>
+          <p role="status" data-cloud-reset-status></p>
+        </form>
+      </div>
       <svg data-cloud-svg role="img" aria-label="Research ethics and integrity word cloud" viewBox="0 0 1000 430"></svg>
       <p class="cloud-screenreader-list" data-cloud-accessible-list></p>
     </div>

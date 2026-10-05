@@ -78,18 +78,35 @@ export function initEthicsWordCloud() {
   const studentDialog = document.querySelector<HTMLDialogElement>('[data-cloud-dialog="student"]');
   const instructorDialog = document.querySelector<HTMLDialogElement>('[data-cloud-dialog="instructor"]');
   const form = studentDialog?.querySelector<HTMLFormElement>('[data-cloud-form]');
+  const clearButton = form?.querySelector<HTMLButtonElement>('[type="reset"]');
   const submitStatus = studentDialog?.querySelector<HTMLElement>('[data-cloud-submit-status]');
   const copyStatus = studentDialog?.querySelector<HTMLElement>('[data-cloud-copy-status]');
   const resultStatus = instructorDialog?.querySelector<HTMLElement>('[data-cloud-result-status]');
+  const refreshButton = instructorDialog?.querySelector<HTMLButtonElement>('[data-cloud-refresh]');
+  const resetButton = instructorDialog?.querySelector<HTMLButtonElement>('[data-cloud-reset]');
+  const resetPanel = instructorDialog?.querySelector<HTMLElement>('[data-cloud-reset-panel]');
+  const resetForm = resetPanel?.querySelector<HTMLFormElement>('[data-cloud-reset-form]');
+  const resetCode = resetPanel?.querySelector<HTMLInputElement>('[data-cloud-reset-code]');
+  const resetCancel = resetPanel?.querySelector<HTMLButtonElement>('[data-cloud-reset-cancel]');
+  const resetStatus = resetPanel?.querySelector<HTMLElement>('[data-cloud-reset-status]');
   const svg = instructorDialog?.querySelector<SVGSVGElement>('[data-cloud-svg]');
   const accessibleList = instructorDialog?.querySelector<HTMLElement>('[data-cloud-accessible-list]');
-  if (!slide || !studentDialog || !instructorDialog || !form || !submitStatus || !copyStatus || !resultStatus || !svg || !accessibleList) return;
+  if (!slide || !studentDialog || !instructorDialog || !form || !clearButton || !submitStatus || !copyStatus || !resultStatus || !refreshButton || !resetButton || !resetPanel || !resetForm || !resetCode || !resetCancel || !resetStatus || !svg || !accessibleList) return;
 
   let language: 'en' | 'zh' = 'en';
   let updating = false;
+  let resetting = false;
+  let resultVersion = 0;
   const chinese = () => language === 'zh';
   const message = (en: string, zh: string) => chinese() ? zh : en;
   const dialogs = { student: studentDialog, instructor: instructorDialog };
+
+  function closeResetPanel() {
+    resetForm.reset();
+    resetStatus.textContent = '';
+    resetPanel.hidden = true;
+    resetButton.disabled = false;
+  }
 
   function setLanguage(next: 'en' | 'zh') {
     language = next;
@@ -132,6 +149,7 @@ export function initEthicsWordCloud() {
   });
   [studentDialog, instructorDialog].forEach((dialog) => {
     dialog.addEventListener('close', () => {
+      if (dialog === instructorDialog) closeResetPanel();
       const url = new URL(location.href);
       url.searchParams.delete('cloud');
       history.replaceState(null, '', url);
@@ -148,6 +166,7 @@ export function initEthicsWordCloud() {
     if (!words.length) { submitStatus.textContent = message('Enter at least one word.', '請至少輸入一個詞語。'); return; }
     const button = form.querySelector<HTMLButtonElement>('[type="submit"]');
     if (button) button.disabled = true;
+    clearButton.disabled = true;
     submitStatus.textContent = message('Sending…', '正在提交…');
     try {
       await requestCloud({ action: 'submit', words });
@@ -155,7 +174,10 @@ export function initEthicsWordCloud() {
       submitStatus.textContent = message('Your words were added anonymously.', '你的詞語已匿名加入。');
     } catch (error) {
       submitStatus.textContent = error instanceof Error ? error.message : String(error);
-    } finally { if (button) button.disabled = false; }
+    } finally { if (button) button.disabled = false; clearButton.disabled = false; }
+  });
+  form.addEventListener('reset', () => {
+    submitStatus.textContent = message('Boxes cleared. Submitted words remain in the cloud.', '已清空輸入框；已提交的詞語仍保留在詞雲中。');
   });
 
   studentDialog.querySelector<HTMLButtonElement>('[data-cloud-copy]')?.addEventListener('click', async () => {
@@ -168,20 +190,62 @@ export function initEthicsWordCloud() {
   });
 
   async function refresh() {
-    if (updating || !instructorDialog.open) return;
+    if (updating || resetting || !instructorDialog.open) return;
     updating = true;
+    const version = resultVersion;
     try {
       const result = await requestCloud<CloudResults>({ action: 'results' });
+      if (version !== resultVersion) return;
       drawCloud(svg, result.words, chinese());
       accessibleList.textContent = result.words.map((word) => `${word.term} (${word.count})`).join(', ');
       resultStatus.textContent = result.total
         ? message(`${result.total} words or phrases submitted · ${result.words.length} distinct`, `已提交 ${result.total} 個詞語或短語 · ${result.words.length} 種不同詞語`)
         : message('Waiting for student words…', '正在等待學生提交詞語…');
-    } catch (error) { resultStatus.textContent = error instanceof Error ? error.message : String(error); }
+    } catch (error) { if (version === resultVersion) resultStatus.textContent = error instanceof Error ? error.message : String(error); }
     finally { updating = false; }
   }
 
-  instructorDialog.querySelector<HTMLButtonElement>('[data-cloud-refresh]')?.addEventListener('click', refresh);
+  refreshButton.addEventListener('click', refresh);
+  resetButton.addEventListener('click', () => {
+    resetPanel.hidden = false;
+    resetButton.disabled = true;
+    resetCode.focus();
+  });
+  resetCancel.addEventListener('click', closeResetPanel);
+  resetForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const code = resetCode.value.trim();
+    if (!/^[0-9]{6}$/.test(code)) {
+      resetStatus.textContent = message('Enter the six-digit reset code.', '請輸入六位數重設代碼。');
+      return;
+    }
+    resetting = true;
+    resultVersion += 1;
+    refreshButton.disabled = true;
+    resetCode.disabled = true;
+    resetCancel.disabled = true;
+    const submitButton = resetForm.querySelector<HTMLButtonElement>('[type="submit"]');
+    if (submitButton) submitButton.disabled = true;
+    resetStatus.textContent = message('Resetting word cloud…', '正在重設詞雲…');
+    try {
+      await requestCloud({ action: 'reset', resetCode: code });
+      drawCloud(svg, [], chinese());
+      accessibleList.textContent = '';
+      resultStatus.textContent = message('Word cloud reset. Waiting for student words…', '詞雲已重設，正在等待學生提交詞語…');
+      closeResetPanel();
+    } catch (error) {
+      resetStatus.textContent = error instanceof Error && error.message === 'Reset code not recognised'
+        ? message('Reset code not recognised.', '重設代碼不正確。')
+        : error instanceof Error ? error.message : String(error);
+    } finally {
+      resetCode.value = '';
+      resetting = false;
+      refreshButton.disabled = false;
+      resetCode.disabled = false;
+      resetCancel.disabled = false;
+      if (submitButton) submitButton.disabled = false;
+    }
+  });
   window.setInterval(() => { if (instructorDialog.open) void refresh(); }, 5000);
   const initialView = new URLSearchParams(location.search).get('cloud');
   if (initialView === 'student' || initialView === 'instructor') open(initialView, false);
