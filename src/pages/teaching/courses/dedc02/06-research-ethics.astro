@@ -95,24 +95,27 @@ const aiDisclosureExamples = [
     labelZh: 'System（2024）· 可讀性與語言',
     titleEn: 'Guo & Li · self-made AI writing chatbots',
     titleZh: 'Guo與Li · 自製AI寫作聊天機器人',
+    quote: 'During the preparation of this work the authors used ChatGPT in order to improve readability and language.',
     summaryEn: 'They named ChatGPT, stated that it improved readability and language, and added that the authors reviewed and edited the output and accepted full responsibility.',
     summaryZh: '作者列明ChatGPT，說明用於改善可讀性與語言，並聲明由作者審閱及修訂輸出，對全文承擔責任。',
     href: 'https://doi.org/10.1016/j.system.2024.103362',
   },
   {
-    labelEn: 'System (2024) · proofreading',
-    labelZh: 'System（2024）· 校對',
-    titleEn: 'Wang et al. · conversational GenAI chatbots',
-    titleZh: 'Wang等人 · 會話式GenAI聊天機器人',
-    summaryEn: 'The declaration identified ChatGPT 4.0 and described one bounded task: proofreading the manuscript.',
-    summaryZh: '聲明列明ChatGPT 4.0，並把用途界定為一項具體任務：校對稿件。',
-    href: 'https://doi.org/10.1016/j.system.2024.103533',
+    labelEn: 'EEJPL (2026) · research materials',
+    labelZh: 'EEJPL（2026）· 研究材料',
+    titleEn: 'Cores-Bilbao et al. · chatbot-supported pilot study',
+    titleZh: 'Cores-Bilbao等人 · 聊天機器人輔助先導研究',
+    quote: 'During the preparation of this work, the authors used ChatGPT-4.0 in order to develop the initial classroom intervention materials…',
+    summaryEn: 'They reported research-process use, including the scenario, task prompts and chatbot configuration protocol, and placed the prompts and instructions in the appendices.',
+    summaryZh: '作者披露AI用於研究過程，包括情境、任務提示及聊天機器人設定規程，並把提示詞與指令收錄於附錄。',
+    href: 'https://doi.org/10.29038/eejpl.2026.13.1.cor',
   },
   {
     labelEn: 'System (2025) · readability and proofreading',
     labelZh: 'System（2025）· 可讀性與校對',
     titleEn: 'Lázaro-Ibarrola et al. · multilingual reading',
     titleZh: 'Lázaro-Ibarrola等人 · 多語閱讀',
+    quote: 'During the preparation of this work the authors used Talk to Claude in order to improve readability and to proofread for errors.',
     summaryEn: 'They named Talk to Claude, specified readability improvement and proofreading, and recorded subsequent author review, editing and responsibility.',
     summaryZh: '作者列明Talk to Claude，具體說明用於改善可讀性及校對，並交代其後由作者審閱、修訂及承擔責任。',
     href: 'https://doi.org/10.1016/j.system.2025.103665',
@@ -122,6 +125,7 @@ const aiDisclosureExamples = [
     labelZh: 'ReCALL（2026）· 句子層面修訂',
     titleEn: 'Wang & Zhang · GenAI-supported informal learning',
     titleZh: 'Wang與Zhang · GenAI輔助非正式學習',
+    quote: 'During the preparation of this work, the authors used Grammarly in order to assist with grammar, spelling, and sentence-level revision of the initial draft.',
     summaryEn: 'Their dedicated statement named Grammarly for grammar, spelling and sentence-level revision of the initial draft, followed by author review, editing and responsibility.',
     summaryZh: '獨立聲明列明Grammarly，用於初稿的文法、拼寫及句子層面修訂，其後由作者審閱、編輯及承擔責任。',
     href: 'https://doi.org/10.1017/S0958344026100524',
@@ -131,8 +135,9 @@ const aiDisclosureExamples = [
     labelZh: 'System（2026）· 核查不足後的更正',
     titleEn: 'Lin & Tsou · EMI professional development',
     titleZh: 'Lin與Tsou · EMI專業發展',
-    summaryEn: 'The corrigendum disclosed GPT-4o for proofreading, reference management, APA 7 formatting and finding recent literature. Inadequate checking of AI-suggested references required five bibliographic corrections.',
-    summaryZh: '更正聲明披露以GPT-4o校對、管理參考文獻、處理APA 7格式及尋找近期文獻。由於對AI建議文獻的核查不足，後來須修正五項書目資料。',
+    quote: 'The authors used GPT-4o before final submission to support proofreading, reference management, APA 7 formatting, and identification of recent publications.',
+    summaryEn: 'The corrigendum disclosed GPT-4o for proofreading, reference management, APA 7 formatting and finding recent literature. Inadequate checking led to five corrected entries and eight unverifiable references being removed.',
+    summaryZh: '更正聲明披露以GPT-4o校對、管理參考文獻、處理APA 7格式及尋找近期文獻。核查不足導致五項書目資料修正，另有八項無法核實的文獻被移除。',
     href: 'https://doi.org/10.1016/j.system.2025.103903',
   },
 ];
@@ -822,12 +827,13 @@ const creditRoles = [
             <p>Only 4.2% contained an AI-related formal disclosure: 2.8% reported use and 1.4% reported non-use. Reported uses centred on language editing, clarity and proofreading; statements often named the tool and asserted human review and responsibility.</p>
             <a href="https://doi.org/10.1515/applirev-2025-0291" target="_blank" rel="noopener noreferrer">Read the disclosure study ↗</a>
           </aside>
-          <p class="example-instruction">Select a published record to compare the level of detail.</p>
+          <p class="example-instruction">Select a published record to compare the authors’ original wording with the teaching note.</p>
           <div class="evidence-grid disclosure-grid">
             {aiDisclosureExamples.map((example) => (
               <details class="evidence-card">
                 <summary><span><strong>{example.labelEn}</strong><small>{example.titleEn}</small></span></summary>
-                <p>{example.summaryEn}</p>
+                <blockquote class="disclosure-quote"><span>Original wording · excerpt</span><q lang="en">{example.quote}</q></blockquote>
+                <p><strong>What it shows:</strong> {example.summaryEn}</p>
                 <a href={example.href} target="_blank" rel="noopener noreferrer">Inspect the published record ↗</a>
               </details>
             ))}
@@ -841,12 +847,13 @@ const creditRoles = [
             <p>僅4.2%含有AI相關正式披露：2.8%報告使用，1.4%報告未使用。已報告用途主要是語言編輯、提高清晰度及校對；聲明常列明工具，並強調人工審閱與作者責任。</p>
             <a href="https://doi.org/10.1515/applirev-2025-0291" target="_blank" rel="noopener noreferrer">閱讀披露研究 ↗</a>
           </aside>
-          <p class="example-instruction">點選已發表紀錄，比較披露細節的多寡。</p>
+          <p class="example-instruction">點選已發表紀錄，比較作者的英文原文與教學說明。</p>
           <div class="evidence-grid disclosure-grid">
             {aiDisclosureExamples.map((example) => (
               <details class="evidence-card">
                 <summary><span><strong>{example.labelZh}</strong><small>{example.titleZh}</small></span></summary>
-                <p>{example.summaryZh}</p>
+                <blockquote class="disclosure-quote"><span>原文摘錄（英文）</span><q lang="en">{example.quote}</q></blockquote>
+                <p><strong>重點：</strong>{example.summaryZh}</p>
                 <a href={example.href} target="_blank" rel="noopener noreferrer">查閱已發表紀錄 ↗</a>
               </details>
             ))}

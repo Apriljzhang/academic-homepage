@@ -224,6 +224,11 @@ button { font: inherit; }
 .evidence-card summary:focus-visible { outline: .16rem solid var(--re-green); outline-offset: .12rem; }
 .evidence-card > p { margin: 0; border-top: 1px solid var(--re-line); padding: .62rem .7rem .25rem; color: var(--re-muted); font-size: .8rem; line-height: 1.35; }
 .evidence-card > a { display: inline-block; margin: .3rem .7rem .68rem; font-size: .76rem; font-weight: 750; }
+.disclosure-quote { margin: 0; border-top: 1px solid var(--re-line); border-left: .22rem solid var(--re-green); padding: .6rem .7rem; background: var(--re-soft); }
+.disclosure-quote span { display: block; margin-bottom: .28rem; color: var(--re-green); font-size: .68rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.disclosure-quote q { display: block; color: var(--re-ink); font-family: Georgia, 'Times New Roman', serif; font-size: .82rem; line-height: 1.4; }
+.disclosure-quote + p { border-top: 0; padding-top: .48rem; }
+.evidence-card > p strong { color: var(--re-ink); }
 .reporting-study { margin-bottom: .65rem; border-left: .3rem solid var(--re-green); padding: .62rem .78rem; background: var(--re-soft); }
 .reporting-study strong { display: block; color: var(--re-ink); font-size: .84rem; }
 .reporting-study p { margin: .3rem 0 0; color: var(--re-ink); font-size: .8rem; line-height: 1.35; }
