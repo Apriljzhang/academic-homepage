@@ -53,6 +53,11 @@ const creditRoles = [
 ---
 
 <CourseSlideLayout {title} {description} lessonDeck>
+  <section class="pdf-cover" aria-hidden="true">
+    <span class="eyebrow">DEDC02 · Advanced Research Method</span>
+    <h1>Research Ethics<br />and Integrity</h1>
+    <p>Consent · risk · confidentiality · data management · research integrity</p>
+  </section>
   <LessonDeckChrome {courseHref} lessonTitle="Research Ethics and Integrity" />
   <main class="deck" aria-label="Research Ethics and Integrity slide deck">
     <section class="slide is-active" data-title="Research Ethics and Integrity" aria-hidden="false">
@@ -664,6 +669,22 @@ const creditRoles = [
             <a href="https://doi.org/10.1016/j.system.2025.103665" target="_blank" rel="noopener noreferrer"><strong>Lázaro-Ibarrola等（2025）</strong><span>System文章的AI及倫理聲明 ↗</span></a>
             <a href="https://www.sciencedirect.com/science/article/pii/S0346251X25003136" target="_blank" rel="noopener noreferrer"><strong>Lin與Tsou（2026）</strong><span>System有關AI建議引文的更正聲明 ↗</span></a>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Thank you · Save PDF" aria-hidden="true">
+      <div class="slide-inner title-slide">
+        <header class="slide-header"><span class="eyebrow">Keep the lesson</span></header>
+        <div data-language="en">
+          <h1>Thank<br />you</h1>
+          <p class="lead">Keep the research ethics guidance, examples and source links for your next study.</p>
+          <div class="closing-actions"><a class="pdf-cta" href={withBase('/teaching/courses/dedc02/research-ethics-and-integrity.pdf')} download>Download lesson PDF</a><a class="course-return" href={courseHref}>DEDC02 course materials</a></div>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h1>謝謝</h1>
+          <p class="lead">儲存本課的研究倫理指引、例子及來源連結，供日後研究參考。</p>
+          <div class="closing-actions"><a class="pdf-cta" href={withBase('/teaching/courses/dedc02/research-ethics-and-integrity.pdf')} download>下載本課 PDF</a><a class="course-return" href={courseHref}>DEDC02 課程材料</a></div>
         </div>
       </div>
     </section>

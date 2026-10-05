@@ -186,6 +186,11 @@ button { font: inherit; }
 .source-list a { display: flex; flex-direction: column; min-height: 4.5rem; padding: .72rem; border: 1px solid var(--re-line); border-left: .28rem solid var(--re-green); color: var(--re-ink); text-decoration: none; }
 .source-list a:hover { background: var(--re-soft); }
 .source-list span { color: var(--re-muted); font-size: .82rem; }
+.closing-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem; margin-top: 1.2rem; }
+.pdf-cta { display: inline-flex; min-height: 44px; align-items: center; border: 1px solid var(--re-green); border-radius: 999px; padding: .68rem 1.1rem; background: var(--re-green); color: #fff; font-weight: 750; text-decoration: none; cursor: pointer; }
+.pdf-cta:hover { background: var(--re-ink); }
+.course-return { font-weight: 700; }
+.pdf-cover { display: none; }
 @media screen and (max-width: 900px) {
   .principle-grid, .risk-grid, .package-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .consent-chain { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -204,4 +209,19 @@ button { font: inherit; }
   .cloud-inputs { grid-template-columns: 1fr; }
   .cloud-form { padding: .75rem; }
   .cloud-display svg { height: 360px; }
+}
+@page { size: 13.333in 7.5in; margin: 0; }
+@media print {
+  .pdf-cover { display: flex; width: 13.333in; height: 7.5in; flex-direction: column; justify-content: center; padding: .65in .8in; break-after: page; background: #fff; color: var(--re-ink); font-family: 'Source Sans 3', Arial, sans-serif; }
+  .pdf-cover .eyebrow { color: var(--re-green); font-size: .85rem; letter-spacing: .12em; text-transform: uppercase; }
+  .pdf-cover h1 { margin: .35in 0 .25in; color: var(--re-ink); font: 600 4.5rem/.98 'Source Serif 4', Georgia, serif; }
+  .pdf-cover p { max-width: 70ch; color: var(--re-muted); font-size: 1.2rem; }
+  .deck { min-height: 0; }
+  .deck .slide { display: block !important; width: 13.333in; min-height: 7.5in; height: auto; overflow: visible; padding: .42in .62in; break-after: page; background: #fff; }
+  .deck .slide-inner { width: 100%; min-height: 6.6in; }
+  .deck h1 { font-size: 4.3rem; }
+  .deck h2 { font-size: 2.4rem; }
+  .cloud-dialog, .closing-actions { display: none !important; }
+  .deck details { break-inside: avoid; }
+  .deck a { text-decoration: underline; }
 }
