@@ -239,8 +239,9 @@ button { font: inherit; }
 .source-list a:hover { background: var(--re-soft); }
 .source-list span { color: var(--re-muted); font-size: .82rem; }
 .closing-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem; margin-top: 1.2rem; }
-.pdf-cta { display: inline-flex; min-height: 44px; align-items: center; border: 1px solid var(--re-green); border-radius: 999px; padding: .68rem 1.1rem; background: var(--re-green); color: #fff; font-weight: 750; text-decoration: none; cursor: pointer; }
-.pdf-cta:hover { background: var(--re-ink); }
+.deck .pdf-cta { display: inline-flex; min-height: 44px; align-items: center; border: 1px solid var(--re-green); border-radius: 999px; padding: .68rem 1.1rem; background: var(--re-green); color: #fff; font-weight: 750; text-decoration: none; cursor: pointer; }
+.deck .pdf-cta:hover, .deck .pdf-cta:focus-visible { background: var(--re-ink); color: #fff; }
+.deck .pdf-cta:focus-visible { outline: 3px solid #427294; outline-offset: 3px; }
 .course-return { font-weight: 700; }
 .pdf-cover { display: none; }
 @media screen and (max-width: 900px) {
