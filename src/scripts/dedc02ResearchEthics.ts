@@ -67,7 +67,7 @@ document.querySelector('[data-overview]')?.addEventListener('click', () => overv
 document.querySelector('[data-close-overview]')?.addEventListener('click', () => overview?.close());
 document.querySelector('[data-fullscreen]')?.addEventListener('click', () => document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen());
 initLessonTimer();
-initEthicsWordCloud(() => current === 1);
+initEthicsWordCloud();
 
 document.querySelectorAll<HTMLElement>('[data-choice-group]').forEach((group) => {
   const choices = Array.from(group.querySelectorAll<HTMLButtonElement>('[data-choice]'));
@@ -83,4 +83,5 @@ document.querySelectorAll<HTMLElement>('[data-choice-group]').forEach((group) =>
 
 bindLessonShortcuts(showSlide, () => current, slides.length, overview);
 const initialHash = Number(location.hash.replace('#slide-', ''));
-showSlide(Number.isFinite(initialHash) && initialHash > 0 ? initialHash - 1 : 0);
+const cloudView = new URLSearchParams(location.search).get('cloud');
+showSlide(cloudView === 'student' || cloudView === 'instructor' ? 1 : Number.isFinite(initialHash) && initialHash > 0 ? initialHash - 1 : 0);

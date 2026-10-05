@@ -81,42 +81,9 @@ const creditRoles = [
           <h2>聽到「研究倫理與研究誠信」，你會想到甚麼？</h2>
           <p class="lead small">用自己的裝置提交最多三個詞語或短語；請勿填寫姓名或個人資料。</p>
         </div>
-        <div class="cloud-activity">
-          <div class="cloud-entry" data-cloud-entry>
-            <div class="cloud-presenter" data-cloud-presenter hidden>
-              <strong data-cloud-en="Instructor view" data-cloud-zh="教師畫面">Instructor view</strong>
-              <div class="cloud-presenter-actions">
-                <button type="button" data-cloud-reveal data-cloud-en="Reveal word cloud" data-cloud-zh="顯示詞雲">Reveal word cloud</button>
-                <button type="button" data-cloud-copy data-cloud-en="Copy student link" data-cloud-zh="複製學生連結">Copy student link</button>
-              </div>
-              <p role="status" data-cloud-presenter-status></p>
-            </div>
-            <form class="cloud-form" data-cloud-form>
-              <p class="cloud-fixed-code"><span data-cloud-en="Student session code" data-cloud-zh="學生課堂代碼">Student session code</span> <strong>DEDC02</strong></p>
-              <input type="hidden" name="sessionCode" data-cloud-session-input value="DEDC02" />
-              <div class="cloud-inputs">
-                <label><span data-cloud-en="Word or phrase 1" data-cloud-zh="詞語或短語 1">Word or phrase 1</span><input name="word1" maxlength="40" autocomplete="off" /></label>
-                <label><span data-cloud-en="Word or phrase 2" data-cloud-zh="詞語或短語 2">Word or phrase 2</span><input name="word2" maxlength="40" autocomplete="off" /></label>
-                <label><span data-cloud-en="Word or phrase 3" data-cloud-zh="詞語或短語 3">Word or phrase 3</span><input name="word3" maxlength="40" autocomplete="off" /></label>
-              </div>
-              <div class="cloud-form-actions">
-                <button type="submit" data-cloud-en="Send words" data-cloud-zh="提交詞語">Send words</button>
-                <p role="status" data-cloud-submit-status></p>
-              </div>
-            </form>
-          </div>
-          <div class="cloud-display" data-cloud-display hidden>
-            <div class="cloud-display-head">
-              <strong data-cloud-en="Our research ethics and integrity word cloud" data-cloud-zh="我們的研究倫理與研究誠信詞雲">Our research ethics and integrity word cloud</strong>
-              <div>
-                <button type="button" data-cloud-refresh data-cloud-en="Refresh" data-cloud-zh="更新">Refresh</button>
-                <button type="button" data-cloud-hide data-cloud-en="Back to submissions" data-cloud-zh="返回提交頁">Back to submissions</button>
-              </div>
-            </div>
-            <p class="cloud-total" role="status" data-cloud-result-status></p>
-            <svg data-cloud-svg role="img" aria-label="Research ethics and integrity word cloud" viewBox="0 0 1000 430"></svg>
-            <p class="cloud-screenreader-list" data-cloud-accessible-list></p>
-          </div>
+        <div class="cloud-links" aria-label="Word cloud views">
+          <a href="?cloud=student#slide-2" data-cloud-open="student"><span data-cloud-en="Students" data-cloud-zh="學生">Students</span><strong data-cloud-en="Add your words ↗" data-cloud-zh="提交詞語 ↗">Add your words ↗</strong></a>
+          <a href="?cloud=instructor#slide-2" data-cloud-open="instructor"><span data-cloud-en="Instructor" data-cloud-zh="教師">Instructor</span><strong data-cloud-en="View the word cloud ↗" data-cloud-zh="查看詞雲 ↗">View the word cloud ↗</strong></a>
         </div>
       </div>
     </section>
@@ -706,6 +673,39 @@ const creditRoles = [
     </section>
 
   </main>
+
+  <dialog class="cloud-dialog" data-cloud-dialog="student" aria-labelledby="cloud-student-title">
+    <div class="cloud-dialog-head">
+      <div><span class="cloud-dialog-kicker">Research Ethics and Integrity</span><h2 id="cloud-student-title" data-cloud-en="Add your words" data-cloud-zh="提交詞語">Add your words</h2></div>
+      <div class="cloud-dialog-tools"><button type="button" data-cloud-language aria-label="Switch language">中文</button><button type="button" class="cloud-dialog-close" data-cloud-close aria-label="Close" title="Close">×</button></div>
+    </div>
+    <p class="cloud-dialog-intro" data-cloud-en="What comes to mind when you hear research ethics and integrity? Add up to three words or brief phrases. Do not enter names or personal details." data-cloud-zh="聽到研究倫理與研究誠信，你會想到甚麼？提交最多三個詞語或短語；請勿填寫姓名或個人資料。">What comes to mind when you hear research ethics and integrity? Add up to three words or brief phrases. Do not enter names or personal details.</p>
+    <form class="cloud-form" data-cloud-form>
+      <div class="cloud-inputs">
+        <label><span data-cloud-en="Word or phrase 1" data-cloud-zh="詞語或短語 1">Word or phrase 1</span><input name="word1" maxlength="40" autocomplete="off" /></label>
+        <label><span data-cloud-en="Word or phrase 2" data-cloud-zh="詞語或短語 2">Word or phrase 2</span><input name="word2" maxlength="40" autocomplete="off" /></label>
+        <label><span data-cloud-en="Word or phrase 3" data-cloud-zh="詞語或短語 3">Word or phrase 3</span><input name="word3" maxlength="40" autocomplete="off" /></label>
+      </div>
+      <div class="cloud-form-actions">
+        <button type="submit" data-cloud-en="Send words" data-cloud-zh="提交詞語">Send words</button>
+        <p role="status" data-cloud-submit-status></p>
+      </div>
+    </form>
+    <button type="button" class="cloud-copy-link" data-cloud-copy data-cloud-en="Copy student link" data-cloud-zh="複製學生連結">Copy student link</button>
+    <p class="cloud-copy-status" role="status" data-cloud-copy-status></p>
+  </dialog>
+
+  <dialog class="cloud-dialog cloud-dialog-wide" data-cloud-dialog="instructor" aria-labelledby="cloud-instructor-title">
+    <div class="cloud-dialog-head">
+      <div><span class="cloud-dialog-kicker">Research Ethics and Integrity</span><h2 id="cloud-instructor-title" data-cloud-en="Our word cloud" data-cloud-zh="我們的詞雲">Our word cloud</h2></div>
+      <div class="cloud-dialog-tools"><button type="button" data-cloud-language aria-label="Switch language">中文</button><button type="button" class="cloud-dialog-close" data-cloud-close aria-label="Close" title="Close">×</button></div>
+    </div>
+    <div class="cloud-display">
+      <div class="cloud-display-head"><p class="cloud-total" role="status" data-cloud-result-status></p><button type="button" data-cloud-refresh data-cloud-en="Refresh" data-cloud-zh="更新">Refresh</button></div>
+      <svg data-cloud-svg role="img" aria-label="Research ethics and integrity word cloud" viewBox="0 0 1000 430"></svg>
+      <p class="cloud-screenreader-list" data-cloud-accessible-list></p>
+    </div>
+  </dialog>
 
   <script>
     import '../../../../scripts/dedc02ResearchEthics.ts';

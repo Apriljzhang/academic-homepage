@@ -25,29 +25,34 @@ button { font: inherit; }
 .deck .lead.small { max-width: 74ch; margin-bottom: .8rem; }
 .cloud-slide h2 { max-width: 38ch; margin-bottom: .55rem; font-size: clamp(2rem, 3.65vw, 3.1rem); }
 .cloud-slide .lead.small { margin: 0 0 .75rem; font-size: 1.07rem; }
-.cloud-entry[hidden], .cloud-display[hidden], .cloud-presenter[hidden] { display: none !important; }
+.cloud-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .85rem; max-width: 900px; margin-top: 1.6rem; }
+.cloud-links a { display: grid; gap: .55rem; min-height: 9rem; padding: 1.2rem 1.35rem; border: 1px solid var(--re-line); border-top: .4rem solid var(--re-green); background: var(--re-soft); color: var(--re-ink); text-decoration: none; }
+.cloud-links a:hover, .cloud-links a:focus-visible { background: #e2f2e8; outline: 3px solid var(--re-green); outline-offset: 2px; }
+.cloud-links span { color: var(--re-green); font-size: .86rem; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; }
+.cloud-links strong { font: 600 clamp(1.45rem, 2.5vw, 2rem)/1.15 'Source Serif 4', Georgia, serif; }
+.cloud-dialog { width: min(680px, calc(100vw - 1.5rem)); max-height: min(90dvh, 900px); margin: auto; padding: 1.35rem; overflow: auto; border: 1px solid var(--re-line); border-top: .42rem solid var(--re-green); border-radius: .35rem; background: #fff; color: var(--re-ink); font-family: 'Source Sans 3', Arial, sans-serif; box-shadow: 0 16px 44px #153d2d33; }
+.cloud-dialog-wide { width: min(1040px, calc(100vw - 1.5rem)); }
+.cloud-dialog::backdrop { background: #11291ecc; }
+.cloud-dialog-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
+.cloud-dialog-kicker { color: var(--re-green); font-size: .75rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.cloud-dialog h2 { margin: .3rem 0 .55rem; color: var(--re-ink); font: 600 clamp(1.8rem, 3vw, 2.6rem)/1.1 'Source Serif 4', Georgia, serif; }
+.cloud-dialog-intro { margin: .2rem 0 1rem; color: var(--re-muted); line-height: 1.45; }
+.cloud-dialog-tools { display: flex; gap: .3rem; }
+.cloud-dialog button { min-height: 2.6rem; padding: .42rem .7rem; border: 1px solid var(--re-green); border-radius: .22rem; background: var(--re-green); color: #fff; font: 700 .9rem 'Source Sans 3', Arial, sans-serif; cursor: pointer; }
+.cloud-dialog button:hover { background: var(--re-ink); }
+.cloud-dialog button:disabled { opacity: .55; cursor: wait; }
+.cloud-dialog button:focus-visible, .cloud-dialog input:focus-visible { outline: 3px solid #427294; outline-offset: 2px; }
+.cloud-dialog .cloud-dialog-close { width: 2.6rem; padding: 0; background: #fff; color: var(--re-green); font-size: 1.6rem; line-height: 1; }
+.cloud-dialog [data-cloud-language], .cloud-dialog .cloud-copy-link, .cloud-dialog [data-cloud-refresh] { background: #fff; color: var(--re-green); }
 .cloud-form { padding: 1rem; border-top: .32rem solid var(--re-green); background: var(--re-soft); }
 .cloud-form label { display: grid; gap: .3rem; color: var(--re-ink); font-size: .85rem; font-weight: 700; }
 .cloud-form input { width: 100%; min-height: 2.55rem; padding: .42rem .62rem; border: 1px solid var(--re-line); border-radius: .22rem; background: #fff; color: var(--re-ink); font: inherit; }
-.cloud-fixed-code { display: flex; align-items: center; gap: .7rem; margin: 0 0 .7rem; color: var(--re-ink); font-size: .86rem; font-weight: 700; }
-.cloud-fixed-code strong { padding: .3rem .55rem; border: 1px solid var(--re-line); background: #fff; font-size: 1rem; letter-spacing: .12em; }
-.cloud-help { margin: 0; color: var(--re-muted); font-size: .86rem; line-height: 1.35; }
 .cloud-inputs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .65rem; }
-.cloud-form-actions, .cloud-presenter-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .7rem; margin-top: .8rem; }
-.cloud-form-actions p, .cloud-presenter > p[role="status"] { margin: .5rem 0 0; color: var(--re-muted); font-size: .87rem; }
-.cloud-activity button { min-height: 2.6rem; padding: .43rem .75rem; border: 1px solid var(--re-green); border-radius: .22rem; background: var(--re-green); color: #fff; font-weight: 700; cursor: pointer; }
-.cloud-activity button:hover { background: var(--re-ink); }
-.cloud-activity button:disabled { opacity: .55; cursor: wait; }
-.cloud-activity input:focus-visible, .cloud-activity button:focus-visible { outline: 3px solid #427294; outline-offset: 2px; }
-.cloud-presenter { margin-bottom: .7rem; padding: .72rem .85rem; border-left: .3rem solid #a7642e; background: var(--re-warm); }
-.cloud-presenter > strong { color: var(--re-warm-ink); font-size: .87rem; }
-.cloud-presenter-actions { margin-top: .4rem; }
-.cloud-presenter-actions [data-cloud-copy], .cloud-display-head button { background: #fff; color: var(--re-green); }
+.cloud-form-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .7rem; margin-top: .8rem; }
+.cloud-form-actions p, .cloud-copy-status { margin: .5rem 0 0; color: var(--re-muted); font-size: .87rem; }
+.cloud-copy-link { margin-top: .8rem; }
 .cloud-display { padding: .8rem; border-top: .32rem solid var(--re-green); background: var(--re-soft); }
 .cloud-display-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem; }
-.cloud-display-head strong { font: 600 1.2rem/1.2 'Source Serif 4', Georgia, serif; }
-.cloud-display-head > div { display: flex; flex-wrap: wrap; gap: .4rem; }
-.cloud-display-head button { min-height: 2.3rem; }
 .cloud-total { margin: .35rem 0; color: var(--re-muted); font-size: .85rem; }
 .cloud-display svg { display: block; width: 100%; height: min(48dvh, 390px); min-height: 260px; background: #fff; }
 .cloud-screenreader-list { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
@@ -146,6 +151,8 @@ button { font: inherit; }
   .slide-inner { min-height: 0; }
 }
 @media screen and (max-width: 650px) {
+  .cloud-links, .cloud-inputs { grid-template-columns: 1fr; }
+  .cloud-dialog { padding: .85rem; }
   .principle-grid, .comparison, .case-layout, .field-grid, .audit-grid, .consent-chain, .role-grid, .risk-grid, .scenario-grid, .lifecycle-grid, .station-grid, .package-grid, .checklist, .source-list, .choice-row, .integrity-trio, .integrity-four, .policy-grid, .credit-grid { grid-template-columns: 1fr; }
   .risk-equation { grid-template-columns: 1fr; }
   .risk-equation b { transform: rotate(90deg); text-align: center; }
