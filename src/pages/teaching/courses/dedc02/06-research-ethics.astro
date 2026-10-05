@@ -70,6 +70,66 @@ const creditRoles = [
       </div>
     </section>
 
+    <section class="slide cloud-slide" data-title="Opening word cloud" aria-hidden="true">
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Opening activity · shared word cloud</span></header>
+        <div data-language="en">
+          <h2>What comes to mind when you hear “research ethics and integrity”?</h2>
+          <p class="lead small">Add up to three words or brief phrases from your own device. Do not enter names or personal details.</p>
+        </div>
+        <div data-language="zh" hidden lang="zh-Hant">
+          <h2>聽到「研究倫理與研究誠信」，你會想到甚麼？</h2>
+          <p class="lead small">用自己的裝置提交最多三個詞語或短語；請勿填寫姓名或個人資料。</p>
+        </div>
+        <div class="cloud-activity">
+          <div class="cloud-entry" data-cloud-entry>
+            <form class="cloud-form" data-cloud-form>
+              <label class="cloud-code-label"><span data-cloud-en="Session code" data-cloud-zh="課堂代碼">Session code</span>
+                <input name="sessionCode" data-cloud-session-input required maxlength="6" autocomplete="off" inputmode="text" spellcheck="false" aria-label="Word cloud session code" />
+              </label>
+              <div class="cloud-inputs">
+                <label><span data-cloud-en="Word or phrase 1" data-cloud-zh="詞語或短語 1">Word or phrase 1</span><input name="word1" maxlength="40" autocomplete="off" /></label>
+                <label><span data-cloud-en="Word or phrase 2" data-cloud-zh="詞語或短語 2">Word or phrase 2</span><input name="word2" maxlength="40" autocomplete="off" /></label>
+                <label><span data-cloud-en="Word or phrase 3" data-cloud-zh="詞語或短語 3">Word or phrase 3</span><input name="word3" maxlength="40" autocomplete="off" /></label>
+              </div>
+              <div class="cloud-form-actions">
+                <button type="submit" data-cloud-en="Send words" data-cloud-zh="提交詞語">Send words</button>
+                <p role="status" data-cloud-submit-status></p>
+              </div>
+            </form>
+            <details class="cloud-presenter">
+              <summary data-cloud-en="Presenter controls" data-cloud-zh="教師控制">Presenter controls</summary>
+              <div class="cloud-presenter-inner">
+                <label><span data-cloud-en="Presenter access code" data-cloud-zh="教師專用密碼">Presenter access code</span><input type="password" data-cloud-access-code autocomplete="off" maxlength="10" /></label>
+                <button type="button" data-cloud-create data-cloud-en="Start a new session" data-cloud-zh="建立新課堂">Start a new session</button>
+                <div class="cloud-session" data-cloud-session hidden>
+                  <p><span data-cloud-en="Share this session code:" data-cloud-zh="向學生分享此課堂代碼：">Share this session code:</span> <strong data-cloud-session-code></strong></p>
+                  <label><span data-cloud-en="Student link" data-cloud-zh="學生連結">Student link</span><input type="text" data-cloud-join-link readonly /></label>
+                  <div class="cloud-presenter-actions">
+                    <button type="button" data-cloud-copy data-cloud-en="Copy student link" data-cloud-zh="複製學生連結">Copy student link</button>
+                    <button type="button" data-cloud-reveal data-cloud-en="Reveal word cloud" data-cloud-zh="顯示詞雲">Reveal word cloud</button>
+                  </div>
+                </div>
+                <p role="status" data-cloud-presenter-status></p>
+              </div>
+            </details>
+          </div>
+          <div class="cloud-display" data-cloud-display hidden>
+            <div class="cloud-display-head">
+              <strong data-cloud-en="Our research ethics and integrity word cloud" data-cloud-zh="我們的研究倫理與研究誠信詞雲">Our research ethics and integrity word cloud</strong>
+              <div>
+                <button type="button" data-cloud-refresh data-cloud-en="Refresh" data-cloud-zh="更新">Refresh</button>
+                <button type="button" data-cloud-hide data-cloud-en="Back to submissions" data-cloud-zh="返回提交頁">Back to submissions</button>
+              </div>
+            </div>
+            <p class="cloud-total" role="status" data-cloud-result-status></p>
+            <svg data-cloud-svg role="img" aria-label="Research ethics and integrity word cloud" viewBox="0 0 1000 430"></svg>
+            <p class="cloud-screenreader-list" data-cloud-accessible-list></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="slide" data-title="Learning aims" aria-hidden="true">
       <div class="slide-inner">
         <header class="slide-header"><span class="eyebrow">Learning aims</span></header>
@@ -556,16 +616,16 @@ const creditRoles = [
         <div data-language="en">
           <h2>What does the journal ask you to disclose?</h2>
           <div class="policy-grid">
-            <article><span>Frontiers in Education</span><p>AI cannot be an author. Acknowledge generated or edited text or visuals; describe research-stage use in Methods where applicable. Name the tool, version, model and source; authors remain responsible.</p><a href="https://www.frontiersin.org/journals/education/for-authors/author-guidelines" target="_blank" rel="noopener noreferrer">Read the author guidelines ↗</a></article>
-            <article><span>PLOS One</span><p>AI cannot be an author. Disclose content generation/revision or research support: tool, affected stage and validation. Its current FAQ exempts basic spelling, grammar and clarity edits, but requires disclosure for code generation.</p><a href="https://journals.plos.org/plosone/s/ethical-publishing-practice" target="_blank" rel="noopener noreferrer">Read the publishing policy ↗</a></article>
+            <article><span>Language Testing · journal-specific guidance</span><p>Identify the tool, task and purpose. Acknowledge generative AI used for language editing; describe research use in Methods. AI analysis of participants’ qualitative data normally requires consent through ethics review, plus accuracy and privacy checks.</p><a href="https://journals.sagepub.com/pb-assets/cmscontent/ltj/LTJ%20Author%20guidelines%20on%20genAI_Oct_3_24-1731410134.pdf" target="_blank" rel="noopener noreferrer">Read the journal guidelines ↗</a></article>
+            <article><span>System · Elsevier publisher policy</span><p>Declare substantive AI assistance in manuscript preparation in a separate statement; basic spelling and grammar checks are exempt. Explain research-process use in Methods. Verify output and references, protect data, and keep authors accountable.</p><a href="https://www.elsevier.com/about/policies-and-standards/generative-ai-policies-for-journals" target="_blank" rel="noopener noreferrer">Read the current publisher policy ↗</a></article>
           </div>
           <p class="takeaway">Policies differ and can change. Before submitting, check the target journal’s current wording and protect participant data when using external tools.</p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
           <h2>期刊要求披露哪些AI使用？</h2>
           <div class="policy-grid">
-            <article><span>Frontiers in Education</span><p>AI不可列為作者。生成或編輯文字／視覺材料須致謝；研究過程中使用AI時，適用情況下亦須在方法部分說明。列出工具、版本、模型及來源；作者仍須負責。</p><a href="https://www.frontiersin.org/journals/education/for-authors/author-guidelines" target="_blank" rel="noopener noreferrer">閱讀作者指引 ↗</a></article>
-            <article><span>PLOS One</span><p>AI不可列為作者。生成／修訂內容或支援研究時，須說明工具、受影響階段及驗證方式。現行常見問題將基本拼寫、文法及清晰度修改豁免，但生成程式碼須披露。</p><a href="https://journals.plos.org/plosone/s/ethical-publishing-practice" target="_blank" rel="noopener noreferrer">閱讀發表政策 ↗</a></article>
+            <article><span>Language Testing · 期刊專屬指引</span><p>說明工具、任務及目的；生成式AI用於語言編輯時在致謝披露，用於研究過程時在方法部分交代。以AI分析參與者的質性資料通常須在倫理審查中取得同意，並核查準確性與私隱風險。</p><a href="https://journals.sagepub.com/pb-assets/cmscontent/ltj/LTJ%20Author%20guidelines%20on%20genAI_Oct_3_24-1731410134.pdf" target="_blank" rel="noopener noreferrer">閱讀期刊指引 ↗</a></article>
+            <article><span>System · Elsevier出版社政策</span><p>以AI實質協助準備稿件，須作獨立聲明；基本拼寫及文法檢查獲豁免。研究過程中使用AI則在方法部分說明。作者須核查輸出與引文、保護資料並承擔責任。</p><a href="https://www.elsevier.com/about/policies-and-standards/generative-ai-policies-for-journals" target="_blank" rel="noopener noreferrer">閱讀現行出版社政策 ↗</a></article>
           </div>
           <p class="takeaway">期刊政策各異，亦可能改變。投稿前查核目標期刊現行要求；使用外部工具時須保護參與者資料。</p>
         </div>
@@ -576,20 +636,20 @@ const creditRoles = [
       <div class="slide-inner">
         <header class="slide-header"><span class="eyebrow">Read published disclosures</span></header>
         <div data-language="en">
-          <h2>Two articles, two different AI tasks.</h2>
+          <h2>What do published disclosures reveal—and what can they miss?</h2>
           <div class="policy-grid">
-            <article><span>Writing support · PLOS One (2025)</span><h3>Wang, translation study</h3><p>The acknowledgments disclose ChatGPT version 5 for grammar and style refinement of the manuscript, with responsibility for substance retained by the author.</p><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0335261" target="_blank" rel="noopener noreferrer">Inspect the article ↗</a></article>
-            <article><span>Research analysis · Frontiers in Education (2026)</span><h3>Sanz-Tejeda et al., evidence synthesis</h3><p>The Methods describe NotebookLM in preliminary thematic analysis, include prompts and explain subsequent full-text review; the article also carries a generative-AI statement.</p><a href="https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2025.1711718/full" target="_blank" rel="noopener noreferrer">Inspect the article ↗</a></article>
+            <article><span>System (2025) · writing disclosure</span><h3>Lázaro-Ibarrola et al., young multilingual readers</h3><p>The article declares Talk to Claude for readability and proofreading, followed by author review. Its ethics statement also documents institutional approval, parental consent and children’s choice to participate.</p><a href="https://doi.org/10.1016/j.system.2025.103665" target="_blank" rel="noopener noreferrer">Inspect the article ↗</a></article>
+            <article><span>System (2026) · published correction</span><h3>Lin &amp; Tsou, EMI professional development</h3><p>A corrigendum explains that GPT-4o helped identify references, but several AI-suggested citations were not adequately verified and needed correction. Disclosure did not remove the authors’ duty to check primary sources.</p><a href="https://www.sciencedirect.com/science/article/pii/S0346251X25003136" target="_blank" rel="noopener noreferrer">Inspect the corrigendum ↗</a></article>
           </div>
-          <p class="takeaway">When reading a disclosure, locate the task, study stage, tool/version, human checking and data permissions. A published example is evidence of practice, not a universal policy template.</p>
+          <p class="takeaway">Identify the tool, purpose, study stage, human checks and data permissions. A declaration makes use visible; it does not validate the output.</p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
-          <h2>兩篇文章，兩種不同的AI任務。</h2>
+          <h2>已發表的AI披露能說明甚麼？又可能遺漏甚麼？</h2>
           <div class="policy-grid">
-            <article><span>寫作支援 · PLOS One（2025）</span><h3>Wang的翻譯研究</h3><p>致謝部分披露使用ChatGPT第5版潤飾論文的文法及文風，並表明作者對實質內容負責。</p><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0335261" target="_blank" rel="noopener noreferrer">查閱文章 ↗</a></article>
-            <article><span>研究分析 · Frontiers in Education（2026）</span><h3>Sanz-Tejeda等人的證據綜述</h3><p>方法部分說明以NotebookLM作初步主題分析，列出提示及其後的全文審閱；文章亦附生成式AI聲明。</p><a href="https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2025.1711718/full" target="_blank" rel="noopener noreferrer">查閱文章 ↗</a></article>
+            <article><span>System（2025）· 寫作披露</span><h3>Lázaro-Ibarrola等人的多語兒童閱讀研究</h3><p>文章聲明以Talk to Claude改善可讀性及校對，之後由作者審核。倫理聲明亦交代機構批准、家長同意及兒童可自行決定是否參與。</p><a href="https://doi.org/10.1016/j.system.2025.103665" target="_blank" rel="noopener noreferrer">查閱文章 ↗</a></article>
+            <article><span>System（2026）· 已發表更正</span><h3>Lin與Tsou的EMI教師發展研究</h3><p>更正聲明指出，GPT-4o曾協助找尋文獻，但多項AI建議的引文未經充分核查，後來須予更正。披露不能取代作者核對原始來源的責任。</p><a href="https://www.sciencedirect.com/science/article/pii/S0346251X25003136" target="_blank" rel="noopener noreferrer">查閱更正聲明 ↗</a></article>
           </div>
-          <p class="takeaway">閱讀披露時，找出任務、研究階段、工具／版本、人工核查及資料使用許可。已發表案例呈現做法，不能取代目標期刊政策。</p>
+          <p class="takeaway">找出工具、目的、研究階段、人工核查及資料使用許可。聲明使AI使用可見，卻不會自動證明輸出正確。</p>
         </div>
       </div>
     </section>
@@ -632,10 +692,10 @@ const creditRoles = [
           <div class="source-list">
             <a href="https://allea.org/wp-content/uploads/2023/06/European-Code-of-Conduct-Revised-Edition-2023.pdf" target="_blank" rel="noopener noreferrer"><strong>ALLEA (2023)</strong><span>Research integrity, authorship and misconduct ↗</span></a>
             <a href="https://credit.niso.org/contributor-roles-defined/" target="_blank" rel="noopener noreferrer"><strong>NISO CRediT</strong><span>Fourteen contributor role definitions ↗</span></a>
-            <a href="https://www.frontiersin.org/journals/education/for-authors/author-guidelines" target="_blank" rel="noopener noreferrer"><strong>Frontiers in Education</strong><span>Author guidelines on generative AI ↗</span></a>
-            <a href="https://journals.plos.org/plosone/s/ethical-publishing-practice" target="_blank" rel="noopener noreferrer"><strong>PLOS One</strong><span>Current AI disclosure and FAQ policy ↗</span></a>
-            <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0335261" target="_blank" rel="noopener noreferrer"><strong>Wang (2025)</strong><span>Published language-editing acknowledgment ↗</span></a>
-            <a href="https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2025.1711718/full" target="_blank" rel="noopener noreferrer"><strong>Sanz-Tejeda et al. (2026)</strong><span>Published AI-in-analysis disclosure ↗</span></a>
+            <a href="https://journals.sagepub.com/pb-assets/cmscontent/ltj/LTJ%20Author%20guidelines%20on%20genAI_Oct_3_24-1731410134.pdf" target="_blank" rel="noopener noreferrer"><strong>Language Testing (2024)</strong><span>Journal guidance on generative AI ↗</span></a>
+            <a href="https://www.elsevier.com/about/policies-and-standards/generative-ai-policies-for-journals" target="_blank" rel="noopener noreferrer"><strong>Elsevier</strong><span>Current publisher policy applicable to System ↗</span></a>
+            <a href="https://doi.org/10.1016/j.system.2025.103665" target="_blank" rel="noopener noreferrer"><strong>Lázaro-Ibarrola et al. (2025)</strong><span>System article: disclosure and ethics statements ↗</span></a>
+            <a href="https://www.sciencedirect.com/science/article/pii/S0346251X25003136" target="_blank" rel="noopener noreferrer"><strong>Lin &amp; Tsou (2026)</strong><span>System corrigendum on AI-suggested references ↗</span></a>
           </div>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
@@ -643,10 +703,10 @@ const creditRoles = [
           <div class="source-list">
             <a href="https://allea.org/wp-content/uploads/2023/06/European-Code-of-Conduct-Revised-Edition-2023.pdf" target="_blank" rel="noopener noreferrer"><strong>ALLEA（2023）</strong><span>研究誠信、署名與不當行為 ↗</span></a>
             <a href="https://credit.niso.org/contributor-roles-defined/" target="_blank" rel="noopener noreferrer"><strong>NISO CRediT</strong><span>十四種貢獻者角色定義 ↗</span></a>
-            <a href="https://www.frontiersin.org/journals/education/for-authors/author-guidelines" target="_blank" rel="noopener noreferrer"><strong>Frontiers in Education</strong><span>生成式AI作者指引 ↗</span></a>
-            <a href="https://journals.plos.org/plosone/s/ethical-publishing-practice" target="_blank" rel="noopener noreferrer"><strong>PLOS One</strong><span>現行AI披露政策及常見問題 ↗</span></a>
-            <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0335261" target="_blank" rel="noopener noreferrer"><strong>Wang（2025）</strong><span>已發表論文中的語言編輯致謝 ↗</span></a>
-            <a href="https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2025.1711718/full" target="_blank" rel="noopener noreferrer"><strong>Sanz-Tejeda等（2026）</strong><span>已發表論文中的AI分析披露 ↗</span></a>
+            <a href="https://journals.sagepub.com/pb-assets/cmscontent/ltj/LTJ%20Author%20guidelines%20on%20genAI_Oct_3_24-1731410134.pdf" target="_blank" rel="noopener noreferrer"><strong>Language Testing（2024）</strong><span>期刊生成式AI指引 ↗</span></a>
+            <a href="https://www.elsevier.com/about/policies-and-standards/generative-ai-policies-for-journals" target="_blank" rel="noopener noreferrer"><strong>Elsevier</strong><span>適用於System的現行出版社政策 ↗</span></a>
+            <a href="https://doi.org/10.1016/j.system.2025.103665" target="_blank" rel="noopener noreferrer"><strong>Lázaro-Ibarrola等（2025）</strong><span>System文章的AI及倫理聲明 ↗</span></a>
+            <a href="https://www.sciencedirect.com/science/article/pii/S0346251X25003136" target="_blank" rel="noopener noreferrer"><strong>Lin與Tsou（2026）</strong><span>System有關AI建議引文的更正聲明 ↗</span></a>
           </div>
         </div>
       </div>

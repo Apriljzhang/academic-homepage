@@ -1,5 +1,6 @@
 import { syncLessonNavigation, bindLessonShortcuts } from './lessonDeck';
 import { initLessonTimer } from './lessonTimer';
+import { initEthicsWordCloud } from './ethicsWordCloud';
 
 const slides = Array.from(document.querySelectorAll<HTMLElement>('.slide'));
 const currentLabel = document.querySelector<HTMLElement>('.slide-count span');
@@ -44,6 +45,11 @@ translate?.addEventListener('click', () => {
   slide.dataset.language = chinese ? 'zh' : 'en';
   slide.querySelectorAll<HTMLElement>('[data-language="en"]').forEach((panel) => { panel.hidden = chinese; });
   slide.querySelectorAll<HTMLElement>('[data-language="zh"]').forEach((panel) => { panel.hidden = !chinese; });
+  if (slide.classList.contains('cloud-slide')) {
+    slide.querySelectorAll<HTMLElement>('[data-cloud-en]').forEach((node) => {
+      node.textContent = node.dataset[chinese ? 'cloudZh' : 'cloudEn'] || '';
+    });
+  }
   syncTranslate();
 });
 if (overviewList) {
@@ -61,6 +67,7 @@ document.querySelector('[data-overview]')?.addEventListener('click', () => overv
 document.querySelector('[data-close-overview]')?.addEventListener('click', () => overview?.close());
 document.querySelector('[data-fullscreen]')?.addEventListener('click', () => document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen());
 initLessonTimer();
+initEthicsWordCloud(() => current === 1);
 
 document.querySelectorAll<HTMLElement>('[data-choice-group]').forEach((group) => {
   const choices = Array.from(group.querySelectorAll<HTMLButtonElement>('[data-choice]'));
