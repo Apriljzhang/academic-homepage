@@ -83,10 +83,26 @@ const creditRoles = [
         </div>
         <div class="cloud-activity">
           <div class="cloud-entry" data-cloud-entry>
+            <details class="cloud-presenter">
+              <summary data-cloud-en="Instructor controls · reveal the word cloud" data-cloud-zh="教師控制 · 顯示詞雲">Instructor controls · reveal the word cloud</summary>
+              <div class="cloud-presenter-inner">
+                <p class="cloud-help" data-cloud-en="Students use DEDC02. Enter your separate 10-character presenter access code to reveal their words. Renew the session here if it expires." data-cloud-zh="學生使用DEDC02。輸入另一組10位教師專用密碼，即可顯示學生詞語；如課堂過期，可在此續期。">Students use DEDC02. Enter your separate 10-character presenter access code to reveal their words. Renew the session here if it expires.</p>
+                <label><span data-cloud-en="Presenter access code (10 characters)" data-cloud-zh="教師專用密碼（10位）">Presenter access code (10 characters)</span><input type="password" data-cloud-access-code autocomplete="off" maxlength="10" /></label>
+                <button type="button" data-cloud-create data-cloud-en="Start or renew DEDC02 session" data-cloud-zh="開啟或續期DEDC02課堂">Start or renew DEDC02 session</button>
+                <div class="cloud-session" data-cloud-session hidden>
+                  <p><span data-cloud-en="Student code:" data-cloud-zh="學生代碼：">Student code:</span> <strong data-cloud-session-code></strong></p>
+                  <label><span data-cloud-en="Student link" data-cloud-zh="學生連結">Student link</span><input type="text" data-cloud-join-link readonly /></label>
+                  <div class="cloud-presenter-actions">
+                    <button type="button" data-cloud-copy data-cloud-en="Copy student link" data-cloud-zh="複製學生連結">Copy student link</button>
+                    <button type="button" data-cloud-reveal data-cloud-en="Reveal word cloud" data-cloud-zh="顯示詞雲">Reveal word cloud</button>
+                  </div>
+                </div>
+                <p role="status" data-cloud-presenter-status></p>
+              </div>
+            </details>
             <form class="cloud-form" data-cloud-form>
-              <label class="cloud-code-label"><span data-cloud-en="Session code" data-cloud-zh="課堂代碼">Session code</span>
-                <input name="sessionCode" data-cloud-session-input required maxlength="6" autocomplete="off" inputmode="text" spellcheck="false" aria-label="Word cloud session code" />
-              </label>
+              <p class="cloud-fixed-code"><span data-cloud-en="Student session code" data-cloud-zh="學生課堂代碼">Student session code</span> <strong>DEDC02</strong></p>
+              <input type="hidden" name="sessionCode" data-cloud-session-input value="DEDC02" />
               <div class="cloud-inputs">
                 <label><span data-cloud-en="Word or phrase 1" data-cloud-zh="詞語或短語 1">Word or phrase 1</span><input name="word1" maxlength="40" autocomplete="off" /></label>
                 <label><span data-cloud-en="Word or phrase 2" data-cloud-zh="詞語或短語 2">Word or phrase 2</span><input name="word2" maxlength="40" autocomplete="off" /></label>
@@ -97,22 +113,6 @@ const creditRoles = [
                 <p role="status" data-cloud-submit-status></p>
               </div>
             </form>
-            <details class="cloud-presenter">
-              <summary data-cloud-en="Presenter controls" data-cloud-zh="教師控制">Presenter controls</summary>
-              <div class="cloud-presenter-inner">
-                <label><span data-cloud-en="Presenter access code" data-cloud-zh="教師專用密碼">Presenter access code</span><input type="password" data-cloud-access-code autocomplete="off" maxlength="10" /></label>
-                <button type="button" data-cloud-create data-cloud-en="Start a new session" data-cloud-zh="建立新課堂">Start a new session</button>
-                <div class="cloud-session" data-cloud-session hidden>
-                  <p><span data-cloud-en="Share this session code:" data-cloud-zh="向學生分享此課堂代碼：">Share this session code:</span> <strong data-cloud-session-code></strong></p>
-                  <label><span data-cloud-en="Student link" data-cloud-zh="學生連結">Student link</span><input type="text" data-cloud-join-link readonly /></label>
-                  <div class="cloud-presenter-actions">
-                    <button type="button" data-cloud-copy data-cloud-en="Copy student link" data-cloud-zh="複製學生連結">Copy student link</button>
-                    <button type="button" data-cloud-reveal data-cloud-en="Reveal word cloud" data-cloud-zh="顯示詞雲">Reveal word cloud</button>
-                  </div>
-                </div>
-                <p role="status" data-cloud-presenter-status></p>
-              </div>
-            </details>
           </div>
           <div class="cloud-display" data-cloud-display hidden>
             <div class="cloud-display-head">

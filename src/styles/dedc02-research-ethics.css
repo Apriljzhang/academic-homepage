@@ -29,8 +29,9 @@ button { font: inherit; }
 .cloud-form { padding: 1rem; border-top: .32rem solid var(--re-green); background: var(--re-soft); }
 .cloud-form label, .cloud-presenter label { display: grid; gap: .3rem; color: var(--re-ink); font-size: .85rem; font-weight: 700; }
 .cloud-form input, .cloud-presenter input { width: 100%; min-height: 2.55rem; padding: .42rem .62rem; border: 1px solid var(--re-line); border-radius: .22rem; background: #fff; color: var(--re-ink); font: inherit; }
-.cloud-code-label { max-width: 13rem; margin-bottom: .7rem; }
-.cloud-code-label input { text-transform: uppercase; letter-spacing: .12em; }
+.cloud-fixed-code { display: flex; align-items: center; gap: .7rem; margin: 0 0 .7rem; color: var(--re-ink); font-size: .86rem; font-weight: 700; }
+.cloud-fixed-code strong { padding: .3rem .55rem; border: 1px solid var(--re-line); background: #fff; font-size: 1rem; letter-spacing: .12em; }
+.cloud-help { margin: 0; color: var(--re-muted); font-size: .86rem; line-height: 1.35; }
 .cloud-inputs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .65rem; }
 .cloud-form-actions, .cloud-presenter-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .7rem; margin-top: .8rem; }
 .cloud-form-actions p, .cloud-presenter-inner > p[role="status"] { margin: 0; color: var(--re-muted); font-size: .87rem; }
@@ -38,7 +39,7 @@ button { font: inherit; }
 .cloud-activity button:hover { background: var(--re-ink); }
 .cloud-activity button:disabled { opacity: .55; cursor: wait; }
 .cloud-activity input:focus-visible, .cloud-activity button:focus-visible, .cloud-presenter summary:focus-visible { outline: 3px solid #427294; outline-offset: 2px; }
-.cloud-presenter { margin-top: .7rem; border-left: .3rem solid #a7642e; background: var(--re-warm); }
+.cloud-presenter { margin-bottom: .7rem; border-left: .3rem solid #a7642e; background: var(--re-warm); }
 .cloud-presenter summary { padding: .68rem .85rem; color: var(--re-warm-ink); font-weight: 700; cursor: pointer; }
 .cloud-presenter-inner { display: grid; gap: .65rem; padding: 0 .85rem .9rem; }
 .cloud-presenter-inner > label { max-width: 17rem; }

@@ -6,7 +6,7 @@ const allowedOrigins = new Set([
   'https://www.apriljzhang.com',
   'http://localhost:4321',
 ]);
-const sessionAlphabet = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+const fixedSessionCode = 'DEDC02';
 
 function headers(req: Request): Record<string, string> {
   const origin = req.headers.get('origin') || '';
@@ -30,11 +30,6 @@ async function sha256(value: string): Promise<string> {
 
 function sessionCode(value: unknown): string {
   return String(value || '').trim().toUpperCase();
-}
-
-function newSessionCode(): string {
-  const bytes = crypto.getRandomValues(new Uint8Array(6));
-  return Array.from(bytes, (byte) => sessionAlphabet[byte % sessionAlphabet.length]).join('');
 }
 
 function cleanTerm(value: unknown): string {
@@ -68,7 +63,7 @@ Deno.serve(async (req: Request) => {
   const action = String(body.action || '');
   if (action === 'submit') {
     const code = sessionCode(body.sessionCode);
-    if (!/^[A-Z2-9]{6}$/.test(code)) return json(req, 400, { error: 'Enter a valid session code' });
+    if (code !== fixedSessionCode) return json(req, 400, { error: 'Use the DEDC02 student session code' });
     if (!Array.isArray(body.words) || body.words.length > 3) return json(req, 400, { error: 'Enter up to three words' });
     const terms = body.words.map(cleanTerm).filter(Boolean);
     if (!terms.length || terms.some((term) => term.length > 40 || /(?:https?:\/\/|www\.|@)/i.test(term))) {
@@ -99,19 +94,24 @@ Deno.serve(async (req: Request) => {
   if (keyError || !key) return json(req, 401, { error: 'Presenter code not recognised' });
 
   if (action === 'create') {
-    await db.from('dedc02_ethics_cloud_sessions').delete().lt('expires_at', new Date().toISOString());
-    for (let attempt = 0; attempt < 5; attempt += 1) {
-      const code = newSessionCode();
-      const { data, error } = await db.from('dedc02_ethics_cloud_sessions')
-        .insert({ session_code: code }).select('session_code,expires_at').single();
-      if (!error && data) return json(req, 201, { sessionCode: data.session_code, expiresAt: data.expires_at });
-      if (error?.code !== '23505') return json(req, 500, { error: 'Could not create session' });
+    const { data: existing, error: lookupError } = await db.from('dedc02_ethics_cloud_sessions')
+      .select('expires_at').eq('session_code', fixedSessionCode).maybeSingle();
+    if (lookupError) return json(req, 500, { error: 'Could not check session' });
+    if (existing && new Date(existing.expires_at).getTime() <= Date.now()) {
+      const { error: clearError } = await db.from('dedc02_ethics_cloud_words')
+        .delete().eq('session_code', fixedSessionCode);
+      if (clearError) return json(req, 500, { error: 'Could not renew session' });
     }
-    return json(req, 500, { error: 'Could not create a unique session code' });
+    const expiresAt = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString();
+    const { data, error } = await db.from('dedc02_ethics_cloud_sessions')
+      .upsert({ session_code: fixedSessionCode, expires_at: expiresAt }, { onConflict: 'session_code' })
+      .select('session_code,expires_at').single();
+    if (error || !data) return json(req, 500, { error: 'Could not activate DEDC02 session' });
+    return json(req, 200, { sessionCode: data.session_code, expiresAt: data.expires_at });
   }
 
   const code = sessionCode(body.sessionCode);
-  if (!/^[A-Z2-9]{6}$/.test(code)) return json(req, 400, { error: 'Enter a valid session code' });
+  if (code !== fixedSessionCode) return json(req, 400, { error: 'Use the DEDC02 student session code' });
   const { data: session, error: sessionError } = await db.from('dedc02_ethics_cloud_sessions')
     .select('session_code,expires_at').eq('session_code', code).maybeSingle();
   if (sessionError || !session) return json(req, 404, { error: 'Session not found' });

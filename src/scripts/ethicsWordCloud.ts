@@ -5,6 +5,11 @@ const supabaseUrl = import.meta.env.PUBLIC_SUPABASE_URL as string | undefined;
 const supabaseKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY as string | undefined;
 const functionUrl = supabaseUrl ? `${supabaseUrl}/functions/v1/dedc02-ethics-wordcloud` : '';
 const svgNS = 'http://www.w3.org/2000/svg';
+const fixedSessionCode = 'DEDC02';
+
+class CloudRequestError extends Error {
+  constructor(public status: number, message: string) { super(message); }
+}
 
 function cloudUrl(code: string): string {
   const url = new URL(location.href);
@@ -25,7 +30,7 @@ async function requestCloud<T>(payload: Record<string, unknown>): Promise<T> {
     body: JSON.stringify(payload),
   });
   const data = await response.json().catch(() => ({}));
-  if (!response.ok) throw new Error(data.error || 'The word cloud could not be updated.');
+  if (!response.ok) throw new CloudRequestError(response.status, data.error || 'The word cloud could not be updated.');
   return data as T;
 }
 
@@ -108,8 +113,7 @@ export function initEthicsWordCloud(isCurrentSlide: () => boolean) {
     sessionPanel.hidden = false;
   }
 
-  const initialCode = new URLSearchParams(location.search).get('cloud')?.trim().toUpperCase() || '';
-  if (/^[A-Z2-9]{6}$/.test(initialCode)) setSession(initialCode);
+  setSession(fixedSessionCode);
 
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -123,7 +127,11 @@ export function initEthicsWordCloud(isCurrentSlide: () => boolean) {
       await requestCloud({ action: 'submit', sessionCode: sessionInput.value.trim().toUpperCase(), words });
       form.querySelectorAll<HTMLInputElement>('.cloud-inputs input').forEach((input) => { input.value = ''; });
       submitStatus.textContent = message('Your words were added anonymously.', '你的詞語已匿名加入。');
-    } catch (error) { submitStatus.textContent = error instanceof Error ? error.message : String(error); }
+    } catch (error) {
+      submitStatus.textContent = error instanceof CloudRequestError && error.status === 404
+        ? message('The DEDC02 word cloud has expired. Ask your instructor to renew it under Instructor controls.', 'DEDC02詞雲已過期；請教師在「教師控制」中續期。')
+        : error instanceof Error ? error.message : String(error);
+    }
     finally { if (button) button.disabled = false; }
   });
 
@@ -134,7 +142,7 @@ export function initEthicsWordCloud(isCurrentSlide: () => boolean) {
       const result = await requestCloud<{ sessionCode: string }>({ action: 'create', accessCode: accessInput.value });
       setSession(result.sessionCode);
       history.replaceState(null, '', cloudUrl(result.sessionCode));
-      presenterStatus.textContent = message('Session ready. Share the student link or code.', '課堂已準備好。請分享學生連結或代碼。');
+      presenterStatus.textContent = message('DEDC02 is active. Share the student link or code.', 'DEDC02課堂已啟用。請分享學生連結或代碼。');
     } catch (error) { presenterStatus.textContent = error instanceof Error ? error.message : String(error); }
     finally { createButton.disabled = false; }
   });
