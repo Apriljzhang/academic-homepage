@@ -74,67 +74,6 @@ document.querySelectorAll<HTMLElement>('[data-choice-group]').forEach((group) =>
   }));
 });
 
-document.querySelectorAll<HTMLElement>('[data-review-list]').forEach((list) => {
-  const checks = Array.from(list.querySelectorAll<HTMLButtonElement>('[data-review-check]'));
-  const status = list.querySelector<HTMLElement>('[data-review-status]');
-  checks.forEach((check) => check.addEventListener('click', () => {
-    const selected = check.getAttribute('aria-pressed') !== 'true';
-    check.setAttribute('aria-pressed', String(selected));
-    const icon = check.querySelector('span');
-    if (icon) icon.textContent = selected ? '☑' : '□';
-    const count = checks.filter((item) => item.getAttribute('aria-pressed') === 'true').length;
-    const chinese = list.closest('[data-language="zh"]') !== null;
-    if (status) status.textContent = chinese
-      ? '已核實 ' + count + '／' + checks.length + ' 項；把其餘項目寫成修訂問題。'
-      : count + ' of ' + checks.length + ' verified; turn the others into revision questions.';
-  }));
-});
-
-const noteFields = Array.from(document.querySelectorAll<HTMLTextAreaElement>('textarea[data-save]'));
-noteFields.forEach((field) => {
-  const key = 'dedc02-w6-ethics-' + (field.dataset.save || '');
-  try { field.value = localStorage.getItem(key) || ''; } catch {}
-  field.addEventListener('input', () => {
-    try { localStorage.setItem(key, field.value); } catch {}
-    noteFields.forEach((peer) => {
-      if (peer !== field && peer.dataset.save === field.dataset.save) peer.value = field.value;
-    });
-  });
-});
-
-const pdfDialog = document.querySelector<HTMLDialogElement>('.pdf-dialog');
-const printNotes = document.querySelector<HTMLElement>('[data-print-notes]');
-function buildPrintNotes() {
-  if (!printNotes) return;
-  printNotes.replaceChildren();
-  const seen = new Set<string>();
-  noteFields.forEach((field) => {
-    const key = field.dataset.save || '';
-    const answer = field.value.trim();
-    if (!key || !answer || seen.has(key)) return;
-    seen.add(key);
-    const article = document.createElement('article');
-    const heading = document.createElement('h2');
-    const body = document.createElement('p');
-    heading.textContent = field.dataset.responseLabel || key;
-    body.textContent = answer;
-    article.append(heading, body);
-    printNotes.append(article);
-  });
-  if (!printNotes.childElementCount) {
-    const empty = document.createElement('p');
-    empty.textContent = 'No workshop notes have been written yet.';
-    printNotes.append(empty);
-  }
-}
-window.addEventListener('beforeprint', buildPrintNotes);
-document.querySelectorAll('[data-pdf-open]').forEach((button) => button.addEventListener('click', () => pdfDialog?.showModal()));
-document.querySelector('[data-pdf-download]')?.addEventListener('click', () => {
-  buildPrintNotes();
-  pdfDialog?.close();
-  window.print();
-});
-
 bindLessonShortcuts(showSlide, () => current, slides.length, overview);
 const initialHash = Number(location.hash.replace('#slide-', ''));
 showSlide(Number.isFinite(initialHash) && initialHash > 0 ? initialHash - 1 : 0);
