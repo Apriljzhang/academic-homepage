@@ -13,6 +13,7 @@ class CloudRequestError extends Error {
 
 function cloudUrl(code: string): string {
   const url = new URL(location.href);
+  url.searchParams.delete('presenter');
   url.searchParams.set('cloud', code);
   url.hash = 'slide-2';
   return url.toString();
@@ -82,11 +83,7 @@ export function initEthicsWordCloud(isCurrentSlide: () => boolean) {
   const slide = document.querySelector<HTMLElement>('.cloud-slide');
   const form = slide?.querySelector<HTMLFormElement>('[data-cloud-form]');
   const sessionInput = slide?.querySelector<HTMLInputElement>('[data-cloud-session-input]');
-  const accessInput = slide?.querySelector<HTMLInputElement>('[data-cloud-access-code]');
-  const createButton = slide?.querySelector<HTMLButtonElement>('[data-cloud-create]');
-  const sessionPanel = slide?.querySelector<HTMLElement>('[data-cloud-session]');
-  const sessionLabel = slide?.querySelector<HTMLElement>('[data-cloud-session-code]');
-  const joinLink = slide?.querySelector<HTMLInputElement>('[data-cloud-join-link]');
+  const presenter = slide?.querySelector<HTMLElement>('[data-cloud-presenter]');
   const copyButton = slide?.querySelector<HTMLButtonElement>('[data-cloud-copy]');
   const revealButton = slide?.querySelector<HTMLButtonElement>('[data-cloud-reveal]');
   const refreshButton = slide?.querySelector<HTMLButtonElement>('[data-cloud-refresh]');
@@ -98,22 +95,37 @@ export function initEthicsWordCloud(isCurrentSlide: () => boolean) {
   const submitStatus = slide?.querySelector<HTMLElement>('[data-cloud-submit-status]');
   const presenterStatus = slide?.querySelector<HTMLElement>('[data-cloud-presenter-status]');
   const resultStatus = slide?.querySelector<HTMLElement>('[data-cloud-result-status]');
-  if (!slide || !form || !sessionInput || !accessInput || !createButton || !sessionPanel || !sessionLabel || !joinLink || !copyButton || !revealButton || !refreshButton || !hideButton || !entry || !display || !svg || !accessibleList || !submitStatus || !presenterStatus || !resultStatus) return;
+  if (!slide || !form || !sessionInput || !presenter || !copyButton || !revealButton || !refreshButton || !hideButton || !entry || !display || !svg || !accessibleList || !submitStatus || !presenterStatus || !resultStatus) return;
 
-  let sessionCode = '';
+  const sessionCode = fixedSessionCode;
   let updating = false;
   const chinese = () => slide.dataset.language === 'zh';
   const message = (en: string, zh: string) => chinese() ? zh : en;
-
-  function setSession(code: string) {
-    sessionCode = code;
-    sessionInput.value = code;
-    sessionLabel.textContent = code;
-    joinLink.value = cloudUrl(code);
-    sessionPanel.hidden = false;
+  const presenterKey = 'dedc02-ethics-presenter';
+  const url = new URL(location.href);
+  const linkCode = url.searchParams.get('presenter')?.trim().toUpperCase() || '';
+  let presenterCode = '';
+  if (/^[A-HJ-NP-Z2-9]{10}$/.test(linkCode)) {
+    presenterCode = linkCode;
+    try { sessionStorage.setItem(presenterKey, presenterCode); } catch { /* Keep it for this page. */ }
+    url.searchParams.delete('presenter');
+    history.replaceState(null, '', url);
+  } else {
+    try { presenterCode = sessionStorage.getItem(presenterKey) || ''; } catch { /* Student view. */ }
   }
-
-  setSession(fixedSessionCode);
+  if (presenterCode) {
+    presenter.hidden = false;
+    revealButton.disabled = true;
+    presenterStatus.textContent = message('Opening instructor view…', '正在開啟教師畫面…');
+    void requestCloud<{ sessionCode: string }>({ action: 'create', accessCode: presenterCode })
+      .then(() => {
+        revealButton.disabled = false;
+        presenterStatus.textContent = message('Ready to reveal student words.', '可以顯示學生詞語。');
+      })
+      .catch((error) => {
+        presenterStatus.textContent = error instanceof Error ? error.message : String(error);
+      });
+  }
 
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -129,31 +141,18 @@ export function initEthicsWordCloud(isCurrentSlide: () => boolean) {
       submitStatus.textContent = message('Your words were added anonymously.', '你的詞語已匿名加入。');
     } catch (error) {
       submitStatus.textContent = error instanceof CloudRequestError && error.status === 404
-        ? message('The DEDC02 word cloud has expired. Ask your instructor to renew it under Instructor controls.', 'DEDC02詞雲已過期；請教師在「教師控制」中續期。')
+        ? message('The DEDC02 word cloud has expired. Ask your instructor to open their private presenter link.', 'DEDC02詞雲已過期；請教師開啟專用教師連結。')
         : error instanceof Error ? error.message : String(error);
     }
     finally { if (button) button.disabled = false; }
   });
 
-  createButton.addEventListener('click', async () => {
-    createButton.disabled = true;
-    presenterStatus.textContent = message('Creating session…', '正在建立課堂…');
-    try {
-      const result = await requestCloud<{ sessionCode: string }>({ action: 'create', accessCode: accessInput.value });
-      setSession(result.sessionCode);
-      history.replaceState(null, '', cloudUrl(result.sessionCode));
-      presenterStatus.textContent = message('DEDC02 is active. Share the student link or code.', 'DEDC02課堂已啟用。請分享學生連結或代碼。');
-    } catch (error) { presenterStatus.textContent = error instanceof Error ? error.message : String(error); }
-    finally { createButton.disabled = false; }
-  });
-
   copyButton.addEventListener('click', async () => {
     try {
-      await navigator.clipboard.writeText(joinLink.value);
+      await navigator.clipboard.writeText(cloudUrl(fixedSessionCode));
       presenterStatus.textContent = message('Student link copied.', '已複製學生連結。');
     } catch {
-      joinLink.select();
-      presenterStatus.textContent = message('Select and copy the student link.', '請選取並複製學生連結。');
+      presenterStatus.textContent = message('Copy the student link from the lesson page address.', '請複製課堂頁面的學生連結。');
     }
   });
 
@@ -161,7 +160,7 @@ export function initEthicsWordCloud(isCurrentSlide: () => boolean) {
     if (updating || display.hidden || !isCurrentSlide()) return;
     updating = true;
     try {
-      const result = await requestCloud<CloudResults>({ action: 'results', accessCode: accessInput.value, sessionCode });
+      const result = await requestCloud<CloudResults>({ action: 'results', accessCode: presenterCode, sessionCode });
       drawCloud(svg, result.words, chinese());
       accessibleList.textContent = result.words.map((word) => `${word.term} (${word.count})`).join(', ');
       resultStatus.textContent = result.total
@@ -172,8 +171,6 @@ export function initEthicsWordCloud(isCurrentSlide: () => boolean) {
   }
 
   revealButton.addEventListener('click', async () => {
-    sessionCode = sessionInput.value.trim().toUpperCase();
-    if (!sessionCode) { presenterStatus.textContent = message('Enter a session code.', '請輸入課堂代碼。'); return; }
     entry.hidden = true;
     display.hidden = false;
     resultStatus.textContent = message('Loading word cloud…', '正在載入詞雲…');
