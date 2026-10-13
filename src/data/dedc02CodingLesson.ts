@@ -1,4 +1,4 @@
-// Teaching adaptations and instructor-developed analyses; source links accompany the slides.
+// Interview transcript supplied by the user; classroom analyses and source links accompany the slides.
 export const approaches = [
   {
     "id": "inductive",
@@ -52,47 +52,60 @@ export const approaches = [
     }
   }
 ] as const;
+export const interview = {
+  "en": {
+    "question": "Can you tell me about your experiences with remote work during the COVID-19 pandemic?",
+    "paragraphs": [
+      "Sure. So, when the pandemic hit, our company quickly transitioned to remote work, and it was quite a significant shift for me. At first, I was excited about the idea of working from home, but it quickly became challenging. One of the biggest issues I faced was the lack of separation between work and personal life. When I was in the office, I had a clear boundary between work and home, but now that I was working from home, it felt like I was always on the clock. It was hard to disconnect and relax.",
+      "Additionally, I found communication to be much more difficult. In the office, I could easily walk over to a coworker's desk to ask a question or have a quick chat, but with everyone working remotely, it was harder to get timely responses. Meetings also became a lot less productive. Without the face-to-face interaction, it was challenging to gauge people's reactions and keep everyone engaged.",
+      "Another issue was the lack of social interaction. I missed the casual conversations and camaraderie that came with being in the office. It felt isolating at times, especially since I live alone. Overall, while there were some benefits to remote work, such as the flexibility and lack of commute, I found it to be a challenging adjustment."
+    ]
+  },
+  "zh": {
+    "question": "你可以談談在COVID-19疫情期間遙距工作的經驗嗎？",
+    "paragraphs": [
+      "可以。疫情爆發時，我們公司很快轉為遙距工作，對我來說是相當大的轉變。起初，我對在家工作感到興奮，但很快便遇到困難。其中一個最大的問題是工作與私人生活缺少分隔。在辦公室時，工作與家庭之間有清楚的界線；但在家工作後，感覺自己一直處於工作狀態，很難抽離工作並放鬆。",
+      "此外，我發現溝通困難得多。在辦公室時，我可以輕易走到同事的桌旁提問或聊幾句；但當所有人都遙距工作時，就更難得到及時回覆。會議的效率也降低了。沒有面對面的互動，很難判斷別人的反應，亦難以讓所有人保持投入。",
+      "另一個問題是缺少社交互動。我懷念在辦公室時的隨意交談與同事情誼。有時感到孤立，尤其是因為我獨居。整體而言，雖然遙距工作有一些好處，例如靈活安排及無須通勤，但我覺得這是一個很難適應的轉變。"
+    ]
+  }
+} as const;
 export const segments = [
   {
-    "id": "R1",
-    "en": "Working at home made finishing the working day difficult; the separation from personal time weakened.",
-    "zh": "在家工作後，很難結束工作日，工作與私人時間的分界變弱。",
+    "en": "it felt like I was always on the clock",
+    "zh": "感覺自己一直處於工作狀態",
     "codeEn": "Difficulty ending work",
     "codeZh": "難以結束工作",
     "deductiveEn": "Time boundaries: separation of work and personal time",
     "deductiveZh": "時間邊界：工作與私人時間的分隔"
   },
   {
-    "id": "R2",
-    "en": "Questions that colleagues once answered informally now involved waiting for replies.",
-    "zh": "同事過去能隨口回答的問題，現在要等候回覆。",
+    "en": "it was harder to get timely responses",
+    "zh": "更難得到及時回覆",
     "codeEn": "Waiting for colleague responses",
     "codeZh": "等候同事回覆",
     "deductiveEn": "Coordination: getting information to work together",
     "deductiveZh": "協作：取得共同工作所需資訊"
   },
   {
-    "id": "R3",
-    "en": "Remote meetings made it harder to read reactions and sustain involvement.",
-    "zh": "遙距會議令人更難察覺反應，亦較難維持參與。",
+    "en": "it was challenging to gauge people's reactions and keep everyone engaged",
+    "zh": "很難判斷別人的反應，亦難以讓所有人保持投入",
     "codeEn": "Losing interaction cues",
     "codeZh": "失去互動線索",
     "deductiveEn": "Coordination: sustaining interaction during joint work",
     "deductiveZh": "協作：維持共同工作中的互動"
   },
   {
-    "id": "R4",
-    "en": "Living alone intensified the absence of everyday conversations with colleagues.",
-    "zh": "獨居令缺少同事日常交談的感受更強烈。",
+    "en": "It felt isolating at times, especially since I live alone.",
+    "zh": "有時感到孤立，尤其是因為我獨居。",
     "codeEn": "Missing informal company",
     "codeZh": "缺少非正式陪伴",
     "deductiveEn": "Social connection: everyday contact and belonging",
     "deductiveZh": "社會連繫：日常接觸與歸屬感"
   },
   {
-    "id": "R5",
-    "en": "Flexible arrangements and avoiding travel to the office were still valued.",
-    "zh": "仍然重視靈活安排，以及省去往返辦公室的交通。",
+    "en": "the flexibility and lack of commute",
+    "zh": "靈活安排及無須通勤",
     "codeEn": "Valuing flexibility and saved travel",
     "codeZh": "重視靈活安排及節省交通",
     "deductiveEn": "Working conditions: practical benefits and constraints",
@@ -116,24 +129,24 @@ export const phases = [
     "en": {
       "name": "Generate initial codes",
       "question": "Which phrase or sentence supports your label?",
-      "output": "Use R1–R5 to justify provisional codes. The preceding table shows one inductive pass. Revisit boundaries and allow several relevant codes on a segment."
+      "output": "Use the participant’s phrases and sentences to justify provisional codes. The preceding table shows one inductive pass. Revisit boundaries and allow several relevant codes on a segment."
     },
     "zh": {
       "name": "建立初始代碼",
       "question": "哪個片語或句子支持你的標籤？",
-      "output": "以R1至R5說明初步代碼的依據。上一頁示範一次歸納編碼；重新檢視邊界，同一片段可有多個相關代碼。"
+      "output": "以參與者的片語及句子說明初步代碼的依據。上一頁示範一次歸納編碼；重新檢視邊界，同一片段可有多個相關代碼。"
     }
   },
   {
     "en": {
       "name": "Develop candidate themes",
       "question": "What central meaning could connect the codes?",
-      "output": "R1 + R5 → candidate idea: freedom over workplace can coexist with difficulty ending work. R2–R4 → candidate idea: everyday connection requires more deliberate effort."
+      "output": "Flexibility + feeling always on the clock → candidate idea: freedom over workplace can coexist with difficulty ending work. Delayed replies + lost interaction cues + isolation → candidate idea: everyday connection requires more deliberate effort."
     },
     "zh": {
       "name": "發展候選主題",
       "question": "甚麼核心意義能連繫各代碼？",
-      "output": "R1＋R5 → 候選概念：工作地點的自由可能與難以結束工作並存。R2至R4 → 候選概念：日常連繫需要更刻意的投入。"
+      "output": "靈活安排＋一直處於工作狀態 → 候選概念：工作地點的自由可能與難以結束工作並存。回覆延誤＋互動線索減少＋孤立感 → 候選概念：日常連繫需要更刻意的投入。"
     }
   },
   {
@@ -164,12 +177,12 @@ export const phases = [
     "en": {
       "name": "Write the analytic account",
       "question": "Can a reader trace your interpretation to the text?",
-      "output": "Illustrative paragraph: This adapted account pairs saved travel time with difficulty ending work (R1, R5). A possible reading is that flexibility changes where work happens more readily than when it ends. Further accounts are needed to assess that interpretation."
+      "output": "Illustrative paragraph: The participant values “the flexibility and lack of commute” while feeling “always on the clock”. A possible reading is that flexibility changes where work happens more readily than when it ends. Further accounts are needed to assess that interpretation."
     },
     "zh": {
       "name": "撰寫分析敘述",
       "question": "讀者能否由文本追溯你的詮釋？",
-      "output": "示例段落：這個改寫敘述同時呈現節省交通時間及難以結束工作（R1、R5）。一種可能理解是，靈活安排較容易改變工作地點，卻未必能改變工作何時結束。須以更多敘述評估此詮釋。"
+      "output": "示例段落：參與者重視「靈活安排及無須通勤」，同時感到「一直處於工作狀態」。一種可能理解是，靈活安排較容易改變工作地點，卻未必能改變工作何時結束。須以更多敘述評估此詮釋。"
     }
   }
 ] as const;

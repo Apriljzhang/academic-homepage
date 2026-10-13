@@ -1,57 +1,56 @@
 ---
-import { approaches, segments, phases } from '../../data/dedc02CodingLesson';
-const videos = { coding: 'https://www.youtube.com/watch?v=ECjUqWUZWxA', worked: 'https://www.youtube.com/watch?v=zC6H5v2yuxc' };
+import { approaches, interview, segments, phases } from '../../data/dedc02CodingLesson';
+const { part = 'approaches' } = Astro.props as { part?: 'approaches' | 'practice' };
 const creatorExample = 'https://www.thedegreedoctor.com/blog/braun-and-clarke-thematic-analysis-how-to-do-the-six-step-process-in-your-qualitative-research-project';
 const codingGuide = 'https://gradcoach.com/inductive-deductive-coding/';
 const abductionSource = 'https://doi.org/10.1177/0735275112457914';
 ---
-<section class="slide" data-title="Inductive, deductive and abductive coding" aria-hidden="true"><div class="slide-inner">
+{part === 'approaches' && <section class="slide" data-title="Inductive, deductive and abductive coding" aria-hidden="true"><div class="slide-inner">
   <header class="slide-header"><span class="eyebrow">Coding approaches · question → reason → compare</span></header>
   {(['en','zh'] as const).map((language) => <div data-language={language} hidden={language === 'zh'} lang={language === 'zh' ? 'zh-Hant' : 'en'}>
     <h2>{language === 'zh' ? '代碼與解釋從哪裡來？' : 'Where do codes and explanations come from?'}</h2>
     <p>{language === 'zh' ? '先討論各問題，再展開比較分析邏輯。這些邏輯可用於不同質性方法。' : 'Discuss each question before opening the explanation. These logics can inform different qualitative methods.'}</p>
     <div class="qa-coding-grid">{approaches.map((approach) => <article><h3>{approach[language].name}</h3><p class="qa-coding-route">{approach[language].route}</p><p>{approach[language].question}</p><details class="qa-reveal"><summary>{language === 'zh' ? '比較分析邏輯' : 'Compare the logic'}</summary><p>{approach[language].explanation}</p><p><strong>{language === 'zh' ? '檢查：' : 'Check: '}</strong>{approach[language].check}</p></details></article>)}</div>
     <p class="qa-note">{language === 'zh' ? '混合編碼結合資料與既有概念的代碼來源。溯因推理還須指出令人意外的觀察、比較可能解釋，並尋找進一步證據。' : 'Hybrid coding combines data-led and prior-concept codes. Abductive reasoning also identifies a puzzle, compares possible explanations and seeks further evidence.'}</p>
-    <p class="qa-source"><a href={videos.coding} target="_blank" rel="noopener noreferrer">Grad Coach · {language === 'zh' ? '觀看三種編碼取向影片' : 'Watch the coding-approaches video'} ↗</a> · <a href={codingGuide} target="_blank" rel="noopener noreferrer">{language === 'zh' ? '作者文字說明' : 'Creator’s written guide'} ↗</a> · <a href={abductionSource} target="_blank" rel="noopener noreferrer">Timmermans &amp; Tavory (2012) ↗</a></p>
+    <p class="qa-source"><a href={codingGuide} target="_blank" rel="noopener noreferrer">{language === 'zh' ? '編碼取向參考' : 'Coding approaches reference'} ↗</a> · <a href={abductionSource} target="_blank" rel="noopener noreferrer">Timmermans &amp; Tavory (2012) ↗</a></p>
   </div>)}
-</div></section>
-<section class="slide" data-title="Remote-work example · read and code" aria-hidden="true"><div class="slide-inner">
-  <header class="slide-header"><span class="eyebrow">Worked example · adapted from Degree Doctor</span></header>
+</div></section>}
+{part === 'practice' && <section class="slide" data-title="Final practice · interview transcript" aria-hidden="true"><div class="slide-inner">
+  <header class="slide-header"><span class="eyebrow">Activity 6 · final practice · read and code</span></header>
   {(['en','zh'] as const).map((language) => <div data-language={language} hidden={language === 'zh'} lang={language === 'zh' ? 'zh-Hant' : 'en'}>
-    <h2>{language === 'zh' ? '先閱讀，再作編碼判斷' : 'Read the account before coding'}</h2>
+    <h2>{language === 'zh' ? '最後練習：閱讀訪談並編碼' : 'Final practice: read and code the interview'}</h2>
     <p class="qa-question"><strong>{language === 'zh' ? '課堂問題：' : 'Classroom question: '}</strong>{language === 'zh' ? '疫情期間在家工作如何改變日常工作生活？' : 'How did working at home during the pandemic reshape everyday working life?'}</p>
-    <p class="qa-source">{language === 'zh' ? '以下是影片作者所提供遙距工作例子的精簡教學改寫。R1至R5為本課的片段編號。' : 'Condensed teaching adaptation of the creator’s remote-work example. R1–R5 are segment IDs added for this lesson.'}</p>
-    <div class="qa-remote-text">{segments.map((segment) => <p><b>{segment.id}</b><span>{segment[language]}</span></p>)}</div>
+    <div class="qa-interview"><p><strong>{language === 'zh' ? '訪談者：' : 'Interviewer: '}</strong>{interview[language].question}</p><p><strong>{language === 'zh' ? '參與者：' : 'Participant:'}</strong></p>{interview[language].paragraphs.map((paragraph) => <p>{paragraph}</p>)}</div>
     <p class="qa-teacher">{language === 'zh' ? '標記每個有意義的片語或句子。哪個標籤貼近資料？哪個位置可能需要多於一個代碼？保留完整敘述作語境。' : 'Mark each meaningful phrase or sentence. Which label stays close to the material? Where might a segment need more than one code? Keep the full account as context.'}</p>
-    <label class="qa-write">{language === 'zh' ? '選兩個片段，記下代碼及理由。' : 'Choose two segments and note your codes and reasons.'}<textarea data-save={language === 'zh' ? 'remote-work-codes-zh' : 'remote-work-codes'} rows="3"></textarea></label>
-    <p class="qa-source"><a href={videos.worked} target="_blank" rel="noopener noreferrer">Degree Doctor · {language === 'zh' ? '觀看完整示例影片' : 'Watch the worked-example video'} ↗</a> · <a href={creatorExample} target="_blank" rel="noopener noreferrer">{language === 'zh' ? '原始文本及分析圖示' : 'Original passage and analysis illustrations'} ↗</a></p>
+    <label class="qa-write">{language === 'zh' ? '選兩個片語或句子，記下代碼及理由。' : 'Choose two phrases or sentences and note your codes and reasons.'}<textarea data-save={language === 'zh' ? 'remote-work-codes-zh' : 'remote-work-codes'} rows="3"></textarea></label>
+    <p class="qa-source"><a href={creatorExample} target="_blank" rel="noopener noreferrer">{language === 'zh' ? '文本來源：Elizabeth Yardley · Degree Doctor（中文為課堂翻譯）' : 'Interview source: Elizabeth Yardley · Degree Doctor'} ↗</a></p>
   </div>)}
-</div></section>
-<section class="slide" data-title="One passage · three coding routes" aria-hidden="true"><div class="slide-inner">
-  <header class="slide-header"><span class="eyebrow">Worked coding · justify before revealing</span></header>
+</div></section>}
+{part === 'practice' && <section class="slide" data-title="Final practice · compare coding routes" aria-hidden="true"><div class="slide-inner">
+  <header class="slide-header"><span class="eyebrow">Activity 6 · final practice · compare coding routes</span></header>
   {(['en','zh'] as const).map((language) => <div data-language={language} hidden={language === 'zh'} lang={language === 'zh' ? 'zh-Hant' : 'en'}>
     <h2>{language === 'zh' ? '同一段資料，三條分析路徑' : 'One passage, three analytic routes'}</h2>
     <p>{language === 'zh' ? '你的代碼由文本還是既有概念出發？靈活安排與難以停止工作同時存在，會提出甚麼疑問？' : 'Do your codes begin with the text or prior concepts? What puzzle arises when flexibility and difficulty stopping work coexist?'}</p>
     <details class="qa-reveal"><summary>{language === 'zh' ? '1 · 比較歸納與演繹編碼' : '1 · Compare inductive and deductive coding'}</summary>
-      <p>{language === 'zh' ? '演繹欄使用教師為示範預先設定的工作生活框架；各格界定該代碼的適用範圍。兩欄皆為本課的分析示例。' : 'The deductive column uses an instructor-defined work-life framework set before this demonstration; each cell defines the code’s scope. Both columns are lesson analyses of the adapted text.'}</p>
-      <div class="qa-table-wrap"><table class="qa-coding-table"><thead><tr><th>{language === 'zh' ? '片段' : 'Segment'}</th><th>{language === 'zh' ? '歸納：由文本建立的標籤' : 'Inductive: text-led label'}</th><th>{language === 'zh' ? '演繹：起始代碼及定義' : 'Deductive: starting code and definition'}</th></tr></thead><tbody>{segments.map((segment) => <tr><th scope="row">{segment.id}</th><td>{language === 'zh' ? segment.codeZh : segment.codeEn}</td><td>{language === 'zh' ? segment.deductiveZh : segment.deductiveEn}</td></tr>)}</tbody></table></div>
+      <p>{language === 'zh' ? '演繹欄使用教師為示範預先設定的工作生活框架；各格界定該代碼的適用範圍。兩欄皆為本課對訪談的分析示例。' : 'The deductive column uses an instructor-defined work-life framework set before this demonstration; each cell defines the code’s scope. Both columns illustrate analysis of the interview.'}</p>
+      <div class="qa-table-wrap"><table class="qa-coding-table"><thead><tr><th>{language === 'zh' ? '訪談原句' : 'Interview phrase'}</th><th>{language === 'zh' ? '歸納：由文本建立的標籤' : 'Inductive: text-led label'}</th><th>{language === 'zh' ? '演繹：起始代碼及定義' : 'Deductive: starting code and definition'}</th></tr></thead><tbody>{segments.map((segment) => <tr><th scope="row">“{segment[language]}”</th><td>{language === 'zh' ? segment.codeZh : segment.codeEn}</td><td>{language === 'zh' ? segment.deductiveZh : segment.deductiveEn}</td></tr>)}</tbody></table></div>
     </details>
     <details class="qa-reveal"><summary>{language === 'zh' ? '2 · 溯因：解釋疑問並比較替代解釋' : '2 · Abduction: explain the puzzle and compare alternatives'}</summary>
-      <p><strong>{language === 'zh' ? '疑問：' : 'Puzzle: '}</strong>{language === 'zh' ? 'R5重視靈活安排；R1卻難以停止工作。' : 'R5 values flexibility, while R1 describes difficulty stopping work.'}</p>
+      <p><strong>{language === 'zh' ? '疑問：' : 'Puzzle: '}</strong>{language === 'zh' ? '參與者重視「靈活安排及無須通勤」，卻感到「一直處於工作狀態」。' : 'The participant values “the flexibility and lack of commute” while feeling “always on the clock”.'}</p>
       <p><strong>{language === 'zh' ? '可能解釋：' : 'Possible explanation: '}</strong>{language === 'zh' ? '選擇工作地點與控制何時停止工作可能是兩回事。' : 'Control over work location may differ from control over when work ends.'}</p>
       <p><strong>{language === 'zh' ? '替代解釋：' : 'Alternative: '}</strong>{language === 'zh' ? '困難可能與疫情的暫時安排或組織回覆期望有關。' : 'The difficulty may reflect temporary pandemic arrangements or organisational expectations about responding.'}</p>
       <p><strong>{language === 'zh' ? '下一步證據：' : 'Next evidence: '}</strong>{language === 'zh' ? '比較工作時間期望不同的人及不同時期的敘述；尋找能區分各解釋的資料。' : 'Compare accounts with different working-hour expectations and at different times; seek material that distinguishes the explanations.'}</p>
     </details>
     <p class="qa-source">{language === 'zh' ? '教學延伸：演繹框架及溯因解釋由本課加入。溯因方法依據：' : 'Teaching extensions: the deductive framework and abductive explanations are added for this lesson. Abductive reasoning: '}<a href={abductionSource} target="_blank" rel="noopener noreferrer">Timmermans &amp; Tavory (2012) ↗</a></p>
   </div>)}
-</div></section>
-<section class="slide" data-title="Remote-work example · six analytic phases" aria-hidden="true"><div class="slide-inner">
-  <header class="slide-header"><span class="eyebrow">Worked thematic analysis · text → decisions → interpretation</span></header>
+</div></section>}
+{part === 'practice' && <section class="slide" data-title="Final practice · six analytic phases" aria-hidden="true"><div class="slide-inner">
+  <header class="slide-header"><span class="eyebrow">Activity 6 · final practice · six analytic phases</span></header>
   {(['en','zh'] as const).map((language) => <div data-language={language} hidden={language === 'zh'} lang={language === 'zh' ? 'zh-Hant' : 'en'}>
     <h2>{language === 'zh' ? '從初始代碼走向分析敘述' : 'From initial codes to an analytic account'}</h2>
-    <p>{language === 'zh' ? '以遙距工作改寫文本，練習Braun與Clarke的六階段。各卡先問問題，再揭示本課示例。分析會反覆往返各階段。' : 'Practise Braun and Clarke’s six phases with the adapted remote-work text. Discuss each question, then reveal the lesson illustration. Revisit earlier phases as your interpretation develops.'}</p>
+    <p>{language === 'zh' ? '以這份遙距工作訪談，練習Braun與Clarke的六階段。各卡先問問題，再揭示本課示例。分析會反覆往返各階段。' : 'Practise Braun and Clarke’s six phases with the remote-work interview. Discuss each question, then reveal the lesson illustration. Revisit earlier phases as your interpretation develops.'}</p>
     <div class="qa-remote-phases">{phases.map((phase,index) => <article><h3>{index+1} · {phase[language].name}</h3><p>{phase[language].question}</p><details class="qa-reveal"><summary>{language === 'zh' ? '比較本課示例' : 'Compare the lesson illustration'}</summary><p>{phase[language].output}</p></details></article>)}</div>
-    <p class="qa-note">{language === 'zh' ? '一段改寫文本可練習編碼與詮釋。跨資料的主題需要更完整證據；本頁概念與段落皆屬暫定教學示例。' : 'One adapted passage supports practice in coding and interpretation. Dataset-wide themes require fuller evidence; the ideas and paragraph here remain provisional teaching illustrations.'}</p>
-    <p class="qa-source"><a href={videos.worked} target="_blank" rel="noopener noreferrer">Degree Doctor · {language === 'zh' ? '示例影片' : 'Worked-example video'} ↗</a> · <a href={creatorExample} target="_blank" rel="noopener noreferrer">{language === 'zh' ? '作者六階段教學' : 'Creator’s six-phase guide'} ↗</a> · <a href="https://doi.org/10.1191/1478088706qp063oa" target="_blank" rel="noopener noreferrer">Braun &amp; Clarke (2006) ↗</a></p>
+    <p class="qa-note">{language === 'zh' ? '一份訪談可用來練習編碼與詮釋。跨資料的主題需要更完整證據；本頁概念與段落皆屬暫定教學示例。' : 'One interview supports practice in coding and interpretation. Dataset-wide themes require fuller evidence; the ideas and paragraph here remain provisional teaching illustrations.'}</p>
+    <p class="qa-source"><a href={creatorExample} target="_blank" rel="noopener noreferrer">{language === 'zh' ? 'Elizabeth Yardley · 六階段教學' : 'Elizabeth Yardley · six-phase guide'} ↗</a> · <a href="https://doi.org/10.1191/1478088706qp063oa" target="_blank" rel="noopener noreferrer">Braun &amp; Clarke (2006) ↗</a></p>
   </div>)}
-</div></section>
+</div></section>}
