@@ -1,0 +1,57 @@
+---
+import { taVariants, taPhases, handoutTexts, taExamples } from '../../data/dedc02ThematicLab';
+import { withBase } from '../../utils/paths';
+interface Props { language: 'en' | 'zh' }
+const { language } = Astro.props;
+const zh = language === 'zh';
+const handoutHref = withBase('/teaching/courses/dedc02/assets/DEDC02-W8-coding-methods-handout.pdf');
+---
+<div class="qa-ta-lab" data-ta-lab>
+  <details class="qa-explore-section" open>
+    <summary>{zh ? '1 · 比較主題分析的三個家族' : '1 · Compare three families of thematic analysis'}</summary>
+    <div class="qa-variant-grid">
+      {taVariants.map((variant) => <details class="qa-variant-card">
+        <summary><b>{variant[language].name}</b><span>{variant[language].logic}</span></summary>
+        <p>{variant[language].description}</p>
+        <p><strong>{zh ? '如何進行：' : 'In practice: '}</strong>{variant[language].practice}</p>
+        <p><strong>{zh ? '質量焦點：' : 'Quality focus: '}</strong>{variant[language].quality}</p>
+      </details>)}
+    </div>
+    <p class="qa-source">{zh ? '按研究目的、知識假設及研究者角色選擇取向，保持程序與質量準則一致。' : 'Choose an approach that fits the purpose, assumptions about knowledge and researcher role. Keep procedures and quality criteria coherent.'}</p>
+    <a class="qa-source" href="https://www.thematicanalysis.net/faqs/" target="_blank" rel="noopener noreferrer">Braun &amp; Clarke · {zh ? '方法差異及質量' : 'Approaches and quality'} ↗</a>
+  </details>
+  <details class="qa-explore-section">
+    <summary>{zh ? '2 · 探索分析選擇與手冊例子' : '2 · Explore analytic choices with the handout'}</summary>
+    <p>{zh ? '歸納／演繹關乎概念的起點；明示／潛在關乎詮釋層次。這些選擇可在反思性主題分析內組合，並須與知識立場一致。' : 'Inductive/deductive concerns where concepts start; semantic/latent concerns the level of interpretation. These choices can combine within reflexive TA and should fit your view of knowledge.'}</p>
+    <label class="qa-lab-select">{zh ? '選擇練習文本' : 'Choose a practice text'}
+      <select data-ta-passage><option value="teacher">{zh ? '手冊 · 教師敘述' : 'Handout · teacher account'}</option><option value="students">{zh ? '手冊 · 學生經驗摘要' : 'Handout · summary of student experiences'}</option></select>
+    </label>
+    {(['teacher', 'students'] as const).map((key) => <blockquote class="qa-practice-text" data-passage-text={key} hidden={key !== 'teacher'}>{handoutTexts[key][language]}</blockquote>)}
+    <p class="qa-source">{zh ? '來源：W8手冊，第1頁。教師段落為第一人稱；學生段落概述多人經驗。保留這種來源差異。' : 'Source: W8 handout, p. 1. The teacher text is first-person; the student text summarises several experiences. Preserve that source distinction.'}</p>
+    <div class="qa-lab-choices">
+      <fieldset><legend>{zh ? '概念從哪裡出發？' : 'Where do concepts start?'}</legend>
+        <button type="button" data-ta-origin="inductive" aria-pressed="true">{zh ? '歸納 · 由資料出發' : 'Inductive · start with material'}</button>
+        <button type="button" data-ta-origin="deductive" aria-pressed="false">{zh ? '演繹 · 由既有概念出發' : 'Deductive · start with concepts'}</button>
+      </fieldset>
+      <fieldset><legend>{zh ? '在哪個層次詮釋？' : 'What level of meaning?'}</legend>
+        <button type="button" data-ta-level="semantic" aria-pressed="true">{zh ? '明示 · 直接表達' : 'Semantic · explicit meanings'}</button>
+        <button type="button" data-ta-level="latent" aria-pressed="false">{zh ? '潛在 · 隱含假設' : 'Latent · underlying assumptions'}</button>
+      </fieldset>
+    </div>
+    {(['teacher', 'students'] as const).flatMap((passage) => Object.entries(taExamples[passage]).map(([choice, example]) => <p class="qa-note" data-ta-example={`${passage}-${choice}`} hidden={`${passage}-${choice}` !== 'teacher-inductive-semantic'}>{example[language]}</p>))}
+    <p class="qa-lab-status" data-ta-status role="status">{zh ? '教師敘述 · 歸納 · 明示' : 'Teacher account · inductive · semantic'}</p>
+    <p>{zh ? '候選概念需要在更完整資料中檢驗。這兩段短文可用來練習編碼及詮釋，尚不足以確立跨資料的主題。' : 'Examine candidate ideas in a fuller corpus. These short passages support practice in coding and interpretation; a dataset-wide theme needs broader evidence.'}</p>
+    <details class="qa-practice-check"><summary>{zh ? '先解釋你的判斷，再比較' : 'Explain your judgement, then compare'}</summary>
+      <p>{zh ? '「工作量」可作話題；「因行政感到不知所措」可作代碼；「學生進步令繁重工作顯得值得」提出一個待檢驗的詮釋概念。你需要哪些資料才能支持或修訂它？' : '“Workload” can name a topic; “feeling overwhelmed by administration” can be a code; “student progress makes demanding work worthwhile” proposes an interpretive idea to test. What material would support or revise it?'}</p>
+    </details>
+    <a class="qa-source" href="https://www.thematicanalysis.net/understanding-ta/" target="_blank" rel="noopener noreferrer">Braun &amp; Clarke · {zh ? '分析取向' : 'Analytic orientations'} ↗</a>
+  </details>
+  <details class="qa-explore-section">
+    <summary>{zh ? '3 · 逐步探索反思性主題分析' : '3 · Work through reflexive thematic analysis'}</summary>
+    <p>{zh ? '以下六階段可反覆往返；回看資料、修訂代碼及重組主題都是分析的一部分。' : 'Move back and forth through these six phases as interpretations develop. Re-reading, revising codes and reshaping themes are part of the work.'}</p>
+    <div class="qa-phase-grid">{taPhases.map((phase, index) => <details><summary><span>{index + 1}</span>{phase[language].name}</summary><p>{phase[language].action}</p><p class="qa-phase-question">{phase[language].question}</p></details>)}</div>
+    <p class="qa-note">{zh ? '在反思性主題分析中，研究者反思如何影響詮釋；以分析對話深化理解。若目的是評估編碼者一致性，須交代所選取向的分析邏輯。' : 'In reflexive TA, examine how your positioning shapes interpretation and use analytic dialogue to deepen it. If your aim is to assess coder agreement, explain the analytic logic of your chosen approach.'}</p>
+    <a class="qa-source" href="https://www.thematicanalysis.net/doing-reflexive-ta/" target="_blank" rel="noopener noreferrer">Braun &amp; Clarke · {zh ? '反思性主題分析六階段' : 'Six phases of reflexive TA'} ↗</a>
+  </details>
+  <p class="qa-source"><a href={handoutHref} target="_blank" rel="noopener noreferrer">{zh ? '開啟原始W8手冊 · 編碼練習及方法配對' : 'Open the original W8 handout · coding practice and method matching'} ↗</a></p>
+</div>

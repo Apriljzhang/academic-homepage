@@ -1,0 +1,43 @@
+---
+import { qualitativeMethods, methodGroups, methodOutputs } from '../../data/dedc02QualitativeMethods';
+import { handoutTexts } from '../../data/dedc02ThematicLab';
+import ThematicAnalysisLab from './ThematicAnalysisLab.astro';
+interface Props { language: 'en' | 'zh' }
+const { language } = Astro.props;
+const zh = language === 'zh';
+function promptFor(method: typeof qualitativeMethods[number]) {
+  const text = method[language];
+  return zh
+    ? `請擔任質性分析學習伙伴，幫助我理解「${text.name}」。\n我的研究問題：[填寫問題]\n我的資料與語境：[填寫]\n\n${text.questions.map((q, i) => `${i + 1}. ${q}`).join('\n')}\n4. 展示一個簡短的示例成果，連繫片段、分析決定與詮釋，並標明虛構或暫定內容。\n5. 請用可核實的方法文獻支持解釋，提供完整書目及連結；無法確認時請直接說明。\n6. 最後向我提問，檢查我能否解釋方法選擇。請不要把以下練習文本當成完整實證資料。\n\nW8手冊的教師練習段落：\n${handoutTexts.teacher.zh}`
+    : `Act as a qualitative-analysis learning partner and help me understand ${text.name}.\nMy research question: [insert question]\nMy material and context: [insert]\n\n${text.questions.map((q, i) => `${i + 1}. ${q}`).join('\n')}\n4. Show a short illustrative output linking an excerpt, an analytic decision and an interpretation. Label invented or tentative content clearly.\n5. Support your explanation with verifiable methods literature, complete references and links. State when you cannot verify a source.\n6. Finish by questioning me about the fit of the method. Treat the practice text below as limited teaching material.\n\nTeacher practice passage from the W8 handout:\n${handoutTexts.teacher.en}`;
+}
+---
+<div class="qa-method-explorer" data-method-explorer>
+  <div class="qa-map-root"><b>{zh ? '你的研究問題與預期成果' : 'Your question and intended finding'}</b><span>{zh ? '選擇一個分支，逐層展開' : 'Choose a branch and explore further'}</span></div>
+  <div class="qa-method-map" aria-label={zh ? '質性分析方法地圖' : 'Map of qualitative analysis methods'}>
+    {methodGroups.map((group) => <div class="qa-map-branch"><h3>{group[language]}</h3><div class="qa-map-nodes">
+      {group.methods.map((id) => {
+        const method = qualitativeMethods.find((item) => item.id === id)!;
+        return <button type="button" data-method-open={id} aria-expanded="false" aria-controls={`qa-method-${language}-${id}`}><b>{method[language].name}</b><span>{method[language].aim}</span><small aria-hidden="true">＋</small></button>;
+      })}
+    </div></div>)}
+  </div>
+  <p class="qa-map-note">{zh ? '各方法之間有重疊：框架分析與編碼手冊取向相關；批判話語分析屬於話語研究。依研究目的辨識關係與差異。' : 'Methods overlap: framework analysis relates to codebook approaches, and critical discourse analysis sits within discourse research. Use the purpose to identify connections and differences.'}</p>
+  {qualitativeMethods.map((method) => <article class="qa-method-panel" id={`qa-method-${language}-${method.id}`} data-method-panel={method.id} hidden>
+    <div class="qa-method-panel-head"><div><small>{zh ? '方法地圖 →' : 'Method map →'}</small><h3 tabindex="-1">{method[language].name}</h3></div><button type="button" class="qa-map-back" data-method-close>{zh ? '返回地圖 ↑' : 'Back to map ↑'}</button></div>
+    <div class="qa-method-intro"><p>{method[language].what}</p><p><strong>{zh ? '可能成果：' : 'Likely output: '}</strong>{method[language].output}</p></div>
+    <details class="qa-explore-section" open><summary>{zh ? '如何進行？' : 'How do I do it?'}</summary><ol>{method[language].steps.map((step) => <li>{step}</li>)}</ol>
+      {method.id === 'grounded' && <p>{zh ? '不同紮根理論取向使用不同編碼用語：建構主義常用初始及聚焦編碼；Strauss取向可使用開放、軸向及選擇性編碼。請交代實際採用的取向。' : 'Grounded-theory traditions use different coding language: constructivist work often uses initial and focused coding; Straussian work can use open, axial and selective coding. State the approach you follow.'}</p>}
+    </details>
+    <details class="qa-explore-section"><summary>{zh ? '成果看起來如何？' : 'What can an output look like?'}</summary><p>{method[language].example}</p><p class="qa-example-label">{methodOutputs[method.id][language].label}</p><div class="qa-output-wrap"><table class="qa-output-table"><thead><tr>{methodOutputs[method.id][language].columns.map((column) => <th scope="col">{column}</th>)}</tr></thead><tbody>{methodOutputs[method.id][language].rows.map((row) => <tr>{row.map((cell) => <td>{cell}</td>)}</tr>)}</tbody></table></div><p class="qa-source">{zh ? '示例用於練習分析判斷。請把實際主張與完整資料及語境連繫。' : 'Use the illustration to practise analytic judgement. Connect actual claims to the full material and its context.'}</p></details>
+    {method.id === 'thematic' && <ThematicAnalysisLab {language} />}
+    {method.study && <details class="qa-explore-section"><summary>{zh ? '閱讀實證研究' : 'Read an empirical study'}</summary><a href={method.study.url} target="_blank" rel="noopener noreferrer">{method.study.citation} · <em>{method.study.title}</em> ↗</a><p>{method.study[language]}</p><p>{zh ? '追溯一項發現如何由資料與分析決定形成。作者在哪裡交代證據與界限？' : 'Trace how one finding follows from material and analytic decisions. Where do the authors explain the evidence and limits?'}</p></details>}
+    <details class="qa-explore-section qa-ai-questions"><summary>{zh ? '向AI提問，深入理解' : 'Ask AI to explore further'}</summary>
+      <ol>{method[language].questions.map((question) => <li>{question}</li>)}</ol>
+      <p>{zh ? '先自己作一個分析判斷，再用AI的解釋比較理由、追問及核對來源。' : 'Make one analytic judgement yourself, then use the AI explanation to compare reasons, ask follow-up questions and check sources.'}</p>
+      <label class="qa-ai-prompt-label">{zh ? '可修改及複製的提示' : 'Prompt to adapt and copy'}<textarea data-ai-prompt rows="8">{promptFor(method)}</textarea></label>
+      <button type="button" class="qa-action" data-copy-ai-prompt>{zh ? '複製AI提問' : 'Copy AI questions'}</button><p data-copy-status role="status"></p>
+    </details>
+    <p class="qa-source">{zh ? '方法參考：' : 'Methods reference: '}<a href={method.url} target="_blank" rel="noopener noreferrer">{method.source} ↗</a></p>
+  </article>)}
+</div>

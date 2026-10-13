@@ -94,15 +94,167 @@ document.querySelectorAll<HTMLElement>('[data-qa-match]').forEach((activity) => 
 
 document.querySelectorAll<HTMLButtonElement>('[data-check-scenarios]').forEach((button) => {
   button.addEventListener('click', () => {
-    const panel = button.parentElement?.querySelector<HTMLElement>('[data-qa-scenarios]');
-    panel?.querySelectorAll<HTMLSelectElement>('select[data-answer]').forEach((select) => {
+    const languagePanel = button.closest<HTMLElement>('[data-language]');
+    const selects = Array.from(languagePanel?.querySelectorAll<HTMLSelectElement>('[data-qa-scenarios] select[data-answer]') || []);
+    let correctCount = 0;
+    selects.forEach((select) => {
       const feedback = select.parentElement?.querySelector<HTMLElement>('[data-case-feedback]');
       const correct = select.value === select.dataset.answer;
+      if (correct) correctCount += 1;
+      const answer = Array.from(select.options).find((option) => option.value === select.dataset.answer)?.textContent || '';
       select.dataset.result = !select.value ? 'pending' : correct ? 'correct' : 'incorrect';
       if (feedback) feedback.textContent = !select.value
         ? isChinese(button) ? '請先選擇方法。' : 'Choose a method first.'
-        : `${isChinese(button) ? correct ? '契合。' : '再考慮。' : correct ? 'Good fit. ' : 'Reconsider. '}${select.dataset.why || ''}`;
+        : `${isChinese(button) ? correct ? '契合：' : '較合適的方法：' : correct ? 'Good fit: ' : 'Best fit: '}${answer}。 ${select.dataset.why || ''}`.replace('。 ', isChinese(button) ? '。' : '. ');
     });
+    const result = languagePanel?.querySelector<HTMLElement>('[data-scenario-result]');
+    const answered = selects.filter((select) => select.value).length;
+    if (result) result.textContent = isChinese(button)
+      ? `配對正確：${correctCount} / ${selects.length}；已作答：${answered} / ${selects.length}。比較每題理由，再修訂你的選擇。`
+      : `${correctCount} of ${selects.length} matched; ${answered} of ${selects.length} answered. Compare the explanations, then revise your choices.`;
+  });
+});
+
+document.querySelectorAll<HTMLSelectElement>('[data-qa-scenarios] select').forEach((select) => {
+  select.addEventListener('change', () => {
+    delete select.dataset.result;
+    const feedback = select.parentElement?.querySelector<HTMLElement>('[data-case-feedback]');
+    if (feedback) feedback.textContent = '';
+    const result = select.closest('[data-language]')?.querySelector<HTMLElement>('[data-scenario-result]');
+    if (result) result.textContent = '';
+  });
+});
+
+function shuffled<T>(items: T[]): T[] {
+  const result = [...items];
+  for (let index = result.length - 1; index > 0; index -= 1) {
+    const next = Math.floor(Math.random() * (index + 1));
+    [result[index], result[next]] = [result[next], result[index]];
+  }
+  return result;
+}
+
+document.querySelectorAll<HTMLButtonElement>('[data-shuffle-scenarios]').forEach((button) => {
+  button.addEventListener('click', () => {
+    const slide = button.closest('.slide');
+    const panels = Array.from(slide?.querySelectorAll<HTMLElement>('[data-qa-scenarios]') || []);
+    const ids = Array.from(panels[0]?.querySelectorAll<HTMLElement>('[data-scenario-id]') || []).map((row) => row.dataset.scenarioId!);
+    const order = shuffled(ids);
+    // A fresh order should visibly differ, even if the random draw repeats it.
+    if (order.length > 1 && order.every((id, index) => id === ids[index])) order.push(order.shift()!);
+    const optionsById = new Map(ids.map((id) => {
+      const row = Array.from(panels[0].querySelectorAll<HTMLElement>('[data-scenario-id]')).find((item) => item.dataset.scenarioId === id);
+      const values = Array.from(row?.querySelector<HTMLSelectElement>('select')?.options || []).map((option) => option.value).filter(Boolean);
+      const mixed = shuffled(values);
+      if (mixed.length > 1 && mixed.every((value, index) => value === values[index])) mixed.push(mixed.shift()!);
+      return [id, mixed] as const;
+    }));
+    panels.forEach((panel) => {
+      const rows = new Map(Array.from(panel.querySelectorAll<HTMLElement>('[data-scenario-id]')).map((row) => [row.dataset.scenarioId!, row]));
+      order.forEach((id, index) => {
+        const row = rows.get(id);
+        if (!row) return;
+        const number = row.querySelector<HTMLElement>('[data-case-number]');
+        if (number) number.textContent = isChinese(panel) ? `情境 ${index + 1}` : `Case ${index + 1}`;
+        const select = row.querySelector<HTMLSelectElement>('select');
+        if (select) {
+          const selected = select.value;
+          const options = new Map(Array.from(select.options).map((option) => [option.value, option]));
+          optionsById.get(id)?.forEach((value) => { const option = options.get(value); if (option) select.append(option); });
+          select.value = selected;
+        }
+        panel.append(row);
+      });
+      const result = panel.closest('[data-language]')?.querySelector<HTMLElement>('[data-scenario-result]');
+      if (result) result.textContent = isChinese(panel)
+        ? '情境及選項次序已打亂；已保留你的選擇。'
+        : 'Scenarios and choices reordered; your selections are retained.';
+    });
+  });
+});
+
+// Mirror the selected method across translations while keeping all branches on one slide.
+document.querySelectorAll<HTMLElement>('[data-method-explorer]').forEach((explorer) => {
+  explorer.querySelectorAll<HTMLButtonElement>('[data-method-open]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const method = button.dataset.methodOpen!;
+      const selected = button.getAttribute('aria-expanded') !== 'true';
+      const roots = explorer.closest('.slide')?.querySelectorAll<HTMLElement>('[data-method-explorer]');
+      roots?.forEach((root) => {
+        root.querySelectorAll<HTMLButtonElement>('[data-method-open]').forEach((node) => {
+          const active = selected && node.dataset.methodOpen === method;
+          node.setAttribute('aria-expanded', String(active));
+          const marker = node.querySelector('small');
+          if (marker) marker.textContent = active ? '−' : '＋';
+        });
+        root.querySelectorAll<HTMLElement>('[data-method-panel]').forEach((panel) => { panel.hidden = !selected || panel.dataset.methodPanel !== method; });
+      });
+      if (selected) {
+        const panel = Array.from(explorer.querySelectorAll<HTMLElement>('[data-method-panel]')).find((item) => item.dataset.methodPanel === method);
+        panel?.querySelector<HTMLElement>('h3')?.focus({ preventScroll: true });
+        panel?.scrollIntoView({ block: 'start' });
+      }
+    });
+  });
+  explorer.querySelectorAll<HTMLButtonElement>('[data-method-close]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const method = button.closest<HTMLElement>('[data-method-panel]')?.dataset.methodPanel;
+      const roots = explorer.closest('.slide')?.querySelectorAll<HTMLElement>('[data-method-explorer]');
+      roots?.forEach((root) => {
+        root.querySelectorAll<HTMLElement>('[data-method-panel]').forEach((panel) => { panel.hidden = true; });
+        root.querySelectorAll<HTMLButtonElement>('[data-method-open]').forEach((node) => {
+          node.setAttribute('aria-expanded', 'false');
+          const marker = node.querySelector('small');
+          if (marker) marker.textContent = '＋';
+        });
+      });
+      const node = Array.from(explorer.querySelectorAll<HTMLButtonElement>('[data-method-open]')).find((item) => item.dataset.methodOpen === method);
+      node?.focus({ preventScroll: true });
+      explorer.scrollIntoView({ block: 'start' });
+    });
+  });
+});
+
+document.querySelectorAll<HTMLElement>('[data-ta-lab]').forEach((lab) => {
+  const passage = lab.querySelector<HTMLSelectElement>('[data-ta-passage]');
+  let origin = 'inductive';
+  let level = 'semantic';
+  function updateLab() {
+    const text = passage?.value || 'teacher';
+    lab.querySelectorAll<HTMLElement>('[data-passage-text]').forEach((item) => { item.hidden = item.dataset.passageText !== text; });
+    lab.querySelectorAll<HTMLElement>('[data-ta-example]').forEach((item) => { item.hidden = item.dataset.taExample !== `${text}-${origin}-${level}`; });
+    const status = lab.querySelector<HTMLElement>('[data-ta-status]');
+    if (status) status.textContent = isChinese(lab)
+      ? `${text === 'teacher' ? '教師敘述' : '學生經驗摘要'} · ${origin === 'inductive' ? '歸納' : '演繹'} · ${level === 'semantic' ? '明示' : '潛在'}`
+      : `${text === 'teacher' ? 'Teacher account' : 'Summary of student experiences'} · ${origin} · ${level}`;
+  }
+  passage?.addEventListener('change', updateLab);
+  for (const axis of ['origin', 'level'] as const) {
+    lab.querySelectorAll<HTMLButtonElement>(`[data-ta-${axis}]`).forEach((button) => {
+      button.addEventListener('click', () => {
+        if (axis === 'origin') origin = button.dataset.taOrigin!;
+        else level = button.dataset.taLevel!;
+        lab.querySelectorAll<HTMLButtonElement>(`[data-ta-${axis}]`).forEach((choice) => choice.setAttribute('aria-pressed', String(choice === button)));
+        updateLab();
+      });
+    });
+  }
+});
+
+document.querySelectorAll<HTMLButtonElement>('[data-copy-ai-prompt]').forEach((button) => {
+  button.addEventListener('click', async () => {
+    const container = button.closest('.qa-ai-questions');
+    const prompt = container?.querySelector<HTMLTextAreaElement>('[data-ai-prompt]');
+    const status = container?.querySelector<HTMLElement>('[data-copy-status]');
+    if (!prompt || !status) return;
+    try {
+      await navigator.clipboard.writeText(prompt.value);
+      status.textContent = isChinese(button) ? '已複製。貼到你的AI工具，填入研究問題與資料語境。' : 'Copied. Paste into your AI tool and add your research question and context.';
+    } catch {
+      prompt.focus();
+      prompt.select();
+      status.textContent = isChinese(button) ? '請複製已選取的提示，再貼到你的AI工具。' : 'Copy the selected prompt, then paste it into your AI tool.';
+    }
   });
 });
 
@@ -138,3 +290,17 @@ document.querySelectorAll<HTMLTextAreaElement>('textarea[data-save]').forEach((f
 bindLessonShortcuts(showSlide, () => current, slides.length, overview);
 const initialHash = Number(location.hash.replace('#slide-', ''));
 showSlide(Number.isFinite(initialHash) && initialHash > 0 ? initialHash - 1 : 0);
+
+// Expand the method branches for printing and restore each student's view afterwards.
+const printDetailStates = new Map<HTMLDetailsElement, boolean>();
+window.addEventListener('beforeprint', () => {
+  printDetailStates.clear();
+  document.querySelectorAll<HTMLDetailsElement>('[data-method-explorer] details').forEach((detail) => {
+    printDetailStates.set(detail, detail.open);
+    detail.open = true;
+  });
+});
+window.addEventListener('afterprint', () => {
+  printDetailStates.forEach((open, detail) => { detail.open = open; });
+  printDetailStates.clear();
+});
