@@ -764,3 +764,215 @@ export const methodOutputs: Record<string, { en: { label: string; columns: strin
     }
   }
 };
+
+// Classroom questions precede the distinguishing features in each method branch.
+export const methodLearningGuides = {
+  "thematic": {
+    "en": {
+      "questions": [
+        "What shared meaning could connect several accounts? Which words support your interpretation?",
+        "How would you move from initial codes to a theme with a central organising idea? How does that differ from a topic heading?",
+        "How would the researcher’s role and quality criteria change across reflexive, codebook and coding-reliability approaches?"
+      ],
+      "features": [
+        "Develops patterns of meaning across a dataset in relation to a research question.",
+        "Themes organise an analytic account; their meaning and development depend on the chosen approach.",
+        "Reflexive, codebook and coding-reliability approaches use different researcher roles and quality criteria."
+      ]
+    },
+    "zh": {
+      "questions": [
+        "甚麼共同意義可能連繫多個敘述？哪些字句支持你的詮釋？",
+        "如何由初始代碼發展出具有核心概念的主題？這與話題標題有何差異？",
+        "反思性、編碼手冊及編碼信度取向中的研究者角色及質量準則有何差異？"
+      ],
+      "features": [
+        "圍繞研究問題，發展整組資料中的意義模式。",
+        "主題統整分析敘述；其意義及發展方式取決於所選取向。",
+        "反思性、編碼手冊及編碼信度取向採用不同研究者角色與質量準則。"
+      ]
+    }
+  },
+  "content": {
+    "en": {
+      "questions": [
+        "What segment would you classify: a phrase, sentence or larger unit? What context must you retain?",
+        "What category definition and inclusion/exclusion rules would let you classify two similar excerpts consistently?",
+        "Would your categories start from the data or existing concepts? If you counted occurrences, what would the counts tell you and what context would you still need?"
+      ],
+      "features": [
+        "Interprets meaningful content through an explicit category system.",
+        "Defines coding units, category boundaries and source-linked examples.",
+        "Conventional, directed and summative approaches differ in how categories or counts enter the analysis."
+      ]
+    },
+    "zh": {
+      "questions": [
+        "你會分類片語、句子還是較大的單位？須保留哪些語境？",
+        "甚麼類別定義及納入／排除規則能讓你一致地分類兩個相近片段？",
+        "類別由資料還是既有概念出發？若計算次數，計數能說明甚麼？仍須哪些語境？"
+      ],
+      "features": [
+        "以明確的類別系統詮釋有意義的內容。",
+        "界定編碼單位、類別邊界及附來源的例子。",
+        "常規、定向及總結式取向讓類別或計數參與分析的方式不同。"
+      ]
+    }
+  },
+  "framework": {
+    "en": {
+      "questions": [
+        "What would occupy a row and a column if you compared these teachers’ accounts?",
+        "How could you summarise each cell while keeping a route back to the original excerpt?",
+        "What would comparing within one row and across a column reveal? Which exception or missing information needs checking?"
+      ],
+      "features": [
+        "Charts source-linked summaries in a case-by-issue matrix.",
+        "Uses an analytic framework to organise systematic within-case and cross-case comparisons.",
+        "Retains access to case context while interpreting similarities, differences and exceptions."
+      ]
+    },
+    "zh": {
+      "questions": [
+        "比較這些教師敘述時，矩陣的行與欄各代表甚麼？",
+        "如何概括每格內容，同時保留返回原始片段的路徑？",
+        "在同一行內及同一欄間比較能發現甚麼？哪些例外或缺漏須核查？"
+      ],
+      "features": [
+        "把附來源的摘要填入個案 × 議題矩陣。",
+        "以分析框架組織有系統的個案內及跨個案比較。",
+        "詮釋相似、差異及例外時，仍可回到個案語境。"
+      ]
+    }
+  },
+  "grounded": {
+    "en": {
+      "questions": [
+        "What action or process could you investigate in the account? How might one action lead to another?",
+        "What would you compare next, and whom would you sample to clarify an emerging category?",
+        "What relationships between categories would explain the process? What evidence would make you revise that explanation?"
+      ],
+      "features": [
+        "Develops an explanatory theory of a process through iterative analysis and data collection.",
+        "Uses constant comparison, analytic memos and theoretical sampling to develop categories and their relationships.",
+        "States the grounded-theory tradition and follows its analytic logic."
+      ]
+    },
+    "zh": {
+      "questions": [
+        "敘述中有甚麼行動或過程值得研究？一項行動如何引出另一項？",
+        "下一步比較甚麼？為釐清初步類別，會選取誰作進一步研究？",
+        "類別之間哪些關係能解釋過程？甚麼證據會讓你修訂解釋？"
+      ],
+      "features": [
+        "透過反覆分析與資料收集，發展過程的解釋理論。",
+        "以持續比較、分析備忘及理論抽樣發展類別及其關係。",
+        "交代所採紮根理論傳統，依循其分析邏輯。"
+      ]
+    }
+  },
+  "narrative": {
+    "en": {
+      "questions": [
+        "Where does the account begin and end? What sequence and turning point does the teller construct?",
+        "How does the teller present themselves and address an audience? How does the telling shape the experience?",
+        "What would be lost if you split the story into isolated topic codes? How would you report its structure and meaning?"
+      ],
+      "features": [
+        "Treats the story and its telling as an analytic focus.",
+        "Examines chronology, plot, turning points, voice and self-presentation in context.",
+        "Preserves connections within a narrated journey when developing an interpretation."
+      ]
+    },
+    "zh": {
+      "questions": [
+        "敘述在哪裡開始及結束？講述者建構甚麼次序與轉折？",
+        "講述者如何呈現自己及面向聽眾？講述方式如何塑造經驗？",
+        "若把故事分割成獨立話題代碼，會失去甚麼？如何報告其結構與意義？"
+      ],
+      "features": [
+        "以故事及其講述方式為分析焦點。",
+        "在語境中檢視時間次序、情節、轉折、聲音及自我呈現。",
+        "發展詮釋時保留敘事歷程內的連繫。"
+      ]
+    }
+  },
+  "discourse": {
+    "en": {
+      "questions": [
+        "What is the wording doing: justifying an action, claiming expertise or assigning a role?",
+        "Which contrasts, pronouns or descriptions position the speaker and other people? What textual evidence supports that reading?",
+        "How would the social or interactional context change your interpretation? How does this differ from classifying what was mentioned?"
+      ],
+      "features": [
+        "Examines language as social action and the construction of meanings and positions.",
+        "Analyses specific linguistic choices in their social or interactional context.",
+        "Builds an evidence-based account of what language does, using a stated discourse approach."
+      ]
+    },
+    "zh": {
+      "questions": [
+        "措辭正在做甚麼：合理化行動、聲稱專業，還是分配角色？",
+        "哪些對比、代詞或描述定位了講述者與他人？甚麼文本證據支持這種讀法？",
+        "社會或互動語境如何改變詮釋？這與分類「提及甚麼」有何差異？"
+      ],
+      "features": [
+        "把語言視為社會行動，檢視意義及位置如何被建構。",
+        "在社會或互動語境中分析具體語言選擇。",
+        "交代話語分析取向，以證據說明語言的作用。"
+      ]
+    }
+  },
+  "critical": {
+    "en": {
+      "questions": [
+        "Whose interests or authority does the wording support? Whose perspective is absent or marginalised?",
+        "Which textual choices make an unequal arrangement appear normal or legitimate?",
+        "What institutional or social evidence would connect that language to power and inequality? How would you avoid claiming more than the evidence supports?"
+      ],
+      "features": [
+        "Makes power, ideology and inequality explicit analytic concerns.",
+        "Connects close textual analysis with institutional and social relations.",
+        "Supports critical interpretations with both textual and contextual evidence."
+      ]
+    },
+    "zh": {
+      "questions": [
+        "措辭支持誰的利益或權威？誰的觀點缺席或被邊緣化？",
+        "哪些文本選擇令不平等安排顯得正常或合理？",
+        "甚麼制度或社會證據能把語言與權力及不平等連繫？如何讓主張與證據範圍相符？"
+      ],
+      "features": [
+        "明確關注權力、意識形態及不平等。",
+        "把細緻文本分析與制度及社會關係連繫。",
+        "以文本和語境證據支持批判詮釋。"
+      ]
+    }
+  },
+  "ipa": {
+    "en": {
+      "questions": [
+        "What significant lived experience is this person trying to make sense of?",
+        "How would you examine the person’s words and meaning-making in depth before comparing other cases?",
+        "How does your interpretation engage with the participant’s own interpretation? Which individual differences must remain visible in the final account?"
+      ],
+      "features": [
+        "Explores how people make sense of significant lived experience.",
+        "Uses an idiographic focus: detailed analysis of each case precedes cross-case interpretation.",
+        "Recognises the analyst’s interpretation of the participant’s meaning-making and retains individual nuance."
+      ]
+    },
+    "zh": {
+      "questions": [
+        "這個人正在理解哪項重要的親身經驗？",
+        "比較其他個案之前，如何深入檢視其用詞與意義建構？",
+        "你的詮釋如何與參與者自己的理解互動？最終敘述須保留哪些個體差異？"
+      ],
+      "features": [
+        "探索人們如何理解重要的親身經驗。",
+        "以個案為重：先細緻分析每個個案，再作跨個案詮釋。",
+        "關注分析者如何詮釋參與者的意義建構，保留個別細節。"
+      ]
+    }
+  }
+} as const;

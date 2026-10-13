@@ -140,9 +140,6 @@
 .qa-deck .qa-phase-grid summary { cursor: pointer; font-weight: 700; }
 .qa-deck .qa-phase-grid summary span { padding-right: .5rem; color: var(--qa-green); }
 .qa-deck .qa-phase-question { font-weight: 650; }
-.qa-deck .qa-ai-questions { background: var(--qa-soft); }
-.qa-deck .qa-ai-prompt-label { display: grid; gap: .35rem; margin: .8rem 0; font-weight: 700; }
-.qa-deck .qa-ai-prompt-label textarea { min-height: 13rem; font-size: .9rem; line-height: 1.5; background: #fff; }
 .qa-deck .qa-example-label { font-size: .85rem; color: var(--qa-muted); }
 .qa-deck .qa-output-wrap { width: 100%; overflow-x: auto; }
 .qa-deck .qa-output-table { min-width: 0; table-layout: fixed; font-size: .9rem; }
@@ -166,3 +163,10 @@
   .qa-deck [data-language="en"] { display: block !important; }
   .qa-deck .qa-method-panel .qa-explore-section { break-inside: avoid; }
 }
+
+.qa-deck .qa-coding-practice { margin-top: 1.2rem; padding-top: .7rem; border-top: 1px solid var(--qa-line); }
+.qa-deck .qa-guiding-questions { margin: .9rem 0; }
+.qa-deck .qa-guiding-questions h4 { margin: 0; font-size: 1.1rem; }
+.qa-deck .qa-guiding-questions li, .qa-deck .qa-core-features > ul > li { margin: .65rem 0; line-height: 1.4; }
+.qa-deck .qa-closing-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-top: 1.5rem; }
+.qa-deck .qa-closing-actions .qa-action { display: inline-flex; align-items: center; text-decoration: none; }

@@ -158,17 +158,19 @@ document.querySelectorAll<HTMLButtonElement>('[data-shuffle-scenarios]').forEach
         if (number) number.textContent = isChinese(panel) ? `情境 ${index + 1}` : `Case ${index + 1}`;
         const select = row.querySelector<HTMLSelectElement>('select');
         if (select) {
-          const selected = select.value;
           const options = new Map(Array.from(select.options).map((option) => [option.value, option]));
           optionsById.get(id)?.forEach((value) => { const option = options.get(value); if (option) select.append(option); });
-          select.value = selected;
+          select.value = '';
+          delete select.dataset.result;
         }
+        const feedback = row.querySelector<HTMLElement>('[data-case-feedback]');
+        if (feedback) feedback.textContent = '';
         panel.append(row);
       });
       const result = panel.closest('[data-language]')?.querySelector<HTMLElement>('[data-scenario-result]');
       if (result) result.textContent = isChinese(panel)
-        ? '情境及選項次序已打亂；已保留你的選擇。'
-        : 'Scenarios and choices reordered; your selections are retained.';
+        ? '情境列表及每題的答案選項已打亂。請重新配對。'
+        : 'The scenario list and every answer list have been mixed. Match them again.';
     });
   });
 });
@@ -239,23 +241,6 @@ document.querySelectorAll<HTMLElement>('[data-ta-lab]').forEach((lab) => {
       });
     });
   }
-});
-
-document.querySelectorAll<HTMLButtonElement>('[data-copy-ai-prompt]').forEach((button) => {
-  button.addEventListener('click', async () => {
-    const container = button.closest('.qa-ai-questions');
-    const prompt = container?.querySelector<HTMLTextAreaElement>('[data-ai-prompt]');
-    const status = container?.querySelector<HTMLElement>('[data-copy-status]');
-    if (!prompt || !status) return;
-    try {
-      await navigator.clipboard.writeText(prompt.value);
-      status.textContent = isChinese(button) ? '已複製。貼到你的AI工具，填入研究問題與資料語境。' : 'Copied. Paste into your AI tool and add your research question and context.';
-    } catch {
-      prompt.focus();
-      prompt.select();
-      status.textContent = isChinese(button) ? '請複製已選取的提示，再貼到你的AI工具。' : 'Copy the selected prompt, then paste it into your AI tool.';
-    }
-  });
 });
 
 const lensPrompts = {
