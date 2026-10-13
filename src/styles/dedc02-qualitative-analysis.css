@@ -170,3 +170,18 @@
 .qa-deck .qa-guiding-questions li, .qa-deck .qa-core-features > ul > li { margin: .65rem 0; line-height: 1.4; }
 .qa-deck .qa-closing-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-top: 1.5rem; }
 .qa-deck .qa-closing-actions .qa-action { display: inline-flex; align-items: center; text-decoration: none; }
+
+.qa-deck .qa-coding-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: .75rem; }
+.qa-deck .qa-coding-grid > article, .qa-deck .qa-remote-phases > article { min-width: 0; padding: .9rem; border-top: .25rem solid var(--qa-green); background: var(--qa-soft); }
+.qa-deck .qa-coding-route { font-weight: 700; color: var(--qa-green); }
+.qa-deck .qa-remote-text { display: grid; gap: .45rem; margin: .75rem 0; }
+.qa-deck .qa-remote-text p { display: grid; grid-template-columns: 2.5rem minmax(0,1fr); gap: .7rem; margin: 0; padding: .6rem .85rem; background: var(--qa-soft); border-left: .25rem solid var(--qa-green); }
+.qa-deck .qa-coding-table { min-width: 0; }
+.qa-deck .qa-remote-phases { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .6rem; }
+.qa-deck .qa-remote-phases h3 { margin: 0 0 .5rem; }
+@media (max-width: 720px) {
+  .qa-deck .qa-coding-grid, .qa-deck .qa-remote-phases { grid-template-columns: 1fr; }
+  .qa-deck .qa-coding-table { table-layout: fixed; }
+  .qa-deck .qa-coding-table :is(th,td) { padding: .4rem; overflow-wrap: anywhere; font-size: .85rem; }
+  .qa-deck .qa-coding-table th:first-child { width: 3rem; }
+}
