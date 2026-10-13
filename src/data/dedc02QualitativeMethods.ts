@@ -51,7 +51,7 @@ export const qualitativeMethods = [
         "Classify the material, examine relationships and exceptions, and interpret categories in context."
       ],
       "output": "A category table with definitions and source-linked examples; counts can support an appropriate question.",
-      "example": "In the handout, “grading” and “administrative tasks” can enter a work-demands category. Define the category boundary and keep the sentence context.",
+      "example": "In the teacher practice text, “grading” and “administrative tasks” can enter a work-demands category. Define the category boundary and keep the sentence context.",
       "questions": [
         "Explain conventional, directed and summative content analysis using the same educational example.",
         "Show a small category table containing definition, inclusion rule, exclusion rule and illustrative excerpt.",
@@ -68,7 +68,7 @@ export const qualitativeMethods = [
         "分類資料、檢視關係與例外，並在語境中詮釋類別。"
       ],
       "output": "附定義及來源例子的類別表；合適的研究問題可輔以計數。",
-      "example": "手冊中的「評分」及「管理任務」可歸入工作要求類別；須界定類別邊界並保留句子語境。",
+      "example": "教師練習文本中的「評分」及「管理任務」可歸入工作要求類別；須界定類別邊界並保留句子語境。",
       "questions": [
         "用同一教育例子解釋常規、定向及總結式內容分析。",
         "示範包含定義、納入規則、排除規則及示例片段的小型類別表。",
@@ -131,7 +131,7 @@ export const qualitativeMethods = [
         "Interpret how the telling makes sense of experience; explain your chosen narrative approach."
       ],
       "output": "A contextualised account or narrative reconstruction, supported by the teller’s words.",
-      "example": "The handout’s teacher paragraph is a short reflective account. A richer career story would be needed to explore transitions, turning points and changing identity in depth.",
+      "example": "The teacher practice paragraph is a short reflective account. A richer career story would be needed to explore transitions, turning points and changing identity in depth.",
       "questions": [
         "What makes a narrative unit, and how would analysing a whole story shape my interpretation?",
         "Compare thematic, structural and dialogic/performance narrative analysis using a fictional teacher story.",
@@ -148,7 +148,7 @@ export const qualitativeMethods = [
         "詮釋講述如何理解經驗，並交代所選敘事取向。"
       ],
       "output": "附敘述者原話支持的語境化敘述或敘事重構。",
-      "example": "手冊中的教師段落是短篇反思敘述；若要深入探究轉變、轉折及身份變化，仍需更豐富的職涯故事。",
+      "example": "教師練習段落是短篇反思敘述；若要深入探究轉變、轉折及身份變化，仍需更豐富的職涯故事。",
       "questions": [
         "甚麼構成敘事單位？分析完整故事會如何影響詮釋？",
         "用虛構教師故事比較主題式、結構式及對話／表演式敘事分析。",
@@ -161,8 +161,8 @@ export const qualitativeMethods = [
       "citation": "Karalis Noel (2021)",
       "title": "Identity Tensions",
       "url": "https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2021.586212/full",
-      "en": "Four interviews over a year underpin an account of one former teacher’s schooling, preparation, work and departure. Inspect Data Analysis, Table 1 and Findings.",
-      "zh": "一年內四次訪談支援一位離職教師的求學、培育、任教及離職敘述。檢視Data Analysis、表1及Findings。"
+      "en": "Four interviews over a year underpin an account of one former teacher’s schooling, preparation, work and departure. Notice how repeated interviews support attention to the sequence and telling of one person’s story.",
+      "zh": "一年內四次訪談支援一位離職教師的求學、培育、任教及離職敘述。留意重複訪談如何支援分析一個故事的次序與講述方式。"
     }
   },
   {
@@ -207,8 +207,8 @@ export const qualitativeMethods = [
       "citation": "Gong, Xu & Ye (2025)",
       "title": "Good or bad visits?",
       "url": "https://www.nature.com/articles/s41599-025-05655-5",
-      "en": "Eight teachers: two interviews and six written accounts. Each case was analysed before comparison. Inspect Data analysis, Table 2 and Teachers’ emotions.",
-      "zh": "八位教師：兩次訪談及六份書面敘述；先逐一分析再比較。檢視Data analysis、表2及Teachers’ emotions。"
+      "en": "Eight teachers: two interviews and six written accounts. Each case was analysed before comparison. Notice the case-first sequence and the distinction between shared meanings and individual differences.",
+      "zh": "八位教師：兩次訪談及六份書面敘述；先逐一分析再比較。留意先分析個案再比較的次序，以及共同意義與個體差異。"
     }
   },
   {
@@ -299,8 +299,8 @@ export const qualitativeMethods = [
       "citation": "Balán (2026)",
       "title": "The “skills-first” illusion",
       "url": "https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2026.1702457/full",
-      "en": "A corpus of 15 Microsoft AI-skilling communications. Inspect Section 2.1, Table 1 and Section 3.1 to trace wording, framing and interpretation.",
-      "zh": "分析15份微軟AI技能培訓傳訊材料；檢視第2.1節、表1及第3.1節，追溯措辭、框架及詮釋。"
+      "en": "A corpus of 15 Microsoft AI-skilling communications is examined through Fairclough’s critical discourse approach, connecting textual choices with discourse and social context.",
+      "zh": "以Fairclough的批判話語取向分析15份微軟AI技能培訓傳訊材料，把文本選擇與話語及社會語境連繫。"
     }
   },
   {
@@ -315,7 +315,7 @@ export const qualitativeMethods = [
         "Integrate the categories into an explanatory theory and examine its adequacy."
       ],
       "output": "A substantive theory or process model with evidence for relationships between categories.",
-      "example": "The handout could suggest an initial question about sustaining commitment under workload pressure. A theory would require iterative data collection and comparison.",
+      "example": "The teacher practice text could suggest an initial question about sustaining commitment under workload pressure. A theory would require iterative data collection and comparison.",
       "questions": [
         "Compare constructivist and Straussian grounded theory, including their coding language and assumptions.",
         "Explain constant comparison, memo writing and theoretical sampling through an evolving fictional teacher study.",
@@ -332,7 +332,7 @@ export const qualitativeMethods = [
         "把類別整合成解釋性理論，檢驗其充分性。"
       ],
       "output": "附類別關係證據的實質理論或過程模型。",
-      "example": "手冊可引出工作壓力下如何維持投入的初步問題；建立理論仍需反覆收集資料與比較。",
+      "example": "教師練習文本可引出工作壓力下如何維持投入的初步問題；建立理論仍需反覆收集資料與比較。",
       "questions": [
         "比較建構主義及Strauss取向的紮根理論，包括編碼用語與假設。",
         "以逐步發展的虛構教師研究解釋持續比較、備忘錄及理論抽樣。",
@@ -345,8 +345,8 @@ export const qualitativeMethods = [
       "citation": "Brown, Howard & Walsh (2022)",
       "title": "Building Trauma Informed Teachers",
       "url": "https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2022.870537/full",
-      "en": "23 interviews and a theoretical-sampling focus group with seven interviewees. Inspect Data Analysis, Theoretical Sampling and Figure 1.",
-      "zh": "23次訪談，並以七位受訪者的焦點小組進行理論抽樣；檢視Data Analysis、Theoretical Sampling及圖1。"
+      "en": "23 interviews and a theoretical-sampling focus group with seven interviewees. Notice that analysis informs further sampling, supporting category development and an explanatory theory.",
+      "zh": "23次訪談，並以七位受訪者的焦點小組進行理論抽樣；留意分析如何引導後續抽樣，支援類別發展及解釋性理論。"
     }
   }
 ];
@@ -389,7 +389,7 @@ export const methodGroups = [
 export const methodOutputs: Record<string, { en: { label: string; columns: string[]; rows: string[][] }; zh: { label: string; columns: string[]; rows: string[][] } }> = {
   "thematic": {
     "en": {
-      "label": "Handout-based illustration · candidate ideas to examine",
+      "label": "Practice-text illustration · candidate ideas to examine",
       "columns": [
         "Extract",
         "Possible code",
@@ -409,7 +409,7 @@ export const methodOutputs: Record<string, { en: { label: string; columns: strin
       ]
     },
     "zh": {
-      "label": "依手冊構成的示例 · 待檢驗的候選概念",
+      "label": "課堂文本示例 · 待檢驗的候選概念",
       "columns": [
         "片段",
         "可能代碼",
@@ -431,11 +431,11 @@ export const methodOutputs: Record<string, { en: { label: string; columns: strin
   },
   "content": {
     "en": {
-      "label": "Handout-based illustration · a small category system",
+      "label": "Practice-text illustration · a small category system",
       "columns": [
         "Category",
         "Inclusion rule",
-        "Handout example"
+        "Practice-text example"
       ],
       "rows": [
         [
@@ -456,11 +456,11 @@ export const methodOutputs: Record<string, { en: { label: string; columns: strin
       ]
     },
     "zh": {
-      "label": "依手冊構成的示例 · 小型類別系統",
+      "label": "課堂文本示例 · 小型類別系統",
       "columns": [
         "類別",
         "納入規則",
-        "手冊例子"
+        "課堂文本例子"
       ],
       "rows": [
         [
@@ -629,7 +629,7 @@ export const methodOutputs: Record<string, { en: { label: string; columns: strin
   },
   "discourse": {
     "en": {
-      "label": "Handout-based illustration · link words to a possible function",
+      "label": "Practice-text illustration · link words to a possible function",
       "columns": [
         "Wording",
         "Textual observation",
@@ -649,7 +649,7 @@ export const methodOutputs: Record<string, { en: { label: string; columns: strin
       ]
     },
     "zh": {
-      "label": "依手冊構成的示例 · 把措辭與可能作用連繫",
+      "label": "課堂文本示例 · 把措辭與可能作用連繫",
       "columns": [
         "措辭",
         "文本觀察",

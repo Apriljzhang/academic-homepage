@@ -1,10 +1,8 @@
 ---
-import { taVariants, taPhases, handoutTexts, taExamples } from '../../data/dedc02ThematicLab';
-import { withBase } from '../../utils/paths';
+import { taVariants, taPhases, practiceTexts, taExamples } from '../../data/dedc02ThematicLab';
 interface Props { language: 'en' | 'zh' }
 const { language } = Astro.props;
 const zh = language === 'zh';
-const handoutHref = withBase('/teaching/courses/dedc02/assets/DEDC02-W8-coding-methods-handout.pdf');
 ---
 <div class="qa-ta-lab" data-ta-lab>
   <details class="qa-explore-section" open>
@@ -21,13 +19,13 @@ const handoutHref = withBase('/teaching/courses/dedc02/assets/DEDC02-W8-coding-m
     <a class="qa-source" href="https://www.thematicanalysis.net/faqs/" target="_blank" rel="noopener noreferrer">Braun &amp; Clarke · {zh ? '方法差異及質量' : 'Approaches and quality'} ↗</a>
   </details>
   <details class="qa-explore-section">
-    <summary>{zh ? '2 · 探索分析選擇與手冊例子' : '2 · Explore analytic choices with the handout'}</summary>
+    <summary>{zh ? '2 · 用課堂文本探索分析選擇' : '2 · Explore analytic choices with the practice texts'}</summary>
     <p>{zh ? '歸納／演繹關乎概念的起點；明示／潛在關乎詮釋層次。這些選擇可在反思性主題分析內組合，並須與知識立場一致。' : 'Inductive/deductive concerns where concepts start; semantic/latent concerns the level of interpretation. These choices can combine within reflexive TA and should fit your view of knowledge.'}</p>
     <label class="qa-lab-select">{zh ? '選擇練習文本' : 'Choose a practice text'}
-      <select data-ta-passage><option value="teacher">{zh ? '手冊 · 教師敘述' : 'Handout · teacher account'}</option><option value="students">{zh ? '手冊 · 學生經驗摘要' : 'Handout · summary of student experiences'}</option></select>
+      <select data-ta-passage><option value="teacher">{zh ? '課堂文本 · 教師敘述' : 'Practice text · teacher account'}</option><option value="students">{zh ? '課堂文本 · 學生經驗摘要' : 'Practice text · summary of student experiences'}</option></select>
     </label>
-    {(['teacher', 'students'] as const).map((key) => <blockquote class="qa-practice-text" data-passage-text={key} hidden={key !== 'teacher'}>{handoutTexts[key][language]}</blockquote>)}
-    <p class="qa-source">{zh ? '來源：W8手冊，第1頁。教師段落為第一人稱；學生段落概述多人經驗。保留這種來源差異。' : 'Source: W8 handout, p. 1. The teacher text is first-person; the student text summarises several experiences. Preserve that source distinction.'}</p>
+    {(['teacher', 'students'] as const).map((key) => <blockquote class="qa-practice-text" data-passage-text={key} hidden={key !== 'teacher'}>{practiceTexts[key][language]}</blockquote>)}
+    <p class="qa-source">{zh ? '以下兩段練習文本已完整列在投影片中。教師段落為第一人稱；學生段落概述多人經驗。分析時保留這種差異。' : 'Both practice texts are included in full in this slide. The teacher text is first-person; the student text summarises several experiences. Preserve that distinction when analysing them.'}</p>
     <div class="qa-lab-choices">
       <fieldset><legend>{zh ? '概念從哪裡出發？' : 'Where do concepts start?'}</legend>
         <button type="button" data-ta-origin="inductive" aria-pressed="true">{zh ? '歸納 · 由資料出發' : 'Inductive · start with material'}</button>
@@ -53,5 +51,4 @@ const handoutHref = withBase('/teaching/courses/dedc02/assets/DEDC02-W8-coding-m
     <p class="qa-note">{zh ? '在反思性主題分析中，研究者反思如何影響詮釋；以分析對話深化理解。若目的是評估編碼者一致性，須交代所選取向的分析邏輯。' : 'In reflexive TA, examine how your positioning shapes interpretation and use analytic dialogue to deepen it. If your aim is to assess coder agreement, explain the analytic logic of your chosen approach.'}</p>
     <a class="qa-source" href="https://www.thematicanalysis.net/doing-reflexive-ta/" target="_blank" rel="noopener noreferrer">Braun &amp; Clarke · {zh ? '反思性主題分析六階段' : 'Six phases of reflexive TA'} ↗</a>
   </details>
-  <p class="qa-source"><a href={handoutHref} target="_blank" rel="noopener noreferrer">{zh ? '開啟原始W8手冊 · 編碼練習及方法配對' : 'Open the original W8 handout · coding practice and method matching'} ↗</a></p>
 </div>

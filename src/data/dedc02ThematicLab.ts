@@ -131,7 +131,7 @@ export const taPhases = [
     }
   }
 ];
-export const handoutTexts = {
+export const practiceTexts = {
   "teacher": {
     "en": "As a new teacher, I find that balancing my workload is challenging. While I enjoy the creativity involved in lesson planning, the constant demands of grading and administrative tasks often leave me feeling overwhelmed. I sometimes wish I had more support from my colleagues to share ideas and resources. Despite these challenges, seeing my students engage and learn makes it all worthwhile.",
     "zh": "作為一名新教師，我發現平衡我的工作量很有挑戰性。雖然我喜歡課程計劃中涉及的創造力，但不斷的評分和管理任務要求經常讓我感到不知所措。我有時希望同事們能給我更多的支援，以分享想法和資源。儘管存在這些挑戰，但看到我的學生參與和學習讓這一切都是值得的。"
