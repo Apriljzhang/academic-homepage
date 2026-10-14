@@ -42,41 +42,43 @@ export const qualitativeMethods = [
   {
     "id": "content",
     "en": {
-      "name": "Qualitative content analysis",
-      "aim": "Classify meaningful content",
-      "what": "Systematic interpretation of text through a category system. Conventional analysis develops categories from the material; directed analysis starts with concepts; summative analysis interprets selected counts in context.",
+      "name": "Content analysis",
+      "aim": "Classify content and examine frequency",
+      "what": "Systematic analysis of material through an explicit category system. Content analysis can interpret meanings and examine frequency: how often words or categories occur, or how many documents or participants mention them. Define the coding and counting units, state the denominator for percentages, and explain whether categories can overlap. Counts describe distribution; interpreting their meaning and importance requires context. Qualitative approaches can develop categories from the data, start from prior concepts, or interpret selected counts in context.",
       "steps": [
-        "Define the question, material and unit to be coded.",
+        "Define the research question, material, coding unit and counting unit.",
         "Develop category definitions, inclusion rules and examples; pilot and revise them.",
-        "Classify the material, examine relationships and exceptions, and interpret categories in context."
+        "Classify the material. When frequency serves the question, count occurrences or cases using explicit rules and report the denominator for percentages.",
+        "Interpret category meanings, distributions, relationships and exceptions in context."
       ],
-      "output": "A category table with definitions and source-linked examples; counts can support an appropriate question.",
+      "output": "A category table with definitions and source-linked examples; where appropriate, a frequency or percentage table and an interpretation of the distribution.",
       "example": "In the teacher practice text, “grading” and “administrative tasks” can enter a work-demands category. Define the category boundary and keep the sentence context.",
       "questions": [
-        "Explain conventional, directed and summative content analysis using the same educational example.",
-        "Show a small category table containing definition, inclusion rule, exclusion rule and illustrative excerpt.",
-        "How would I choose a unit of analysis and interpret a count without losing context?"
+        "What does content analysis help this researcher understand? Explain what a category is and how categories can be developed from the text or prior concepts.",
+        "Using three fictional interview extracts, show how to choose a coding unit and define categories with inclusion rules and examples. Explain how to handle an extract that fits more than one category.",
+        "Show a clearly fictional category-and-frequency table. Explain the difference between counting mentions and counting teachers, how to calculate percentages, and what the counts can and cannot tell us about meaning or importance."
       ]
     },
     "zh": {
-      "name": "質性內容分析",
-      "aim": "分類有意義的內容",
-      "what": "以類別系統有規律地詮釋文本。常規取向從資料發展類別；定向取向由既有概念出發；總結式取向在語境中詮釋特定計數。",
+      "name": "內容分析",
+      "aim": "分類內容並檢視頻次",
+      "what": "透過明確類別系統有規律地分析資料。內容分析可詮釋意義，亦可檢視頻次：字詞或類別出現多少次，或有多少份文件或參與者提及它們。須界定編碼與計數單位、交代百分比的分母，以及類別能否重疊。計數呈現分布；理解其意義及重要性仍需語境。質性取向可由資料建立類別、由既有概念出發，或在語境中詮釋特定計數。",
       "steps": [
-        "界定問題、資料及編碼單位。",
+        "界定研究問題、資料、編碼單位及計數單位。",
         "建立類別定義、納入規則與例子，試用後修訂。",
-        "分類資料、檢視關係與例外，並在語境中詮釋類別。"
+        "分類資料；若頻次有助回答問題，按明確規則計算出現次數或個案數，並交代百分比的分母。",
+        "在語境中詮釋類別意義、分布、關係及例外。"
       ],
-      "output": "附定義及來源例子的類別表；合適的研究問題可輔以計數。",
+      "output": "附定義及來源例子的類別表；在適當情況下提供頻次或百分比表，並詮釋其分布。",
       "example": "教師練習文本中的「評分」及「管理任務」可歸入工作要求類別；須界定類別邊界並保留句子語境。",
       "questions": [
-        "用同一教育例子解釋常規、定向及總結式內容分析。",
-        "示範包含定義、納入規則、排除規則及示例片段的小型類別表。",
-        "如何選擇分析單位，並在保留語境的情況下詮釋計數？"
+        "內容分析能幫助研究者理解甚麼？解釋何謂類別，以及如何由文本或既有概念建立類別。",
+        "用三段虛構訪談，示範如何選擇編碼單位，並以納入規則及例子界定類別；解釋如何處理符合多個類別的片段。",
+        "展示明確標示為虛構的類別與頻次表。解釋計算提及次數與提及該類別的教師人數有何差異、如何計算百分比，以及計數能否說明意義或重要性。"
       ]
     },
-    "source": "Hsieh & Shannon (2005)",
-    "url": "https://doi.org/10.1177/1049732305276687",
+    "source": "Krippendorff & Bock · The Content Analysis Reader",
+    "url": "https://www.sagepub.com/shop/buy-a-book/the-content-analysis-reader-1-228960",
     "study": null
   },
   {
@@ -588,157 +590,169 @@ export const methodLearningGuides = {
   "thematic": {
     "en": {
       "questions": [
-        "What shared meaning could connect several accounts? Which words support your interpretation?",
-        "How would you move from initial codes to a theme with a central organising idea? How does that differ from a topic heading?",
-        "How would the researcher’s role and quality criteria change across reflexive, codebook and coding-reliability approaches?"
+        "What does thematic analysis help this researcher understand? What kinds of research questions suit this method?",
+        "Using three short fictional interview extracts, show how the researcher moves from reading the text to coding and developing a candidate theme. Explain each decision.",
+        "What would a thematic-analysis finding look like? Show how a theme explains something about teachers’ experiences and how it differs from a topic heading such as “support”."
       ],
       "features": [
         "Develops patterns of meaning across a dataset in relation to a research question.",
         "Themes organise an analytic account; their meaning and development depend on the chosen approach.",
         "Reflexive, codebook and coding-reliability approaches use different researcher roles and quality criteria."
-      ]
+      ],
+      "context": "Learning scenario: A researcher interviews teachers about learning to use a new feedback tool, asking how support and confidence are experienced across their accounts."
     },
     "zh": {
       "questions": [
-        "甚麼共同意義可能連繫多個敘述？哪些字句支持你的詮釋？",
-        "如何由初始代碼發展出具有核心概念的主題？這與話題標題有何差異？",
-        "反思性、編碼手冊及編碼信度取向中的研究者角色及質量準則有何差異？"
+        "主題分析能幫助研究者理解甚麼？哪些研究問題適合使用此方法？",
+        "用三段簡短的虛構訪談，示範研究者如何由閱讀文本、編碼走向候選主題，逐步解釋決定。",
+        "主題分析的發現會是甚麼樣子？示範主題如何解釋教師經驗，以及它與「支援」這類話題標題有何差異。"
       ],
       "features": [
         "圍繞研究問題，發展整組資料中的意義模式。",
         "主題統整分析敘述；其意義及發展方式取決於所選取向。",
         "反思性、編碼手冊及編碼信度取向採用不同研究者角色與質量準則。"
-      ]
+      ],
+      "context": "學習情境：研究者訪談教師學習使用新回饋工具的經驗，探究不同敘述中如何體驗支援與信心。"
     }
   },
   "content": {
     "en": {
       "questions": [
-        "What segment would you classify: a phrase, sentence or larger unit? What context must you retain?",
-        "What category definition and inclusion/exclusion rules would let you classify two similar excerpts consistently?",
-        "Would your categories start from the data or existing concepts? If you counted occurrences, what would the counts tell you and what context would you still need?"
+        "What does content analysis help this researcher understand? Explain what a category is and how categories can be developed from the text or prior concepts.",
+        "Using three fictional interview extracts, show how to choose a coding unit and define categories with inclusion rules and examples. Explain how to handle an extract that fits more than one category.",
+        "Show a clearly fictional category-and-frequency table. Explain the difference between counting mentions and counting teachers, how to calculate percentages, and what the counts can and cannot tell us about meaning or importance."
       ],
       "features": [
-        "Interprets meaningful content through an explicit category system.",
-        "Defines coding units, category boundaries and source-linked examples.",
-        "Conventional, directed and summative approaches differ in how categories or counts enter the analysis."
-      ]
+        "Uses an explicit category system to classify and interpret content.",
+        "Can report frequencies or percentages for a defined unit: words, coded segments, documents or participants.",
+        "Defines category boundaries and counting rules, then interprets distributions in context; frequency alone does not establish importance."
+      ],
+      "context": "Learning scenario: A researcher analyses 30 teacher interviews to identify the purposes of feedback they describe and how frequently each purpose is mentioned."
     },
     "zh": {
       "questions": [
-        "你會分類片語、句子還是較大的單位？須保留哪些語境？",
-        "甚麼類別定義及納入／排除規則能讓你一致地分類兩個相近片段？",
-        "類別由資料還是既有概念出發？若計算次數，計數能說明甚麼？仍須哪些語境？"
+        "內容分析能幫助研究者理解甚麼？解釋何謂類別，以及如何由文本或既有概念建立類別。",
+        "用三段虛構訪談，示範如何選擇編碼單位，並以納入規則及例子界定類別；解釋如何處理符合多個類別的片段。",
+        "展示明確標示為虛構的類別與頻次表。解釋計算提及次數與提及該類別的教師人數有何差異、如何計算百分比，以及計數能否說明意義或重要性。"
       ],
       "features": [
-        "以明確的類別系統詮釋有意義的內容。",
-        "界定編碼單位、類別邊界及附來源的例子。",
-        "常規、定向及總結式取向讓類別或計數參與分析的方式不同。"
-      ]
+        "運用明確的類別系統分類並詮釋內容。",
+        "可按明確單位報告頻次或百分比：字詞、編碼片段、文件或參與者。",
+        "界定類別邊界及計數規則，再結合語境詮釋分布；頻次本身不能確立重要性。"
+      ],
+      "context": "學習情境：研究者分析30份教師訪談，辨識教師描述的回饋目的，以及各目的被提及的頻次。"
     }
   },
   "grounded": {
     "en": {
       "questions": [
-        "What action or process could you investigate in the account? How might one action lead to another?",
-        "What would you compare next, and whom would you sample to clarify an emerging category?",
-        "What relationships between categories would explain the process? What evidence would make you revise that explanation?"
+        "What does grounded theory analysis aim to produce? Why would the researcher continue collecting data while analysing earlier interviews?",
+        "Using a fictional teacher example, explain how comparing incidents, writing analytic notes and developing categories help the researcher understand the process.",
+        "Suppose an early idea is that teachers seek peer help when formal training proves insufficient. Whom should the researcher interview next, and why? Show how further evidence could change the developing explanation."
       ],
       "features": [
         "Develops an explanatory theory of a process through iterative analysis and data collection.",
         "Uses constant comparison, analytic memos and theoretical sampling to develop categories and their relationships.",
         "States the grounded-theory tradition and follows its analytic logic."
-      ]
+      ],
+      "context": "Learning scenario: A researcher wants to explain how novice teachers learn to manage difficulties with a new feedback tool. Interviews and analysis continue together as the study develops."
     },
     "zh": {
       "questions": [
-        "敘述中有甚麼行動或過程值得研究？一項行動如何引出另一項？",
-        "下一步比較甚麼？為釐清初步類別，會選取誰作進一步研究？",
-        "類別之間哪些關係能解釋過程？甚麼證據會讓你修訂解釋？"
+        "紮根理論分析旨在產生甚麼成果？為何研究者分析早期訪談時，仍會繼續收集資料？",
+        "用虛構教師例子，解釋比較事件、撰寫分析筆記及發展類別如何幫助研究者理解過程。",
+        "假設初步概念是教師在正式培訓不足時尋求同儕協助，下一步應訪談誰？為甚麼？示範補充證據如何改變正在發展的解釋。"
       ],
       "features": [
         "透過反覆分析與資料收集，發展過程的解釋理論。",
         "以持續比較、分析備忘及理論抽樣發展類別及其關係。",
         "交代所採紮根理論傳統，依循其分析邏輯。"
-      ]
+      ],
+      "context": "學習情境：研究者希望解釋新任教師如何學會處理新回饋工具帶來的困難。隨著研究發展，訪談與分析同步進行。"
     }
   },
   "narrative": {
     "en": {
       "questions": [
-        "Where does the account begin and end? What sequence and turning point does the teller construct?",
-        "How does the teller present themselves and address an audience? How does the telling shape the experience?",
-        "What would be lost if you split the story into isolated topic codes? How would you report its structure and meaning?"
+        "What does narrative analysis help us understand about this story and how the teacher tells it?",
+        "Using a short fictional account, show how a researcher examines the sequence of events, a turning point and how the teacher presents themselves.",
+        "What would a narrative-analysis finding look like? What understanding might be lost if the account were separated into unrelated topic codes?"
       ],
       "features": [
         "Treats the story and its telling as an analytic focus.",
         "Examines chronology, plot, turning points, voice and self-presentation in context.",
         "Preserves connections within a narrated journey when developing an interpretation."
-      ]
+      ],
+      "context": "Learning scenario: A teacher tells the story of moving from industry into teaching, describing early expectations, difficulties and a turning point."
     },
     "zh": {
       "questions": [
-        "敘述在哪裡開始及結束？講述者建構甚麼次序與轉折？",
-        "講述者如何呈現自己及面向聽眾？講述方式如何塑造經驗？",
-        "若把故事分割成獨立話題代碼，會失去甚麼？如何報告其結構與意義？"
+        "敘事分析能幫助我們理解這個故事及教師的講述方式中的哪些方面？",
+        "用一段簡短的虛構敘述，示範研究者如何檢視事件次序、轉折，以及教師如何呈現自己。",
+        "敘事分析的發現會是甚麼樣子？若把敘述拆成互不相連的話題代碼，可能失去哪些理解？"
       ],
       "features": [
         "以故事及其講述方式為分析焦點。",
         "在語境中檢視時間次序、情節、轉折、聲音及自我呈現。",
         "發展詮釋時保留敘事歷程內的連繫。"
-      ]
+      ],
+      "context": "學習情境：一位教師講述由業界轉入教職的故事，描述最初期望、困難及一個轉折。"
     }
   },
   "discourse": {
     "en": {
       "questions": [
-        "What is the wording doing: justifying an action, claiming expertise or assigning a role?",
-        "Which contrasts, pronouns or descriptions position the speaker and other people? What textual evidence supports that reading?",
-        "How would the social or interactional context change your interpretation? How does this differ from classifying what was mentioned?"
+        "What does discourse analysis ask about this policy language? How does its focus differ from listing the topics mentioned?",
+        "Examine “must”, “check” and “prove”. What possible roles or relationships do these words construct? Explain the textual evidence for each interpretation.",
+        "What information about the policy’s audience, production and use would help assess those interpretations? Show what a cautious discourse-analysis finding might look like."
       ],
       "features": [
         "Examines language as social action and the construction of meanings and positions.",
         "Analyses specific linguistic choices in their social or interactional context.",
         "Builds an evidence-based account of what language does, using a stated discourse approach."
-      ]
+      ],
+      "context": "Learning scenario: A fictional school policy states: “Teachers must check all AI-assisted work. Students must prove that submitted work is their own.” A researcher asks how this wording constructs teachers’ and students’ roles."
     },
     "zh": {
       "questions": [
-        "措辭正在做甚麼：合理化行動、聲稱專業，還是分配角色？",
-        "哪些對比、代詞或描述定位了講述者與他人？甚麼文本證據支持這種讀法？",
-        "社會或互動語境如何改變詮釋？這與分類「提及甚麼」有何差異？"
+        "話語分析會對這段校規語言提出哪些問題？它的焦點與列出所提及的話題有何差異？",
+        "檢視「必須」、「檢查」及「證明」。這些字詞可能建構甚麼角色或關係？說明支持各詮釋的文本證據。",
+        "哪些關於校規受眾、產生及使用的資料，有助評估上述詮釋？示範一項審慎的話語分析發現。"
       ],
       "features": [
         "把語言視為社會行動，檢視意義及位置如何被建構。",
         "在社會或互動語境中分析具體語言選擇。",
         "交代話語分析取向，以證據說明語言的作用。"
-      ]
+      ],
+      "context": "學習情境：虛構校規寫道：「教師必須檢查所有AI輔助作業。學生必須證明提交的作業是自己完成的。」研究者探究這些措辭如何建構教師與學生的角色。"
     }
   },
   "critical": {
     "en": {
       "questions": [
-        "Whose interests or authority does the wording support? Whose perspective is absent or marginalised?",
-        "Which textual choices make an unequal arrangement appear normal or legitimate?",
-        "What institutional or social evidence would connect that language to power and inequality? How would you avoid claiming more than the evidence supports?"
+        "What additional questions about power and inequality would critical discourse analysis bring to this policy?",
+        "Which wording could support an interpretation about authority or responsibility? What alternative interpretation should the researcher consider?",
+        "What further evidence about school rules and actual practices would support a claim about inequality? Show how textual and contextual evidence could be connected in a finding."
       ],
       "features": [
         "Makes power, ideology and inequality explicit analytic concerns.",
         "Connects close textual analysis with institutional and social relations.",
         "Supports critical interpretations with both textual and contextual evidence."
-      ]
+      ],
+      "context": "Learning scenario: A fictional school policy states: “Teachers must check all AI-assisted work. Students must prove that submitted work is their own.” A researcher examines how responsibilities, authority and opportunities to challenge decisions are distributed."
     },
     "zh": {
       "questions": [
-        "措辭支持誰的利益或權威？誰的觀點缺席或被邊緣化？",
-        "哪些文本選擇令不平等安排顯得正常或合理？",
-        "甚麼制度或社會證據能把語言與權力及不平等連繫？如何讓主張與證據範圍相符？"
+        "批判話語分析會對這項校規增添哪些關於權力及不平等的問題？",
+        "哪些措辭可能支持關於權威或責任的詮釋？研究者應考慮甚麼其他解讀？",
+        "哪些關於校規及實際做法的補充證據，能支持不平等的主張？示範如何在一項發現中連繫文本與語境證據。"
       ],
       "features": [
         "明確關注權力、意識形態及不平等。",
         "把細緻文本分析與制度及社會關係連繫。",
         "以文本和語境證據支持批判詮釋。"
-      ]
+      ],
+      "context": "學習情境：虛構校規寫道：「教師必須檢查所有AI輔助作業。學生必須證明提交的作業是自己完成的。」研究者檢視責任、權威及質疑決定的機會如何被分配。"
     }
   }
 };
