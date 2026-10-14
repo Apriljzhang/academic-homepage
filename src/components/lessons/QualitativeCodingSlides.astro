@@ -22,8 +22,6 @@ const abductionSource = 'https://doi.org/10.1177/0735275112457914';
     <p class="qa-question"><strong>{language === 'zh' ? '課堂問題：' : 'Classroom question: '}</strong>{language === 'zh' ? '疫情期間在家工作如何改變日常工作生活？' : 'How did working at home during the pandemic reshape everyday working life?'}</p>
     <div class="qa-interview"><p><strong>{language === 'zh' ? '訪談者：' : 'Interviewer: '}</strong>{interview[language].question}</p><p><strong>{language === 'zh' ? '參與者：' : 'Participant:'}</strong></p>{interview[language].paragraphs.map((paragraph) => <p>{paragraph}</p>)}</div>
     <p class="qa-teacher">{language === 'zh' ? '標記每個有意義的片語或句子。哪個標籤貼近資料？哪個位置可能需要多於一個代碼？保留完整敘述作語境。' : 'Mark each meaningful phrase or sentence. Which label stays close to the material? Where might a segment need more than one code? Keep the full account as context.'}</p>
-    <label class="qa-write">{language === 'zh' ? '選兩個片語或句子，記下代碼及理由。' : 'Choose two phrases or sentences and note your codes and reasons.'}<textarea data-save={language === 'zh' ? 'remote-work-codes-zh' : 'remote-work-codes'} rows="3"></textarea></label>
-    <p class="qa-source"><a href={creatorExample} target="_blank" rel="noopener noreferrer">{language === 'zh' ? '文本來源：Elizabeth Yardley · Degree Doctor（中文為課堂翻譯）' : 'Interview source: Elizabeth Yardley · Degree Doctor'} ↗</a></p>
   </div>)}
 </div></section>}
 {part === 'practice' && <section class="slide" data-title="Final practice · compare coding routes" aria-hidden="true"><div class="slide-inner">
