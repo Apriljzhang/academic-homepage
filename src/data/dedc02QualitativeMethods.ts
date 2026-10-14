@@ -63,7 +63,8 @@ export const qualitativeMethods = [
         "How are categories developed and applied?",
         "How are frequencies counted and interpreted?",
         "What do content-analysis findings look like?"
-      ]
+      ],
+      "bookNote": "Krippendorff emphasises drawing justified conclusions from recorded material about the context in which it is used. Material may include texts, images and sounds. Clear, consistently applied coding rules help make the analysis repeatable (reliability); supporting evidence is needed to justify the conclusions (validity)."
     },
     "zh": {
       "name": "內容分析",
@@ -83,10 +84,11 @@ export const qualitativeMethods = [
         "如何建立並應用類別？",
         "如何計算並詮釋頻次？",
         "內容分析的發現會是甚麼樣子？"
-      ]
+      ],
+      "bookNote": "Krippendorff強調，內容分析由記錄下來的資料，對其使用語境作出有依據的推論。資料可包括文本、圖像及聲音。清楚且一致應用的編碼規則有助重複分析（信度）；結論須有支持證據，才能確立其效度。"
     },
-    "source": "Krippendorff & Bock · The Content Analysis Reader",
-    "url": "https://www.sagepub.com/shop/buy-a-book/the-content-analysis-reader-1-228960",
+    "source": "Krippendorff (2004) · Content Analysis, 2nd ed. · Chapter 2, pp. 18–19",
+    "url": "https://books.google.com/books/about/Content_Analysis.html?id=q657o3M3C8cC",
     "study": null
   },
   {
