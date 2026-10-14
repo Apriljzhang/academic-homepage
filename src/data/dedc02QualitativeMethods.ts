@@ -55,16 +55,15 @@ export const qualitativeMethods = [
         "Classify the material. When frequency serves the question, count occurrences or cases using explicit rules and report the denominator for percentages.",
         "Interpret category meanings, distributions, relationships and exceptions in context."
       ],
-      "output": "A category table with definitions and source-linked examples; where appropriate, a frequency or percentage table and an interpretation of the distribution.",
-      "example": "In the teacher practice text, “grading” and “administrative tasks” can enter a work-demands category. Define the category boundary and keep the sentence context.",
+      "output": "Category and frequency tables with interpretations.",
+      "example": "The category table uses the teacher practice text (PT1). The frequency table is a separate fictional example of 30 teacher responses.",
       "questions": [
         "What is content analysis?",
         "What kinds of material can it analyse?",
         "How are categories developed and applied?",
         "How are frequencies counted and interpreted?",
         "What do content-analysis findings look like?"
-      ],
-      "bookNote": "Krippendorff emphasises drawing justified conclusions from recorded material about the context in which it is used. Material may include texts, images and sounds. Clear, consistently applied coding rules help make the analysis repeatable (reliability); supporting evidence is needed to justify the conclusions (validity)."
+      ]
     },
     "zh": {
       "name": "內容分析",
@@ -76,19 +75,18 @@ export const qualitativeMethods = [
         "分類資料；若頻次有助回答問題，按明確規則計算出現次數或個案數，並交代百分比的分母。",
         "在語境中詮釋類別意義、分布、關係及例外。"
       ],
-      "output": "附定義及來源例子的類別表；在適當情況下提供頻次或百分比表，並詮釋其分布。",
-      "example": "教師練習文本中的「評分」及「管理任務」可歸入工作要求類別；須界定類別邊界並保留句子語境。",
+      "output": "類別及頻次表，附有詮釋。",
+      "example": "類別表使用教師練習文本（PT1）；頻次表則是另一個包含30份教師回應的虛構例子。",
       "questions": [
         "甚麼是內容分析？",
         "它可以分析哪些資料？",
         "如何建立並應用類別？",
         "如何計算並詮釋頻次？",
         "內容分析的發現會是甚麼樣子？"
-      ],
-      "bookNote": "Krippendorff強調，內容分析由記錄下來的資料，對其使用語境作出有依據的推論。資料可包括文本、圖像及聲音。清楚且一致應用的編碼規則有助重複分析（信度）；結論須有支持證據，才能確立其效度。"
+      ]
     },
-    "source": "Krippendorff (2004) · Content Analysis, 2nd ed. · Chapter 2, pp. 18–19",
-    "url": "https://books.google.com/books/about/Content_Analysis.html?id=q657o3M3C8cC",
+    "source": "Hsieh & Shannon (2005)",
+    "url": "https://doi.org/10.1177/1049732305276687",
     "study": null
   },
   {
@@ -371,52 +369,52 @@ export const methodOutputs: Record<string, { en: { label: string; columns: strin
   },
   "content": {
     "en": {
-      "label": "Practice-text illustration · a small category system",
+      "label": "Category table · definitions and source-linked examples",
       "columns": [
         "Category",
-        "Inclusion rule",
-        "Practice-text example"
+        "Definition / inclusion rule",
+        "Source-linked example"
       ],
       "rows": [
         [
           "Work demands",
           "Tasks requiring time and effort",
-          "Grading; administrative tasks"
+          "PT1: “grading and administrative tasks”"
         ],
         [
           "Desired support",
-          "Requested assistance or sharing",
-          "Ideas and resources from colleagues"
+          "Assistance or sharing the teacher would like",
+          "PT1: “more support from my colleagues to share ideas and resources”"
         ],
         [
           "Sources of fulfilment",
           "Experiences described as rewarding",
-          "Students engage and learn"
+          "PT1: “seeing my students engage and learn makes it all worthwhile”"
         ]
       ]
     },
     "zh": {
-      "label": "課堂文本示例 · 小型類別系統",
+      "label": "類別表 · 定義及附來源例子",
       "columns": [
         "類別",
-        "納入規則",
-        "課堂文本例子"
+        "定義／納入規則",
+        "附來源例子"
       ],
       "rows": [
         [
           "工作要求",
           "需要時間及投入的任務",
-          "評分、管理任務"
+          "PT1：「評分和管理任務」"
         ],
         [
           "期望支援",
-          "提出需要的協助或分享",
-          "同事的想法及資源"
+          "教師希望獲得的協助或分享",
+          "PT1：「同事們能給我更多的支援，以分享想法和資源」"
         ],
         [
           "滿足感來源",
           "被描述為有回報的經驗",
-          "學生參與及學習"
+          "PT1：「看到我的學生參與和學習讓這一切都是值得的」"
         ]
       ]
     }
@@ -610,6 +608,63 @@ export const methodOutputs: Record<string, { en: { label: string; columns: strin
     }
   }
 };
+
+export const contentFrequencyExample = {
+  "en": {
+    "label": "Frequency table · fictional example, 30 teacher responses",
+    "countingRule": "Counting unit: teacher. Count each teacher once per category. A response can receive several categories, so percentages need not total 100%.",
+    "columns": [
+      "Category",
+      "Teachers mentioning it (n)",
+      "Percentage (n / 30)"
+    ],
+    "rows": [
+      [
+        "Work demands",
+        "18",
+        "60%"
+      ],
+      [
+        "Desired support",
+        "12",
+        "40%"
+      ],
+      [
+        "Sources of fulfilment",
+        "21",
+        "70%"
+      ]
+    ],
+    "interpretation": "Illustrative interpretation: Fulfilment is mentioned by the largest number of teachers (21 of 30), followed by work demands (18) and desired support (12). These figures describe how widely each category is mentioned. Read the original accounts to understand the experiences behind the counts."
+  },
+  "zh": {
+    "label": "頻次表 · 虛構例子，30份教師回應",
+    "countingRule": "計數單位：教師。每個類別中，每位教師只計算一次；同一回應可歸入多個類別，因此百分比不必合計為100%。",
+    "columns": [
+      "類別",
+      "提及該類別的教師人數（n）",
+      "百分比（n／30）"
+    ],
+    "rows": [
+      [
+        "工作要求",
+        "18",
+        "60%"
+      ],
+      [
+        "期望支援",
+        "12",
+        "40%"
+      ],
+      [
+        "滿足感來源",
+        "21",
+        "70%"
+      ]
+    ],
+    "interpretation": "示例詮釋：提及滿足感的教師最多（30人中有21人），其次是工作要求（18人）及期望支援（12人）。這些數字呈現各類別被提及的廣泛程度；仍須閱讀原始敘述，理解計數背後的經驗。"
+  }
+} as const;
 
 // Classroom questions precede the distinguishing features in each method branch.
 export const methodLearningGuides = {
