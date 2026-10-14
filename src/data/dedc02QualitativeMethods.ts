@@ -13,9 +13,11 @@ export const qualitativeMethods = [
       "output": "A thematic map and an analytic account supported by extracts.",
       "example": "Classroom illustration: workload, peer support and professional fulfilment are starting topics. A candidate theme could explore how student progress makes demanding work feel worthwhile. Test that idea in a fuller dataset.",
       "questions": [
-        "What distinguishes reflexive, codebook and coding-reliability thematic analysis? Compare assumptions, researcher roles and quality criteria.",
-        "Using the supplied practice text, show how a code, a topic and a candidate interpretive theme do different work. Explain the evidence for each.",
-        "Walk me through one analytic phase at a time. Ask me to justify my choice before offering another interpretation."
+        "What is thematic analysis?",
+        "What kinds of research questions can it answer?",
+        "What are codes and themes?",
+        "What are the main steps in developing themes?",
+        "What do thematic-analysis findings look like?"
       ]
     },
     "zh": {
@@ -30,9 +32,11 @@ export const qualitativeMethods = [
       "output": "主題圖及附資料片段支持的分析敘述。",
       "example": "課堂示例：工作量、同儕支援及專業滿足感是起點話題。候選主題可探究學生進步如何令繁重工作顯得值得；須回到更完整資料檢驗。",
       "questions": [
-        "反思性、編碼手冊及編碼信度主題分析有何差異？比較假設、研究者角色與質量準則。",
-        "用所提供的練習文本，示範代碼、話題及候選詮釋主題的不同作用，逐項解釋證據。",
-        "每次引導我完成一個分析階段；先要求我解釋選擇，再提出另一種詮釋。"
+        "甚麼是主題分析？",
+        "它可以回答哪些研究問題？",
+        "甚麼是代碼與主題？",
+        "發展主題的主要步驟是甚麼？",
+        "主題分析的發現會是甚麼樣子？"
       ]
     },
     "source": "Braun & Clarke · Understanding TA",
@@ -54,9 +58,11 @@ export const qualitativeMethods = [
       "output": "A category table with definitions and source-linked examples; where appropriate, a frequency or percentage table and an interpretation of the distribution.",
       "example": "In the teacher practice text, “grading” and “administrative tasks” can enter a work-demands category. Define the category boundary and keep the sentence context.",
       "questions": [
-        "What does content analysis help this researcher understand? Explain what a category is and how categories can be developed from the text or prior concepts.",
-        "Using three fictional interview extracts, show how to choose a coding unit and define categories with inclusion rules and examples. Explain how to handle an extract that fits more than one category.",
-        "Show a clearly fictional category-and-frequency table. Explain the difference between counting mentions and counting teachers, how to calculate percentages, and what the counts can and cannot tell us about meaning or importance."
+        "What is content analysis?",
+        "What kinds of material can it analyse?",
+        "How are categories developed and applied?",
+        "How are frequencies counted and interpreted?",
+        "What do content-analysis findings look like?"
       ]
     },
     "zh": {
@@ -72,9 +78,11 @@ export const qualitativeMethods = [
       "output": "附定義及來源例子的類別表；在適當情況下提供頻次或百分比表，並詮釋其分布。",
       "example": "教師練習文本中的「評分」及「管理任務」可歸入工作要求類別；須界定類別邊界並保留句子語境。",
       "questions": [
-        "內容分析能幫助研究者理解甚麼？解釋何謂類別，以及如何由文本或既有概念建立類別。",
-        "用三段虛構訪談，示範如何選擇編碼單位，並以納入規則及例子界定類別；解釋如何處理符合多個類別的片段。",
-        "展示明確標示為虛構的類別與頻次表。解釋計算提及次數與提及該類別的教師人數有何差異、如何計算百分比，以及計數能否說明意義或重要性。"
+        "甚麼是內容分析？",
+        "它可以分析哪些資料？",
+        "如何建立並應用類別？",
+        "如何計算並詮釋頻次？",
+        "內容分析的發現會是甚麼樣子？"
       ]
     },
     "source": "Krippendorff & Bock · The Content Analysis Reader",
@@ -95,9 +103,11 @@ export const qualitativeMethods = [
       "output": "A contextualised account or narrative reconstruction, supported by the teller’s words.",
       "example": "The teacher practice paragraph is a short reflective account. A richer career story would be needed to explore transitions, turning points and changing identity in depth.",
       "questions": [
-        "What makes a narrative unit, and how would analysing a whole story shape my interpretation?",
-        "Compare thematic, structural and dialogic/performance narrative analysis using a fictional teacher story.",
-        "Show an illustrative narrative finding with a turning point and explain how quotation, sequence and context support it."
+        "What is narrative analysis?",
+        "What kinds of stories or accounts can it analyse?",
+        "What are its main steps?",
+        "Why do the order of events and the way a story is told matter?",
+        "What do narrative-analysis findings look like?"
       ]
     },
     "zh": {
@@ -112,9 +122,11 @@ export const qualitativeMethods = [
       "output": "附敘述者原話支持的語境化敘述或敘事重構。",
       "example": "教師練習段落是短篇反思敘述；若要深入探究轉變、轉折及身份變化，仍需更豐富的職涯故事。",
       "questions": [
-        "甚麼構成敘事單位？分析完整故事會如何影響詮釋？",
-        "用虛構教師故事比較主題式、結構式及對話／表演式敘事分析。",
-        "示範含轉折的敘事發現，解釋引文、次序與語境如何支持它。"
+        "甚麼是敘事分析？",
+        "它可以分析哪些故事或敘述？",
+        "它的主要步驟是甚麼？",
+        "為何事件次序及故事的講述方式重要？",
+        "敘事分析的發現會是甚麼樣子？"
       ]
     },
     "source": "Riessman · Narrative Methods",
@@ -141,9 +153,11 @@ export const qualitativeMethods = [
       "output": "An evidence-linked account of how particular linguistic choices accomplish social work.",
       "example": "The teacher’s “I sometimes wish” makes a request indirectly; “all worthwhile” positions commitment. These are possible readings to examine in context.",
       "questions": [
-        "Compare approaches to discourse analysis, including critical discourse analysis. Show how wording, positioning and power shape the analysis of a fictional educational text.",
-        "Explain how to move from a specific linguistic feature to a supported social interpretation.",
-        "Compare discourse analysis with content analysis using the same sentence and explain how the questions differ."
+        "What is discourse analysis?",
+        "What kinds of texts or interactions can it analyse?",
+        "What are its main steps?",
+        "How does it examine what language does in its context?",
+        "What do discourse-analysis findings look like?"
       ]
     },
     "zh": {
@@ -158,9 +172,11 @@ export const qualitativeMethods = [
       "output": "連結證據，說明特定語言選擇如何發揮社會作用。",
       "example": "教師的「我有時希望」以間接方式提出需要；「值得」呈現投入。這些是待語境支持的可能解讀。",
       "questions": [
-        "比較話語分析取向，包括批判話語分析；用虛構教育文本示範措辭、定位及權力如何影響分析。",
-        "解釋如何由特定語言特徵形成有證據支持的社會詮釋。",
-        "用同一句比較話語及內容分析，解釋兩者問題有何差異。"
+        "甚麼是話語分析？",
+        "它可以分析哪些文本或互動？",
+        "它的主要步驟是甚麼？",
+        "它如何檢視語言在語境中的作用？",
+        "話語分析的發現會是甚麼樣子？"
       ]
     },
     "source": "Gee · Discourse analysis",
@@ -187,9 +203,11 @@ export const qualitativeMethods = [
       "output": "An argument linking specific textual evidence, discursive practices and social structures.",
       "example": "A fictional policy calling learners “future workforce assets” could position education around productivity. Examine who gains authority and which educational purposes are absent.",
       "questions": [
-        "Using Fairclough’s model, distinguish textual analysis, discursive practice and social explanation in a fictional policy.",
-        "Show exactly which linguistic evidence could support a claim about power or inequality, and offer an alternative reading.",
-        "How does a critical discourse analysis finding differ from simply expressing disapproval of a policy?"
+        "What is critical discourse analysis?",
+        "How does it relate to discourse analysis?",
+        "What are its main steps?",
+        "How does it examine language, power and inequality?",
+        "What do critical discourse-analysis findings look like?"
       ]
     },
     "zh": {
@@ -204,9 +222,11 @@ export const qualitativeMethods = [
       "output": "把具體文本證據、話語實踐及社會結構連繫起來的論證。",
       "example": "虛構政策把學習者稱為「未來勞動力資產」，可能以生產力定位教育；檢視誰獲得權威及哪些教育目的缺席。",
       "questions": [
-        "用Fairclough模型，區分虛構政策的文本分析、話語實踐與社會解釋。",
-        "逐項展示哪些語言證據支持權力或不平等主張，並提出另一種解讀。",
-        "批判話語分析的發現與直接表達對政策的不滿有何差異？"
+        "甚麼是批判話語分析？",
+        "它與話語分析有甚麼關係？",
+        "它的主要步驟是甚麼？",
+        "它如何檢視語言、權力與不平等？",
+        "批判話語分析的發現會是甚麼樣子？"
       ]
     },
     "source": "Balán (2026) · empirical application of Fairclough’s model",
@@ -233,9 +253,11 @@ export const qualitativeMethods = [
       "output": "A substantive theory or process model with evidence for relationships between categories.",
       "example": "The teacher practice text could suggest an initial question about sustaining commitment under workload pressure. A theory would require iterative data collection and comparison.",
       "questions": [
-        "Compare constructivist and Straussian grounded theory, including their coding language and assumptions.",
-        "Explain constant comparison, memo writing and theoretical sampling through an evolving fictional teacher study.",
-        "Show how categories connect into a process model and what extra data would strengthen each proposed relationship."
+        "What is grounded theory analysis?",
+        "What kinds of research questions can it answer?",
+        "What are its main steps?",
+        "How does comparing data help researchers develop a theory?",
+        "What does a grounded-theory finding look like?"
       ]
     },
     "zh": {
@@ -250,9 +272,11 @@ export const qualitativeMethods = [
       "output": "附類別關係證據的實質理論或過程模型。",
       "example": "教師練習文本可引出工作壓力下如何維持投入的初步問題；建立理論仍需反覆收集資料與比較。",
       "questions": [
-        "比較建構主義及Strauss取向的紮根理論，包括編碼用語與假設。",
-        "以逐步發展的虛構教師研究解釋持續比較、備忘錄及理論抽樣。",
-        "示範類別如何連繫成過程模型，以及哪些補充資料能支持各項關係。"
+        "甚麼是紮根理論分析？",
+        "它可以回答哪些研究問題？",
+        "它的主要步驟是甚麼？",
+        "比較資料如何幫助研究者建立理論？",
+        "紮根理論的發現會是甚麼樣子？"
       ]
     },
     "source": "Charmaz · Constructing Grounded Theory",
@@ -590,169 +614,181 @@ export const methodLearningGuides = {
   "thematic": {
     "en": {
       "questions": [
-        "What does thematic analysis help this researcher understand? What kinds of research questions suit this method?",
-        "Using three short fictional interview extracts, show how the researcher moves from reading the text to coding and developing a candidate theme. Explain each decision.",
-        "What would a thematic-analysis finding look like? Show how a theme explains something about teachers’ experiences and how it differs from a topic heading such as “support”."
+        "What is thematic analysis?",
+        "What kinds of research questions can it answer?",
+        "What are codes and themes?",
+        "What are the main steps in developing themes?",
+        "What do thematic-analysis findings look like?"
       ],
       "features": [
         "Develops patterns of meaning across a dataset in relation to a research question.",
         "Themes organise an analytic account; their meaning and development depend on the chosen approach.",
         "Reflexive, codebook and coding-reliability approaches use different researcher roles and quality criteria."
-      ],
-      "context": "Learning scenario: A researcher interviews teachers about learning to use a new feedback tool, asking how support and confidence are experienced across their accounts."
+      ]
     },
     "zh": {
       "questions": [
-        "主題分析能幫助研究者理解甚麼？哪些研究問題適合使用此方法？",
-        "用三段簡短的虛構訪談，示範研究者如何由閱讀文本、編碼走向候選主題，逐步解釋決定。",
-        "主題分析的發現會是甚麼樣子？示範主題如何解釋教師經驗，以及它與「支援」這類話題標題有何差異。"
+        "甚麼是主題分析？",
+        "它可以回答哪些研究問題？",
+        "甚麼是代碼與主題？",
+        "發展主題的主要步驟是甚麼？",
+        "主題分析的發現會是甚麼樣子？"
       ],
       "features": [
         "圍繞研究問題，發展整組資料中的意義模式。",
         "主題統整分析敘述；其意義及發展方式取決於所選取向。",
         "反思性、編碼手冊及編碼信度取向採用不同研究者角色與質量準則。"
-      ],
-      "context": "學習情境：研究者訪談教師學習使用新回饋工具的經驗，探究不同敘述中如何體驗支援與信心。"
+      ]
     }
   },
   "content": {
     "en": {
       "questions": [
-        "What does content analysis help this researcher understand? Explain what a category is and how categories can be developed from the text or prior concepts.",
-        "Using three fictional interview extracts, show how to choose a coding unit and define categories with inclusion rules and examples. Explain how to handle an extract that fits more than one category.",
-        "Show a clearly fictional category-and-frequency table. Explain the difference between counting mentions and counting teachers, how to calculate percentages, and what the counts can and cannot tell us about meaning or importance."
+        "What is content analysis?",
+        "What kinds of material can it analyse?",
+        "How are categories developed and applied?",
+        "How are frequencies counted and interpreted?",
+        "What do content-analysis findings look like?"
       ],
       "features": [
         "Uses an explicit category system to classify and interpret content.",
         "Can report frequencies or percentages for a defined unit: words, coded segments, documents or participants.",
         "Defines category boundaries and counting rules, then interprets distributions in context; frequency alone does not establish importance."
-      ],
-      "context": "Learning scenario: A researcher analyses 30 teacher interviews to identify the purposes of feedback they describe and how frequently each purpose is mentioned."
+      ]
     },
     "zh": {
       "questions": [
-        "內容分析能幫助研究者理解甚麼？解釋何謂類別，以及如何由文本或既有概念建立類別。",
-        "用三段虛構訪談，示範如何選擇編碼單位，並以納入規則及例子界定類別；解釋如何處理符合多個類別的片段。",
-        "展示明確標示為虛構的類別與頻次表。解釋計算提及次數與提及該類別的教師人數有何差異、如何計算百分比，以及計數能否說明意義或重要性。"
+        "甚麼是內容分析？",
+        "它可以分析哪些資料？",
+        "如何建立並應用類別？",
+        "如何計算並詮釋頻次？",
+        "內容分析的發現會是甚麼樣子？"
       ],
       "features": [
         "運用明確的類別系統分類並詮釋內容。",
         "可按明確單位報告頻次或百分比：字詞、編碼片段、文件或參與者。",
         "界定類別邊界及計數規則，再結合語境詮釋分布；頻次本身不能確立重要性。"
-      ],
-      "context": "學習情境：研究者分析30份教師訪談，辨識教師描述的回饋目的，以及各目的被提及的頻次。"
+      ]
     }
   },
   "grounded": {
     "en": {
       "questions": [
-        "What does grounded theory analysis aim to produce? Why would the researcher continue collecting data while analysing earlier interviews?",
-        "Using a fictional teacher example, explain how comparing incidents, writing analytic notes and developing categories help the researcher understand the process.",
-        "Suppose an early idea is that teachers seek peer help when formal training proves insufficient. Whom should the researcher interview next, and why? Show how further evidence could change the developing explanation."
+        "What is grounded theory analysis?",
+        "What kinds of research questions can it answer?",
+        "What are its main steps?",
+        "How does comparing data help researchers develop a theory?",
+        "What does a grounded-theory finding look like?"
       ],
       "features": [
         "Develops an explanatory theory of a process through iterative analysis and data collection.",
         "Uses constant comparison, analytic memos and theoretical sampling to develop categories and their relationships.",
         "States the grounded-theory tradition and follows its analytic logic."
-      ],
-      "context": "Learning scenario: A researcher wants to explain how novice teachers learn to manage difficulties with a new feedback tool. Interviews and analysis continue together as the study develops."
+      ]
     },
     "zh": {
       "questions": [
-        "紮根理論分析旨在產生甚麼成果？為何研究者分析早期訪談時，仍會繼續收集資料？",
-        "用虛構教師例子，解釋比較事件、撰寫分析筆記及發展類別如何幫助研究者理解過程。",
-        "假設初步概念是教師在正式培訓不足時尋求同儕協助，下一步應訪談誰？為甚麼？示範補充證據如何改變正在發展的解釋。"
+        "甚麼是紮根理論分析？",
+        "它可以回答哪些研究問題？",
+        "它的主要步驟是甚麼？",
+        "比較資料如何幫助研究者建立理論？",
+        "紮根理論的發現會是甚麼樣子？"
       ],
       "features": [
         "透過反覆分析與資料收集，發展過程的解釋理論。",
         "以持續比較、分析備忘及理論抽樣發展類別及其關係。",
         "交代所採紮根理論傳統，依循其分析邏輯。"
-      ],
-      "context": "學習情境：研究者希望解釋新任教師如何學會處理新回饋工具帶來的困難。隨著研究發展，訪談與分析同步進行。"
+      ]
     }
   },
   "narrative": {
     "en": {
       "questions": [
-        "What does narrative analysis help us understand about this story and how the teacher tells it?",
-        "Using a short fictional account, show how a researcher examines the sequence of events, a turning point and how the teacher presents themselves.",
-        "What would a narrative-analysis finding look like? What understanding might be lost if the account were separated into unrelated topic codes?"
+        "What is narrative analysis?",
+        "What kinds of stories or accounts can it analyse?",
+        "What are its main steps?",
+        "Why do the order of events and the way a story is told matter?",
+        "What do narrative-analysis findings look like?"
       ],
       "features": [
         "Treats the story and its telling as an analytic focus.",
         "Examines chronology, plot, turning points, voice and self-presentation in context.",
         "Preserves connections within a narrated journey when developing an interpretation."
-      ],
-      "context": "Learning scenario: A teacher tells the story of moving from industry into teaching, describing early expectations, difficulties and a turning point."
+      ]
     },
     "zh": {
       "questions": [
-        "敘事分析能幫助我們理解這個故事及教師的講述方式中的哪些方面？",
-        "用一段簡短的虛構敘述，示範研究者如何檢視事件次序、轉折，以及教師如何呈現自己。",
-        "敘事分析的發現會是甚麼樣子？若把敘述拆成互不相連的話題代碼，可能失去哪些理解？"
+        "甚麼是敘事分析？",
+        "它可以分析哪些故事或敘述？",
+        "它的主要步驟是甚麼？",
+        "為何事件次序及故事的講述方式重要？",
+        "敘事分析的發現會是甚麼樣子？"
       ],
       "features": [
         "以故事及其講述方式為分析焦點。",
         "在語境中檢視時間次序、情節、轉折、聲音及自我呈現。",
         "發展詮釋時保留敘事歷程內的連繫。"
-      ],
-      "context": "學習情境：一位教師講述由業界轉入教職的故事，描述最初期望、困難及一個轉折。"
+      ]
     }
   },
   "discourse": {
     "en": {
       "questions": [
-        "What does discourse analysis ask about this policy language? How does its focus differ from listing the topics mentioned?",
-        "Examine “must”, “check” and “prove”. What possible roles or relationships do these words construct? Explain the textual evidence for each interpretation.",
-        "What information about the policy’s audience, production and use would help assess those interpretations? Show what a cautious discourse-analysis finding might look like."
+        "What is discourse analysis?",
+        "What kinds of texts or interactions can it analyse?",
+        "What are its main steps?",
+        "How does it examine what language does in its context?",
+        "What do discourse-analysis findings look like?"
       ],
       "features": [
         "Examines language as social action and the construction of meanings and positions.",
         "Analyses specific linguistic choices in their social or interactional context.",
         "Builds an evidence-based account of what language does, using a stated discourse approach."
-      ],
-      "context": "Learning scenario: A fictional school policy states: “Teachers must check all AI-assisted work. Students must prove that submitted work is their own.” A researcher asks how this wording constructs teachers’ and students’ roles."
+      ]
     },
     "zh": {
       "questions": [
-        "話語分析會對這段校規語言提出哪些問題？它的焦點與列出所提及的話題有何差異？",
-        "檢視「必須」、「檢查」及「證明」。這些字詞可能建構甚麼角色或關係？說明支持各詮釋的文本證據。",
-        "哪些關於校規受眾、產生及使用的資料，有助評估上述詮釋？示範一項審慎的話語分析發現。"
+        "甚麼是話語分析？",
+        "它可以分析哪些文本或互動？",
+        "它的主要步驟是甚麼？",
+        "它如何檢視語言在語境中的作用？",
+        "話語分析的發現會是甚麼樣子？"
       ],
       "features": [
         "把語言視為社會行動，檢視意義及位置如何被建構。",
         "在社會或互動語境中分析具體語言選擇。",
         "交代話語分析取向，以證據說明語言的作用。"
-      ],
-      "context": "學習情境：虛構校規寫道：「教師必須檢查所有AI輔助作業。學生必須證明提交的作業是自己完成的。」研究者探究這些措辭如何建構教師與學生的角色。"
+      ]
     }
   },
   "critical": {
     "en": {
       "questions": [
-        "What additional questions about power and inequality would critical discourse analysis bring to this policy?",
-        "Which wording could support an interpretation about authority or responsibility? What alternative interpretation should the researcher consider?",
-        "What further evidence about school rules and actual practices would support a claim about inequality? Show how textual and contextual evidence could be connected in a finding."
+        "What is critical discourse analysis?",
+        "How does it relate to discourse analysis?",
+        "What are its main steps?",
+        "How does it examine language, power and inequality?",
+        "What do critical discourse-analysis findings look like?"
       ],
       "features": [
         "Makes power, ideology and inequality explicit analytic concerns.",
         "Connects close textual analysis with institutional and social relations.",
         "Supports critical interpretations with both textual and contextual evidence."
-      ],
-      "context": "Learning scenario: A fictional school policy states: “Teachers must check all AI-assisted work. Students must prove that submitted work is their own.” A researcher examines how responsibilities, authority and opportunities to challenge decisions are distributed."
+      ]
     },
     "zh": {
       "questions": [
-        "批判話語分析會對這項校規增添哪些關於權力及不平等的問題？",
-        "哪些措辭可能支持關於權威或責任的詮釋？研究者應考慮甚麼其他解讀？",
-        "哪些關於校規及實際做法的補充證據，能支持不平等的主張？示範如何在一項發現中連繫文本與語境證據。"
+        "甚麼是批判話語分析？",
+        "它與話語分析有甚麼關係？",
+        "它的主要步驟是甚麼？",
+        "它如何檢視語言、權力與不平等？",
+        "批判話語分析的發現會是甚麼樣子？"
       ],
       "features": [
         "明確關注權力、意識形態及不平等。",
         "把細緻文本分析與制度及社會關係連繫。",
         "以文本和語境證據支持批判詮釋。"
-      ],
-      "context": "學習情境：虛構校規寫道：「教師必須檢查所有AI輔助作業。學生必須證明提交的作業是自己完成的。」研究者檢視責任、權威及質疑決定的機會如何被分配。"
+      ]
     }
   }
 };
