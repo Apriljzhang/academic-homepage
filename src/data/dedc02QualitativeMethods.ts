@@ -167,8 +167,54 @@ export const qualitativeMethods = [
       "citation": "Balán (2026) · critical discourse analysis",
       "title": "The “skills-first” illusion",
       "url": "https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2026.1702457/full",
-      "en": "A critical discourse analysis of 15 Microsoft communications links textual choices to discourse and social context. This is an empirical example of the critical approach within this card.",
-      "zh": "以批判話語分析處理15份微軟傳訊材料，把文本選擇與話語及社會語境連繫；這是本卡中批判取向的實證示例。"
+      "en": "A critical discourse analysis of 15 Microsoft communications links textual choices to discourse and social context. The critical discourse analysis card explores this approach.",
+      "zh": "以批判話語分析處理15份微軟傳訊材料，把文本選擇與話語及社會語境連繫；批判話語分析卡會進一步探索這個取向。"
+    }
+  },
+  {
+    "id": "critical",
+    "en": {
+      "name": "Critical discourse analysis",
+      "aim": "Examine discourse, power and inequality",
+      "what": "A critical orientation within discourse research. It examines how text and discursive practices legitimise, reproduce or challenge unequal social relations.",
+      "steps": [
+        "Identify the social problem, institutional context and critical framework.",
+        "Analyse textual choices and how texts are produced, circulated and taken up.",
+        "Connect the textual evidence to power and inequality; consider alternative interpretations."
+      ],
+      "output": "An argument linking specific textual evidence, discursive practices and social structures.",
+      "example": "A fictional policy calling learners “future workforce assets” could position education around productivity. Examine who gains authority and which educational purposes are absent.",
+      "questions": [
+        "Using Fairclough’s model, distinguish textual analysis, discursive practice and social explanation in a fictional policy.",
+        "Show exactly which linguistic evidence could support a claim about power or inequality, and offer an alternative reading.",
+        "How does a critical discourse analysis finding differ from simply expressing disapproval of a policy?"
+      ]
+    },
+    "zh": {
+      "name": "批判話語分析",
+      "aim": "檢視話語、權力與不平等",
+      "what": "話語研究中的批判取向，探究文本與話語實踐如何合理化、再製或挑戰不平等社會關係。",
+      "steps": [
+        "界定社會問題、制度語境及批判框架。",
+        "分析文本選擇，以及文本如何產生、流通及被使用。",
+        "把文本證據與權力及不平等連繫，並考慮其他解讀。"
+      ],
+      "output": "把具體文本證據、話語實踐及社會結構連繫起來的論證。",
+      "example": "虛構政策把學習者稱為「未來勞動力資產」，可能以生產力定位教育；檢視誰獲得權威及哪些教育目的缺席。",
+      "questions": [
+        "用Fairclough模型，區分虛構政策的文本分析、話語實踐與社會解釋。",
+        "逐項展示哪些語言證據支持權力或不平等主張，並提出另一種解讀。",
+        "批判話語分析的發現與直接表達對政策的不滿有何差異？"
+      ]
+    },
+    "source": "Balán (2026) · empirical application of Fairclough’s model",
+    "url": "https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2026.1702457/full",
+    "study": {
+      "citation": "Balán (2026)",
+      "title": "The “skills-first” illusion",
+      "url": "https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2026.1702457/full",
+      "en": "A corpus of 15 Microsoft AI-skilling communications is examined through Fairclough’s critical discourse approach, connecting textual choices with discourse and social context.",
+      "zh": "以Fairclough的批判話語取向分析15份微軟AI技能培訓傳訊材料，把文本選擇與話語及社會語境連繫。"
     }
   },
   {
@@ -219,79 +265,6 @@ export const qualitativeMethods = [
   }
 ];
 
-export const criticalDiscourse = {
-  "id": "critical",
-  "en": {
-    "name": "Critical discourse analysis",
-    "aim": "Examine discourse, power and inequality",
-    "what": "A critical orientation within discourse research. It examines how text and discursive practices legitimise, reproduce or challenge unequal social relations.",
-    "steps": [
-      "Identify the social problem, institutional context and critical framework.",
-      "Analyse textual choices and how texts are produced, circulated and taken up.",
-      "Connect the textual evidence to power and inequality; consider alternative interpretations."
-    ],
-    "output": "An argument linking specific textual evidence, discursive practices and social structures.",
-    "example": "A fictional policy calling learners “future workforce assets” could position education around productivity. Examine who gains authority and which educational purposes are absent.",
-    "questions": [
-      "Using Fairclough’s model, distinguish textual analysis, discursive practice and social explanation in a fictional policy.",
-      "Show exactly which linguistic evidence could support a claim about power or inequality, and offer an alternative reading.",
-      "How does a critical discourse analysis finding differ from simply expressing disapproval of a policy?"
-    ]
-  },
-  "zh": {
-    "name": "批判話語分析",
-    "aim": "檢視話語、權力與不平等",
-    "what": "話語研究中的批判取向，探究文本與話語實踐如何合理化、再製或挑戰不平等社會關係。",
-    "steps": [
-      "界定社會問題、制度語境及批判框架。",
-      "分析文本選擇，以及文本如何產生、流通及被使用。",
-      "把文本證據與權力及不平等連繫，並考慮其他解讀。"
-    ],
-    "output": "把具體文本證據、話語實踐及社會結構連繫起來的論證。",
-    "example": "虛構政策把學習者稱為「未來勞動力資產」，可能以生產力定位教育；檢視誰獲得權威及哪些教育目的缺席。",
-    "questions": [
-      "用Fairclough模型，區分虛構政策的文本分析、話語實踐與社會解釋。",
-      "逐項展示哪些語言證據支持權力或不平等主張，並提出另一種解讀。",
-      "批判話語分析的發現與直接表達對政策的不滿有何差異？"
-    ]
-  },
-  "source": "Balán (2026) · empirical application of Fairclough’s model",
-  "url": "https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2026.1702457/full",
-  "study": {
-    "citation": "Balán (2026)",
-    "title": "The “skills-first” illusion",
-    "url": "https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2026.1702457/full",
-    "en": "A corpus of 15 Microsoft AI-skilling communications is examined through Fairclough’s critical discourse approach, connecting textual choices with discourse and social context.",
-    "zh": "以Fairclough的批判話語取向分析15份微軟AI技能培訓傳訊材料，把文本選擇與話語及社會語境連繫。"
-  },
-  "guides": {
-    "en": {
-      "questions": [
-        "Whose interests or authority does the wording support? Whose perspective is absent or marginalised?",
-        "Which textual choices make an unequal arrangement appear normal or legitimate?",
-        "What institutional or social evidence would connect that language to power and inequality? How would you avoid claiming more than the evidence supports?"
-      ],
-      "features": [
-        "Makes power, ideology and inequality explicit analytic concerns.",
-        "Connects close textual analysis with institutional and social relations.",
-        "Supports critical interpretations with both textual and contextual evidence."
-      ]
-    },
-    "zh": {
-      "questions": [
-        "措辭支持誰的利益或權威？誰的觀點缺席或被邊緣化？",
-        "哪些文本選擇令不平等安排顯得正常或合理？",
-        "甚麼制度或社會證據能把語言與權力及不平等連繫？如何讓主張與證據範圍相符？"
-      ],
-      "features": [
-        "明確關注權力、意識形態及不平等。",
-        "把細緻文本分析與制度及社會關係連繫。",
-        "以文本和語境證據支持批判詮釋。"
-      ]
-    }
-  }
-};
-
 export const methodGroups = [
   {
     "en": "Meaning and categories",
@@ -312,7 +285,8 @@ export const methodGroups = [
     "en": "Language and power",
     "zh": "語言與權力",
     "methods": [
-      "discourse"
+      "discourse",
+      "critical"
     ]
   },
   {
@@ -738,6 +712,32 @@ export const methodLearningGuides = {
         "把語言視為社會行動，檢視意義及位置如何被建構。",
         "在社會或互動語境中分析具體語言選擇。",
         "交代話語分析取向，以證據說明語言的作用。"
+      ]
+    }
+  },
+  "critical": {
+    "en": {
+      "questions": [
+        "Whose interests or authority does the wording support? Whose perspective is absent or marginalised?",
+        "Which textual choices make an unequal arrangement appear normal or legitimate?",
+        "What institutional or social evidence would connect that language to power and inequality? How would you avoid claiming more than the evidence supports?"
+      ],
+      "features": [
+        "Makes power, ideology and inequality explicit analytic concerns.",
+        "Connects close textual analysis with institutional and social relations.",
+        "Supports critical interpretations with both textual and contextual evidence."
+      ]
+    },
+    "zh": {
+      "questions": [
+        "措辭支持誰的利益或權威？誰的觀點缺席或被邊緣化？",
+        "哪些文本選擇令不平等安排顯得正常或合理？",
+        "甚麼制度或社會證據能把語言與權力及不平等連繫？如何讓主張與證據範圍相符？"
+      ],
+      "features": [
+        "明確關注權力、意識形態及不平等。",
+        "把細緻文本分析與制度及社會關係連繫。",
+        "以文本和語境證據支持批判詮釋。"
       ]
     }
   }
