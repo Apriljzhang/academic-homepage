@@ -55,6 +55,34 @@ const abductionSource = 'https://doi.org/10.1177/0735275112457914';
   </div>)}
 </div></section>}
 
+{part === 'practice' && <section class="slide" data-title="Coding terminology across methods" aria-hidden="true"><div class="slide-inner">
+  <header class="slide-header"><span class="eyebrow">Coding terminology · traditions, purposes and procedures</span></header>
+  {(['en','zh'] as const).map((language) => <div data-language={language} hidden={language === 'zh'} lang={language === 'zh' ? 'zh-Hant' : 'en'}>
+    <h2>{language === 'zh' ? '編碼術語隨方法與傳統而變' : 'Coding terminology follows the method'}</h2>
+    <p class="qa-note">{language === 'zh' ? '質性分析沒有一套通用的「三級編碼」要求。下表比較紮根理論各傳統的編碼階段；主題分析、內容分析、敘事分析及論述分析各有自己的分析程序。' : 'Qualitative analysis has no universal requirement for “three-level coding”. The table compares coding phases within grounded theory traditions. Thematic, content, narrative and discourse analysis each have their own analytic procedures.'}</p>
+    <div class="qa-table-wrap"><table class="qa-coding-table qa-terminology-table">
+      <caption>{language === 'zh' ? '紮根理論的編碼術語：Chun Tie、Birks與Francis（2019），表1' : 'Grounded theory coding terminology: Chun Tie, Birks and Francis (2019), Table 1'}</caption>
+      <thead><tr><th scope="col">{language === 'zh' ? '紮根理論傳統' : 'Grounded theory tradition'}</th><th scope="col">{language === 'zh' ? '初始階段' : 'Initial phase'}</th><th scope="col">{language === 'zh' ? '中間階段' : 'Intermediate phase'}</th><th scope="col">{language === 'zh' ? '進階階段' : 'Advanced phase'}</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">{language === 'zh' ? '傳統／經典' : 'Traditional / classic'}</th><td>{language === 'zh' ? '開放編碼' : 'Open coding'}</td><td>{language === 'zh' ? '選擇編碼' : 'Selective coding'}</td><td>{language === 'zh' ? '理論編碼' : 'Theoretical coding'}</td></tr>
+        <tr><th scope="row">{language === 'zh' ? '演進型（Strauss與Corbin）' : 'Evolved (Strauss and Corbin)'}</th><td>{language === 'zh' ? '開放編碼' : 'Open coding'}</td><td>{language === 'zh' ? '主軸編碼' : 'Axial coding'}</td><td>{language === 'zh' ? '選擇編碼' : 'Selective coding'}</td></tr>
+        <tr><th scope="row">{language === 'zh' ? '建構主義（Charmaz）' : 'Constructivist (Charmaz)'}</th><td>{language === 'zh' ? '初始編碼' : 'Initial coding'}</td><td>{language === 'zh' ? '聚焦編碼' : 'Focused coding'}</td><td>{language === 'zh' ? '理論編碼' : 'Theoretical coding'}</td></tr>
+      </tbody>
+    </table></div>
+    <details class="qa-reveal"><summary>{language === 'zh' ? '為甚麼沒有統一名稱？' : 'Why do the names differ?'}</summary>
+      <ul>
+        <li>{language === 'zh' ? '發展脈絡：不同作者與學派逐步形成各自的術語及程序。' : 'History: authors and schools have developed distinct vocabularies and procedures.'}</li>
+        <li>{language === 'zh' ? '知識觀：對理論如何從資料生成，以及研究者如何參與意義建構，各傳統有不同立場。' : 'Philosophical commitments: traditions differ in how they understand theory generation and the researcher’s role in constructing meaning.'}</li>
+        <li>{language === 'zh' ? '分析任務：建立初始標籤、選取重要代碼、連結類別與整合理論，是不同的分析工作；術語須連同實際做法理解。' : 'Analytic tasks: labelling material, selecting significant codes, relating categories and integrating theory involve different work. Read each term alongside the procedure it names.'}</li>
+      </ul>
+      <p>{language === 'zh' ? '表格欄位方便比較，各術語的具體功能仍須依所選傳統理解。同名術語在不同傳統中的用法也可能有差異。' : 'The columns help comparison; each term’s specific function still depends on the chosen tradition. Even a shared name can have different uses across traditions.'}</p>
+    </details>
+    <p>{language === 'zh' ? '編碼階段、軟件中的父子代碼層級，以及「代碼→類別→主題」的組織方式，各有不同含義。主題分析的六階段亦不代表六層代碼。報告分析時，說明所採方法、術語定義及實際操作。' : 'Coding phases, parent–child code hierarchies in software, and code–category–theme groupings describe different aspects of analysis. The six phases of thematic analysis do not imply six code levels. Report your method, define your terms and explain what you actually did.'}</p>
+    <p class="qa-teacher">{language === 'zh' ? '問AI：「以同一段訪談示範聚焦編碼與主軸編碼。說明各自的分析目的、所屬傳統及依據。」再用方法原文核對答案。' : 'Ask AI: “Illustrate focused and axial coding using the same interview extract. Explain each procedure’s purpose, tradition and methodological source.” Check its answer against the original methods texts.'}</p>
+    <p class="qa-source"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6318722/#section10-2050312118822927" target="_blank" rel="noopener noreferrer">Chun Tie, Birks &amp; Francis (2019) · Table 1 ↗</a> · <a href="https://doi.org/10.1191/1478088706qp063oa" target="_blank" rel="noopener noreferrer">Braun &amp; Clarke (2006) ↗</a></p>
+  </div>)}
+</div></section>}
+
 {part === 'practice' && <section class="slide" data-title="Initial coding explained" aria-hidden="true"><div class="slide-inner">
   <header class="slide-header"><span class="eyebrow">Initial coding · select → label → compare</span></header>
   {(['en','zh'] as const).map((language) => <div data-language={language} hidden={language === 'zh'} lang={language === 'zh' ? 'zh-Hant' : 'en'}>
