@@ -82,22 +82,3 @@ const abductionSource = 'https://doi.org/10.1177/0735275112457914';
     <p class="qa-source"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6318722/#section10-2050312118822927" target="_blank" rel="noopener noreferrer">Chun Tie, Birks &amp; Francis (2019) · Table 1 ↗</a> · <a href="https://doi.org/10.1191/1478088706qp063oa" target="_blank" rel="noopener noreferrer">Braun &amp; Clarke (2006) ↗</a></p>
   </div>)}
 </div></section>}
-
-{part === 'practice' && <section class="slide" data-title="Initial coding explained" aria-hidden="true"><div class="slide-inner">
-  <header class="slide-header"><span class="eyebrow">Initial coding · select → label → compare</span></header>
-  {(['en','zh'] as const).map((language) => <div data-language={language} hidden={language === 'zh'} lang={language === 'zh' ? 'zh-Hant' : 'en'}>
-    <h2>{language === 'zh' ? '甚麼是初始編碼？' : 'What is initial coding?'}</h2>
-    <p>{language === 'zh' ? '初始編碼是第一輪細讀與分析：為與研究問題相關的片語、句子或有意義片段賦予簡短標籤。保留原句、來源及語境，讓每個代碼都有可追溯的根據。' : 'Initial coding is a first analytic pass through the material. Give a short label to a phrase, sentence or meaningful segment relevant to the question. Keep the extract, source and context together so each code has a traceable basis.'}</p>
-    <ol class="qa-steps">
-      <li><b>1</b><span>{language === 'zh' ? '選取片段：這裡發生甚麼？參與者表達甚麼行動、經驗或意義？' : 'Select a segment: what is happening, and what action, experience or meaning is expressed?'}</span></li>
-      <li><b>2</b><span>{language === 'zh' ? '給予標籤：用精簡而具體的措辭抓住與問題相關的內容。需要時，同一片段可附加多於一個代碼。' : 'Name it: use concise, specific wording that captures something relevant to the question. A segment can carry more than one code when needed.'}</span></li>
-      <li><b>3</b><span>{language === 'zh' ? '比較與修訂：比較相近片段，記錄疑問及編碼理由；隨理解加深，修訂或拆分代碼。' : 'Compare and revise: examine similar segments and memo your questions and reasons. Refine or split codes as your understanding develops.'}</span></li>
-    </ol>
-    <details class="qa-reveal"><summary>{language === 'zh' ? '看兩個片段如何形成初始代碼' : 'See how two excerpts become initial codes'}</summary>
-      <div class="qa-table-wrap"><table class="qa-coding-table"><thead><tr><th>{language === 'zh' ? '訪談片段' : 'Interview excerpt'}</th><th>{language === 'zh' ? '暫定初始代碼' : 'Provisional initial code'}</th></tr></thead><tbody>{segments.slice(0,2).map((segment) => <tr><th scope="row">“{segment[language]}”</th><td>{language === 'zh' ? segment.codeZh : segment.codeEn}</td></tr>)}</tbody></table></div>
-      <p>{language === 'zh' ? '第一個代碼聚焦難以停止工作的經驗；第二個聚焦等待回覆的協作過程。兩者保留不同的分析焦點。' : 'The first code attends to difficulty stopping work; the second attends to waiting during coordination. They preserve different analytic concerns.'}</p>
-    </details>
-    <p class="qa-note">{language === 'zh' ? '初始代碼是暫定分析選擇，須持續回到資料檢視。建立主題時，再探究多個代碼與片段如何支持一個核心意義。' : 'Initial codes are provisional analytic choices to revisit against the material. To develop a theme, examine how several codes and extracts support a central meaning.'}</p>
-    <p class="qa-teacher">{language === 'zh' ? '你會如何編碼「靈活安排及無須通勤」？哪些原話支持你的標籤？' : 'How would you code “the flexibility and lack of commute”? Which words support your label?'}</p>
-  </div>)}
-</div></section>}
