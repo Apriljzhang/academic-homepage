@@ -16,67 +16,11 @@ const courseHref = withBase('/teaching/courses/dedc02');
 const scenarios = [
   {
     "id": "policy-positioning",
-    "en": "How does AI policy wording position teachers as monitors and students as potential rule-breakers?",
-    "zh": "AI政策的措辭如何將教師定位為監察者，並將學生定位為可能違規的人？",
+    "en": "How do teachers use hedges, pronouns and turn-taking in feedback meetings to present expertise and negotiate agreement?",
+    "zh": "教師在回饋會議中如何透過緩和語、代詞及輪次安排，展現專業並協商共識？",
     "answer": "discourse",
-    "why": "The aim is to examine how language constructs roles and power relations; listing policy topics would miss this work.",
-    "whyZh": "目的是分析語言如何建構角色與權力關係；只列出政策話題會忽略這種作用。"
-  },
-  {
-    "id": "feedback-categories",
-    "en": "What kinds of feedback do teachers describe in 30 interviews? Define categories for feedback purposes and apply clear inclusion rules.",
-    "zh": "30份教師訪談描述哪些回饋類型？按回饋目的界定類別，應用清楚的納入規則。",
-    "answer": "content",
-    "why": "Content analysis builds and applies a category system to classify meaningful material, preserving definitions and context.",
-    "whyZh": "內容分析建立並應用類別系統，分類有意義的資料，同時保留定義及語境。"
-  },
-  {
-    "id": "policy-categories",
-    "en": "What kinds of AI use are permitted, discouraged or prohibited in 40 school policies? Develop and apply a category system.",
-    "zh": "40份學校政策容許、不鼓勵或禁止哪些AI使用方式？建立並應用類別系統。",
-    "answer": "content",
-    "why": "Content analysis classifies meaningful content systematically. The intended output is a category system with clear definitions and examples.",
-    "whyZh": "內容分析有系統地分類有意義的內容；預期成果是附有明確定義及例子的類別系統。"
-  },
-  {
-    "id": "assessment-process",
-    "en": "How do new teachers learn to negotiate assessment expectations? Use iterative interviews, comparisons and theoretically guided sampling to build a process theory.",
-    "zh": "新教師如何學會協商評核期望？透過反覆訪談、比較及理論抽樣，建立解釋過程的理論。",
-    "answer": "grounded",
-    "why": "Grounded theory develops relationships between categories into an explanatory theory; ongoing analysis guides what data to seek next.",
-    "whyZh": "紮根理論把類別之間的關係發展為解釋性理論；持續分析會引導下一步收集哪些資料。"
-  },
-  {
-    "id": "confidence-meanings",
-    "en": "What shared meanings underpin teachers’ confidence in giving feedback? Interpret patterns across interviews around central organising ideas.",
-    "zh": "哪些共同意義構成教師給予回饋時的信心？以核心概念詮釋訪談中的跨個案模式。",
-    "answer": "thematic",
-    "why": "Thematic analysis develops patterns of shared meaning around central organising ideas. A theme explains a pattern through a central organising idea.",
-    "whyZh": "主題分析圍繞核心概念發展共同意義模式；主題以核心概念解釋模式。"
-  },
-  {
-    "id": "adoption-process",
-    "en": "How does a new classroom practice become established? Compare incidents, write memos about category relationships and identify further material needed to develop a process explanation.",
-    "zh": "新的課堂做法如何逐步確立？比較事件、以備忘錄記錄類別關係，指出發展過程解釋所需的補充資料。",
-    "answer": "grounded",
-    "why": "Grounded theory analysis develops relationships between categories through constant comparison and memo writing, with further material guided by the developing explanation.",
-    "whyZh": "紮根理論分析透過持續比較及備忘錄發展類別關係，再由逐步形成的解釋引導補充資料。"
-  },
-  {
-    "id": "career-story",
-    "en": "How does a teacher tell the story of moving from industry into teaching? Preserve the sequence, turning points and narrative voice.",
-    "zh": "一位教師如何講述由業界轉入教職的故事？保留次序、轉折與敘事聲音。",
-    "answer": "narrative",
-    "why": "Narrative analysis examines how a story is organised and told over time. Isolating quotations into topics could lose its sequence and plot.",
-    "whyZh": "敘事分析檢視故事如何隨時間被組織及講述；將引文分割成話題可能使次序與情節流失。"
-  },
-  {
-    "id": "belonging-meanings",
-    "en": "How is belonging understood across migrant teachers’ accounts? Develop themes connecting acceptance, recognition and everyday exclusion.",
-    "zh": "移居教師的敘述如何理解歸屬感？發展連繫接納、認同與日常排斥的主題。",
-    "answer": "thematic",
-    "why": "The aim is to interpret shared meanings across accounts. Thematic analysis can connect these meanings without requiring a new process theory.",
-    "whyZh": "目的是詮釋不同敘述的共同意義；主題分析可連繫這些意義，無須以建立新的過程理論為目標。"
+    "why": "Discourse analysis examines how language choices accomplish social actions in their interactional context.",
+    "whyZh": "話語分析檢視語言選擇如何在互動語境中完成社會行動。"
   },
   {
     "id": "critical-policy",
@@ -87,12 +31,36 @@ const scenarios = [
     "whyZh": "話語分析中的批判取向明確把文本選擇與權力及制度不平等連繫。"
   },
   {
-    "id": "returning-story",
-    "en": "How do two teachers narrate returning to work after a career break? Analyse each story’s chronology, turning points and self-presentation.",
-    "zh": "兩位教師如何講述中斷職涯後重返工作的經歷？分析每個故事的時間次序、轉折及自我呈現。",
+    "id": "assessment-process",
+    "en": "How do new teachers learn to negotiate assessment expectations? Use iterative interviews, comparisons and theoretically guided sampling to build a process theory.",
+    "zh": "新教師如何學會協商評核期望？透過反覆訪談、比較及理論抽樣，建立解釋過程的理論。",
+    "answer": "grounded",
+    "why": "Grounded theory develops relationships between categories into an explanatory theory; ongoing analysis guides what data to seek next.",
+    "whyZh": "紮根理論把類別之間的關係發展為解釋性理論；持續分析會引導下一步收集哪些資料。"
+  },
+  {
+    "id": "career-story",
+    "en": "How does a teacher tell the story of moving from industry into teaching? Preserve the sequence, turning points and narrative voice.",
+    "zh": "一位教師如何講述由業界轉入教職的故事？保留次序、轉折與敘事聲音。",
     "answer": "narrative",
-    "why": "Narrative analysis attends to the narrated journey, including chronology, turning points and how the teller presents events.",
-    "whyZh": "敘事分析關注被講述的歷程，包括時間次序、轉折及敘述者呈現事件的方式。"
+    "why": "Narrative analysis examines how a story is organised and told over time. Isolating quotations into topics could lose its sequence and plot.",
+    "whyZh": "敘事分析檢視故事如何隨時間被組織及講述；將引文分割成話題可能使次序與情節流失。"
+  },
+  {
+    "id": "confidence-meanings",
+    "en": "What shared meanings underpin teachers’ confidence in giving feedback? Interpret patterns across interviews around central organising ideas.",
+    "zh": "哪些共同意義構成教師給予回饋時的信心？以核心概念詮釋訪談中的跨個案模式。",
+    "answer": "thematic",
+    "why": "Thematic analysis develops patterns of shared meaning around central organising ideas. A theme explains a pattern through a central organising idea.",
+    "whyZh": "主題分析圍繞核心概念發展共同意義模式；主題以核心概念解釋模式。"
+  },
+  {
+    "id": "feedback-categories",
+    "en": "What kinds of feedback do teachers describe in 30 interviews? Define categories for feedback purposes and apply clear inclusion rules.",
+    "zh": "30份教師訪談描述哪些回饋類型？按回饋目的界定類別，應用清楚的納入規則。",
+    "answer": "content",
+    "why": "Content analysis builds and applies a category system to classify meaningful material, preserving definitions and context.",
+    "whyZh": "內容分析建立並應用類別系統，分類有意義的資料，同時保留定義及語境。"
   }
 ];
 
@@ -129,10 +97,7 @@ const matchingMethods = [
   }
 ];
 
-function matchingOptions(index: number) {
-  const offset = (index * 5) % matchingMethods.length;
-  return [...matchingMethods.slice(offset), ...matchingMethods.slice(0, offset)];
-}
+
 ---
 
 <CourseSlideLayout {title} {description} lessonDeck>
@@ -210,35 +175,35 @@ function matchingOptions(index: number) {
         <header class="slide-header"><span class="eyebrow">Activity 4 · match → explain → compare</span></header>
         <div data-language="en">
           <h2>Which method fits the question?</h2>
-          <p>Match all 10 scenarios to the best-fitting method for the stated aim. Methods may be used more than once. Explain your choice before checking; use “Mix order” to shuffle both the scenario list and each answer list for another round.</p>
+          <p>Match the six questions to the six methods. Use each method once. Explain why the method fits the question before checking your answers.</p>
           <div class="qa-scenarios" data-qa-scenarios>
             {scenarios.map((scenario, index) => <label data-scenario-id={scenario.id}>
               <b data-case-number>Case {index + 1}</b><span>{scenario.en}</span>
               <select data-answer={scenario.answer} data-why={scenario.why}>
                 <option value="">Choose a method…</option>
-                {matchingOptions(index).map((option) => <option value={option.value}>{option.en}</option>)}
+                {matchingMethods.map((option) => <option value={option.value}>{option.en}</option>)}
               </select><small data-case-feedback></small>
             </label>)}
           </div>
-          <div class="qa-scenario-actions"><button class="qa-action" type="button" data-check-scenarios="en">Check and explain</button><button class="qa-action" type="button" data-shuffle-scenarios>Mix order</button></div>
+          <div class="qa-scenario-actions"><button class="qa-action" type="button" data-check-scenarios="en">Check and explain</button></div>
           <p data-scenario-result role="status"></p>
-          <p class="qa-teacher">Choose two scenarios using the same method. What makes that method appropriate in both? Rewrite one research question so that another method would fit better.</p>
+          <p class="qa-teacher">Choose one question and explain why the selected method fits its intended finding. Rewrite the question so that a different method would fit better.</p>
         </div>
         <div data-language="zh" hidden lang="zh-Hant">
           <h2>哪種方法與研究問題相配？</h2>
-          <p>為10個情境配對最符合所述目標的方法。同一方法可以使用多次。檢查前先解釋理由；按「打亂次序」會打亂情境列表及每題答案選項，開始新一輪練習。</p>
+          <p>為六個研究問題配對六種方法，每種方法使用一次。檢查答案前，先解釋該方法為何切合研究問題。</p>
           <div class="qa-scenarios" data-qa-scenarios>
             {scenarios.map((scenario, index) => <label data-scenario-id={scenario.id}>
               <b data-case-number>情境 {index + 1}</b><span>{scenario.zh}</span>
               <select data-answer={scenario.answer} data-why={scenario.whyZh}>
                 <option value="">選擇方法……</option>
-                {matchingOptions(index).map((option) => <option value={option.value}>{option.zh}</option>)}
+                {matchingMethods.map((option) => <option value={option.value}>{option.zh}</option>)}
               </select><small data-case-feedback></small>
             </label>)}
           </div>
-          <div class="qa-scenario-actions"><button class="qa-action" type="button" data-check-scenarios="zh">檢查並解釋</button><button class="qa-action" type="button" data-shuffle-scenarios>打亂次序</button></div>
+          <div class="qa-scenario-actions"><button class="qa-action" type="button" data-check-scenarios="zh">檢查並解釋</button></div>
           <p data-scenario-result role="status"></p>
-          <p class="qa-teacher">選兩個使用同一方法的情境。該方法為何適合兩者？改寫其中一個研究問題，使另一種方法更合適。</p>
+          <p class="qa-teacher">選一個研究問題，說明所選方法為何切合其預期成果。改寫該問題，使另一種方法更合適。</p>
         </div>
       </div>
     </section>

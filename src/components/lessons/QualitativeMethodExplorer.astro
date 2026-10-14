@@ -16,7 +16,6 @@ const zh = language === 'zh';
       })}
     </div></div>)}
   </div>
-  <p class="qa-map-note">{zh ? '在「語言與權力」比較話語分析與批判話語分析；批判取向明確關注權力與不平等。' : 'Compare discourse analysis and critical discourse analysis under Language and power. The critical approach explicitly examines power and inequality.'}</p>
   {qualitativeMethods.map((method) => <article class="qa-method-panel" id={`qa-method-${language}-${method.id}`} data-method-panel={method.id} hidden>
     <div class="qa-method-panel-head"><div><small>{zh ? '方法地圖 →' : 'Method map →'}</small><h3 tabindex="-1">{method[language].name}</h3></div><button type="button" class="qa-map-back" data-method-close>{zh ? '返回地圖 ↑' : 'Back to map ↑'}</button></div>
     <div class="qa-guiding-questions"><h4>{zh ? '先討論這些問題' : 'Discuss these questions first'}</h4><ol>{methodLearningGuides[method.id as keyof typeof methodLearningGuides][language].questions.map((question) => <li>{question}</li>)}</ol><p>{zh ? '用課堂片段支持你的回答，再比較以下特徵。' : 'Support your answers with a lesson excerpt, then compare the features below.'}</p></div>

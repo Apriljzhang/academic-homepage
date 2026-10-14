@@ -125,56 +125,6 @@ document.querySelectorAll<HTMLSelectElement>('[data-qa-scenarios] select').forEa
   });
 });
 
-function shuffled<T>(items: T[]): T[] {
-  const result = [...items];
-  for (let index = result.length - 1; index > 0; index -= 1) {
-    const next = Math.floor(Math.random() * (index + 1));
-    [result[index], result[next]] = [result[next], result[index]];
-  }
-  return result;
-}
-
-document.querySelectorAll<HTMLButtonElement>('[data-shuffle-scenarios]').forEach((button) => {
-  button.addEventListener('click', () => {
-    const slide = button.closest('.slide');
-    const panels = Array.from(slide?.querySelectorAll<HTMLElement>('[data-qa-scenarios]') || []);
-    const ids = Array.from(panels[0]?.querySelectorAll<HTMLElement>('[data-scenario-id]') || []).map((row) => row.dataset.scenarioId!);
-    const order = shuffled(ids);
-    // A fresh order should visibly differ, even if the random draw repeats it.
-    if (order.length > 1 && order.every((id, index) => id === ids[index])) order.push(order.shift()!);
-    const optionsById = new Map(ids.map((id) => {
-      const row = Array.from(panels[0].querySelectorAll<HTMLElement>('[data-scenario-id]')).find((item) => item.dataset.scenarioId === id);
-      const values = Array.from(row?.querySelector<HTMLSelectElement>('select')?.options || []).map((option) => option.value).filter(Boolean);
-      const mixed = shuffled(values);
-      if (mixed.length > 1 && mixed.every((value, index) => value === values[index])) mixed.push(mixed.shift()!);
-      return [id, mixed] as const;
-    }));
-    panels.forEach((panel) => {
-      const rows = new Map(Array.from(panel.querySelectorAll<HTMLElement>('[data-scenario-id]')).map((row) => [row.dataset.scenarioId!, row]));
-      order.forEach((id, index) => {
-        const row = rows.get(id);
-        if (!row) return;
-        const number = row.querySelector<HTMLElement>('[data-case-number]');
-        if (number) number.textContent = isChinese(panel) ? `情境 ${index + 1}` : `Case ${index + 1}`;
-        const select = row.querySelector<HTMLSelectElement>('select');
-        if (select) {
-          const options = new Map(Array.from(select.options).map((option) => [option.value, option]));
-          optionsById.get(id)?.forEach((value) => { const option = options.get(value); if (option) select.append(option); });
-          select.value = '';
-          delete select.dataset.result;
-        }
-        const feedback = row.querySelector<HTMLElement>('[data-case-feedback]');
-        if (feedback) feedback.textContent = '';
-        panel.append(row);
-      });
-      const result = panel.closest('[data-language]')?.querySelector<HTMLElement>('[data-scenario-result]');
-      if (result) result.textContent = isChinese(panel)
-        ? '情境列表及每題的答案選項已打亂。請重新配對。'
-        : 'The scenario list and every answer list have been mixed. Match them again.';
-    });
-  });
-});
-
 // Mirror the selected method across translations while keeping all branches on one slide.
 document.querySelectorAll<HTMLElement>('[data-method-explorer]').forEach((explorer) => {
   explorer.querySelectorAll<HTMLButtonElement>('[data-method-open]').forEach((button) => {
