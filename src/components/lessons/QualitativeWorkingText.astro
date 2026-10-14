@@ -1,0 +1,9 @@
+---
+import { workingText } from '../../data/dedc02AnalyticTerms';
+const { language = 'en' } = Astro.props as { language?: 'en' | 'zh' };
+---
+<div class="qa-working-text">
+  <p class="qa-source">{language === 'zh' ? '共同練習文本 · 虛構教師敘述（T1–T3）' : 'Shared working text · fictional teacher accounts (T1–T3)'}</p>
+  <p class="qa-question"><strong>{language === 'zh' ? '研究問題：' : 'Research question: '}</strong>{language === 'zh' ? '教師在嘗試新的回饋工具時如何建立信心？' : 'How do teachers build confidence when trying a new feedback tool?'}</p>
+  <div class="qa-excerpts">{workingText.map((text) => <article><b>{text.id}</b><p>“{text[language]}”</p></article>)}</div>
+</div>

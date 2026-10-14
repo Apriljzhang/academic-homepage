@@ -1,6 +1,8 @@
 ---
 import CourseSlideLayout from '../../../../layouts/CourseSlideLayout.astro';
 import LessonDeckChrome from '../../../../components/lessons/LessonDeckChrome.astro';
+import QualitativeWorkingText from '../../../../components/lessons/QualitativeWorkingText.astro';
+import { analyticTerms as terms, termMatches } from '../../../../data/dedc02AnalyticTerms';
 import QualitativeCodingSlides from '../../../../components/lessons/QualitativeCodingSlides.astro';
 import QualitativeMethodExplorer from '../../../../components/lessons/QualitativeMethodExplorer.astro';
 import { withBase } from '../../../../utils/paths';
@@ -10,13 +12,6 @@ const title = 'Qualitative Data Analysis and Reporting · DEDC02';
 const description = 'An interactive bilingual doctoral lesson on codes, categories, topics, themes, inductive, deductive and abductive coding, a remote-work example, qualitative analysis methods and evidence-based reporting.';
 const courseHref = withBase('/teaching/courses/dedc02');
 
-const terms = [
-  { en: 'Data excerpt', zh: '資料片段', definition: 'The participant’s or document’s words selected for analysis; keep their context and source ID.', definitionZh: '從參與者或文件選出的原文；保留其語境及來源編號。', example: '“I asked a colleague before using it.”', exampleZh: '「我在使用之前先請教同事。」' },
-  { en: 'Code', zh: '代碼', definition: 'A concise analytic label attached to a meaningful segment.', definitionZh: '賦予有意義資料片段的簡短分析標籤。', example: 'Seeking peer reassurance', exampleZh: '尋求同儕確認' },
-  { en: 'Category', zh: '類別', definition: 'A grouping of related codes; useful for organising material, but not automatically a theme.', definitionZh: '將相關代碼組合起來；有助整理資料，但不會自動成為主題。', example: 'Sources of support', exampleZh: '支援來源' },
-  { en: 'Topic', zh: '話題', definition: 'What the material is about; often a useful heading, but it may only summarise a subject.', definitionZh: '資料談及甚麼；可作標題，但可能只概括議題。', example: 'Teacher training', exampleZh: '教師培訓' },
-  { en: 'Theme', zh: '主題', definition: 'In interpretive thematic analysis, a patterned meaning organised around a central idea that answers the research question.', definitionZh: '在詮釋性主題分析中，由核心概念統整、能回答研究問題的意義模式。', example: 'Confidence grew through informal peer help when formal training fell short.', exampleZh: '正式培訓不足時，非正式同儕協助促成了信心。' },
-];
 
 const scenarios = [
   {
@@ -168,9 +163,31 @@ function matchingOptions(index: number) {
       </div>
     </div></section>
 
-    <section class="slide" data-title="Five analytic terms" aria-hidden="true"><div class="slide-inner"><header class="slide-header"><span class="eyebrow">Concept cards · click to compare</span></header><div data-language="en"><h2>Five terms that do different work</h2><p>Open the cards in any order. Which one is closest to the participant’s words? Which one makes the largest interpretive claim?</p><div class="qa-term-grid">{terms.map((term) => <details><summary>{term.en}</summary><p>{term.definition}</p><small>Example: {term.example}</small></details>)}</div><p class="qa-teacher">Why might “teacher training” be a topic while “peer modelling builds trust” is a code?</p></div><div data-language="zh" hidden lang="zh-Hant"><h2>五個作用不同的術語</h2><p>以任何次序打開卡片。哪一項最接近參與者的原話？哪一項提出較大的詮釋主張？</p><div class="qa-term-grid">{terms.map((term) => <details><summary>{term.zh}</summary><p>{term.definitionZh}</p><small>例子：{term.exampleZh}</small></details>)}</div><p class="qa-teacher">為何「教師培訓」可能只是話題，而「同儕示範建立信任」是一個代碼？</p></div></div></section>
+    <section class="slide" data-title="Five analytic terms" aria-hidden="true"><div class="slide-inner">
+      <header class="slide-header"><span class="eyebrow">Working text · trace the analytic terms</span></header>
+      {(['en','zh'] as const).map((language) => <div data-language={language} hidden={language === 'zh'} lang={language === 'zh' ? 'zh-Hant' : 'en'}>
+        <h2>{language === 'zh' ? '五個作用不同的術語' : 'Five terms that do different work'}</h2>
+        <QualitativeWorkingText {language} />
+        <p>{language === 'zh' ? '先讀T1–T3，再打開各卡片。每個例子都來自這份文本；比較原話、分析標籤與詮釋的作用。' : 'Read T1–T3, then open the cards. Every example comes from this text. Compare the roles of original words, analytic labels and interpretations.'}</p>
+        <div class="qa-term-grid">{terms.map((term) => <details><summary>{language === 'zh' ? term.zh : term.en}</summary><p>{language === 'zh' ? term.definitionZh : term.definition}</p><p><strong>{language === 'zh' ? '文本例子：' : 'Text example: '}</strong>{language === 'zh' ? term.exampleZh : term.example}</p><small>{language === 'zh' ? term.traceZh : term.trace}</small></details>)}</div>
+        <p class="qa-teacher">{language === 'zh' ? '「支援來源」把哪些代碼組在一起？暫定主題對T1與T2提出甚麼詮釋？T3如何幫助界定其適用範圍？' : 'Which codes are grouped under “Sources of support”? What does the provisional theme interpret in T1 and T2? How does T3 help define its scope?'}</p>
+      </div>)}
+    </div></section>
 
-    <section class="slide" data-title="Term matching" aria-hidden="true"><div class="slide-inner"><header class="slide-header"><span class="eyebrow">Activity 1 · check → peer explanation</span></header><div data-language="en"><h2>Match the analytic role</h2><p>Choose the role of each example. Check your choices, then compare one disputed answer with a partner.</p><div class="qa-match" data-qa-match><label>“Training”<select data-answer="topic"><option value="">Choose…</option><option value="code">Code</option><option value="category">Category</option><option value="topic">Topic</option><option value="theme">Theme</option></select></label><label>“Seeking informal help”<select data-answer="code"><option value="">Choose…</option><option value="code">Code</option><option value="category">Category</option><option value="topic">Topic</option><option value="theme">Theme</option></select></label><label>“Sources of support”<select data-answer="category"><option value="">Choose…</option><option value="code">Code</option><option value="category">Category</option><option value="topic">Topic</option><option value="theme">Theme</option></select></label><label>“Teachers’ confidence depended on informal peer validation when official guidance was thin”<select data-answer="theme"><option value="">Choose…</option><option value="code">Code</option><option value="category">Category</option><option value="topic">Topic</option><option value="theme">Theme</option></select></label><button type="button" data-check>Check matches</button><p role="status" data-result></p></div><p class="qa-teacher">Could the last sentence be defended from one quotation alone?</p></div><div data-language="zh" hidden lang="zh-Hant"><h2>配對各項分析角色</h2><p>判斷每個例子的角色。檢查答案，再與同伴討論一個有爭議的選擇。</p><div class="qa-match" data-qa-match><label>「培訓」<select data-answer="topic"><option value="">選擇……</option><option value="code">代碼</option><option value="category">類別</option><option value="topic">話題</option><option value="theme">主題</option></select></label><label>「尋求非正式協助」<select data-answer="code"><option value="">選擇……</option><option value="code">代碼</option><option value="category">類別</option><option value="topic">話題</option><option value="theme">主題</option></select></label><label>「支援來源」<select data-answer="category"><option value="">選擇……</option><option value="code">代碼</option><option value="category">類別</option><option value="topic">話題</option><option value="theme">主題</option></select></label><label>「正式指引不足時，教師的信心取決於非正式同儕確認」<select data-answer="theme"><option value="">選擇……</option><option value="code">代碼</option><option value="category">類別</option><option value="topic">話題</option><option value="theme">主題</option></select></label><button type="button" data-check>檢查配對</button><p role="status" data-result></p></div><p class="qa-teacher">最後一句能否只靠一段引文支持？</p></div></div></section>
+    <section class="slide" data-title="Term matching" aria-hidden="true"><div class="slide-inner">
+      <header class="slide-header"><span class="eyebrow">Activity 1 · match examples from the working text</span></header>
+      {(['en','zh'] as const).map((language) => <div data-language={language} hidden={language === 'zh'} lang={language === 'zh' ? 'zh-Hant' : 'en'}>
+        <h2>{language === 'zh' ? '配對各項分析角色' : 'Match the analytic role'}</h2>
+        <details class="qa-reveal" open><summary>{language === 'zh' ? '重讀共同練習文本T1–T3' : 'Revisit the shared working text T1–T3'}</summary><QualitativeWorkingText {language} /></details>
+        <p>{language === 'zh' ? '各項均取自上一頁的文本分析。判斷它們在本例中的角色；檢查答案，再指出原文中支持你判斷的位置。' : 'Each item comes from the analysis of the same text on the previous page. Match its role in this example, check your choices and identify the supporting words in the accounts.'}</p>
+        <div class="qa-match" data-qa-match>
+          {termMatches.map((term) => <label>{language === 'zh' ? term.exampleZh : term.example}<select data-answer={term.id}><option value="">{language === 'zh' ? '選擇……' : 'Choose…'}</option>{terms.map((choice) => <option value={choice.id}>{language === 'zh' ? choice.zh : choice.en}</option>)}</select></label>)}
+          <button type="button" data-check>{language === 'zh' ? '檢查配對' : 'Check matches'}</button><p role="status" data-result></p>
+        </div>
+        <details class="qa-reveal"><summary>{language === 'zh' ? '把各項配對追溯至文本' : 'Trace the matches to the text'}</summary>{termMatches.map((term) => <p><strong>{language === 'zh' ? term.zh : term.en}: </strong>{language === 'zh' ? term.traceZh : term.trace}</p>)}</details>
+        <p class="qa-teacher">{language === 'zh' ? '哪些項目保留原話？哪些是分析者建立的？若加入更多訪談，你會如何檢視這個暫定主題？' : 'Which item preserves original wording? Which items were constructed by the analyst? How would you examine the provisional theme with more interviews?'}</p>
+      </div>)}
+    </div></section>
 
     <QualitativeCodingSlides part="approaches" />
 
