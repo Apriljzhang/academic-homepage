@@ -78,6 +78,8 @@
 .qa-deck .qa-source-grid a { padding: .55rem .7rem; border: 1px solid var(--qa-line); text-decoration: none; }
 .qa-deck .qa-source-grid a:hover { background: var(--qa-soft); }
 .qa-deck .qa-return { display: inline-block; margin-top: .4rem; font-weight: 800; }
+.qa-deck .qa-software { margin: 1rem 0; padding: 1rem; border: 1px solid var(--qa-line); border-left: .25rem solid var(--qa-green); background: var(--qa-soft); }
+.qa-deck .qa-software h3 { margin: 0 0 .6rem; }
 @media (max-width: 720px) {
   .qa-deck .qa-term-grid, .qa-deck .qa-excerpts, .qa-deck .qa-method, .qa-deck .qa-trail { grid-template-columns: 1fr; }
   .qa-deck .qa-compare, .qa-deck .qa-aim-grid, .qa-deck .qa-source-grid { grid-template-columns: 1fr; }
