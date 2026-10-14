@@ -22,14 +22,14 @@ export const taVariants = [
       "name": "Codebook thematic analysis",
       "logic": "A structured coding framework",
       "description": "An explicit coding framework organises analysis, often in applied team research. Templates or matrices can support consistent working procedures.",
-      "practice": "Define and revise codes, retain contextual notes and document how team decisions develop. Framework and template approaches can sit in this broad family.",
+      "practice": "Define and revise codes, retain contextual notes and document how team decisions develop. Document code definitions, examples and revisions.",
       "quality": "A transparent framework and meaningful interpretation; explain how structure and revision serve the question."
     },
     "zh": {
       "name": "編碼手冊主題分析",
       "logic": "有結構的編碼框架",
       "description": "以明確編碼框架組織分析，常用於應用及團隊研究；模板或矩陣可支援一致的工作程序。",
-      "practice": "界定並修訂代碼，保留語境筆記，記錄團隊決定如何發展。框架及模板取向可屬於這個廣泛家族。",
+      "practice": "界定並修訂代碼，保留語境筆記，記錄團隊決定如何發展。記錄代碼定義、例子及修訂。",
       "quality": "框架透明、詮釋有意義；說明結構與修訂如何回應研究問題。"
     }
   },

@@ -80,46 +80,6 @@ export const qualitativeMethods = [
     "study": null
   },
   {
-    "id": "framework",
-    "en": {
-      "name": "Framework analysis",
-      "aim": "Compare issues across cases",
-      "what": "A systematic approach using a case-by-issue matrix. Source-linked summaries support comparison while keeping case context accessible.",
-      "steps": [
-        "Become familiar with the material and develop an analytic framework.",
-        "Apply the framework and chart concise summaries with source references.",
-        "Compare within cases and across cases; return to full accounts to examine exceptions."
-      ],
-      "output": "A case-by-issue matrix linked to the original material and a comparative interpretation.",
-      "example": "An illustrative matrix might compare workload, support and fulfilment across teachers. Each cell summarises that teacher’s account and records its source.",
-      "questions": [
-        "Show a fictional three-case, three-issue matrix and explain how to read within a row and across a column.",
-        "How do I develop, revise and apply a framework while keeping links to transcripts?",
-        "How does framework analysis relate to codebook approaches to thematic analysis? Explain the overlap and the specific matrix procedure."
-      ]
-    },
-    "zh": {
-      "name": "框架分析",
-      "aim": "跨個案比較議題",
-      "what": "以個案 × 議題矩陣作有系統的分析；附來源摘要支援比較，並讓研究者可回看個案脈絡。",
-      "steps": [
-        "熟悉資料並發展分析框架。",
-        "應用框架，填入附來源的精簡摘要。",
-        "進行個案內及跨個案比較，回看完整敘述以檢視例外。"
-      ],
-      "output": "連結原始資料的個案 × 議題矩陣及比較詮釋。",
-      "example": "示例矩陣可比較不同教師的工作量、支援及滿足感；每格概括該教師敘述並記錄來源。",
-      "questions": [
-        "展示虛構的三個案 × 三議題矩陣，解釋如何作行內及列間比較。",
-        "如何發展、修訂及應用框架，同時保留逐字稿來源？",
-        "框架分析與編碼手冊主題分析有何關係？解釋重疊處及矩陣程序。"
-      ]
-    },
-    "source": "Gale et al. (2013)",
-    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3848812/",
-    "study": null
-  },
-  {
     "id": "narrative",
     "en": {
       "name": "Narrative analysis",
@@ -166,52 +126,6 @@ export const qualitativeMethods = [
     }
   },
   {
-    "id": "ipa",
-    "en": {
-      "name": "Interpretative phenomenological analysis",
-      "aim": "Explore lived meaning in each case",
-      "what": "An idiographic, interpretative approach exploring how a person makes sense of a significant lived experience. The researcher also interprets that meaning-making.",
-      "steps": [
-        "Recruit people who have experienced the phenomenon and collect rich first-person accounts.",
-        "Read and interpret each case closely, attending to experiential meanings and your own assumptions.",
-        "Develop case themes, then examine convergence and divergence across cases."
-      ],
-      "output": "A detailed experiential interpretation with case extracts and carefully developed cross-case themes.",
-      "example": "The teacher passage suggests possible interview prompts about feeling overwhelmed and finding fulfilment. Richer individual accounts are needed for an IPA study.",
-      "questions": [
-        "Explain phenomenology, interpretation and idiography through one teacher experience.",
-        "Show a fictional case-level analysis from excerpt to exploratory notes to an experiential theme, then explain cross-case comparison.",
-        "How do I keep an individual’s context and distinguish their meaning-making from my interpretation?"
-      ]
-    },
-    "zh": {
-      "name": "詮釋現象學分析（IPA）",
-      "aim": "探究各個案的親身經驗意義",
-      "what": "重視個案的詮釋取向，探究個人如何理解重要親身經驗；研究者亦詮釋這個理解過程。",
-      "steps": [
-        "招募經歷該現象的人，收集豐富的第一人稱敘述。",
-        "細讀並詮釋各個案，關注經驗意義及自身假設。",
-        "發展個案主題，再比較個案之間的共同與不同之處。"
-      ],
-      "output": "附個案片段的細緻經驗詮釋，以及審慎發展的跨個案主題。",
-      "example": "教師段落可引出關於不知所措及滿足感的訪談提示；IPA研究仍需更豐富的個人敘述。",
-      "questions": [
-        "用一項教師經驗解釋現象學、詮釋及個案取向。",
-        "展示從片段、探索筆記到經驗主題的虛構個案分析，再解釋跨個案比較。",
-        "如何保留個人脈絡，並辨識參與者的理解與研究者詮釋？"
-      ]
-    },
-    "source": "Smith, Flowers & Larkin (2022)",
-    "url": "https://us2.sagepub.com/en-us/nam/node/1565837",
-    "study": {
-      "citation": "Gong, Xu & Ye (2025)",
-      "title": "Good or bad visits?",
-      "url": "https://www.nature.com/articles/s41599-025-05655-5",
-      "en": "Eight teachers: two interviews and six written accounts. Each case was analysed before comparison. Notice the case-first sequence and the distinction between shared meanings and individual differences.",
-      "zh": "八位教師：兩次訪談及六份書面敘述；先逐一分析再比較。留意先分析個案再比較的次序，以及共同意義與個體差異。"
-    }
-  },
-  {
     "id": "discourse",
     "en": {
       "name": "Discourse analysis",
@@ -225,7 +139,7 @@ export const qualitativeMethods = [
       "output": "An evidence-linked account of how particular linguistic choices accomplish social work.",
       "example": "The teacher’s “I sometimes wish” makes a request indirectly; “all worthwhile” positions commitment. These are possible readings to examine in context.",
       "questions": [
-        "Show how pronouns, contrasts and evaluative words position speakers in a fictional educational text.",
+        "Compare approaches to discourse analysis, including critical discourse analysis. Show how wording, positioning and power shape the analysis of a fictional educational text.",
         "Explain how to move from a specific linguistic feature to a supported social interpretation.",
         "Compare discourse analysis with content analysis using the same sentence and explain how the questions differ."
       ]
@@ -242,7 +156,7 @@ export const qualitativeMethods = [
       "output": "連結證據，說明特定語言選擇如何發揮社會作用。",
       "example": "教師的「我有時希望」以間接方式提出需要；「值得」呈現投入。這些是待語境支持的可能解讀。",
       "questions": [
-        "用虛構教育文本示範代名詞、對比及評價詞如何定位說話者。",
+        "比較話語分析取向，包括批判話語分析；用虛構教育文本示範措辭、定位及權力如何影響分析。",
         "解釋如何由特定語言特徵形成有證據支持的社會詮釋。",
         "用同一句比較話語及內容分析，解釋兩者問題有何差異。"
       ]
@@ -253,62 +167,16 @@ export const qualitativeMethods = [
       "citation": "Balán (2026) · critical discourse analysis",
       "title": "The “skills-first” illusion",
       "url": "https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2026.1702457/full",
-      "en": "This empirical application takes a critical approach to 15 Microsoft communications. Open the critical discourse analysis branch to examine its focus.",
-      "zh": "這項實證應用以批判取向分析15份微軟傳訊材料；打開批判話語分析分支了解其焦點。"
-    }
-  },
-  {
-    "id": "critical",
-    "en": {
-      "name": "Critical discourse analysis",
-      "aim": "Examine discourse, power and inequality",
-      "what": "A critical orientation within discourse research. It examines how text and discursive practices legitimise, reproduce or challenge unequal social relations.",
-      "steps": [
-        "Identify the social problem, institutional context and critical framework.",
-        "Analyse textual choices and how texts are produced, circulated and taken up.",
-        "Connect the textual evidence to power and inequality; consider alternative interpretations."
-      ],
-      "output": "An argument linking specific textual evidence, discursive practices and social structures.",
-      "example": "A fictional policy calling learners “future workforce assets” could position education around productivity. Examine who gains authority and which educational purposes are absent.",
-      "questions": [
-        "Using Fairclough’s model, distinguish textual analysis, discursive practice and social explanation in a fictional policy.",
-        "Show exactly which linguistic evidence could support a claim about power or inequality, and offer an alternative reading.",
-        "How does a critical discourse analysis finding differ from simply expressing disapproval of a policy?"
-      ]
-    },
-    "zh": {
-      "name": "批判話語分析",
-      "aim": "檢視話語、權力與不平等",
-      "what": "話語研究中的批判取向，探究文本與話語實踐如何合理化、再製或挑戰不平等社會關係。",
-      "steps": [
-        "界定社會問題、制度語境及批判框架。",
-        "分析文本選擇，以及文本如何產生、流通及被使用。",
-        "把文本證據與權力及不平等連繫，並考慮其他解讀。"
-      ],
-      "output": "把具體文本證據、話語實踐及社會結構連繫起來的論證。",
-      "example": "虛構政策把學習者稱為「未來勞動力資產」，可能以生產力定位教育；檢視誰獲得權威及哪些教育目的缺席。",
-      "questions": [
-        "用Fairclough模型，區分虛構政策的文本分析、話語實踐與社會解釋。",
-        "逐項展示哪些語言證據支持權力或不平等主張，並提出另一種解讀。",
-        "批判話語分析的發現與直接表達對政策的不滿有何差異？"
-      ]
-    },
-    "source": "Balán (2026) · empirical application of Fairclough’s model",
-    "url": "https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2026.1702457/full",
-    "study": {
-      "citation": "Balán (2026)",
-      "title": "The “skills-first” illusion",
-      "url": "https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2026.1702457/full",
-      "en": "A corpus of 15 Microsoft AI-skilling communications is examined through Fairclough’s critical discourse approach, connecting textual choices with discourse and social context.",
-      "zh": "以Fairclough的批判話語取向分析15份微軟AI技能培訓傳訊材料，把文本選擇與話語及社會語境連繫。"
+      "en": "A critical discourse analysis of 15 Microsoft communications links textual choices to discourse and social context. This is an empirical example of the critical approach within this card.",
+      "zh": "以批判話語分析處理15份微軟傳訊材料，把文本選擇與話語及社會語境連繫；這是本卡中批判取向的實證示例。"
     }
   },
   {
     "id": "grounded",
     "en": {
-      "name": "Grounded theory",
+      "name": "Grounded theory analysis",
       "aim": "Develop an explanation of a process",
-      "what": "A methodology for building theory through iterative collection and analysis. Constant comparison, memo writing and theoretical sampling develop relationships between categories.",
+      "what": "An analytic approach within grounded theory for developing explanatory categories and their relationships. Constant comparison, memo writing and theoretical sampling support theory development.",
       "steps": [
         "Compare incidents and develop analytic codes while collecting data.",
         "Write memos about categories, their properties and relationships; let these guide further sampling.",
@@ -323,9 +191,9 @@ export const qualitativeMethods = [
       ]
     },
     "zh": {
-      "name": "紮根理論",
+      "name": "紮根理論分析",
       "aim": "發展過程的解釋",
-      "what": "透過反覆收集及分析資料建立理論的方法論；持續比較、備忘錄及理論抽樣可發展類別之間的關係。",
+      "what": "紮根理論中用於發展解釋性類別及其關係的分析取向；持續比較、備忘錄及理論抽樣支援理論發展。",
       "steps": [
         "收集資料時比較事件，發展分析代碼。",
         "以備忘錄記錄類別、屬性及關係，據此引導後續抽樣。",
@@ -351,30 +219,100 @@ export const qualitativeMethods = [
   }
 ];
 
+export const criticalDiscourse = {
+  "id": "critical",
+  "en": {
+    "name": "Critical discourse analysis",
+    "aim": "Examine discourse, power and inequality",
+    "what": "A critical orientation within discourse research. It examines how text and discursive practices legitimise, reproduce or challenge unequal social relations.",
+    "steps": [
+      "Identify the social problem, institutional context and critical framework.",
+      "Analyse textual choices and how texts are produced, circulated and taken up.",
+      "Connect the textual evidence to power and inequality; consider alternative interpretations."
+    ],
+    "output": "An argument linking specific textual evidence, discursive practices and social structures.",
+    "example": "A fictional policy calling learners “future workforce assets” could position education around productivity. Examine who gains authority and which educational purposes are absent.",
+    "questions": [
+      "Using Fairclough’s model, distinguish textual analysis, discursive practice and social explanation in a fictional policy.",
+      "Show exactly which linguistic evidence could support a claim about power or inequality, and offer an alternative reading.",
+      "How does a critical discourse analysis finding differ from simply expressing disapproval of a policy?"
+    ]
+  },
+  "zh": {
+    "name": "批判話語分析",
+    "aim": "檢視話語、權力與不平等",
+    "what": "話語研究中的批判取向，探究文本與話語實踐如何合理化、再製或挑戰不平等社會關係。",
+    "steps": [
+      "界定社會問題、制度語境及批判框架。",
+      "分析文本選擇，以及文本如何產生、流通及被使用。",
+      "把文本證據與權力及不平等連繫，並考慮其他解讀。"
+    ],
+    "output": "把具體文本證據、話語實踐及社會結構連繫起來的論證。",
+    "example": "虛構政策把學習者稱為「未來勞動力資產」，可能以生產力定位教育；檢視誰獲得權威及哪些教育目的缺席。",
+    "questions": [
+      "用Fairclough模型，區分虛構政策的文本分析、話語實踐與社會解釋。",
+      "逐項展示哪些語言證據支持權力或不平等主張，並提出另一種解讀。",
+      "批判話語分析的發現與直接表達對政策的不滿有何差異？"
+    ]
+  },
+  "source": "Balán (2026) · empirical application of Fairclough’s model",
+  "url": "https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2026.1702457/full",
+  "study": {
+    "citation": "Balán (2026)",
+    "title": "The “skills-first” illusion",
+    "url": "https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2026.1702457/full",
+    "en": "A corpus of 15 Microsoft AI-skilling communications is examined through Fairclough’s critical discourse approach, connecting textual choices with discourse and social context.",
+    "zh": "以Fairclough的批判話語取向分析15份微軟AI技能培訓傳訊材料，把文本選擇與話語及社會語境連繫。"
+  },
+  "guides": {
+    "en": {
+      "questions": [
+        "Whose interests or authority does the wording support? Whose perspective is absent or marginalised?",
+        "Which textual choices make an unequal arrangement appear normal or legitimate?",
+        "What institutional or social evidence would connect that language to power and inequality? How would you avoid claiming more than the evidence supports?"
+      ],
+      "features": [
+        "Makes power, ideology and inequality explicit analytic concerns.",
+        "Connects close textual analysis with institutional and social relations.",
+        "Supports critical interpretations with both textual and contextual evidence."
+      ]
+    },
+    "zh": {
+      "questions": [
+        "措辭支持誰的利益或權威？誰的觀點缺席或被邊緣化？",
+        "哪些文本選擇令不平等安排顯得正常或合理？",
+        "甚麼制度或社會證據能把語言與權力及不平等連繫？如何讓主張與證據範圍相符？"
+      ],
+      "features": [
+        "明確關注權力、意識形態及不平等。",
+        "把細緻文本分析與制度及社會關係連繫。",
+        "以文本和語境證據支持批判詮釋。"
+      ]
+    }
+  }
+};
+
 export const methodGroups = [
   {
     "en": "Meaning and categories",
     "zh": "意義與類別",
     "methods": [
       "thematic",
-      "content",
-      "framework"
+      "content"
     ]
   },
   {
-    "en": "Stories and experience",
-    "zh": "故事與經驗",
+    "en": "Stories and telling",
+    "zh": "故事與講述",
     "methods": [
-      "narrative",
-      "ipa"
+      "narrative"
     ]
   },
   {
     "en": "Language and power",
     "zh": "語言與權力",
     "methods": [
-      "discourse",
-      "critical"
+      "discourse"
     ]
   },
   {
@@ -481,58 +419,6 @@ export const methodOutputs: Record<string, { en: { label: string; columns: strin
       ]
     }
   },
-  "framework": {
-    "en": {
-      "label": "Fictional illustration · source IDs show where summaries belong",
-      "columns": [
-        "Case",
-        "Workload",
-        "Support"
-      ],
-      "rows": [
-        [
-          "F1",
-          "Marking crowds out planning [F1:12]",
-          "Wants shared materials [F1:18]"
-        ],
-        [
-          "F2",
-          "Planning time protected [F2:9]",
-          "Scheduled peer meetings [F2:21]"
-        ],
-        [
-          "F3",
-          "Administration is heavy [F3:7]",
-          "Little time to meet [F3:14]"
-        ]
-      ]
-    },
-    "zh": {
-      "label": "虛構示例 · 來源編號顯示摘要應連結何處",
-      "columns": [
-        "個案",
-        "工作量",
-        "支援"
-      ],
-      "rows": [
-        [
-          "F1",
-          "評分擠壓備課時間[F1:12]",
-          "希望分享材料[F1:18]"
-        ],
-        [
-          "F2",
-          "備課時間受保障[F2:9]",
-          "定期同儕會議[F2:21]"
-        ],
-        [
-          "F3",
-          "行政繁重[F3:7]",
-          "很少時間見面[F3:14]"
-        ]
-      ]
-    }
-  },
   "narrative": {
     "en": {
       "label": "Fictional illustration · keep a story’s sequence visible",
@@ -581,48 +467,6 @@ export const methodOutputs: Record<string, { en: { label: string; columns: strin
           "後續反思",
           "同事分享策略",
           "把求助理解為學習"
-        ]
-      ]
-    }
-  },
-  "ipa": {
-    "en": {
-      "label": "Fictional illustration · one case before comparison",
-      "columns": [
-        "First-person account",
-        "Exploratory note",
-        "Candidate experiential theme"
-      ],
-      "rows": [
-        [
-          "“When the observer entered, I felt exposed.”",
-          "The gaze is experienced as personal exposure",
-          "Being seen as a test of professional worth"
-        ],
-        [
-          "“Her nod let me breathe again.”",
-          "A small gesture changes the felt encounter",
-          "Seeking reassurance in an evaluative encounter"
-        ]
-      ]
-    },
-    "zh": {
-      "label": "虛構示例 · 先分析一個個案，再比較",
-      "columns": [
-        "第一人稱敘述",
-        "探索筆記",
-        "候選經驗主題"
-      ],
-      "rows": [
-        [
-          "「觀課者進來時，我覺得自己被看穿。」",
-          "目光被經驗為個人的暴露",
-          "被看見成為專業價值的考驗"
-        ],
-        [
-          "「她點頭後，我才再次能呼吸。」",
-          "小動作改變遭遇的感受",
-          "在評價情境中尋求確認"
         ]
       ]
     }
@@ -819,32 +663,6 @@ export const methodLearningGuides = {
       ]
     }
   },
-  "framework": {
-    "en": {
-      "questions": [
-        "What would occupy a row and a column if you compared these teachers’ accounts?",
-        "How could you summarise each cell while keeping a route back to the original excerpt?",
-        "What would comparing within one row and across a column reveal? Which exception or missing information needs checking?"
-      ],
-      "features": [
-        "Charts source-linked summaries in a case-by-issue matrix.",
-        "Uses an analytic framework to organise systematic within-case and cross-case comparisons.",
-        "Retains access to case context while interpreting similarities, differences and exceptions."
-      ]
-    },
-    "zh": {
-      "questions": [
-        "比較這些教師敘述時，矩陣的行與欄各代表甚麼？",
-        "如何概括每格內容，同時保留返回原始片段的路徑？",
-        "在同一行內及同一欄間比較能發現甚麼？哪些例外或缺漏須核查？"
-      ],
-      "features": [
-        "把附來源的摘要填入個案 × 議題矩陣。",
-        "以分析框架組織有系統的個案內及跨個案比較。",
-        "詮釋相似、差異及例外時，仍可回到個案語境。"
-      ]
-    }
-  },
   "grounded": {
     "en": {
       "questions": [
@@ -922,57 +740,5 @@ export const methodLearningGuides = {
         "交代話語分析取向，以證據說明語言的作用。"
       ]
     }
-  },
-  "critical": {
-    "en": {
-      "questions": [
-        "Whose interests or authority does the wording support? Whose perspective is absent or marginalised?",
-        "Which textual choices make an unequal arrangement appear normal or legitimate?",
-        "What institutional or social evidence would connect that language to power and inequality? How would you avoid claiming more than the evidence supports?"
-      ],
-      "features": [
-        "Makes power, ideology and inequality explicit analytic concerns.",
-        "Connects close textual analysis with institutional and social relations.",
-        "Supports critical interpretations with both textual and contextual evidence."
-      ]
-    },
-    "zh": {
-      "questions": [
-        "措辭支持誰的利益或權威？誰的觀點缺席或被邊緣化？",
-        "哪些文本選擇令不平等安排顯得正常或合理？",
-        "甚麼制度或社會證據能把語言與權力及不平等連繫？如何讓主張與證據範圍相符？"
-      ],
-      "features": [
-        "明確關注權力、意識形態及不平等。",
-        "把細緻文本分析與制度及社會關係連繫。",
-        "以文本和語境證據支持批判詮釋。"
-      ]
-    }
-  },
-  "ipa": {
-    "en": {
-      "questions": [
-        "What significant lived experience is this person trying to make sense of?",
-        "How would you examine the person’s words and meaning-making in depth before comparing other cases?",
-        "How does your interpretation engage with the participant’s own interpretation? Which individual differences must remain visible in the final account?"
-      ],
-      "features": [
-        "Explores how people make sense of significant lived experience.",
-        "Uses an idiographic focus: detailed analysis of each case precedes cross-case interpretation.",
-        "Recognises the analyst’s interpretation of the participant’s meaning-making and retains individual nuance."
-      ]
-    },
-    "zh": {
-      "questions": [
-        "這個人正在理解哪項重要的親身經驗？",
-        "比較其他個案之前，如何深入檢視其用詞與意義建構？",
-        "你的詮釋如何與參與者自己的理解互動？最終敘述須保留哪些個體差異？"
-      ],
-      "features": [
-        "探索人們如何理解重要的親身經驗。",
-        "以個案為重：先細緻分析每個個案，再作跨個案詮釋。",
-        "關注分析者如何詮釋參與者的意義建構，保留個別細節。"
-      ]
-    }
   }
-} as const;
+};

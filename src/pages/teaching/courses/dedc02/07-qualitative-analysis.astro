@@ -7,7 +7,7 @@ import { withBase } from '../../../../utils/paths';
 import '../../../../styles/dedc02-qualitative-analysis.css';
 
 const title = 'Qualitative Data Analysis and Reporting · DEDC02';
-const description = 'An interactive bilingual doctoral lesson on codes, categories, topics, themes, inductive, deductive and abductive coding, a remote-work example, eight qualitative analysis approaches and evidence-based reporting.';
+const description = 'An interactive bilingual doctoral lesson on codes, categories, topics, themes, inductive, deductive and abductive coding, a remote-work example, five qualitative analysis methods and evidence-based reporting.';
 const courseHref = withBase('/teaching/courses/dedc02');
 
 const terms = [
@@ -19,27 +19,114 @@ const terms = [
 ];
 
 const scenarios = [
-  {"id": "policy-positioning", "en": "How does AI policy wording position teachers as monitors and students as potential rule-breakers?", "zh": "AI政策的措辭如何將教師定位為監察者，並將學生定位為可能違規的人？", "answer": "discourse", "why": "The aim is to examine how language constructs roles and power relations; listing policy topics would miss this work.", "whyZh": "目的是分析語言如何建構角色與權力關係；只列出政策話題會忽略這種作用。"},
-  {"id": "observed-experience", "en": "How do six novice teachers make sense of being observed for the first time? Examine each lived experience closely before comparing cases.", "zh": "六位新任教師如何理解第一次被觀課的經驗？先細緻分析每人的親身經驗，再比較個案。", "answer": "ipa", "why": "IPA attends to each person’s meaning-making in a significant lived experience, retaining individual differences before cross-case comparison.", "whyZh": "IPA關注每人如何理解重要的親身經驗；跨個案比較之前，先保留個體差異。"},
-  {"id": "policy-categories", "en": "What kinds of AI use are permitted, discouraged or prohibited in 40 school policies? Develop and apply a category system.", "zh": "40份學校政策容許、不鼓勵或禁止哪些AI使用方式？建立並應用類別系統。", "answer": "content", "why": "Content analysis classifies meaningful content systematically. The intended output is a category system with clear definitions and examples.", "whyZh": "內容分析有系統地分類有意義的內容；預期成果是附有明確定義及例子的類別系統。"},
-  {"id": "assessment-process", "en": "How do new teachers learn to negotiate assessment expectations? Use iterative interviews, comparisons and theoretically guided sampling to build a process theory.", "zh": "新教師如何學會協商評核期望？透過反覆訪談、比較及理論抽樣，建立解釋過程的理論。", "answer": "grounded", "why": "Grounded theory develops relationships between categories into an explanatory theory; ongoing analysis guides what data to seek next.", "whyZh": "紮根理論把類別之間的關係發展為解釋性理論；持續分析會引導下一步收集哪些資料。"},
-  {"id": "confidence-meanings", "en": "What shared meanings underpin teachers’ confidence in giving feedback? Interpret patterns across interviews around central organising ideas.", "zh": "哪些共同意義構成教師給予回饋時的信心？以核心概念詮釋訪談中的跨個案模式。", "answer": "thematic", "why": "Thematic analysis develops patterns of shared meaning around central organising ideas. A theme explains a pattern through a central organising idea.", "whyZh": "主題分析圍繞核心概念發展共同意義模式；主題以核心概念解釋模式。"},
-  {"id": "school-comparison", "en": "How do barriers and supports differ across five schools? Chart source-linked summaries in a school-by-issue matrix and compare within and across schools.", "zh": "五所學校的障礙與支援有何差異？將附來源的摘要填入學校 × 議題矩陣，再作校內及跨校比較。", "answer": "framework", "why": "Framework analysis uses a case-by-issue matrix to support systematic comparisons while retaining each case’s context.", "whyZh": "框架分析運用個案 × 議題矩陣作有系統的比較，同時保留各個案的脈絡。"},
-  {"id": "career-story", "en": "How does a teacher tell the story of moving from industry into teaching? Preserve the sequence, turning points and narrative voice.", "zh": "一位教師如何講述由業界轉入教職的故事？保留次序、轉折與敘事聲音。", "answer": "narrative", "why": "Narrative analysis examines how a story is organised and told over time. Isolating quotations into topics could lose its sequence and plot.", "whyZh": "敘事分析檢視故事如何隨時間被組織及講述；將引文分割成話題可能使次序與情節流失。"},
-  {"id": "belonging-meanings", "en": "How is belonging understood across migrant teachers’ accounts? Develop themes connecting acceptance, recognition and everyday exclusion.", "zh": "移居教師的敘述如何理解歸屬感？發展連繫接納、認同與日常排斥的主題。", "answer": "thematic", "why": "The aim is to interpret shared meanings across accounts. Thematic analysis can connect these meanings without requiring a new process theory.", "whyZh": "目的是詮釋不同敘述的共同意義；主題分析可連繫這些意義，無須以建立新的過程理論為目標。"},
-  {"id": "critical-policy", "en": "How does admission-policy language legitimise unequal access for migrant pupils? Connect textual choices to institutional inequality.", "zh": "收生政策的語言如何合理化移居學生的不平等入學機會？把文本選擇與制度不平等連繫。", "answer": "critical", "why": "Critical discourse analysis makes power and inequality an explicit focus, linking textual evidence to institutional relations.", "whyZh": "批判話語分析明確聚焦權力與不平等，把文本證據與制度關係連繫。"},
-  {"id": "returning-story", "en": "How do two teachers narrate returning to work after a career break? Analyse each story’s chronology, turning points and self-presentation.", "zh": "兩位教師如何講述中斷職涯後重返工作的經歷？分析每個故事的時間次序、轉折及自我呈現。", "answer": "narrative", "why": "The unit of attention is the whole narrated journey and its telling. Studying personal experience alone does not automatically make an analysis IPA.", "whyZh": "分析重點是完整的敘事歷程及其講述方式；研究個人經驗並不會自動成為IPA。"},
+  {
+    "id": "policy-positioning",
+    "en": "How does AI policy wording position teachers as monitors and students as potential rule-breakers?",
+    "zh": "AI政策的措辭如何將教師定位為監察者，並將學生定位為可能違規的人？",
+    "answer": "discourse",
+    "why": "The aim is to examine how language constructs roles and power relations; listing policy topics would miss this work.",
+    "whyZh": "目的是分析語言如何建構角色與權力關係；只列出政策話題會忽略這種作用。"
+  },
+  {
+    "id": "feedback-categories",
+    "en": "What kinds of feedback do teachers describe in 30 interviews? Define categories for feedback purposes and apply clear inclusion rules.",
+    "zh": "30份教師訪談描述哪些回饋類型？按回饋目的界定類別，應用清楚的納入規則。",
+    "answer": "content",
+    "why": "Content analysis builds and applies a category system to classify meaningful material, preserving definitions and context.",
+    "whyZh": "內容分析建立並應用類別系統，分類有意義的資料，同時保留定義及語境。"
+  },
+  {
+    "id": "policy-categories",
+    "en": "What kinds of AI use are permitted, discouraged or prohibited in 40 school policies? Develop and apply a category system.",
+    "zh": "40份學校政策容許、不鼓勵或禁止哪些AI使用方式？建立並應用類別系統。",
+    "answer": "content",
+    "why": "Content analysis classifies meaningful content systematically. The intended output is a category system with clear definitions and examples.",
+    "whyZh": "內容分析有系統地分類有意義的內容；預期成果是附有明確定義及例子的類別系統。"
+  },
+  {
+    "id": "assessment-process",
+    "en": "How do new teachers learn to negotiate assessment expectations? Use iterative interviews, comparisons and theoretically guided sampling to build a process theory.",
+    "zh": "新教師如何學會協商評核期望？透過反覆訪談、比較及理論抽樣，建立解釋過程的理論。",
+    "answer": "grounded",
+    "why": "Grounded theory develops relationships between categories into an explanatory theory; ongoing analysis guides what data to seek next.",
+    "whyZh": "紮根理論把類別之間的關係發展為解釋性理論；持續分析會引導下一步收集哪些資料。"
+  },
+  {
+    "id": "confidence-meanings",
+    "en": "What shared meanings underpin teachers’ confidence in giving feedback? Interpret patterns across interviews around central organising ideas.",
+    "zh": "哪些共同意義構成教師給予回饋時的信心？以核心概念詮釋訪談中的跨個案模式。",
+    "answer": "thematic",
+    "why": "Thematic analysis develops patterns of shared meaning around central organising ideas. A theme explains a pattern through a central organising idea.",
+    "whyZh": "主題分析圍繞核心概念發展共同意義模式；主題以核心概念解釋模式。"
+  },
+  {
+    "id": "adoption-process",
+    "en": "How does a new classroom practice become established? Compare incidents, write memos about category relationships and identify further material needed to develop a process explanation.",
+    "zh": "新的課堂做法如何逐步確立？比較事件、以備忘錄記錄類別關係，指出發展過程解釋所需的補充資料。",
+    "answer": "grounded",
+    "why": "Grounded theory analysis develops relationships between categories through constant comparison and memo writing, with further material guided by the developing explanation.",
+    "whyZh": "紮根理論分析透過持續比較及備忘錄發展類別關係，再由逐步形成的解釋引導補充資料。"
+  },
+  {
+    "id": "career-story",
+    "en": "How does a teacher tell the story of moving from industry into teaching? Preserve the sequence, turning points and narrative voice.",
+    "zh": "一位教師如何講述由業界轉入教職的故事？保留次序、轉折與敘事聲音。",
+    "answer": "narrative",
+    "why": "Narrative analysis examines how a story is organised and told over time. Isolating quotations into topics could lose its sequence and plot.",
+    "whyZh": "敘事分析檢視故事如何隨時間被組織及講述；將引文分割成話題可能使次序與情節流失。"
+  },
+  {
+    "id": "belonging-meanings",
+    "en": "How is belonging understood across migrant teachers’ accounts? Develop themes connecting acceptance, recognition and everyday exclusion.",
+    "zh": "移居教師的敘述如何理解歸屬感？發展連繫接納、認同與日常排斥的主題。",
+    "answer": "thematic",
+    "why": "The aim is to interpret shared meanings across accounts. Thematic analysis can connect these meanings without requiring a new process theory.",
+    "whyZh": "目的是詮釋不同敘述的共同意義；主題分析可連繫這些意義，無須以建立新的過程理論為目標。"
+  },
+  {
+    "id": "critical-policy",
+    "en": "How does admission-policy language legitimise unequal access for migrant pupils? Connect textual choices to institutional inequality.",
+    "zh": "收生政策的語言如何合理化移居學生的不平等入學機會？把文本選擇與制度不平等連繫。",
+    "answer": "discourse",
+    "why": "A critical approach within discourse analysis explicitly connects textual choices to power and institutional inequality.",
+    "whyZh": "話語分析中的批判取向明確把文本選擇與權力及制度不平等連繫。"
+  },
+  {
+    "id": "returning-story",
+    "en": "How do two teachers narrate returning to work after a career break? Analyse each story’s chronology, turning points and self-presentation.",
+    "zh": "兩位教師如何講述中斷職涯後重返工作的經歷？分析每個故事的時間次序、轉折及自我呈現。",
+    "answer": "narrative",
+    "why": "Narrative analysis attends to the narrated journey, including chronology, turning points and how the teller presents events.",
+    "whyZh": "敘事分析關注被講述的歷程，包括時間次序、轉折及敘述者呈現事件的方式。"
+  }
 ];
 
 const matchingMethods = [
-  {"value": "narrative", "en": "Narrative analysis", "zh": "敘事分析"},
-  {"value": "grounded", "en": "Grounded theory", "zh": "紮根理論"},
-  {"value": "content", "en": "Qualitative content analysis", "zh": "質性內容分析"},
-  {"value": "ipa", "en": "Interpretative phenomenological analysis (IPA)", "zh": "詮釋現象學分析（IPA）"},
-  {"value": "framework", "en": "Framework analysis", "zh": "框架分析"},
-  {"value": "critical", "en": "Critical discourse analysis", "zh": "批判話語分析"},
-  {"value": "discourse", "en": "Discourse analysis", "zh": "話語分析"},
-  {"value": "thematic", "en": "Thematic analysis", "zh": "主題分析"},
+  {
+    "value": "narrative",
+    "en": "Narrative analysis",
+    "zh": "敘事分析"
+  },
+  {
+    "value": "grounded",
+    "en": "Grounded theory analysis",
+    "zh": "紮根理論分析"
+  },
+  {
+    "value": "content",
+    "en": "Qualitative content analysis",
+    "zh": "質性內容分析"
+  },
+  {
+    "value": "discourse",
+    "en": "Discourse analysis",
+    "zh": "話語分析"
+  },
+  {
+    "value": "thematic",
+    "en": "Thematic analysis",
+    "zh": "主題分析"
+  }
 ];
 
 function matchingOptions(index: number) {
@@ -55,7 +142,7 @@ function matchingOptions(index: number) {
 
     <section class="slide" data-title="Opening vote" aria-hidden="true"><div class="slide-inner"><header class="slide-header"><span class="eyebrow">Opening · live vote → peer discussion</span></header><div data-language="en"><h2>What would you call this?</h2><blockquote>“I did not trust the new feedback tool until a colleague showed me how she used it with her own class.”</blockquote><p>Choose the strongest label for <em>the whole excerpt</em>. Then explain what your choice captures and misses.</p><div class="qa-quiz" data-qa-quiz data-answer="code"><button type="button" data-choice="topic">Teacher training</button><button type="button" data-choice="code">Peer modelling builds trust</button><button type="button" data-choice="theme">Technology is good</button><p role="status" data-feedback hidden></p></div><p class="qa-teacher">Which words in the excerpt warrant your label? Would the label still work for another teacher’s account?</p></div><div data-language="zh" hidden lang="zh-Hant"><h2>你會如何命名這段資料？</h2><blockquote>「直到同事示範她如何在自己的班級使用新回饋工具，我才開始信任它。」</blockquote><p>為<em>整段資料</em>選擇最合適的標籤，再說明它抓住甚麼、遺漏甚麼。</p><div class="qa-quiz" data-qa-quiz data-answer="code"><button type="button" data-choice="topic">教師培訓</button><button type="button" data-choice="code">同儕示範建立信任</button><button type="button" data-choice="theme">科技很好</button><p role="status" data-feedback hidden></p></div><p class="qa-teacher">片段中的哪些字句支持你的標籤？另一位教師的敘述也適用嗎？</p></div></div></section>
 
-    <section class="slide" data-title="Learning route" aria-hidden="true"><div class="slide-inner"><header class="slide-header"><span class="eyebrow">Learning route</span></header><div data-language="en"><h2>Five moves through today’s lesson</h2><ol class="qa-steps"><li><b>01</b><span>Name the analytic unit: excerpt, code, category, topic, theme.</span></li><li><b>02</b><span>Compare three coding logics, then practise interpretations with the teacher examples.</span></li><li><b>03</b><span>Explore eight approaches through a method map, with thematic-analysis varieties and the practice passages included in the slides.</span></li><li><b>04</b><span>Choose an approach for a research scenario and defend the fit.</span></li><li><b>05</b><span>Apply the analysis to a full remote-work interview, then explain the evidence and report the analytic route.</span></li></ol></div><div data-language="zh" hidden lang="zh-Hant"><h2>本課的五個步驟</h2><ol class="qa-steps"><li><b>01</b><span>辨識分析單位：片段、代碼、類別、話題與主題。</span></li><li><b>02</b><span>比較三種編碼邏輯，再以教師例子練習詮釋。</span></li><li><b>03</b><span>以方法地圖探索八種取向、主題分析種類及投影片中的練習文本。</span></li><li><b>04</b><span>為研究情境選擇方法並論證其適切性。</span></li><li><b>05</b><span>以完整遙距工作訪談作最後練習，再解釋證據並交代分析路徑。</span></li></ol></div></div></section>
+    <section class="slide" data-title="Learning route" aria-hidden="true"><div class="slide-inner"><header class="slide-header"><span class="eyebrow">Learning route</span></header><div data-language="en"><h2>Five moves through today’s lesson</h2><ol class="qa-steps"><li><b>01</b><span>Name the analytic unit: excerpt, code, category, topic, theme.</span></li><li><b>02</b><span>Compare three coding logics, then practise interpretations with the teacher examples.</span></li><li><b>03</b><span>Explore five methods through a method map, with thematic-analysis varieties and the practice passages included in the slides.</span></li><li><b>04</b><span>Choose an approach for a research scenario and defend the fit.</span></li><li><b>05</b><span>Apply the analysis to a full remote-work interview, then explain the evidence and report the analytic route.</span></li></ol></div><div data-language="zh" hidden lang="zh-Hant"><h2>本課的五個步驟</h2><ol class="qa-steps"><li><b>01</b><span>辨識分析單位：片段、代碼、類別、話題與主題。</span></li><li><b>02</b><span>比較三種編碼邏輯，再以教師例子練習詮釋。</span></li><li><b>03</b><span>以方法地圖探索五種方法、主題分析種類及投影片中的練習文本。</span></li><li><b>04</b><span>為研究情境選擇方法並論證其適切性。</span></li><li><b>05</b><span>以完整遙距工作訪談作最後練習，再解釋證據並交代分析路徑。</span></li></ol></div></div></section>
 
     <section class="slide" data-title="Five analytic terms" aria-hidden="true"><div class="slide-inner"><header class="slide-header"><span class="eyebrow">Concept cards · click to compare</span></header><div data-language="en"><h2>Five terms that do different work</h2><p>Open the cards in any order. Which one is closest to the participant’s words? Which one makes the largest interpretive claim?</p><div class="qa-term-grid">{terms.map((term) => <details><summary>{term.en}</summary><p>{term.definition}</p><small>Example: {term.example}</small></details>)}</div><p class="qa-teacher">Why might “teacher training” be a topic while “peer modelling builds trust” is a code?</p></div><div data-language="zh" hidden lang="zh-Hant"><h2>五個作用不同的術語</h2><p>以任何次序打開卡片。哪一項最接近參與者的原話？哪一項提出較大的詮釋主張？</p><div class="qa-term-grid">{terms.map((term) => <details><summary>{term.zh}</summary><p>{term.definitionZh}</p><small>例子：{term.exampleZh}</small></details>)}</div><p class="qa-teacher">為何「教師培訓」可能只是話題，而「同儕示範建立信任」是一個代碼？</p></div></div></section>
 
@@ -68,9 +155,9 @@ function matchingOptions(index: number) {
 
     <section class="slide" data-title="Topic versus theme" aria-hidden="true"><div class="slide-inner"><header class="slide-header"><span class="eyebrow">Activity 3 · claim check</span></header><div data-language="en"><h2>A topic names the area. A theme says something about it.</h2><div class="qa-compare"><article><small>Topic heading</small><h3>Teacher training</h3><p>Tells us what the material concerns.</p></article><article><small>Candidate interpretive theme</small><h3>Confidence depends on usable guidance, whether formal or peer-led.</h3><p>Connects T1–T3 around a central idea while leaving room for different routes.</p></article></div><div class="qa-quiz" data-qa-quiz data-answer="b"><p>Which further evidence would most strengthen the candidate theme?</p><button type="button" data-choice="a">The number of times “training” appears</button><button type="button" data-choice="b">More accounts showing how guidance was used and when it was insufficient</button><button type="button" data-choice="c">A quotation from T1 repeated three times</button><p role="status" data-feedback hidden></p></div><p class="qa-teacher">Does the claim overreach? How would T3 change your wording?</p></div><div data-language="zh" hidden lang="zh-Hant"><h2>話題指出領域；主題提出對該領域的理解。</h2><div class="qa-compare"><article><small>話題標題</small><h3>教師培訓</h3><p>說明資料談及甚麼。</p></article><article><small>候選詮釋主題</small><h3>無論來自正式培訓或同儕，有用的指引都可能建立信心。</h3><p>以一個核心概念連繫T1至T3，同時容納不同途徑。</p></article></div><div class="qa-quiz" data-qa-quiz data-answer="b"><p>哪類補充證據最能加強這個候選主題？</p><button type="button" data-choice="a">「培訓」一詞出現的次數</button><button type="button" data-choice="b">更多關於如何使用指引及何時不足的敘述</button><button type="button" data-choice="c">把T1的同一引文重複三次</button><p role="status" data-feedback hidden></p></div><p class="qa-teacher">這項主張有否超出證據？T3會如何改變你的措辭？</p></div></div></section>
 
-    <section class="slide" data-title="Analytic trail" aria-hidden="true"><div class="slide-inner"><header class="slide-header"><span class="eyebrow">Evidence trail</span></header><div data-language="en"><h2>Keep each inference inspectable</h2><div class="qa-trail"><span>Source excerpt<br /><b>T1, T2, T3</b></span><span>Meaningful segments<br /><b>What is happening?</b></span><span>Initial codes<br /><b>Short labels</b></span><span>Categories or patterns<br /><b>Compare cases</b></span><span>Candidate theme / account<br /><b>What does it mean?</b></span><span>Finding<br /><b>Claim + evidence + limits</b></span></div><p class="qa-note">Use this evidence trail to connect your interpretations to the data. Adapt the analytic steps to your chosen method. Reflexive thematic analysis is recursive; grounded theory, narrative analysis, discourse analysis and IPA make different analytic moves.</p><p class="qa-teacher">Which step involves the greatest interpretation, and how would you justify it using the data?</p></div><div data-language="zh" hidden lang="zh-Hant"><h2>讓每一步推論可供檢視</h2><div class="qa-trail"><span>來源片段<br /><b>T1、T2、T3</b></span><span>有意義的片段<br /><b>正在發生甚麼？</b></span><span>初始代碼<br /><b>簡短標籤</b></span><span>類別或模式<br /><b>比較個案</b></span><span>候選主題／敘述<br /><b>它有甚麼意義？</b></span><span>研究發現<br /><b>主張＋證據＋界限</b></span></div><p class="qa-note">運用這條證據鏈，把你的詮釋與資料連繫起來，並按所選方法調整分析步驟。反思性主題分析會反覆往返；紮根理論、敘事分析、話語分析及IPA的分析步驟亦各有不同。</p><p class="qa-teacher">哪一步涉及最多詮釋？你會如何用資料支持這項決定？</p></div></div></section>
+    <section class="slide" data-title="Analytic trail" aria-hidden="true"><div class="slide-inner"><header class="slide-header"><span class="eyebrow">Evidence trail</span></header><div data-language="en"><h2>Keep each inference inspectable</h2><div class="qa-trail"><span>Source excerpt<br /><b>T1, T2, T3</b></span><span>Meaningful segments<br /><b>What is happening?</b></span><span>Initial codes<br /><b>Short labels</b></span><span>Categories or patterns<br /><b>Compare cases</b></span><span>Candidate theme / account<br /><b>What does it mean?</b></span><span>Finding<br /><b>Claim + evidence + limits</b></span></div><p class="qa-note">Use this evidence trail to connect your interpretations to the data. Adapt the analytic steps to your chosen method. Reflexive thematic analysis is recursive; grounded theory analysis, narrative analysis and discourse analysis make different analytic moves.</p><p class="qa-teacher">Which step involves the greatest interpretation, and how would you justify it using the data?</p></div><div data-language="zh" hidden lang="zh-Hant"><h2>讓每一步推論可供檢視</h2><div class="qa-trail"><span>來源片段<br /><b>T1、T2、T3</b></span><span>有意義的片段<br /><b>正在發生甚麼？</b></span><span>初始代碼<br /><b>簡短標籤</b></span><span>類別或模式<br /><b>比較個案</b></span><span>候選主題／敘述<br /><b>它有甚麼意義？</b></span><span>研究發現<br /><b>主張＋證據＋界限</b></span></div><p class="qa-note">運用這條證據鏈，把你的詮釋與資料連繫起來，並按所選方法調整分析步驟。反思性主題分析會反覆往返；紮根理論分析、敘事分析及話語分析的分析步驟亦各有不同。</p><p class="qa-teacher">哪一步涉及最多詮釋？你會如何用資料支持這項決定？</p></div></div></section>
 
-    <section class="slide" data-title="Choose an analytic aim" aria-hidden="true"><div class="slide-inner"><header class="slide-header"><span class="eyebrow">Method atlas · start with the intended answer</span></header><div data-language="en"><h2>Which kind of answer do you need?</h2><div class="qa-aim-grid"><article><b>Describe content</b><p>What kinds of messages or practices appear?</p><small>Content analysis</small></article><article><b>Interpret patterns</b><p>What shared meanings organise accounts?</p><small>Thematic / framework analysis</small></article><article><b>Explain a process</b><p>How does something develop through action?</p><small>Grounded theory</small></article><article><b>Study stories or language</b><p>How is experience narrated or a position constructed?</p><small>Narrative / discourse analysis</small></article></div><p class="qa-teacher">What data would each question require? Which choice would change your interview or document selection?</p></div><div data-language="zh" hidden lang="zh-Hant"><h2>你需要哪一類答案？</h2><div class="qa-aim-grid"><article><b>描述內容</b><p>出現哪些訊息或做法？</p><small>內容分析</small></article><article><b>詮釋模式</b><p>哪些共同意義統整敘述？</p><small>主題分析或框架分析</small></article><article><b>解釋過程</b><p>某現象如何透過行動逐步發展？</p><small>紮根理論</small></article><article><b>分析故事或語言</b><p>經驗如何被講述？角色如何被建構？</p><small>敘事／話語分析</small></article></div><p class="qa-teacher">各問題需要哪些資料？哪項選擇會改變訪談或文件的選取？</p></div></div></section>
+    <section class="slide" data-title="Choose an analytic aim" aria-hidden="true"><div class="slide-inner"><header class="slide-header"><span class="eyebrow">Method atlas · start with the intended answer</span></header><div data-language="en"><h2>Which kind of answer do you need?</h2><div class="qa-aim-grid"><article><b>Describe content</b><p>What kinds of messages or practices appear?</p><small>Content analysis</small></article><article><b>Interpret patterns</b><p>What shared meanings organise accounts?</p><small>Thematic analysis</small></article><article><b>Explain a process</b><p>How does something develop through action?</p><small>Grounded theory</small></article><article><b>Study stories or language</b><p>How is experience narrated or a position constructed?</p><small>Narrative / discourse analysis</small></article></div><p class="qa-teacher">What analytic steps would each question require? What would the resulting finding look like?</p></div><div data-language="zh" hidden lang="zh-Hant"><h2>你需要哪一類答案？</h2><div class="qa-aim-grid"><article><b>描述內容</b><p>出現哪些訊息或做法？</p><small>內容分析</small></article><article><b>詮釋模式</b><p>哪些共同意義統整敘述？</p><small>主題分析</small></article><article><b>解釋過程</b><p>某現象如何透過行動逐步發展？</p><small>紮根理論</small></article><article><b>分析故事或語言</b><p>經驗如何被講述？角色如何被建構？</p><small>敘事／話語分析</small></article></div><p class="qa-teacher">各問題需要哪些分析步驟？所得研究發現會呈現甚麼形式？</p></div></div></section>
 
     <section class="slide" data-title="Explore qualitative analysis methods" aria-hidden="true"><div class="slide-inner">
       <header class="slide-header"><span class="eyebrow">Method map · question → discuss → distinguish</span></header>
