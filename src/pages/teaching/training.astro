@@ -16,6 +16,7 @@ const description = `Doing Research, English for Academic Purposes and professio
 const doingResearchPath = withBase(`/teaching/training/${doingResearchTheme.slug}`);
 const studentPath = withBase('/teaching/training/app/');
 const hostPath = withBase('/teaching/training/app/host');
+const qMethodologyPath = withBase('/teaching/training/q-methodology/');
 const themePath = withBase(`/teaching/training/${eapTrainingTheme.slug}`);
 ---
 
@@ -107,6 +108,18 @@ const themePath = withBase(`/teaching/training/${eapTrainingTheme.slug}`);
               </div>
               <p id="trainingHint" class="mt-2 text-xs text-muted" hidden></p>
             </li>
+            <li class="rounded-lg border border-border bg-surface px-4 py-3">
+              <p class="text-xs font-semibold uppercase tracking-[0.12em] text-muted">October 2026</p>
+              <h2 class="mt-1 text-base font-semibold text-ink">Q methodology for postgraduate research</h2>
+              <p class="mt-1 text-sm text-muted">A 15 minute introduction to shared viewpoints, with a Q sorting activity and practical research guidance.</p>
+              <form id="qMethodologyEntry" class="mt-3 flex flex-wrap items-center gap-2">
+                <label for="qMethodologyCode" class="sr-only">Q methodology access code</label>
+                <input id="qMethodologyCode" name="code" type="text" inputmode="numeric" autocomplete="off" placeholder="Enter access code" required aria-describedby="qMethodologyHint" class="w-52 rounded-full border border-border bg-page px-4 py-2 text-sm font-normal text-ink" />
+                <button type="submit" class="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:opacity-95">Open Q methodology slides</button>
+              </form>
+              <p id="qMethodologyHint" class="mt-2 text-xs text-muted" role="status" hidden></p>
+              <noscript><a href={qMethodologyPath}>Open the workshop entry page</a></noscript>
+            </li>
           </ul>
         </div>
         <TeachingSectionAside slot="aside" />
@@ -115,13 +128,18 @@ const themePath = withBase(`/teaching/training/${eapTrainingTheme.slug}`);
   </main>
   <SiteFooter />
 
-  <script is:inline define:vars={{ studentPath, hostPath }}>
+  <script is:inline define:vars={{ studentPath, hostPath, qMethodologyPath }}>
     (function () {
       const input = document.getElementById('trainingCode');
       const btn = document.getElementById('trainingOpen');
       const hint = document.getElementById('trainingHint');
       function open() {
         const code = (input?.value || '').trim().toLowerCase();
+        if (code === '202610') {
+          try { sessionStorage.setItem('q-methodology-202610-access', 'yes'); } catch {}
+          window.location.href = qMethodologyPath;
+          return;
+        }
         if (code === '202607') {
           window.location.href = studentPath;
           return;
@@ -139,6 +157,19 @@ const themePath = withBase(`/teaching/training/${eapTrainingTheme.slug}`);
       btn?.addEventListener('click', open);
       input?.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') open();
+      });
+      document.getElementById('qMethodologyEntry')?.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const qInput = document.getElementById('qMethodologyCode');
+        const qHint = document.getElementById('qMethodologyHint');
+        if ((qInput?.value || '').trim() === '202610') {
+          try { sessionStorage.setItem('q-methodology-202610-access', 'yes'); } catch {}
+          window.location.href = qMethodologyPath;
+        } else if (qHint) {
+          qHint.hidden = false;
+          qHint.textContent = 'That code does not match this workshop. Please check the code provided by your instructor.';
+          qInput?.setAttribute('aria-invalid', 'true');
+        }
       });
     })();
   </script>
