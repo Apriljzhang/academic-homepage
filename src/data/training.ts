@@ -21,6 +21,7 @@ export const doingResearchTheme = {
   description: 'Practical topics for making informed decisions throughout a research project.',
   sessions: [
     { number: 1, slug: 'journals-and-indexes', title: 'Understanding Journals and Indexes' },
+    { number: 2, slug: 'advanced-quantitative-data-analysis', title: 'Advanced Quantitative Data Analysis' },
   ],
 } as const satisfies TrainingTheme;
 

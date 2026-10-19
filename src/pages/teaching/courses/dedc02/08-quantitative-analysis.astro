@@ -1,0 +1,103 @@
+---
+import CourseSlideLayout from '../../../../layouts/CourseSlideLayout.astro';
+import LessonDeckChrome from '../../../../components/lessons/LessonDeckChrome.astro';
+import QuantMethodCard from '../../../../components/lessons/QuantMethodCard.astro';
+import { methods, families, jars } from '../../../../data/dedc02Quantitative';
+import { notationEntries, notationGroups } from '../../../../data/quantNotation';
+import { numericSources } from '../../../../data/quantNotationValues';
+import { withBase } from '../../../../utils/paths';
+import '../../../../styles/dedc02-quantitative-analysis.css';
+const title = 'Quantitative Data Analysis and Reporting · DEDC02';
+const description = 'A question-led doctoral lesson: select a quantitative method, follow worked calculations, interpret outputs and report with JARS–Quant. Includes regression, SEM, mediation, moderation, profiles, assessment, networks and longitudinal models.';
+const courseHref = withBase('/teaching/courses/dedc02');
+const languages = ['en','zh'] as const;
+const glossaryStages = [
+  {id:'basics',en:'Start with describing and comparing',zh:'先從描述與比較開始'},
+  {id:'common',en:'Frequently used in Results sections',zh:'結果部分的常用術語'},
+  {id:'specialist',en:'Use when the analysis calls for it',zh:'按分析需要查閱的專門術語'},
+];
+const semChecks = [
+ ['Specify measurement and structural models, identification, free/fixed parameters and directionality.','交代測量及結構模型、識別、自由／固定參數與方向理據。'],
+ ['Describe indicators, scoring, ordinal/continuous treatment, estimator, missingness and dependence.','交代指標、計分、序位／連續處理、估計法、缺失及依賴。'],
+ ['Report convergence, inadmissible solutions, global and local fit, and justified model comparisons.','報告收斂、不容許解、整體與局部擬合，以及有理據的模型比較。'],
+ ['Report unstandardised and standardised estimates, SEs, intervals and the inferential method.','報告未標準化及標準化估計、標準誤、區間與推論方法。'],
+ ['Disclose respecification and alternative/equivalent models; explain indirect and interaction effects.','披露重新設定、替代／等價模型，並解釋間接與交互作用效果。'],
+];
+const methodPages = families.flatMap(f => methods.filter(m => m.family === f.id));
+---
+
+<CourseSlideLayout {title} {description} lessonDeck>
+<LessonDeckChrome {courseHref} lessonTitle="Quantitative Data Analysis and Reporting" />
+<main class="deck qm-deck qm-method-pages" aria-label="Quantitative Data Analysis and Reporting slide deck">
+<section class="slide is-active" data-title="Quantitative Data Analysis and Reporting" aria-hidden="false"><div class="slide-inner"><header class="slide-header"><span class="eyebrow">DEDC02 · Topic 8 · Advanced Research Method</span></header><div class="title-rule"></div>{languages.map(lang=><div data-language={lang} hidden={lang==='zh'} lang={lang==='zh'?'zh-Hant':'en'}><h1>{lang==='zh'?<>量化資料<br/>分析與報告</>:<>Quantitative<br/>Data Analysis<br/>and Reporting</>}</h1><p class="lead">{lang==='zh'?'我們想知道甚麼？需要哪些資料？哪種方法切合？輸出容許甚麼結論？':'What do we want to know? What data would answer it? Which method fits? What can the output support?'}</p></div>)}</div></section>
+<section class="slide" data-title="Learning aims" aria-hidden="true"><div class="slide-inner"><header class="slide-header"><span class="eyebrow">Learning aims</span></header>{languages.map(lang=><div data-language={lang} hidden={lang==='zh'} lang={lang==='zh'?'zh-Hant':'en'}><h2>{lang==='zh'?'學習目標':'Learning aims'}</h2><p class="lead">{lang==='zh'?'完成本課後，你應能：':'By the end of the lesson, you should be able to:'}</p><ol>{(lang==='zh'?['根據研究問題、結果變量類型及資料的依賴結構，選擇並論證合適的量化分析方法。','解釋關鍵計算，並解讀輸出中的估計值、尺度及不確定性。','區分關聯、預測、時間順序及有研究設計支持的因果主張。','運用JARS–Quant及適用的報告模組，清楚呈現分析與結果。']:['Select and justify quantitative methods based on the research question, outcome type and dependence structure of the data.','Explain key calculations and interpret estimates, scales and uncertainty in the outputs.','Distinguish association, prediction, temporal ordering and causal claims supported by the research design.','Report analyses and results clearly using JARS–Quant and relevant reporting modules.']).map(s=><li>{s}</li>)}</ol></div>)}</div></section>
+<section class="slide" data-notation-slide data-no-glossary data-title="Glossary: statistical terms and notation" aria-hidden="true">
+  <div class="slide-inner"><header class="slide-header"><span class="eyebrow">Glossary · Statistical terms and notation</span></header>
+  {languages.map(lang=><div data-language={lang} hidden={lang==='zh'} lang={lang==='zh'?'zh-Hant':'en'}>
+    <h2>{lang==='zh'?'統計術語與符號詞彙表':'Statistical glossary'}</h2>
+    <p>{lang==='zh'?`${notationEntries.length}項術語，從描述及比較資料開始，再讀常見輸出，最後查閱特定分析所需的符號。定義直接列在各類別內，毋須開啟彈出視窗。`:`${notationEntries.length} terms: start with describing and comparing data, continue with common reporting notation, then consult terms for particular analyses. Definitions are written out within each category.`}</p>
+    <p class="qm-caption">{lang==='zh'?'點擊 − 收起類別，點擊 + 展開；可同時展開多個類別。':'Click − to collapse a category or + to expand it. Several categories can stay open together.'}</p>
+    <div class="qm-controls qm-glossary-tools"><button type="button" data-glossary-expand>{lang==='zh'?'全部展開':'Expand all'}</button><button type="button" data-glossary-collapse>{lang==='zh'?'全部收起':'Collapse all'}</button><button type="button" data-return-map>{lang==='zh'?'返回方法圖譜':'Return to method map'}</button></div>
+    <p class="qm-caption">{lang==='zh'?'第三欄區分數學範圍、無效應參照及慣常基準。不是每項術語都有數值或通用界值；模型、尺度、設計與研究情境會影響解讀。':'The third column distinguishes mathematical bounds, no-effect references and conventional benchmarks. Some terms have no numerical range or universal cutoff; interpretation depends on the model, scale, design and research context.'}</p>
+    <div class="qm-glossary">
+      {glossaryStages.map(stage=><div class="qm-glossary-stage">
+        <h3>{lang==='zh'?stage.zh:stage.en}</h3>
+        {notationGroups.filter(g=>g.stage===stage.id).map(g=><details data-notation-group={g.id} class="qm-glossary-category" open={g.id==='describe'}>
+          <summary><span class="qm-glossary-sign" aria-hidden="true"><span class="qm-sign-open">−</span><span class="qm-sign-closed">+</span></span><span>{lang==='zh'?g.zh:g.en}</span><span class="qm-caption qm-glossary-count">{g.entries.length}{lang==='zh'?'項':' terms'}</span></summary>
+          <table class="qm-notation-table">
+            <colgroup><col class="qm-notation-term-col"/><col/><col/></colgroup>
+            <thead><tr><th scope="col">{lang==='zh'?'術語／符號':'Term / notation'}</th><th scope="col">{lang==='zh'?'含義':'Meaning'}</th><th scope="col">{lang==='zh'?'範圍與數值解讀':'Range and numerical interpretation'}</th></tr></thead>
+            <tbody>{g.entries.map(t=><tr data-notation-entry data-notation-id={t.id} data-notation-search-text={`${t.label} ${t.labelZh} ${t.aliases.join(' ')} ${t.definition} ${t.definitionZh}`} data-notation-symbols={t.aliases.join('|')}>
+              <th scope="row">{lang==='zh'?t.labelZh:t.label}</th>
+              <td class="qm-notation-meaning"><span class="qm-mobile-column-label" aria-hidden="true">{lang==='zh'?'含義':'Meaning'}</span><p>{lang==='zh'?t.definitionZh:t.definition}</p><p class="qm-caption">{lang==='zh'?'相關寫法／別名：':'Also written as: '}{t.aliases.join(' · ')}</p></td>
+              <td class="qm-notation-values"><span class="qm-mobile-column-label" aria-hidden="true">{lang==='zh'?'範圍與數值解讀':'Range and numerical interpretation'}</span><p class="qm-notation-range"><strong>{lang==='zh'?t.numeric.rangeZh:t.numeric.range}</strong></p><p>{lang==='zh'?t.numeric.readingZh:t.numeric.reading}</p>{t.numeric.sources.length>0&&<p class="qm-source qm-numeric-sources">{t.numeric.sources.map((key,i)=><>{i>0?' · ':''}<a href={numericSources[key].url} target="_blank" rel="noopener noreferrer">{numericSources[key].label}</a></>)}</p>}</td>
+            </tr>)}</tbody>
+          </table>
+        </details>)}
+      </div>)}
+    </div>
+    <button type="button" class="qm-plain" data-return-map>{lang==='zh'?'返回方法圖譜':'Return to method map'}</button>
+  </div>)}
+  </div>
+</section>
+<section class="slide" data-method-map-slide data-title="Quantitative data analysis: method map" aria-hidden="true">
+  <div class="slide-inner"><header class="slide-header"><span class="eyebrow">Method map · Questions, outcomes and data structure</span></header>
+  {languages.map(lang => <div data-language={lang} hidden={lang==='zh'} lang={lang==='zh'?'zh-Hant':'en'}>
+    <h2>{lang==='zh'?'量化資料分析方法圖譜':'Quantitative data analysis: method map'}</h2>
+    <p>{lang==='zh'?'先找研究問題與結果類型，再確認預測變量及觀察結構。點擊方法名稱，進入該方法的專頁；閱讀後可返回圖譜，繼續比較其他方法。':'Find your question and outcome type, then check the predictors and observation structure. Click a method to open its own page; return to the map to compare another method.'}</p>
+    <div class="qm-controls qm-map-tools">
+      <button type="button" data-open-notation>{lang==='zh'?'統計術語與符號':'Statistical glossary'}</button>
+      <button type="button" data-jump-reference="jars">JARS–Quant</button>
+      <button type="button" data-jump-reference="modules">{lang==='zh'?'方法專屬報告規範':'Method-specific reporting'}</button>
+    </div>
+    <p class="qm-source">{lang==='zh'?'主要分類參考：':'Main categorisation reference: '}<a href="https://stats.oarc.ucla.edu/other/mult-pkg/whatstat/" target="_blank" rel="noopener noreferrer">UCLA OARC · Choosing the Correct Statistical Test</a>. {lang==='zh'?'進階分支按問題及資料結構補充；分類提供起點，仍須檢查模型假設。':'Advanced branches extend the map by question and data structure; each choice still requires checks of the model assumptions.'}</p>
+    <div class="qm-method-map">
+      {['core','extension'].map(group => <div class="qm-map-group">
+        <h3>{group==='core'?(lang==='zh'?'按結果與預測變量選擇':'Choose by outcomes and predictors'):(lang==='zh'?'按問題及資料結構擴展':'Extend for the question and data structure')}</h3>
+        {families.filter(f=>f.section===group).map(f=><div class="qm-map-route" data-map-family data-family={f.id}>
+          <div class="qm-map-question"><h4>{lang==='zh'?f.zh:f.en}</h4><p>{lang==='zh'?f.promptZh:f.prompt}</p>
+            <dl class="qm-route-criteria"><dt>{lang==='zh'?'結果':'Outcomes'}</dt><dd>{lang==='zh'?f.outcomesZh:f.outcomes} · {lang==='zh'?f.outcomeTypeZh:f.outcomeType}</dd><dt>{lang==='zh'?'預測變量':'Predictors'}</dt><dd>{lang==='zh'?f.predictorsZh:f.predictors}</dd></dl>
+          </div>
+          <ul class="qm-method-links">{methods.filter(m=>m.family===f.id).map(m=><li data-map-entry><a href={`#method-${m.id}`} data-open-method={m.id}><span>{lang==='zh'?m.zh:m.name}</span><small>{lang==='zh'?'閱讀方法、計算與研究報告例子':'Read the method, calculation and research example'}</small></a></li>)}</ul>
+        </div>)}
+      </div>)}
+    </div>
+  </div>)}
+  </div>
+</section>
+{methodPages.map(m => {const id=m.id; const family=families.find(f=>f.id===m.family)!; return <section class="slide" id={`method-${id}`} data-method-page={id} data-title={m.name} aria-hidden="true">
+  <div class="slide-inner"><header class="slide-header"><span class="eyebrow">Analysis method · {m.name}</span></header>
+    {languages.map(lang=><div data-language={lang} hidden={lang==='zh'} lang={lang==='zh'?'zh-Hant':'en'}>
+      <div class="qm-method-page-tools qm-controls"><button type="button" data-return-map>{lang==='zh'?'← 返回方法圖譜':'← Return to method map'}</button><button type="button" data-open-notation>{lang==='zh'?'統計術語與符號':'Statistical glossary'}</button></div>
+      <p class="qm-caption">{lang==='zh'?family.zh:family.en}</p>
+      <QuantMethodCard method={m} language={lang} expanded/>
+      {id==='mediation'&&<div class="qm-calculator" data-mediation><h4>{lang==='zh'?'改變a與b，追蹤間接成分':'Change a and b; follow the indirect component'}</h4>{[['a','a: X → M',.6],['b','b: M → Y',.4],['direct',"c′: X → Y",.1]].map(([key,label,value])=><div class="qm-slider"><label for={`med-${lang}-${key}`}>{label}</label><input id={`med-${lang}-${key}`} type="range" min="-1" max="1" step="0.05" value={value} data-med={key}/><output data-med-value={key}>{Number(value).toFixed(2)}</output></div>)}<p class="qm-note" data-med-result role="status">ab = 0.24; c′ + ab = 0.34</p><p class="qm-caption">{lang==='zh'?'這是路徑乘積計算，不會估計區間或辨識因果效果。':'This calculates a path product; it does not estimate an interval or identify a causal effect.'}</p></div>}{id==='moderation'&&<div class="qm-calculator" data-moderation><h4>{lang==='zh'?'調節變量與條件斜率':'The moderator and conditional slope'}</h4><div class="qm-slider"><label for={`moderator-${lang}`}>W</label><input id={`moderator-${lang}`} type="range" min="-2" max="2" step=".1" value="0" data-w/><output data-w-value>0.0</output></div><p class="qm-note" data-slope-result role="status">slope(X) = 0.4 + 0.2 × 0.0 = 0.40</p><p class="qm-caption">{lang==='zh'?'改變W不會改變已指定的模型；它顯示同一模型在不同條件下的關聯。':'Changing W evaluates the same specified model at different values; it does not refit a model.'}</p></div>}{id==='lpa'&&<div class="qm-calculator" data-profile><h4>{lang==='zh'?'比較模型的BIC計算':'Compare the BIC calculation'}</h4><p>{lang==='zh'?'指定教學值：n=200；兩剖面logL=−530、k=9；三剖面logL=−500、k=14。k代表自由參數數目。':'Supplied teaching values: n = 200; two profiles logL = −530, k = 9; three profiles logL = −500, k = 14. Here k is the number of free parameters.'}</p><p class="qm-formula">BIC = −2 logL + k ln(n)<br/>BIC₂ = 1060 + 9 ln(200) = 1107.68<br/>BIC₃ = 1000 + 14 ln(200) = 1074.18</p><p>{lang==='zh'?'在這兩個指定解之間，BIC較支持三剖面；仍須綜合重現、大小、穩定性、分佈假設及實質解釋。':'Among these two supplied solutions, BIC favours three profiles. Replication, size, stability, distributional assumptions and substantive interpretation still matter.'}</p></div>}{id==='sem'&&<div class="qm-note"><h4>{lang==='zh'?'區分測量與結構問題':'Separate measurement and structural questions'}</h4><p>{lang==='zh'?'CFA：項目是否以預定方式反映構念？SEM：在測量模型下，構念間哪些路徑與資料相容？中介與調節是問題／效果類型，可以在迴歸或SEM中估計。':'CFA asks whether indicators reflect constructs in the specified way. SEM also evaluates structural relations under the measurement model. Mediation and moderation are questions/effect structures that can be estimated with regression or SEM.'}</p><div class="qm-controls"><button type="button" data-open-method="cfa">CFA</button><button type="button" data-open-method="invariance">{lang==='zh'?'測量恆等性':'Measurement invariance'}</button></div></div>}{id==='mixed'&&<div class="qm-controls"><button type="button" data-open-method="gee">GEE</button><button type="button" data-open-method="clpm">CLPM</button><button type="button" data-open-method="riclpm">RI-CLPM</button><button type="button" data-open-method="gam">GAMM</button></div>}
+      <div class="qm-controls qm-method-page-end"><button type="button" data-return-map>{lang==='zh'?'← 返回方法圖譜':'← Return to method map'}</button></div>
+    </div>)}
+  </div>
+</section>})}
+<section class="slide" data-reference-page="jars" data-title="JARS–Quant reporting checklist" aria-hidden="true"><div class="slide-inner"><header class="slide-header"><span class="eyebrow">Reporting · JARS–Quant</span></header>{languages.map(lang=><div data-language={lang} hidden={lang==='zh'} lang={lang==='zh'?'zh-Hant':'en'}><div class="qm-controls qm-reference-tools"><button type="button" data-return-map>{lang==='zh'?'← 返回方法圖譜':'← Return to method map'}</button></div><h2>{lang==='zh'?'清楚交代量化分析與結果':'Make quantitative analysis and results transparent'}</h2><p>{lang==='zh'?'與Topic 7的JARS–Qual並列，本課以JARS–Quant作報告依據。以下是課堂用摘要，應對照完整表格及目標期刊要求。勾選代表已找到可查核的報告位置，並非模型已獲驗證。':'Alongside JARS–Qual in Topic 7, use JARS–Quant for this lesson. This classroom companion condenses reporting prompts; consult the complete table and target journal. A tick means you can locate the reported evidence, not that the analysis is valid.'}</p><p class="qm-source"><a href="https://apastyle.apa.org/jars/quant-table-1.pdf" target="_blank" rel="noopener noreferrer">APA JARS–Quant · Table 1</a></p><div class="qm-checks">{jars.map(j=><label><input type="checkbox" data-jars={j.id}/><span><strong>{lang==='zh'?j.zh:j.en}</strong><small>{lang==='zh'?j.detailZh:j.detail}</small></span></label>)}</div><p data-jars-status role="status"></p></div>)}</div></section>
+<section class="slide" data-reference-page="modules" data-title="Method-specific reporting modules" aria-hidden="true"><div class="slide-inner"><header class="slide-header"><span class="eyebrow">Reporting · Match the model</span></header>{languages.map(lang=><div data-language={lang} hidden={lang==='zh'} lang={lang==='zh'?'zh-Hant':'en'}><div class="qm-controls qm-reference-tools"><button type="button" data-return-map>{lang==='zh'?'← 返回方法圖譜':'← Return to method map'}</button></div><h2>{lang==='zh'?'按方法增加報告內容':'Add the reporting module your method needs'}</h2><details open><summary>SEM / CFA · <a href="https://apastyle.apa.org/jars/quant-table-7.pdf" target="_blank" rel="noopener noreferrer">JARS Table 7</a></summary><ul>{semChecks.map(([en,zh])=><li>{lang==='zh'?zh:en}</li>)}</ul></details><details><summary>{lang==='zh'?'貝葉斯估計':'Bayesian estimation'} · <a href="https://apastyle.apa.org/jars/quant-table-8.pdf" target="_blank" rel="noopener noreferrer">JARS Table 8</a></summary><p>{lang==='zh'?'交代模型、先驗與敏感度、後驗與可信區間、計算／收斂診斷及預測檢查；如比較模型，說明比較與先驗依賴。':'Report the model, priors and sensitivity, posteriors and credible intervals, computation/convergence and predictive checks; explain model comparisons and prior dependence.'}</p></details><details><summary>{lang==='zh'?'統合分析':'Meta-analysis'} · <a href="https://apastyle.apa.org/jars/quant-table-9.pdf" target="_blank" rel="noopener noreferrer">JARS Table 9</a></summary><p>{lang==='zh'?'交代搜尋、納入與編碼、效果量與依賴、異質性、調節分析，以及偏誤與敏感度。':'Report searching, eligibility and coding; effect sizes and dependence; heterogeneity, moderators, bias and sensitivity.'}</p></details><p class="qm-note">{lang==='zh'?'報告完整性與分析適切性是兩個判斷：清楚報告的模型仍可能不切合問題或設計。':'Reporting completeness and analytical validity are separate judgements: a fully described model may still be unsuitable for the question or design.'}</p><div class="qm-controls"><button type="button" data-print>{lang==='zh'?'列印／另存課堂PDF':'Print / save lesson PDF'}</button></div></div>)}</div></section>
+</main>
+<script>import '../../../../scripts/dedc02QuantitativeAnalysis';</script>
+</CourseSlideLayout>

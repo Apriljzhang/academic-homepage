@@ -1,0 +1,757 @@
+{
+  "describe": {
+    "quote": "It shows that participants engaged more in RIA (M = 3.20, SD = 0.71) than PIA (M = 2.48, SD = 0.77).",
+    "sourceTitle": "Affective variables and informal digital learning of English: Keys to willingness to communicate in a second language",
+    "doi": "10.14742/ajet.5177",
+    "url": "https://doi.org/10.14742/ajet.5177",
+    "pdfPage": 5,
+    "section": "Results",
+    "focus": "The authors name both activities and give a mean (M) and standard deviation (SD) for each. SD describes variation in scores; this sentence alone does not test the difference.",
+    "focusZh": "作者列出兩種活動各自的平均數（M）及標準差（SD）。SD 描述分數的離散程度；這句話本身尚未檢定兩個平均數的差異。",
+    "sourceKind": "Study PDF in the reading vault",
+    "citation": "Lee & Drajati (2019)"
+  },
+  "ttest": {
+    "quote": "The results of paired-samples t-tests showed that after a 10-month study abroad there was a significant improvement in all three measures with varying effect sizes",
+    "sourceTitle": "What Elicited Imitation Can Show Us: Quantitative and Qualitative Analyses of Longitudinal Changes",
+    "doi": "10.1002/tesq.3020",
+    "url": "https://doi.org/10.1002/tesq.3020",
+    "pdfPage": 5,
+    "section": "Results",
+    "focus": "The prose states the direction; Table 1 supplies means, standard errors, intervals, p and effect sizes. For accuracy, the posttest mean is higher and the pre-minus-post interval is entirely negative. SE is not SD. A fuller paired-test report would also identify t and degrees of freedom; they are absent from this table.",
+    "focusZh": "文字交代方向；表 1 提供平均數、標準誤、區間、p 及效應量。準確度的後測平均數較高，而前測減後測的區間完全為負。SE 並非 SD。更完整的配對檢定報告還應列出 t 及自由度；此原表沒有提供。",
+    "sourceKind": "Study PDF in the reading vault",
+    "citation": "Kahng & Otonya (2021)",
+    "table": {
+      "title": "Table 1 · EI Performance of Pretest and Posttest",
+      "pdfPage": 5,
+      "headers": [
+        "Measure",
+        "Pretest M (SE)",
+        "Posttest M (SE)",
+        "95% CI",
+        "p",
+        "d"
+      ],
+      "rows": [
+        [
+          "Accuracy (0–100)",
+          "71.74 (3.99)",
+          "83.47 (2.02)",
+          "[−18.28, −5.19]",
+          ".001",
+          "0.98"
+        ],
+        [
+          "Meaning (1–5)",
+          "3.47 (0.14)",
+          "4.22 (0.11)",
+          "[−0.94, −0.56]",
+          "< .0001",
+          "1.79"
+        ],
+        [
+          "Formulaic language (0–58)",
+          "39.50 (2.43)",
+          "45.67 (1.66)",
+          "[−10.66, −1.92]",
+          ".007",
+          "0.64"
+        ]
+      ],
+      "note": "Source values transcribed into the lesson layout. The intervals correspond to pretest minus posttest differences. The original table does not supply t or degrees of freedom.",
+      "noteZh": "原表數值依課堂版面重排。區間對應前測減後測的差異；原表未提供 t 或自由度。"
+    }
+  },
+  "anova": {
+    "quote": "For Developing Argument there was a statistically significant difference between treatment group students and the control group (F = 4.62, df = 1, 27; p = .04), with treatment students making more Developing Argument revisions than the control group (see Table 3). The effect size (Cohen’s d) = 0.75.",
+    "sourceTitle": "A study of a multiple component feedback approach to substantive revision for secondary ELL and mult",
+    "doi": "10.1007/s11145-013-9483-y",
+    "url": "https://doi.org/10.1007/s11145-013-9483-y",
+    "pdfPage": 12,
+    "section": "Results",
+    "focus": "Read the outcome and contrast first, then F, its degrees of freedom and p. The sentence also supplies the direction and Cohen’s d; a significant omnibus test alone would not identify every pairwise difference.",
+    "focusZh": "先確認結果變項及比較對象，再讀 F、自由度及 p。此處亦交代方向及 Cohen’s d；單憑顯著的整體檢定不能判定所有組別兩兩有差異。",
+    "sourceKind": "Study PDF in the reading vault",
+    "citation": "Early & Saidy (2014)"
+  },
+  "ancova": {
+    "quote": "The LSD post hoc comparisons made on the adjusted mean scores found the perceived automated feedback group (adjusted = 78.953) significantly outperformed the perceived teacher feedback group (adjusted = 73.551) on essay two.",
+    "sourceTitle": "Investigating the Effects of Perceived Feedback Source on Second Language Writing Performance: A Quasi-Experimental Study",
+    "doi": "10.1007/s40299-021-00597-3",
+    "url": "https://doi.org/10.1007/s40299-021-00597-3",
+    "pdfPage": 6,
+    "section": "Results",
+    "focus": "The reported means are adjusted for a covariate rather than raw group averages. This is a follow-up contrast; inspect the preceding adjusted model, covariate specification, uncertainty and multiplicity handling.",
+    "focusZh": "這些是控制共變量後的調整平均數，並非原始組平均數。這是事後比較，還須閱讀前面的模型、共變量設定、不確定性及多重比較處理。",
+    "sourceKind": "Study PDF in the reading vault",
+    "citation": "Reynolds et al. (2021)"
+  },
+  "manova": {
+    "quote": "Language proficiency, however, did have a significant main effect, V = 0.996, F(80, 3) = 9.076, p < .05, partial eta squared = .996.",
+    "sourceTitle": "Positive effects of a programme on oral presentation skills: high- and low-proficient learners’ self",
+    "doi": "10.1080/02602938.2017.1407917",
+    "url": "https://doi.org/10.1080/02602938.2017.1407917",
+    "pdfPage": 6,
+    "section": "Results",
+    "focus": "V is a multivariate test statistic; the authors also report F, degrees of freedom, p and partial eta squared. Preserve these source values when quoting, but examine the full output before accepting the magnitude or generalising it.",
+    "focusZh": "V 是多變量檢定統計量；作者亦報告 F、自由度、p 及偏 eta 平方。引文保留原文數值，判斷其大小及可推廣性時仍須核對完整輸出。",
+    "sourceKind": "Study PDF in the reading vault",
+    "citation": "Tsang (2018)"
+  },
+  "repeated": {
+    "quote": "A statistically significant effect of time on the scores after corpus use was found (F(2, 20) = 5.807, p = .017).",
+    "sourceTitle": "Discovering collocations via data-driven learning in L2 writing",
+    "doi": "10.64152/10125/73440",
+    "url": "https://doi.org/10.64152/10125/73440",
+    "pdfPage": 8,
+    "section": "Results",
+    "focus": "This is an omnibus time effect: it indicates evidence of change somewhere across occasions, rather than showing which occasions differ. Read the pairwise contrasts, effect size and repeated-measures assumptions as well.",
+    "focusZh": "這是時間的整體效應，表示各次測量之間有改變的證據，尚未指出哪些時間點不同。還須閱讀兩兩比較、效應量及重複測量的假設。",
+    "sourceKind": "Study PDF in the reading vault",
+    "citation": "Wu (2021)"
+  },
+  "rank": {
+    "quote": "To this end, Mann-Whitney U Test ranks were compared and the results revealed that the integrated assessment group with a mean rank of 18.83 had a better performance on the writing section of PET compared to the non-integrated assessment group with a mean rank of 9.72.",
+    "sourceTitle": "Integrating assessment as, for, and of learning in a large-scale exam preparation course",
+    "doi": "10.1016/j.asw.2017.09.003",
+    "url": "https://doi.org/10.1016/j.asw.2017.09.003",
+    "pdfPage": 8,
+    "section": "Results",
+    "focus": "Read the result in two parts: U = 21.500 and the reported p = .003 indicate evidence of a group difference; the mean ranks identify its direction. The integrated group has the higher mean rank. This comparison does not itself establish that the intervention caused the difference.",
+    "focusZh": "分兩步閱讀：U = 21.500 及原表 p = .003 提供組別差異的證據；平均秩指出方向，整合評量組較高。此比較本身不能證明介入造成差異。",
+    "sourceKind": "Study PDF in the reading vault",
+    "citation": "Sadeghi & Rahmati (2017)",
+    "table": {
+      "title": "Table 8 · Mann–Whitney U Test statistics (selected entries)",
+      "pdfPage": 8,
+      "headers": [
+        "Output",
+        "Reported value"
+      ],
+      "rows": [
+        [
+          "Mann–Whitney U",
+          "21.500"
+        ],
+        [
+          "Z",
+          "−2.926"
+        ],
+        [
+          "Asymp. Sig. (2-tailed)",
+          ".003"
+        ],
+        [
+          "Exact Sig. [2*(1-tailed Sig.)]",
+          ".003"
+        ],
+        [
+          "Mean rank: non-integrated assessment",
+          "9.72"
+        ],
+        [
+          "Mean rank: integrated assessment",
+          "18.83"
+        ]
+      ],
+      "note": "Selected entries from the source table, rearranged into two columns. Mean ranks are not means on the original writing-score scale.",
+      "noteZh": "選錄原表內容並重排為兩欄。平均秩並非原始寫作分數的平均數。"
+    }
+  },
+  "chi": {
+    "quote": "A significant difference was found between the low and high groups, χ2 (2, N = 120) = 8.75, p < .05, with Cramer’s V = 0.27, indicating a medium-to-large effect size (Cohen, 1988, pp. 79–80).",
+    "sourceTitle": "Relationships between Comprehension, Strategic Behaviours and Content-Related Aspects of Test Perfor",
+    "doi": "10.1080/15434303.2020.1835918",
+    "url": "https://doi.org/10.1080/15434303.2020.1835918",
+    "pdfPage": 10,
+    "section": "Results",
+    "focus": "The report combines chi-square, degrees of freedom, N, p and Cramér’s V. Inspect the contingency table to see the pattern; the source’s effect-size adjective depends on context and should not replace the numerical estimate.",
+    "focusZh": "報告同時提供卡方值、自由度、N、p 及 Cramér’s V。須查看列聯表才能了解差異模式；原文的效應量形容詞取決於情境，不能代替數值。",
+    "sourceKind": "Study PDF in the reading vault",
+    "citation": "Frost et al. (2021)"
+  },
+  "correlation": {
+    "quote": "In particular, EIL perceptions had higher correlations with TOEIC scores (r = .56; p < .01) than speaking (r = .40; p < .01) and PVLT (r = .40; p < .01) (Table 2).",
+    "sourceTitle": "The role of informal digital learning of English and a high-stakes English test on perceptions of English as an international language",
+    "doi": "10.14742/ajet.5319",
+    "url": "https://doi.org/10.14742/ajet.5319",
+    "pdfPage": 6,
+    "section": "Results",
+    "focus": "Each r gives the strength and direction of a bivariate association. Different r values do not by themselves establish a statistically significant difference between correlations; intervals and a suitable comparison are needed.",
+    "focusZh": "每個 r 表示雙變量關聯的強度及方向。r 的數值不同，本身不等於相關係數之間的差異達顯著；仍須適當的比較及區間。",
+    "sourceKind": "Study PDF in the reading vault",
+    "citation": "Lee (2020)"
+  },
+  "regression": {
+    "quote": "The results show that PIA (β = 0.24, p < 0.01), grit (β = 0.23, p < 0.01), self-confidence (β = 0.22, p < 0.01), and motivation (β = 0.15, p < 0.05) were identified as the significant predictors of students’ L2 WTC.",
+    "sourceTitle": "Affective variables and informal digital learning of English: Keys to willingness to communicate in a second language",
+    "doi": "10.14742/ajet.5177",
+    "url": "https://doi.org/10.14742/ajet.5177",
+    "pdfPage": 6,
+    "section": "Results",
+    "focus": "The standardised beta coefficients describe conditional associations within the fitted model. Read their signs, magnitudes and p values, then check intervals and model fit; predictor does not automatically mean cause.",
+    "focusZh": "標準化 beta 係數描述模型中控制其他變項後的條件關聯。先讀正負方向、大小及 p，再檢查區間及模型配適；預測變項不自動等於原因。",
+    "sourceKind": "Study PDF in the reading vault",
+    "citation": "Lee & Drajati (2019)"
+  },
+  "logistic": {
+    "quote": "The results show that TOEFL iBT Speaking scores significantly predicted whether a test taker passed the EPT OC (z = 7.93, p < .001).",
+    "sourceTitle": "Establishing Appropriate Cut Scores of a Standardized Test for a Local Placement Context",
+    "doi": "10.1002/tesq.3007",
+    "url": "https://doi.org/10.1002/tesq.3007",
+    "pdfPage": 16,
+    "section": "Results",
+    "focus": "The outcome is binary: passing the speaking criterion. z and p provide evidence about a coefficient, but an odds ratio or predicted probabilities with intervals are needed to communicate the size of the association.",
+    "focusZh": "結果變項是二元的：是否通過口語標準。z 及 p 提供係數的檢定證據；要呈現關聯大小，還須勝算比或預測機率及其區間。",
+    "sourceKind": "Study PDF in the reading vault",
+    "citation": "Ockey et al. (2021)"
+  },
+  "ordinal": {
+    "quote": "The partial regression coefficient for this factor is 1.62, with a corresponding odds ratio (OR) of 5.053.",
+    "sourceTitle": "Unpacking the washback of the HSK on international Chinese language education: a study of the influencing factors",
+    "doi": "10.1186/s40468-025-00370-z",
+    "url": "https://doi.org/10.1186/s40468-025-00370-z",
+    "pdfPage": 8,
+    "section": "Results",
+    "focus": "The coefficient is on the model’s log-odds scale and exponentiating it yields the odds ratio. OR = 5.053 multiplies odds, not probability; identify the ordered categories, coding and proportional-odds assumption.",
+    "focusZh": "係數位於模型的對數勝算尺度，取指數後得到勝算比。OR = 5.053 表示勝算的倍數，並非機率的倍數；須確認有序類別、編碼及比例勝算假設。",
+    "sourceKind": "Study PDF in the reading vault",
+    "citation": "LI & Hu (2025)"
+  },
+  "count": {
+    "quote": "The fixed-effects component reveals that the association of between-learner lexical sophistication, as well as its interactions with wave and within-learner lexical sophistication, with MCL is not clear, as indicated by the inclusion of 0 within their 95% credible intervals (CIs).",
+    "sourceTitle": "Modeling the effects of task repetition in second language writing Examining interindividual and in",
+    "doi": "10.1111/lang.12670",
+    "url": "https://doi.org/10.1111/lang.12670",
+    "pdfPage": 30,
+    "section": "Results",
+    "focus": "The excerpt now has its numerical evidence beside it. The BLLS estimate is 0.01 with a credible interval from −0.02 to 0.04, so its sign remains uncertain. These are log-scale coefficients, not raw count differences. The random-intercept SD is a separate measure of between-learner variability.",
+    "focusZh": "引文旁列出其數值依據：BLLS 估計為 0.01，可信區間為 −0.02 至 0.04，因此方向仍不確定。這是 log 尺度的係數，並非原始計數差。隨機截距 SD 則另行描述學習者間變異。",
+    "sourceKind": "Study PDF in the reading vault",
+    "citation": "Hiver et al. (2024)",
+    "table": {
+      "title": "Table 2 · Summary of Model 9 (selected rows)",
+      "pdfPage": 30,
+      "headers": [
+        "Component / parameter",
+        "EAP",
+        "95% credible interval"
+      ],
+      "rows": [
+        [
+          "Fixed: Intercept",
+          "1.96",
+          "[1.90, 2.01]"
+        ],
+        [
+          "Fixed: BLLS",
+          "0.01",
+          "[−0.02, 0.04]"
+        ],
+        [
+          "Fixed: wave : BLLS",
+          "−0.02",
+          "[−0.05, 0.00]"
+        ],
+        [
+          "Fixed: BLLS : WLLS",
+          "−0.02",
+          "[−0.05, 0.01]"
+        ],
+        [
+          "By-learner: SD of random intercepts",
+          "0.11",
+          "[0.09, 0.15]"
+        ]
+      ],
+      "note": "Selected source rows, with the interval endpoints combined in brackets. EAP is the posterior mean; BLLS/WLLS are between-/within-learner lexical sophistication. This is a Bayesian negative-binomial additive mixed model with an exposure offset; coefficients are on its log-link scale. Smooth terms are omitted in the original table.",
+      "noteZh": "選錄原表部分列，並以方括號合併區間端點。EAP 為後驗平均數；BLLS／WLLS 為學習者間／學習者內詞彙複雜度。此研究使用含暴露量 offset 的貝葉斯負二項加性混合模型，係數位於 log 連結尺度；原表未列出平滑項。"
+    }
+  },
+  "gam": {
+    "quote": "A comparison with Model 1 demonstrated a clearly lower predictive accuracy for Model 13 (ΔLOO = -95.5; SE of ΔLOO = 21.8), suggesting the variability of MCL across learners.",
+    "sourceTitle": "Modeling the effects of task repetition in second language writing Examining interindividual and in",
+    "doi": "10.1111/lang.12670",
+    "url": "https://doi.org/10.1111/lang.12670",
+    "pdfPage": 27,
+    "section": "Results",
+    "focus": "The authors compare predictive accuracy using a difference in leave-one-out performance and its standard error. Identify which component was removed in Model 13; this is a model comparison rather than a single smooth-term significance test.",
+    "focusZh": "作者使用留一法預測表現的差值及其標準誤比較模型。須確認模型 13 刪除了哪個部分；這是模型比較，並非單一平滑項的顯著性檢定。",
+    "sourceKind": "Study PDF in the reading vault",
+    "citation": "Hiver et al. (2024)"
+  },
+  "robust": {
+    "quote": "Trigram proportion, although showing a negative association with mean syllable duration (b = -553.90, 95% CI [-1401.68, 293.87], t = -1.28), was the most dominant predictor, accounting for the highest proportion of variance at 23.31%.",
+    "sourceTitle": "Disentangling the contributions of shorter vs. Longer lexical bundles to L2 oral fluency",
+    "doi": "10.1016/j.system.2024.103243",
+    "url": "https://doi.org/10.1016/j.system.2024.103243",
+    "pdfPage": 13,
+    "section": "Results",
+    "focus": "The b estimate is negative, but its 95% confidence interval includes zero. Dominance or importance rankings answer a different question from coefficient precision; read the robust fitting procedure in the Methods section as well.",
+    "focusZh": "b 為負值，但其 95% 信賴區間包含零。優勢或重要性排名與係數精確度回答不同的問題；還須閱讀方法部分的穩健估計程序。",
+    "sourceKind": "Study PDF in the reading vault",
+    "citation": "Hougham et al. (2024)"
+  },
+  "mediation": {
+    "quote": "The indirect effects of the three formative assessment strategies via growth mindset were not significant: sharing learning progressions (ß = .004, SE = .67, p = .355), providing feedback (ß = .002, SE = .59, p = .615), and instructional adjustments (ß = .01, SE = .71, p = .198).",
+    "sourceTitle": "Formative assessment, growth mindset, and achievement: examining their relations in the East and the",
+    "doi": "10.1080/0969594X.2021.1988510",
+    "url": "https://doi.org/10.1080/0969594X.2021.1988510",
+    "pdfPage": 14,
+    "section": "Results",
+    "focus": "The authors identify the indirect pathway and report coefficients, SEs and p values. Check the coefficient and SE scales in the full model and look for an indirect-effect interval; a nonsignificant estimate does not establish no mediation.",
+    "focusZh": "作者指出間接路徑，並報告係數、SE 及 p。須核對完整模型中係數與 SE 的尺度，並查看間接效應的區間；不顯著的估計不代表已證明沒有中介。",
+    "sourceKind": "Study PDF in the reading vault",
+    "citation": "Yan et al. (2021)"
+  },
+  "moderation": {
+    "quote": "Regarding moderation, GenAI literacy weakened the effect of social influence on behavioral intention (β = −0.094, p = 0.039, f2 = 0.013).",
+    "sourceTitle": "What Drives GenAI Adoption in Informal Digital Learning of English (IDLE)?: Structural‐Configurational Modelling of Extended UTAUT2 with GenAI Literacy",
+    "doi": "10.1002/jcal.70217",
+    "url": "https://doi.org/10.1002/jcal.70217",
+    "pdfPage": 6,
+    "section": "Results",
+    "focus": "The coefficient concerns an interaction: the association changes with GenAI literacy. Interpret it using conditional slopes or predictions; f² supplies an effect-size perspective alongside p.",
+    "focusZh": "這是交互作用係數：關聯會隨 GenAI 素養而改變。須透過條件斜率或預測值解讀；f² 在 p 以外提供效應量資訊。",
+    "sourceKind": "Study PDF in the reading vault",
+    "citation": "Wang & Zhang (2026)"
+  },
+  "conditional": {
+    "quote": "As shown in Table 7, the moderated mediation analysis revealed that the total indirect effect and SIE 3 were statistically significant within each grade. However, neither SIE 1 nor SIE 2 was significant except for SIE 1 in grade 3 (B = .335; p < .001).",
+    "sourceTitle": "A moderated mediation analysis of the relationship between a high-stakes English test and test takers’ extracurricular English learning activities",
+    "doi": "10.1186/s40468-021-00120-x",
+    "url": "https://doi.org/10.1186/s40468-021-00120-x",
+    "pdfPage": 14,
+    "section": "Results",
+    "focus": "The original excerpt reports indirect effects within grades. Table 8 adds the required direct comparison between grades: SIE 3 is .242 higher in Grade 1 than Grade 3, with a bias-corrected interval [.018, .482] and p = .038. This is evidence of a difference in that indirect path across groups; comparing separate significance labels would not establish it.",
+    "focusZh": "原引文報告各年級內的間接效應。表 8 補上年級之間的直接比較：SIE 3 在一年級比三年級高 .242，偏差校正區間為 [.018, .482]，p = .038。這支持該間接路徑在組別間有差異；僅比較各組是否顯著不足以支持此主張。",
+    "sourceKind": "Study PDF in the reading vault",
+    "citation": "Zhang (2021)",
+    "table": {
+      "title": "Table 8 · Between-grade comparison of specific indirect effect 3 (selected row)",
+      "pdfPage": 16,
+      "headers": [
+        "Comparison",
+        "Estimate",
+        "Bias-corrected 95% CI",
+        "p"
+      ],
+      "rows": [
+        [
+          "SIE 3: Grade 1 − Grade 3",
+          ".242",
+          "[.018, .482]",
+          ".038"
+        ]
+      ],
+      "note": "Selected row and bias-corrected columns from the source; 5,000 bootstrap samples; N = 463. SIE 3 is TPN → PSE-SRL → PSE-AA → TEELA: test perceptions → self-efficacy for self-regulated learning → self-efficacy for academic achievement → extracurricular English learning activities.",
+      "noteZh": "選錄原表一列及偏差校正欄；5,000 次 bootstrap；N = 463。SIE 3 為 TPN → PSE-SRL → PSE-AA → TEELA：測驗觀感 → 自我調節學習效能 → 學業成就自我效能 → 課外英語學習活動。"
+    }
+  },
+  "sem": {
+    "quote": "The result of the Chi-square difference test suggests Model 2 is better than Model 1 (Δχ2 = 34.06, df = 2, p < .001), which further suggests that adding two direct effects from Perception variables to Test preparation significantly improved model fitness.",
+    "sourceTitle": "Do test design and uses influence test preparation Testing a model of washback with structural equa",
+    "doi": "10.1177/0265532212442634",
+    "url": "https://doi.org/10.1177/0265532212442634",
+    "pdfPage": 13,
+    "section": "Results",
+    "focus": "The chi-square difference test compares nested models after adding two direct paths. Check the model restrictions and estimator; better fit does not establish that the proposed arrows are causal.",
+    "focusZh": "卡方差異檢定比較加入兩條直接路徑前後的嵌套模型。須確認模型限制及估計法；較佳配適並不能證明所畫的箭頭具有因果性。",
+    "sourceKind": "Study PDF in the reading vault",
+    "citation": "Xie & Andrews (2013)"
+  },
+  "efa": {
+    "quote": "EFA generated six factors, which fit the intended structure of the questionnaire very well (Table 1).",
+    "sourceTitle": "Does Test Preparation Work? Implications for Score Validity",
+    "doi": "10.1080/15434303.2012.721423",
+    "url": "https://doi.org/10.1080/15434303.2012.721423",
+    "pdfPage": 6,
+    "section": "Instrumentation: measurement validation",
+    "focus": "The sentence alone only names the six-factor solution. The displayed matrix shows how to present item-by-factor loadings: these three items load most strongly on TTS, while their other loadings are smaller. They illustrate table reading, not evidence for the whole six-factor solution; inspect all items, extraction, rotation and factor-retention decisions.",
+    "focusZh": "單憑這句只知道保留六個因素。所列矩陣展示題項與各因素的負荷如何呈現：這三題在 TTS 的負荷最大，其他負荷較小。這只示範讀表，不能據此驗證整個六因素解；仍須閱讀所有題項、抽取、旋轉及因素保留依據。",
+    "sourceKind": "Study PDF in the reading vault",
+    "citation": "Xie (2013)",
+    "table": {
+      "title": "Table 1 · EFA Pattern Matrix With Half Sample (first three items)",
+      "pdfPage": 7,
+      "headers": [
+        "Item",
+        "TTS",
+        "LSD",
+        "TPM",
+        "MEM",
+        "SOAF",
+        "DRILL"
+      ],
+      "rows": [
+        [
+          "TTS1",
+          ".715",
+          ".002",
+          ".089",
+          ".013",
+          ".011",
+          ".043"
+        ],
+        [
+          "TTS2",
+          ".679",
+          ".043",
+          "−.025",
+          ".006",
+          "−.084",
+          "−.013"
+        ],
+        [
+          "TTS3",
+          ".668",
+          ".047",
+          ".009",
+          "−.023",
+          "−.057",
+          "−.081"
+        ]
+      ],
+      "note": "First three rows of the original pattern matrix; N = 436. TTS = test-taking skills; LSD = language-skill development strategies; TPM = test preparation management; MEM = memorising; SOAF = socioaffective strategies; DRILL = drilling. The full table contains additional items.",
+      "noteZh": "原始因素模式矩陣的前三列；N = 436。TTS＝應試技能；LSD＝語言技能發展策略；TPM＝備考管理；MEM＝記憶；SOAF＝社會情意策略；DRILL＝操練。完整原表另有其他題項。"
+    }
+  },
+  "cfa": {
+    "quote": "CFA also achieved a satisfactory model fit, χ 2 (721) = 1434.14, χ 2 /df = 1.989, p = .000, root mean square error of approximation (RMSEA) = .048, 90% confidence interval (CI) [.044, .051], standardized root mean square residual (SRMR) = .054, normed fit index (NFI) = .846, comparative fit index (CFI) = .916, and Tucker-Lewis index (TLI) = .910.",
+    "sourceTitle": "Does Test Preparation Work? Implications for Score Validity",
+    "doi": "10.1080/15434303.2012.721423",
+    "url": "https://doi.org/10.1080/15434303.2012.721423",
+    "pdfPage": 6,
+    "section": "Instrumentation: measurement validation",
+    "focus": "The 90% interval belongs to RMSEA, not to every fit index. The source’s p = .000 is rounded output; a probability is not literally zero. Evaluate several indices and substantive measurement evidence rather than applying one universal cutoff.",
+    "focusZh": "此處的 90% 區間屬於 RMSEA，並非每個配適指標都有同一區間。原文 p = .000 是四捨五入的輸出，機率並非真的等於零。應綜合多個指標及實質測量證據判斷。",
+    "sourceKind": "Study PDF in the reading vault",
+    "citation": "Xie (2013)"
+  },
+  "pca": {
+    "quote": "The model explained 14.4%, 9.4%, and 9.9% of the variances of the observed scores for Factors 1, 2, and 3, respectively. However, the individual statements corresponding to each factor were not identical to Matsuda and Gobel’s results.",
+    "sourceTitle": "S0261444819000296jra 1..17",
+    "doi": "10.1017/S0261444819000296",
+    "url": "https://doi.org/10.1017/S0261444819000296",
+    "pdfPage": 9,
+    "section": "Results",
+    "focus": "The percentages describe explained variance, while the next sentence compares the item patterns. The article calls these factors; when teaching PCA, distinguish components summarising total variance from latent factors modelling common variance.",
+    "focusZh": "百分比描述解釋的變異量，下一句則比較題項模式。文章稱其為因素；教授 PCA 時，須區分概括總變異的成分與建模共同變異的潛在因素。",
+    "sourceKind": "Study PDF in the reading vault",
+    "citation": "Hamada & Takaki (2021)"
+  },
+  "invariance": {
+    "quote": "Equality constraints were then imposed on the measurement weights (M2), resulting in no change in CFI (ΔCFI =.000), indicating the consistency of the measurement weights across male and female students. Further constraints were imposed on the measurement weights and measurement intercepts (M3), with a minimal change in CFI (ΔCFI =.002), which is less than.01.",
+    "sourceTitle": "Students’ English writing feedback literacy in peer assessment: validating a discipline-and-context-specific scale",
+    "doi": "10.1186/s40468-025-00405-5",
+    "url": "https://doi.org/10.1186/s40468-025-00405-5",
+    "pdfPage": 11,
+    "section": "Results",
+    "focus": "M2 and M3 add equality constraints on loadings and then intercepts. The changes in CFI address measurement comparability across groups; interpret them with the full model sequence, sample and measurement design.",
+    "focusZh": "M2 及 M3 依次對負荷量及截距加入相等限制。CFI 的變化用來評估跨組測量可比性；須結合完整模型順序、樣本及測量設計判斷。",
+    "sourceKind": "Study PDF in the reading vault",
+    "citation": "Zhan et al. (2025)"
+  },
+  "irt": {
+    "quote": "We can also see that stretto and cannella have the same degree of difficulty, however stretto has higher discriminative power than cannella.",
+    "sourceTitle": "LexITA: A quick and reliable assessment tool for Italian L2 receptive vocabulary size",
+    "doi": "10.1093/applin/amaa020",
+    "url": "https://doi.org/10.1093/applin/amaa020",
+    "pdfPage": 14,
+    "section": "Item selection: IRT analysis",
+    "focus": "Read the source figure alongside the authors’ sentence. At probability 0.5, stretto and cannella cross at similar ability values, indicating similar difficulty; stretto is steeper, indicating higher discrimination. This figure reports the item-selection analysis in the accepted manuscript, not a table of numerical item parameters; do not invent exact parameter estimates from the plotted lines.",
+    "focusZh": "將原圖與作者文字一起閱讀。在 0.5 機率處，stretto 與 cannella 的能力交點接近，表示難度相似；stretto 較陡，表示鑑別度較高。這是接納稿中題項篩選分析的圖示，並非數值參數表；不要從曲線虛構精確參數。",
+    "sourceKind": "Study PDF in the reading vault",
+    "citation": "Amenta et al. (2021)",
+    "figure": {
+      "src": "/assets/teaching/dedc02/lexita-item-curves.png",
+      "pdfPage": 37,
+      "title": "Figure 1 · Item characteristic curves for four word items",
+      "titleZh": "圖 1 · 四個詞彙題項的特徵曲線",
+      "alt": "Four fitted item curves: stretto and cannella cross probability 0.5 at similar ability, but stretto has a steeper curve; frondoso and liuto cross farther right.",
+      "altZh": "四個題項曲線：stretto 與 cannella 在相近能力值達到 0.5 機率，但 stretto 的曲線較陡；frondoso 與 liuto 的交點較靠右。"
+    }
+  },
+  "reliability": {
+    "quote": "The Cronbach’s alpha of the whole test (i.e., 30 items) was .79, which was sufficiently high for internal consistency reliability.",
+    "sourceTitle": "Development and validation of an English test measuring EFL learners’ critical thinking skills",
+    "doi": "10.1186/s40468-022-00193-2",
+    "url": "https://doi.org/10.1186/s40468-022-00193-2",
+    "pdfPage": 10,
+    "section": "Results",
+    "focus": "Alpha is reported for this 30-item test. Internal consistency is not proof of unidimensionality, validity or reliability in every population; examine item structure and the relevant sample.",
+    "focusZh": "alpha 針對這份 30 題測驗計算。內部一致性不等於已證明單維性、效度，或所有群體中的信度；須檢查題項結構及相關樣本。",
+    "sourceKind": "Study PDF in the reading vault",
+    "citation": "Hirai et al. (2022)"
+  },
+  "lpa": {
+    "quote": "Moreover, the p value for LMRT was insignificant for the four-group solution (p = .2426). Therefore, we finally chose the three-group solution, and the classification probabilities for the most likely group membership for the three groups were 0.918, 0.922, and 0.905, respectively.",
+    "sourceTitle": "The impacts of self-efficacy on undergraduate students’ perceived task value and task performance of",
+    "doi": "10.1016/j.asw.2022.100687",
+    "url": "https://doi.org/10.1016/j.asw.2022.100687",
+    "pdfPage": 15,
+    "section": "Results",
+    "focus": "The authors explain selection of the three-profile solution using a model comparison and classification probabilities. Read this alongside information criteria, substantive interpretability and stability; assigned profiles retain classification uncertainty.",
+    "focusZh": "作者以模型比較及分類機率說明選擇三剖面解的原因。還須結合資訊準則、實質可解釋性及穩定性；已分配的剖面仍存在分類不確定性。",
+    "sourceKind": "Study PDF in the reading vault",
+    "citation": "Yao et al. (2023)"
+  },
+  "cluster": {
+    "quote": "Using Elbow, Silhouette, and Hierarchical methods, we identified five clusters (k = 5). As illustrated in the Elbow method plot (Fig. 4) and the Silhouette method plot (Fig. 3), the curve displays k = 5 clusters. The average Silhouette score (.4178) for k = 5 further confirms five potential clusters in the data set.",
+    "sourceTitle": "Clustering students’ writing behaviors using keystroke logging: a learning analytic approach in EFL writing",
+    "doi": "10.1186/s40468-021-00150-5",
+    "url": "https://doi.org/10.1186/s40468-021-00150-5",
+    "pdfPage": 7,
+    "section": "Results: Clustering",
+    "focus": "k is the chosen number of clusters; the silhouette score describes separation relative to cohesion. Assess scaling, feature selection and stability rather than treating the chosen k as a known population truth.",
+    "focusZh": "k 是選定的群集數；輪廓係數描述群集的分離及凝聚程度。須評估尺度化、特徵選擇及穩定性，不能將選定的 k 當成已知的母體真實群集數。",
+    "sourceKind": "Study PDF in the reading vault",
+    "citation": "Talebinamvar & Zarrabi (2022)"
+  },
+  "mixed": {
+    "quote": "We found that on average Grade 7 learners were 2.212 [1.297, 3.851] times more likely to answer an item correctly than Grade 6 learners.",
+    "sourceTitle": "Testing young foreign language learners’ reading comprehension: Exploring the effects of working memory, grade level, and reading task",
+    "doi": "10.1177/0265532221991480",
+    "url": "https://doi.org/10.1177/0265532221991480",
+    "pdfPage": 14,
+    "section": "Results",
+    "focus": "The preceding table identifies these values as odds ratios with 95% profile confidence intervals. Despite the phrase “times more likely”, interpret 2.212 as an odds multiplier, not a probability multiplier; the model accounts for person and item effects.",
+    "focusZh": "前面的表格將這些值界定為勝算比及其 95% 剖面信賴區間。原文雖寫「times more likely」，2.212 應解讀為勝算倍數，並非機率倍數；模型亦處理個人及題項效應。",
+    "sourceKind": "Study PDF in the reading vault",
+    "citation": "Brunfaut et al. (2021)"
+  },
+  "gee": {
+    "quote": "At T1, both the unadjusted and adjusted mean differences between the groups were statistically significant in the Aspects of morphology (MD = 1.36 95% CI (0.29; 2.43) p = .01 and 1.58 95% CI (0.53; 2.63) p < .001, respectively)",
+    "sourceTitle": "Teacher Knowledge of Oral Language and Literacy Constructs: Results of a Randomized Controlled Trial",
+    "doi": "10.1080/10888438.2020.1714629",
+    "url": "https://doi.org/10.1080/10888438.2020.1714629",
+    "pdfPage": 12,
+    "section": "Results",
+    "focus": "The first pair is the unadjusted mean difference and its interval; the second is adjusted. Table 5 distinguishes GEE estimates from fallback models, so read its footnotes when identifying the analysis behind each reported result.",
+    "focusZh": "第一組是未調整平均差及區間，第二組是調整後結果。表 5 區分 GEE 與備用模型的估計，因此判斷每項結果使用甚麼分析時，須閱讀表註。",
+    "sourceKind": "Study PDF in the reading vault",
+    "citation": "Goldfeld et al. (2021)"
+  },
+  "clpm": {
+    "quote": "In the lagged paths, SRT1 positively predicts PFT2 (β =.20, p <.001; this coefficient represents ’a’). PFT1 positively predicts WPT2 (β =.09, p <.05; this coefficient represents ’b’).",
+    "sourceTitle": "Testing the interplay among peer feedback, self-regulation, and writing performance: a cross-lagged analysis",
+    "doi": "10.1186/s40468-025-00400-w",
+    "url": "https://doi.org/10.1186/s40468-025-00400-w",
+    "pdfPage": 15,
+    "section": "Results",
+    "focus": "The time subscripts identify predictor and later outcome. These cross-lagged paths are conditional on the model’s other paths; temporal ordering and a two-wave coefficient product alone do not establish a causal mediation process.",
+    "focusZh": "時間下標區分預測變項與後續結果。交叉滯後路徑是在模型其他路徑條件下的關聯；只有時間先後及兩波係數乘積，不足以證明因果中介過程。",
+    "sourceKind": "Study PDF in the reading vault",
+    "citation": "Zhan & Teng (2025)"
+  },
+  "riclpm": {
+    "quote": "Crucially, cross-lagged paths indicated that within-person deviations in ILE consistently predicted subsequent changes in VET (B = .378, 95% CI = [.094, .663], p = .009)",
+    "sourceTitle": "The Longitudinal Relationship Between Language Learning Enjoyment and Out‐of‐Class Exposure: A Random‐Intercept Cross‐Lagged Panel Analysis of Junior Secondary School English Learners",
+    "doi": "10.1002/tesq.70201",
+    "url": "https://doi.org/10.1002/tesq.70201",
+    "pdfPage": 13,
+    "section": "Results",
+    "focus": "The interpretation concerns within-person deviations, separated from stable between-person differences. Read B, the confidence interval and p together; prediction of later deviations remains dependent on model and design assumptions.",
+    "focusZh": "解讀針對個人內的偏離，並與穩定的個人間差異分開。須合併閱讀 B、信賴區間及 p；對後續偏離的預測仍取決於模型及設計假設。",
+    "sourceKind": "Study PDF in the reading vault",
+    "citation": "Tsang & Kwan (2026)"
+  },
+  "timeseries": {
+    "quote": "Regarding retrospective emotions, satisfaction (n = 7) was associated with rising WTC (Ave. = +4.14) in five out of six participants, while disappointment (n = 8) was linked to drops in WTC (Ave. = -3.13) for all participants.",
+    "sourceTitle": "Dynamicity of EFL learners’ emotions and WTC in Human-AI interactions",
+    "doi": "10.64152/10125/73682",
+    "url": "https://doi.org/10.64152/10125/73682",
+    "pdfPage": 8,
+    "section": "Findings: Overall Emotional and WTC Dynamics",
+    "focus": "Here n counts coded emotion occurrences rather than independent participants; Ave. summarises changes in willingness to communicate. This is descriptive idiodynamic evidence, not a fitted autoregressive model or a causal effect estimate.",
+    "focusZh": "這裡 n 計算編碼出的情緒事件，並非獨立參與者人數；Ave. 概括交際意願的改變。這是個體動態的描述性證據，並非已擬合的自迴歸模型或因果效應估計。",
+    "sourceKind": "Study PDF in the reading vault",
+    "citation": "Cheng et al. (2026)"
+  },
+  "growth": {
+    "quote": "A similar pattern of significant covariance was observed between the FLE and L2 grit slope factors (0.594, p < 0.001)",
+    "sourceTitle": "A Longitudinal Study of Foreign Language Enjoyment and L2 Grit: A Latent Growth Curve Modeling",
+    "doi": "10.3389/fpsyg.2021.720326",
+    "url": "https://doi.org/10.3389/fpsyg.2021.720326",
+    "pdfPage": 7,
+    "section": "Results: Association of Change in FLE and L2 Grit Over Time",
+    "focus": "The slope factors represent change over time in foreign language enjoyment (FLE) and L2 grit. Their covariance concerns co-development; it does not show that one construct causes the other to change.",
+    "focusZh": "斜率因素代表外語愉悅（FLE）及第二語言堅毅隨時間的改變。兩者的共變異描述共同發展，並不能證明一個構念導致另一個改變。",
+    "sourceKind": "Open-access primary study",
+    "citation": "Elahi Shirvan et al. (2021)"
+  },
+  "lca": {
+    "quote": "Furthermore, the LCA model categorized 56.6% of respondents as not engaging in RGB (observed data: 63.9%).",
+    "sourceTitle": "The Onset of Rapid-Guessing Behavior Over the Course of Testing Time: A Matter of Motivation and Cognitive Resources",
+    "doi": "10.3389/fpsyg.2019.01533",
+    "url": "https://doi.org/10.3389/fpsyg.2019.01533",
+    "pdfPage": 7,
+    "section": "Results: Unconditional LCA Models",
+    "focus": "RGB means rapid-guessing behaviour. The latent-class proportion differs from the raw observed proportion because the model estimates underlying response-pattern classes; do not treat class membership as perfectly observed.",
+    "focusZh": "RGB 指快速猜測行為。潛在類別比例與原始觀察比例不同，因為模型估計的是背後的作答模式類別；不能將類別歸屬當成完全無誤的觀察值。",
+    "sourceKind": "Open-access primary study",
+    "citation": "Lindner et al. (2019)"
+  },
+  "svm": {
+    "quote": "In terms of the individual performance in each essay set, we identified that our SVM model had the highest accuracy in essay set 1, QWK of 0.81, and the lowest accuracy in essay set 2b, QWK of 0.54.",
+    "sourceTitle": "More efficient processes for creating automated essay scoring frameworks: A demonstration of two algorithms",
+    "doi": "10.1177/0265532220937830",
+    "url": "https://doi.org/10.1177/0265532220937830",
+    "pdfPage": 16,
+    "section": "Results",
+    "focus": "The evaluation metric is quadratic weighted kappa (QWK), a measure of scoring agreement, rather than percentage accuracy. Performance varies by essay set; check the held-out evaluation design and human benchmark.",
+    "focusZh": "評估指標是二次加權 kappa（QWK），屬於評分一致性指標，並非正確率百分比。不同作文集的表現不同；須檢查保留測試資料的評估設計及人工基準。",
+    "sourceKind": "Study PDF in the reading vault",
+    "citation": "Shin & Gierl (2021)"
+  },
+  "neural": {
+    "quote": "On average, the deep-neural model had a higher average QWK score, 0.73, comparable to the human raters’ average agreement score, 0.74.",
+    "sourceTitle": "More efficient processes for creating automated essay scoring frameworks: A demonstration of two algorithms",
+    "doi": "10.1177/0265532220937830",
+    "url": "https://doi.org/10.1177/0265532220937830",
+    "pdfPage": 16,
+    "section": "Results",
+    "focus": "QWK compares machine–human scoring agreement with human–human agreement. Similar aggregate values do not establish interchangeability for every essay, subgroup or new population.",
+    "focusZh": "QWK 比較機器與人工、以及人工與人工的評分一致性。整體數值相近，不代表在每篇作文、每個群體或新母體中都可以互換。",
+    "sourceKind": "Study PDF in the reading vault",
+    "citation": "Shin & Gierl (2021)"
+  },
+  "forest": {
+    "quote": "As shown in the upper half of Table 5, the exact agreements between machine and human scoring ranged from 0.29 on Essay 8 to 0.71 on Essay 1, and the adjacent agreement ranged from 0.52 on Essay 8 to 1.00 on Essay 1.",
+    "sourceTitle": "Automated scoring of junior and senior high essays using Coh-Metrix features: Implications for large-scale language testing",
+    "doi": "10.1177/0265532220929918",
+    "url": "https://doi.org/10.1177/0265532220929918",
+    "pdfPage": 15,
+    "section": "Results: Agreement and distributional analyses",
+    "focus": "Table 5 identifies the fitted algorithm as random forest. Exact agreement and exact-plus-adjacent agreement are different criteria; read both alongside QWK, score distributions and independent evaluation data.",
+    "focusZh": "表 5 指出使用的演算法為隨機森林。完全一致與完全加相鄰分數的一致率是不同標準；須同時閱讀 QWK、分數分布及獨立評估資料。",
+    "sourceKind": "Study PDF in the reading vault",
+    "citation": "Latifi & Gierl (2021)"
+  },
+  "network": {
+    "quote": "As illustrated in Fig. 3 and summarized in Table 7, positive partial correlations emerged between engagement and curiosity (0.187), peace of mind (0.159) and enjoyment (0.281), whereas significant negative partial correlations were observed with shyness (−0.206), anxiety (−0.238) and boredom (−0.097).",
+    "sourceTitle": "How foreign language curiosity and shyness shape learning engagement, with emotions as mediating roles",
+    "doi": "10.1016/j.actpsy.2026.106355",
+    "url": "https://doi.org/10.1016/j.actpsy.2026.106355",
+    "pdfPage": 6,
+    "section": "Results",
+    "focus": "The authors report named variable pairs and signed partial correlations, so readers can see both direction and size. These are conditional network associations, not causal effects. The word “significant” is the authors’ wording; a nonzero regularised edge alone is not a conventional significance test. Examine the estimation and uncertainty procedures separately.",
+    "focusZh": "作者列出變項配對及帶正負號的偏相關，讓讀者看出方向與大小。這些是條件網絡關聯，並非因果效應。「significant」保留作者用詞；正則化後非零的邊，本身不等於傳統顯著性檢定。估計及不確定性的程序須另行檢查。",
+    "sourceKind": "Study PDF in the reading vault",
+    "citation": "Luo (2026)"
+  },
+  "survival": {
+    "quote": "Note, however, that as reflected in the sample repeat statistics provided in Table 5, the relative magnitudes of the hazard ratios (HR) indicate that the effect is somewhat greater for B2: specifically, holding all other variables constant, repeat test takers have a 22.2% greater chance of scoring at the B2 level with each successive testing, in contrast to 18.7% for scoring at the C1 level.",
+    "sourceTitle": "Time to achieving a designated criterion score level: A survival analysis study of test taker performance on the TOEFL iBT® test",
+    "doi": "10.1177/0265532220940709",
+    "url": "https://doi.org/10.1177/0265532220940709",
+    "pdfPage": 15,
+    "section": "Results",
+    "focus": "The model estimates hazard ratios for reaching a proficiency threshold over time. Although the sentence says “greater chance”, the 22.2% and 18.7% refer to increases in hazard (HR = 1.222 and 1.187), not percentage-point gains or cumulative probability ratios. Check censoring, the time scale and proportional hazards.",
+    "focusZh": "模型估計的是隨時間達到能力門檻的危險比。原文雖寫「greater chance」，22.2% 及 18.7% 指危險率的增加（HR = 1.222 及 1.187），並非機率增加的百分點或累積機率比。須確認設限、時間尺度及比例危險假設。",
+    "sourceKind": "Study PDF in the reading vault",
+    "citation": "Monfils & Manna (2021)"
+  },
+  "meta": {
+    "quote": "Both composite measures (mean length of run, speech rate) can be considered as showing strong effects (r = .72, .76, respectively), while the effect size for speed fluency measures (articulation rate) was slightly smaller than that of composite measures, but it still indicated a strong effect (r = .62).",
+    "sourceTitle": "The relationship between utterance and perceived fluency A meta - analysis of correlational studies",
+    "doi": "10.1111/modl.12706",
+    "url": "https://doi.org/10.1111/modl.12706",
+    "pdfPage": 20,
+    "section": "Results",
+    "focus": "These are pooled correlations across studies, organised by fluency measure. Interpret the summary estimates with their confidence intervals, heterogeneity and study coverage; a pooled association is not a pooled causal effect.",
+    "focusZh": "這些是按流暢度指標分類、跨研究合併的相關係數。解讀時須考慮信賴區間、異質性及研究涵蓋範圍；合併關聯並非合併因果效應。",
+    "sourceKind": "Study PDF in the reading vault",
+    "citation": "Suzuki et al. (2021)"
+  },
+  "metareg": {
+    "quote": "The model (Figure 5) did not find a significant linear relation between reliability of external measures and SA–performance correlation (Qmodel = .239, β = .214, p = .63).",
+    "sourceTitle": "A meta-analysis of self-assessment and language performance in language testing and assessment",
+    "doi": "10.1177/0265532220932481",
+    "url": "https://doi.org/10.1177/0265532220932481",
+    "pdfPage": 16,
+    "section": "Results",
+    "focus": "SA means self-assessment. This study-level moderator coefficient concerns external-measure reliability: β = .214, p = .63 does not provide clear evidence of a linear relation. It does not prove that reliability never matters; examine uncertainty and confounding among study characteristics.",
+    "focusZh": "SA 指自我評估。這個研究層次的調節係數針對外部測量的信度：β = .214、p = .63 未提供清晰的線性關聯證據。這並不證明信度永遠無關；還須檢查不確定性及研究特徵之間的混淆。",
+    "sourceKind": "Study PDF in the reading vault",
+    "citation": "Li & Zhang (2021)"
+  },
+  "multimeta": {
+    "quote": "The overall Hedges’ g was 0.57 (SE = 0.125, t = 4.59, p-value < 0.001, 95% CI [0.312, 0.831], 95% PI [-0.558, 1.701]), which is a large overall effect.",
+    "sourceTitle": "Effects of Rubrics on Academic Performance, Self-Regulated Learning, and self-Efficacy: a Meta-analytic Review",
+    "doi": "10.1007/s10648-023-09823-4",
+    "url": "https://doi.org/10.1007/s10648-023-09823-4",
+    "pdfPage": 12,
+    "section": "Results",
+    "focus": "The confidence interval (CI) concerns the pooled mean effect; the prediction interval (PI) concerns variation in effects in comparable settings. Here the PI spans zero even though the CI does not; the model accounts for dependent effects within studies.",
+    "focusZh": "信賴區間（CI）針對合併平均效應；預測區間（PI）針對相似情境中效應的變動。此處 PI 跨越零，但 CI 沒有；模型亦處理同一研究內相依的效應量。",
+    "sourceKind": "Study PDF in the reading vault",
+    "citation": "Panadero et al. (2023)"
+  },
+  "bayes": {
+    "quote": "The estimates of the b₀ coefficient (median = 148.10, 95% CrI = [139.84, 156.51]) and b₁ coefficient (median = 368.45, 95% CrI = [359.80, 376.96]) imply a clear positive relationship between latent motivation on the student questionnaire and performance on the PISA test.",
+    "sourceTitle": "Questionnaire-taking motivation: Using response times to assess motivation to optimize on the PISA 2018 student questionnaire",
+    "doi": "10.1080/15305058.2023.2214647",
+    "url": "https://doi.org/10.1080/15305058.2023.2214647",
+    "pdfPage": "15–16",
+    "section": "Results: Relationship between questionnaire-taking motivation and test performance",
+    "focus": "This passage demonstrates reporting posterior coefficient medians with 95% credible intervals, followed by a substantive interpretation. b₀ is the intercept and b₁ is the slope in the simple linear model; the slope interval is entirely positive. Conditional on the model, priors and data, the interval contains 95% of the posterior probability for that coefficient. It is not a prediction interval for an individual student and does not establish causation.",
+    "focusZh": "此段示範報告係數的後驗中位數、95% 可信區間，並接上實質解讀。b₀ 為簡單線性模型的截距，b₁ 為斜率；斜率區間完全為正。給定模型、先驗與資料，該區間包含此係數 95% 的後驗機率；這並非個別學生分數的預測區間，也不能證明因果。",
+    "sourceKind": "Study PDF in the reading vault",
+    "citation": "Lundgren & Eklöf (2023)"
+  },
+  "resampling": {
+    "quote": "As can be seen, the vocabulary knowledge estimates become increasingly narrow with the use of more items. It is interesting to note that the average mean estimates are almost identical for 50 and 100 items.",
+    "sourceTitle": "Using confidence intervals to determine adequate item sample sizes for vocabulary tests: An essential but overlooked practice",
+    "doi": "10.1177/0265532220979562",
+    "url": "https://doi.org/10.1177/0265532220979562",
+    "pdfPage": 13,
+    "section": "Results",
+    "focus": "Report the resampling design alongside estimates and interval endpoints. Here the average estimates at 50 and 100 items are similar, but the interval narrows from [630, 870] to [665, 835]. More precision and a different mean are distinct claims; this table demonstrates the first.",
+    "focusZh": "報告估計及區間端點時，須同時交代重抽樣設計。50 題與 100 題的平均估計接近，但區間由 [630, 870] 收窄至 [665, 835]。精確度提高與平均數改變是不同主張；此表展示前者。",
+    "sourceKind": "Study PDF in the reading vault",
+    "citation": "Gyllstad et al. (2021)",
+    "table": {
+      "title": "Table 3 · Vocabulary estimates for Learner 10",
+      "pdfPage": 13,
+      "headers": [
+        "Test length",
+        "Average estimate",
+        "95% confidence interval"
+      ],
+      "rows": [
+        [
+          "20 items",
+          "777",
+          "[560, 940]"
+        ],
+        [
+          "50 items",
+          "750.16",
+          "[630, 870]"
+        ],
+        [
+          "100 items",
+          "749.41",
+          "[665, 835]"
+        ]
+      ],
+      "note": "Source values in a simplified layout. The study treats Learner 10’s score of 750 on the 1,000-word reference test as the comparison value. These intervals arise from resampling test items, not from sampling new learners.",
+      "noteZh": "原表數值依簡化版面呈現。研究以學習者 10 在 1,000 詞參照測驗上的 750 分作比較值。區間來自重抽測驗題項，並非重新抽取學習者。"
+    }
+  },
+  "equivalence": {
+    "quote": "This group equivalence was confirmed with the equivalence test using Cohen’s d of 0.20 (Lakens, 2017).",
+    "sourceTitle": "The effectiveness of computerized listening dynamic assessment Attribute-based mediation model",
+    "doi": "10.64152/10125/73580",
+    "url": "https://doi.org/10.64152/10125/73580",
+    "pdfPage": 9,
+    "section": "Results",
+    "focus": "This source is insufficient as a model of reporting an equivalence result. It mentions a d = 0.20 criterion but gives no equivalence-test statistic, p value or interval here. Do not infer missing results or present this sentence as a complete TOST report. A nonsignificant difference test alone does not establish equivalence.",
+    "focusZh": "此來源不足以示範如何報告等效結果。它提及 d = 0.20 的準則，但此處沒有等效檢定統計量、p 或區間。不可推測缺失結果，或將此句當作完整 TOST 報告；差異檢定不顯著本身亦不足以證明等效。",
+    "sourceKind": "Study PDF in the reading vault",
+    "citation": "Meng et al. (2024)",
+    "incomplete": true
+  }
+}
