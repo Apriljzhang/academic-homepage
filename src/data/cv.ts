@@ -83,11 +83,6 @@ export const researchThemesDetailed: readonly ResearchThemeDetailed[] = [
       {
         status: 'In preparation',
         citationHtml:
-          '<em>From washback to impact by design: A review of washback research in language assessment: Fundamentals and contexts</em>.',
-      },
-      {
-        status: 'In preparation',
-        citationHtml:
           '<em>From social referencing to cognitive scaffolding: A mixed-methods study of peer feedback dynamics in Chinese kindergartens</em>.',
       },
     ],
@@ -199,6 +194,12 @@ export type PublicationItem = {
 
 /** Peer-reviewed work and doctoral dissertation, newest first. APA 7th. */
 export const publications: PublicationItem[] = [
+  {
+    citationHtml:
+      'Cheng, L., & Zhang, A. J. (2026). Washback research in language assessment: Fundamentals and contexts. <em>Language Assessment Quarterly</em>. Advance online publication. <a href="https://doi.org/10.1080/15434303.2026.2746363" target="_blank" rel="noopener noreferrer">https://doi.org/10.1080/15434303.2026.2746363</a>',
+    doiUrl: 'https://doi.org/10.1080/15434303.2026.2746363',
+    pdfPath: '/publications/2026-washback-research-language-assessment.pdf',
+  },
   {
     citationHtml:
       'Hou, Y., Ouyang, B., Liu, J. E., Zhang, A. J., & Sun, Z. (2026). A case study of high school graduates\' reflections on career education: Insights from high-stakes context. <em>The Career Development Quarterly</em>. Advance online publication. <a href="https://doi.org/10.1002/cdq.70033" target="_blank" rel="noopener noreferrer">https://doi.org/10.1002/cdq.70033</a>',
