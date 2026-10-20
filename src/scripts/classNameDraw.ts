@@ -41,8 +41,12 @@ export function initClassNameDraw() {
   const reset = dialog.querySelector<HTMLButtonElement>('[data-draw-reset]');
   const file = dialog.querySelector<HTMLInputElement>('[data-draw-file]');
   const importer = dialog.querySelector<HTMLDetailsElement>('[data-draw-import]');
+  const result = dialog.querySelector<HTMLElement>('.lesson-draw-result');
+  const classButtons = document.querySelectorAll<HTMLButtonElement>('[data-class-draw]');
   let state: DrawState | null = null;
   let current: ClassId = 'F';
+  let rolling = false;
+  let rollTimeout = 0;
 
   try {
     const saved = JSON.parse(localStorage.getItem(storageKey) || 'null');
@@ -71,17 +75,73 @@ export function initClassNameDraw() {
     if (again) { again.disabled = !students.length || drawn.length === students.length; again.textContent = drawn.length === students.length && students.length ? 'All names drawn' : student ? 'Draw again' : 'Draw a name'; }
     if (reset) reset.disabled = !drawn.length;
   };
+  const setRolling = (active: boolean) => {
+    rolling = active;
+    result?.classList.toggle('is-rolling', active);
+    result?.setAttribute('aria-live', active ? 'off' : 'polite');
+    result?.setAttribute('aria-busy', String(active));
+    classButtons.forEach(button => { button.disabled = active; });
+    if (file) file.disabled = active;
+    if (active) {
+      if (again) { again.disabled = true; again.textContent = 'Rolling…'; }
+      if (reset) reset.disabled = true;
+    }
+  };
+  const cancelRoll = () => {
+    window.clearTimeout(rollTimeout);
+    rollTimeout = 0;
+    if (!rolling) return;
+    render();
+    setRolling(false);
+    say('');
+  };
   const draw = () => {
+    if (rolling) return;
     say('');
     if (!state) { render(); if (importer) importer.open = true; say('Load your class lists to draw a name.'); return; }
     const index = drawStudentIndex(state.classes[current].length, state.drawn[current]);
     if (index === null) { render(); say('Everyone in this class has been drawn. Reset the class to start a new round.'); return; }
-    state.drawn[current].push(index);
-    state.last[current] = index;
-    save();
     render();
+    setRolling(true);
+    say('Rolling…');
+    const activeState = state;
+    const activeClass = current;
+    const students = activeState.classes[activeClass];
+    const remaining = students.filter((_, i) => !activeState.drawn[activeClass].includes(i));
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const duration = reducedMotion ? 450 : 1800;
+    const began = Date.now();
+    let previous = -1;
+    const tick = () => {
+      if (!rolling) return;
+      const elapsed = Date.now() - began;
+      if (elapsed >= duration) {
+        rollTimeout = 0;
+        activeState.drawn[activeClass].push(index);
+        activeState.last[activeClass] = index;
+        say('');
+        save();
+        render();
+        setRolling(false);
+        return;
+      }
+      if (reducedMotion) {
+        if (name) { name.textContent = 'Rolling…'; name.lang = 'en'; }
+        if (english) english.textContent = '';
+      } else {
+        let preview = Math.floor(Math.random() * remaining.length);
+        if (preview === previous && remaining.length > 1) preview = (preview + 1) % remaining.length;
+        previous = preview;
+        const student = remaining[preview];
+        if (name) { name.textContent = student.name || student.englishName; name.lang = student.name ? 'zh' : 'en'; }
+        if (english) english.textContent = student.name ? student.englishName : '';
+      }
+      rollTimeout = window.setTimeout(tick, 55 + 160 * Math.pow(elapsed / duration, 2));
+    };
+    tick();
   };
-  document.querySelectorAll<HTMLButtonElement>('[data-class-draw]').forEach(button => button.addEventListener('click', () => {
+  classButtons.forEach(button => button.addEventListener('click', () => {
+    if (rolling) return;
     const id = button.dataset.classDraw;
     if (id !== 'F' && id !== 'D') return;
     current = id;
@@ -89,9 +149,10 @@ export function initClassNameDraw() {
     dialog.showModal();
   }));
   dialog.querySelector('[data-close-draw]')?.addEventListener('click', () => dialog.close());
+  dialog.addEventListener('close', cancelRoll);
   again?.addEventListener('click', draw);
   reset?.addEventListener('click', () => {
-    if (!state) return;
+    if (!state || rolling) return;
     state.drawn[current] = [];
     state.last[current] = null;
     say('');
@@ -104,8 +165,10 @@ export function initClassNameDraw() {
     try {
       if (selected.size > 2_000_000) throw new Error('Choose a class-list JSON file smaller than 2 MB.');
       const classes = parseClassRosters(JSON.parse(await selected.text()));
+      cancelRoll();
       state = { version: 1, classes, drawn: { F: [], D: [] }, last: { F: null, D: null } };
       if (importer) importer.open = false;
+      save();
       draw();
     } catch (error) { say(error instanceof Error ? error.message : 'The class lists could not be loaded.'); }
     file.value = '';

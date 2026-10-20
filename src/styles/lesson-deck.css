@@ -35,6 +35,7 @@ body.lesson-deck .lesson-name-draw { max-width: 680px; }
 body.lesson-deck .lesson-draw-result { min-height: 12rem; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: .6rem; padding: 2rem .5rem; text-align: center; }
 body.lesson-deck .lesson-draw-result p { margin: 0; }
 body.lesson-deck .lesson-draw-name { font-size: clamp(2.5rem,9vw,4.5rem); font-weight: 600; overflow-wrap: anywhere; }
+body.lesson-deck .lesson-draw-result.is-rolling .lesson-draw-name { color: var(--lesson-muted); }
 body.lesson-deck .lesson-draw-english { font-size: clamp(1.1rem,3vw,1.6rem); overflow-wrap: anywhere; }
 body.lesson-deck [data-draw-count] { color: var(--lesson-muted); font-size: .95rem; }
 body.lesson-deck .lesson-draw-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .7rem; }
