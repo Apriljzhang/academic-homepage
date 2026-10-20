@@ -29,6 +29,24 @@ body.lesson-deck .lesson-timer input { width: 3.6rem; height: 36px; border: 0; b
 body.lesson-deck .lesson-timer button { min-height: 44px; border: 0; border-radius: 999px; padding: .4rem .6rem; background: transparent; color: var(--lesson-green); font-size: .875rem; font-weight: 600; }
 body.lesson-deck .lesson-timer output { min-width: 3.4rem; padding: 0 .25rem; color: var(--lesson-ink); font-size: .875rem; font-variant-numeric: tabular-nums; }
 body.lesson-deck .lesson-timer output.is-finished { color: #a94734; font-weight: 700; }
+body.lesson-deck .lesson-class-draw { position: fixed; z-index: 25; top: max(1.25rem,env(safe-area-inset-top)); left: max(1.25rem,calc((100vw - var(--lesson-width)) / 2),env(safe-area-inset-left)); display: flex; gap: .5rem; }
+body.lesson-deck .lesson-class-draw button { min-height: 44px; border: 1px solid var(--lesson-line); border-radius: 999px; padding: .5rem 1rem; background: #fff; color: var(--lesson-green); font-weight: 600; }
+body.lesson-deck .lesson-name-draw { max-width: 680px; }
+body.lesson-deck .lesson-draw-result { min-height: 12rem; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: .6rem; padding: 2rem .5rem; text-align: center; }
+body.lesson-deck .lesson-draw-result p { margin: 0; }
+body.lesson-deck .lesson-draw-name { font-size: clamp(2.5rem,9vw,4.5rem); font-weight: 600; overflow-wrap: anywhere; }
+body.lesson-deck .lesson-draw-english { font-size: clamp(1.1rem,3vw,1.6rem); overflow-wrap: anywhere; }
+body.lesson-deck [data-draw-count] { color: var(--lesson-muted); font-size: .95rem; }
+body.lesson-deck .lesson-draw-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .7rem; }
+body.lesson-deck .lesson-draw-actions button { min-height: 44px; border: 1px solid var(--lesson-green); border-radius: .3rem; padding: .6rem 1rem; background: #fff; color: var(--lesson-green); }
+body.lesson-deck .lesson-draw-actions [data-draw-again] { background: var(--lesson-green); color: #fff; }
+body.lesson-deck .lesson-draw-actions button:disabled { opacity: .45; cursor: default; }
+body.lesson-deck .lesson-draw-feedback { color: var(--lesson-green); text-align: center; font-size: .95rem; }
+body.lesson-deck .lesson-draw-import { margin-top: 1rem; padding-top: .8rem; border-top: 1px solid var(--lesson-line); }
+body.lesson-deck .lesson-draw-import summary { min-height: 44px; cursor: pointer; }
+body.lesson-deck .lesson-draw-import label { display: grid; gap: .5rem; }
+body.lesson-deck .lesson-draw-import input { max-width: 100%; min-height: 44px; }
+body.lesson-deck .lesson-draw-import p { font-size: .875rem; color: var(--lesson-muted); }
 body.lesson-deck .lesson-controls {
   position: fixed; z-index: 25; left: 50%; bottom: max(.8rem, env(safe-area-inset-bottom));
   display: flex; align-items: center; gap: .2rem; transform: translateX(-50%);
@@ -76,6 +94,10 @@ body.lesson-deck .visually-hidden { position: absolute; width: 1px; height: 1px;
   body.lesson-deck .deck h1 { font-size: clamp(2.5rem,12vw,4.5rem); }
   body.lesson-deck .deck h2 { max-width: 100%; font-size: clamp(1.8rem,8vw,2.7rem); line-height: 1.05; overflow-wrap: break-word; }
   body.lesson-deck .lesson-overview ol { grid-template-columns: 1fr; }
+  body.lesson-deck .lesson-class-draw { top: 4rem; left: max(1.25rem,env(safe-area-inset-left)); }
+  /* The optional class controls use a second toolbar row on phones. */
+  body.lesson-deck:has(.lesson-class-draw) .slide { padding-top: 8.5rem; }
+  body.lesson-deck:has(.lesson-class-draw) .slide-inner { min-height: calc(100dvh - 14.5rem); }
 }
 @media (prefers-reduced-motion: reduce) {
   body.lesson-deck .slide.is-active { animation: none; }

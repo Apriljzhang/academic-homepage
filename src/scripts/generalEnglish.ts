@@ -1,5 +1,6 @@
 import { syncLessonNavigation, bindLessonShortcuts } from './lessonDeck';
 import { initLessonTimer } from './lessonTimer';
+import { initClassNameDraw } from './classNameDraw';
 
 const slides = Array.from(document.querySelectorAll<HTMLElement>('.ge-deck .slide'));
 const overview = document.querySelector<HTMLDialogElement>('.overview-dialog');
@@ -68,6 +69,7 @@ document.querySelector('[data-fullscreen]')?.addEventListener('click',()=>{
 });
 bindLessonShortcuts(showSlide,()=>current,slides.length,overview);
 initLessonTimer();
+initClassNameDraw();
 
 function save() {
   let saved=false;

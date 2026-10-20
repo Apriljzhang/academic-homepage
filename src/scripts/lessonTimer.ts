@@ -1,4 +1,4 @@
-/** One timer for every DEDC02 lesson; sound is primed by the Start click. */
+/** Shared lesson timer. Sound is primed by a user click. */
 export function initLessonTimer() {
   const input = document.querySelector<HTMLInputElement>('[data-timer-minutes]');
   const start = document.querySelector<HTMLButtonElement>('[data-timer-start]');
@@ -106,6 +106,10 @@ export function initLessonTimer() {
   });
   input.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') { event.preventDefault(); start.click(); }
+  });
+  document.querySelector('[data-timer-sound]')?.addEventListener('click', () => {
+    primeAudio();
+    ding();
   });
   paint();
 }

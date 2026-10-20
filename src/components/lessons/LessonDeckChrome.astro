@@ -1,7 +1,7 @@
 ---
 import '../../styles/lesson-deck.css';
-interface Props { courseHref: string; lessonTitle: string; courseLabel?: string; }
-const { courseHref, lessonTitle, courseLabel = 'DEDC02 course materials' } = Astro.props;
+interface Props { courseHref: string; lessonTitle: string; courseLabel?: string; classDraw?: boolean; timerSoundCheck?: boolean; }
+const { courseHref, lessonTitle, courseLabel = 'DEDC02 course materials', classDraw = false, timerSoundCheck = false } = Astro.props;
 ---
 
 <div class="lesson-tools" aria-label="Language and timer controls" data-lesson-chrome>
@@ -11,9 +11,24 @@ const { courseHref, lessonTitle, courseLabel = 'DEDC02 course materials' } = Ast
     <output data-timer-output hidden aria-live="polite">00:00</output>
     <button type="button" data-timer-start>Start</button>
     <button type="button" data-timer-reset aria-label="Reset timer" title="Reset timer">↻</button>
+    {timerSoundCheck && <button type="button" data-timer-sound aria-label="Test timer ding" title="Test ding sound">Ding</button>}
     <span class="visually-hidden" data-timer-status role="status" aria-live="assertive"></span>
   </div>
 </div>
+
+{classDraw && <>
+  <div class="lesson-class-draw" aria-label="Class name draws" data-lesson-chrome>
+    <button type="button" data-class-draw="F" aria-label="Draw a name from Class F">Class F</button>
+    <button type="button" data-class-draw="D" aria-label="Draw a name from Class D">Class D</button>
+  </div>
+  <dialog class="tool-dialog lesson-name-draw" aria-labelledby="lesson-draw-title" data-lesson-chrome>
+    <div class="tool-dialog-head"><h2 id="lesson-draw-title" data-draw-title>Class F</h2><button type="button" data-close-draw aria-label="Close name draw">×</button></div>
+    <div class="lesson-draw-result" aria-live="polite" aria-atomic="true"><p class="lesson-draw-name" data-draw-name lang="zh">Ready</p><p class="lesson-draw-english" data-draw-english></p><p data-draw-count></p></div>
+    <div class="lesson-draw-actions"><button type="button" data-draw-again>Draw a name</button><button type="button" data-draw-reset>Reset class</button></div>
+    <p class="lesson-draw-feedback" data-draw-feedback role="status"></p>
+    <details class="lesson-draw-import" data-draw-import><summary>Class lists</summary><label>Load class lists<input type="file" accept=".json,application/json" data-draw-file /></label><p>Saved in this browser. Names stay on this device.</p></details>
+  </dialog>
+</>}
 
 <nav class="deck-controls lesson-controls" aria-label="Slide controls" data-lesson-chrome>
   <a class="lesson-home" href={courseHref} aria-label={`Back to ${courseLabel}`} title="Course materials">
