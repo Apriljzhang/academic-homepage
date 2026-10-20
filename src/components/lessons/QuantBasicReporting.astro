@@ -12,7 +12,7 @@ const guides: Record<string, { name: string; zh: string; overview: string; overv
     cn: ['列出每個變項的有效 n、缺失數量、單位及計分尺度。','類別資料列出次數、百分比及其分母。','連續資料同時交代中心與離散：M 與 SD，或按需要使用中位數與 IQR。','使用有標示的表或分佈圖；描述樣本模式時，不要直接推論母體。'],
   },
   ttest: {
-    name: 'Basic t-tests: independent or paired?', zh: '基本 t 檢定：獨立還是配對？',
+    name: 't-tests: independent or paired?', zh: 't 檢定：獨立還是配對？',
     overview: 'An independent t-test compares the means of two separate groups. A paired t-test analyses the within-pair differences, such as the same learners before and after a lesson.', overviewZh: '獨立樣本 t 檢定比較兩組不同個體的平均數。配對 t 檢定分析每對觀察的差值，例如同一批學習者的前後測。',
     question: 'Are two group means different, or is the average paired change different from zero?', questionZh: '兩組平均數是否有差異？配對變化的平均數是否不同於零？',
     en: ['State whether the design is independent or paired, and identify the groups or occasions.', 'Report n, M and SD for each group or occasion; for paired data, also make the change and its direction clear.', 'Report the mean difference and its 95% confidence interval, t, degrees of freedom and p.', 'Report a named effect size, including the version used for paired data. Interpret magnitude and uncertainty alongside the test result.'],
@@ -20,10 +20,10 @@ const guides: Record<string, { name: string; zh: string; overview: string; overv
   },
   correlation: {
     name: 'Correlation: direction and strength', zh: '相關：方向與強度',
-    overview: 'Pearson’s r describes the direction and strength of a linear relationship between two continuous variables. Begin with a scatterplot so the coefficient can be read in context.', overviewZh: 'Pearson 相關係數 r 描述兩個連續變項之間線性關係的方向及強度。先看散佈圖，再把係數放回資料模式中閱讀。',
+    overview: 'Correlation describes how two variables vary together. Choose Pearson or Spearman according to the scores and the pattern you want to describe; begin with a scatterplot.', overviewZh: '相關描述兩個變項如何一起變動。先看散佈圖，再按分數類型及希望描述的模式選擇 Pearson 或 Spearman。',
     question: 'When one variable is higher, does the other tend to be higher or lower?', questionZh: '當一個變項較高時，另一個是否傾向較高或較低？',
-    en: ['Name the two variables and the correlation used; here the focus is Pearson’s r.', 'Report the number of complete pairs, r, its confidence interval and p when inferential testing is used.', 'Explain the sign and size in the study context, and inspect linearity and unusual observations.', 'A correlation does not establish causation. A value near zero rules out neither a curved relationship nor all forms of association.'],
-    cn: ['列明兩個變項及相關種類；這裡集中學習 Pearson r。','列出完整配對數、r 及其信賴區間；若作推論檢定，亦列出 p。','按研究情境說明正負方向及大小，並檢查線性模式與特殊觀察。','相關不能證明因果；接近零不代表沒有曲線關係或其他形式的關聯。'],
+    en: ['Name the two variables and the correlation used: Pearson’s r or Spearman’s rₛ.', 'Report the number of complete pairs, the correlation coefficient and p when testing against zero. Include a confidence interval to show the precision of the estimate.', 'Explain the sign and size in the study context. Check the scatterplot for the relevant pattern and unusual observations.', 'A correlation does not establish causation. A value near zero does not rule out every relationship, such as a U-shaped pattern.'],
+    cn: ['列明兩個變項及相關種類：Pearson r 或 Spearman rₛ。','列出完整配對數、相關係數，以及檢定是否不同於零時的 p。加入信賴區間以呈現估計的精確程度。','按研究情境說明正負方向及大小，並從散佈圖檢查相關模式與特殊觀察。','相關不能證明因果；接近零不代表沒有任何關係，例如 U 形模式。'],
   },
   anova: {
     name: 'One-way ANOVA: comparing group means', zh: '單因子 ANOVA：比較組別平均數',
@@ -67,13 +67,29 @@ const guide = guides[method.id] || { name: method.name, zh: method.zh, overview:
 const coreOutputs: Record<string, [string,string,string,string]> = {
   describe: ['Scores or categories, with units, valid sample sizes and denominators.','有單位、有效樣本量及分母的分數或類別資料。','n, percentages, M and SD or median and IQR; the observed distribution.','n、百分比、M 與 SD 或中位數與 IQR，以及觀察到的分佈。'],
   ttest: ['A continuous outcome in two independent groups, or correctly paired observations.','兩個獨立組別的連續結果，或正確配對的觀察。','Group summaries, mean difference, 95% CI, t, df, p and a named effect size.','組別摘要、平均差、95% CI、t、df、p 及具名效應量。'],
-  correlation: ['Pairs of continuous scores from the same cases; check the scatterplot and observation structure.','同一個案的連續分數配對；檢查散佈圖及觀察結構。','Complete-pair n, Pearson’s r, its interval and p when testing; a scatterplot.','完整配對 n、Pearson r、其區間及檢定時的 p，以及散佈圖。'],
+  correlation: ['Paired observations from the same cases: continuous scores for Pearson; scores that can be ranked, including ordinal data, for Spearman.','同一個案的配對觀察：Pearson 使用連續分數；Spearman 使用可排序的分數，包括序位資料。','Complete-pair n, the named correlation coefficient and p when testing; a scatterplot. A confidence interval adds information about precision.','完整配對 n、具名相關係數、檢定時的 p 及散佈圖；信賴區間補充估計精確程度的資訊。'],
   anova: ['One continuous outcome, one categorical grouping factor and independent observations.','一個連續結果、一個類別分組因素及獨立觀察。','Group n, M and SD; F, both df, p, effect size and relevant follow-up comparisons.','各組 n、M 與 SD；F、兩個 df、p、效應量及相關後續比較。'],
 };
 const [data,dataZh,output,outputZh] = coreOutputs[method.id] || [method.data, method.translated.data, method.output, method.translated.output];
 const focusedMethod = {
   ...method, name: guide.name, zh: guide.zh, overview: guide.overview, overviewZh: guide.overviewZh, question: guide.question, data, output,
-  translated: { ...method.translated, question: guide.questionZh, data: dataZh, output: outputZh },
+  caution: method.id === 'correlation' ? 'A confidence interval describes how precisely the population correlation is estimated. It is not required to calculate r or its p-value, and separate intervals are not a prerequisite for directly testing the difference between two correlations. Correlation alone does not establish causation.' : method.caution,
+  translated: { ...method.translated, question: guide.questionZh, data: dataZh, output: outputZh,
+    caution: method.id === 'correlation' ? '信賴區間呈現母體相關係數估計的精確程度。計算 r 或其 p 值並不需要先有區間；直接檢定兩個相關係數的差異，也不以各自的區間為先決條件。相關本身不能確立因果。' : method.translated.caution },
 };
 ---
-<QuantMethodCard method={focusedMethod} {language} expanded reportingGuide={language === 'zh' ? guide.cn : guide.en} showTeachingSections={method.id !== 'describe'}/>
+<QuantMethodCard method={focusedMethod} {language} expanded reportingGuide={language === 'zh' ? guide.cn : guide.en} showTeachingSections={method.id !== 'describe'} showWorkedExample={false}>
+  {method.id === 'correlation' && <div slot="method-comparison" class="qm-correlation-comparison">
+    <h3>{language === 'zh' ? 'Pearson 與 Spearman：檢驗甚麼關係？' : 'Pearson or Spearman: what relationship? '}</h3>
+    <table class="qm-source-table">
+      <colgroup><col style="width:20%"/><col style="width:40%"/><col style="width:40%"/></colgroup>
+      <thead><tr><th scope="col">{language === 'zh' ? '方法' : 'Method'}</th><th scope="col">{language === 'zh' ? '使用甚麼資料？' : 'What is used?'}</th><th scope="col">{language === 'zh' ? '衡量甚麼模式？' : 'What pattern is measured?'}</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Pearson r</th><td>{language === 'zh' ? '原始連續分數，保留數值間距。' : 'Original continuous scores, retaining the distances between values.'}</td><td>{language === 'zh' ? '線性關係：散點是否沿一條直線排列？' : 'Linear association: how closely do the points follow a straight line?'}</td></tr>
+        <tr><th scope="row">Spearman rₛ</th><td>{language === 'zh' ? '把分數轉為秩次，即排序後的位置；同分取平均秩次。亦適用於序位資料。' : 'Ranks: the positions of scores after sorting; ties receive average ranks. Ordinal data can also be used.'}</td><td>{language === 'zh' ? '單調關係：一個變項增加時，另一個是否持續傾向增加或減少？可以是曲線。' : 'Monotonic association: as one variable increases, does the other consistently tend to increase or decrease? The pattern may be curved.'}</td></tr>
+      </tbody>
+    </table>
+    <p>{language === 'zh' ? '兩者通常都檢定各自的母體相關係數是否為零，但衡量的關係不同。Spearman 並非所有非線性關係的檢定；U 形關係可能令兩者都接近零。' : 'Both commonly test whether their respective population correlation is zero, but they measure different patterns. Spearman does not detect every nonlinear relationship; a U-shaped pattern can give values near zero for both.'}</p>
+    <p class="qm-caption" data-no-glossary>{language === 'zh' ? '方法參考：' : 'Method references: '}<a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html" target="_blank" rel="noopener noreferrer">Pearson</a> · <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.spearmanr.html" target="_blank" rel="noopener noreferrer">Spearman</a></p>
+  </div>}
+</QuantMethodCard>

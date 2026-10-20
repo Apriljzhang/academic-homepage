@@ -2,15 +2,16 @@
 import type { QuantMethod } from '../../data/dedc02Quantitative';
 import type rawMethods from '../../data/dedc02QuantMethods.json';
 import reportingExamples from '../../data/dedc02ReportingExamples.json';
-interface Props { method: QuantMethod | (typeof rawMethods)[number]; language: 'en' | 'zh'; compact?: boolean; expanded?: boolean; reportingGuide?: string[]; showTeachingSections?: boolean; }
-const { method: m, language, compact = false, expanded = false, reportingGuide, showTeachingSections = true } = Astro.props;
+interface Props { method: QuantMethod | (typeof rawMethods)[number]; language: 'en' | 'zh'; compact?: boolean; expanded?: boolean; reportingGuide?: string[]; showTeachingSections?: boolean; showWorkedExample?: boolean; }
+const { method: m, language, compact = false, expanded = false, reportingGuide, showTeachingSections = true, showWorkedExample = true } = Astro.props;
 const Heading = compact ? 'h3' : 'h2';
 const zh = language === 'zh';
 const t = zh ? m.translated : m;
 const text = (en: string, cn: string) => zh ? cn : en;
 interface SourceOutputTable { title: string; pdfPage: number; headers: string[]; rows: string[][]; note: string; noteZh: string; }
 interface SourceOutputFigure { src: string; pdfPage: number; title: string; titleZh: string; alt: string; altZh: string; }
-const example = reportingExamples[m.id as keyof typeof reportingExamples] as (typeof reportingExamples)[keyof typeof reportingExamples] & { table?: SourceOutputTable; figure?: SourceOutputFigure; incomplete?: boolean };
+const example = reportingExamples[m.id as keyof typeof reportingExamples] as (typeof reportingExamples)[keyof typeof reportingExamples] & { table?: SourceOutputTable; figure?: SourceOutputFigure; incomplete?: boolean; textExample?: { quote: string; citation: string; sourceTitle: string; url: string; pdfPage: number; section: string; note?: string; notePdfPage?: number; }; };
+const sourcePages = example ? [...new Set([example.pdfPage, example.table?.pdfPage, example.figure?.pdfPage].filter((page): page is number => page !== undefined))] : [];
 ---
 <article data-method-id={m.id} class:list={['qm-method', { 'qm-compact': compact }]}>
   <Heading>{zh ? m.zh : m.name}</Heading>
@@ -18,30 +19,37 @@ const example = reportingExamples[m.id as keyof typeof reportingExamples] as (ty
   <p class="qm-question">{t.question}</p>
   {'overview' in m && <div class="qm-introduction"><h4>{text('What this method does', '這種方法有何用途')}</h4><p>{zh ? m.overviewZh : m.overview}</p></div>}
   <dl class="qm-definition"><dt>{text('Required data and design', '所需資料與設計')}</dt><dd>{t.data}</dd><dt>{text('Outputs to read', '應閱讀的輸出')}</dt><dd>{t.output}</dd></dl>
+  <slot name="method-comparison" />
   {reportingGuide && <div class="qm-basic-reporting" data-basic-reporting><h3>{text('What to report', '應報告甚麼')}</h3><ol>{reportingGuide.map(item => <li>{item}</li>)}</ol></div>}
-  {showTeachingSections && <><div class="qm-worked"><h4>{text('Worked teaching calculation', '教學計算例子')}</h4><p class="qm-formula">{t.calculation}</p><p class="qm-caption">{reportingGuide ? text('Teaching values for following the calculation; these are not findings from the cited study.', '以下教學數值用來理解計算，並非引述研究的結果。') : text('Supplied toy values for following the arithmetic. These are not findings from the cited study or claimed fitted model estimates. Advanced models estimate their parameters jointly or iteratively.', '以下指定數值用來理解算式，並非引述研究的結果，也不聲稱是已擬合模型的估計值。進階模型需聯合或迭代估計參數。')}</p></div>
+  {showTeachingSections && <>{showWorkedExample && <><div class="qm-worked"><h4>{text('Worked teaching calculation', '教學計算例子')}</h4><p class="qm-formula">{t.calculation}</p><p class="qm-caption">{reportingGuide ? text('Teaching values for following the calculation; these are not findings from the cited study.', '以下教學數值用來理解計算，並非引述研究的結果。') : text('Supplied toy values for following the arithmetic. These are not findings from the cited study or claimed fitted model estimates. Advanced models estimate their parameters jointly or iteratively.', '以下指定數值用來理解算式，並非引述研究的結果，也不聲稱是已擬合模型的估計值。進階模型需聯合或迭代估計參數。')}</p></div>
   {'symbols' in m && <details open={expanded}><summary>{text('Symbols in this calculation', '計算中的符號')}</summary><p>{zh ? m.symbolsZh : m.symbols}</p></details>}
-  <div class="qm-reading"><h4>{text('Interpret the result', '解讀結果')}</h4><p>{t.interpretation}</p></div>
+  <div class="qm-reading"><h4>{text('Interpret the result', '解讀結果')}</h4><p>{t.interpretation}</p></div></>}
   <details class="qm-boundary" open={expanded}><summary>{text('Check the claim and reporting', '檢查主張與報告內容')}</summary><p>{t.caution}</p>{!reportingGuide && <p>{text('Report the question and target quantity, data and sampling units, model and estimator, relevant diagnostics, estimates and uncertainty, and the limits of the conclusion. Identify primary and exploratory analyses.', '交代問題與目標量、資料及取樣單位、模型與估計法、相關診斷、估計與不確定性，以及結論限制。區分主要與探索性分析。')}</p>}</details></>}
   {example ? <details class="qm-reporting-example" data-reporting-example={m.id} open={expanded}>
     <summary>{example.incomplete ? text('Source limitation: incomplete result reporting', '來源限制：結果報告不完整') : text('Research example: how the result is reported', '研究例子：研究者如何報告結果')}</summary>
-    <p class="qm-caption qm-quote-label" data-no-glossary>{text('Verbatim excerpt · Original English', '原文節錄 · 保留英文措辭')}</p>
+    {example.textExample && <>
+      <h4>{text('Independent-samples t-test', '獨立樣本 t 檢定')}</h4>
+      <blockquote data-no-glossary lang="en" cite={example.textExample.url}><p>{example.textExample.quote}</p></blockquote>
+      {example.textExample.note && <p class="qm-caption" lang="en">¹ {example.textExample.note}</p>}
+      <p class="qm-source" data-no-glossary>{text('Source: ', '來源：')}<a href={example.textExample.url} target="_blank" rel="noopener noreferrer">{example.textExample.citation}</a> · {example.textExample.section} · {text('PDF page ', 'PDF 第 ')}{example.textExample.pdfPage}{zh && ' 頁'}{example.textExample.notePdfPage && <> · {text('Note 1 · PDF page ', '註 1 · PDF 第 ')}{example.textExample.notePdfPage}{zh && ' 頁'}</>}</p>
+      <h4>{text('Paired-samples t-test', '配對樣本 t 檢定')}</h4>
+    </>}
+    <div class="qm-study-report" data-study-report={m.id}>
     <blockquote data-no-glossary lang="en" cite={example.url}><p>{example.quote}</p></blockquote>
-    <p class="qm-source" data-no-glossary><a href={example.url} target="_blank" rel="noopener noreferrer">{example.citation}. {example.sourceTitle}</a><br />{example.section} · {text('PDF page ', 'PDF 第 ')}{example.pdfPage}{zh && ' 頁'} {text('(checked copy; counted from its first page)', '（已核查版本，從檔案首頁起計）')}</p>
     {example.table && <div class="qm-source-output" data-no-glossary>
-      <p class="qm-caption">{text('Source table extract · Selected values, reformatted', '原表節錄 · 選錄數值並重排版面')}</p>
       <div class="qm-source-table-scroll" role="region" aria-label={example.table.title} tabindex="0"><table class="qm-source-table" lang="en">
         <caption>{example.table.title}</caption>
         <thead><tr>{example.table.headers.map(header => <th scope="col">{header}</th>)}</tr></thead>
         <tbody>{example.table.rows.map(row => <tr>{row.map((cell, i) => i === 0 ? <th scope="row">{cell}</th> : <td>{cell}</td>)}</tr>)}</tbody>
       </table></div>
-      <p class="qm-caption">{zh ? example.table.noteZh : example.table.note}</p>
-      <p class="qm-source">{example.citation} · {text('PDF page ', 'PDF 第 ')}{example.table.pdfPage}{zh && ' 頁'}</p>
+      {example.table.note && <p class="qm-caption">{zh ? example.table.noteZh : example.table.note}</p>}
     </div>}
     {example.figure && <figure class="qm-source-figure" data-no-glossary>
       <img src={example.figure.src} alt={zh ? example.figure.altZh : example.figure.alt} loading="lazy" />
       <figcaption>{zh ? example.figure.titleZh : example.figure.title} · {example.citation} · {text('PDF page ', 'PDF 第 ')}{example.figure.pdfPage}{zh && ' 頁'}<br />{text('Original figure from the checked accepted manuscript; page margins cropped.', '原圖取自已核查接納稿；僅裁去頁面留白。')}</figcaption>
     </figure>}
-    <div class="qm-reporting-note"><h4>{text('Reading the report', '如何閱讀這段報告')}</h4><p>{zh ? example.focusZh : example.focus}</p></div>
+    <p class="qm-source" data-no-glossary>{text('Source: ', '來源：')}<a href={example.url} target="_blank" rel="noopener noreferrer">{example.citation}{m.id !== 'ttest' && <>. {example.sourceTitle}</>}</a> · {example.section} · {text(sourcePages.length > 1 ? 'PDF pages ' : 'PDF page ', 'PDF 第 ')}{sourcePages.join(zh ? '、' : ', ')}{zh && ' 頁'}</p>
+    </div>
+    <div class="qm-reporting-note"><h4>{text('Reading the report', '如何閱讀這段報告')}</h4><p>{zh ? example.focusZh : example.focus}</p>{m.id === 'correlation' && <p class="qm-caption" data-no-glossary><a href="https://doi.org/10.1371/journal.pone.0121945" target="_blank" rel="noopener noreferrer">{text('Comparing correlations: Diedenhofen & Musch (2015)', '比較相關係數：Diedenhofen 與 Musch（2015）')}</a></p>}</div>
   </details> : <details class="qm-source"><summary>{m.evidenceState==='General method reference' ? text('Method reference', '方法參考') : text('Research example', '研究例子')}</summary><p>{m.doi ? <a href={`https://doi.org/${m.doi}`} target="_blank" rel="noopener noreferrer">{m.sourceTitle}</a> : 'sourceUrl' in m && m.sourceUrl ? <a href={m.sourceUrl} target="_blank" rel="noopener noreferrer">{m.sourceTitle}</a> : <span>{m.sourceTitle}</span>}. {m.evidenceState.startsWith('Extract') && text('Application checked in the article extract; original-PDF corroboration remains incomplete.', '已核查文章抽取文本中的應用；原始PDF的對照核查仍未完成。')}</p></details>}
 </article>

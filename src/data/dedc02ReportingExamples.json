@@ -18,8 +18,8 @@
     "url": "https://doi.org/10.1002/tesq.3020",
     "pdfPage": 5,
     "section": "Results",
-    "focus": "The prose states the direction; Table 1 supplies means, standard errors, intervals, p and effect sizes. For accuracy, the posttest mean is higher and the pre-minus-post interval is entirely negative. SE is not SD. A fuller paired-test report would also identify t and degrees of freedom; they are absent from this table.",
-    "focusZh": "文字交代方向；表 1 提供平均數、標準誤、區間、p 及效應量。準確度的後測平均數較高，而前測減後測的區間完全為負。SE 並非 SD。更完整的配對檢定報告還應列出 t 及自由度；此原表沒有提供。",
+    "focus": "The independent-samples report gives each group’s mean and SD, followed by t with its degrees of freedom, p and d. In the paired-samples example, the prose states the direction of change and Table 1 gives pretest and posttest means (SE), confidence intervals, p and d. Read SD and SE as different quantities.",
+    "focusZh": "獨立樣本的文字報告先列各組平均數與 SD，再列 t、括號內的自由度、p 及 d。配對樣本例子的文字交代變化方向，表 1 列出前後測平均數（SE）、信賴區間、p 及 d。SD 與 SE 是不同的量。",
     "sourceKind": "Study PDF in the reading vault",
     "citation": "Kahng & Otonya (2021)",
     "table": {
@@ -53,14 +53,24 @@
         [
           "Formulaic language (0–58)",
           "39.50 (2.43)",
-          "45.67 (1.66)",
+          "45.79 (1.66)",
           "[−10.66, −1.92]",
           ".007",
           "0.64"
         ]
       ],
-      "note": "Source values transcribed into the lesson layout. The intervals correspond to pretest minus posttest differences. The original table does not supply t or degrees of freedom.",
-      "noteZh": "原表數值依課堂版面重排。區間對應前測減後測的差異；原表未提供 t 或自由度。"
+      "note": "",
+      "noteZh": ""
+    },
+    "textExample": {
+      "quote": "Independent-samples t-tests comparing overall means for ELs and non-ELs (collapsing across conditions) showed that non-ELs (M = 14.99, SD = 1.74) significantly outperformed ELs (M = 12.27, SD = 3.21) in the Interview activity, t(152.94¹) = 6.97, p < .001; d = 1.05.",
+      "citation": "Song et al. (2021)",
+      "sourceTitle": "Investigating student performance on an assessment tool to support the development of English learners’ argumentation skills",
+      "url": "https://doi.org/10.1080/09588221.2021.1879160",
+      "pdfPage": 11,
+      "section": "Results · RQ1",
+      "note": "Note: degrees of freedom reflect the Welch-Satterthwaite correction due to violation of the assumption of homogeneity of variance.",
+      "notePdfPage": 17
     }
   },
   "anova": {
@@ -178,8 +188,8 @@
     "url": "https://doi.org/10.14742/ajet.5319",
     "pdfPage": 6,
     "section": "Results",
-    "focus": "Each r gives the strength and direction of a bivariate association. Different r values do not by themselves establish a statistically significant difference between correlations; intervals and a suitable comparison are needed.",
-    "focusZh": "每個 r 表示雙變量關聯的強度及方向。r 的數值不同，本身不等於相關係數之間的差異達顯著；仍須適當的比較及區間。",
+    "focus": "The reported correlations are positive. The .56 correlation is numerically larger than .40; each p < .01 tests a correlation against zero, not .56 against .40. This excerpt does not report a direct test of that difference. If both Pearson correlations use the same learners and share EIL perceptions, a test for dependent, overlapping correlations, such as Williams’ test, addresses that comparison. It uses the sample size and the correlation between TOEIC and speaking as well. Separate confidence intervals are not required for this test.",
+    "focusZh": "所報告的相關均為正。.56 在數值上大於 .40；每個 p < .01 檢定的是相關是否不同於零，而非 .56 與 .40 是否不同。這段節錄沒有報告差異的直接檢定。若兩個 Pearson 相關來自同一批學習者，並共用 EIL 觀念這個變項，可用 Williams 檢定等方法比較這類相依且共用變項的相關；亦需樣本量及 TOEIC 與口語之間的相關。此檢定不需要先有兩個相關各自的信賴區間。",
     "sourceKind": "Study PDF in the reading vault",
     "citation": "Lee (2020)"
   },

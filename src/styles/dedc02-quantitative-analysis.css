@@ -12,6 +12,8 @@
 
 /* Original study wording remains visually separate from the teaching commentary. */
 .qm-deck .qm-reporting-example{margin:1.25rem 0;border-top:1px solid #bad8c5;padding-top:.9rem}
+.qm-deck .qm-boundary + .qm-reporting-example{border-top:0}
+.qm-deck .qm-study-report .qm-source-output{margin:1rem 0 .5rem}
 .qm-deck .qm-reporting-example .qm-quote-label{margin:1rem 0 .45rem;letter-spacing:.035em}
 .qm-deck .qm-reporting-example blockquote{margin:0 0 .8rem;padding:.85rem 1.1rem;border-left:3px solid #1f6b45;background:#f2f8f4;font-size:1.05rem;line-height:1.65;font-style:normal;overflow-wrap:anywhere;quotes:none}
 .qm-deck .qm-reporting-example blockquote p{margin:0}
@@ -39,7 +41,7 @@
 .qm-deck .qm-method-links a:hover{background:#edf7f0;border-color:#1f6b45}
 .qm-deck .qm-method-links a:focus-visible{outline:3px solid #1f6b45;outline-offset:3px}
 .qm-deck .qm-method-page-tools,.qm-deck .qm-reference-tools{margin:0 0 1rem}
-.qm-deck .qm-method-page-end{margin:2rem 0 0;border-top:1px solid #bad8c5;padding-top:1rem}
+.qm-deck .qm-method-page-end{margin:2rem 0 0;padding-top:1rem}
 .qm-deck [data-method-page] .qm-method{max-width:900px}
 @media(max-width:700px){.qm-deck .qm-map-route{grid-template-columns:1fr;gap:.65rem}.qm-deck .qm-method-links{grid-template-columns:1fr}.qm-deck .qm-method-page-tools button,.qm-deck .qm-map-tools button{white-space:normal;text-align:left}}
 @media print{.qm-deck .qm-map-route{grid-template-columns:1fr 1.5fr;gap:1rem;break-inside:avoid}.qm-deck .qm-method-links a{padding:.35rem;min-height:0;font-size:9pt}.qm-deck .qm-method-links a small{display:none}.qm-deck .qm-method-page-tools,.qm-deck .qm-method-page-end,.qm-deck .qm-reference-tools,.qm-deck .qm-map-tools{display:none}}
@@ -84,8 +86,9 @@
 .qm-deck .qm-source-table-scroll:focus-visible{outline:2px solid #1f6b45;outline-offset:3px}
 .qm-deck .qm-source-table{width:100%;border-collapse:collapse;font-size:.95rem;line-height:1.45;margin:0 0 .7rem}
 .qm-deck .qm-source-table caption{text-align:left;font-weight:600;padding:.5rem 0}
-.qm-deck .qm-source-table th,.qm-deck .qm-source-table td{text-align:left;vertical-align:top;padding:.65rem .55rem;border-bottom:1px solid #bad8c5}
-.qm-deck .qm-source-table thead th{border-top:1px solid #1f6b45;border-bottom:2px solid #1f6b45}
+.qm-deck .qm-source-table th,.qm-deck .qm-source-table td{text-align:left;vertical-align:top;padding:.65rem .55rem;border:0}
+.qm-deck .qm-source-table thead th{border-top:2px solid #1f6b45;border-bottom:1px solid #1f6b45}
+.qm-deck .qm-source-table tbody tr:last-child>*{border-bottom:2px solid #1f6b45}
 .qm-deck .qm-source-figure{margin:1.4rem 0}
 .qm-deck .qm-source-figure img{display:block;width:100%;height:auto;max-width:850px}
 .qm-deck .qm-source-figure figcaption{font-size:.85rem;line-height:1.45;color:#607b6d;margin:.65rem 0}

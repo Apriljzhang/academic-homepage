@@ -59,7 +59,7 @@ styles.add(ParagraphStyle(name='Quote',parent=styles['Copy'],leftIndent=12,right
 SKIP={'script','style','button','input','select','textarea','svg','dialog','nav','colgroup','col'}
 def hidden(n):return n.attrs.get('data-language')=='zh' or n.has('qm-english-name') or n.has('qm-mobile-column-label') or n.has('qm-glossary-sign') or n.has('qm-glossary-count') or n.has('qm-method-page-tools') or n.has('qm-method-page-end') or n.has('qm-controls') or n.has('qm-map-tools')
 def inline(n):
-    if isinstance(n,str):return escape(re.sub(r'\s+',' ',n)).replace('–','-').replace('—','-')
+    if isinstance(n,str):return escape(re.sub(r'\s+',' ',n)).replace('–','-').replace('—','-').replace('ₛ','<sub>s</sub>')
     if n.tag in SKIP or hidden(n):return ''
     body=''.join(inline(c) for c in n.children if not (n.tag=='a' and isinstance(c,Node) and c.tag=='small'))
     if n.tag=='br':return '<br/>'
@@ -112,6 +112,9 @@ def render(n):
         if count==6:widths=[width*.23]+[width*.77/5]*5
         t=LongTable(rows,colWidths=widths,repeatRows=1,hAlign='LEFT')
         t.setStyle(TableStyle([('VALIGN',(0,0),(-1,-1),'TOP'),('TOPPADDING',(0,0),(-1,-1),7),('BOTTOMPADDING',(0,0),(-1,-1),7),('LEFTPADDING',(0,0),(-1,-1),5),('RIGHTPADDING',(0,0),(-1,-1),5),('LINEABOVE',(0,0),(-1,0),.8,GREEN),('LINEBELOW',(0,0),(-1,0),.8,GREEN),('LINEBELOW',(0,1),(-1,-1),.3,RULE),('BACKGROUND',(0,0),(-1,0),PALE)]))
+        if n.has('qm-source-table'):
+            t=LongTable(rows,colWidths=widths,repeatRows=1,hAlign='LEFT')
+            t.setStyle(TableStyle([('VALIGN',(0,0),(-1,-1),'TOP'),('TOPPADDING',(0,0),(-1,-1),7),('BOTTOMPADDING',(0,0),(-1,-1),7),('LEFTPADDING',(0,0),(-1,-1),5),('RIGHTPADDING',(0,0),(-1,-1),5),('LINEABOVE',(0,0),(-1,0),1.2,GREEN),('LINEBELOW',(0,0),(-1,0),.5,GREEN),('LINEBELOW',(0,-1),(-1,-1),1.2,GREEN)]))
         caption=next((c for c in n.children if isinstance(c,Node) and c.tag=='caption'),None)
         return (para(caption,'H4Q') if caption else [])+[t]
     if n.tag=='label' and any(c.tag=='input' for c in n.walk()):return para(n,prefix='[ ] ')
