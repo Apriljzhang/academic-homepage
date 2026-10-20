@@ -5,21 +5,180 @@ type DrawState = { version: 1; classes: ClassRosters; drawn: Record<ClassId, num
 const classIds: ClassId[] = ['F', 'D'];
 const storageKey = 'general-english-class-name-draw-v1';
 
-export function parseClassRosters(value: unknown): ClassRosters {
-  const input = value as { version?: unknown; classes?: Partial<Record<ClassId, unknown>> } | null;
-  if (!input || input.version !== 1 || !input.classes) throw new Error('Choose a class-list JSON file containing Classes F and D.');
-  const classes = {} as ClassRosters;
-  for (const id of classIds) {
-    const rows = input.classes[id];
-    if (!Array.isArray(rows) || rows.length === 0 || rows.length > 2000) throw new Error(`Class ${id} needs a non-empty list of names.`);
-    classes[id] = rows.map((row: unknown) => {
-      const item = row as Partial<StudentName> | null;
-      if (!item || typeof item.name !== 'string' || typeof item.englishName !== 'string' || !(item.name.trim() || item.englishName.trim()) || item.name.length > 200 || item.englishName.length > 200) throw new Error(`A name in Class ${id} is missing or invalid.`);
-      return { name: item.name.trim(), englishName: item.englishName.trim() };
-    });
-  }
-  return classes;
-}
+export const classNameBank: ClassRosters = {
+  "F": [
+    {
+      "name": "刘赫钰",
+      "englishName": "LIU HEYU"
+    },
+    {
+      "name": "范俊宏",
+      "englishName": "FAN JUNHONG"
+    },
+    {
+      "name": "周彦希",
+      "englishName": "ZHOU YANXI"
+    },
+    {
+      "name": "刘雪莹",
+      "englishName": "LIU XUEYING"
+    },
+    {
+      "name": "陈懿",
+      "englishName": "CHEN YI"
+    },
+    {
+      "name": "雷昊天",
+      "englishName": "LEI HAOTIAN"
+    },
+    {
+      "name": "徐子涵",
+      "englishName": "XU ZIHAN"
+    },
+    {
+      "name": "陈蕴宁",
+      "englishName": "CHEN YUNNING"
+    },
+    {
+      "name": "朱率意",
+      "englishName": "ZHU SHUAIYI"
+    },
+    {
+      "name": "张诗玉",
+      "englishName": "ZHANG SHIYU"
+    },
+    {
+      "name": "陈子栎",
+      "englishName": "CHEN ZIYUE"
+    },
+    {
+      "name": "刘沂鑫",
+      "englishName": "LIU YIXIN"
+    },
+    {
+      "name": "葛理阳",
+      "englishName": "GE LIYANG"
+    },
+    {
+      "name": "郑馨语",
+      "englishName": "ZHENG XINYU"
+    },
+    {
+      "name": "张翘楚",
+      "englishName": "ZHANG QIAOCHU"
+    },
+    {
+      "name": "尧舜禹",
+      "englishName": "YAO SHUNYU"
+    },
+    {
+      "name": "陈嘉雯",
+      "englishName": "CHEN JIAWEN"
+    },
+    {
+      "name": "宣晋旻",
+      "englishName": "XUAN JINMIN"
+    },
+    {
+      "name": "郑浩",
+      "englishName": "ZHENG HAO"
+    }
+  ],
+  "D": [
+    {
+      "name": "何小川",
+      "englishName": "HE XIAOCHUAN"
+    },
+    {
+      "name": "張文奇",
+      "englishName": "ZHANG WENQI"
+    },
+    {
+      "name": "葛姝宏",
+      "englishName": "GE SHUHONG"
+    },
+    {
+      "name": "汪玉竺",
+      "englishName": "WANG YUZHU"
+    },
+    {
+      "name": "黃錫皓",
+      "englishName": "HUANG XIHAO"
+    },
+    {
+      "name": "李漁",
+      "englishName": "LI YU Mira"
+    },
+    {
+      "name": "宋裕童",
+      "englishName": "SONG YUTONG"
+    },
+    {
+      "name": "張睿杰",
+      "englishName": "ZHANG RUIJIE"
+    },
+    {
+      "name": "周雨萱",
+      "englishName": "ZHOU YUXUAN"
+    },
+    {
+      "name": "李釋光",
+      "englishName": "LI SHIGUANG"
+    },
+    {
+      "name": "郁万智",
+      "englishName": "YU WANZHI"
+    },
+    {
+      "name": "黃陳可",
+      "englishName": "HUANG CHENKE"
+    },
+    {
+      "name": "陳俊均",
+      "englishName": "CHEN JUNJUN"
+    },
+    {
+      "name": "林墨然",
+      "englishName": "LIN MORAN"
+    },
+    {
+      "name": "張鉉浩",
+      "englishName": "ZHANG XUANHAO"
+    },
+    {
+      "name": "劉綺穎",
+      "englishName": "LIU YEE WING"
+    },
+    {
+      "name": "楊玥妍",
+      "englishName": "YANG YUET YIN ALLE..."
+    },
+    {
+      "name": "陳星輝",
+      "englishName": "CHAN SENG FAI"
+    },
+    {
+      "name": "譚香瑜",
+      "englishName": "TAN XIANG YU"
+    },
+    {
+      "name": "何家熙",
+      "englishName": "HO KA HEI"
+    },
+    {
+      "name": "廖思龍",
+      "englishName": "LIO SI LONG"
+    },
+    {
+      "name": "戴銘",
+      "englishName": "DAI MING"
+    },
+    {
+      "name": "李承运",
+      "englishName": "Owen"
+    }
+  ]
+};
 
 /** Choose uniformly among the students who have not yet been drawn. */
 export function drawStudentIndex(total: number, drawn: number[], random: () => number = Math.random): number | null {
@@ -39,29 +198,26 @@ export function initClassNameDraw() {
   const feedback = dialog.querySelector<HTMLElement>('[data-draw-feedback]');
   const again = dialog.querySelector<HTMLButtonElement>('[data-draw-again]');
   const reset = dialog.querySelector<HTMLButtonElement>('[data-draw-reset]');
-  const file = dialog.querySelector<HTMLInputElement>('[data-draw-file]');
-  const importer = dialog.querySelector<HTMLDetailsElement>('[data-draw-import]');
   const result = dialog.querySelector<HTMLElement>('.lesson-draw-result');
   const classButtons = document.querySelectorAll<HTMLButtonElement>('[data-class-draw]');
-  let state: DrawState | null = null;
+  const state: DrawState = { version: 1, classes: classNameBank, drawn: { F: [], D: [] }, last: { F: null, D: null } };
   let current: ClassId = 'F';
   let rolling = false;
   let rollTimeout = 0;
 
   try {
     const saved = JSON.parse(localStorage.getItem(storageKey) || 'null');
-    const classes = parseClassRosters(saved);
-    state = { version: 1, classes, drawn: { F: [], D: [] }, last: { F: null, D: null } };
     for (const id of classIds) {
-      if (Array.isArray(saved.drawn?.[id])) state.drawn[id] = [...new Set<number>(saved.drawn[id].filter((i: unknown) => Number.isInteger(i) && Number(i) >= 0 && Number(i) < classes[id].length))];
+      if (JSON.stringify(saved?.classes?.[id]) !== JSON.stringify(classNameBank[id])) continue;
+      if (Array.isArray(saved.drawn?.[id])) state.drawn[id] = [...new Set<number>(saved.drawn[id].filter((i: unknown) => Number.isInteger(i) && Number(i) >= 0 && Number(i) < classNameBank[id].length))];
       if (state.drawn[id].includes(saved.last?.[id])) state.last[id] = saved.last[id];
     }
-  } catch { /* Load class lists locally when the browser has no saved roster. */ }
+  } catch { /* The built-in bank works even without saved draw history. */ }
 
   const say = (message: string) => { if (feedback) feedback.textContent = message; };
   const save = () => {
     try { localStorage.setItem(storageKey, JSON.stringify(state)); }
-    catch { say('Browser saving is unavailable. Class lists remain available for this visit.'); }
+    catch { say('Browser saving is unavailable. Draw history remains available for this visit.'); }
   };
   const render = () => {
     if (title) title.textContent = `Class ${current}`;
@@ -81,7 +237,6 @@ export function initClassNameDraw() {
     result?.setAttribute('aria-live', active ? 'off' : 'polite');
     result?.setAttribute('aria-busy', String(active));
     classButtons.forEach(button => { button.disabled = active; });
-    if (file) file.disabled = active;
     if (active) {
       if (again) { again.disabled = true; again.textContent = 'Rolling…'; }
       if (reset) reset.disabled = true;
@@ -98,7 +253,6 @@ export function initClassNameDraw() {
   const draw = () => {
     if (rolling) return;
     say('');
-    if (!state) { render(); if (importer) importer.open = true; say('Load your class lists to draw a name.'); return; }
     const index = drawStudentIndex(state.classes[current].length, state.drawn[current]);
     if (index === null) { render(); say('Everyone in this class has been drawn. Reset the class to start a new round.'); return; }
     render();
@@ -152,25 +306,11 @@ export function initClassNameDraw() {
   dialog.addEventListener('close', cancelRoll);
   again?.addEventListener('click', draw);
   reset?.addEventListener('click', () => {
-    if (!state || rolling) return;
+    if (rolling) return;
     state.drawn[current] = [];
     state.last[current] = null;
     say('');
     save();
     render();
-  });
-  file?.addEventListener('change', async () => {
-    const selected = file.files?.[0];
-    if (!selected) return;
-    try {
-      if (selected.size > 2_000_000) throw new Error('Choose a class-list JSON file smaller than 2 MB.');
-      const classes = parseClassRosters(JSON.parse(await selected.text()));
-      cancelRoll();
-      state = { version: 1, classes, drawn: { F: [], D: [] }, last: { F: null, D: null } };
-      if (importer) importer.open = false;
-      save();
-      draw();
-    } catch (error) { say(error instanceof Error ? error.message : 'The class lists could not be loaded.'); }
-    file.value = '';
   });
 }

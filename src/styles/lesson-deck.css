@@ -43,11 +43,6 @@ body.lesson-deck .lesson-draw-actions button { min-height: 44px; border: 1px sol
 body.lesson-deck .lesson-draw-actions [data-draw-again] { background: var(--lesson-green); color: #fff; }
 body.lesson-deck .lesson-draw-actions button:disabled { opacity: .45; cursor: default; }
 body.lesson-deck .lesson-draw-feedback { color: var(--lesson-green); text-align: center; font-size: .95rem; }
-body.lesson-deck .lesson-draw-import { margin-top: 1rem; padding-top: .8rem; border-top: 1px solid var(--lesson-line); }
-body.lesson-deck .lesson-draw-import summary { min-height: 44px; cursor: pointer; }
-body.lesson-deck .lesson-draw-import label { display: grid; gap: .5rem; }
-body.lesson-deck .lesson-draw-import input { max-width: 100%; min-height: 44px; }
-body.lesson-deck .lesson-draw-import p { font-size: .875rem; color: var(--lesson-muted); }
 body.lesson-deck .lesson-controls {
   position: fixed; z-index: 25; left: 50%; bottom: max(.8rem, env(safe-area-inset-bottom));
   display: flex; align-items: center; gap: .2rem; transform: translateX(-50%);
