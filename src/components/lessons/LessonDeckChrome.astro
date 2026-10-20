@@ -1,7 +1,7 @@
 ---
 import '../../styles/lesson-deck.css';
-interface Props { courseHref: string; lessonTitle: string; courseLabel?: string; classDraw?: boolean; timerSoundCheck?: boolean; }
-const { courseHref, lessonTitle, courseLabel = 'DEDC02 course materials', classDraw = false, timerSoundCheck = false } = Astro.props;
+interface Props { courseHref: string; lessonTitle: string; courseLabel?: string; classDraw?: boolean; }
+const { courseHref, lessonTitle, courseLabel = 'DEDC02 course materials', classDraw = false } = Astro.props;
 ---
 
 <div class="lesson-tools" aria-label="Language and timer controls" data-lesson-chrome>
@@ -11,7 +11,6 @@ const { courseHref, lessonTitle, courseLabel = 'DEDC02 course materials', classD
     <output data-timer-output hidden aria-live="polite">00:00</output>
     <button type="button" data-timer-start>Start</button>
     <button type="button" data-timer-reset aria-label="Reset timer" title="Reset timer">↻</button>
-    {timerSoundCheck && <button type="button" data-timer-sound aria-label="Test timer ding" title="Test ding sound">Ding</button>}
     <span class="visually-hidden" data-timer-status role="status" aria-live="assertive"></span>
   </div>
 </div>

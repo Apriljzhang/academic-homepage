@@ -107,9 +107,5 @@ export function initLessonTimer() {
   input.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') { event.preventDefault(); start.click(); }
   });
-  document.querySelector('[data-timer-sound]')?.addEventListener('click', () => {
-    primeAudio();
-    ding();
-  });
   paint();
 }
