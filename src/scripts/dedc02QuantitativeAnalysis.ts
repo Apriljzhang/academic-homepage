@@ -1,3 +1,4 @@
+import { initQuantStories } from './quantStories';
 import { syncLessonNavigation, bindLessonShortcuts } from './lessonDeck';
 import { initLessonTimer } from './lessonTimer';
 import { initQuantGlossary } from './quantGlossary';
@@ -7,6 +8,8 @@ const advanced = Boolean(document.querySelector('[data-method-catalogue="advance
 const methods = advanced ? advancedMethods : generalMethods;
 const families = advanced ? advancedFamilies : generalFamilies;
 const slides = Array.from(document.querySelectorAll<HTMLElement>('.slide'));
+const guided = Boolean(document.querySelector('[data-guided-lesson]'));
+const lessonRoute = slides.flatMap((slide,index) => guided && slide.hasAttribute('data-independent-exploration') ? [] : [index]);
 const overview = document.querySelector<HTMLDialogElement>('.overview-dialog');
 const overviewList = overview?.querySelector('ol');
 const translate = document.querySelector<HTMLButtonElement>('[data-global-translate]');
@@ -16,6 +19,11 @@ let current = 0;
 const selectorIndex = slides.findIndex(s => s.hasAttribute('data-method-selector-slide'));
 const mapIndex = slides.findIndex(s => s.hasAttribute('data-method-map-slide') || s.querySelector('[data-map-search]'));
 const notationIndex = slides.findIndex(s => s.hasAttribute('data-notation-slide'));
+function routePosition() {
+  const position = lessonRoute.indexOf(current);
+  return position < 0 ? Math.max(0,lessonRoute.indexOf(mapIndex)) : position;
+}
+function showLessonStep(position:number) { showSlide(lessonRoute[Math.max(0,Math.min(lessonRoute.length-1,position))]); }
 const methodPageIndexes = new Map(slides.flatMap((s,i) => s.dataset.methodPage ? [[s.dataset.methodPage,i] as const] : []));
 let mapReturnMethod = '';
 let mapReturnScroll = 0;
@@ -23,39 +31,44 @@ function read(key: string) { try { return localStorage.getItem(prefix + key); } 
 function write(key: string, value: string) { try { localStorage.setItem(prefix + key,value); } catch { /* Editing and navigation remain available. */ } }
 function syncLanguage() {
   const zh = slides[current]?.dataset.language === 'zh';
+  slides[current]?.querySelectorAll<HTMLButtonElement>('[data-open-story]').forEach(button=>{button.textContent=zh?'生活故事例子':'Story example';button.setAttribute('aria-controls',`story-${button.dataset.openStory}-${zh?'zh':'en'}`);});
   if (translate) { translate.textContent = zh ? 'English' : '中文'; translate.setAttribute('aria-pressed',String(zh)); }
 }
 function showSlide(index: number) {
   current = Math.max(0,Math.min(slides.length - 1,index));
   slides.forEach((s,i)=> { const active = i===current; s.classList.toggle('is-active',active); s.setAttribute('aria-hidden',String(!active)); });
   const label = document.querySelector<HTMLElement>('[data-current-slide]');
-  if (label) label.textContent = String(current+1);
+  const position=routePosition();
+  if (label) label.textContent = String(position+1);
   const bar = document.querySelector<HTMLElement>('.progress-track span');
-  if (bar) bar.style.width = `${100*(current+1)/slides.length}%`;
-  syncLessonNavigation(current,slides.length); syncLanguage();
+  if (bar) bar.style.width = `${100*(position+1)/lessonRoute.length}%`;
+  syncLessonNavigation(position,lessonRoute.length); syncLanguage();
+  if(guided && slides[current].hasAttribute('data-independent-exploration')) document.querySelector('[data-overview]')?.setAttribute('aria-label',`Independent exploration: ${slides[current].dataset.title}. Open lesson overview`);
   const method = slides[current].dataset.methodPage;
-  history.replaceState(null,'',method ? `#method-${method}` : `#slide-${current+1}`);
+  history.replaceState(null,'',method ? `#method-${method}` : guided && slides[current].hasAttribute('data-independent-exploration') ? `#reference-${slides[current].dataset.referencePage}` : `#slide-${position+1}`);
 }
 slides.forEach(s=>s.dataset.language='en');
 const total = document.querySelector<HTMLElement>('[data-slide-total]');
-if (total) total.textContent = String(slides.length);
+if (total) total.textContent = String(lessonRoute.length);
 translate?.addEventListener('click',()=> {
   const slide = slides[current], zh = slide.dataset.language!=='zh';
   slide.dataset.language = zh?'zh':'en';
   slide.querySelectorAll<HTMLElement>('[data-language]').forEach(p=>p.hidden=p.dataset.language!==(zh?'zh':'en'));
   syncLanguage();
 });
-document.querySelectorAll<HTMLButtonElement>('[data-nav]').forEach(b=>b.addEventListener('click',()=>showSlide(current+(b.dataset.nav==='next'?1:-1))));
-slides.forEach((s,i)=> { const li=document.createElement('li'), b=document.createElement('button'); b.type='button';b.textContent=s.dataset.title||String(i+1);b.addEventListener('click',()=>{overview?.close();showSlide(i);});li.append(b);overviewList?.append(li); });
+document.querySelectorAll<HTMLButtonElement>('[data-nav]').forEach(b=>b.addEventListener('click',()=>showLessonStep(routePosition()+(b.dataset.nav==='next'?1:-1))));
+lessonRoute.forEach(i=> { const s=slides[i],li=document.createElement('li'), b=document.createElement('button'); b.type='button';b.textContent=s.dataset.title||String(i+1);b.addEventListener('click',()=>{overview?.close();showSlide(i);});li.append(b);overviewList?.append(li); });
 document.querySelector('[data-overview]')?.addEventListener('click',()=>overview?.showModal());
 document.querySelector('[data-close-overview]')?.addEventListener('click',()=>overview?.close());
 document.querySelector('[data-fullscreen]')?.addEventListener('click',()=> { const p=document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();p?.catch(()=>{}); });
 initLessonTimer();
-bindLessonShortcuts(showSlide,()=>current,slides.length,overview);
+initQuantStories();
+bindLessonShortcuts(showLessonStep,routePosition,lessonRoute.length,overview);
 function indexFromHash() {
   if(location.hash.startsWith('#method-')) return methodPageIndexes.get(location.hash.slice(8)) ?? 0;
+  if(guided && location.hash.startsWith('#reference-')) return Math.max(0,slides.findIndex(s=>s.dataset.referencePage===location.hash.slice(11)));
   const n=Number(location.hash.replace('#slide-',''));
-  return Number.isInteger(n)&&n>0 ? Math.min(n-1,slides.length-1) : 0;
+  return Number.isInteger(n)&&n>0 ? lessonRoute[Math.min(n-1,lessonRoute.length-1)] : 0;
 }
 showSlide(indexFromHash());
 window.addEventListener('hashchange',()=>{const index=indexFromHash();if(index!==current)showSlide(index);});

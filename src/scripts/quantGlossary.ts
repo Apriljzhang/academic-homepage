@@ -1,4 +1,10 @@
-import { glossary } from '../data/quantGlossary';
+import { notationEntries } from '../data/quantNotation';
+
+// The written glossary and inline definitions share the same term catalogue.
+// Lowercase p defaults to the p-value; probability equations are handled below.
+const glossary = notationEntries.map(term => term.id === 'probability'
+  ? { ...term, aliases: term.aliases.filter(alias => alias !== 'p') }
+  : term);
 
 export function initQuantGlossary() {
   const root=document.querySelector<HTMLElement>('.qm-deck');
@@ -11,7 +17,7 @@ export function initQuantGlossary() {
   }));
   const escape=(s:string)=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
   const pieces=[...aliases.keys()].sort((a,b)=>b.length-a.length).map(a=>
-    /^[A-Za-zβλθμπαφΣη]/u.test(a) ? `(?<![A-Za-z0-9\u0370-\u03ff])${escape(a)}(?![A-Za-z0-9\u0370-\u03ff])` : escape(a));
+    /^[A-Za-zβλθμπαφΣη]/u.test(a) ? `(?<![\\p{Script=Latin}\\p{N}\\p{Script=Greek}])${escape(a)}(?![\\p{Script=Latin}\\p{N}\\p{Script=Greek}])` : escape(a));
   // Numeric pairs are annotated only in text identifying an interval or bounds;
   // this avoids mislabelling matrix cells and ordinary coordinate pairs.
   const pattern=new RegExp(`(?<!\\[)\\[\\s*[−-]?(?:\\d+(?:\\.\\d+)?|\\.\\d+)\\s*,\\s*[−-]?(?:\\d+(?:\\.\\d+)?|\\.\\d+)\\s*\\](?!\\])|${pieces.join('|')}`,'gu');
@@ -64,13 +70,18 @@ export function initQuantGlossary() {
     const method=button.closest<HTMLElement>('[data-method-id]')?.dataset.methodId;
     const t=terms.get(id);let heading=zh?t?.labelZh:t?.label,definition=zh?t?.definitionZh:t?.definition;
     const local=(en:string,cn:string)=>{definition=zh?cn:en;};
+    if(id==='mean'&&button.textContent==='M'&&['mediation','conditional'].includes(method||'')){
+      const mediator=terms.get('m');heading=zh?mediator?.labelZh:mediator?.label;
+      definition=zh?mediator?.definitionZh:mediator?.definition;
+    }
     if(id==='interval'){
       const limits=button.dataset.interval!.slice(1,-1).split(',').map(x=>x.trim());
       const bounds=/bounds|界限/.test(button.dataset.intervalContext||'')&&!/interval|區間/.test(button.dataset.intervalContext||'');
       heading=zh?(bounds?'方括號：事先指定的界限':'方括號：區間下限與上限'):(bounds?'Square brackets: prespecified bounds':'Square brackets: lower and upper limits');
       local(bounds?`Here the two numbers are prespecified equivalence bounds: lower=${limits[0]}, upper=${limits[1]}. They are decision criteria, rather than an interval estimated from the sample.`:`Here the first number is the lower limit (${limits[0]}) and the second is the upper limit (${limits[1]}). Read the adjacent label for the interval type and level. For a CI, these limits describe uncertainty about the stated parameter, in that parameter’s units. They do not describe the range of individual scores.`,bounds?`這兩個數字是事先指定的等效界限：下限${limits[0]}、上限${limits[1]}，屬判斷準則，不是由樣本估計的區間。`:`第一個數字是下限（${limits[0]}），第二個是上限（${limits[1]}）。須看旁邊標籤以確定區間類型及水平。若是CI，這些界限表達指定參數的不確定性，單位與參數相同；不是個人分數的範圍。`);
     }
-    if(id==='p'&&['logistic','ordinal','irt'].includes(method||''))local('In this equation p is the modelled probability of the event or response, between 0 and 1. For example p=.426 means a 42.6% predicted event probability. This p is not a hypothesis-test p-value.','此方程的p表示0至1之間的模型事件／反應機率。例如p=.426表示預測事件機率為42.6%。這個p不是假設檢定的p值。');
+    const probabilitySymbol=id==='p'&&button.textContent==='p'&&['logistic','ordinal','irt'].includes(method||'')&&Boolean(button.closest('.qm-worked')||/logit|ln\[p|p\/\(1/.test(button.parentElement?.textContent||''));
+    if(probabilitySymbol)local('In this equation p is the modelled probability of the event or response, between 0 and 1. For example p=.426 means a 42.6% predicted event probability. This p is not a hypothesis-test p-value.','此方程的p表示0至1之間的模型事件／反應機率。例如p=.426表示預測事件機率為42.6%。這個p不是假設檢定的p值。');
     if(id==='b'&&method==='irt')local('In this item-response equation, b is item difficulty, on the latent-trait scale. It is not the unstandardised outcome-regression coefficient called b elsewhere.','在此項目反應方程中，b是潛在特質尺度上的項目難度，不是其他地方稱為b的未標準化結果迴歸係數。');
     if(id==='b'&&['mediation','conditional'].includes(method||''))local('In this mediation model, b is the coefficient linking mediator M to outcome Y, conditional on X and any other included covariates. Multiplying path a by path b gives the specified linear indirect component ab.','在此中介模型中，b為在X及其他已納入協變量條件下，連接中介M與結果Y的係數。路徑a乘以路徑b得到指定線性間接成分ab。');
     if(id==='b'&&method==='svm')local('In f(x)=wᵀx+b, b is the intercept/bias term shifting the decision boundary. It is not a slope for one predictor.','在f(x)=wᵀx+b中，b為移動決策邊界的截距／偏置項，不是某個預測變量的斜率。');
@@ -83,7 +94,7 @@ export function initQuantGlossary() {
     if(id==='k'&&method==='gam')local('Here k indexes a basis function in the smooth: b_k is its coefficient and B_k(x) is its value at x. Sum their products to obtain f(x).','此處k是平滑函數的基底函數索引；b_k為係數，B_k(x)為該基底在x的值。把乘積加總得到f(x)。');
     if(id==='t'&&['growth','timeseries','riclpm'].includes(method||''))local('Here t indexes a measurement occasion or time value, rather than a t-test statistic. The coding of time determines the interpretation of a growth slope.','此處t是測量時點或時間值的索引，不是t檢定統計量。時間編碼決定成長斜率的解讀。');
     if(id==='beta'&&/1[−-]β/.test(button.parentElement?.textContent||''))local('In power=1−β, β is the Type II error probability: failing to reject the specified null under a specified alternative. It is not a standardised regression coefficient in this expression.','在檢定力=1−β中，β為第二類錯誤機率，即在指定替代情況下未拒絕指定零假設的機率；此式中的β不是標準化迴歸係數。');
-    if(id==='p'&&['logistic','ordinal','irt'].includes(method||''))heading=zh?'p：模型機率':'p: modelled probability';
+    if(probabilitySymbol)heading=zh?'p：模型機率':'p: modelled probability';
     if(id==='b'&&method==='irt')heading=zh?'b：項目難度':'b: item difficulty';
     if(id==='b'&&['mediation','conditional'].includes(method||''))heading=zh?'b：M→Y路徑係數':'b: M→Y path coefficient';
     if(id==='b'&&method==='svm')heading=zh?'b：截距／偏置':'b: intercept / bias';

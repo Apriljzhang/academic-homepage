@@ -31,6 +31,11 @@ for(const m of [...html.matchAll(/<img\b[^>]*src="(\/[^"\s]+)"[^>]*>/g)]) {
  const bytes=await readFile(path.join(root,m[1]));
  html=html.replace(m[0],m[0].replace(`src="${m[1]}"`,`src="data:${mime(m[1])};base64,${bytes.toString('base64')}"`));
 }
+const lessonPdf='/teaching/courses/dedc02/quantitative-data-analysis-and-reporting.pdf';
+if(html.includes(`href="${lessonPdf}"`)) {
+ const bytes=await readFile(path.join(root,lessonPdf));
+ html=html.replaceAll(`href="${lessonPdf}"`,`href="data:application/pdf;base64,${bytes.toString('base64')}"`);
+}
 html=html.replace(/href="(\/teaching\/[^"#]*)"/g,(_,href)=>`href="https://apriljzhang.com${href}"`);
 await mkdir(path.dirname(output),{recursive:true});await writeFile(output,html);
 console.log(`Standalone HTML saved: ${output} (${Buffer.byteLength(html)} bytes)`);

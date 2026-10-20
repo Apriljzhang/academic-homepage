@@ -2,8 +2,8 @@
 import type { QuantMethod } from '../../data/dedc02Quantitative';
 import type rawMethods from '../../data/dedc02QuantMethods.json';
 import reportingExamples from '../../data/dedc02ReportingExamples.json';
-interface Props { method: QuantMethod | (typeof rawMethods)[number]; language: 'en' | 'zh'; compact?: boolean; expanded?: boolean; }
-const { method: m, language, compact = false, expanded = false } = Astro.props;
+interface Props { method: QuantMethod | (typeof rawMethods)[number]; language: 'en' | 'zh'; compact?: boolean; expanded?: boolean; reportingGuide?: string[]; showTeachingSections?: boolean; }
+const { method: m, language, compact = false, expanded = false, reportingGuide, showTeachingSections = true } = Astro.props;
 const Heading = compact ? 'h3' : 'h2';
 const zh = language === 'zh';
 const t = zh ? m.translated : m;
@@ -18,10 +18,11 @@ const example = reportingExamples[m.id as keyof typeof reportingExamples] as (ty
   <p class="qm-question">{t.question}</p>
   {'overview' in m && <div class="qm-introduction"><h4>{text('What this method does', '這種方法有何用途')}</h4><p>{zh ? m.overviewZh : m.overview}</p></div>}
   <dl class="qm-definition"><dt>{text('Required data and design', '所需資料與設計')}</dt><dd>{t.data}</dd><dt>{text('Outputs to read', '應閱讀的輸出')}</dt><dd>{t.output}</dd></dl>
-  <div class="qm-worked"><h4>{text('Worked teaching calculation', '教學計算例子')}</h4><p class="qm-formula">{t.calculation}</p><p class="qm-caption">{text('Supplied toy values for following the arithmetic. These are not findings from the cited study or claimed fitted model estimates. Advanced models estimate their parameters jointly or iteratively.', '以下指定數值用來理解算式，並非引述研究的結果，也不聲稱是已擬合模型的估計值。進階模型需聯合或迭代估計參數。')}</p></div>
+  {reportingGuide && <div class="qm-basic-reporting" data-basic-reporting><h3>{text('What to report', '應報告甚麼')}</h3><ol>{reportingGuide.map(item => <li>{item}</li>)}</ol></div>}
+  {showTeachingSections && <><div class="qm-worked"><h4>{text('Worked teaching calculation', '教學計算例子')}</h4><p class="qm-formula">{t.calculation}</p><p class="qm-caption">{reportingGuide ? text('Teaching values for following the calculation; these are not findings from the cited study.', '以下教學數值用來理解計算，並非引述研究的結果。') : text('Supplied toy values for following the arithmetic. These are not findings from the cited study or claimed fitted model estimates. Advanced models estimate their parameters jointly or iteratively.', '以下指定數值用來理解算式，並非引述研究的結果，也不聲稱是已擬合模型的估計值。進階模型需聯合或迭代估計參數。')}</p></div>
   {'symbols' in m && <details open={expanded}><summary>{text('Symbols in this calculation', '計算中的符號')}</summary><p>{zh ? m.symbolsZh : m.symbols}</p></details>}
   <div class="qm-reading"><h4>{text('Interpret the result', '解讀結果')}</h4><p>{t.interpretation}</p></div>
-  <details class="qm-boundary" open={expanded}><summary>{text('Check the claim and reporting', '檢查主張與報告內容')}</summary><p>{t.caution}</p><p>{text('Report the question and target quantity, data and sampling units, model and estimator, relevant diagnostics, estimates and uncertainty, and the limits of the conclusion. Identify primary and exploratory analyses.', '交代問題與目標量、資料及取樣單位、模型與估計法、相關診斷、估計與不確定性，以及結論限制。區分主要與探索性分析。')}</p></details>
+  <details class="qm-boundary" open={expanded}><summary>{text('Check the claim and reporting', '檢查主張與報告內容')}</summary><p>{t.caution}</p>{!reportingGuide && <p>{text('Report the question and target quantity, data and sampling units, model and estimator, relevant diagnostics, estimates and uncertainty, and the limits of the conclusion. Identify primary and exploratory analyses.', '交代問題與目標量、資料及取樣單位、模型與估計法、相關診斷、估計與不確定性，以及結論限制。區分主要與探索性分析。')}</p>}</details></>}
   {example ? <details class="qm-reporting-example" data-reporting-example={m.id} open={expanded}>
     <summary>{example.incomplete ? text('Source limitation: incomplete result reporting', '來源限制：結果報告不完整') : text('Research example: how the result is reported', '研究例子：研究者如何報告結果')}</summary>
     <p class="qm-caption qm-quote-label" data-no-glossary>{text('Verbatim excerpt · Original English', '原文節錄 · 保留英文措辭')}</p>

@@ -1,0 +1,19 @@
+---
+import {quantStories} from '../../data/dedc02QuantStories';
+import QuantStoryVisual from './QuantStoryVisual.astro';
+interface Props { methodId: string; language:'en'|'zh'; }
+const {methodId,language}=Astro.props; const story=quantStories[methodId]; const zh=language==='zh'; const t=(v:[string,string])=>v[zh?1:0];
+const dialogId=`story-${methodId}-${language}`;
+---
+<dialog id={dialogId} class="qm-story-dialog" data-story-dialog data-story-stage="0" data-story-language={language} aria-labelledby={`${dialogId}-title`} data-no-glossary lang={zh?'zh-Hant':'en'}>
+ <div class="qm-story-dialog-header"><div><p class="qm-story-kicker">{zh?'生活中的統計':'Statistics in everyday life'}</p><h2 id={`${dialogId}-title`}>{t(story.title)}</h2></div><button type="button" data-close-story aria-label={zh?'關閉故事例子':'Close story example'} autofocus>×</button></div>
+ <p class="qm-story-caption">{zh?'原創虛構教學情境。':'Original fictional teaching scenario. '}{story.supplied?(zh?'模型及區間為指定的教學輸出，並非從此圖重新擬合。':'Models and intervals are supplied teaching outputs, not newly fitted from this illustration.'):(zh?'數值根據下列教學資料計算。':'Numbers are calculated from the teaching data below.')}</p>
+ <div class="qm-story-tabs" role="tablist" aria-label={zh?'故事步驟':'Story steps'}>{(zh?['生活情境','選擇方法','讀懂結果']:['The situation','Choose the method','Read the result']).map((label,i)=><button type="button" role="tab" id={`${dialogId}-tab-${i}`} aria-controls={`${dialogId}-panel-${i}`} aria-selected={i===0?'true':'false'} tabindex={i===0?0:-1} data-story-tab={i}><span aria-hidden="true">{i+1}</span>{label}</button>)}</div>
+ <div class="qm-story-body"><QuantStoryVisual story={story} {language} id={methodId}/>
+ <div class="qm-story-copy">
+ <div role="tabpanel" id={`${dialogId}-panel-0`} aria-labelledby={`${dialogId}-tab-0`} data-story-panel="0"><p>{t(story.situation)}</p><h3>{t(story.question)}</h3></div>
+ <div role="tabpanel" id={`${dialogId}-panel-1`} aria-labelledby={`${dialogId}-tab-1`} data-story-panel="1" hidden><p>{t(story.method)}</p><h3>{zh?'跟著數字想一遍':'Follow the numbers'}</h3><p class="qm-story-calculation">{t(story.calculation)}</p></div>
+ <div role="tabpanel" id={`${dialogId}-panel-2`} aria-labelledby={`${dialogId}-tab-2`} data-story-panel="2" hidden><h3>{zh?'可以怎樣報告？':'How could you report it?'}</h3><p class="qm-story-result">{t(story.result)}</p><p>{t(story.caution)}</p></div>
+ </div></div>
+ <div class="qm-story-footer"><button type="button" data-story-prev disabled>{zh?'上一步':'Previous'}</button><p data-story-progress aria-live="polite">1 / 3</p><button type="button" data-story-next>{zh?'下一步':'Next'}</button><button type="button" data-story-done hidden>{zh?'返回方法':'Back to the method'}</button></div>
+</dialog>
