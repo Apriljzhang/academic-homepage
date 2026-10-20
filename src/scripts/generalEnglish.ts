@@ -136,7 +136,7 @@ document.querySelector('[data-download]')?.addEventListener('click',()=>{
     return;
   }
   const labels:Record<string,string>={where:'Where',when:'When I visited',age:'Age of the home',special:'Why it is special',who:'Who lives/lived there',what:'What I did'};
-  const text=['General English · Week 9 · Perspectives II · Unit 2E','My secret home','',...Object.entries(labels).map(([key,label])=>`${label}: ${fields[key]||''}`),'','My description',fields.draft,'','My improved sentence',fields.improved||'','One useful adjective',fields.adjective||''].join('\n');
+  const text=['General English I · Week 9 · Perspectives I · Unit 2E','My secret home','',...Object.entries(labels).map(([key,label])=>`${label}: ${fields[key]||''}`),'','My description',fields.draft,'','My improved sentence',fields.improved||'','One useful adjective',fields.adjective||''].join('\n');
   const url=URL.createObjectURL(new Blob([text],{type:'text/plain;charset=utf-8'}));
   const link=document.createElement('a');link.href=url;link.download='general-english-week-9-my-secret-home.txt';document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
   if(status)status.textContent=isChinese()?'已要求瀏覽器下載文字檔。':'Text download requested.';

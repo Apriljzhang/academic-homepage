@@ -1,0 +1,52 @@
+---
+import CourseSlideLayout from '../../../../../layouts/CourseSlideLayout.astro';
+import LessonDeckChrome from '../../../../../components/lessons/LessonDeckChrome.astro';
+import { unit5Sessions, type UnitSession } from '../../../../../data/generalEnglishUnit5';
+import '../../../../../styles/general-english-unit5.css';
+import { withBase } from '../../../../../utils/paths';
+export function getStaticPaths() {
+  return unit5Sessions.map(session => ({ params: { session: session.slug }, props: { session } }));
+}
+interface Props { session: UnitSession; }
+const { session } = Astro.props;
+const title = `${session.title.en} · Unit 5 Session ${session.number} · General English I · April Jiawei Zhang`;
+const description = `Perspectives I, Unit 5: Family and friends. Session ${session.number}, 75 minutes. ${session.outcome.en}`;
+const courseHref = withBase('/teaching/courses/general-english');
+const next = unit5Sessions[session.number];
+let elapsed = 0;
+const slides = session.slides.map(slide => {
+  const start = elapsed;
+  elapsed += slide.minutes;
+  return { ...slide, start, end: elapsed };
+});
+const languages = ['en', 'zh'] as const;
+---
+<CourseSlideLayout {title} {description} lessonDeck>
+  <LessonDeckChrome {courseHref} courseLabel="General English I course materials" lessonTitle={`Unit 5 · Session ${session.number} · ${session.title.en}`} classDraw />
+  <main class="deck u5-deck" aria-label={`Unit 5 Session ${session.number}: ${session.title.en}`}>
+    {slides.map((slide, index) => <section class:list={['slide', { 'is-active': index === 0 }]} data-title={slide.title.en} aria-hidden={index !== 0}>
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">Perspectives I · Unit 5 · Session {session.number} / 4</span><span class="u5-timing">{slide.start}–{slide.end} min · {slide.minutes} min</span></header>
+        {languages.map(lang => <div data-language={lang} lang={lang === 'zh' ? 'zh-Hant' : 'en'} hidden={lang !== 'en'}>
+          {slide.cover && <div class="title-rule"></div>}
+          {slide.cover ? <h1>{slide.title[lang]}</h1> : <h2>{slide.title[lang]}</h2>}
+          <p class="lead">{slide.lead[lang]}</p>
+          {slide.ref && <p class="u5-ebook"><span>{/\bp{1,2}\./.test(slide.ref) ? (lang === 'en' ? 'E-book reference' : '電子書參考') : (lang === 'en' ? 'Class task' : '課堂任務')}</span>{slide.ref}</p>}
+          {slide.visual === 'people' && slide.cover && <div class="u5-people" aria-label={lang === 'en' ? 'People in your world' : '你生活中的人'}><span>{lang === 'en' ? 'Family' : '家人'}</span><span>{lang === 'en' ? 'Classmates' : '同學'}</span><strong>{lang === 'en' ? 'You' : '你'}</strong><span>{lang === 'en' ? 'Teammates' : '隊友'}</span><span>{lang === 'en' ? 'Online friends' : '網上朋友'}</span></div>}
+          {slide.visual === 'time' && <div class="u5-time"><span>{lang === 'en' ? 'Before now' : '過去'}</span><div class="u5-time-line"><i></i><i></i><i></i></div><strong>{lang === 'en' ? 'Now' : '現在'}</strong></div>}
+          {slide.visual === 'laugh' && <div class="u5-laugh"><span>😂</span><p>{lang === 'en' ? 'A joke?' : '笑話？'}</p><span>😄</span><p>{lang === 'en' ? 'A connection?' : '連結？'}</p></div>}
+          {slide.visual === 'invite' && <div class="u5-chat"><p>{lang === 'en' ? 'Are you free on Saturday?' : '星期六有空嗎？'}</p><p>{lang === 'en' ? 'Thanks! What have you planned?' : '謝謝！你們計劃了甚麼？'}</p></div>}
+          {slide.columns && <div class="u5-columns">{slide.columns.map(col => <article><h3>{col.title[lang]}</h3><ul>{col.lines.map(line => <li>{line[lang]}</li>)}</ul></article>)}</div>}
+          {slide.example && <blockquote class="u5-example" lang="en">{slide.example}</blockquote>}
+          {slide.steps && <ol class="u5-steps">{slide.steps.map(step => <li>{step[lang]}</li>)}</ol>}
+          {slide.quiz && <div class="u5-quizzes">{slide.quiz.map((quiz) => <fieldset data-u5-quiz data-correct={quiz.correct} data-explanation={quiz.feedback[lang]} data-language-code={lang}><legend>{quiz.prompt[lang]}</legend><div class="u5-choices">{quiz.choices.map((choice, choiceIndex) => <button type="button" data-choice={choiceIndex} aria-pressed="false">{choice[lang]}</button>)}</div><p class="u5-feedback" data-quiz-feedback role="status"></p></fieldset>)}</div>}
+          {slide.reveal && <details class="u5-reveal"><summary>{slide.reveal.title[lang]}</summary><ul>{slide.reveal.lines.map(line => <li>{line[lang]}</li>)}</ul></details>}
+          {slide.takeaway && <p class="u5-takeaway">{slide.takeaway[lang]}</p>}
+          {index === slides.length - 1 && <p class="u5-next"><a href={withBase('/teaching/courses/general-english/unit-5')}>{lang === 'en' ? 'Unit 5 overview' : '第五單元總覽'}</a>{next && <a href={withBase(`/teaching/courses/general-english/unit-5/${next.slug}`)}>{lang === 'en' ? `Next: Session ${next.number}` : `下一節：第${next.number}節`}</a>}</p>}
+        </div>)}
+        <p class="source-note">{slide.cover ? `Family and friends · ${session.sections} · e-book pp. ${session.pages} · 75 minutes` : 'Perspectives I · Unit 5: Family and friends'}</p>
+      </div>
+    </section>)}
+  </main>
+  <script>import '../../../../../scripts/generalEnglishUnit5';</script>
+</CourseSlideLayout>

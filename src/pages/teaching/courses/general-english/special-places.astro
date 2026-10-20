@@ -3,8 +3,8 @@ import CourseSlideLayout from '../../../../layouts/CourseSlideLayout.astro';
 import LessonDeckChrome from '../../../../components/lessons/LessonDeckChrome.astro';
 import '../../../../styles/general-english.css';
 import { withBase } from '../../../../utils/paths';
-const title = 'Week 9 · Special things, special places · General English · April Jiawei Zhang';
-const description = 'General English Week 9: Special things, special places. Writing a description with six key details and useful adjectives. Perspectives II, Unit 2E.';
+const title = 'Week 9 · Special things, special places · General English I · April Jiawei Zhang';
+const description = 'General English I Week 9: Special things, special places. Writing a description with six key details and useful adjectives. Perspectives I, Unit 2E.';
 const courseHref = withBase('/teaching/courses/general-english');
 const asset = (name: string) => withBase(`/teaching/courses/general-english/assets/${name}.jpg`);
 const rooms = [
@@ -28,10 +28,10 @@ const words = [
 ];
 ---
 <CourseSlideLayout {title} {description} lessonDeck>
-  <LessonDeckChrome {courseHref} courseLabel="General English course materials" lessonTitle="Week 9 · Special things, special places" classDraw />
-  <main class="deck ge-deck" aria-label="General English Week 9: Special things, special places">
+  <LessonDeckChrome {courseHref} courseLabel="General English I course materials" lessonTitle="Week 9 · Special things, special places" classDraw />
+  <main class="deck ge-deck" aria-label="General English I Week 9: Special things, special places">
     <section class="slide is-active" data-title="A secret home" aria-hidden="false"><div class="slide-inner title-slide">
-      <header class="slide-header"><span class="eyebrow">General English · Week 9 · Perspectives II · Unit 2E</span></header><div class="title-rule"></div>
+      <header class="slide-header"><span class="eyebrow">General English I · Week 9 · Perspectives I · Unit 2E</span></header><div class="title-rule"></div>
       <div data-language="en"><h1>A secret home</h1><p class="lead">A game base. An idol’s retreat. Your dream escape.</p><p class="ge-cover-question">Where would you spend a weekend?</p><p>Special things, special places<br />Week 9 · Writing a description</p></div>
       <div data-language="zh" lang="zh-Hant" hidden><h1>神秘的家</h1><p class="lead">遊戲基地、偶像的度假屋，或你夢想中的小天地。</p><p class="ge-cover-question">你想在哪裡度過週末？</p><p>特別的事物，特別的地方<br />第9週 · 描寫文寫作</p></div>
     </div></section>
@@ -140,7 +140,7 @@ const words = [
       <label class="ge-write"><span data-language="en">One useful adjective I can use again</span><span data-language="zh" lang="zh-Hant" hidden>一個我可以再次運用的形容詞</span><input type="text" data-ge-field="adjective" placeholder="cosy / spacious / …" /></label>
       <div class="ge-actions"><button type="button" data-download>Save my writing (.txt)</button></div>
       <p class="ge-feedback" data-download-status role="status"></p>
-      <div data-language="en"><p class="source-note">Saving a text file does not submit your work. Browser notes stay on this device when storage is available.</p><p class="source-note">Perspectives II, Unit 2E. Fictional examples and AI-generated room designs.</p></div><div data-language="zh" lang="zh-Hant" hidden><p class="source-note">儲存文字檔不代表已提交作業。瀏覽器支援儲存時，筆記會保留在此裝置。</p><p class="source-note">Perspectives II第2E課。虛構範例及AI生成的房間設計。</p></div>
+      <div data-language="en"><p class="source-note">Saving a text file does not submit your work. Browser notes stay on this device when storage is available.</p><p class="source-note">Perspectives I, Unit 2E. Fictional examples and AI-generated room designs.</p></div><div data-language="zh" lang="zh-Hant" hidden><p class="source-note">儲存文字檔不代表已提交作業。瀏覽器支援儲存時，筆記會保留在此裝置。</p><p class="source-note">Perspectives I第2E課。虛構範例及AI生成的房間設計。</p></div>
     </div></section>
   </main>
   <dialog class="tool-dialog ge-image-dialog" aria-labelledby="ge-image-title"><div class="tool-dialog-head"><h2 id="ge-image-title">A closer look</h2><button type="button" data-close-image aria-label="Close image">×</button></div><img data-large-image src={asset(rooms[0].file)} alt={rooms[0].alt} width="1672" height="941" /><p data-large-caption></p></dialog>
