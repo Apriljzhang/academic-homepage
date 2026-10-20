@@ -1,0 +1,108 @@
+.ge-deck { line-height: 1.5; }
+.ge-deck .slide { display: none; }
+.ge-deck .slide.is-active { display: block; }
+.ge-deck h2 { margin: 0 0 1rem; font-size: clamp(2.1rem,4.5vw,3.8rem); line-height: 1.08; letter-spacing: -.025em; }
+.ge-deck h3 { margin: 0 0 .6rem; font-size: 1.35rem; font-weight: 600; }
+.ge-deck p { margin: .65rem 0 1rem; }
+.ge-deck :is(p,li,label,textarea,input,button,summary) { font-size: clamp(1.1rem,1.8vw,1.45rem); }
+.ge-deck .ge-cover-question { margin: 2rem 0; font-size: clamp(1.5rem,3vw,2.3rem); }
+.ge-deck .ge-room-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1.25rem; margin: .5rem 0 1.5rem; }
+.ge-deck figure { min-width: 0; margin: 0; }
+.ge-deck .ge-room-image { display: block; width: 100%; padding: 0; border: 0; background: transparent; cursor: zoom-in; }
+.ge-deck .ge-room-image img { display: block; width: 100%; height: auto; aspect-ratio: 16/10; object-fit: cover; border-radius: .3rem; }
+.ge-deck figcaption { display: flex; align-items: baseline; gap: .7rem; margin-top: .7rem; font-size: clamp(1rem,1.7vw,1.3rem); }
+.ge-deck figcaption b { font-size: 1.7rem; }
+.ge-deck .ge-sentence { padding: 1rem 0; border-top: 1px solid var(--lesson-line); border-bottom: 1px solid var(--lesson-line); font-size: clamp(1.25rem,2.3vw,1.8rem); line-height: 1.5; }
+.ge-deck .ge-big-list { display: grid; gap: .75rem; margin: 1.5rem 0; padding-left: 1.5rem; }
+.ge-deck .ge-takeaway { border-left: 4px solid var(--lesson-green); padding: .7rem 1rem; background: var(--lesson-soft); }
+.ge-deck .ge-model { margin: .6rem 0 1.25rem; padding: 1rem 1.3rem; border-left: 4px solid var(--lesson-line); font-size: clamp(1.15rem,2vw,1.6rem); line-height: 1.6; }
+.ge-deck .ge-model-small { font-size: 1.15rem; line-height: 1.6; }
+.ge-deck .ge-actions { display: flex; flex-wrap: wrap; gap: .7rem; align-items: center; margin: 1rem 0 .5rem; }
+.ge-deck :is(.ge-actions button,.ge-room-switch button,.ge-actions a) { min-height: 44px; border: 1px solid var(--lesson-green); border-radius: .3rem; padding: .6rem 1rem; color: var(--lesson-green); background: #fff; text-decoration: none; cursor: pointer; font: inherit; }
+.ge-deck :is(.ge-actions button,.ge-actions a):hover { background: var(--lesson-soft); }
+.ge-deck .ge-actions button[aria-pressed="true"],.ge-deck .ge-room-switch button[aria-pressed="true"] { color: #fff; background: var(--lesson-green); }
+.ge-deck .ge-actions button span { font-size: .9rem; }
+.ge-deck .ge-feedback { min-height: 1.5em; color: var(--lesson-green); }
+.ge-deck .ge-feedback:empty { display: none; }
+.ge-deck .ge-clues { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .5rem 2rem; }
+.ge-deck .ge-clues details { border-bottom: 1px solid var(--lesson-line); padding: .7rem 0; }
+.ge-deck summary { cursor: pointer; min-height: 44px; padding: .3rem 0; }
+.ge-deck .ge-number { display: inline-block; margin-right: .5rem; font-weight: 600; }
+.ge-deck .ge-clues details p { margin: .5rem 0; font-size: 1.2rem; }
+.ge-deck .ge-help { margin: .75rem 0; border-top: 1px solid var(--lesson-line); padding-top: .4rem; }
+.ge-deck .ge-help summary { font-size: 1.1rem; color: var(--lesson-green); }
+.ge-deck .ge-two { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 2.5rem; margin: 1rem 0; }
+.ge-deck .ge-two article + article { border-left: 1px solid var(--lesson-line); padding-left: 2rem; }
+.ge-deck strong { font-weight: 600; color: var(--lesson-green); }
+.ge-deck .ge-word-columns { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 2rem; margin: 1rem 0; }
+.ge-deck .ge-word-columns ul { padding: 0; list-style: none; }
+.ge-deck .ge-word-columns li { padding: .3rem 0; }
+.ge-deck .ge-room-switch { display: flex; gap: .5rem; margin: .5rem 0 1rem; }
+.ge-deck .ge-room-switch button { min-width: 48px; }
+.ge-deck .ge-photo-task { display: grid; grid-template-columns: 1.5fr 1fr; gap: 2rem; align-items: start; }
+.ge-deck .ge-photo-task img { width: 100%; height: auto; border-radius: .3rem; }
+.ge-deck .ge-adjective-pool { margin: 0; font-size: 1.5rem; line-height: 1.4; }
+.ge-deck .ge-plain { margin: 1.5rem 0; font-size: clamp(1.6rem,3vw,2.5rem); line-height: 1.6; color: var(--lesson-muted); }
+.ge-deck .ge-route-list { padding-left: 1.5rem; margin: 1rem 0; }
+.ge-deck .ge-route-list li { padding: .5rem 0; }
+.ge-deck .ge-route-list h3 { display: inline; }
+.ge-deck .ge-route-list p { margin: .2rem 0; }
+.ge-deck .ge-planner { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem 1.5rem; }
+.ge-deck .ge-planner label,.ge-deck .ge-write { display: flex; flex-direction: column; gap: .4rem; font-size: 1.15rem; }
+.ge-deck :is(textarea,input[type="text"]) { box-sizing: border-box; width: 100%; border: 1px solid var(--lesson-line); border-radius: .3rem; padding: .65rem .8rem; background: #fcfefc; color: var(--lesson-ink); font-family: inherit; font-size: 1.15rem; line-height: 1.5; }
+.ge-deck textarea { resize: vertical; }
+.ge-deck .ge-write { margin: 1rem 0; }
+.ge-deck .ge-wordcount { color: var(--lesson-muted); font-size: 1rem; margin: .35rem 0; }
+.ge-deck .ge-support p { font-size: 1.1rem; }
+.ge-deck .ge-checks { display: grid; gap: 1.1rem; margin: 1.4rem 0; }
+.ge-deck .ge-checks label { display: flex; align-items: flex-start; gap: .9rem; cursor: pointer; }
+.ge-deck .ge-checks input { width: 1.35rem; height: 1.35rem; margin-top: .3rem; flex-shrink: 0; accent-color: var(--lesson-green); }
+body.lesson-deck .ge-image-dialog { width: min(1200px,calc(100vw - 2rem)); }
+.ge-image-dialog > img { display: block; width: 100%; height: auto; max-height: calc(82dvh - 8rem); object-fit: contain; margin: 1rem 0; }
+.ge-image-dialog > p { margin: 0; font-size: 1.1rem; }
+@media screen and (min-width:701px) and (max-height:850px) {
+  .ge-deck .slide-header { margin-bottom: 1rem; }
+  .ge-deck h2 { margin-bottom: .75rem; font-size: clamp(2rem,3.6vw,3rem); }
+  .ge-deck p { margin: .4rem 0 .65rem; }
+  .ge-deck .ge-room-grid { margin-bottom: .75rem; }
+  .ge-deck .ge-room-image img { height: clamp(140px,24vh,200px); aspect-ratio: auto; }
+  .ge-deck .ge-sentence { padding: .5rem 0; }
+  .ge-deck .ge-model { margin: .5rem 0 .75rem; padding: .75rem 1rem; font-size: 1.4rem; line-height: 1.45; }
+  .ge-deck .ge-word-columns { margin: .5rem 0; }
+  .ge-deck .ge-word-columns ul { margin: 0; }
+  .ge-deck .ge-word-columns li { padding: .1rem 0; }
+  .ge-deck .ge-big-list { margin: 1rem 0; gap: .5rem; }
+  .ge-deck .ge-two { margin: .5rem 0; }
+  .ge-deck .ge-plain { margin: 1rem 0; font-size: 2rem; line-height: 1.45; }
+  .ge-deck .ge-route-list { margin: .5rem 0; }
+  .ge-deck .ge-route-list li { padding: .3rem 0; }
+  .ge-deck .ge-planner { gap: .65rem 1.5rem; }
+  .ge-deck .ge-planner textarea { height: 4rem; padding: .4rem .65rem; }
+  .ge-deck .ge-write { margin: .65rem 0; }
+  .ge-deck textarea[data-ge-field="draft"] { height: 10rem; min-height: 10rem; }
+  .ge-deck .ge-checks { margin: .35rem 0; gap: 0; }
+  .ge-deck .ge-checks label { min-height: 44px; }
+  .ge-deck .ge-checks input { min-height: 0; }
+  .ge-deck .ge-checks + .ge-sentence { margin: .5rem 0; font-size: 1.5rem; line-height: 1.35; }
+  .ge-deck .ge-photo-task { grid-template-columns: 1.25fr 1fr; }
+  .ge-deck .ge-photo-task img { max-height: 32vh; object-fit: contain; }
+  .ge-deck .ge-adjective-pool { margin: 0; columns: 2; font-size: 1.25rem; line-height: 1.4; }
+}
+@media screen and (max-width:700px) {
+  .ge-deck .ge-room-grid,.ge-deck .ge-word-columns,.ge-deck .ge-two,.ge-deck .ge-clues,.ge-deck .ge-planner,.ge-deck .ge-photo-task { grid-template-columns: 1fr; gap: 1.25rem; }
+  .ge-deck .ge-room-image img { aspect-ratio: 16/9; }
+  .ge-deck .ge-two article + article { border-left: 0; border-top: 1px solid var(--lesson-line); padding: 1rem 0 0; }
+  .ge-deck .ge-adjective-pool { columns: 2; }
+}
+@media print {
+  body.course-slide-page { overflow: visible; }
+  .ge-deck .slide { display: block !important; height: auto; min-height: 0; overflow: visible; padding: 1cm; break-after: page; }
+  .ge-deck [data-language="zh"],.ge-deck .ge-actions,.ge-deck .ge-room-switch,.ge-image-dialog { display: none !important; }
+  .ge-deck [data-language="en"] { display: block !important; }
+  .ge-deck .slide-inner { max-width: 100%; }
+  .ge-deck h1 { font-size: 42pt; }
+  .ge-deck h2 { font-size: 28pt; }
+  .ge-deck :is(p,li,label,summary,textarea) { font-size: 13pt; }
+  .ge-deck details > :not(summary) { display: block !important; }
+  .ge-deck .ge-model { font-size: 15pt; }
+}

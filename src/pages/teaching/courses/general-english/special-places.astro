@@ -1,0 +1,148 @@
+---
+import CourseSlideLayout from '../../../../layouts/CourseSlideLayout.astro';
+import LessonDeckChrome from '../../../../components/lessons/LessonDeckChrome.astro';
+import '../../../../styles/general-english.css';
+import { withBase } from '../../../../utils/paths';
+const title = 'Special things, special places · General English · April Jiawei Zhang';
+const description = 'A 75-minute General English lesson: describe an imagined home with six key details and useful adjectives. Perspectives II, Unit 2E.';
+const courseHref = withBase('/teaching/courses/general-english');
+const asset = (name: string) => withBase(`/teaching/courses/general-english/assets/${name}.jpg`);
+const rooms = [
+  { id: 'A', name: 'The gaming apartment', zh: '遊戲公寓', file: 'gaming-apartment', alt: 'An imagined apartment with two gaming monitors, a sofa and a large window overlooking a city at sunset.' },
+  { id: 'B', name: 'The music retreat', zh: '音樂小天地', file: 'music-rooftop-home', alt: 'An imagined music studio with a keyboard, microphone and guitar, opening onto a rooftop garden.' },
+  { id: 'C', name: 'The seaside cabin', zh: '海邊小屋', file: 'seaside-cabin', alt: 'An imagined light wooden cabin with a sofa, a book and open doors facing the beach and sea.' },
+];
+const questions = [
+  { key: 'where', en: 'Where is it?', zh: '它在哪裡？', answer: 'On a small island above the sea.', answerZh: '在海面上方的一座小島。', hint: 'on an island / near the beach / in a city' },
+  { key: 'when', en: 'When did you go there?', zh: '你何時到訪？', answer: 'Last Saturday.', answerZh: '上星期六。', hint: 'last Saturday / last summer / yesterday' },
+  { key: 'age', en: 'How old is it?', zh: '它有多少年歷史？', answer: 'Twenty years old.', answerZh: '二十年。', hint: 'five years old / a new building' },
+  { key: 'special', en: 'Why is it special?', zh: '它有甚麼特別？', answer: 'It looks like a giant speaker. It has a music room and a roof garden.', answerZh: '外形像巨型喇叭，設有音樂室和天台花園。', hint: 'an unusual shape / a peaceful garden' },
+  { key: 'who', en: 'Who lives or used to live there?', zh: '誰住在那裡，或曾經住在那裡？', answer: 'Luna lives there. The music clues suggest a singer.', answerZh: 'Luna住在那裡。音樂線索顯示她可能是歌手。', hint: 'a singer / a game character / my friend' },
+  { key: 'what', en: 'What did you do there?', zh: '你在那裡做了甚麼？', answer: 'I listened to music and took photos.', answerZh: '我聽音樂和拍照。', hint: 'played games / listened to music / relaxed' },
+];
+const model = 'Last Saturday, I visited Cloud House in a game. It is on a small island above the sea. The house is twenty years old, and a character called Luna lives there. Outside, it looks like a giant speaker. Inside, there is a bright music room and a cosy bedroom. My favourite place is the peaceful roof garden because I could see the sea. During my visit, I listened to music and took photos. I liked the house because it felt exciting and relaxing.';
+const words = [
+  ['Appearance', '外觀', 'bright 明亮的', 'colourful 色彩繽紛的', 'modern 現代的', 'unusual 不尋常的'],
+  ['Space and comfort', '空間與舒適度', 'small 小的', 'spacious 寬敞的', 'cosy 舒適溫馨的', 'comfortable 舒服的'],
+  ['Atmosphere', '氣氛', 'peaceful 寧靜的', 'quiet 安靜的', 'noisy 嘈雜的', 'lively 熱鬧的'],
+];
+---
+<CourseSlideLayout {title} {description} lessonDeck>
+  <LessonDeckChrome {courseHref} courseLabel="General English course materials" lessonTitle="Special things, special places" />
+  <main class="deck ge-deck" aria-label="General English: Special things, special places">
+    <section class="slide is-active" data-title="A secret home" aria-hidden="false"><div class="slide-inner title-slide">
+      <header class="slide-header"><span class="eyebrow">General English · Perspectives II · Unit 2E</span></header><div class="title-rule"></div>
+      <div data-language="en"><h1>A secret home</h1><p class="lead">A game base. An idol’s retreat. Your dream escape.</p><p class="ge-cover-question">Where would you spend a weekend?</p><p>Special things, special places<br />Writing a description · 75 minutes</p></div>
+      <div data-language="zh" lang="zh-Hant" hidden><h1>神秘的家</h1><p class="lead">遊戲基地、偶像的度假屋，或你夢想中的小天地。</p><p class="ge-cover-question">你想在哪裡度過週末？</p><p>特別的事物，特別的地方<br />描寫文寫作 · 75分鐘</p></div>
+    </div></section>
+
+    <section class="slide" data-title="Three homes, one weekend" aria-hidden="true"><div class="slide-inner">
+      <header class="slide-header"><span class="eyebrow">0–5 min · Your choice</span></header>
+      <div data-language="en"><h2>Three homes, one weekend</h2><p class="lead">Choose A, B or C. Point, vote or tell your neighbour.</p></div><div data-language="zh" lang="zh-Hant" hidden><h2>三個家，一個週末</h2><p class="lead">選A、B或C。指一指、投票，或告訴身旁的同學。</p></div>
+      <div class="ge-room-grid">{rooms.map(room=><figure><button type="button" class="ge-room-image" data-enlarge={room.file} aria-label={`Enlarge ${room.name}`}><img src={asset(room.file)} alt={room.alt} width="1672" height="941" loading="eager" /></button><figcaption><b>{room.id}</b><span data-language="en">{room.name}</span><span data-language="zh" lang="zh-Hant" hidden>{room.zh}</span></figcaption></figure>)}</div>
+      <div data-language="en"><p class="ge-sentence">“I choose ___ because it looks ___.”</p><p class="source-note">Click an image for a closer look. These are imagined homes.</p></div><div data-language="zh" lang="zh-Hant" hidden><p class="ge-sentence">“I choose ___ because it looks ___.”</p><p class="source-note">按圖片可放大。圖片呈現的是虛構設計。</p></div>
+    </div></section>
+
+    <section class="slide" data-title="Today’s writing challenge" aria-hidden="true"><div class="slide-inner">
+      <header class="slide-header"><span class="eyebrow">0–5 min · The challenge</span></header>
+      <div data-language="en"><h2>A home with a hidden identity</h2><p class="lead">Describe a home. Your partner guesses its owner, game or theme.</p><ul class="ge-big-list"><li>Include six key details.</li><li>Use at least four suitable adjectives.</li><li>Write 80–100 words and improve one sentence.</li></ul><p class="ge-takeaway">You can invent the home and imagine the visit.</p><p>Use a notebook or the worksheet. You do not need a phone.</p></div>
+      <div data-language="zh" lang="zh-Hant" hidden><h2>身份保密的家</h2><p class="lead">描寫一個家，讓同伴猜出屋主、遊戲或主題。</p><ul class="ge-big-list"><li>包含六項重要資料。</li><li>運用至少四個合適的形容詞。</li><li>寫80–100個英文單字，並修改一句。</li></ul><p class="ge-takeaway">你可以設計虛構的家，想像自己曾經到訪。</p><p>使用筆記本或工作紙即可，不需要手機。</p></div>
+    </div></section>
+
+    <section class="slide" data-title="The Cloud House mystery" aria-hidden="true"><div class="slide-inner">
+      <header class="slide-header"><span class="eyebrow">5–13 min · Read and guess</span></header>
+      <div data-language="en"><h2>The Cloud House mystery</h2><p>Read this imagined visit. Who probably lives here? Find two clues.</p></div><div data-language="zh" lang="zh-Hant" hidden><h2>Cloud House之謎</h2><p>閱讀這段虛構的到訪經歷。屋主可能是誰？找出兩項線索。</p></div>
+      <blockquote class="ge-model" lang="en">{model}</blockquote>
+      <div class="ge-actions" role="group" aria-label="Choose the likely owner"><button type="button" data-guess="singer">A singer <span lang="zh-Hant">歌手</span></button><button type="button" data-guess="footballer">A footballer <span lang="zh-Hant">足球員</span></button><button type="button" data-guess="chef">A chef <span lang="zh-Hant">廚師</span></button></div><p class="ge-feedback" data-guess-feedback role="status"></p>
+    </div></section>
+
+    <section class="slide" data-title="Six details a reader needs" aria-hidden="true"><div class="slide-inner">
+      <header class="slide-header"><span class="eyebrow">13–22 min · Six clues · Textbook 6–8</span></header>
+      <div data-language="en"><h2>Six details a reader needs</h2><p>With your partner, find the answers in the model. Check one at a time.</p></div><div data-language="zh" lang="zh-Hant" hidden><h2>讀者需要的六項資料</h2><p>與同伴在範文中找答案，再逐項核對。</p></div>
+      <div class="ge-clues">{questions.map((q,i)=><details><summary><span class="ge-number">{i+1}</span><span data-language="en">{q.en}</span><span data-language="zh" lang="zh-Hant" hidden>{q.zh}</span></summary><p data-language="en">{q.answer}</p><p data-language="zh" lang="zh-Hant" hidden>{q.answerZh}</p></details>)}</div>
+      <details class="ge-help"><summary>Model text / 範文</summary><p class="ge-model-small" lang="en">{model}</p></details>
+    </div></section>
+
+    <section class="slide" data-title="The home now, the visit then" aria-hidden="true"><div class="slide-inner">
+      <header class="slide-header"><span class="eyebrow">13–22 min · Useful sentence patterns</span></header>
+      <div data-language="en"><h2>The home now, the visit then</h2></div><div data-language="zh" lang="zh-Hant" hidden><h2>現在的家，過去的到訪</h2></div>
+      <div class="ge-two"><article><h3><span data-language="en">The home</span><span data-language="zh" lang="zh-Hant" hidden>描述這個家</span></h3><p>It <strong>is</strong> on an island.</p><p>There <strong>is</strong> a cosy bedroom.</p><p>A singer <strong>lives</strong> there.</p></article><article><h3><span data-language="en">The visit</span><span data-language="zh" lang="zh-Hant" hidden>描述到訪經歷</span></h3><p>I <strong>visited</strong> last Saturday.</p><p>I <strong>listened</strong> to music.</p><p>I <strong>took</strong> photos.</p></article></div>
+      <div data-language="en"><p class="ge-sentence">Yesterday, I ___ the house. It ___ near the sea.</p><details class="ge-help"><summary>Check the sentence</summary><p>Yesterday, I <strong>visited</strong> the house. It <strong>is</strong> near the sea.</p></details></div><div data-language="zh" lang="zh-Hant" hidden><p class="ge-sentence">Yesterday, I ___ the house. It ___ near the sea.</p><details class="ge-help"><summary>核對句子</summary><p>Yesterday, I <strong>visited</strong> the house. It <strong>is</strong> near the sea.</p></details></div>
+    </div></section>
+
+    <section class="slide" data-title="Words that build a picture" aria-hidden="true"><div class="slide-inner">
+      <header class="slide-header"><span class="eyebrow">22–31 min · Adjectives · Textbook 9</span></header>
+      <div data-language="en"><h2>Words that build a picture</h2><p class="lead">Choose words that help your reader imagine the place.</p></div><div data-language="zh" lang="zh-Hant" hidden><h2>讓讀者想像畫面的詞語</h2><p class="lead">選擇能幫助讀者想像這個地方的形容詞。</p></div>
+      <div class="ge-word-columns">{words.map(([en,zh,...items])=><article><h3><span data-language="en">{en}</span><span data-language="zh" lang="zh-Hant" hidden>{zh}</span></h3><ul>{items.map(w=><li><span data-language="en">{w.split(' ')[0]}</span><span data-language="zh" lang="zh-Hant" hidden>{w}</span></li>)}</ul></article>)}</div>
+      <p class="ge-sentence">a <strong>spacious</strong> room &nbsp; / &nbsp; The room is <strong>spacious</strong>.</p>
+      <div data-language="en"><p class="ge-takeaway">“Nice” gives little detail. “Cosy” tells us how a room feels.</p></div><div data-language="zh" lang="zh-Hant" hidden><p class="ge-takeaway">“Nice”的資料較少。“Cosy”讓我們感受到房間的溫馨舒適。</p></div>
+    </div></section>
+
+    <section class="slide" data-title="The room challenge" aria-hidden="true"><div class="slide-inner">
+      <header class="slide-header"><span class="eyebrow">22–31 min · A pair challenge</span></header>
+      <div data-language="en"><h2>Which words fit this room?</h2><p>Choose a room, then suggest two adjectives. Explain one choice.</p></div><div data-language="zh" lang="zh-Hant" hidden><h2>哪些詞語適合這個房間？</h2><p>選一個房間，提出兩個形容詞，並解釋其中一個選擇。</p></div>
+      <div class="ge-room-switch" role="group" aria-label="Choose a room to describe">{rooms.map((room,i)=><button type="button" data-room-switch={room.file} aria-pressed={i===0?'true':'false'}>{room.id}</button>)}</div>
+      <div class="ge-photo-task"><img data-room-task src={asset(rooms[0].file)} alt={rooms[0].alt} width="1672" height="941" /><div><p class="ge-adjective-pool">modern<br />cosy<br />bright<br />peaceful<br />spacious<br />unusual</p><p>“It looks ___ because ___.”</p><details class="ge-help"><summary>Example / 例子</summary><p data-room-example>The gaming apartment looks modern because it has a large computer setup.</p></details></div></div>
+      <div data-language="en"><p class="source-note">1 point for each suitable adjective. 1 more for a clear reason. Several answers can work.</p></div><div data-language="zh" lang="zh-Hant" hidden><p class="source-note">每個合適的形容詞得1分。清楚解釋原因再得1分。答案可以不同。</p></div>
+    </div></section>
+
+    <section class="slide" data-title="A sentence upgrade" aria-hidden="true"><div class="slide-inner">
+      <header class="slide-header"><span class="eyebrow">22–31 min · A sentence upgrade</span></header>
+      <div data-language="en"><h2>A clearer picture</h2><p class="lead">Improve these sentences with your partner.</p></div><div data-language="zh" lang="zh-Hant" hidden><h2>更清晰的畫面</h2><p class="lead">與同伴運用形容詞改善以下句子。</p></div>
+      <blockquote class="ge-plain">The house is nice.<br />There is a room.<br />There is a garden.</blockquote>
+      <p class="ge-sentence">The house is ___. There is a ___ room and a ___ garden.</p>
+      <details class="ge-help"><summary>A possible upgrade / 參考改寫</summary><p>The house is <strong>unusual</strong>. There is a <strong>spacious games</strong> room and a <strong>peaceful</strong> garden.</p><p data-language="en">Different adjectives can create different homes.</p><p data-language="zh" lang="zh-Hant" hidden>不同形容詞可以呈現不同的家。</p></details>
+    </div></section>
+
+    <section class="slide" data-title="Your secret home" aria-hidden="true"><div class="slide-inner">
+      <header class="slide-header"><span class="eyebrow">31–42 min · Your design</span></header>
+      <div data-language="en"><h2>Your secret home</h2><p class="lead">Choose a theme you know or enjoy.</p><ol class="ge-route-list"><li><h3>A game base</h3><p>A home in a favourite game, or a base you invent.</p></li><li><h3>An idol retreat</h3><p>An imagined home for a singer, actor, athlete or character.</p></li><li><h3>A dream escape</h3><p>A home for a weekend with friends. Choose a secret theme.</p></li></ol><p class="ge-takeaway">Include two clues. Keep the owner, game or theme secret.</p></div>
+      <div data-language="zh" lang="zh-Hant" hidden><h2>你的神秘之家</h2><p class="lead">選擇你熟悉或感興趣的主題。</p><ol class="ge-route-list"><li><h3>遊戲基地</h3><p>最喜歡的遊戲中的家，或自己設計的基地。</p></li><li><h3>偶像的度假屋</h3><p>為歌手、演員、運動員或角色設計一個虛構的家。</p></li><li><h3>夢想中的小天地</h3><p>與朋友度週末的家。選一個保密的主題。</p></li></ol><p class="ge-takeaway">加入兩項線索，暫時保密屋主、遊戲或主題。</p></div>
+    </div></section>
+
+    <section class="slide" data-title="Six-box planner" aria-hidden="true"><div class="slide-inner">
+      <header class="slide-header"><span class="eyebrow">31–42 min · Planning · Textbook 6 &amp; 8</span></header>
+      <div data-language="en"><h2>Six boxes before sentences</h2><p>Use keywords or sketches on paper, or type below. Invent details for a fictional home.</p></div><div data-language="zh" lang="zh-Hant" hidden><h2>先整理六項資料，再寫句子</h2><p>可在紙上寫關鍵詞、畫草圖，或在下方輸入。虛構的家可自行設定資料。</p></div>
+      <div class="ge-planner">{questions.map(q=><label><span data-language="en">{q.en}</span><span data-language="zh" lang="zh-Hant" hidden>{q.zh}</span><textarea data-ge-field={q.key} rows="2" placeholder={q.hint}></textarea></label>)}</div>
+      <p class="source-note" data-save-status role="status">Notes stay in this browser. They are not submitted.</p>
+    </div></section>
+
+    <section class="slide" data-title="Your description" aria-hidden="true"><div class="slide-inner">
+      <header class="slide-header"><span class="eyebrow">42–58 min · Individual writing · Textbook 10</span></header>
+      <div data-language="en"><h2>A visit to your secret home</h2><p>Write 80–100 words. Include six details, four adjectives and two clues.</p></div><div data-language="zh" lang="zh-Hant" hidden><h2>到訪你的神秘之家</h2><p>寫80–100個英文單字，包含六項資料、四個形容詞和兩項線索。</p></div>
+      <label class="ge-write"><span data-language="en">Your English description</span><span data-language="zh" lang="zh-Hant" hidden>你的英文描寫文</span><textarea data-ge-field="draft" rows="7" placeholder="Last Saturday, I visited…"></textarea></label><p class="ge-wordcount" data-word-count role="status">0 words · aim for 80–100</p>
+      <details class="ge-help"><summary>Sentence starters and word bank / 句型與詞彙</summary><div class="ge-two ge-support"><p>Last ___, I visited ___.<br />It is in/on/near ___.<br />It is ___ years old.<br />It is special because ___.<br />___ lives / used to live there.<br />During my visit, I ___.<br />My favourite part was ___ because ___.</p><p>bright, colourful, modern, unusual<br />small, spacious, cosy, comfortable<br />peaceful, quiet, noisy, lively<br /><br />visited, played games, listened to music,<br />took photos, relaxed</p></div></details>
+      <div data-language="en"><p class="source-note">Need support? Write six clear sentences first. Finished? Add how the place made you feel.</p></div><div data-language="zh" lang="zh-Hant" hidden><p class="source-note">需要支援？先寫六句清楚的句子。完成了？補充這個地方帶給你的感受。</p></div>
+    </div></section>
+
+    <section class="slide" data-title="The reader check" aria-hidden="true"><div class="slide-inner">
+      <header class="slide-header"><span class="eyebrow">58–66 min · Peer check · Textbook 11</span></header>
+      <div data-language="en"><h2>The reader check</h2><p class="lead">Swap with a partner. Read before you comment.</p></div><div data-language="zh" lang="zh-Hant" hidden><h2>讀者檢查</h2><p class="lead">與同伴交換，先閱讀，再給意見。</p></div>
+      <div class="ge-checks">
+        <label><input type="checkbox" data-ge-check="details" /><span data-language="en">I can find all six details.</span><span data-language="zh" lang="zh-Hant" hidden>我能找到全部六項資料。</span></label>
+        <label><input type="checkbox" data-ge-check="adjectives" /><span data-language="en">I can underline four suitable adjectives.</span><span data-language="zh" lang="zh-Hant" hidden>我能畫出四個合適的形容詞。</span></label>
+        <label><input type="checkbox" data-ge-check="picture" /><span data-language="en">I can choose one sentence that gives a clear picture.</span><span data-language="zh" lang="zh-Hant" hidden>我能選出一句描寫清晰的句子。</span></label>
+        <label><input type="checkbox" data-ge-check="revision" /><span data-language="en">I have suggested one useful improvement.</span><span data-language="zh" lang="zh-Hant" hidden>我已提出一項有用的改善建議。</span></label>
+      </div>
+      <p class="ge-sentence">“I like ___ because ___.”<br />“Could you add/explain ___?”</p><div data-language="en"><p class="ge-takeaway">Writers: return to your draft and improve one sentence.</p></div><div data-language="zh" lang="zh-Hant" hidden><p class="ge-takeaway">作者：返回草稿，改善其中一句。</p></div>
+    </div></section>
+
+    <section class="slide" data-title="Guess and reveal" aria-hidden="true"><div class="slide-inner">
+      <header class="slide-header"><span class="eyebrow">66–72 min · The reveal</span></header>
+      <div data-language="en"><h2>Whose home is it?</h2><p class="lead">Your reader guesses the owner, game or theme.</p><p class="ge-sentence">“I think it belongs to ___ because ___.”<br />“I think the theme is ___ because ___.”</p><ol class="ge-big-list"><li>Reader: explain your strongest clue.</li><li>Writer: reveal your idea.</li><li>Together: choose the detail that worked best.</li></ol><p>Sharing with the whole class is optional.</p></div>
+      <div data-language="zh" lang="zh-Hant" hidden><h2>這是誰的家？</h2><p class="lead">請讀者猜屋主、遊戲或主題。</p><p class="ge-sentence">“I think it belongs to ___ because ___.”<br />“I think the theme is ___ because ___.”</p><ol class="ge-big-list"><li>讀者：解釋最有用的線索。</li><li>作者：揭曉你的構思。</li><li>一起選出最有效的描寫細節。</li></ol><p>可自願向全班分享。</p></div>
+    </div></section>
+
+    <section class="slide" data-title="Your exit ticket" aria-hidden="true"><div class="slide-inner">
+      <header class="slide-header"><span class="eyebrow">72–75 min · Exit ticket</span></header>
+      <div data-language="en"><h2>A sentence you improved</h2><p class="lead">Hand in your description as your teacher directs.</p></div><div data-language="zh" lang="zh-Hant" hidden><h2>你改善的一句</h2><p class="lead">按老師的指示提交描寫文。</p></div>
+      <label class="ge-write"><span data-language="en">My improved sentence</span><span data-language="zh" lang="zh-Hant" hidden>我改善後的句子</span><textarea data-ge-field="improved" rows="2" placeholder="My improved sentence is…"></textarea></label>
+      <label class="ge-write"><span data-language="en">One useful adjective I can use again</span><span data-language="zh" lang="zh-Hant" hidden>一個我可以再次運用的形容詞</span><input type="text" data-ge-field="adjective" placeholder="cosy / spacious / …" /></label>
+      <div class="ge-actions"><button type="button" data-download>Save my writing (.txt)</button><a href={withBase('/teaching/courses/general-english/worksheet')} target="_blank" rel="noopener">Printable worksheet / 可列印工作紙</a></div>
+      <p class="ge-feedback" data-download-status role="status"></p>
+      <div data-language="en"><p class="source-note">Saving a text file does not submit your work. Browser notes stay on this device when storage is available.</p><p class="source-note">Learning focus: Perspectives II, Unit 2E, writing Exercises 6–11. Original fictional model and AI-generated room designs for this lesson.</p></div><div data-language="zh" lang="zh-Hant" hidden><p class="source-note">儲存文字檔不代表已提交作業。瀏覽器支援儲存時，筆記會保留在此裝置。</p><p class="source-note">學習重點：Perspectives II第2E課，寫作練習6–11。本課使用原創虛構範文及AI生成的房間設計。</p></div>
+    </div></section>
+  </main>
+  <dialog class="tool-dialog ge-image-dialog" aria-labelledby="ge-image-title"><div class="tool-dialog-head"><h2 id="ge-image-title">A closer look</h2><button type="button" data-close-image aria-label="Close image">×</button></div><img data-large-image src={asset(rooms[0].file)} alt={rooms[0].alt} width="1672" height="941" /><p data-large-caption></p></dialog>
+  <script>import '../../../../scripts/generalEnglish';</script>
+</CourseSlideLayout>

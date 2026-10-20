@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import SiteHeader from '../../../../components/SiteHeader.astro';
+import SiteFooter from '../../../../components/SiteFooter.astro';
+import PageShell from '../../../../components/PageShell.astro';
+import { withBase } from '../../../../utils/paths';
+const title = 'General English · April Jiawei Zhang';
+const description = 'Undergraduate General English teaching materials using Perspectives II. Interactive lessons with games, descriptive language and supported writing.';
+const timings = [
+  ['0–5', 'Choose a home', 'Vote, then share one adjective with a neighbour.'],
+  ['5–13', 'Mystery home', 'Read the model, choose an owner and find supporting clues.'],
+  ['13–22', 'Six details', 'Locate the textbook details and notice present and past forms.'],
+  ['22–31', 'Descriptive language', 'Match adjectives to rooms, then improve plain sentences.'],
+  ['31–42', 'Planning', 'Choose a theme and collect keywords in six boxes.'],
+  ['42–58', 'Individual writing', 'Write 80–100 words. Support option: six clear sentences.'],
+  ['58–66', 'Reader check', 'Check details and adjectives, then revise one sentence.'],
+  ['66–72', 'Guess and reveal', 'Swap descriptions and explain a guess using a clue.'],
+  ['72–75', 'Exit ticket', 'Save or hand in the writing and identify one improvement.'],
+];
+---
+<BaseLayout {title} {description}>
+  <SiteHeader />
+  <main id="main-content" class="min-h-[50vh] w-full bg-page">
+    <PageShell accentBar>
+      <p class="type-label text-secondary">Undergraduate course</p>
+      <h1 class="mt-2 font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">General English</h1>
+      <p class="type-intro mt-4">Perspectives II</p>
+      <div class="mt-8 max-w-4xl border-t border-border pt-6">
+        <h2 class="type-label text-secondary">Course materials</h2>
+        <ol class="mt-4 grid gap-2">
+          <li><a href={withBase('/teaching/courses/general-english/special-places')} class="group flex items-center justify-between gap-3 rounded-lg border border-border bg-surface px-4 py-3 no-underline hover:border-secondary"><span class="font-semibold text-ink group-hover:text-secondary">1. Special things, special places</span><span class="text-secondary" aria-hidden="true">→</span></a></li>
+        </ol>
+        <p class="mt-4 text-sm text-muted">Unit 2E, writing a description. A 75-minute lesson with imagined game homes, an idol retreat and a seaside escape.</p>
+        <a href={withBase('/teaching/courses/general-english/worksheet')} class="mt-3 inline-flex text-sm font-semibold">Printable planning and writing sheet</a>
+        <details class="mt-8 border-t border-border pt-5">
+          <summary class="cursor-pointer font-semibold text-ink">Teaching guide and 75-minute lesson plan</summary>
+          <p class="mt-4">Learning aims: organise a description around six questions, use at least four suitable adjectives, write 80–100 words and revise with a partner’s help.</p>
+          <div class="mt-4 overflow-x-auto"><table class="w-full text-left text-sm"><thead><tr class="border-b border-border"><th class="p-2">Minutes</th><th class="p-2">Stage</th><th class="p-2">Activity</th></tr></thead><tbody>{timings.map(([time,stage,activity])=><tr class="border-b border-border"><td class="whitespace-nowrap p-2">{time}</td><td class="p-2 font-semibold">{stage}</td><td class="p-2">{activity}</td></tr>)}</tbody></table></div>
+          <p class="mt-4">Begin with private thinking, then pair discussion. Invite public sharing after students have rehearsed. Brief first-language planning is welcome. Everyone writes individually. Phones are optional: project the slides and use the printed sheet or a notebook.</p>
+          <p class="mt-4">The opening room images can be enlarged. Use the top-right timer for each stage. The 中文 button supplies Traditional Chinese support for the current slide. Answers reveal on demand. Planning notes and drafts stay in the current browser when storage is available. The download button saves a text copy and does not submit work to the teacher.</p>
+          <p class="mt-4 text-sm text-muted">Aligned with the supplied Perspectives II Unit 2E writing page, Exercises 6–11. The Cloud House model is an original fictional example, replacing the page 149 reading for this adaptation. Room images are AI-generated fictional designs. They do not depict real celebrity homes.</p>
+        </details>
+      </div>
+      <a href={withBase('/teaching/approach')} class="mt-8 inline-flex text-sm font-semibold">← Back to CityU courses</a>
+    </PageShell>
+  </main>
+  <SiteFooter />
+</BaseLayout>
