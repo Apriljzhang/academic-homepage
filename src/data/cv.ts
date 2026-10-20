@@ -359,7 +359,7 @@ export const talks = [
     event:
       'Georgetown University Round Table: Useful Assessment and Evaluation in Language Education',
     place: 'Georgetown University, USA',
-    date: 'Apr 2016',
+    date: '11–13 Mar 2016',
   },
   {
     paperTitle: 'If you are happy and you know it, clap your hands: Formative assessment in primary school English classes',
