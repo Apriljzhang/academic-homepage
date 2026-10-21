@@ -1,4 +1,6 @@
 ---
+import QuantSpssGuide from './QuantSpssGuide.astro';
+import {spssGuideBySlide} from '../../data/dedc02SpssGuides';
 import type { CoreSlide } from '../../data/dedc02QuantCoreLesson';
 import {studyPapers,openTextbookUrl} from '../../data/dedc02QuantCoreLesson';
 import {withBase} from '../../utils/paths';
@@ -21,6 +23,7 @@ const start=slide.pages?.at(-1)||1;
   <tbody>{block.table.rows.map(row=><tr>{row.map((cell,i)=>i===0?<th scope="row">{t(cell)}</th>:<td>{t(cell)}</td>)}</tr>)}</tbody>
  </table></div>}
 </div>)}
+{spssGuideBySlide[slide.key]&&<QuantSpssGuide guide={spssGuideBySlide[slide.key]} {language}/>}
 {slide.quote&&<blockquote class="qm-core-excerpt" lang="en" data-no-glossary cite={paper?.url}>{slide.quote}</blockquote>}
 {paper&&<div class="qm-core-paper" data-core-paper={slide.paper}>
  <p class="qm-source" data-no-glossary><a href={paper.url} target="_blank" rel="noopener noreferrer">{paper.citation}. {paper.title}</a><br/>{zh?'閱讀 PDF 第 ':'Read PDF page'}{!zh&&slide.pages!.length>1?'s ':!zh?' ':''}{slide.pages!.join(zh?'、':', ')}{zh?' 頁':''} · <a href={paper.licenseUrl} target="_blank" rel="noopener noreferrer">{paper.license}</a></p>

@@ -31,6 +31,15 @@ for(const m of [...html.matchAll(/<img\b[^>]*src="(\/[^"\s]+)"[^>]*>/g)]) {
  const bytes=await readFile(path.join(root,m[1]));
  html=html.replace(m[0],m[0].replace(`src="${m[1]}"`,`src="data:${mime(m[1])};base64,${bytes.toString('base64')}"`));
 }
+// Embed practice data once and use object URLs for offline file downloads.
+const embeddedCsvs=[];
+for(const csvPath of new Set([...html.matchAll(/href="(\/teaching\/[^"#]+\.csv)"/g)].map(m=>m[1]))) {
+ const bytes=await readFile(path.join(root,csvPath));
+ const index=embeddedCsvs.push(bytes.toString('base64'))-1;
+ html=html.replaceAll(`href="${csvPath}"`,`href="#" data-embedded-csv="${index}"`);
+}
+const csvScript=`<script data-offline-csv>const offlineCsvs=${JSON.stringify(embeddedCsvs)};const offlineCsvUrls=offlineCsvs.map(data=>{const bytes=Uint8Array.from(atob(data),c=>c.charCodeAt(0));return URL.createObjectURL(new Blob([bytes],{type:'text/csv;charset=utf-8'}));});document.querySelectorAll('[data-embedded-csv]').forEach(node=>node.setAttribute('href',offlineCsvUrls[Number(node.dataset.embeddedCsv)]));</script>`;
+html=html.replace('</body>',csvScript+'</body>');
 const pdfPaths=[...new Set([...html.matchAll(/(?:href|src)="(\/teaching\/[^"#]+\.pdf)(?:#[^"]*)?"/g)].map(m=>m[1]))];
 const embeddedPdfs=[];
 for(const [index,pdfPath] of pdfPaths.entries()) {

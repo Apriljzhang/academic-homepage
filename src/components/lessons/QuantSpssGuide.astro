@@ -1,0 +1,56 @@
+---
+import type { SpssGuide } from '../../data/dedc02SpssGuides';
+import { spssPracticePath } from '../../data/dedc02SpssGuides';
+import { withBase } from '../../utils/paths';
+interface Props { guide:SpssGuide; language:'en'|'zh'; }
+const {guide,language}=Astro.props;
+const zh=language==='zh';
+const t=(v:[string,string])=>v[zh?1:0];
+const variableRows=[
+ ['id', 'Nominal', ['Learner identifier; one row per person.','學習者編號，每列一人。']],
+ ['study_group','Nominal',['Values: 1 = quiet room; 2 = music room; 3 = café.','Values：1 = 安靜室；2 = 音樂室；3 = 咖啡店。']],
+ ['quiz','Scale',['Quiz score out of 100; use in the independent t-test, correlation and ANOVA.','小測分數，滿分100；用於獨立t檢定、相關及ANOVA。']],
+ ['before, after','Scale',['The same learner’s workshop scores before and after, out of 100.','同一學習者的工作坊前後分數，滿分100。']],
+ ['study_hours','Scale',['Hours studied per week; correlate with quiz.','每週溫習小時數，與quiz做相關。']],
+ ['preference','Nominal',['Values: 1 = video; 2 = text. Use with study_group in Crosstabs.','Values：1 = 影片；2 = 文字，與study_group做列聯表。']],
+] as const;
+---
+<details class="qm-spss-guide" data-spss-guide={guide.method} data-no-glossary>
+ <summary>{zh?'SPSS操作：逐步點選，找出輸出':'Run it in SPSS: clicks, settings and output'}</summary>
+ <div class="qm-spss-body">
+  <p>{zh?'按以下選單及方框名稱操作，再把輸出與本頁報告例子對照。保留英文介面標籤，方便在軟件中尋找。':'Follow the menu and dialog-box labels below, then connect your output with the reporting example on this page. Menu labels are kept in English so you can find them in SPSS.'}</p>
+  <p class="qm-caption">{zh?'版本提示：有些版本把Compare Means and Proportions稱為Compare Means。效應量、置信區間及方差齊性選項可能隨版本不同；找不到時按該對話框的Help。':'Version note: Compare Means and Proportions may be called Compare Means. Effect-size, confidence-interval and homogeneity controls vary across versions; use the dialog’s Help if an option is absent.'}</p>
+  <p><a class="qm-core-link" href={withBase(spssPracticePath)} download="topic8-practice.csv" data-spss-practice>{zh?'下載SPSS練習資料（CSV）':'Download SPSS practice data (CSV)'}</a></p>
+  <p class="qm-caption">{zh?'36位虛構學習者，用來練習操作；並非上方論文的原始資料，輸出數值不會重現論文結果。':'36 fictional learners for practising the procedure. These are not the research papers’ raw data; the results will not reproduce the papers’ findings.'}</p>
+  <details class="qm-spss-setup">
+   <summary>{zh?'先準備資料：匯入、編碼及檢查設定':'Prepare the data: import, coding and settings'}</summary>
+   <ol class="qm-spss-steps">
+    <li><p><strong>File → Import Data → CSV / CSV Data…</strong><br/>{zh?'選下載的檔案，勾選First line contains variable names，分隔符選Comma，確認預覽有7欄、36列資料，再按OK。':'Choose the downloaded file. Select First line contains variable names and the Comma delimiter. Check that the preview has seven columns and 36 data rows, then click OK.'}</p></li>
+    <li><p><strong>Variable View → Type / Values / Measure</strong><br/>{zh?'各欄應為Numeric。在Values的「…」加入類別代碼及標籤；在Measure按下表設定。Measure只標示類型，不會替你證明檢定適用。':'All fields should be Numeric. Use the … button in Values to add category codes and labels. Set Measure as below; this label does not establish that a statistical test is appropriate.'}</p></li>
+    <li><p><strong>Data → Select Cases → All cases; Split File → Analyze all cases; Weight Cases → Do not weight cases</strong><br/>{zh?'此練習檔使用全部個人紀錄、不分開執行、不加權。若之前改過上述設定，先恢復；各對話框按OK。':'For this practice file, use all individual records without splitting or weighting. Restore these settings if an earlier analysis changed them; confirm each dialog with OK.'}</p></li>
+   </ol>
+   <div class="qm-core-table-scroll" role="region" aria-label={zh?'SPSS練習变量設定':'SPSS practice variable settings'} tabindex="0"><table class="qm-source-table qm-core-table">
+    <thead><tr><th scope="col">{zh?'变量名稱':'Variable name'}</th><th scope="col">Measure</th><th scope="col">{zh?'角色及編碼':'Role and coding'}</th></tr></thead>
+    <tbody>{variableRows.map(row=><tr><th scope="row">{row[0]}</th><td>{row[1]}</td><td>{row[2][zh?1:0]}</td></tr>)}</tbody>
+   </table></div>
+   <p class="qm-source"><a href="https://www.ibm.com/docs/SSLVMB_29.0.0/pdf/IBM_SPSS_Statistics_Core_System_User_Guide.pdf" target="_blank" rel="noopener noreferrer">IBM: Core System User’s Guide — Reading CSV Files, Variable View, Select Cases, Split File and Weight Cases</a></p>
+  </details>
+  {guide.workflows.map((flow,i)=><details class="qm-spss-workflow" data-spss-workflow={flow.id} open={i===0}>
+   <summary>{t(flow.title)}</summary>
+   <p class="qm-spss-question"><strong>{t(flow.question)}</strong></p>
+   <p>{t(flow.layout)}</p>
+   <p class="qm-spss-menu"><strong>{zh?'選單路徑':'Menu path'}</strong><br/>{flow.menu}</p>
+   <h3>{zh?'逐步點選':'Click by click'}</h3>
+   <ol class="qm-spss-steps">{flow.steps.map(step=><li><p><strong>{step.click}</strong><br/>{t(step.explanation)}</p></li>)}</ol>
+   <h3>{zh?'產生甚麼？到哪張表讀？':'What is produced, and where do I read it?'}</h3>
+   <div class="qm-core-table-scroll" role="region" aria-label={zh?'SPSS輸出閱讀指引':'SPSS output-reading guide'} tabindex="0"><table class="qm-source-table qm-core-table">
+    <thead><tr><th scope="col">{zh?'Output Viewer中的表／圖':'Table / chart in Output Viewer'}</th><th scope="col">{zh?'找甚麼、如何閱讀':'What to find and read'}</th></tr></thead>
+    <tbody>{flow.output.map(row=><tr><th scope="row">{row.table}</th><td>{t(row.read)}</td></tr>)}</tbody>
+   </table></div>
+   <div class="qm-spss-checks">{flow.checks.map(check=><p>{t(check)}</p>)}</div>
+   <p class="qm-source">{zh?'IBM操作文件：':'IBM procedure documentation: '}{flow.sources.map((source,j)=><>{j>0?' · ':''}<a href={source.url} target="_blank" rel="noopener noreferrer">{source.label}</a></>)}</p>
+  </details>)}
+  <p class="qm-spss-save"><strong>{zh?'留下可重做的紀錄':'Keep a reproducible record'}</strong><br/>{zh?'若要保存點選設定，在完成主對話框設定後按Paste，SPSS會開啟Syntax Editor；選取貼上的指令並按Run → Selection執行，再保存.sps。若只想即時執行，按OK。Output Viewer用File → Save As保存.spv；用File → Export匯出所選表／圖。':'To save the dialog settings, click Paste after configuring the main dialog. In the Syntax Editor, select the pasted commands and choose Run → Selection, then save the .sps file. OK runs immediately instead. In the Output Viewer, use File → Save As for .spv output, or File → Export for selected tables and charts.'}</p>
+  <p class="qm-source"><a href="https://www.ibm.com/docs/en/spss-statistics/32.0.0?topic=syntax-pasting" target="_blank" rel="noopener noreferrer">IBM: Paste and run syntax</a> · <a href="https://www.ibm.com/docs/en/spss-statistics/32.0.0?topic=classic-export-output" target="_blank" rel="noopener noreferrer">IBM: export output</a></p>
+ </div>
+</details>

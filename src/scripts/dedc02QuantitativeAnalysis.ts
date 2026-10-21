@@ -32,6 +32,7 @@ function write(key: string, value: string) { try { localStorage.setItem(prefix +
 function syncLanguage() {
   const zh = slides[current]?.dataset.language === 'zh';
   slides[current]?.querySelectorAll<HTMLButtonElement>('[data-open-story]').forEach(button=>{button.textContent=zh?'生活故事例子':'Story example';button.setAttribute('aria-controls',`story-${button.dataset.openStory}-${zh?'zh':'en'}`);});
+  slides[current]?.querySelectorAll<HTMLButtonElement>('[data-open-spss]').forEach(button=>{button.textContent=zh?'SPSS操作':'SPSS steps';});
   if (translate) { translate.textContent = zh ? 'English' : '中文'; translate.setAttribute('aria-pressed',String(zh)); }
 }
 function showSlide(index: number) {
@@ -144,6 +145,25 @@ function jumpReference(index:number){
   if(current===mapIndex)mapReturnScroll=slides[mapIndex].scrollTop;
   slide.dataset.language=lang;slide.querySelectorAll<HTMLElement>('[data-language]').forEach(p=>p.hidden=p.dataset.language!==lang);showSlide(index);slide.scrollTop=0;
 }
+document.querySelectorAll<HTMLButtonElement>('[data-open-spss]').forEach(button=>button.addEventListener('click',()=>{
+  const index=slides.findIndex(slide=>slide.dataset.coreStep===`${button.dataset.openSpss}-output`);
+  if(index<0)return;
+  const lang=slides[current].dataset.language||'en',slide=slides[index];
+  slide.dataset.language=lang;
+  slide.querySelectorAll<HTMLElement>('[data-language]').forEach(panel=>panel.hidden=panel.dataset.language!==lang);
+  showSlide(index);
+  const guide=slide.querySelector<HTMLDetailsElement>(`[data-language="${lang}"] [data-spss-guide]`);
+  if(!guide)return;
+  guide.open=true;
+  guide.scrollIntoView({block:'start'});
+  const summary=guide.querySelector<HTMLElement>('summary');summary?.focus({preventScroll:true});
+}));
+const spssGuides=Array.from(document.querySelectorAll<HTMLDetailsElement>('[data-spss-guide]'));
+spssGuides.forEach(guide=>guide.addEventListener('toggle',()=>{
+  spssGuides.filter(other=>other!==guide&&other.dataset.spssGuide===guide.dataset.spssGuide).forEach(other=>{
+    if(other.open!==guide.open)other.open=guide.open;
+  });
+}));
 document.querySelectorAll('[data-open-notation]').forEach(b=>b.addEventListener('click',()=>jumpReference(notationIndex)));
 const glossaryGroups=Array.from(document.querySelectorAll<HTMLDetailsElement>('details[data-notation-group]'));
 glossaryGroups.forEach(group=>group.addEventListener('toggle',()=>{

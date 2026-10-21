@@ -56,10 +56,11 @@ styles.add(ParagraphStyle(name='H4Q',fontName='BodyBold',fontSize=11,leading=15,
 styles.add(ParagraphStyle(name='SummaryQ',parent=styles['H4Q'],keepWithNext=False))
 styles.add(ParagraphStyle(name='Quote',parent=styles['Copy'],leftIndent=12,rightIndent=10,borderColor=RULE,borderWidth=1,borderPadding=9,spaceBefore=7,spaceAfter=13))
 
+SUBSCRIPTS=str.maketrans({c:f'<sub>{i}</sub>' for i,c in enumerate('₀₁₂₃₄₅₆₇₈₉')})
 SKIP={'script','style','button','input','select','textarea','svg','dialog','nav','colgroup','col','iframe','object','embed'}
 def hidden(n):return n.attrs.get('data-language')=='zh' or n.has('qm-english-name') or n.has('qm-mobile-column-label') or n.has('qm-glossary-sign') or n.has('qm-glossary-count') or n.has('qm-method-page-tools') or n.has('qm-method-page-end') or n.has('qm-controls') or n.has('qm-map-tools') or n.has('qm-pdf-reader')
 def inline(n):
-    if isinstance(n,str):return escape(re.sub(r'\s+',' ',n)).replace('–','-').replace('—','-').replace('ₛ','<sub>s</sub>')
+    if isinstance(n,str):return escape(re.sub(r'\s+',' ',n)).replace('–','-').replace('—','-').replace('ₛ','<sub>s</sub>').translate(SUBSCRIPTS)
     if n.tag in SKIP or hidden(n):return ''
     body=''.join(inline(c) for c in n.children if not (n.tag=='a' and isinstance(c,Node) and c.tag=='small'))
     if n.has('qm-caption') and body.startswith('Also written as: '):
@@ -114,6 +115,7 @@ def render(n):
         widths=[width/count]*count
         if count==2:widths=[width*.28,width*.72]
         if count==3:widths=[width*.2,width*.4,width*.4]
+        if count==4 and n.has('qm-notation-table'):widths=[width*.15,width*.29,width*.27,width*.29]
         if count==6:widths=[width*.23]+[width*.77/5]*5
         t=LongTable(rows,colWidths=widths,repeatRows=1,hAlign='LEFT')
         t.setStyle(TableStyle([('VALIGN',(0,0),(-1,-1),'TOP'),('TOPPADDING',(0,0),(-1,-1),7),('BOTTOMPADDING',(0,0),(-1,-1),7),('LEFTPADDING',(0,0),(-1,-1),5),('RIGHTPADDING',(0,0),(-1,-1),5),('LINEABOVE',(0,0),(-1,0),.8,GREEN),('LINEBELOW',(0,0),(-1,0),.8,GREEN),('LINEBELOW',(0,1),(-1,-1),.3,RULE),('BACKGROUND',(0,0),(-1,0),PALE)]))

@@ -1,5 +1,6 @@
 import { glossary } from './quantGlossary';
 import { numericGuideById } from './quantNotationValues';
+import { everydayExampleById } from './quantNotationExamples';
 
 const extraRows = [
  ['cramersv','Cramér’s V','Cramér V','Cramér’s V|Cramér V|Cramers V|Cramer’s V|V','A measure of association size for a contingency table, derived from chi-square, the sample size and table dimensions. It ranges from 0 to 1. It has no positive/negative direction; use proportions to describe the pattern. Its magnitude is separate from the p-value and does not establish causation.','列聯表的關聯大小指標，由卡方、樣本量及表格維度得出，介於0與1。它沒有正負方向，模式須以比例描述；大小與p值不同，亦不能確立因果。'],
@@ -70,8 +71,11 @@ export const notationEntries=[...glossary,...extras].map(t=>{
 }).map(t=>{
   const numeric=numericGuideById[t.id];
   if(!numeric)throw new Error(`Missing numerical glossary guide: ${t.id}`);
-  return {...t,numeric};
+  const example=everydayExampleById[t.id];
+  if(!example?.en||!example?.zh)throw new Error(`Missing everyday glossary example: ${t.id}`);
+  return {...t,numeric,example};
 });
+if(Object.keys(everydayExampleById).length!==notationEntries.length)throw new Error('Everyday glossary examples include unused entries');
 const definitions=new Map(notationEntries.map(t=>[t.id,t]));
 export const notationGroups=[
  {id:'describe',stage:'basics',en:'Describing data',zh:'描述資料',ids:['n','mean','median','sd','variance','iqr','range','sigma','mu','sum','standardised','zscore']},
