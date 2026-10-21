@@ -18,7 +18,7 @@
       "question": "這份樣本呈現甚麼模式？",
       "data": "有明確單位及分母的分數、類別或次數。",
       "output": "人數、百分比、平均數／中位數、標準差／四分位距與分佈。",
-      "calculation": "分數2、4、4、6：平均數=16/4=4；樣本變異數=8/3=2.67；標準差=1.63。",
+      "calculation": "分數2、4、4、6：平均數=16/4=4；樣本方差=8/3=2.67；標準差=1.63。",
       "interpretation": "典型分數為4，仍須檢視分佈及離散程度。",
       "caution": "樣本摘要本身不能確立對母體的代表性。"
     }
@@ -41,17 +41,17 @@
     "translated": {
       "question": "兩個平均數是否有差異，或同一批人是否改變？",
       "data": "連續結果，以及獨立組別或正確配對的觀察值。",
-      "output": "平均差、t、自由度、p、信賴區間與已界定的效果量。",
+      "output": "平均差、t、自由度、p、置信區間與已界定的效果量。",
       "calculation": "配對改變2、4、4、6：平均改變=4；標準差=1.63；標準誤=1.63/√4=.816；t=4/.816=4.90，自由度=3。",
       "interpretation": "配對檢定保留每人的配對關係，檢驗平均改變。",
-      "caution": "獨立與配對檢定使用不同標準誤；Welch方法可處理組間變異數不等。"
+      "caution": "獨立與配對檢定使用不同標準誤；Welch方法可處理組間方差不等。"
     }
   },
   {
     "id": "anova",
     "family": "compare",
     "name": "One-way and factorial ANOVA",
-    "zh": "單因子與多因子變異數分析",
+    "zh": "單因子與多因子方差分析",
     "question": "Do average outcomes differ across groups or combinations of factors?",
     "data": "Continuous outcome and categorical factors; independent observations in the basic model.",
     "output": "F, df, p, effect size, planned contrasts and adjusted comparisons.",
@@ -68,16 +68,16 @@
       "output": "F、自由度、p、效果量、預定對比及調整後比較。",
       "calculation": "組間平方和=100，自由度=2；組內平方和=120，自由度=12。F=(100/2)/(120/12)=5；η²=100/220=.455。",
       "interpretation": "整體結果涉及至少一個對比，不能直接指出哪兩組有差異。",
-      "caution": "須說明對比、多重比較策略、依賴結構及變異數假設。"
+      "caution": "須說明對比、多重比較策略、依賴結構及方差假設。"
     },
     "symbols": "SS is a sum of squares, df is degrees of freedom and MS = SS/df. F compares the specified mean squares; η² is the proportion of total sample variation attributed to the factor in this example.",
-    "symbolsZh": "SS為平方和，df為自由度，MS=SS/df；F比較指定均方。此例η²表示樣本總變異中歸於該因素的比例。"
+    "symbolsZh": "SS為平方和，df為自由度，MS=SS/df；F比較指定均方。此例η²表示樣本總方差中歸於該因素的比例。"
   },
   {
     "id": "ancova",
     "family": "compare",
     "name": "ANCOVA",
-    "zh": "共變數分析",
+    "zh": "協方差分析",
     "question": "How do group means compare after a specified covariate adjustment?",
     "data": "Continuous outcome, groups and defensible covariates such as baseline score.",
     "output": "Adjusted mean difference, coefficient/contrast, interval and covariate specification.",
@@ -89,11 +89,11 @@
     "role": "analysis",
     "evidenceState": "PDF passage corroborated",
     "translated": {
-      "question": "在指定協變量調整後，組別的平均數如何比較？",
-      "data": "連續結果、組別與有理據的協變量，例如基線分數。",
-      "output": "調整平均差、係數／對比、區間與協變量設定。",
+      "question": "在指定協变量調整後，組別的平均數如何比較？",
+      "data": "連續結果、組別與有理據的協变量，例如基線分數。",
+      "output": "調整平均差、係數／對比、區間與協变量設定。",
       "calculation": "若ŷ=10+3G+.5X，在基線X=60時，G=0得到40，G=1得到43；調整差異=3。",
-      "interpretation": "對比是在相同指定協變量值下比較組別。",
+      "interpretation": "對比是在相同指定協变量值下比較組別。",
       "caution": "統計調整不能保證組別等同，亦不能自動辨識因果效果。"
     }
   },
@@ -101,7 +101,7 @@
     "id": "manova",
     "family": "compare",
     "name": "MANOVA and MANCOVA",
-    "zh": "多變量變異數與共變數分析",
+    "zh": "多变量方差與協方差分析",
     "question": "Do groups differ jointly across several outcomes?",
     "data": "Several substantively related continuous outcomes, groups and optional covariates.",
     "output": "Multivariate statistics, joint hypothesis and justified outcome-level follow-ups.",
@@ -114,8 +114,8 @@
     "evidenceState": "PDF passage corroborated",
     "translated": {
       "question": "組別是否在多個結果的聯合模式上不同？",
-      "data": "多個有實質關聯的連續結果、組別及可選協變量。",
-      "output": "多變量統計量、聯合假設與有理據的後續分析。",
+      "data": "多個有實質關聯的連續結果、組別及可選協变量。",
+      "output": "多变量統計量、聯合假設與有理據的後續分析。",
       "calculation": "若誤差矩陣E=diag(4,4)，假設矩陣H=diag(2,2)，Wilks Λ=det(E)/det(E+H)=16/36=.444。",
       "interpretation": "聯合比較關注一組結果所形成的向量。",
       "caution": "聯合結果不代表每一項結果均有差異；後續分析仍須論證。"
@@ -127,7 +127,7 @@
     "id": "repeated",
     "family": "change",
     "name": "Repeated-measures and mixed ANOVA",
-    "zh": "重複量數與混合設計變異數分析",
+    "zh": "重複量數與混合設計方差分析",
     "question": "Do score trajectories differ across occasions or groups?",
     "data": "Repeated scores, occasion identifiers, and optional between-person groups.",
     "output": "Time, group and time-by-group contrasts; corrected df when required.",
@@ -187,8 +187,8 @@
     "role": "analysis",
     "evidenceState": "PDF passage corroborated",
     "translated": {
-      "question": "兩個類別變量是否有關聯？",
-      "data": "按兩個類別變量分類的獨立個案次數。",
+      "question": "兩個類別变量是否有關聯？",
+      "data": "按兩個類別变量分類的獨立個案次數。",
       "output": "觀察／期望次數、χ²、自由度、p及關聯強度。",
       "calculation": "列聯表[[18,12],[9,21]]的期望次數為[[13.5,16.5],[13.5,16.5]]；χ²=Σ(O−E)²/E=5.45；自由度=1；φ=√(5.45/60)=.302。",
       "interpretation": "須檢視各格比例，才能說明樣本中的關聯模式。",
@@ -211,9 +211,9 @@
     "role": "analysis",
     "evidenceState": "PDF passage corroborated",
     "translated": {
-      "question": "兩個變量的關聯方向與強度如何？",
+      "question": "兩個变量的關聯方向與強度如何？",
       "data": "成對測量，並選擇合適的關係與測量模型。",
-      "output": "相關係數、區間、樣本量、散佈圖及偏相關的控制變量。",
+      "output": "相關係數、區間、樣本量、散佈圖及偏相關的控制变量。",
       "calculation": "中心化乘積和Σxy=8，Σx²=10，Σy²=10，則r=8/√(10×10)=.80。",
       "interpretation": "例子的關聯為正向，仍須看圖判斷單一係數是否足夠。",
       "caution": "相關不是因果；Pearson與Spearman關注不同的關係特徵。"
@@ -235,9 +235,9 @@
     "role": "analysis",
     "evidenceState": "PDF passage corroborated",
     "translated": {
-      "question": "在指定調整後，預測變量與結果如何相關？",
-      "data": "連續結果、預測變量及適切的誤差與依賴結構。",
-      "output": "b、標準誤、區間、R²；預定變量區塊的ΔR²。",
+      "question": "在指定調整後，預測变量與結果如何相關？",
+      "data": "連續結果、預測变量及適切的誤差與依賴結構。",
+      "output": "b、標準誤、區間、R²；預定变量區塊的ΔR²。",
       "calculation": "ŷ=20+2X+.5Z；X=3、Z=60時，ŷ=56。若b_X=2、SE=.5，大樣本95% Wald區間為2±1.96(.5)=[1.02,2.98]。",
       "interpretation": "模型中，在相同Z下，X每增加一單位，結果平均相差2單位。",
       "caution": "條件關聯及樣本內R²不能確立因果或新樣本預測能力。"
@@ -259,15 +259,15 @@
     "role": "analysis",
     "evidenceState": "PDF passage corroborated",
     "translated": {
-      "question": "哪些變量與二元結果相關？",
-      "data": "明確編碼的二元結果與預測變量。",
+      "question": "哪些变量與二元結果相關？",
+      "data": "明確編碼的二元結果與預測变量。",
       "output": "對數勝算、勝算比、區間、預測機率與校準表現。",
       "calculation": "若logit(p)=−1+.7X，OR=exp(.7)=2.01；X=1時，p=1/(1+exp(.3))=.426。",
       "interpretation": "X每增加一單位，勝算約乘以2，並非機率乘以2。",
       "caution": "須區分勝算與風險，以及辨別能力與機率校準。"
     },
     "symbols": "logit(p) = ln[p/(1−p)]; odds = p/(1−p). Exponentiating a log-odds coefficient gives an odds ratio for a one-unit predictor change.",
-    "symbolsZh": "logit(p)=ln[p/(1−p)]，勝算=p/(1−p)；對數勝算係數取指數，得到預測變量每增加一單位的勝算比。"
+    "symbolsZh": "logit(p)=ln[p/(1−p)]，勝算=p/(1−p)；對數勝算係數取指數，得到預測变量每增加一單位的勝算比。"
   },
   {
     "id": "ordinal",
@@ -285,7 +285,7 @@
     "role": "analysis",
     "evidenceState": "PDF passage corroborated",
     "translated": {
-      "question": "哪些預測變量與有序或無序類別結果相關？",
+      "question": "哪些預測变量與有序或無序類別結果相關？",
       "data": "序位模型用有序類別；多類別模型用名義類別。",
       "output": "閾值、累積或類別特定勝算、參照編碼與區間。",
       "calculation": "若logit P(Y>j)=.4X−θ_j，則exp(.4)=1.49，即X每增加一單位，累積勝算乘以1.49。",
@@ -309,12 +309,12 @@
     "role": "analysis",
     "evidenceState": "PDF passage corroborated",
     "translated": {
-      "question": "事件或詞數如何隨預測變量而異？",
+      "question": "事件或詞數如何隨預測变量而異？",
       "data": "計數結果、必要的暴露量與偏移項，並檢視過度離散。",
       "output": "對數率係數、發生率比、離散參數及區間。",
       "calculation": "log μ=1+.3X+log(暴露量)；X=1、暴露量=2時，μ=exp(1.3)×2=7.34；exp(.3)=1.35。",
       "interpretation": "在其他條件固定下，X每增加一單位，期望計數／率乘以1.35。",
-      "caution": "偏移項把暴露量係數固定為1；Poisson與負二項的變異數假設不同。"
+      "caution": "偏移項把暴露量係數固定為1；Poisson與負二項的方差假設不同。"
     },
     "symbols": "μ is the expected count. A log exposure offset allows a rate interpretation when the exposure model is justified.",
     "symbolsZh": "μ為期望計數；暴露量模型有理據時，對數暴露量偏移項可支持率的解讀。"
@@ -360,11 +360,11 @@
     "evidenceState": "PDF passage corroborated",
     "translated": {
       "question": "擬合關係對具影響力觀察值有多敏感？",
-      "data": "結果、預測變量與已指定的穩健估計法。",
+      "data": "結果、預測变量與已指定的穩健估計法。",
       "output": "穩健係數、區間、權重／影響力及敏感度比較。",
       "calculation": "權重1、1、.1，殘差1、1、10，則加權平方損失=1+1+.1(100)=12；未加權為102。演算法會更新權重。",
       "interpretation": "例子展示某觀察值如何獲較小影響力。",
-      "caution": "不同穩健方法處理不同問題，不能修補遺漏變量或依賴結構。"
+      "caution": "不同穩健方法處理不同問題，不能修補遺漏变量或依賴結構。"
     }
   },
   {
@@ -383,12 +383,12 @@
     "role": "analysis",
     "evidenceState": "PDF passage corroborated",
     "translated": {
-      "question": "相關預測變量的預測貢獻如何分配？",
-      "data": "已界定的迴歸模型與預測變量集合。",
+      "question": "相關預測变量的預測貢獻如何分配？",
+      "data": "已界定的迴歸模型與預測变量集合。",
       "output": "平均增量R²貢獻、排序與不確定性。",
       "calculation": "R²_X=.30，R²_Z=.20，R²_XZ=.40：X權重=[.30+(.40−.20)]/2=.25；Z權重=.15；合計=.40。",
       "interpretation": "權重合計為完整模型的R²。",
-      "caution": "重要性取決於變量集合與指標，不是因果效果排名。"
+      "caution": "重要性取決於变量集合與指標，不是因果效果排名。"
     }
   },
   {
@@ -432,7 +432,7 @@
     "evidenceState": "PDF passage corroborated",
     "translated": {
       "question": "X與Y的關聯是否隨W而變？",
-      "data": "結果、焦點預測變量、調節變量及正確編碼的乘積項。",
+      "data": "結果、焦點預測变量、調節变量及正確編碼的乘積項。",
       "output": "交互作用係數、條件斜率、預測值與區間。",
       "calculation": "ŷ=2+.4X+.3W+.2XW；X的斜率=.4+.2W。W=−1、0、1時，斜率=.2、.4、.6。",
       "interpretation": "模型預測W較高時，X與Y的關聯較強。",
@@ -455,7 +455,7 @@
     "role": "analysis",
     "evidenceState": "PDF passage corroborated",
     "translated": {
-      "question": "間接關聯是否因調節變量而異？",
+      "question": "間接關聯是否因調節变量而異？",
       "data": "明確指定哪條路徑包含交互作用的中介系統。",
       "output": "條件間接效果、調節式中介指數及區間。",
       "calculation": "a(W)=.5+.2W，b=.4；間接效果=.20+.08W。W=−1、0、1時為.12、.20、.28；指數=.08。",
@@ -480,14 +480,14 @@
     "evidenceState": "PDF passage corroborated",
     "translated": {
       "question": "假設的測量與結構關係是否與資料相容？",
-      "data": "指標／觀察變量、可識別模型與合適估計法。",
+      "data": "指標／觀察变量、可識別模型與合適估計法。",
       "output": "負荷量、路徑、殘差、區間、χ²／自由度及多種擬合證據。",
-      "calculation": "標準化雙因素模型中，負荷量.8、.7及結構路徑.6，意味跨指標共變數=.8×.6×.7=.336。估計會比較整個隱含與觀察共變數矩陣。",
+      "calculation": "標準化雙因素模型中，負荷量.8、.7及結構路徑.6，意味跨指標協方差=.8×.6×.7=.336。估計會比較整個隱含與觀察協方差矩陣。",
       "interpretation": "路徑是在整個指定模型下的關聯；測量及結構兩部分都重要。",
       "caution": "良好擬合不能證明模型或因果方向，其他模型也可能同樣擬合。"
     },
     "symbols": "Each loading links an indicator to its factor. The .6 path links the two standardised factors; uncorrelated measurement errors are assumed in this toy covariance.",
-    "symbolsZh": "每個負荷量把指標連到因素；.6為兩個標準化因素之間的路徑。本例隱含共變數假設測量誤差不相關。"
+    "symbolsZh": "每個負荷量把指標連到因素；.6為兩個標準化因素之間的路徑。本例隱含協方差假設測量誤差不相關。"
   },
   {
     "id": "pls",
@@ -529,11 +529,11 @@
     "role": "analysis",
     "evidenceState": "PDF passage corroborated",
     "translated": {
-      "question": "哪些共同潛在維度可解釋項目共變？",
-      "data": "項目反應、足夠變異及適切的相關／估計模型。",
+      "question": "哪些共同潛在維度可解釋項目協方差？",
+      "data": "項目反應、足夠差異及適切的相關／估計模型。",
       "output": "負荷量、共同性、因素相關及保留／轉軸決定。",
       "calculation": "標準化項目在正交因素的負荷量為.6及.4，則h²=.36+.16=.52，獨特性=.48。若因素相關，另加2λ₁λ₂φ₁₂。",
-      "interpretation": "模型把部分項目變異歸於共同維度。",
+      "interpretation": "模型把部分項目方差歸於共同維度。",
       "caution": "EFA不是PCA；因素數目須有理據，並盡可能用獨立資料驗證。"
     }
   },
@@ -556,12 +556,12 @@
       "question": "預定的測量結構是否符合項目反應？",
       "data": "指標、由理論指定且可識別的因素模型，以及適切估計法。",
       "output": "負荷量、因素相關、殘差、擬合及不確定性。",
-      "calculation": "標準化單因素項目的λ=.80，解釋變異=.64，殘差變異=.36。若兩項負荷量為.8、.7且殘差不相關，隱含共變數=.56。",
+      "calculation": "標準化單因素項目的λ=.80，解釋方差=.64，殘差方差=.36。若兩項負荷量為.8、.7且殘差不相關，隱含協方差=.56。",
       "interpretation": "負荷量是在指定測量模型中項目與因素的關係。",
       "caution": "可接受擬合不代表所有效度證據充足；序位項目可需類別估計法。"
     },
     "symbols": "λ is a factor loading. The variance decomposition in this example assumes a standardised item and factor and the stated residual structure.",
-    "symbolsZh": "λ為因素負荷量；本例變異分解假設項目與因素已標準化，並符合所述殘差結構。"
+    "symbolsZh": "λ為因素負荷量；本例方差分解假設項目與因素已標準化，並符合所述殘差結構。"
   },
   {
     "id": "pca",
@@ -579,11 +579,11 @@
     "role": "analysis",
     "evidenceState": "PDF passage corroborated",
     "translated": {
-      "question": "能否用較少加權成分摘要多個觀察變量？",
-      "data": "數值變量及明確的標準化選擇。",
-      "output": "成分權重、特徵值與解釋變異。",
+      "question": "能否用較少加權成分摘要多個觀察变量？",
+      "data": "數值变量及明確的標準化選擇。",
+      "output": "成分權重、特徵值與解釋方差。",
       "calculation": "z₁=1、z₂=−.5，單位長度等權重均為.707，PC₁=.707(1)+.707(−.5)=.354。",
-      "interpretation": "主成分是觀察變異的加權摘要。",
+      "interpretation": "主成分是觀察方差的加權摘要。",
       "caution": "PCA本身不能辨識潛在心理構念。"
     }
   },
@@ -603,11 +603,11 @@
     "role": "analysis",
     "evidenceState": "PDF passage corroborated",
     "translated": {
-      "question": "共同變異是否由一般與特定維度組織？",
+      "question": "共同方差是否由一般與特定維度組織？",
       "data": "指標及有理據的高階或雙因素設定。",
       "output": "一般／特定負荷量、殘差、因素關係與模型比較。",
       "calculation": "正交雙因素例子中，λ_一般=.6、λ_特定=.5，h²=.36+.25=.61，獨特性=.39。",
-      "interpretation": "在模型限制下，一般及特定因素分配共同變異。",
+      "interpretation": "在模型限制下，一般及特定因素分配共同方差。",
       "caution": "高階與雙因素模型不同；較佳擬合不自動支持使用總分。"
     }
   },
@@ -729,7 +729,7 @@
     "translated": {
       "question": "同一篇章下的項目是否另有局部依賴？",
       "data": "項目反應與題組／篇章識別。",
-      "output": "題組變異數、項目參數、維度與模型比較。",
+      "output": "題組方差、項目參數、維度與模型比較。",
       "calculation": "若logit P=θ−b+u_題組，θ−b=.5、u=.3時logit=.8，P=.690；u=0時P=.622。",
       "interpretation": "題組效果表示一般能力以外的共同依賴。",
       "caution": "忽略篇章依賴可扭曲訊息量及精確度。"
@@ -776,7 +776,7 @@
     "evidenceState": "Extract passage verified; PDF corroboration incomplete",
     "translated": {
       "question": "在模型化能力相同下，群體是否有不同項目反應？",
-      "data": "項目反應、群體，以及可辯護的配對／潛在變量。",
+      "data": "項目反應、群體，以及可辯護的配對／潛在变量。",
       "output": "DIF大小、方向、不確定性、錨定項目與影響。",
       "calculation": "若相同能力下的兩組logit相差.4，條件勝算比=exp(.4)=1.49。",
       "interpretation": "此項目在指定能力配對模型下的功能不同。",
@@ -827,8 +827,8 @@
     "translated": {
       "question": "分數跨評分者、任務或時點有多可靠？",
       "data": "明確的交叉／巢套設計，以及各面向的重複觀察。",
-      "output": "變異成分、相對／絕對係數與預定設計的精確度。",
-      "calculation": "個人變異=20、相對誤差變異=5，G=20/(20+5)=.80。D研究按擬定評分者／任務數重算誤差項。",
+      "output": "方差成分、相對／絕對係數與預定設計的精確度。",
+      "calculation": "個人方差=20、相對誤差方差=5，G=20/(20+5)=.80。D研究按擬定評分者／任務數重算誤差項。",
       "interpretation": "概化範圍限於明確模型化的觀察母域。",
       "caution": "係數不能概化至未取樣的面向。"
     }
@@ -852,7 +852,7 @@
       "question": "這次施測所得分數有多一致？",
       "data": "依不一致來源，使用項目分數或重複評分。",
       "output": "α／ω、ICC、κ等合適係數、區間與設計細節。",
-      "calculation": "4題的項目變異數總和=4、總分變異數=10；α=(4/3)(1−4/10)=.80。",
+      "calculation": "4題的項目方差總和=4、總分方差=10；α=(4/3)(1−4/10)=.80。",
       "interpretation": "此α是在相應假設下，對本樣本分數一致性的描述。",
       "caution": "內部一致性、絕對一致與排序一致回答不同問題。"
     }
@@ -970,7 +970,7 @@
     "evidenceState": "PDF passage corroborated",
     "translated": {
       "question": "多個連續指標呈現哪些模型化剖面？",
-      "data": "連續指標及明確的剖面內分佈／共變數假設。",
+      "data": "連續指標及明確的剖面內分佈／協方差假設。",
       "output": "剖面平均數、比例、BIC、穩定性、後驗機率與分類不確定性。",
       "calculation": "三剖面的π_k f_k(x)為.12、.10、.02；除以合計.24，後驗機率為.50、.417、.083。",
       "interpretation": "最可能的剖面仍只有.50機率，不能視為確定歸屬。",
@@ -995,7 +995,7 @@
     "role": "analysis",
     "evidenceState": "PDF passage corroborated",
     "translated": {
-      "question": "哪些觀察個案具有相似的多變量模式？",
+      "question": "哪些觀察個案具有相似的多变量模式？",
       "data": "可比較的數值特徵，以及有理據的尺度與距離。",
       "output": "群中心、距離、樹狀圖、穩定性與外部驗證。",
       "calculation": "x=(1,2)距中心(0,0)為√5，距(2,2)為1；K平均數先分到第二群，再迭代更新中心。",
@@ -1021,9 +1021,9 @@
     "translated": {
       "question": "重複、巢套或交叉觀察中的關聯如何分析？",
       "data": "依賴資料、適切反應分佈與可辯護的隨機效果。",
-      "output": "固定係數、隨機效果變異、區間與明確層次的預測。",
-      "calculation": "高斯隨機截距模型中，群間變異=16、殘差變異=64，ICC=16/(16+64)=.20。",
-      "interpretation": "此例子的20%變異位於群體之間。",
+      "output": "固定係數、隨機效果方差、區間與明確層次的預測。",
+      "calculation": "高斯隨機截距模型中，群間方差=16、殘差方差=64，ICC=16/(16+64)=.20。",
+      "interpretation": "此例子的20%方差位於群體之間。",
       "caution": "區分個體內與個體間問題；此ICC算式不能直接套用二元GLMM。"
     }
   },
@@ -1095,7 +1095,7 @@
     "translated": {
       "question": "偏離個人典型水平的變化是否預測後期偏離？",
       "data": "通常至少三波資料，並可識別穩定與個體內成分。",
-      "output": "隨機截距共變、個體內自迴歸及交叉滯後路徑。",
+      "output": "隨機截距協方差、個體內自迴歸及交叉滯後路徑。",
       "calculation": "X_it=μ_t+RI_i+x_it；觀察X=6、時點平均=4、RI_i=1.5，個體內偏離=.5；若滯後係數=.2，其預測貢獻=.1。",
       "interpretation": "模型在假設下分離穩定個體間與個體內關係。",
       "caution": "模型限制仍須論證，亦不能因此確立因果。"
@@ -1119,7 +1119,7 @@
     "translated": {
       "question": "過程如何在密集觀察序列中波動？",
       "data": "具意義的取樣間隔、排序觀察與序列邊界。",
-      "output": "軌跡、變異，以及實際擬合時的時間依賴參數。",
+      "output": "軌跡、離散程度，以及實際擬合時的時間依賴參數。",
       "calculation": "數值2、4、3的相鄰改變為+2、−1。若模型Y_t=.5Y_t−1+e_t，前值4的預測為2；估計模型需要更多觀察。",
       "interpretation": "區分描述性波動與已擬合的時間模型。",
       "caution": "單純繪製序列不能稱為ARIMA、DSEM或因果動態分析。"
@@ -1142,7 +1142,7 @@
     "evidenceState": "PDF passage corroborated",
     "translated": {
       "question": "考慮未完整追蹤時，多久達到指定準則？",
-      "data": "事件時間、事件／設限狀態與預測變量。",
+      "data": "事件時間、事件／設限狀態與預測变量。",
       "output": "存活機率、危險比、區間與模型檢查。",
       "calculation": "10人在風險集中發生2次事件，存活乘數=1−2/10=.8；之後8人中1次事件，乘數=.875；累積存活=.70。",
       "interpretation": "曲線在設限假設下估計仍未發生事件的機率。",
@@ -1165,7 +1165,7 @@
     "role": "analysis",
     "evidenceState": "PDF passage corroborated",
     "translated": {
-      "question": "哪些變量在控制其他節點後仍有條件關聯？",
+      "question": "哪些变量在控制其他節點後仍有條件關聯？",
       "data": "節點測量與明確選定的網絡模型。",
       "output": "邊、不確定性、中心性／穩定性與敏感度。",
       "calculation": "r_XY=.6、r_XZ=.5、r_YZ=.4時，偏相關=(.6−.5×.4)/√[(1−.25)(1−.16)]=.504。正則化模型另有懲罰。",
@@ -1405,10 +1405,10 @@
     "role": "analysis",
     "evidenceState": "PDF passage corroborated",
     "translated": {
-      "question": "跨研究的可比效果平均多大、變異如何？",
-      "data": "效果估計、抽樣變異數、研究識別與納入準則。",
+      "question": "跨研究的可比效果平均多大、差異如何？",
+      "data": "效果估計、抽樣方差、研究識別與納入準則。",
       "output": "合併效果、區間、異質性與預測區間。",
-      "calculation": "效果.2、.5，隨機效果權重10、5，合併效果=(10×.2+5×.5)/15=.30；權重依賴抽樣及研究間變異。",
+      "calculation": "效果.2、.5，隨機效果權重10、5，合併效果=(10×.2+5×.5)/15=.30；權重依賴抽樣及研究間方差。",
       "interpretation": "平均效果受納入研究與統合模型限制。",
       "caution": "精確平均數不代表每種情境的效果相同。"
     }
@@ -1417,7 +1417,7 @@
     "id": "metareg",
     "family": "synthesis",
     "name": "Meta-regression and moderator analysis",
-    "zh": "統合迴歸與調節變量分析",
+    "zh": "統合迴歸與調節变量分析",
     "question": "Which study characteristics are associated with effect-size variation?",
     "data": "Study-level effect sizes/variances and defensible coded moderators.",
     "output": "Moderator coefficients, intervals, residual heterogeneity and sensitivity.",
@@ -1430,9 +1430,9 @@
     "evidenceState": "PDF passage corroborated",
     "translated": {
       "question": "哪些研究特徵與效果量變化相關？",
-      "data": "研究層效果／變異數，以及可辯護的編碼調節變量。",
+      "data": "研究層效果／方差，以及可辯護的編碼調節变量。",
       "output": "調節係數、區間、殘餘異質性與敏感度。",
-      "calculation": "預測效果=.20+.03X；調節變量相差2單位的研究，其預測效果相差.06。",
+      "calculation": "預測效果=.20+.03X；調節变量相差2單位的研究，其預測效果相差.06。",
       "interpretation": "斜率描述研究之間的關聯。",
       "caution": "研究層關聯不能確立個人層或因果效果。"
     }
@@ -1441,7 +1441,7 @@
     "id": "multimeta",
     "family": "synthesis",
     "name": "Three-level meta-analysis / robust variance estimation",
-    "zh": "三層統合分析與穩健變異估計",
+    "zh": "三層統合分析與穩健方差估計",
     "question": "How can several dependent estimates from each study be synthesised?",
     "data": "Effect sizes nested within studies and known/assumed sampling dependence.",
     "output": "Variance components, pooled/moderator estimates, corrected intervals and sensitivity.",
@@ -1455,8 +1455,8 @@
     "translated": {
       "question": "如何統合同一研究中的多個依賴效果？",
       "data": "巢套於研究的效果量，以及已知或假設的抽樣依賴。",
-      "output": "變異成分、合併／調節估計、修正區間與敏感度。",
-      "calculation": "研究間變異=.04、研究內真實效果變異=.01，合計=.05，尚未加入抽樣誤差；相關抽樣誤差可能另需模型化。",
+      "output": "方差成分、合併／調節估計、修正區間與敏感度。",
+      "calculation": "研究間方差=.04、研究內真實效果方差=.01，合計=.05，尚未加入抽樣誤差；相關抽樣誤差可能另需模型化。",
       "interpretation": "保留多個估計時，須同時表示其依賴。",
       "caution": "單一研究隨機截距未必足以處理相關抽樣誤差。"
     }
@@ -1552,7 +1552,7 @@
       "question": "項目反應是否支持無母數IRT假設下的序位量尺？",
       "data": "項目反應、序位測量目標及適切的單調性／局部獨立檢查。",
       "output": "項目與量尺的可擴展性H、區間、單調性及項目排序證據。",
-      "calculation": "二分題P_i=.6、P_j=.4、兩題均答對=.3；共變數=.30−.24=.06，最大共變數=.40−.24=.16，成對H_ij=.375。",
+      "calculation": "二分題P_i=.6、P_j=.4、兩題均答對=.3；協方差=.30−.24=.06，最大協方差=.40−.24=.16，成對H_ij=.375。",
       "interpretation": "此計算是成對可擴展性，不是整個量尺的H，也未檢驗全部模型假設。",
       "caution": "可擴展性不能單獨證明單維度、恆定項目排序或效度。"
     }
@@ -1575,7 +1575,7 @@
     "translated": {
       "question": "在D計分框架下，群體的項目反應函數是否不同？",
       "data": "項目反應、群體與指定DSM反應函數。",
-      "output": "轉換後機率曲線、群體平均／變異比較及DIF證據。",
+      "output": "轉換後機率曲線、群體平均／方差比較及DIF證據。",
       "calculation": "P–Z把機率轉成常態偏離分數；指定P=.8413得到Z≈1，P=.6915得到Z≈.5。單一點只作示例，完整方法比較反應函數的結構。",
       "interpretation": "在指定測量框架下比較轉換曲線。",
       "caution": "單一機率差不是完整DIF檢定，也不能證明不公平。"

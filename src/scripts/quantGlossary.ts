@@ -37,6 +37,8 @@ export function initQuantGlossary() {
       if(pair && !/interval|bounds|CI|區間|界限/.test(context)) continue;
       const id=pair?'interval':aliases.get(value);if(!id)continue;
       const index=match.index!;
+      // 方差 is not the whole term when it occurs inside 協方差 (covariance).
+      if(id==='variance'&&value==='方差'&&content[index-1]==='協')continue;
       // The English article “a” is not a statistical symbol.
       if(id==='a'&&!/^\s*(?:=|\()/.test(content.slice(index+value.length)))continue;
       frag.append(document.createTextNode(content.slice(offset,index)));
@@ -83,11 +85,11 @@ export function initQuantGlossary() {
     const probabilitySymbol=id==='p'&&button.textContent==='p'&&['logistic','ordinal','irt'].includes(method||'')&&Boolean(button.closest('.qm-worked')||/logit|ln\[p|p\/\(1/.test(button.parentElement?.textContent||''));
     if(probabilitySymbol)local('In this equation p is the modelled probability of the event or response, between 0 and 1. For example p=.426 means a 42.6% predicted event probability. This p is not a hypothesis-test p-value.','此方程的p表示0至1之間的模型事件／反應機率。例如p=.426表示預測事件機率為42.6%。這個p不是假設檢定的p值。');
     if(id==='b'&&method==='irt')local('In this item-response equation, b is item difficulty, on the latent-trait scale. It is not the unstandardised outcome-regression coefficient called b elsewhere.','在此項目反應方程中，b是潛在特質尺度上的項目難度，不是其他地方稱為b的未標準化結果迴歸係數。');
-    if(id==='b'&&['mediation','conditional'].includes(method||''))local('In this mediation model, b is the coefficient linking mediator M to outcome Y, conditional on X and any other included covariates. Multiplying path a by path b gives the specified linear indirect component ab.','在此中介模型中，b為在X及其他已納入協變量條件下，連接中介M與結果Y的係數。路徑a乘以路徑b得到指定線性間接成分ab。');
-    if(id==='b'&&method==='svm')local('In f(x)=wᵀx+b, b is the intercept/bias term shifting the decision boundary. It is not a slope for one predictor.','在f(x)=wᵀx+b中，b為移動決策邊界的截距／偏置項，不是某個預測變量的斜率。');
+    if(id==='b'&&['mediation','conditional'].includes(method||''))local('In this mediation model, b is the coefficient linking mediator M to outcome Y, conditional on X and any other included covariates. Multiplying path a by path b gives the specified linear indirect component ab.','在此中介模型中，b為在X及其他已納入協变量條件下，連接中介M與結果Y的係數。路徑a乘以路徑b得到指定線性間接成分ab。');
+    if(id==='b'&&method==='svm')local('In f(x)=wᵀx+b, b is the intercept/bias term shifting the decision boundary. It is not a slope for one predictor.','在f(x)=wᵀx+b中，b為移動決策邊界的截距／偏置項，不是某個預測变量的斜率。');
     if(id==='b'&&method==='gam')local('Here b_k is the coefficient multiplying basis function B_k(x). The smooth is obtained by summing these products; an individual basis coefficient is not a single constant slope of the entire curve.','此處b_k是乘以基底函數B_k(x)的係數。把乘積加總才得到平滑曲線；單一基底係數不是整條曲線的固定斜率。');
     if(id==='z'&&method==='neural')local('In this toy neuron, z is the weighted sum of inputs plus the bias, before applying the sigmoid activation. It is not a z-test statistic.','在此教學神經元中，z是輸入加權總和加偏置，之後才套用sigmoid激活函數；它不是z檢定統計量。');
-    if(id==='Z'&&method==='regression')local('Z names an additional predictor in this equation. Holding Z constant defines the conditional X–Y comparison. Capital Z here is not a z-test statistic.','此方程以Z命名另一個預測變量。保持Z相同才界定X與Y的條件比較；這個大寫Z不是z檢定統計量。');
+    if(id==='Z'&&method==='regression')local('Z names an additional predictor in this equation. Holding Z constant defines the conditional X–Y comparison. Capital Z here is not a z-test statistic.','此方程以Z命名另一個預測变量。保持Z相同才界定X與Y的條件比較；這個大寫Z不是z檢定統計量。');
     if(id==='beta'&&method==='bayes')local('Here Beta(a,b) names the beta probability distribution used for the binomial probability. Beta(2,2) is the prior and Beta(10,4) is the posterior in this example. This is different from a regression coefficient β.','此處Beta(a,b)是二項機率使用的beta機率分佈。本例先驗為Beta(2,2)，後驗為Beta(10,4)，與迴歸係數β不同。');
     if(id==='k'&&method==='reliability')local('Here k is the number of items in the scale. With four items, k=4 and the alpha multiplier k/(k−1)=4/3.','此處k是量表的項目數。四個項目時k=4，alpha公式中的k/(k−1)=4/3。');
     if(id==='k'&&['lpa','lca'].includes(method||''))local('Here k labels a particular profile/class in the mixture. π_k is its proportion and f_k(x) is its density for indicator pattern x. The total number of profiles/classes is a separate model choice.','此處k是某個剖面／類別的索引。π_k為該群比例，f_k(x)為該群對指標模式x的密度；總剖面／類別數是另一項模型選擇。');
@@ -100,7 +102,7 @@ export function initQuantGlossary() {
     if(id==='b'&&method==='svm')heading=zh?'b：截距／偏置':'b: intercept / bias';
     if(id==='b'&&method==='gam')heading=zh?'b_k：基底函數係數':'b_k: basis-function coefficient';
     if(id==='z'&&method==='neural')heading=zh?'z：激活前的加權輸入':'z: weighted input before activation';
-    if(id==='Z'&&method==='regression')heading=zh?'Z：另一個預測變量':'Z: additional predictor';
+    if(id==='Z'&&method==='regression')heading=zh?'Z：另一個預測变量':'Z: additional predictor';
     if(id==='beta'&&method==='bayes')heading=zh?'Beta：機率分佈':'Beta: probability distribution';
     if(id==='k'&&method==='reliability')heading=zh?'k：項目數':'k: number of items';
     if(id==='k'&&['lpa','lca'].includes(method||''))heading=zh?'k：剖面／類別索引':'k: profile / class index';

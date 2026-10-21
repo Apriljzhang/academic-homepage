@@ -9,21 +9,21 @@ const guides: Record<string, { name: string; zh: string; overview: string; overv
     overview: 'Describes the observed sample with frequencies, typical values, spread and distribution shape.', overviewZh: '以次數、典型值、離散程度及分佈形態描述觀察到的樣本。',
     question: 'Who or what is in the sample, and what do the observed values look like?', questionZh: '樣本包含誰或哪些觀察？觀察到的數值呈現甚麼樣子？',
     en: ['Give the valid n and missing values for each variable; identify units and the score scale.', 'For categories, report counts and percentages with their denominator.', 'For continuous data, report centre and spread together: M and SD, or median and IQR where appropriate.', 'Use a labelled table or distribution plot. Describe the pattern without turning a sample summary into a population conclusion.'],
-    cn: ['列出每個變項的有效 n、缺失數量、單位及計分尺度。','類別資料列出次數、百分比及其分母。','連續資料同時交代中心與離散：M 與 SD，或按需要使用中位數與 IQR。','使用有標示的表或分佈圖；描述樣本模式時，不要直接推論母體。'],
+    cn: ['列出每個变量的有效 n、缺失數量、單位及計分尺度。','類別資料列出次數、百分比及其分母。','連續資料同時交代中心與離散：M 與 SD，或按需要使用中位數與 IQR。','使用有標示的表或分佈圖；描述樣本模式時，不要直接推論母體。'],
   },
   ttest: {
     name: 't-tests: independent or paired?', zh: 't 檢定：獨立還是配對？',
     overview: 'An independent t-test compares the means of two separate groups. A paired t-test analyses the within-pair differences, such as the same learners before and after a lesson.', overviewZh: '獨立樣本 t 檢定比較兩組不同個體的平均數。配對 t 檢定分析每對觀察的差值，例如同一批學習者的前後測。',
     question: 'Are two group means different, or is the average paired change different from zero?', questionZh: '兩組平均數是否有差異？配對變化的平均數是否不同於零？',
     en: ['State whether the design is independent or paired, and identify the groups or occasions.', 'Report n, M and SD for each group or occasion; for paired data, also make the change and its direction clear.', 'Report the mean difference and its 95% confidence interval, t, degrees of freedom and p.', 'Report a named effect size, including the version used for paired data. Interpret magnitude and uncertainty alongside the test result.'],
-    cn: ['說明獨立或配對設計，並指出比較的組別或時點。','列出各組或時點的 n、M 與 SD；配對資料亦須交代變化及方向。','報告平均差及其 95% 信賴區間、t、自由度及 p。','列明效應量的名稱；配對資料須說明所用版本。將大小與不確定性和檢定結果一起解讀。'],
+    cn: ['說明獨立或配對設計，並指出比較的組別或時點。','列出各組或時點的 n、M 與 SD；配對資料亦須交代變化及方向。','報告平均差及其 95% 置信區間、t、自由度及 p。','列明效應量的名稱；配對資料須說明所用版本。將大小與不確定性和檢定結果一起解讀。'],
   },
   correlation: {
     name: 'Correlation: direction and strength', zh: '相關：方向與強度',
-    overview: 'Correlation describes how two variables vary together. Choose Pearson or Spearman according to the scores and the pattern you want to describe; begin with a scatterplot.', overviewZh: '相關描述兩個變項如何一起變動。先看散佈圖，再按分數類型及希望描述的模式選擇 Pearson 或 Spearman。',
-    question: 'When one variable is higher, does the other tend to be higher or lower?', questionZh: '當一個變項較高時，另一個是否傾向較高或較低？',
+    overview: 'Correlation describes how two variables vary together. Choose Pearson or Spearman according to the scores and the pattern you want to describe; begin with a scatterplot.', overviewZh: '相關描述兩個变量如何一起變動。先看散佈圖，再按分數類型及希望描述的模式選擇 Pearson 或 Spearman。',
+    question: 'When one variable is higher, does the other tend to be higher or lower?', questionZh: '當一個变量較高時，另一個是否傾向較高或較低？',
     en: ['Name the two variables and the correlation used: Pearson’s r or Spearman’s rₛ.', 'Report the number of complete pairs, the correlation coefficient and p when testing against zero. Include a confidence interval to show the precision of the estimate.', 'Explain the sign and size in the study context. Check the scatterplot for the relevant pattern and unusual observations.', 'A correlation does not establish causation. A value near zero does not rule out every relationship, such as a U-shaped pattern.'],
-    cn: ['列明兩個變項及相關種類：Pearson r 或 Spearman rₛ。','列出完整配對數、相關係數，以及檢定是否不同於零時的 p。加入信賴區間以呈現估計的精確程度。','按研究情境說明正負方向及大小，並從散佈圖檢查相關模式與特殊觀察。','相關不能證明因果；接近零不代表沒有任何關係，例如 U 形模式。'],
+    cn: ['列明兩個变量及相關種類：Pearson r 或 Spearman rₛ。','列出完整配對數、相關係數，以及檢定是否不同於零時的 p。加入置信區間以呈現估計的精確程度。','按研究情境說明正負方向及大小，並從散佈圖檢查相關模式與特殊觀察。','相關不能證明因果；接近零不代表沒有任何關係，例如 U 形模式。'],
   },
   anova: {
     name: 'One-way ANOVA: comparing group means', zh: '單因子 ANOVA：比較組別平均數',
@@ -36,7 +36,7 @@ const guides: Record<string, { name: string; zh: string; overview: string; overv
 const additionalGuides: Record<string, [string[], string[]]> = {
  chi: [
   ['Identify both categorical variables, category coding, independent cases and the contingency-table counts.', 'Report counts, row or column percentages with denominators, and expected-count checks.', 'Report the named test, χ², df, N, p and an appropriate association measure such as Cramér’s V.', 'Explain the pattern with percentages; identify an exact test if sparse counts require one.'],
-  ['列明兩個類別變項、類別編碼、獨立個案及列聯表次數。','報告次數、列或欄百分比及分母，並檢查期望次數。','列明檢定名稱、χ²、df、N、p 及適當關聯量，例如 Cramér V。','以百分比解釋模式；次數稀疏而需精確檢定時，須列明方法。']],
+  ['列明兩個類別变量、類別編碼、獨立個案及列聯表次數。','報告次數、列或欄百分比及分母，並檢查期望次數。','列明檢定名稱、χ²、df、N、p 及適當關聯量，例如 Cramér V。','以百分比解釋模式；次數稀疏而需精確檢定時，須列明方法。']],
  rank: [
   ['Choose the test for independent groups or matched observations, and state its hypothesis.', 'Report group sizes, medians and IQRs or other appropriate distribution summaries.', 'Report the test statistic, inferential procedure, p, treatment of ties and a named effect estimate where suitable.', 'Explain what the rank test establishes; a median-only interpretation needs additional distribution assumptions.'],
   ['按獨立組別或配對觀察選擇檢定，並交代假設。','報告各組樣本數、中位數與 IQR，或其他合適分佈摘要。','報告檢定統計量、推論程序、p、同分處理，以及適用的具名效果估計。','解釋秩次檢定能說明甚麼；只解讀中位數需要額外分佈假設。']],
@@ -45,29 +45,29 @@ const additionalGuides: Record<string, [string[], string[]]> = {
   ['列明重複因素、時點、參與者及任何個體間組別。','報告同一批人的樣本數及各時點 M 與 SD；需要時展示個體軌跡。','報告 F、兩個 df、p 及具名效應量，並交代適用的球形假設檢查與校正。','報告相關時點對比或組別與時間交互作用、估計、區間及多重比較調整。']],
  ancova: [
   ['Name the outcome, grouping factor, covariates and why those covariates were included.', 'Report raw group summaries and covariate overlap; examine whether a common-slope comparison is appropriate.', 'Report adjusted means at specified covariate values or a defined averaging distribution, adjusted contrasts and confidence intervals.', 'Report the model test, df, p, effect size and diagnostics. Explain that adjustment alone does not establish causation.'],
-  ['列明結果、分組因素、協變量及納入理據。','報告原始組別摘要與協變量重疊，檢查共同斜率比較是否適合。','報告指定協變量值或已定義平均分佈下的調整平均數、調整對比及信賴區間。','報告模型檢定、df、p、效應量及診斷；調整本身不能確立因果。']],
+  ['列明結果、分組因素、協变量及納入理據。','報告原始組別摘要與協变量重疊，檢查共同斜率比較是否適合。','報告指定協变量值或已定義平均分佈下的調整平均數、調整對比及置信區間。','報告模型檢定、df、p、效應量及診斷；調整本身不能確立因果。']],
  regression: [
   ['Identify the continuous outcome, predictor units, coding and model specification.', 'Report n, unstandardised b, SE or confidence intervals, test statistics and p for the relevant terms.', 'Report R² or adjusted R², residual checks and the role of any predictor blocks; distinguish block entry from multilevel modelling.', 'Translate coefficients into outcome units while holding included predictors constant. Distinguish association, prediction and causal claims.'],
-  ['列明連續結果、預測變項單位、編碼及模型設定。','報告 n、未標準化 b、SE 或信賴區間，以及相關項的檢定統計量與 p。','報告 R² 或調整 R²、殘差檢查及預測變項分塊角色；區分分塊投入與多層模型。','在其他納入變項相同的條件下，以結果單位解釋係數；區分關聯、預測與因果主張。']],
+  ['列明連續結果、預測变量單位、編碼及模型設定。','報告 n、未標準化 b、SE 或置信區間，以及相關項的檢定統計量與 p。','報告 R² 或調整 R²、殘差檢查及預測变量分塊角色；區分分塊投入與多層模型。','在其他納入变量相同的條件下，以結果單位解釋係數；區分關聯、預測與因果主張。']],
  logistic: [
   ['State the event coded 1, reference categories, sample size and event counts.', 'Report model specification, b or log odds, odds ratios and their confidence intervals, plus relevant p-values.', 'Give predicted probabilities at meaningful predictor values; an odds ratio is not a probability ratio.', 'Report suitable diagnostics and fit or validation evidence, and explain how missing data and sparse events were handled.'],
-  ['列明編碼為 1 的事件、參照類別、樣本量及事件數。','報告模型設定、b 或對數勝算、勝算比及其信賴區間，以及相關 p。','在有意義的預測值下報告機率；勝算比並非機率比。','報告適當診斷及擬合或驗證證據，交代缺失資料與稀少事件的處理。']],
+  ['列明編碼為 1 的事件、參照類別、樣本量及事件數。','報告模型設定、b 或對數勝算、勝算比及其置信區間，以及相關 p。','在有意義的預測值下報告機率；勝算比並非機率比。','報告適當診斷及擬合或驗證證據，交代缺失資料與稀少事件的處理。']],
  reliability: [
   ['Describe the scale, scoring, number of items, reverse coding, sample and measurement conditions.', 'Name the coefficient and its version: alpha/omega for suitable internal-consistency questions; an appropriate ICC or kappa for agreement designs.', 'Report the estimate and uncertainty, with the assumptions and missing-item rules used.', 'Discuss what the coefficient supports. High consistency alone establishes neither validity nor a single dimension.'],
   ['描述量表、計分、題數、反向計分、樣本及測量條件。','列明係數與版本：適當內部一致性問題可用 α／ω；一致程度設計須選合適的 ICC 或 κ。','報告估計與不確定性，以及所用假設與缺失題目規則。','說明係數支持的結論；高一致性本身不能證明效度或單維度。']],
  mediation: [
   ['Define X, M and Y, their timing, the path model and the intended associational or causal interpretation.', 'Report a, b, c′ and the indirect estimate ab with clear units and covariate adjustment.', 'Report the interval method for ab; if bootstrapping is used, state the resampling unit, number of resamples and interval type.', 'Report the direct/total estimates where relevant, uncertainty, assumptions and limitations; an indirect effect is not automatic proof of a mechanism.'],
-  ['界定 X、M、Y、測量時間、路徑模型及預定的關聯或因果解讀。','報告 a、b、c′ 及間接估計 ab，列明單位及協變量調整。','列明 ab 區間方法；若用 bootstrap，交代重抽樣單位、次數及區間種類。','按問題報告直接／總估計、不確定性、假設與限制；間接效果不會自動證明機制。']],
+  ['界定 X、M、Y、測量時間、路徑模型及預定的關聯或因果解讀。','報告 a、b、c′ 及間接估計 ab，列明單位及協变量調整。','列明 ab 區間方法；若用 bootstrap，交代重抽樣單位、次數及區間種類。','按問題報告直接／總估計、不確定性、假設與限制；間接效果不會自動證明機制。']],
  moderation: [
   ['Define X, Y and W, coding or centring, and the interaction term.', 'Report the interaction coefficient with units, confidence interval and p, alongside the lower-order terms.', 'Report conditional slopes or predicted outcomes at meaningful W values and show an interaction plot.', 'Compare slopes through the interaction; separate significant/non-significant subgroup results do not themselves establish a difference.'],
-  ['界定 X、Y、W、編碼或中心化，以及交互作用項。','報告交互作用係數、單位、信賴區間及 p，亦交代低階項。','報告有意義 W 值下的條件斜率或預測結果，並展示交互作用圖。','透過交互作用比較斜率；不同組的顯著／不顯著結果本身不能證明差異。']],
+  ['界定 X、Y、W、編碼或中心化，以及交互作用項。','報告交互作用係數、單位、置信區間及 p，亦交代低階項。','報告有意義 W 值下的條件斜率或預測結果，並展示交互作用圖。','透過交互作用比較斜率；不同組的顯著／不顯著結果本身不能證明差異。']],
 };
 const extra = additionalGuides[method.id];
 const guide = guides[method.id] || { name: method.name, zh: method.zh, overview: method.overview, overviewZh: method.overviewZh, question: method.question, questionZh: method.translated.question, en: extra[0], cn: extra[1] };
 const coreOutputs: Record<string, [string,string,string,string]> = {
   describe: ['Scores or categories, with units, valid sample sizes and denominators.','有單位、有效樣本量及分母的分數或類別資料。','n, percentages, M and SD or median and IQR; the observed distribution.','n、百分比、M 與 SD 或中位數與 IQR，以及觀察到的分佈。'],
   ttest: ['A continuous outcome in two independent groups, or correctly paired observations.','兩個獨立組別的連續結果，或正確配對的觀察。','Group summaries, mean difference, 95% CI, t, df, p and a named effect size.','組別摘要、平均差、95% CI、t、df、p 及具名效應量。'],
-  correlation: ['Paired observations from the same cases: continuous scores for Pearson; scores that can be ranked, including ordinal data, for Spearman.','同一個案的配對觀察：Pearson 使用連續分數；Spearman 使用可排序的分數，包括序位資料。','Complete-pair n, the named correlation coefficient and p when testing; a scatterplot. A confidence interval adds information about precision.','完整配對 n、具名相關係數、檢定時的 p 及散佈圖；信賴區間補充估計精確程度的資訊。'],
+  correlation: ['Paired observations from the same cases: continuous scores for Pearson; scores that can be ranked, including ordinal data, for Spearman.','同一個案的配對觀察：Pearson 使用連續分數；Spearman 使用可排序的分數，包括序位資料。','Complete-pair n, the named correlation coefficient and p when testing; a scatterplot. A confidence interval adds information about precision.','完整配對 n、具名相關係數、檢定時的 p 及散佈圖；置信區間補充估計精確程度的資訊。'],
   anova: ['One continuous outcome, one categorical grouping factor and independent observations.','一個連續結果、一個類別分組因素及獨立觀察。','Group n, M and SD; F, both df, p, effect size and relevant follow-up comparisons.','各組 n、M 與 SD；F、兩個 df、p、效應量及相關後續比較。'],
 };
 const [data,dataZh,output,outputZh] = coreOutputs[method.id] || [method.data, method.translated.data, method.output, method.translated.output];
@@ -75,7 +75,7 @@ const focusedMethod = {
   ...method, name: guide.name, zh: guide.zh, overview: guide.overview, overviewZh: guide.overviewZh, question: guide.question, data, output,
   caution: method.id === 'correlation' ? 'A confidence interval describes how precisely the population correlation is estimated. It is not required to calculate r or its p-value, and separate intervals are not a prerequisite for directly testing the difference between two correlations. Correlation alone does not establish causation.' : method.caution,
   translated: { ...method.translated, question: guide.questionZh, data: dataZh, output: outputZh,
-    caution: method.id === 'correlation' ? '信賴區間呈現母體相關係數估計的精確程度。計算 r 或其 p 值並不需要先有區間；直接檢定兩個相關係數的差異，也不以各自的區間為先決條件。相關本身不能確立因果。' : method.translated.caution },
+    caution: method.id === 'correlation' ? '置信區間呈現母體相關係數估計的精確程度。計算 r 或其 p 值並不需要先有區間；直接檢定兩個相關係數的差異，也不以各自的區間為先決條件。相關本身不能確立因果。' : method.translated.caution },
 };
 ---
 <QuantMethodCard method={focusedMethod} {language} expanded reportingGuide={language === 'zh' ? guide.cn : guide.en} showTeachingSections={method.id !== 'describe'} showWorkedExample={false}>
@@ -86,7 +86,7 @@ const focusedMethod = {
       <thead><tr><th scope="col">{language === 'zh' ? '方法' : 'Method'}</th><th scope="col">{language === 'zh' ? '使用甚麼資料？' : 'What is used?'}</th><th scope="col">{language === 'zh' ? '衡量甚麼模式？' : 'What pattern is measured?'}</th></tr></thead>
       <tbody>
         <tr><th scope="row">Pearson r</th><td>{language === 'zh' ? '原始連續分數，保留數值間距。' : 'Original continuous scores, retaining the distances between values.'}</td><td>{language === 'zh' ? '線性關係：散點是否沿一條直線排列？' : 'Linear association: how closely do the points follow a straight line?'}</td></tr>
-        <tr><th scope="row">Spearman rₛ</th><td>{language === 'zh' ? '把分數轉為秩次，即排序後的位置；同分取平均秩次。亦適用於序位資料。' : 'Ranks: the positions of scores after sorting; ties receive average ranks. Ordinal data can also be used.'}</td><td>{language === 'zh' ? '單調關係：一個變項增加時，另一個是否持續傾向增加或減少？可以是曲線。' : 'Monotonic association: as one variable increases, does the other consistently tend to increase or decrease? The pattern may be curved.'}</td></tr>
+        <tr><th scope="row">Spearman rₛ</th><td>{language === 'zh' ? '把分數轉為秩次，即排序後的位置；同分取平均秩次。亦適用於序位資料。' : 'Ranks: the positions of scores after sorting; ties receive average ranks. Ordinal data can also be used.'}</td><td>{language === 'zh' ? '單調關係：一個变量增加時，另一個是否持續傾向增加或減少？可以是曲線。' : 'Monotonic association: as one variable increases, does the other consistently tend to increase or decrease? The pattern may be curved.'}</td></tr>
       </tbody>
     </table>
     <p>{language === 'zh' ? '兩者通常都檢定各自的母體相關係數是否為零，但衡量的關係不同。Spearman 並非所有非線性關係的檢定；U 形關係可能令兩者都接近零。' : 'Both commonly test whether their respective population correlation is zero, but they measure different patterns. Spearman does not detect every nonlinear relationship; a U-shaped pattern can give values near zero for both.'}</p>

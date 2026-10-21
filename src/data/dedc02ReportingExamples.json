@@ -19,7 +19,7 @@
     "pdfPage": 5,
     "section": "Results",
     "focus": "The independent-samples report gives each group’s mean and SD, followed by t with its degrees of freedom, p and d. In the paired-samples example, the prose states the direction of change and Table 1 gives pretest and posttest means (SE), confidence intervals, p and d. Read SD and SE as different quantities.",
-    "focusZh": "獨立樣本的文字報告先列各組平均數與 SD，再列 t、括號內的自由度、p 及 d。配對樣本例子的文字交代變化方向，表 1 列出前後測平均數（SE）、信賴區間、p 及 d。SD 與 SE 是不同的量。",
+    "focusZh": "獨立樣本的文字報告先列各組平均數與 SD，再列 t、括號內的自由度、p 及 d。配對樣本例子的文字交代變化方向，表 1 列出前後測平均數（SE）、置信區間、p 及 d。SD 與 SE 是不同的量。",
     "sourceKind": "Study PDF in the reading vault",
     "citation": "Kahng & Otonya (2021)",
     "table": {
@@ -81,7 +81,7 @@
     "pdfPage": 12,
     "section": "Results",
     "focus": "Read the outcome and contrast first, then F, its degrees of freedom and p. The sentence also supplies the direction and Cohen’s d; a significant omnibus test alone would not identify every pairwise difference.",
-    "focusZh": "先確認結果變項及比較對象，再讀 F、自由度及 p。此處亦交代方向及 Cohen’s d；單憑顯著的整體檢定不能判定所有組別兩兩有差異。",
+    "focusZh": "先確認結果变量及比較對象，再讀 F、自由度及 p。此處亦交代方向及 Cohen’s d；單憑顯著的整體檢定不能判定所有組別兩兩有差異。",
     "sourceKind": "Study PDF in the reading vault",
     "citation": "Early & Saidy (2014)"
   },
@@ -93,7 +93,7 @@
     "pdfPage": 6,
     "section": "Results",
     "focus": "The reported means are adjusted for a covariate rather than raw group averages. This is a follow-up contrast; inspect the preceding adjusted model, covariate specification, uncertainty and multiplicity handling.",
-    "focusZh": "這些是控制共變量後的調整平均數，並非原始組平均數。這是事後比較，還須閱讀前面的模型、共變量設定、不確定性及多重比較處理。",
+    "focusZh": "這些是控制協变量後的調整平均數，並非原始組平均數。這是事後比較，還須閱讀前面的模型、協变量設定、不確定性及多重比較處理。",
     "sourceKind": "Study PDF in the reading vault",
     "citation": "Reynolds et al. (2021)"
   },
@@ -105,7 +105,7 @@
     "pdfPage": 6,
     "section": "Results",
     "focus": "V is a multivariate test statistic; the authors also report F, degrees of freedom, p and partial eta squared. Preserve these source values when quoting, but examine the full output before accepting the magnitude or generalising it.",
-    "focusZh": "V 是多變量檢定統計量；作者亦報告 F、自由度、p 及偏 eta 平方。引文保留原文數值，判斷其大小及可推廣性時仍須核對完整輸出。",
+    "focusZh": "V 是多变量檢定統計量；作者亦報告 F、自由度、p 及偏 eta 平方。引文保留原文數值，判斷其大小及可推廣性時仍須核對完整輸出。",
     "sourceKind": "Study PDF in the reading vault",
     "citation": "Tsang (2018)"
   },
@@ -189,7 +189,7 @@
     "pdfPage": 6,
     "section": "Results",
     "focus": "The reported correlations are positive. The .56 correlation is numerically larger than .40; each p < .01 tests a correlation against zero, not .56 against .40. This excerpt does not report a direct test of that difference. If both Pearson correlations use the same learners and share EIL perceptions, a test for dependent, overlapping correlations, such as Williams’ test, addresses that comparison. It uses the sample size and the correlation between TOEIC and speaking as well. Separate confidence intervals are not required for this test.",
-    "focusZh": "所報告的相關均為正。.56 在數值上大於 .40；每個 p < .01 檢定的是相關是否不同於零，而非 .56 與 .40 是否不同。這段節錄沒有報告差異的直接檢定。若兩個 Pearson 相關來自同一批學習者，並共用 EIL 觀念這個變項，可用 Williams 檢定等方法比較這類相依且共用變項的相關；亦需樣本量及 TOEIC 與口語之間的相關。此檢定不需要先有兩個相關各自的信賴區間。",
+    "focusZh": "所報告的相關均為正。.56 在數值上大於 .40；每個 p < .01 檢定的是相關是否不同於零，而非 .56 與 .40 是否不同。這段節錄沒有報告差異的直接檢定。若兩個 Pearson 相關來自同一批學習者，並共用 EIL 觀念這個变量，可用 Williams 檢定等方法比較這類相依且共用变量的相關；亦需樣本量及 TOEIC 與口語之間的相關。此檢定不需要先有兩個相關各自的置信區間。",
     "sourceKind": "Study PDF in the reading vault",
     "citation": "Lee (2020)"
   },
@@ -201,7 +201,7 @@
     "pdfPage": 6,
     "section": "Results",
     "focus": "The standardised beta coefficients describe conditional associations within the fitted model. Read their signs, magnitudes and p values, then check intervals and model fit; predictor does not automatically mean cause.",
-    "focusZh": "標準化 beta 係數描述模型中控制其他變項後的條件關聯。先讀正負方向、大小及 p，再檢查區間及模型配適；預測變項不自動等於原因。",
+    "focusZh": "標準化 beta 係數描述模型中控制其他变量後的條件關聯。先讀正負方向、大小及 p，再檢查區間及模型配適；預測变量不自動等於原因。",
     "sourceKind": "Study PDF in the reading vault",
     "citation": "Lee & Drajati (2019)"
   },
@@ -213,7 +213,7 @@
     "pdfPage": 16,
     "section": "Results",
     "focus": "The outcome is binary: passing the speaking criterion. z and p provide evidence about a coefficient, but an odds ratio or predicted probabilities with intervals are needed to communicate the size of the association.",
-    "focusZh": "結果變項是二元的：是否通過口語標準。z 及 p 提供係數的檢定證據；要呈現關聯大小，還須勝算比或預測機率及其區間。",
+    "focusZh": "結果变量是二元的：是否通過口語標準。z 及 p 提供係數的檢定證據；要呈現關聯大小，還須勝算比或預測機率及其區間。",
     "sourceKind": "Study PDF in the reading vault",
     "citation": "Ockey et al. (2021)"
   },
@@ -237,7 +237,7 @@
     "pdfPage": 30,
     "section": "Results",
     "focus": "The excerpt now has its numerical evidence beside it. The BLLS estimate is 0.01 with a credible interval from −0.02 to 0.04, so its sign remains uncertain. These are log-scale coefficients, not raw count differences. The random-intercept SD is a separate measure of between-learner variability.",
-    "focusZh": "引文旁列出其數值依據：BLLS 估計為 0.01，可信區間為 −0.02 至 0.04，因此方向仍不確定。這是 log 尺度的係數，並非原始計數差。隨機截距 SD 則另行描述學習者間變異。",
+    "focusZh": "引文旁列出其數值依據：BLLS 估計為 0.01，可信區間為 −0.02 至 0.04，因此方向仍不確定。這是 log 尺度的係數，並非原始計數差。隨機截距 SD 則另行描述學習者間差異。",
     "sourceKind": "Study PDF in the reading vault",
     "citation": "Hiver et al. (2024)",
     "table": {
@@ -299,7 +299,7 @@
     "pdfPage": 13,
     "section": "Results",
     "focus": "The b estimate is negative, but its 95% confidence interval includes zero. Dominance or importance rankings answer a different question from coefficient precision; read the robust fitting procedure in the Methods section as well.",
-    "focusZh": "b 為負值，但其 95% 信賴區間包含零。優勢或重要性排名與係數精確度回答不同的問題；還須閱讀方法部分的穩健估計程序。",
+    "focusZh": "b 為負值，但其 95% 置信區間包含零。優勢或重要性排名與係數精確度回答不同的問題；還須閱讀方法部分的穩健估計程序。",
     "sourceKind": "Study PDF in the reading vault",
     "citation": "Hougham et al. (2024)"
   },
@@ -447,7 +447,7 @@
     "pdfPage": 9,
     "section": "Results",
     "focus": "The percentages describe explained variance, while the next sentence compares the item patterns. The article calls these factors; when teaching PCA, distinguish components summarising total variance from latent factors modelling common variance.",
-    "focusZh": "百分比描述解釋的變異量，下一句則比較題項模式。文章稱其為因素；教授 PCA 時，須區分概括總變異的成分與建模共同變異的潛在因素。",
+    "focusZh": "百分比描述解釋的方差，下一句則比較題項模式。文章稱其為因素；教授 PCA 時，須區分概括總方差的成分與建模共同方差的潛在因素。",
     "sourceKind": "Study PDF in the reading vault",
     "citation": "Hamada & Takaki (2021)"
   },
@@ -527,7 +527,7 @@
     "pdfPage": 14,
     "section": "Results",
     "focus": "The preceding table identifies these values as odds ratios with 95% profile confidence intervals. Despite the phrase “times more likely”, interpret 2.212 as an odds multiplier, not a probability multiplier; the model accounts for person and item effects.",
-    "focusZh": "前面的表格將這些值界定為勝算比及其 95% 剖面信賴區間。原文雖寫「times more likely」，2.212 應解讀為勝算倍數，並非機率倍數；模型亦處理個人及題項效應。",
+    "focusZh": "前面的表格將這些值界定為勝算比及其 95% 剖面置信區間。原文雖寫「times more likely」，2.212 應解讀為勝算倍數，並非機率倍數；模型亦處理個人及題項效應。",
     "sourceKind": "Study PDF in the reading vault",
     "citation": "Brunfaut et al. (2021)"
   },
@@ -551,7 +551,7 @@
     "pdfPage": 15,
     "section": "Results",
     "focus": "The time subscripts identify predictor and later outcome. These cross-lagged paths are conditional on the model’s other paths; temporal ordering and a two-wave coefficient product alone do not establish a causal mediation process.",
-    "focusZh": "時間下標區分預測變項與後續結果。交叉滯後路徑是在模型其他路徑條件下的關聯；只有時間先後及兩波係數乘積，不足以證明因果中介過程。",
+    "focusZh": "時間下標區分預測变量與後續結果。交叉滯後路徑是在模型其他路徑條件下的關聯；只有時間先後及兩波係數乘積，不足以證明因果中介過程。",
     "sourceKind": "Study PDF in the reading vault",
     "citation": "Zhan & Teng (2025)"
   },
@@ -563,7 +563,7 @@
     "pdfPage": 13,
     "section": "Results",
     "focus": "The interpretation concerns within-person deviations, separated from stable between-person differences. Read B, the confidence interval and p together; prediction of later deviations remains dependent on model and design assumptions.",
-    "focusZh": "解讀針對個人內的偏離，並與穩定的個人間差異分開。須合併閱讀 B、信賴區間及 p；對後續偏離的預測仍取決於模型及設計假設。",
+    "focusZh": "解讀針對個人內的偏離，並與穩定的個人間差異分開。須合併閱讀 B、置信區間及 p；對後續偏離的預測仍取決於模型及設計假設。",
     "sourceKind": "Study PDF in the reading vault",
     "citation": "Tsang & Kwan (2026)"
   },
@@ -587,7 +587,7 @@
     "pdfPage": 7,
     "section": "Results: Association of Change in FLE and L2 Grit Over Time",
     "focus": "The slope factors represent change over time in foreign language enjoyment (FLE) and L2 grit. Their covariance concerns co-development; it does not show that one construct causes the other to change.",
-    "focusZh": "斜率因素代表外語愉悅（FLE）及第二語言堅毅隨時間的改變。兩者的共變異描述共同發展，並不能證明一個構念導致另一個改變。",
+    "focusZh": "斜率因素代表外語愉悅（FLE）及第二語言堅毅隨時間的改變。兩者的協方差描述共同發展，並不能證明一個構念導致另一個改變。",
     "sourceKind": "Open-access primary study",
     "citation": "Elahi Shirvan et al. (2021)"
   },
@@ -647,7 +647,7 @@
     "pdfPage": 6,
     "section": "Results",
     "focus": "The authors report named variable pairs and signed partial correlations, so readers can see both direction and size. These are conditional network associations, not causal effects. The word “significant” is the authors’ wording; a nonzero regularised edge alone is not a conventional significance test. Examine the estimation and uncertainty procedures separately.",
-    "focusZh": "作者列出變項配對及帶正負號的偏相關，讓讀者看出方向與大小。這些是條件網絡關聯，並非因果效應。「significant」保留作者用詞；正則化後非零的邊，本身不等於傳統顯著性檢定。估計及不確定性的程序須另行檢查。",
+    "focusZh": "作者列出变量配對及帶正負號的偏相關，讓讀者看出方向與大小。這些是條件網絡關聯，並非因果效應。「significant」保留作者用詞；正則化後非零的邊，本身不等於傳統顯著性檢定。估計及不確定性的程序須另行檢查。",
     "sourceKind": "Study PDF in the reading vault",
     "citation": "Luo (2026)"
   },
@@ -671,7 +671,7 @@
     "pdfPage": 20,
     "section": "Results",
     "focus": "These are pooled correlations across studies, organised by fluency measure. Interpret the summary estimates with their confidence intervals, heterogeneity and study coverage; a pooled association is not a pooled causal effect.",
-    "focusZh": "這些是按流暢度指標分類、跨研究合併的相關係數。解讀時須考慮信賴區間、異質性及研究涵蓋範圍；合併關聯並非合併因果效應。",
+    "focusZh": "這些是按流暢度指標分類、跨研究合併的相關係數。解讀時須考慮置信區間、異質性及研究涵蓋範圍；合併關聯並非合併因果效應。",
     "sourceKind": "Study PDF in the reading vault",
     "citation": "Suzuki et al. (2021)"
   },
@@ -695,7 +695,7 @@
     "pdfPage": 12,
     "section": "Results",
     "focus": "The confidence interval (CI) concerns the pooled mean effect; the prediction interval (PI) concerns variation in effects in comparable settings. Here the PI spans zero even though the CI does not; the model accounts for dependent effects within studies.",
-    "focusZh": "信賴區間（CI）針對合併平均效應；預測區間（PI）針對相似情境中效應的變動。此處 PI 跨越零，但 CI 沒有；模型亦處理同一研究內相依的效應量。",
+    "focusZh": "置信區間（CI）針對合併平均效應；預測區間（PI）針對相似情境中效應的變動。此處 PI 跨越零，但 CI 沒有；模型亦處理同一研究內相依的效應量。",
     "sourceKind": "Study PDF in the reading vault",
     "citation": "Panadero et al. (2023)"
   },
