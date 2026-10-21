@@ -1,0 +1,35 @@
+---
+import type { CoreSlide } from '../../data/dedc02QuantCoreLesson';
+import {studyPapers,openTextbookUrl} from '../../data/dedc02QuantCoreLesson';
+import {withBase} from '../../utils/paths';
+interface Props { slide:CoreSlide; language:'en'|'zh'; }
+const {slide,language}=Astro.props;
+const zh=language==='zh';const t=(v:[string,string])=>v[zh?1:0];
+const paper=slide.paper?studyPapers[slide.paper as keyof typeof studyPapers]:null;
+const pdf=paper?withBase('/teaching/courses/dedc02/readings/quantitative/'+paper.file):'';
+const start=slide.pages?.at(-1)||1;
+---
+<div class="qm-core-copy">
+<h2>{t(slide.title)}</h2><p class="qm-core-lead">{t(slide.lead)}</p>
+{slide.blocks.map(block=><div class="qm-core-block">
+ {block.heading&&<h3>{t(block.heading)}</h3>}
+ {block.paragraphs?.map(p=><p>{t(p)}</p>)}
+ {block.bullets&&<ul>{block.bullets.map(b=><li>{t(b)}</li>)}</ul>}
+ {block.table&&<div class="qm-core-table-scroll" role="region" aria-label={t(block.table.caption||slide.title)} tabindex="0"><table class="qm-source-table qm-core-table">
+  {block.table.caption&&<caption>{t(block.table.caption)}</caption>}
+  <thead><tr>{block.table.headers.map(h=><th scope="col">{t(h)}</th>)}</tr></thead>
+  <tbody>{block.table.rows.map(row=><tr>{row.map((cell,i)=>i===0?<th scope="row">{t(cell)}</th>:<td>{t(cell)}</td>)}</tr>)}</tbody>
+ </table></div>}
+</div>)}
+{slide.quote&&<blockquote class="qm-core-excerpt" lang="en" data-no-glossary cite={paper?.url}>{slide.quote}</blockquote>}
+{paper&&<div class="qm-core-paper" data-core-paper={slide.paper}>
+ <p class="qm-source" data-no-glossary><a href={paper.url} target="_blank" rel="noopener noreferrer">{paper.citation}. {paper.title}</a><br/>{zh?'閱讀 PDF 第 ':'Read PDF page'}{!zh&&slide.pages!.length>1?'s ':!zh?' ':''}{slide.pages!.join(zh?'、':', ')}{zh?' 頁':''} · <a href={paper.licenseUrl} target="_blank" rel="noopener noreferrer">{paper.license}</a></p>
+ <div class="qm-core-paper-actions">
+  <a class="qm-core-link" href={`${pdf}#page=${start}`} data-study-pdf target="_blank" rel="noopener noreferrer">{zh?`開啟論文：PDF 第 ${start} 頁`:`Open paper at PDF page ${start}`}</a>
+  <a class="qm-core-link" href={pdf} download={paper.file}>{zh?'下載完整論文 PDF':'Download full paper PDF'}</a>
+ </div>
+ {slide.quote&&<details class="qm-pdf-reader"><summary>{zh?'在此頁閱讀論文 PDF':'Read the paper PDF on this page'}</summary><iframe src={`${pdf}#page=${start}`} title={`${paper.citation} — ${zh?'完整論文':'full article'}`} loading="lazy"></iframe><p class="qm-caption">{zh?'若瀏覽器未能顯示內嵌 PDF，請使用上方的開啟或下載連結。':'If the embedded PDF does not display in your browser, use the open or download link above.'}</p></details>}
+</div>}
+{slide.prompt&&<div class="qm-core-check"><h3>{zh?'停一停，解釋一下':'Pause and explain'}</h3><p>{t(slide.prompt)}</p><details><summary>{zh?'對照解釋':'Compare your explanation'}</summary><p>{t(slide.answer!)}</p></details></div>}
+<p class="qm-core-book qm-caption" data-no-glossary>{zh?'教科書閱讀依據：':'Textbook reading: '}{t(slide.books)} <a href={openTextbookUrl} target="_blank" rel="noopener noreferrer">{zh?'開啟 Fein 等的免費教科書':'Open the free Fein et al. textbook'}</a></p>
+</div>

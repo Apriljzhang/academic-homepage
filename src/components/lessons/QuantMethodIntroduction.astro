@@ -1,0 +1,22 @@
+---
+import {methodIntroductions,introductionSources} from '../../data/quantMethodIntroductions';
+import {methods} from '../../data/dedc02Quantitative';
+interface Props {methodId:string;language:'en'|'zh';}
+const {methodId,language}=Astro.props;
+const intro=methodIntroductions[methodId];
+if(!intro) throw new Error(`Missing extended introduction: ${methodId}`);
+const zh=language==='zh';const i=zh?1:0;
+const sections=[
+  {heading:zh?'理解它的思路':'Understand the idea',copy:intro.idea},
+  {heading:zh?'它能回答的研究問題':'A research question it can answer',copy:intro.question},
+  {heading:zh?'如何閱讀與報告結果':'How to read and report the result',copy:intro.read},
+  {heading:zh?'使用前的檢查與限制':'Checks and limits',copy:intro.check},
+];
+---
+<section class="qm-extended-introduction" data-extended-introduction={methodId} aria-label={zh?'方法進一步介紹':'Further method introduction'}>
+  {sections.map(s=><div class="qm-intro-section"><h3>{s.heading}</h3><p>{s.copy[i]}</p></div>)}
+  <div class="qm-intro-comparison"><h3>{zh?'與相近方法有何分別？':'How does it differ from a nearby method?'}</h3><p>{intro.contrast[i]}</p>
+    <div class="qm-controls qm-related-methods">{intro.related.map(id=>{const m=methods.find(m=>m.id===id);if(!m)throw new Error(`Unknown related method: ${id}`);return <button type="button" data-open-method={id}>{zh?m.zh:m.name}</button>;})}</div>
+  </div>
+  <p class="qm-source qm-intro-sources" data-no-glossary>{zh?'延伸閱讀：':'Further reading: '}{intro.sources.map((key,index)=>{const s=introductionSources[key];if(!s)throw new Error(`Unknown introduction source: ${key}`);return <>{index>0?' · ':''}<a href={s.url} target="_blank" rel="noopener noreferrer">{s.label}</a></>;})}</p>
+</section>

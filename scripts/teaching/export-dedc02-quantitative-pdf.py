@@ -56,12 +56,17 @@ styles.add(ParagraphStyle(name='H4Q',fontName='BodyBold',fontSize=11,leading=15,
 styles.add(ParagraphStyle(name='SummaryQ',parent=styles['H4Q'],keepWithNext=False))
 styles.add(ParagraphStyle(name='Quote',parent=styles['Copy'],leftIndent=12,rightIndent=10,borderColor=RULE,borderWidth=1,borderPadding=9,spaceBefore=7,spaceAfter=13))
 
-SKIP={'script','style','button','input','select','textarea','svg','dialog','nav','colgroup','col'}
-def hidden(n):return n.attrs.get('data-language')=='zh' or n.has('qm-english-name') or n.has('qm-mobile-column-label') or n.has('qm-glossary-sign') or n.has('qm-glossary-count') or n.has('qm-method-page-tools') or n.has('qm-method-page-end') or n.has('qm-controls') or n.has('qm-map-tools')
+SKIP={'script','style','button','input','select','textarea','svg','dialog','nav','colgroup','col','iframe','object','embed'}
+def hidden(n):return n.attrs.get('data-language')=='zh' or n.has('qm-english-name') or n.has('qm-mobile-column-label') or n.has('qm-glossary-sign') or n.has('qm-glossary-count') or n.has('qm-method-page-tools') or n.has('qm-method-page-end') or n.has('qm-controls') or n.has('qm-map-tools') or n.has('qm-pdf-reader')
 def inline(n):
     if isinstance(n,str):return escape(re.sub(r'\s+',' ',n)).replace('–','-').replace('—','-').replace('ₛ','<sub>s</sub>')
     if n.tag in SKIP or hidden(n):return ''
     body=''.join(inline(c) for c in n.children if not (n.tag=='a' and isinstance(c,Node) and c.tag=='small'))
+    if n.has('qm-caption') and body.startswith('Also written as: '):
+        aliases=[part for part in body.removeprefix('Also written as: ').split(' · ') if not re.search(r'[\u3400-\u9fff]',part)]
+        return 'Also written as: '+ ' · '.join(aliases) if aliases else ''
+    if n.tag in ('td','th') and any(isinstance(c,Node) and c.tag=='p' for c in n.children):
+        body='<br/>'.join(part.strip() for c in n.children if (part:=inline(c)).strip())
     if n.tag=='br':return '<br/>'
     if n.tag in ('strong','b'):return '<b>'+body+'</b>'
     if n.tag in ('em','i'):return '<i>'+body+'</i>'
@@ -125,14 +130,14 @@ def render(n):
 
 parser=Parser();parser.feed(INPUT.read_text())
 sections=[n for n in parser.root.walk() if n.tag=='section' and n.has('slide') and 'data-independent-exploration' not in n.attrs]
-assert sections and sum('data-taught-method' in n.attrs for n in sections)==13, 'Expected the 13 taught methods in the lesson route'
+assert sections and sum('data-taught-method' in n.attrs for n in sections)==4, 'Expected the four detailed methods in the lesson route'
 story=[]
 for i,section in enumerate(sections):
     if i:story.append(PageBreak())
     story.append(Paragraph(f'DEDC02 / Topic 8 / Lesson step {i+1} of {len(sections)}',styles['SmallCopy']))
     story.extend(render(section))
     if i==0:
-        story.append(Paragraph('English lesson handout. Open the interactive lesson for everyday story examples. Specialist method explanations are linked from the map for independent exploration.',styles['Copy']))
+        story.append(Paragraph('English lesson handout. Begin with data and descriptive statistics, then work through four detailed methods. Open the interactive lesson for everyday stories and the full study PDFs. Further methods remain linked from the map.',styles['Copy']))
         story.append(Paragraph('<link href="'+LESSON+'" color="#1f6b45">Open the interactive lesson</link>',styles['Copy']))
 
 def footer(c,doc):

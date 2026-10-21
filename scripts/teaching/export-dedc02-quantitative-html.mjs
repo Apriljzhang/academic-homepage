@@ -31,11 +31,17 @@ for(const m of [...html.matchAll(/<img\b[^>]*src="(\/[^"\s]+)"[^>]*>/g)]) {
  const bytes=await readFile(path.join(root,m[1]));
  html=html.replace(m[0],m[0].replace(`src="${m[1]}"`,`src="data:${mime(m[1])};base64,${bytes.toString('base64')}"`));
 }
-const lessonPdf='/teaching/courses/dedc02/quantitative-data-analysis-and-reporting.pdf';
-if(html.includes(`href="${lessonPdf}"`)) {
- const bytes=await readFile(path.join(root,lessonPdf));
- html=html.replaceAll(`href="${lessonPdf}"`,`href="data:application/pdf;base64,${bytes.toString('base64')}"`);
+const pdfPaths=[...new Set([...html.matchAll(/(?:href|src)="(\/teaching\/[^"#]+\.pdf)(?:#[^"]*)?"/g)].map(m=>m[1]))];
+const embeddedPdfs=[];
+for(const [index,pdfPath] of pdfPaths.entries()) {
+ const bytes=await readFile(path.join(root,pdfPath));
+ embeddedPdfs.push(bytes.toString('base64'));
+ const escaped=pdfPath.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+ html=html.replace(new RegExp(`(href|src)="${escaped}(#[^"]*)?"`,'g'),(_,attribute,fragment='')=>`${attribute}="${attribute==='href'?'#':'about:blank'}" data-embedded-pdf="${index}" data-pdf-attribute="${attribute}" data-pdf-fragment="${fragment}"`);
 }
+// Store each PDF once; object URLs preserve downloads and #page navigation offline.
+const pdfScript=`<script data-offline-pdfs>const offlinePdfs=${JSON.stringify(embeddedPdfs)};const offlinePdfUrls=offlinePdfs.map(data=>{const binary=atob(data);const bytes=Uint8Array.from(binary,c=>c.charCodeAt(0));return URL.createObjectURL(new Blob([bytes],{type:'application/pdf'}));});document.querySelectorAll('[data-embedded-pdf]').forEach(node=>node.setAttribute(node.dataset.pdfAttribute,offlinePdfUrls[Number(node.dataset.embeddedPdf)]+node.dataset.pdfFragment));</script>`;
+html=html.replace('</body>',pdfScript+'</body>');
 html=html.replace(/href="(\/teaching\/[^"#]*)"/g,(_,href)=>`href="https://apriljzhang.com${href}"`);
 await mkdir(path.dirname(output),{recursive:true});await writeFile(output,html);
 console.log(`Standalone HTML saved: ${output} (${Buffer.byteLength(html)} bytes)`);
