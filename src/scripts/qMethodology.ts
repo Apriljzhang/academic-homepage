@@ -1,7 +1,7 @@
 import { syncLessonNavigation, bindLessonShortcuts } from './lessonDeck';
 import { initLessonTimer } from './lessonTimer';
 
-const accessKey = 'q-methodology-202610-access';
+const accessKey = 'q-methodology-202611-access';
 const sortKey = 'q-methodology-202610-sort';
 const planKey = 'q-methodology-202610-plan';
 const slides = Array.from(document.querySelectorAll<HTMLElement>('.q-deck .slide'));
@@ -88,7 +88,7 @@ document.querySelector<HTMLFormElement>('[data-q-access-form]')?.addEventListene
   event.preventDefault();
   const input = document.querySelector<HTMLInputElement>('#q-access-code');
   const feedback = document.querySelector('[data-q-access-feedback]');
-  if (input?.value.trim() === '202610') unlock();
+  if (input?.value.trim() === '202611') unlock();
   else {
     if (feedback) feedback.textContent = 'That code does not match this workshop. Please check the code provided by your instructor.';
     input?.setAttribute('aria-invalid', 'true');

@@ -16,6 +16,7 @@ const description = `Doing Research, English for Academic Purposes and professio
 const doingResearchPath = withBase(`/teaching/training/${doingResearchTheme.slug}`);
 const studentPath = withBase('/teaching/training/app/');
 const hostPath = withBase('/teaching/training/app/host');
+const tirfPath = withBase('/teaching/training/tirf/');
 const qMethodologyPath = withBase('/teaching/training/q-methodology/');
 const themePath = withBase(`/teaching/training/${eapTrainingTheme.slug}`);
 ---
@@ -109,7 +110,19 @@ const themePath = withBase(`/teaching/training/${eapTrainingTheme.slug}`);
               <p id="trainingHint" class="mt-2 text-xs text-muted" hidden></p>
             </li>
             <li class="rounded-lg border border-border bg-surface px-4 py-3">
-              <p class="text-xs font-semibold uppercase tracking-[0.12em] text-muted">October 2026</p>
+              <p class="text-xs font-semibold uppercase tracking-[0.12em] text-muted">24 October 2026</p>
+              <h2 class="mt-1 text-base font-semibold text-ink">AI Empowered Formative Assessment in TESOL: Designing Feedback Reflection and Learner Action</h2>
+              <p class="mt-1 text-sm text-muted">AI4ELE / TIRF · BNBU, Zhuhai · A hands-on hour designing classroom language-assessment activities with Codex and WorkBuddy.</p>
+              <form id="tirfEntry" class="mt-3 flex flex-wrap items-center gap-2">
+                <label for="tirfCode" class="sr-only">TIRF workshop access code</label>
+                <input id="tirfCode" name="code" type="text" inputmode="numeric" autocomplete="off" placeholder="Enter access code" required aria-describedby="tirfHint" class="w-52 rounded-full border border-border bg-page px-4 py-2 text-sm font-normal text-ink" />
+                <button type="submit" class="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:opacity-95">Open TIRF workshop</button>
+              </form>
+              <p id="tirfHint" class="mt-2 text-xs text-muted" role="status" hidden></p>
+              <a href={tirfPath} class="mt-2 inline-block text-sm">Workshop entry page</a>
+            </li>
+            <li class="rounded-lg border border-border bg-surface px-4 py-3">
+              <p class="text-xs font-semibold uppercase tracking-[0.12em] text-muted">November 2026</p>
               <h2 class="mt-1 text-base font-semibold text-ink">Q methodology for postgraduate research</h2>
               <p class="mt-1 text-sm text-muted">A 15 minute introduction to shared viewpoints, with a Q sorting activity and practical research guidance.</p>
               <form id="qMethodologyEntry" class="mt-3 flex flex-wrap items-center gap-2">
@@ -128,7 +141,7 @@ const themePath = withBase(`/teaching/training/${eapTrainingTheme.slug}`);
   </main>
   <SiteFooter />
 
-  <script is:inline define:vars={{ studentPath, hostPath, qMethodologyPath }}>
+  <script is:inline define:vars={{ studentPath, hostPath, qMethodologyPath, tirfPath }}>
     (function () {
       const input = document.getElementById('trainingCode');
       const btn = document.getElementById('trainingOpen');
@@ -136,7 +149,12 @@ const themePath = withBase(`/teaching/training/${eapTrainingTheme.slug}`);
       function open() {
         const code = (input?.value || '').trim().toLowerCase();
         if (code === '202610') {
-          try { sessionStorage.setItem('q-methodology-202610-access', 'yes'); } catch {}
+          try { sessionStorage.setItem('tirf-202610-access', 'yes'); } catch {}
+          window.location.href = tirfPath;
+          return;
+        }
+        if (code === '202611') {
+          try { sessionStorage.setItem('q-methodology-202611-access', 'yes'); } catch {}
           window.location.href = qMethodologyPath;
           return;
         }
@@ -158,12 +176,25 @@ const themePath = withBase(`/teaching/training/${eapTrainingTheme.slug}`);
       input?.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') open();
       });
+      document.getElementById('tirfEntry')?.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const input = document.getElementById('tirfCode');
+        const hint = document.getElementById('tirfHint');
+        if ((input?.value || '').trim() === '202610') {
+          try { sessionStorage.setItem('tirf-202610-access', 'yes'); } catch {}
+          window.location.href = tirfPath;
+        } else if (hint) {
+          hint.hidden = false;
+          hint.textContent = 'That code does not match this workshop. Please check the code provided by your instructor.';
+          input?.setAttribute('aria-invalid', 'true');
+        }
+      });
       document.getElementById('qMethodologyEntry')?.addEventListener('submit', (event) => {
         event.preventDefault();
         const qInput = document.getElementById('qMethodologyCode');
         const qHint = document.getElementById('qMethodologyHint');
-        if ((qInput?.value || '').trim() === '202610') {
-          try { sessionStorage.setItem('q-methodology-202610-access', 'yes'); } catch {}
+        if ((qInput?.value || '').trim() === '202611') {
+          try { sessionStorage.setItem('q-methodology-202611-access', 'yes'); } catch {}
           window.location.href = qMethodologyPath;
         } else if (qHint) {
           qHint.hidden = false;
