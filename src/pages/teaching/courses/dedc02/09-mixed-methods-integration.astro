@@ -17,7 +17,6 @@ const courseHref = withBase('/teaching/courses/dedc02');
 <div class="en" data-language="en">{i===0?<h1 set:html={s.title}/>:<h2 set:html={s.title}/>}<Fragment set:html={s.body}/></div>
 <div class="zh" data-language="zh" lang="zh-Hant" hidden>{i===0?<h1 set:html={s.zh}/>:<h2 set:html={s.zh}/>}<Fragment set:html={s.bodyzh}/></div>
 {i!==0&&<p class="source-note" set:html={s.source}/>}
-{i!==0&&<details class="teaching-notes"><summary>Teaching notes / 教學提示</summary><p>{s.notes}</p></details>}
 </div></section>)}
 </main>
 <script>import '../../../../scripts/dedc02MixedMethods';</script>
