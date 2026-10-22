@@ -1,11 +1,13 @@
 ---
 import CourseSlideLayout from '../../../layouts/CourseSlideLayout.astro';
 import TirfStrategyMatrix from '../../../components/lessons/TirfStrategyMatrix.astro';
+import TirfFeedbackModel from '../../../components/lessons/TirfFeedbackModel.astro';
 import TirfFramework from '../../../components/lessons/TirfFramework.astro';
 import LessonDeckChrome from '../../../components/lessons/LessonDeckChrome.astro';
-import { tirfReferences } from '../../../data/tirfSources';
+import { tirfFrameworkReferences } from '../../../data/tirfSources';
 import { workshopTitle, openingExample, agenda, demoBrief, prompts, worksheet, cases } from '../../../data/tirfWorkshop';
 import '../../../styles/tirf-workshop.css';
+import '../../../styles/tirf-models.css';
 const title = `${workshopTitle} · April Jiawei Zhang`;
 const description = 'Understand formative assessment / AfL, then use Codex or WorkBuddy to design, test and improve a language-class activity.';
 const courseHref = '/teaching/training/';
@@ -45,12 +47,22 @@ const resources = '/teaching/training/tirf/resources/';
 <label for="target-rewrite">Adapt this goal to a language need in your class / 按班級的語言需要調整目標</label><textarea id="target-rewrite" data-note="Learner-specific aim rewrite" rows="2" placeholder="My learners can… but need to develop…"></textarea>
 <p class="takeaway">Use the same goal and criteria to judge the task, feedback and learner’s next step.</p>
 </div></section>
-<section class="slide" data-title="Formative practice around the goal" aria-hidden="true"><div class="slide-inner">
-<header class="slide-header"><span class="eyebrow">Understand AfL · The design we will build</span></header>
-<div data-language="en"><h2>Formative practice around the goal</h2><p>Keep the language target central as you elicit evidence, interpret it, provide feedback and support action. Select a practice to see it in our task.</p></div><div data-language="zh" lang="zh-Hant" hidden><h2>以目標為中心的形成性實踐</h2><p>蒐集證據、詮釋、回饋與行動都圍繞同一語言目標。點選各項，查看本活動如何運用。</p></div>
-<details><summary>Five strategies: teacher, peer and learner roles / 五項策略：教師、同伴與學習者</summary><TirfStrategyMatrix /></details>
+<section class="slide" data-title="Three frameworks for formative assessment" aria-hidden="true"><div class="slide-inner">
+<header class="slide-header"><span class="eyebrow">Understand AfL · Three frameworks</span></header>
+<div data-language="en"><h2>Three frameworks, one learning goal</h2><p>Use the same writing task to connect classroom strategies, the focus of feedback and the action that follows. Open each framework in turn.</p></div><div data-language="zh" lang="zh-Hant" hidden><h2>三個框架，同一學習目標</h2><p>以同一寫作任務，連結課堂策略、回饋焦點及後續行動。依次展開各框架。</p></div>
+<details class="framework-section" name="tirf-models"><summary><span class="model-number">1</span><span>Black &amp; Wiliam (2009)<small><span data-language="en">Who participates, and what do they do?</span><span data-language="zh" lang="zh-Hant" hidden>誰參與？他們做甚麼？</span></small></span></summary><div class="model-content">
+<div data-language="en"><h3>Five strategies for classroom assessment</h3><p>The framework connects three questions—where learners are going, where they are now and how to get there—with the roles of teacher, peer and learner. Goals and criteria are shared reference points; gathering evidence, feedback, peer support and learner ownership turn them into classroom practice.</p><p>The strategies work together across a lesson. They are not five consecutive stages, and assessment involves learners and peers as well as the teacher.</p></div><div data-language="zh" lang="zh-Hant" hidden><h3>課堂評估的五項策略</h3><p>框架將三個問題——學習者要到哪裏、目前在哪裏、如何前進——與教師、同伴及學習者的角色連結。共同理解的目標與準則，透過蒐集證據、回饋、同伴支持及學習者自主而落實。</p><p>五項策略在課堂中互相配合，並非五個依次完成的階段；學生及同伴亦參與評估。</p></div>
+<TirfStrategyMatrix />
+</div></details>
+<details class="framework-section" name="tirf-models"><summary><span class="model-number">2</span><span>Hattie &amp; Timperley (2007)<small><span data-language="en">What information will help learning?</span><span data-language="zh" lang="zh-Hant" hidden>甚麼資訊有助學習？</span></small></span></summary><div class="model-content">
+<div data-language="en"><h3>A model of feedback</h3><p>Feedback connects the goal, current performance and a next step. Its usefulness depends partly on what it addresses. The model combines three questions with four levels of feedback; use both to choose what a learner needs.</p></div><div data-language="zh" lang="zh-Hant" hidden><h3>回饋模型</h3><p>回饋連結目標、目前表現與下一步。回饋是否有用，部分取決於其焦點。模型結合三個問題及四個層面，協助選擇學習者需要的資訊。</p></div>
+<TirfFeedbackModel />
+</div></details>
+<details class="framework-section" name="tirf-models"><summary><span class="model-number">3</span><span>Gu (2021)<small><span data-language="en">How does evidence lead to action?</span><span data-language="zh" lang="zh-Hant" hidden>證據如何帶來行動？</span></small></span></summary><div class="model-content">
+<div data-language="en"><h3>A goal-centred cycle of formative practice</h3><p>Gu makes a formative assessment event observable through four connected practices: eliciting evidence, interpreting it, feedback and learner/teacher action. The learning target guides every practice. Collecting responses or displaying feedback leaves the event incomplete if nobody acts on it.</p></div><div data-language="zh" lang="zh-Hant" hidden><h3>以目標為中心的形成性實踐循環</h3><p>Gu以四項相連的實踐呈現形成性評估事件：蒐集證據、詮釋、回饋，以及學生／教師行動。每項實踐均依學習目標而定；若無人採取行動，單靠收集作答或顯示回饋，事件仍未完成。</p></div>
 <TirfFramework />
-<p class="takeaway">Look for what learners do with feedback, then use fresh evidence to check progress. Support may occur now or in a later lesson.</p>
+</div></details>
+<div class="takeaway"><span data-language="en"><strong>Use all three in your design brief:</strong> plan who will contribute evidence and support; choose feedback linked to the goal; specify learner/teacher action and how you will check what follows.</span><span data-language="zh" lang="zh-Hant" hidden><strong>將三者用於設計簡報：</strong>規劃誰提供證據與支持，選擇與目標相連的回饋，並訂明學生／教師行動及後續檢視方式。</span></div>
 </div></section>
 <section class="slide" data-title="Try the writing activity" aria-hidden="true"><div class="slide-inner">
 <header class="slide-header"><span class="eyebrow">Learner-facing demonstration</span></header>
@@ -112,7 +124,7 @@ const resources = '/teaching/training/tirf/resources/';
 <div data-language="en"><h2>Sources and tool setup</h2></div><div data-language="zh" lang="zh-Hant" hidden><h2>來源與工具準備</h2></div>
 <details><summary>Tool setup / 工具準備</summary><p>Install and sign in before the workshop, then try creating and opening a small HTML file. Use Codex or WorkBuddy; pair up or use the prepared activity if access is unavailable.</p><p><a href="https://learn.chatgpt.com/docs/projects">Codex projects and folders</a> · <a href="https://www.workbuddy.cn/">WorkBuddy download</a> · <a href="https://cloud.tencent.com/document/product/1831/134389">WorkBuddy getting started</a> · <a href="https://cloud.tencent.com/document/product/1831/134400">Files and preview</a></p></details>
 
-<ul class="sources">{tirfReferences.filter(r=>r.text.startsWith('Black,')||r.text.startsWith('Li,')).map(r=><li>{r.text} <a href={r.href}>Source</a></li>)}</ul>
+<ul class="sources">{tirfFrameworkReferences.map(r=><li>{r.text} <a href={r.href}>Source</a></li>)}</ul>
 <details><summary>Further reading and optional interpretation prompt / 延伸閱讀</summary><p><a href={`${resources}reading-list.html`} target="_blank" rel="noopener">Annotated reading appendix</a></p><p>The sources provide principles and related evidence. They do not establish the effectiveness of this particular activity or either coding tool.</p><pre id="prompt-3">{prompts[3].text}</pre><button data-copy="prompt-3">Copy optional prompt</button><p class="status" role="status"></p></details>
 <div class="actions"><button data-jump="0">Workshop outcomes</button><button class="secondary" data-jump="10">Notes and downloads</button><a href={courseHref}>Back to training</a></div>
 </div></section>

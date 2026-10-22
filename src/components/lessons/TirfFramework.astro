@@ -1,21 +1,18 @@
 ---
-const nodes = [
- ['eliciting','Eliciting evidence','蒐集證據','Ask learners to choose A or B, justify the choice, identify the example/link and improve A. A correct choice alone leaves the reasoning uncertain.'],
- ['interpreting','Interpreting evidence','詮釋證據','Compare the response with both learning criteria. Is the issue relevance, explanation or confusing instructions? Treat the inference as provisional.'],
- ['feedback','Formative feedback','形成性回饋','Offer a criterion-focused hint only after an attempt. Give enough help for a useful next step; avoid an automatic grade or an unnecessary explanation for a goal already met.'],
- ['action','Learner/teacher take-up and action','學習者／教師採納與行動','Learners revise and explain the change. Teachers may reteach, offer targeted support, extend or continue. Recheck with a fresh example when evidence is needed.'],
- ['targets','Targets of learning','學習目標','The central reference throughout: a specific relevant example, and an explanation linking it to the claim. Revisit these targets during every practice, rather than treating them as a completed first step.'],
-];
+import { guPractices } from '../../data/tirfGu';
+const nodes = [...guPractices, {key:'targets', en:'Targets of learning', zh:'學習目標', explanation:'The target remains the reference point in every practice.', explanationZh:'每項實踐均以學習目標為參照。', example:'A specific relevant example, plus an explanation linking it to the opinion. Use both criteria when choosing a task, interpreting a response and deciding the next step.', exampleZh:'本寫作任務的目標：提供具體相關的例子，並解釋它與觀點的聯繫。選擇任務、詮釋作答及決定下一步時，都依據這兩項準則。'}];
 ---
 <div class="framework-flow" aria-label="Formative purpose, formative practice and formative effect">
- <div class="framework-context">Formative purpose<br /><small>Use evidence to support learning</small></div>
- <div class="framework-boundary"><h3>Formative practice</h3><p class="framework-mobile-key">Targets connect with every practice. The practices cycle clockwise; revisit evidence when needed.</p>
+ <div class="framework-context"><span data-language="en">Formative purpose</span><span data-language="zh" lang="zh-Hant" hidden>形成性目的</span><small><span data-language="en">Use evidence to support learning</span><span data-language="zh" lang="zh-Hant" hidden>運用證據支持學習</span></small></div>
+ <div class="framework-boundary"><h3><span data-language="en">Formative practice</span><span data-language="zh" lang="zh-Hant" hidden>形成性實踐</span></h3><p class="framework-mobile-key"><span data-language="en">Targets connect with every practice. Follow the cycle, revisiting evidence when needed.</span><span data-language="zh" lang="zh-Hant" hidden>目標連結每項實踐。循環進行，並按需要重看證據。</span></p>
   <div class="practice-cycle">
    <svg class="framework-arrows" viewBox="0 0 660 420" preserveAspectRatio="none" aria-hidden="true"><defs><marker id="tirf-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1f6b45" /></marker></defs><g fill="none" stroke="#1f6b45" stroke-width="2" marker-end="url(#tirf-arrow)"><path d="M400 60 Q565 60 565 150"/><path d="M565 270 Q565 360 400 360"/><path d="M260 360 Q95 360 95 270"/><path d="M95 150 Q95 60 260 60"/></g><g stroke="#1f6b45" stroke-width="1.8" marker-start="url(#tirf-arrow)" marker-end="url(#tirf-arrow)"><path d="M330 125V167"/><path d="M330 253V295"/><path d="M205 210H241"/><path d="M419 210H455"/></g></svg>
-   {nodes.map(([key,en,zh])=><button type="button" class={`framework-node node-${key}`} data-framework={key} aria-pressed={key==='targets'} aria-controls="framework-detail"><span data-language="en">{en}</span><span data-language="zh" lang="zh-Hant" hidden>{zh}</span></button>)}
+   {nodes.map(({key,en,zh})=><button type="button" class={`framework-node node-${key}`} data-framework={key} aria-pressed={key==='targets'} aria-controls="framework-detail"><span data-language="en">{en}</span><span data-language="zh" lang="zh-Hant" hidden>{zh}</span></button>)}
   </div>
  </div>
- <div class="framework-context">Formative effect<br /><small>Evaluate whether learning benefits</small></div>
+ <div class="framework-context"><span data-language="en">Formative effect</span><span data-language="zh" lang="zh-Hant" hidden>形成性效果</span><small><span data-language="en">Evaluate whether learning benefits</span><span data-language="zh" lang="zh-Hant" hidden>檢視是否促進學習</span></small></div>
 </div>
-<div id="framework-detail" class="takeaway" aria-live="polite">{nodes.map(([key,en,,text])=><div data-framework-detail={key} hidden={key!=='targets'}><strong>{en}</strong><p>{text}</p></div>)}</div>
-<p class="source-note"><a href="https://doi.org/10.1016/j.system.2024.103414">Li &amp; Gu (2024)</a>.</p>
+<p class="source-note"><span data-language="en">Select a practice or the central target to see its meaning and classroom example.</span><span data-language="zh" lang="zh-Hant" hidden>點選各項實踐或中央目標，查看解釋與課堂例子。</span></p>
+<div id="framework-detail" class="takeaway" aria-live="polite">{nodes.map(({key,en,zh,explanation,explanationZh,example,exampleZh})=><div data-framework-detail={key} hidden={key!=='targets'}><div data-language="en"><h4>{en}</h4><p>{explanation}</p><p><strong>In our writing task:</strong> {example}</p></div><div data-language="zh" lang="zh-Hant" hidden><h4>{zh}</h4><p>{explanationZh}</p><p><strong>本寫作任務：</strong>{exampleZh}</p></div></div>)}</div>
+<div data-language="en"><p><strong>Purpose → practice → effect:</strong> intending to help learning, completing the assessment cycle and demonstrating a learning benefit are distinct. One cycle may span lessons; improvement may require several cycles.</p><p><strong>Check the evidence:</strong> a better revision after a hint shows supported performance. A fresh task helps us examine what learners can do with less support and whether our interpretation holds.</p></div><div data-language="zh" lang="zh-Hant" hidden><p><strong>目的 → 實踐 → 效果：</strong>有意支持學習、完成評估循環，以及證實學習受益，三者各有意義。一個循環可跨越課堂，進步也可能需要多個循環。</p><p><strong>核對證據：</strong>提示後的修訂反映有支援時的表現；新任務有助檢視學生在較少支援下能做到甚麼，以及我們的詮釋是否成立。</p></div>
+<p class="source-note"><a href="https://doi.org/10.3389/feduc.2021.605999">Gu (2021)</a>, Figure 1 and “Classroom-Based Formative Assessment”.</p>

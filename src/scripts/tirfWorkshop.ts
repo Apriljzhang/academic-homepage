@@ -89,3 +89,8 @@ window.addEventListener('afterprint',()=>document.body.classList.remove('tirf-pr
 try{if(sessionStorage.getItem(accessKey)==='yes')unlock();}catch{}
 
 document.querySelectorAll<HTMLButtonElement>('[data-framework]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll<HTMLButtonElement>('[data-framework]').forEach(n=>n.setAttribute('aria-pressed',String(n===b)));document.querySelectorAll<HTMLElement>('[data-framework-detail]').forEach(p=>p.hidden=p.dataset.frameworkDetail!==b.dataset.framework);}));
+
+// Keep a newly opened model in view when the previous model collapses.
+document.querySelectorAll<HTMLDetailsElement>('.framework-section').forEach(section=>section.addEventListener('toggle',()=>{
+ if(section.open)section.querySelector('summary')?.scrollIntoView({block:'start',behavior:'instant'});
+}));

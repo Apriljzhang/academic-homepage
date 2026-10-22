@@ -131,12 +131,12 @@ export const tirfReading = [
   "https://kclpure.kcl.ac.uk/portal/en/publications/technology-enhanced-formative-assessment-for-21st-century-learnin/"
  ],
  [
-  "Framework and correction",
+  "Related classroom research",
   "Li, J., & Gu, P. Y. (2024). Formative assessment for self-regulated learning: Evidence from a teacher continuing professional development programme. System, 125, Article 103414.",
   "https://doi.org/10.1016/j.system.2024.103414"
  ],
  [
-  "Framework and correction",
+  "Related classroom research",
   "Erratum. (2015). Educational Measurement: Issues and Practice, 34(2), 55.",
   "https://doi.org/10.1111/emip.12075"
  ]

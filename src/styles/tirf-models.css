@@ -1,0 +1,41 @@
+/* Three workshop frameworks, shared by the deck and printable resource pack. */
+.tirf-deck .framework-section{padding:0;margin:1rem 0;border:1px solid #a9cbb7;border-radius:.5rem;overflow:clip}
+.tirf-deck .framework-section>summary{display:flex;align-items:center;gap:1rem;position:relative;scroll-margin-top:6.5rem;padding:1rem 3rem 1rem 1rem;list-style:none;line-height:1.3;font-size:1.15rem}
+.framework-section>summary::-webkit-details-marker{display:none}
+.framework-section>summary::after{content:'+';position:absolute;right:1.1rem;top:50%;transform:translateY(-50%);font-size:1.5rem;font-weight:400}
+.framework-section[open]>summary::after{content:'−'}
+.framework-section[open]>summary{background:#edf7f0;border-bottom:1px solid #bad8c5}
+.framework-section>summary small{display:block;font-weight:400;font-size:1rem;margin-top:.25rem}
+.model-number{display:grid;place-items:center;width:2rem;height:2rem;flex-shrink:0;background:#1f6b45;color:#fff;border-radius:50%;font-size:1rem}
+.model-content{padding:1.3rem;min-width:0}
+.tirf-deck .model-content h3{font:600 clamp(1.5rem,2.8vw,2rem)/1.2 'Source Serif 4',Georgia,serif;margin:.2rem 0 1rem}
+.tirf-deck .model-content>div>p{font-size:1.08rem}
+.strategy-explanations{margin:1.5rem 0}
+.strategy-explanations h4,.feedback-model h4,.gu-pack h3{font-size:1.2rem;line-height:1.3;margin:0 0 .6rem;font-weight:600}
+.strategy-explanations ol{padding-left:1.5rem}
+.strategy-explanations li{padding:.5rem 0 .5rem .35rem;border-top:1px solid #bad8c5}
+.strategy-explanations h5,.feedback-model h5{font:600 1.1rem/1.3 'Source Sans 3',Arial,sans-serif;margin:0 0 .5rem}
+.tirf-deck .strategy-explanations p{font-size:1.05rem;margin:.3rem 0}
+.feedback-model{margin:1.5rem 0 0}
+.feedback-purpose{border:2px solid #1f6b45;text-align:center;padding:1.1rem;background:#edf7f0}
+.tirf-deck .feedback-purpose p{margin:0 auto;font-size:1.1rem;max-width:60ch}
+.feedback-responses,.feedback-questions,.feedback-levels{display:grid;gap:1rem}
+.feedback-responses{grid-template-columns:1fr 1fr;margin:1rem 0 1.8rem}
+.feedback-responses>article{border-bottom:2px solid #bad8c5;padding:.8rem 0}
+.feedback-model .feedback-heading{position:relative;text-align:center;border-block:1px solid #bad8c5;padding:1rem;margin:1.7rem 0 1rem}
+.feedback-heading::before{content:'↓';position:absolute;top:-1.6rem;left:calc(50% - .35rem);color:#1f6b45;font-size:1.3rem;font-weight:400}
+.feedback-questions{grid-template-columns:repeat(3,minmax(0,1fr))}
+.feedback-questions>article,.feedback-levels>article{padding:1rem;border:1px solid #a9cbb7;border-radius:.4rem;min-width:0}
+.feedback-questions>article{background:#f6faf7}
+.feedback-model .feedback-term{color:#1f6b45;font-size:.85rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin:0 0 .5rem}
+.feedback-levels{grid-template-columns:repeat(2,minmax(0,1fr))}
+.feedback-levels>article:last-child{border-style:dashed;background:#faf8f4}
+.feedback-model p,.feedback-model blockquote{font-size:1.05rem;line-height:1.5;margin:.3rem 0 .65rem}
+.tirf-deck .feedback-model p{font-size:1.05rem}
+.feedback-model blockquote{border-left:3px solid #a9cbb7;padding-left:.8rem;margin:1rem 0 0}
+.feedback-model .feedback-principle{margin:1.3rem 0;padding:.9rem 0;border-block:1px solid #bad8c5}
+.feedback-model .source-note{font-size:.9rem}
+.gu-pack article{border-top:1px solid #bad8c5;padding:1rem 0;break-inside:avoid}
+@media(max-width:750px){.feedback-questions{grid-template-columns:1fr}.feedback-questions>article{display:grid;grid-template-columns:1fr 1.2fr;column-gap:1rem}.feedback-questions>article>blockquote{grid-column:2;grid-row:1/4;margin:0}.feedback-questions>article>h5,.feedback-questions>article>p{grid-column:1}.feedback-responses{gap:1.2rem}}
+@media(max-width:500px){.tirf-deck .framework-section>summary{gap:.7rem;font-size:1.05rem}.model-content{padding:1rem}.feedback-responses,.feedback-levels,.feedback-questions>article{display:block}.feedback-responses>article{margin-bottom:1rem}.feedback-questions>article>blockquote{margin:1rem 0 0}.feedback-levels>article{margin:.8rem 0}.framework-section>summary small{font-size:.95rem}}
+@media print{.feedback-model article,.feedback-purpose{break-inside:avoid}.feedback-model p,.feedback-model blockquote{font-size:10pt}.feedback-heading{break-after:avoid}.feedback-responses{margin:.7rem 0 1.4rem}.feedback-levels{gap:.6rem}.strategy-explanations li{break-inside:avoid}}
