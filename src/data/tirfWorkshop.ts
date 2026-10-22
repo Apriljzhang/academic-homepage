@@ -1,4 +1,10 @@
 export const workshopTitle = 'AI Empowered Formative Assessment in TESOL: Designing Feedback Reflection and Learner Action';
+export const openingExample = {
+ goal: 'Support an opinion with a specific relevant example and explain its link.',
+ claim: 'Students should have a short reading period every school day.',
+ paragraphA: 'Reading every day is good. It is useful and important. Students will become better because reading helps them.',
+ paragraphB: 'A short reading period can help students build a reading habit. For example, learners could finish one short article each day and record two unfamiliar words. This regular practice would give them repeated opportunities to meet vocabulary in context.',
+};
 export const agenda = [
  ['Understand formative assessment / AfL', '理解形成性評估／促進學習的評估', 1],
  ['Experience a language-learning activity', '體驗語言學習活動', 4],

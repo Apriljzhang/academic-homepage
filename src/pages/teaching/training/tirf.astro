@@ -4,7 +4,7 @@ import TirfStrategyMatrix from '../../../components/lessons/TirfStrategyMatrix.a
 import TirfFramework from '../../../components/lessons/TirfFramework.astro';
 import LessonDeckChrome from '../../../components/lessons/LessonDeckChrome.astro';
 import { tirfReferences } from '../../../data/tirfSources';
-import { workshopTitle, agenda, demoBrief, prompts, worksheet, cases } from '../../../data/tirfWorkshop';
+import { workshopTitle, openingExample, agenda, demoBrief, prompts, worksheet, cases } from '../../../data/tirfWorkshop';
 import '../../../styles/tirf-workshop.css';
 const title = `${workshopTitle} · April Jiawei Zhang`;
 const description = 'Understand formative assessment / AfL, then use Codex or WorkBuddy to design, test and improve a language-class activity.';
@@ -28,9 +28,11 @@ const resources = '/teaching/training/tirf/resources/';
 </div></section>
 <section class="slide" data-title="What makes assessment formative?" aria-hidden="true"><div class="slide-inner">
 <header class="slide-header"><span class="eyebrow">Part 1: Understanding formative assessment</span></header>
-<div data-language="en"><h2>What would you teach next?</h2><p>Both activities ask learners to choose the better-supported paragraph. Which evidence lets you make a better-founded decision?</p></div><div data-language="zh" lang="zh-Hant" hidden><h2>接下來教甚麼？</h2><p>兩個活動都要求選出論據較充分的段落。哪一種證據更能支持下一步教學？</p></div>
-<div class="two"><article><h3>Selection only / 只有選項</h3><p>“B. Correct. 1/1.”</p><p>You know the selection. What does this leave uncertain?</p></article><article><h3>Selection and reason / 選項與理由</h3><p>“B, because it is longer.”</p><p>The selection is the same. Would your next step be the same?</p></article></div>
-<label for="opening-notice">Discuss: what do you still need to find out? / 還需了解甚麼？</label><textarea id="opening-notice" data-note="Opening observation" rows="2"></textarea>
+<div data-language="en"><h2>What would you teach next?</h2><p>You teach an intermediate English writing class. Learners are practising how to support an opinion with a relevant example and explain the link.</p><p><strong>Classroom task:</strong> “Which paragraph supports the opinion more clearly? Give a reason.”</p><p><strong>Opinion:</strong> {openingExample.claim}</p></div><div data-language="zh" lang="zh-Hant" hidden><h2>接下來教甚麼？</h2><p>你正教中級英語寫作。學生練習以相關例子支持觀點，並解釋兩者的聯繫。</p><p><strong>課堂任務：</strong>「哪一段更清楚地支持觀點？請說明理由。」</p><p><strong>觀點：</strong>學生每天都應有一段短暫的閱讀時間。以下是學生閱讀的英語段落。</p></div>
+<div class="two"><article><h3>Paragraph A / 段落A</h3><p>{openingExample.paragraphA}</p></article><article><h3>Paragraph B / 段落B</h3><p>{openingExample.paragraphB}</p></article></div>
+<div data-language="en"><h3>Two records of the same learner’s answer</h3><p>B contains an example and an explanation. Compare what we learn when we record only the choice and when we also ask for the reason.</p></div><div data-language="zh" lang="zh-Hant" hidden><h3>同一學生答案的兩種紀錄</h3><p>B包含例子及解釋。比較只記錄選項，以及同時要求學生說明理由，分別讓我們了解到甚麼。</p></div>
+<div class="two"><article><h3>Selection only / 只有選項</h3><p>“B. Correct. 1/1.”</p></article><article><h3>Selection and reason / 選項與理由</h3><p>“B, because it is longer.”</p></article></div>
+<label for="opening-notice">What does this reason suggest? What would you check or teach next? / 理由透露甚麼？下一步檢視或教甚麼？</label><textarea id="opening-notice" data-note="Opening observation" rows="3"></textarea><p class="source-note">Your response is included in the training PDF at the end. / 此處作答會列入最後的培訓PDF。</p>
 <details><summary>Discuss first, then reveal / 討論後展開</summary><p>The learner may be using length as a proxy for support. Compare equally long relevant and irrelevant examples, discuss the difference, then ask for a fresh justification.</p><p>A mark can contribute evidence. The reason helps us choose a more specific teaching or learning next step.</p></details>
 <div class="takeaway"><div data-language="en"><strong>Formative assessment / AfL:</strong> elicit and interpret evidence of learning, then use it to decide how teaching and learning should proceed towards a clear goal.</div><div data-language="zh" lang="zh-Hant" hidden><strong>形成性評估／AfL：</strong>蒐集並詮釋學習證據，據此決定如何教與學，以邁向清晰目標。</div></div>
 <p class="source-note">Working formulation informed by Black &amp; Wiliam (2009). Plan a fresh check of progress; the activity’s format alone does not establish formative use.</p>
@@ -102,7 +104,7 @@ const resources = '/teaching/training/tirf/resources/';
 <div data-language="en"><h2>Explain the purpose. Show the design.</h2><p>Show your partner the activity and one repair you tested. Then answer the two questions below.</p></div><div data-language="zh" lang="zh-Hant" hidden><h2>解釋目的，展示設計</h2><p>向同伴展示活動及已測試的一項修正，再回答以下兩題。</p></div>
 <label for="exit-understanding">1. How will evidence in your activity inform a teacher or learner’s next step? / 證據如何支持教與學的下一步？</label><textarea id="exit-understanding" data-note="Exit: informing versus formative use" rows="3"></textarea>
 <label for="exit-recheck">2. What did you ask Codex/WorkBuddy to build or change, and how did you check the result? / 你要求工具製作或改進甚麼？如何核對結果？</label><textarea id="exit-recheck" data-note="Exit: fresh recheck" rows="3"></textarea>
-<div class="actions"><button data-export>Download my workshop notes</button><button class="secondary" data-print>Print my notes / Save PDF</button><a class="download" href={`${resources}participant-pack.html`} download>Resource pack</a><a class="download" href={`${resources}evidence-lab.html`} download>Offline lab</a></div>
+<div class="actions"><button data-pdf-open>Download training PDF / 下載培訓PDF</button><button class="secondary" data-export>Download notes as text</button><a class="download" href={`${resources}participant-pack.html`} download>Resource pack</a><a class="download" href={`${resources}evidence-lab.html`} download>Offline lab</a></div>
 <p class="status" data-export-status role="status"></p><p class="source-note">Export before refreshing or closing: workshop notes and lab writing are held separately in their open pages. Neither collects a class set across devices.</p>
 <div class="actions"><button class="secondary" data-jump="11">Sources and tool setup</button><button class="secondary" data-reading aria-pressed="false">Switch to reading view</button></div>
 </div></section>
@@ -116,6 +118,7 @@ const resources = '/teaching/training/tirf/resources/';
 <div class="actions"><button data-jump="0">Workshop outcomes</button><button class="secondary" data-jump="10">Notes and downloads</button><a href={courseHref}>Back to training</a></div>
 </div></section>
 </main></div>
+<dialog class="tool-dialog tirf-pdf-dialog" data-pdf-dialog aria-labelledby="tirf-pdf-title"><div class="overview-head"><h2 id="tirf-pdf-title">Your training PDF / 你的培訓PDF</h2><button type="button" data-pdf-close aria-label="Close PDF dialog">×</button></div><p>Includes your responses from every workshop slide, your design brief and peer-test checks. / 包含各頁作答、設計簡報及同伴測試紀錄。</p><p>The PDF is created in this browser. Writing entered in the separate learner lab is exported there. / PDF在此瀏覽器製作；學習者活動頁的寫作需在該頁匯出。</p><button type="button" data-pdf-download>Download PDF / 下載PDF</button><p data-pdf-status role="status"></p></dialog>
 <article class="tirf-record" id="workshop-record" aria-label="Printable workshop notes"></article>
 <script>import '../../../scripts/tirfWorkshop';</script>
 </CourseSlideLayout>

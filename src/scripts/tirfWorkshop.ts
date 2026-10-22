@@ -1,5 +1,7 @@
 import { syncLessonNavigation, bindLessonShortcuts } from './lessonDeck';
 import { initLessonTimer } from './lessonTimer';
+import { workshopTitle, openingExample } from '../data/tirfWorkshop';
+import { createTrainingPdf } from './tirfTrainingPdf';
 const accessKey = 'tirf-202610-access';
 const slides = Array.from(document.querySelectorAll<HTMLElement>('.tirf-deck .slide'));
 const overview = document.querySelector<HTMLDialogElement>('.overview-dialog');
@@ -33,7 +35,56 @@ function brief(){return Array.from(document.querySelectorAll<HTMLTextAreaElement
 document.querySelector('[data-copy-brief]')?.addEventListener('click',()=>void copy(brief(),document.querySelector('[data-brief-status]')));
 function notes(){return 'AI Empowered Formative Assessment in TESOL\nApril Jiawei Zhang · AI4ELE / TIRF · 24 October 2026\nOutcomes: explain formative assessment / AfL; design, test and improve a language-class activity with Codex or WorkBuddy\n\nMY DESIGN BRIEF\n'+brief()+'\n\n'+Array.from(document.querySelectorAll<HTMLTextAreaElement>('[data-note]')).map(el=>`${el.dataset.note}\n${el.value||'[blank]'}`).join('\n\n')+'\n\nPEER CHECKLIST\n'+Array.from(document.querySelectorAll<HTMLInputElement>('[data-check]')).map(el=>`[${el.checked?'x':' '}] ${el.dataset.check}`).join('\n');}
 document.querySelectorAll('[data-export]').forEach(b=>b.addEventListener('click',()=>{const url=URL.createObjectURL(new Blob([notes()],{type:'text/plain;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='my-formative-assessment-workshop.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);const status=document.querySelector('[data-export-status]');if(status)status.textContent='Workshop notes downloaded. Export learner writing separately within the lab.';}));
-document.querySelector('[data-print]')?.addEventListener('click',()=>{const record=document.querySelector('#workshop-record');if(!record)return;const h=document.createElement('h1');h.textContent='My formative-assessment workshop notes';const pre=document.createElement('pre');pre.textContent=notes();record.replaceChildren(h,pre);document.body.classList.add('tirf-print-record');window.print();});
+const pdfDialog=document.querySelector<HTMLDialogElement>('[data-pdf-dialog]');
+document.querySelector('[data-pdf-open]')?.addEventListener('click',()=>pdfDialog?.showModal());
+document.querySelector('[data-pdf-close]')?.addEventListener('click',()=>pdfDialog?.close());
+function addRecordText(parent:Element,tag:string,text:string,className=''){
+ const el=document.createElement(tag);el.textContent=text;if(className)el.className=className;parent.append(el);return el;
+}
+function prepareTrainingRecord(){
+ const record=document.querySelector('#workshop-record');if(!record)return;
+ record.replaceChildren();
+ addRecordText(record,'h1','My TIRF training record / 我的培訓紀錄');
+ addRecordText(record,'p',workshopTitle);
+ addRecordText(record,'p','April Jiawei Zhang · AI4ELE / TIRF · 24 October 2026');
+ addRecordText(record,'h2','Workshop focus');
+ addRecordText(record,'p','Understand formative assessment / AfL, then design, test and improve a language-class activity with Codex or WorkBuddy.');
+ addRecordText(record,'h2','The classroom example');
+ addRecordText(record,'p',`Intermediate English writing. Goal: ${openingExample.goal}`);
+ addRecordText(record,'p',`Opinion: ${openingExample.claim}`);
+ addRecordText(record,'h3','Paragraph A');addRecordText(record,'p',openingExample.paragraphA);
+ addRecordText(record,'h3','Paragraph B');addRecordText(record,'p',openingExample.paragraphB);
+ addRecordText(record,'p','Two records of the same answer: “B. Correct. 1/1.” and “B, because it is longer.” What does the reason suggest, and what would you check or teach next?');
+ slides.forEach(slide=>{
+  const fields=Array.from(slide.querySelectorAll<HTMLTextAreaElement>('textarea[data-note],textarea[data-brief]'));
+  const checks=Array.from(slide.querySelectorAll<HTMLInputElement>('input[data-check]'));
+  if(!fields.length&&!checks.length)return;
+  const section=document.createElement('section');section.className='pdf-section';record.append(section);
+  addRecordText(section,'h2',slide.dataset.title||'My responses');
+  fields.forEach(field=>{
+   const label=field.labels?.[0]?.textContent?.replace(/\s+/g,' ').trim()||field.dataset.note||field.dataset.brief||'Response';
+   addRecordText(section,'h3',label);
+   addRecordText(section,'p',field.value.trim()?field.value:'Not answered / 未作答','pdf-response');
+  });
+  checks.forEach(check=>addRecordText(section,'p',`${check.checked?'[x]':'[ ]'} ${check.dataset.check}`));
+ });
+ addRecordText(record,'p','This record contains responses entered on the workshop slides. Writing in the separate learner lab is exported from that activity.');
+}
+document.querySelector<HTMLButtonElement>('[data-pdf-download]')?.addEventListener('click',async event=>{
+ const button=event.currentTarget as HTMLButtonElement;
+ const status=document.querySelector('[data-pdf-status]');
+ button.disabled=true;if(status)status.textContent='Creating your PDF… / 正在製作PDF…';
+ try{
+  prepareTrainingRecord();
+  const record=document.querySelector('#workshop-record');if(!record)throw new Error('Training record unavailable.');
+  const bytes=await createTrainingPdf(record);
+  const url=URL.createObjectURL(new Blob([bytes.slice().buffer],{type:'application/pdf'}));
+  const a=document.createElement('a');a.href=url;a.download='my-tirf-training-record.pdf';a.click();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+  if(status)status.textContent='Training PDF downloaded, including your typed responses. / 已下載包含作答的培訓PDF。';
+ }catch(error){if(status)status.textContent=`The PDF could not be created. Your responses are still here; retry or download the text notes. ${error instanceof Error?error.message:''}`;}
+ finally{button.disabled=false;}
+});
 window.addEventListener('afterprint',()=>document.body.classList.remove('tirf-print-record'));
 try{if(sessionStorage.getItem(accessKey)==='yes')unlock();}catch{}
 
