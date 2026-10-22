@@ -78,18 +78,6 @@ const themePath = withBase(`/teaching/training/${eapTrainingTheme.slug}`);
                 International Training and Testing Centre (ITTC) summer training · Capital Normal University
               </p>
               <div class="mt-3 flex flex-wrap items-center gap-2">
-                <a
-                  href={studentPath}
-                  class="inline-flex rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white no-underline hover:opacity-95"
-                >
-                  Open workshop
-                </a>
-                <a
-                  href={hostPath}
-                  class="inline-flex rounded-full border border-border bg-page px-5 py-2.5 text-sm font-semibold text-ink no-underline hover:bg-surface"
-                >
-                  Instructor dashboard
-                </a>
                 <label for="trainingCode" class="sr-only">Enter access code</label>
                 <input
                   id="trainingCode"
@@ -102,9 +90,10 @@ const themePath = withBase(`/teaching/training/${eapTrainingTheme.slug}`);
                 <button
                   id="trainingOpen"
                   type="button"
+                  aria-label="Open July 2026 workshop with code"
                   class="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white no-underline hover:opacity-95"
                 >
-                  Open with code
+                  Open
                 </button>
               </div>
               <p id="trainingHint" class="mt-2 text-xs text-muted" hidden></p>
@@ -116,10 +105,9 @@ const themePath = withBase(`/teaching/training/${eapTrainingTheme.slug}`);
               <form id="tirfEntry" class="mt-3 flex flex-wrap items-center gap-2">
                 <label for="tirfCode" class="sr-only">TIRF workshop access code</label>
                 <input id="tirfCode" name="code" type="text" inputmode="numeric" autocomplete="off" placeholder="Enter access code" required aria-describedby="tirfHint" class="w-52 rounded-full border border-border bg-page px-4 py-2 text-sm font-normal text-ink" />
-                <button type="submit" class="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:opacity-95">Open TIRF workshop</button>
+                <button type="submit" aria-label="Open TIRF workshop" class="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:opacity-95">Open</button>
               </form>
               <p id="tirfHint" class="mt-2 text-xs text-muted" role="status" hidden></p>
-              <a href={tirfPath} class="mt-2 inline-block text-sm">Workshop entry page</a>
             </li>
             <li class="rounded-lg border border-border bg-surface px-4 py-3">
               <p class="text-xs font-semibold uppercase tracking-[0.12em] text-muted">November 2026</p>
@@ -128,7 +116,7 @@ const themePath = withBase(`/teaching/training/${eapTrainingTheme.slug}`);
               <form id="qMethodologyEntry" class="mt-3 flex flex-wrap items-center gap-2">
                 <label for="qMethodologyCode" class="sr-only">Q methodology access code</label>
                 <input id="qMethodologyCode" name="code" type="text" inputmode="numeric" autocomplete="off" placeholder="Enter access code" required aria-describedby="qMethodologyHint" class="w-52 rounded-full border border-border bg-page px-4 py-2 text-sm font-normal text-ink" />
-                <button type="submit" class="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:opacity-95">Open Q methodology slides</button>
+                <button type="submit" aria-label="Open Q methodology slides" class="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:opacity-95">Open</button>
               </form>
               <p id="qMethodologyHint" class="mt-2 text-xs text-muted" role="status" hidden></p>
               <noscript><a href={qMethodologyPath}>Open the workshop entry page</a></noscript>
