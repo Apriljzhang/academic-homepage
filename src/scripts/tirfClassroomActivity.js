@@ -1,5 +1,15 @@
 /** The same prepared-hint activity is used inside the deck and its offline copy. */
 export function initTirfClassroomActivity(root) {
+ root.closest('.classroom-case')?.querySelectorAll('[data-inline-help]').forEach(help=>{
+  const trigger=help.querySelector('button');
+  const reopen=()=>help.classList.remove('is-dismissed');
+  help.addEventListener('pointerenter',reopen);
+  trigger?.addEventListener('focus',reopen);
+  trigger?.addEventListener('click',reopen);
+  help.addEventListener('keydown',event=>{
+   if(event.key==='Escape'){event.preventDefault();event.stopPropagation();help.classList.add('is-dismissed');}
+  });
+ });
  const button=root.querySelector('[data-case-hint]');
  if(!button)return;
  button.addEventListener('click',()=>{

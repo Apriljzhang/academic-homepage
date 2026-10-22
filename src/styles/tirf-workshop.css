@@ -19,3 +19,13 @@ body.tirf-reading{overflow:auto}body.tirf-reading .tirf-deck .slide{display:bloc
 @media(max-width:600px){.tirf-deck .core-definition{padding:1.1rem}.tirf-deck .core-definition p{font-size:1.65rem}.tirf-deck .lesson-design li{padding-left:2.2rem}.tirf-deck .cover-title{font-size:2.8rem!important;line-height:1.07!important}}
 
 .tirf-deck .cover-title>span{font-size:inherit;line-height:inherit;display:inline;margin:0}.tirf-deck .cover-title>span[hidden]{display:none!important}
+
+/* Supplementary help stays beside the heading until requested. */
+.tirf-deck .look-for-heading{position:relative}
+.inline-help{display:inline-block;vertical-align:super;margin-left:.3rem;font-size:.75rem;line-height:1}
+.tirf-deck .inline-help-trigger{position:relative;display:inline-grid;place-items:center;width:1.25rem;height:1.25rem;min-height:1.25rem;padding:0;border:1px solid #6e8e7c;border-radius:50%;background:#fff;color:#1f6b45;font:600 .8rem/1 'Source Sans 3',Arial,sans-serif;cursor:help}
+.inline-help-trigger::after{content:'';position:absolute;inset:-12px}
+.inline-help-text{position:absolute;top:calc(100% + .4rem);left:0;z-index:20;width:max-content;max-width:min(36rem,100%);padding:.85rem 1rem;border:1px solid #a9cbb7;border-radius:.35rem;background:#fff;color:#153c2b;box-shadow:0 4px 16px #153c2b1a;font:400 1rem/1.5 'Source Sans 3',Arial,sans-serif;text-align:left;white-space:normal;visibility:hidden;opacity:0;pointer-events:none}
+.inline-help-text::before{content:'';position:absolute;top:-.6rem;left:0;right:0;height:.6rem}
+.inline-help:not(.is-dismissed):is(:hover,:focus-within) .inline-help-text{visibility:visible;opacity:1;pointer-events:auto}
+@media print{.inline-help{display:none!important}}
