@@ -1,0 +1,24 @@
+---
+import CourseSlideLayout from '../../../../layouts/CourseSlideLayout.astro';
+import LessonDeckChrome from '../../../../components/lessons/LessonDeckChrome.astro';
+import '../../../../styles/dedc02-mixed-methods.css';
+import { withBase } from '../../../../utils/paths';
+const title='Mixed Methods Integration and Reporting · DEDC02';
+const description='A bilingual doctoral lesson on mixed methods design, integration, and reporting.';
+import { mixedMethodsSlides as slides } from '../../../../data/dedc02MixedMethodsLesson';
+const courseHref = withBase('/teaching/courses/dedc02');
+---
+<CourseSlideLayout {title} {description} lessonDeck>
+<LessonDeckChrome {courseHref} lessonTitle="Mixed Methods Integration and Reporting" />
+<main class="deck mm-deck" aria-label="Mixed Methods Integration and Reporting slide deck">
+{slides.map((s,i)=><section class:list={['slide',{'is-active':i===0}]} id={`slide-${i+1}`} data-title={s.title.replaceAll('<br>',' ')} data-language="en" aria-hidden={i!==0}><div class="slide-inner">
+<header class="slide-header"><span class="eyebrow">{i===0?'DEDC02 · Advanced Research Method':i<4?'Mixed methods · Foundations':i<19?'Mixed methods · Research design':i<26?'Mixed methods · Integration':i<31?'Mixed methods · Reporting':i<33?'Mixed methods · Application':'Mixed methods · References'}</span></header>
+{i===0&&<div class="title-rule"></div>}
+<div class="en" data-language="en">{i===0?<h1 set:html={s.title}/>:<h2 set:html={s.title}/>}<Fragment set:html={s.body}/></div>
+<div class="zh" data-language="zh" lang="zh-Hant" hidden>{i===0?<h1 set:html={s.zh}/>:<h2 set:html={s.zh}/>}<Fragment set:html={s.bodyzh}/></div>
+{i!==0&&<p class="source-note" set:html={s.source}/>}
+{i!==0&&<details class="teaching-notes"><summary>Teaching notes / 教學提示</summary><p>{s.notes}</p></details>}
+</div></section>)}
+</main>
+<script>import '../../../../scripts/dedc02MixedMethods';</script>
+</CourseSlideLayout>
