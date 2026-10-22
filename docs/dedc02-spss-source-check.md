@@ -4,7 +4,7 @@ Verified against IBM documentation on 21 October 2026. These guides describe doc
 
 ## Placement and scope
 
-The four existing output-reading pages contain bilingual expandable guides. The t-test guide has separate independent and paired workflows. Header buttons navigate to the corresponding guide without adding or renumbering slides. The guides cover data layout, dialog fields, options, output tables, interpretation checks and saving/exporting.
+Each method’s third page directly presents its bilingual SPSS guide. The fourth page combines the published result table, interpretation and full-paper links. The t-test guide has separate independent and paired workflows. Header buttons navigate to the corresponding SPSS page without adding or renumbering slides. The slides retain the essential menu path, variable choices, settings and output tables, with one brief check per procedure. Detailed saving/exporting and repeated setup tables are omitted.
 
 ## Primary sources
 

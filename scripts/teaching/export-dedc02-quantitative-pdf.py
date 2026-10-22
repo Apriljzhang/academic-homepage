@@ -86,9 +86,10 @@ def render(n):
     if isinstance(n,str):return []
     if n.tag in SKIP or hidden(n):return []
     if n.has('slide-header'):return []
-    if n.has('qm-reporting-example'):
+    if n.has('qm-reporting-example') or n.has('qm-core-check'):
         flow=[]
         for child in n.children:flow+=render(child)
+        if n.has('qm-core-check'):flow=[item for item in flow if not isinstance(item,CondPageBreak)]
         return [KeepTogether(flow)]
     if n.tag in ['h1','h2','h3','h4']:return para(n,{'h1':'H1Q','h2':'H2Q','h3':'H3Q','h4':'H4Q'}[n.tag])
     if n.tag=='p':return para(n,'SmallCopy' if n.has('qm-caption') or n.has('qm-source') else 'Copy')

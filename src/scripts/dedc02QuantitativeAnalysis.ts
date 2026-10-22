@@ -146,23 +146,15 @@ function jumpReference(index:number){
   slide.dataset.language=lang;slide.querySelectorAll<HTMLElement>('[data-language]').forEach(p=>p.hidden=p.dataset.language!==lang);showSlide(index);slide.scrollTop=0;
 }
 document.querySelectorAll<HTMLButtonElement>('[data-open-spss]').forEach(button=>button.addEventListener('click',()=>{
-  const index=slides.findIndex(slide=>slide.dataset.coreStep===`${button.dataset.openSpss}-output`);
+  const index=slides.findIndex(slide=>slide.dataset.coreStep===`${button.dataset.openSpss}-spss`);
   if(index<0)return;
   const lang=slides[current].dataset.language||'en',slide=slides[index];
   slide.dataset.language=lang;
   slide.querySelectorAll<HTMLElement>('[data-language]').forEach(panel=>panel.hidden=panel.dataset.language!==lang);
   showSlide(index);
-  const guide=slide.querySelector<HTMLDetailsElement>(`[data-language="${lang}"] [data-spss-guide]`);
-  if(!guide)return;
-  guide.open=true;
-  guide.scrollIntoView({block:'start'});
-  const summary=guide.querySelector<HTMLElement>('summary');summary?.focus({preventScroll:true});
-}));
-const spssGuides=Array.from(document.querySelectorAll<HTMLDetailsElement>('[data-spss-guide]'));
-spssGuides.forEach(guide=>guide.addEventListener('toggle',()=>{
-  spssGuides.filter(other=>other!==guide&&other.dataset.spssGuide===guide.dataset.spssGuide).forEach(other=>{
-    if(other.open!==guide.open)other.open=guide.open;
-  });
+  slide.scrollTop=0;
+  const heading=slide.querySelector<HTMLElement>(`[data-language="${lang}"] h2`);
+  heading?.setAttribute('tabindex','-1');heading?.focus({preventScroll:true});
 }));
 document.querySelectorAll('[data-open-notation]').forEach(b=>b.addEventListener('click',()=>jumpReference(notationIndex)));
 const glossaryGroups=Array.from(document.querySelectorAll<HTMLDetailsElement>('details[data-notation-group]'));
