@@ -35,7 +35,7 @@ const resources = '/teaching/training/tirf/resources/';
 <label for="opening-notice">What does this reason suggest? What would you check or teach next? / 理由透露甚麼？下一步檢視或教甚麼？</label><textarea id="opening-notice" data-note="Opening observation" rows="3"></textarea><p class="source-note">Your response is included in the training PDF at the end. / 此處作答會列入最後的培訓PDF。</p>
 <details><summary>Discuss first, then reveal / 討論後展開</summary><p>The learner may be using length as a proxy for support. Compare equally long relevant and irrelevant examples, discuss the difference, then ask for a fresh justification.</p><p>A mark can contribute evidence. The reason helps us choose a more specific teaching or learning next step.</p></details>
 <div class="takeaway"><div data-language="en"><strong>Formative assessment / AfL:</strong> elicit and interpret evidence of learning, then use it to decide how teaching and learning should proceed towards a clear goal.</div><div data-language="zh" lang="zh-Hant" hidden><strong>形成性評估／AfL：</strong>蒐集並詮釋學習證據，據此決定如何教與學，以邁向清晰目標。</div></div>
-<p class="source-note">Working formulation informed by Black &amp; Wiliam (2009). Plan a fresh check of progress; the activity’s format alone does not establish formative use.</p>
+<p class="source-note">Black &amp; Wiliam (2009).</p>
 </div></section>
 <section class="slide" data-title="One language goal, two criteria" aria-hidden="true"><div class="slide-inner">
 <header class="slide-header"><span class="eyebrow">What language learning needs attention?</span></header>
@@ -52,13 +52,12 @@ const resources = '/teaching/training/tirf/resources/';
 <TirfFramework />
 <p class="takeaway">Look for what learners do with feedback, then use fresh evidence to check progress. Support may occur now or in a later lesson.</p>
 </div></section>
-<section class="slide" data-title="Try the learner lab" aria-hidden="true"><div class="slide-inner">
+<section class="slide" data-title="Try the writing activity" aria-hidden="true"><div class="slide-inner">
 <header class="slide-header"><span class="eyebrow">Learner-facing demonstration</span></header>
-<div data-language="en"><h2>Try the Evidence and Explanation Lab</h2><p>Choose and justify → write → use a hint and revise → explain the change → try a fresh claim.</p></div><div data-language="zh" lang="zh-Hant" hidden><h2>試用「例證與解釋實驗室」</h2><p>選擇並說明理由，找出例子與聯繫，改寫A，依提示修訂，最後解釋改動及原因。活動以英語進行。</p></div>
-<div class="actions"><a class="download" href={`${resources}evidence-lab.html`} target="_blank" rel="noopener">Open learner lab / 開啟活動</a></div>
+<div data-language="en"><h2>Try the writing activity</h2><p>Choose and justify → write → use a hint and revise → explain the change → try a fresh claim.</p></div><div data-language="zh" lang="zh-Hant" hidden><h2>試做寫作活動</h2><p>選擇並說明理由，找出例子與聯繫，改寫A，依提示修訂，最後解釋改動及原因。活動以英語進行。</p></div>
+<div class="actions"><a class="download" href={`${resources}evidence-lab.html`} target="_blank" rel="noopener">Open writing activity / 開啟寫作活動</a></div>
 <p class="takeaway">With your partner, identify the evidence, feedback and learner action. Which part helps you decide what to teach next?</p>
-<details><summary>Try the lab inside this slide / 在本頁試用</summary><iframe title="Evidence and Explanation Lab interactive activity" src={`${resources}evidence-lab.html`} sandbox="allow-scripts allow-downloads allow-modals" loading="lazy"></iframe></details>
-<p class="source-note">Fictional examples and teacher-approved fixed hints. The lab runs locally without live AI or class response collection. Export writing inside the lab before closing it.</p>
+<p class="source-note">Hints are fixed and teacher-approved. Export your writing from the activity before closing it.</p>
 </div></section>
 <section class="slide" data-title="Codex demonstration: brief, build, test" aria-hidden="true"><div class="slide-inner">
 <header class="slide-header"><span class="eyebrow">Design with AI · Facilitator demonstration</span></header>
@@ -81,7 +80,7 @@ const resources = '/teaching/training/tirf/resources/';
 <div data-language="en"><h2>Build with Codex or WorkBuddy</h2><ol><li>Open a new empty workshop folder in the app and start a chat.</li><li>Paste prompt 1 and your brief. Check the plan and request any changes.</li><li>Paste prompt 2 with the approved brief and your examples. Ask it to create <code>index.html</code>.</li><li>Find the generated file and open it in preview or a browser. Try the activity yourself.</li></ol></div><div data-language="zh" lang="zh-Hant" hidden><h2>以Codex或WorkBuddy製作</h2><ol><li>在工具中開啟新的空白工作坊資料夾，開始對話。</li><li>貼上提示詞一及簡報，檢視計劃並提出修改。</li><li>貼上提示詞二、確認的簡報與例子，製作<code>index.html</code>。</li><li>找到生成的檔案，以預覽或瀏覽器開啟，親自試用。</li></ol></div>
 {prompts.slice(0,2).map((p,i)=><details><summary>{i+1}. {p.title}</summary><pre id={`prompt-${i}`}>{p.text}</pre><button data-copy={`prompt-${i}`}>Copy prompt {i+1}</button><p class="status" role="status"></p></details>)}
 <p><strong>Check before testing:</strong> can you see the goal and criteria, make an initial attempt, access a hint and revise?</p>
-<details><summary>If you cannot generate a file / 無法生成檔案時</summary><p>Use the <a href={`${resources}evidence-lab.html`} target="_blank" rel="noopener">prepared lab</a> or <a href={`${resources}participant-pack.html`} target="_blank" rel="noopener">paper pack</a>. Mark how you would adapt its examples, hints and fresh task to your brief, then test that design with your partner.</p></details>
+<details><summary>If you cannot generate a file / 無法生成檔案時</summary><p>Use the <a href={`${resources}evidence-lab.html`} target="_blank" rel="noopener">prepared activity</a> or <a href={`${resources}participant-pack.html`} target="_blank" rel="noopener">paper pack</a>. Mark how you would adapt its examples, hints and fresh task to your brief, then test that design with your partner.</p></details>
 <p class="source-note">Use fictional data and the workshop folder only. This build uses fixed hints and works offline once generated; generation needs internet. Tool interfaces and access may differ.</p>
 </div></section>
 <section class="slide" data-title="Peer test and improve" aria-hidden="true"><div class="slide-inner">
@@ -104,21 +103,21 @@ const resources = '/teaching/training/tirf/resources/';
 <div data-language="en"><h2>Explain the purpose. Show the design.</h2><p>Show your partner the activity and one repair you tested. Then answer the two questions below.</p></div><div data-language="zh" lang="zh-Hant" hidden><h2>解釋目的，展示設計</h2><p>向同伴展示活動及已測試的一項修正，再回答以下兩題。</p></div>
 <label for="exit-understanding">1. How will evidence in your activity inform a teacher or learner’s next step? / 證據如何支持教與學的下一步？</label><textarea id="exit-understanding" data-note="Exit: informing versus formative use" rows="3"></textarea>
 <label for="exit-recheck">2. What did you ask Codex/WorkBuddy to build or change, and how did you check the result? / 你要求工具製作或改進甚麼？如何核對結果？</label><textarea id="exit-recheck" data-note="Exit: fresh recheck" rows="3"></textarea>
-<div class="actions"><button data-pdf-open>Download training PDF / 下載培訓PDF</button><button class="secondary" data-export>Download notes as text</button><a class="download" href={`${resources}participant-pack.html`} download>Resource pack</a><a class="download" href={`${resources}evidence-lab.html`} download>Offline lab</a></div>
-<p class="status" data-export-status role="status"></p><p class="source-note">Export before refreshing or closing: workshop notes and lab writing are held separately in their open pages. Neither collects a class set across devices.</p>
+<div class="actions"><button data-pdf-open>Download training PDF / 下載培訓PDF</button><button class="secondary" data-export>Download notes as text</button><a class="download" href={`${resources}participant-pack.html`} download>Resource pack</a><a class="download" href={`${resources}evidence-lab.html`} download>Offline activity</a></div>
+<p class="status" data-export-status role="status"></p><p class="source-note">Export before refreshing or closing: workshop notes and activity writing are held separately in their open pages. Neither collects a class set across devices.</p>
 <div class="actions"><button class="secondary" data-jump="11">Sources and tool setup</button><button class="secondary" data-reading aria-pressed="false">Switch to reading view</button></div>
 </div></section>
 <section class="slide" data-title="Reference: sources and tool setup" aria-hidden="true"><div class="slide-inner">
 <header class="slide-header"><span class="eyebrow">Reference · Before or after the workshop</span></header>
 <div data-language="en"><h2>Sources and tool setup</h2></div><div data-language="zh" lang="zh-Hant" hidden><h2>來源與工具準備</h2></div>
-<details><summary>Tool setup / 工具準備</summary><p>Install and sign in before the workshop, then try creating and opening a small HTML file. Use Codex or WorkBuddy; pair up or use the prepared lab if access is unavailable.</p><p><a href="https://learn.chatgpt.com/docs/projects">Codex projects and folders</a> · <a href="https://www.workbuddy.cn/">WorkBuddy download</a> · <a href="https://cloud.tencent.com/document/product/1831/134389">WorkBuddy getting started</a> · <a href="https://cloud.tencent.com/document/product/1831/134400">Files and preview</a></p></details>
+<details><summary>Tool setup / 工具準備</summary><p>Install and sign in before the workshop, then try creating and opening a small HTML file. Use Codex or WorkBuddy; pair up or use the prepared activity if access is unavailable.</p><p><a href="https://learn.chatgpt.com/docs/projects">Codex projects and folders</a> · <a href="https://www.workbuddy.cn/">WorkBuddy download</a> · <a href="https://cloud.tencent.com/document/product/1831/134389">WorkBuddy getting started</a> · <a href="https://cloud.tencent.com/document/product/1831/134400">Files and preview</a></p></details>
 
 <ul class="sources">{tirfReferences.filter(r=>r.text.startsWith('Black,')||r.text.startsWith('Li,')).map(r=><li>{r.text} <a href={r.href}>Source</a></li>)}</ul>
 <details><summary>Further reading and optional interpretation prompt / 延伸閱讀</summary><p><a href={`${resources}reading-list.html`} target="_blank" rel="noopener">Annotated reading appendix</a></p><p>The sources provide principles and related evidence. They do not establish the effectiveness of this particular activity or either coding tool.</p><pre id="prompt-3">{prompts[3].text}</pre><button data-copy="prompt-3">Copy optional prompt</button><p class="status" role="status"></p></details>
 <div class="actions"><button data-jump="0">Workshop outcomes</button><button class="secondary" data-jump="10">Notes and downloads</button><a href={courseHref}>Back to training</a></div>
 </div></section>
 </main></div>
-<dialog class="tool-dialog tirf-pdf-dialog" data-pdf-dialog aria-labelledby="tirf-pdf-title"><div class="overview-head"><h2 id="tirf-pdf-title">Your training PDF / 你的培訓PDF</h2><button type="button" data-pdf-close aria-label="Close PDF dialog">×</button></div><p>Includes your responses from every workshop slide, your design brief and peer-test checks. / 包含各頁作答、設計簡報及同伴測試紀錄。</p><p>The PDF is created in this browser. Writing entered in the separate learner lab is exported there. / PDF在此瀏覽器製作；學習者活動頁的寫作需在該頁匯出。</p><button type="button" data-pdf-download>Download PDF / 下載PDF</button><p data-pdf-status role="status"></p></dialog>
+<dialog class="tool-dialog tirf-pdf-dialog" data-pdf-dialog aria-labelledby="tirf-pdf-title"><div class="overview-head"><h2 id="tirf-pdf-title">Your training PDF / 你的培訓PDF</h2><button type="button" data-pdf-close aria-label="Close PDF dialog">×</button></div><p>Includes your responses from every workshop slide, your design brief and peer-test checks. / 包含各頁作答、設計簡報及同伴測試紀錄。</p><p>The PDF is created in this browser. Writing entered in the separate learner activity is exported there. / PDF在此瀏覽器製作；學習者活動頁的寫作需在該頁匯出。</p><button type="button" data-pdf-download>Download PDF / 下載PDF</button><p data-pdf-status role="status"></p></dialog>
 <article class="tirf-record" id="workshop-record" aria-label="Printable workshop notes"></article>
 <script>import '../../../scripts/tirfWorkshop';</script>
 </CourseSlideLayout>

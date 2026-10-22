@@ -19,5 +19,5 @@ export const strategyMatrixHtml = `<div class="strategy-matrix">
 <div class="strategy-mobile"><h3>Five key strategies of formative assessment</h3>${tirfStrategies.map(s=>`<article class="strategy-${s.key}"><span class="strategy-symbol">${s.icon}</span><div><p class="strategy-relation">${s.relation}</p><strong>${s.text}</strong></div></article>`).join('')}</div>
 <p class="strategy-question"><strong>Pair check:</strong> Where will learners understand the criteria, reveal their reasoning, use feedback, help a peer and take ownership?</p>
 <details class="strategy-applications"><summary>How the five strategies appear in our language activity</summary><ol>${tirfStrategies.map(s=>`<li><strong>${s.text}.</strong> ${s.application}</li>`).join('')}</ol></details>
-<p class="strategy-source">Strategy framework: <a href="https://doi.org/10.1007/s11092-008-9068-5">Black &amp; Wiliam (2009)</a>. Matrix arrangement and symbols adapted from April Jiawei Zhang’s January 2026 ILTA workshop slides; symbols redrawn for this workshop. These are complementary strategies, not five consecutive stages.</p>
+<p class="strategy-source"><a href="https://doi.org/10.1007/s11092-008-9068-5">Black &amp; Wiliam (2009)</a>.</p>
 </div>`;

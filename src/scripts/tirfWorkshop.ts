@@ -34,7 +34,7 @@ document.querySelectorAll<HTMLButtonElement>('[data-copy]').forEach(b=>b.addEven
 function brief(){return Array.from(document.querySelectorAll<HTMLTextAreaElement>('[data-brief]')).map(el=>`${el.dataset.brief}\n${el.value||'[blank]'}`).join('\n\n');}
 document.querySelector('[data-copy-brief]')?.addEventListener('click',()=>void copy(brief(),document.querySelector('[data-brief-status]')));
 function notes(){return 'AI Empowered Formative Assessment in TESOL\nApril Jiawei Zhang · AI4ELE / TIRF · 24 October 2026\nOutcomes: explain formative assessment / AfL; design, test and improve a language-class activity with Codex or WorkBuddy\n\nMY DESIGN BRIEF\n'+brief()+'\n\n'+Array.from(document.querySelectorAll<HTMLTextAreaElement>('[data-note]')).map(el=>`${el.dataset.note}\n${el.value||'[blank]'}`).join('\n\n')+'\n\nPEER CHECKLIST\n'+Array.from(document.querySelectorAll<HTMLInputElement>('[data-check]')).map(el=>`[${el.checked?'x':' '}] ${el.dataset.check}`).join('\n');}
-document.querySelectorAll('[data-export]').forEach(b=>b.addEventListener('click',()=>{const url=URL.createObjectURL(new Blob([notes()],{type:'text/plain;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='my-formative-assessment-workshop.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);const status=document.querySelector('[data-export-status]');if(status)status.textContent='Workshop notes downloaded. Export learner writing separately within the lab.';}));
+document.querySelectorAll('[data-export]').forEach(b=>b.addEventListener('click',()=>{const url=URL.createObjectURL(new Blob([notes()],{type:'text/plain;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='my-formative-assessment-workshop.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);const status=document.querySelector('[data-export-status]');if(status)status.textContent='Workshop notes downloaded. Export learner writing separately within the activity.';}));
 const pdfDialog=document.querySelector<HTMLDialogElement>('[data-pdf-dialog]');
 document.querySelector('[data-pdf-open]')?.addEventListener('click',()=>pdfDialog?.showModal());
 document.querySelector('[data-pdf-close]')?.addEventListener('click',()=>pdfDialog?.close());
@@ -68,7 +68,7 @@ function prepareTrainingRecord(){
   });
   checks.forEach(check=>addRecordText(section,'p',`${check.checked?'[x]':'[ ]'} ${check.dataset.check}`));
  });
- addRecordText(record,'p','This record contains responses entered on the workshop slides. Writing in the separate learner lab is exported from that activity.');
+ addRecordText(record,'p','This record contains responses entered on the workshop slides. Writing in the separate learner activity is exported from that activity.');
 }
 document.querySelector<HTMLButtonElement>('[data-pdf-download]')?.addEventListener('click',async event=>{
  const button=event.currentTarget as HTMLButtonElement;
