@@ -15,7 +15,7 @@ export async function createTrainingPdf(record: Element): Promise<Uint8Array> {
  pdf.registerFontkit(fontkit.default);
  // Keep the full static font: subsetting this CJK font loses rendered glyphs.
  const font = await pdf.embedFont(await fontBytes, { subset: false });
- pdf.setTitle('My TIRF training record');
+ pdf.setTitle('My TIRF classroom plan and workshop notes');
  pdf.setAuthor('Workshop participant');
  pdf.setLanguage('en-GB');
  const width = 595.28, height = 841.89, margin = 46;

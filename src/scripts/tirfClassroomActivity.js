@@ -1,0 +1,19 @@
+/** The same prepared-hint activity is used inside the deck and its offline copy. */
+export function initTirfClassroomActivity(root) {
+ const button=root.querySelector('[data-case-hint]');
+ if(!button)return;
+ button.addEventListener('click',()=>{
+  const chinese=(root.closest('.slide')?.dataset.currentLanguage||document.documentElement.lang)==='zh'||document.documentElement.lang==='zh-Hant';
+  const first=root.querySelector('#case-first');
+  const reason=root.querySelector('#case-reason');
+  const status=root.querySelector('[data-case-status]');
+  if(!first.value.trim()||!reason.value.trim()){
+   status.textContent=chinese?'請先說明選擇並寫初稿，再查看提示。':'Explain your choice and write a first attempt before opening the hint.';
+   (!reason.value.trim()?reason:first).focus();return;
+  }
+  first.readOnly=true; reason.readOnly=true;
+  root.querySelector('[data-case-feedback]').hidden=false;
+  button.hidden=true;
+  status.textContent=chinese?'已保留初稿。請用提示或同伴問題修訂，並解釋改動。':'First attempt kept. Use the hint or partner question to revise and explain a change.';
+ });
+}
