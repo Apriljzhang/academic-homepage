@@ -4,7 +4,7 @@ const response = (id:string,en:string,zh:string,rows=3) => `<label for="${id}">$
 export const classroomCaseHtml = `<div class="classroom-case">
 <p class="role-note">${b('Workshop role: you are the teacher designing this lesson. The English writing below is for your students.','工作坊角色：你是設計本課堂的教師。以下英語寫作是給你的學生做的。')}</p>
 <div class="case-context"><h3>${b('The students and the teaching problem','學生與教學問題')}</h3><p>${b('Imagine an intermediate English class. Students can state an opinion, but often use vague examples or do not explain why an example supports the opinion. You want to help them develop that explanation.','設想一個中級英語班。學生能表達觀點，但例子常不夠具體，或沒有解釋例子為何支持觀點。你希望幫助他們把解釋寫清楚。')}</p></div>
-<div class="learning-target"><h3>${b('What students are learning to do','學生要學會做甚麼')}</h3><p>${b(openingExample.goal,openingExample.goalZh)}</p><p class="target-gloss">${b('This is the learning target in Gu’s framework.','這就是Gu框架中的學習目標。')}</p></div>
+<div class="learning-target"><h3>${b('What students are learning to do','學生要學會做甚麼')}</h3><p>${b(openingExample.goal,openingExample.goalZh)}</p></div>
 <h3>${b('What the teacher and students will look for','教師與學生會看甚麼')}</h3><ul><li>${b('Is the example specific and relevant to the opinion?','例子是否具體，並與觀點相關？')}</li><li>${b('Does the writer explain how it supports the opinion?','作者有否解釋例子如何支持觀點？')}</li></ul>
 <p>${b('These questions show students what good work looks like. They give the teacher and students the same focus when discussing feedback and revisions.','這兩條問題讓學生知道作品要做到甚麼，也讓教師與學生在討論回饋及修訂時看同樣的重點。')}</p>
 <h3>${b('The task you give students','你給學生的任務')}</h3><p>${b('“Which paragraph supports the opinion more clearly? Explain why. Then improve A in your own words.”','「哪一段更清楚地支持觀點？請解釋原因，再用自己的話改寫A。」')}</p>
