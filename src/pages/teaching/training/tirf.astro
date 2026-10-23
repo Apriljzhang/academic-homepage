@@ -4,6 +4,7 @@ import LessonDeckChrome from '../../../components/lessons/LessonDeckChrome.astro
 import B from '../../../components/lessons/TirfText.astro';
 import { classroomContextHtml } from '../../../data/tirfClassroom';
 import { primaryScenarioHtml, siteFeaturesHtml, teacherStepsHtml, publishHtml, tryOwnSiteHtml } from '../../../data/tirfSite';
+import { frameworkUseHtml, siteWorkflowHtml, previewHelpHtml, siteBuildChoiceHtml, teacherUseIntroHtml, planUseHtml } from '../../../data/tirfWorkshopGuide';
 import { frameworkConnectionsHtml } from '../../../data/tirfConnections';
 import { scenarioChoiceHtml } from '../../../data/tirfPromptButtons';
 import { frameworkAiRequestHtml } from '../../../data/tirfFrameworkPrompts';
@@ -27,13 +28,12 @@ const resources = '/teaching/training/tirf/resources/';
 <header class="slide-header"><span class="eyebrow">AI4ELE / TIRF · BNBU, Zhuhai · 24 October 2026</span></header>
 <h1><B en="Designing formative assessment with generative AI" zh="用生成式AI設計形成性評估" /></h1>
 <div class="core-definition"><p><B en="Teachers and students use evidence of learning to decide what to do next to help students reach a learning target." zh="教師與學生運用學習證據，決定接下來怎樣教與學，以幫助學生達到學習目標。" /></p></div>
-<h3><B en="By the end, you can:" zh="完成後，你能：" /></h3><ol class="workshop-outcomes"><li><B en="Use the three frameworks to collect, interpret and act on evidence in an English class." zh="依三個框架，在英語課堂蒐集、詮釋並運用學習證據。" /></li><li><B en="Use ready-to-copy AI prompts to prepare assessment questions and feedback." zh="用可直接複製的AI指令準備評估問題及回饋。" /></li><li><B en="Ask Codex or WorkBuddy to build an HTML site that supports this assessment, then use it with students." zh="請Codex或WorkBuddy製作支持這個評估過程的HTML網站，並用於課堂。" /></li></ol>
+<h3><B en="By the end, you can:" zh="完成後，你能：" /></h3><ol class="workshop-outcomes"><li><B en="Use the three frameworks to collect, interpret and act on evidence in an English class." zh="依三個框架，在英語課堂蒐集、詮釋並運用學習證據。" /></li><li><B en="Use ready-to-copy AI prompts to prepare assessment questions and feedback." zh="用可直接複製的AI指令準備評估問題及回饋。" /></li><li><B en="Build and try one assessment website with Codex or WorkBuddy, then plan how to use it with students." zh="用Codex或WorkBuddy製作及試用一個評估網站，再規劃如何用於課堂。" /></li></ol>
 <p><B en="Choose a scenario → explore the frameworks → build the site → use it for assessment. Publishing online is optional." zh="選擇情境 → 理解框架 → 製作網站 → 用於評估。網上發佈屬可選步驟。" /></p>
 <p><B en="Dr. April Jiawei Zhang · School of Education, City University of Macau" zh="張家維博士 · 澳門城市大學教育學院" /></p>
 </div></section>
 <section class="slide" data-title="Primary English in China" data-title-zh="中國小學英語" aria-hidden="true"><div class="slide-inner">
-<header class="slide-header"><span class="eyebrow"><B en="Choose a familiar assessment situation" zh="選擇熟悉的評估情境" /></span></header><h2><B en="Primary English: has or can?" zh="小學英語：has還是can？" /></h2>
-<p><B en="Use Chinese to make the task clear. Short English responses, pointing and explanations can reveal different aspects of understanding. Check the learning target separately from fluency." zh="用中文說清任務。簡短英語作答、指認及解釋，能呈現不同方面的理解；把學習目標與流利程度分開檢視。" /></p>
+<header class="slide-header"><span class="eyebrow"><B en="Scenario 1 · Primary English in China" zh="情境一：中國小學英語" /></span></header><h2><B en="Primary English: has or can?" zh="小學英語：has還是can？" /></h2>
 <Fragment set:html={primaryScenarioHtml} />
 </div></section>
 <section class="slide" data-title="General college English in China" data-title-zh="中國高校大學英語" aria-hidden="true"><div class="slide-inner"><header class="slide-header"><span class="eyebrow"><B en="Scenario 2 · Short English writing with support" zh="情境二：有協助的短篇英語寫作" /></span></header><h2><B en="College English: explain the connection" zh="大學英語：說清例子與觀點的聯繫" /></h2><Fragment set:html={classroomContextHtml} />
@@ -41,30 +41,33 @@ const resources = '/teaching/training/tirf/resources/';
 <section class="slide" data-title="Three frameworks for classroom design" data-title-zh="課堂設計的三個框架" aria-hidden="true"><div class="slide-inner">
 <header class="slide-header"><span class="eyebrow"><B en="Connect each framework to the same classroom case" zh="將每個框架連結至同一課堂案例" /></span></header>
 <h2><B en="How the three frameworks work together" zh="三個框架如何配合使用" /></h2>
-<p><B en="Choose a scenario. The example shows what happens in class; “Copy AI prompt” copies instructions asking AI to help prepare it." zh="選擇情境。例子展示課堂做法；「複製AI指令」則複製請AI協助準備材料的要求。" /></p>
+<Fragment set:html={frameworkUseHtml} />
 
 <details class="framework-section" name="tirf-models"><summary><span class="model-number">1</span><span>Black &amp; Wiliam (2009)<small><B en="How will teachers, peers and students support learning?" zh="教師、同伴與學生如何支持學習？" /></small></span></summary><div class="model-content" data-scenario-scope data-selected-scenario="1"><Fragment set:html={scenarioChoiceHtml()} />
 <p><B en="Teachers, peers and students clarify the target, show current understanding and decide next steps. Open a strategy to see the selected scenario’s example and AI prompt." zh="教師、同伴與學生共同釐清目標、呈現目前理解，並決定下一步。展開策略，查看所選情境的例子及AI指令。" /></p>
 <TirfStrategyMatrix />
 </div></details>
-<details class="framework-section" name="tirf-models"><summary><span class="model-number">2</span><span>Hattie &amp; Timperley (2007)<small><B en="What should the feedback focus on?" zh="回饋應聚焦甚麼？" /></small></span></summary><div class="model-content" data-scenario-scope data-selected-scenario="1"><Fragment set:html={scenarioChoiceHtml()} /><h3><B en="A model of feedback" zh="回饋模型" /></h3><p><B en="Use the three questions to connect the target, current work and next step. Choose the feedback level that helps the student." zh="用三個問題連結目標、目前作品及下一步，再選擇有助學生的回饋層面。" /></p><TirfFeedbackModel /></div></details>
+<details class="framework-section" name="tirf-models"><summary><span class="model-number">2</span><span>Hattie &amp; Timperley (2007)<small><B en="What should the feedback focus on?" zh="回饋應聚焦甚麼？" /></small></span></summary><div class="model-content" data-scenario-scope data-selected-scenario="1"><Fragment set:html={scenarioChoiceHtml()} /><h3><B en="A model of feedback" zh="回饋模型" /></h3><p><B en="Use the three questions to decide what feedback needs to say. The four levels help you choose what the feedback focuses on." zh="用三個問題決定回饋需要交代甚麼，再用四個層面選擇回饋焦點。" /></p><TirfFeedbackModel /></div></details>
 <details class="framework-section" name="tirf-models"><summary><span class="model-number">3</span><span>Gu (2021)<small><B en="How will evidence lead to feedback and action?" zh="證據如何帶來回饋及行動？" /></small></span></summary><div class="model-content" data-scenario-scope data-selected-scenario="1"><Fragment set:html={scenarioChoiceHtml()} /><h3><B en="Learning target, evidence, feedback and action" zh="學習目標、證據、回饋與行動" /></h3><p><B en="Keep the learning target in view as you collect and interpret evidence, give feedback and decide what students and the teacher do next." zh="蒐集及詮釋證據、給予回饋，以及決定學生與教師的下一步時，均以學習目標為參照。" /></p><TirfFramework /></div></details>
 <Fragment set:html={frameworkConnectionsHtml} />
 </div></section>
 
 <section class="slide" data-title="Build the assessment site" data-title-zh="製作評估網站" aria-hidden="true"><div class="slide-inner">
-<header class="slide-header"><span class="eyebrow"><B en="Codex or WorkBuddy · the same assessment design" zh="Codex或WorkBuddy：同一評估設計" /></span></header><h2><B en="Turn the frameworks into an HTML site" zh="把框架變成HTML網站" /></h2>
-<ol class="build-instructions"><li><B en="Choose a folder. Copy the AI prompt for your scenario into Codex or WorkBuddy." zh="選擇資料夾，把所選情境的AI指令貼入Codex或WorkBuddy。" /></li><li><B en="Review its short plan and proposed feedback. Ask for changes, then tell it to create index.html." zh="檢視簡短計劃及建議回饋，提出修改後，再請它製作index.html。" /></li><li><B en="Open the preview. Try a student response and revision; ask the agent to fix any problem." zh="開啟預覽，試做學生作答及修訂，再請代理修正問題。" /></li></ol>
+<header class="slide-header"><span class="eyebrow"><B en="Codex or WorkBuddy · the same assessment design" zh="Codex或WorkBuddy：同一評估設計" /></span></header><h2><B en="Build your assessment website" zh="製作你的評估網站" /></h2>
+<Fragment set:html={siteWorkflowHtml} />
+<Fragment set:html={previewHelpHtml} />
 <Fragment set:html={siteFeaturesHtml} />
+<Fragment set:html={siteBuildChoiceHtml} />
 <Fragment set:html={frameworkAiRequestHtml('site-primary')} /><Fragment set:html={frameworkAiRequestHtml('site-college')} />
-<details><summary><B en="Adapt the plan to your own class" zh="按自己的班級調整計劃" /></summary>
+<details><summary><B en="Use your own class: make a complete AI prompt" zh="用自己的班級：製作完整AI指令" /></summary>
+<Fragment set:html={planUseHtml} />
 {planningGroups.map((g,index)=><section class="planning-group"><h3><B en={g.title} zh={g.titleZh} /></h3><div class="worksheet">{worksheet.filter(w=>w.group===index).map(w=><label for={`brief-${w.id}`}><B en={w.label} zh={w.labelZh} /><textarea id={`brief-${w.id}`} data-brief={w.id} data-placeholder-en={w.help} data-placeholder-zh={w.helpZh} placeholder={w.help} rows="3"></textarea></label>)}</div></section>)}
-<div class="actions"><button data-copy-brief><B en="Copy complete AI prompt" zh="複製完整AI指令" /></button><button class="secondary" data-pdf-open><B en="Save my assessment plan as PDF" zh="把評估計劃儲存為PDF" /></button></div><p class="status" data-brief-status role="status"></p></details>
+<div class="actions"><button data-copy-brief><B en="Copy complete AI prompt" zh="複製完整AI指令" /></button><button class="secondary" data-pdf-open><B en="Save my assessment plan as PDF" zh="把評估計劃儲存為PDF" /></button></div><p class="status" data-brief-status role="status"></p><p class="source-note"><B en="Copy your prompt or save your plan before closing this page." zh="關閉本頁前，請複製指令或儲存計劃。" /></p></details>
 </div></section>
 <section class="slide" data-title="Use the site for formative assessment" data-title-zh="用網站進行形成性評估" aria-hidden="true"><div class="slide-inner">
 <header class="slide-header"><span class="eyebrow"><B en="The teacher uses the evidence" zh="由教師運用證據" /></span></header><h2><B en="What the teacher does with the site" zh="教師如何使用網站" /></h2>
+<Fragment set:html={teacherUseIntroHtml} />
 <Fragment set:html={teacherStepsHtml} />
-<p class="takeaway"><B en="With one projector, students answer on paper or orally and the teacher records the evidence. With individual devices, students export their work for the teacher to collect." zh="只有投影機時，學生用紙本或口頭作答，由教師記錄證據；使用個人裝置時，學生匯出作答，交由教師收取。" /></p>
 <Fragment set:html={tryOwnSiteHtml} />
 <Fragment set:html={frameworkAiRequestHtml('site-review')} />
 </div></section>
@@ -74,7 +77,7 @@ const resources = '/teaching/training/tirf/resources/';
 <p><a href={`${resources}participant-pack.html`} target="_blank" rel="noopener"><B en="Workshop reference pack" zh="工作坊參考材料" /></a></p>
 </div></section>
 </main></div>
-<dialog class="tool-dialog tirf-pdf-dialog" data-pdf-dialog aria-labelledby="tirf-pdf-title"><div class="overview-head"><h2 id="tirf-pdf-title"><B en="Save your classroom design" zh="儲存你的課堂設計" /></h2><button type="button" data-pdf-close aria-label="Close / 關閉">×</button></div><p><B en="Your PDF contains the classroom plan you entered and reference material from the workshop." zh="PDF包含你填寫的課堂計劃及工作坊參考材料。" /></p><button type="button" data-pdf-download><B en="Download PDF" zh="下載PDF" /></button><p data-pdf-status role="status"></p></dialog>
+<dialog class="tool-dialog tirf-pdf-dialog" data-pdf-dialog aria-labelledby="tirf-pdf-title"><div class="overview-head"><h2 id="tirf-pdf-title"><B en="Save your assessment plan" zh="儲存你的評估計劃" /></h2><button type="button" data-pdf-close aria-label="Close / 關閉">×</button></div><p><B en="Your PDF contains your own assessment plan and a short guide to the three frameworks." zh="PDF包含你填寫的評估計劃，以及三個框架的簡短說明。" /></p><button type="button" data-pdf-download><B en="Download PDF" zh="下載PDF" /></button><p data-pdf-status role="status"></p></dialog>
 <article class="tirf-record" id="workshop-record" aria-label="Classroom assessment plan"></article>
 <script>import '../../../scripts/tirfWorkshop';</script>
 </CourseSlideLayout>

@@ -12,8 +12,8 @@ const nodes = [...guPractices, {ai:'Ask AI to restate the target for your studen
    {nodes.map(({key,en,zh})=><button type="button" class={`framework-node node-${key}`} data-framework={key} aria-pressed={key==='targets'} aria-controls="framework-detail"><span data-language="en">{en}</span><span data-language="zh" lang="zh-Hant" hidden>{zh}</span></button>)}
   </div>
  </div>
- <div class="framework-context"><span data-language="en">Formative effect</span><span data-language="zh" lang="zh-Hant" hidden>形成性效果</span><small><span data-language="en">Evaluate whether learning benefits</span><span data-language="zh" lang="zh-Hant" hidden>檢視是否促進學習</span></small></div>
+ <div class="framework-context"><span data-language="en">Formative effect</span><span data-language="zh" lang="zh-Hant" hidden>形成性效果</span><small><span data-language="en">Check what improved against the target</span><span data-language="zh" lang="zh-Hant" hidden>依目標檢視進步</span></small></div>
 </div>
-<p class="source-note"><span data-language="en">Select a practice or the central target to see its meaning and classroom example.</span><span data-language="zh" lang="zh-Hant" hidden>點選各項實踐或中央目標，查看解釋與課堂例子。</span></p>
+<p class="source-note"><span data-language="en">Select a stage or the central target to see its meaning, your scenario’s example and an AI prompt.</span><span data-language="zh" lang="zh-Hant" hidden>點選各階段或中央目標，查看解釋、所選情境的例子及AI指令。</span></p>
 <div id="framework-detail" class="takeaway" aria-live="polite">{nodes.map(({key,en,zh,explanation,explanationZh,example,exampleZh,ai,aiZh})=><div data-framework-detail={key} hidden={key!=='targets'}><div data-language="en"><h4>{en}</h4><p>{explanation}</p></div><div data-language="zh" lang="zh-Hant" hidden><h4>{zh}</h4><p>{explanationZh}</p></div><Fragment set:html={scenarioPromptButtonsHtml(`primary-gu-${key}`,`gu-${key}`,example,exampleZh)} /></div>)}</div>
 <p class="source-note"><a href="https://doi.org/10.3389/feduc.2021.605999">Gu (2021)</a><B en=", Figure 1 and the section on classroom-based formative assessment." zh="，圖1及課堂形成性評估部分。" /></p>

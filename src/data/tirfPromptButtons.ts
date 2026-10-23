@@ -25,8 +25,9 @@ export function scenarioPromptButtonsHtml(primaryKey: string, collegeKey: string
  const primary = primaryExamples[primaryKey];
  if(!primary || !collegeEn || !collegeZh)throw new Error(`Missing classroom example: ${primaryKey}`);
  const feedback = collegeKey.startsWith('feedback-');
+ const improve = collegeKey === 'feedback-self';
  return `<div class="scenario-prompts scenario-example-prompts">${[
   {number:'1',key:primaryKey,en:primary[0],zh:primary[1]},
   {number:'2',key:collegeKey,en:collegeEn,zh:collegeZh},
- ].map(s=>`<div data-model-scenario="${s.number}"${s.number==='2'?' hidden':''}><p class="scenario-example-label">${b('Scenario '+s.number+' · '+(feedback?'Example feedback':'Classroom example'),'情境'+(s.number==='1'?'一':'二')+' · '+(feedback?'回饋例子':'課堂例子'))}</p><${feedback?'blockquote':'p'} class="scenario-example-text">${b(s.en,s.zh)}</${feedback?'blockquote':'p'}><button type="button" class="secondary" data-framework-copy="${e(s.key)}">${b('Copy AI prompt: Scenario '+s.number,'複製AI指令：情境'+(s.number==='1'?'一':'二'))}</button><p class="status" role="status"></p></div>`).join('')}</div>`;
+ ].map(s=>`<div data-model-scenario="${s.number}"${s.number==='2'?' hidden':''}><p class="scenario-example-label">${b('Scenario '+s.number+' · '+(improve?'Feedback to improve':feedback?'Example feedback':'Classroom example'),'情境'+(s.number==='1'?'一':'二')+' · '+(improve?'有待改進的回饋':feedback?'回饋例子':'課堂例子'))}</p><${feedback?'blockquote':'p'} class="scenario-example-text">${b(s.en,s.zh)}</${feedback?'blockquote':'p'}><button type="button" class="secondary" data-framework-copy="${e(s.key)}">${b('Copy AI prompt: Scenario '+s.number,'複製AI指令：情境'+(s.number==='1'?'一':'二'))}</button><p class="status" role="status"></p></div>`).join('')}</div>`;
 }

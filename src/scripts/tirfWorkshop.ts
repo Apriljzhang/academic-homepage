@@ -1,3 +1,4 @@
+import { initTirfResourceLinks } from './tirfResourceLinks.js';
 import { createCustomSitePrompt } from './tirfCustomSitePrompt.js';
 import { buildEn, buildZh } from '../data/tirfSite';
 import { initTirfScenarioChoices } from './tirfScenarioChoices.js';
@@ -6,7 +7,7 @@ import { activityBuildBrief, frameworkBuildRoles } from '../data/tirfActivityDes
 import { syncLessonNavigation, bindLessonShortcuts } from './lessonDeck';
 import { initLessonTimer } from './lessonTimer';
 import { initTirfClassroomActivity } from './tirfClassroomActivity.js';
-import { workshopTitle, openingExample, caseContext, caseContextZh, feedbackPrompt, workedPlan, worksheet, planningGroups, prompts } from '../data/tirfWorkshop';
+import { workshopTitle, caseContext, caseContextZh, feedbackPrompt, workedPlan, worksheet, planningGroups, prompts } from '../data/tirfWorkshop';
 import { tirfStrategies } from '../data/tirfStrategies';
 import { createTrainingPdf } from './tirfTrainingPdf';
 const accessKey='tirf-202610-access';
@@ -76,6 +77,7 @@ translate?.addEventListener('click',()=>{slides[current].dataset.currentLanguage
 document.querySelector('[data-overview]')?.addEventListener('click',()=>overview?.showModal());document.querySelector('[data-close-overview]')?.addEventListener('click',()=>overview?.close());
 document.querySelector('[data-fullscreen]')?.addEventListener('click',()=>{void(document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()).catch(()=>{});});
 initTirfScenarioChoices(document);
+initTirfResourceLinks(document);
 document.querySelectorAll('[data-classroom-activity]').forEach(root=>initTirfClassroomActivity(root));
 document.querySelectorAll<HTMLDetailsElement>('.framework-section').forEach(section=>section.addEventListener('toggle',()=>{if(section.open)section.querySelector('summary')?.scrollIntoView({block:'start',behavior:'instant'});}));
 document.querySelectorAll<HTMLButtonElement>('[data-framework]').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('[data-framework]').forEach(node=>node.setAttribute('aria-pressed',String(node===button)));document.querySelectorAll<HTMLElement>('[data-framework-detail]').forEach(panel=>panel.hidden=panel.dataset.frameworkDetail!==button.dataset.framework);}));
@@ -85,8 +87,8 @@ function workedPlanText(chinese=zh()){return (chinese?caseContextZh:caseContext)
 function hasOwnPlan(){return worksheet.some(field=>planValue(field.id).trim());}
 function currentPlan(){return useWorkedPlan?workedPlanText():ownPlan();}
 function updatePlanSource(){const indicator=document.querySelector('[data-plan-source]');if(indicator)indicator.textContent=useWorkedPlan?say('Using the worked classroom case copied on the previous page.','使用上一頁複製的完整課堂案例。'):hasOwnPlan()?say('The copy buttons below include your current classroom plan.','下方複製按鈕會同時包含你目前的課堂計劃。'):say('Complete your own plan first, or copy the complete worked plan from the previous page.','請先完成自己的計劃，或從上一頁複製完整示範計劃。');}
-async function copy(text:string,status:Element|null){try{await navigator.clipboard.writeText(text);if(status)status.textContent=say('Copied. Paste into WorkBuddy or Codex.','已複製，請貼入WorkBuddy或Codex。');}catch{if(status){status.textContent=say('Select and copy the prompt below.','請選取下方指令並複製。');const field=document.createElement('textarea');field.readOnly=true;field.value=text;field.rows=6;field.setAttribute('aria-label',say('AI prompt to copy','可複製的AI指令'));status.append(field);field.focus();field.select();}}}
-document.querySelectorAll<HTMLButtonElement>('[data-framework-copy]').forEach(button=>button.addEventListener('click',()=>{const request=frameworkAiRequests.find(r=>r.key===button.dataset.frameworkCopy);if(request)void copy(zh()?request.zh:request.en,button.parentElement?.querySelector('[role=status]')||null);}));
+async function copy(text:string,status:Element|null,destination:'agent'|'chatbot'='agent'){try{await navigator.clipboard.writeText(text);if(status)status.textContent=destination==='chatbot'?say('Copied. Paste into your chatbot.','已複製，請貼入你的聊天機器人。'):say('Copied. Paste into WorkBuddy or Codex.','已複製，請貼入WorkBuddy或Codex。');}catch{if(status){status.textContent=say('Select and copy the prompt below.','請選取下方指令並複製。');const field=document.createElement('textarea');field.readOnly=true;field.value=text;field.rows=6;field.setAttribute('aria-label',say('AI prompt to copy','可複製的AI指令'));status.append(field);field.focus();field.select();}}}
+document.querySelectorAll<HTMLButtonElement>('[data-framework-copy]').forEach(button=>button.addEventListener('click',()=>{const request=frameworkAiRequests.find(r=>r.key===button.dataset.frameworkCopy);if(request)void copy(zh()?request.zh:request.en,button.parentElement?.querySelector('[role=status]')||null,request.key.startsWith('site-')?'agent':'chatbot');}));
 document.querySelector('[data-copy-feedback]')?.addEventListener('click',event=>void copy(zh()?feedbackPrompt.zh:feedbackPrompt.en,(event.currentTarget as Element).parentElement?.querySelector('[role=status]')||null));
 document.querySelectorAll<HTMLButtonElement>('[data-strategy-copy]').forEach(button=>button.addEventListener('click',()=>{const strategy=tirfStrategies.find(row=>row.key===button.dataset.strategyCopy);if(strategy)void copy((zh()?caseContextZh:caseContext)+'\n\n'+(zh()?strategy.aiZh:strategy.ai),button.parentElement?.querySelector('[role=status]')||null);}));
 document.querySelector('[data-copy-worked]')?.addEventListener('click',()=>{useWorkedPlan=true;void copy(workedPlanText(),document.querySelector('[data-worked-status]'));updatePlanSource();});
@@ -114,7 +116,6 @@ function prepareTrainingRecord(){
  frameworkBuildRoles.forEach(role=>addRecordText(record,'p',role.name+': '+(zh()?role.designZh:role.design)));
  addRecordText(record,'h2',say('My formative assessment plan','我的形成性評估計劃'));
  worksheet.forEach(field=>{addRecordText(record,'h3',zh()?field.labelZh:field.label);addRecordText(record,'p',planValue(field.id)||say('Not yet completed','尚未填寫'));});
- addRecordText(record,'h2',say('The shared classroom case','共同課堂案例'));addRecordText(record,'p',zh()?openingExample.goalZh:openingExample.goal);addRecordText(record,'p',openingExample.claim);addRecordText(record,'h3',say('Paragraph A','段落A'));addRecordText(record,'p',openingExample.paragraphA);addRecordText(record,'h3',say('Paragraph B','段落B'));addRecordText(record,'p',openingExample.paragraphB);
  slides.forEach(slide=>{
   const fields=Array.from(slide.querySelectorAll<HTMLTextAreaElement>('textarea[data-note]'));
   const checks=Array.from(slide.querySelectorAll<HTMLInputElement>('input[data-check]'));

@@ -24,7 +24,7 @@ const cell = (index: number, span = '') => {
  return `<td class="strategy-${s.key}" ${span}><div class="strategy-cell"><span class="strategy-symbol">${s.icon}</span><strong>${index+1}. ${bilingual(en,zh)}</strong></div>
  <details class="strategy-application"><summary>${bilingual('Classroom example and AI prompt','課堂例子及AI指令')}</summary><div class="strategy-application-content">${scenarioPromptButtonsHtml(`primary-strategy-${s.key}`,`college-strategy-${s.key}`,s.application,s.applicationZh)}</div></details></td>`;
 };
-export const strategyMatrixHtml = `<div class="strategy-matrix">
+export const strategyMatrixHtml = `<div class="strategy-matrix"><p class="strategy-scroll-note">${bilingual('Scroll the table sideways to see all three columns.','左右捲動表格，查看全部三欄。')}</p>
 <div class="strategy-table-scroll" data-deck-scroll role="region" tabindex="0" aria-labelledby="strategy-matrix-caption">
 <table class="strategy-table"><caption id="strategy-matrix-caption">${bilingual('Five key strategies of formative assessment','形成性評估的五項關鍵策略')}</caption><colgroup><col class="strategy-role-column"><col><col><col></colgroup>
 <thead><tr><td class="strategy-corner"></td><th scope="col" id="strategy-going">${bilingual('Where the learner is going','學習者要達到甚麼')}</th><th scope="col" id="strategy-now">${bilingual('Where the learner is now','學習者目前在哪裏')}</th><th scope="col" id="strategy-next">${bilingual('How to get there','如何達到目標')}</th></tr></thead>

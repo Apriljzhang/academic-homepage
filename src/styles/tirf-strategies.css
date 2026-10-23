@@ -29,3 +29,5 @@
 .strategy-matrix .strategy-source{font-size:.9rem;color:#405f4e;margin-top:1rem}
 @media(max-width:850px){.strategy-table{font-size:1rem;border-spacing:5px}.strategy-table th,.strategy-table td{padding:.8rem}.strategy-table tbody th{padding:.6rem .1rem}.strategy-table-scroll{border:1px solid #bad8c5}.strategy-table caption{padding:.75rem .5rem 0}.strategy-symbol{width:44px;height:44px}.strategy-intentions .strategy-symbol{width:64px;height:64px}}
 @media print{.strategy-table-scroll{overflow:visible;border:0}.strategy-table{min-width:0;font-size:9pt;border-spacing:4px}.strategy-table th,.strategy-table td{padding:7px}.strategy-table tbody{break-inside:avoid}.strategy-symbol{width:32px;height:32px}.strategy-intentions .strategy-symbol{width:48px;height:48px}.strategy-matrix p,.strategy-matrix .strategy-application h4{font-size:9pt!important}.strategy-matrix button,.strategy-matrix .status{display:none!important}}
+
+.strategy-scroll-note{display:none}@media(max-width:700px){.tirf-deck .strategy-scroll-note{display:block;font-size:.9rem;margin:.5rem 0}}

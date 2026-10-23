@@ -14,14 +14,18 @@ What to look for: a specific example relevant to the opinion; an explanation of 
 Opinion: ${openingExample.claim}
 Paragraph A: ${openingExample.paragraphA}
 Paragraph B: ${openingExample.paragraphB}
-Student task: compare A and B and explain a choice, then improve A in the student's own words. Students use feedback to revise and explain their change.`;
+Student task: compare A and B and explain a choice, then improve A in the student's own words. Students use feedback to revise and explain their change.
+Sample student reason: “B, because it is longer.”
+Sample first draft to assess: ${openingExample.draft}`;
 export const caseContextZh = `課堂情境：中國高校非英語專業一年級大學英語班。學生能在協助下閱讀短句，但不少學生仍難以用英語表達理由。任務以中文解說，檢視理解時可接受中文或中英夾雜的理由。提供少量詞彙及可選句首“This helps us ... because ...”，再讓學生用簡短英語補上解釋。例子是否相關、聯繫是否清楚，須與拼寫或流利程度分開判斷。
 學習目標：${openingExample.goalZh}
 教師及學生要看甚麼：例子是否具體且與觀點相關；是否解釋例子如何支持觀點。
 英語觀點：${openingExample.claim}
 段落A：${openingExample.paragraphA}
 段落B：${openingExample.paragraphB}
-學生任務：比較A、B並解釋選擇，再用自己的話改寫A。學生運用回饋修訂並解釋改動。教師依修訂決定是否需要追問或進一步說明。`;
+學生任務：比較A、B並解釋選擇，再用自己的話改寫A。學生運用回饋修訂並解釋改動。教師依修訂決定是否需要追問或進一步說明。
+學生模擬理由：「B，因為它較長。」
+供評估的模擬初稿：${openingExample.draft}`;
 export const agenda = [
  ['The classroom case and formative assessment', '課堂案例與形成性評估', 1],
  ['Three frameworks for designing formative assessment', '以三個框架設計形成性評估', 3],
@@ -89,17 +93,17 @@ export const workedPlan = [
  {stage:'Check the revision',stageZh:'檢視修訂',design:'Compare the revision with the same learning target. Ask why the student made the change and decide whether more support is needed.',designZh:'依同一目標檢視修訂，問學生為何修改，再決定是否仍需協助。',framework:'Gu: evidence, interpretation, feedback and action.',frameworkZh:'Gu：由回饋帶來行動；修訂作答的證據有助檢視效果。'},
 ];
 export const worksheet = [
- {id:'audience',group:0,label:'Which class are you designing for?',labelZh:'你為哪個班級設計？',help:'Example: intermediate English learners who can state an opinion but struggle to explain it.',helpZh:'例如：能表達觀點，但解釋尚不充分的中級英語學生。'},
- {id:'format',group:0,label:'Which format will you use for the formative assessment activity?',labelZh:'你會用甚麼形式呈現形成性評估活動？',help:'HTML slides with choice-and-reason checks, a reading evidence check or a dialogue decision task. Specify how you will use the responses.',helpZh:'設有選擇及理由題的HTML投影片、閱讀證據檢查，或對話判斷任務，並交代如何運用作答。'},
- {id:'goal',group:0,label:'What should students learn to do?',labelZh:'學生要學會做甚麼？',help:'Write one learning target, such as supporting an opinion with an example and an explanation.',helpZh:'寫一個學習目標，例如以例子支持觀點，並解釋聯繫。'},
- {id:'criterion1',group:0,label:'What will you look for in their work? First point',labelZh:'你會在作品中看甚麼？第一點',help:'Example: a specific example relevant to the opinion.',helpZh:'例如：具體且與觀點相關的例子。'},
+ {id:'audience',group:0,label:'Which class are you designing for?',labelZh:'你為哪個班級設計？',help:'Age or year, English level, class size and language support needed.',helpZh:'年齡或年級、英語程度、班級人數及需要的語言協助。'},
+ {id:'format',group:0,label:'How will you use the site in class?',labelZh:'你會如何在課堂使用網站？',help:'One projector with paper or oral answers, or individual devices? Describe the questions or task.',helpZh:'一部投影機配紙本／口頭作答，還是個人裝置？請描述題目或任務。'},
+ {id:'goal',group:0,label:'What should students learn to do?',labelZh:'學生要學會做甚麼？',help:'One target: for example, choose has/can correctly, or explain how an example supports an opinion.',helpZh:'一個目標，例如正確選擇has/can，或解釋例子如何支持觀點。'},
+ {id:'criterion1',group:0,label:'What will you look for in their work? First point',labelZh:'你會在作品中看甚麼？第一點',help:'What would show the target is met? For example, has describes a body feature.',helpZh:'怎樣的表現代表達標？例如用has描述身體特徵。'},
  {id:'criterion2',group:0,label:'What else will you look for? Second point, if needed',labelZh:'還要看甚麼？第二點（如適用）',help:'Example: a sentence explaining how the example supports the opinion.',helpZh:'例如：有一句解釋例子如何支持觀點。'},
- {id:'evidence',group:1,label:'What will every student say, write or do?',labelZh:'每位學生會說、寫或做甚麼？',help:'Example: choose A or B, explain the choice, then improve A.',helpZh:'例如：選A或B，解釋選擇，再改寫A。'},
- {id:'interpretation',group:1,label:'What might the response tell you? What would you check?',labelZh:'作答可能透露甚麼？你還會核對甚麼？',help:'Example: “B is longer” may show a focus on length. Compare two equally long examples to check.',helpZh:'例如：「B較長」可能反映學生只看長度，可比較兩個長度相同的例子來核對。'},
- {id:'feedback',group:1,label:'What feedback will the student receive?',labelZh:'學生會收到甚麼回饋？',help:'Ask AI to help draft feedback. Paste the comment you choose and explain how it helps with the learning target.',helpZh:'請AI協助擬寫回饋，貼上你選定的評語，解釋它如何幫助學生達到目標。'},
- {id:'peers',group:2,label:'How will a partner help?',labelZh:'同伴如何協助？',help:'Example: underline the example and ask how it supports the opinion.',helpZh:'例如：畫出例子，提問它如何支持觀點。'},
- {id:'ownership',group:2,label:'What will students revise or decide for themselves?',labelZh:'學生會自行修訂或決定甚麼？',help:'Example: check the example and explanation, revise and explain one change.',helpZh:'例如：自查例子及解釋、修訂，並說明一項改動。'},
- {id:'action',group:2,label:'What will you do as the teacher after reading the responses?',labelZh:'看過作答後，你作為教師會做甚麼？',help:'Example: show another worked example to students who still need help; extend the task for others.',helpZh:'例如：為仍需協助的學生再示範一個例子，為其他學生延伸任務。'},
+ {id:'evidence',group:1,label:'What will every student say, write or do?',labelZh:'每位學生會說、寫或做甚麼？',help:'What will each student answer or explain before receiving feedback?',helpZh:'收到回饋前，每位學生會怎樣作答或解釋？'},
+ {id:'interpretation',group:1,label:'What might the response tell you? What would you check?',labelZh:'作答可能透露甚麼？你還會核對甚麼？',help:'What might an error mean? What question would help check your interpretation?',helpZh:'錯誤可能反映甚麼？哪條追問有助核對你的理解？'},
+ {id:'feedback',group:1,label:'What feedback will the student receive?',labelZh:'學生會收到甚麼回饋？',help:'Enter a useful comment, or ask AI to suggest feedback options for your review.',helpZh:'填寫一則有用評語，或請AI提出回饋選項，讓你檢視。'},
+ {id:'peers',group:2,label:'How will a partner help?',labelZh:'同伴如何協助？',help:'A partner can ask why a word or example fits, then let the original student revise.',helpZh:'同伴可問詞語或例子為何合適，再讓原作者修訂。'},
+ {id:'ownership',group:2,label:'What will students revise or decide for themselves?',labelZh:'學生會自行修訂或決定甚麼？',help:'Students check their own answer, choose a change and explain why.',helpZh:'學生自行檢查答案、選擇改動並解釋原因。'},
+ {id:'action',group:2,label:'What will you do as the teacher after reading the responses?',labelZh:'看過作答後，你作為教師會做甚麼？',help:'Decide who needs more help and what you will explain or demonstrate again.',helpZh:'判斷誰需要更多協助，以及你會再解說或示範甚麼。'},
  {id:'recheck',group:2,label:'How will you check the revised response?',labelZh:'你會如何檢視修訂後的作答？',help:'Compare the revision with the target and ask why the student made a change.',helpZh:'依目標檢視修訂，再問學生為何修改。'},
 ] as const;
 export const planningGroups = [

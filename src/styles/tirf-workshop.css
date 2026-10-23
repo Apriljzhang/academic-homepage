@@ -54,3 +54,9 @@ body.lesson-deck .tirf-deck .workshop-intro h1{max-width:30ch;font:600 clamp(2.1
 .tirf-deck .workshop-intro .core-definition p{font-size:1.25rem;line-height:1.4}
 .tirf-deck .workshop-intro .core-definition{padding:1rem 1.3rem;margin:1rem 0}
 .tirf-deck .workshop-intro .workshop-outcomes{margin:.6rem 0}.tirf-deck .workshop-intro .workshop-outcomes li{margin:.3rem 0;padding:.25rem 0}
+
+/* Keep practical sequences visible after the site-wide list reset. */
+.tirf-deck ol{list-style:decimal}.tirf-deck ul{list-style:disc}
+.tirf-deck .preview-help{margin:.5rem 0 1.4rem}.tirf-deck .preview-help p,.tirf-deck .preview-help li{font-size:1.05rem}
+.tirf-deck .scenario>h4{font-size:1.1rem;font-weight:600;margin:1rem 0 .4rem}
+.tirf-deck .sample-response{border-left:3px solid #6e8e7c;background:#f6faf7;margin:.7rem 0;padding:.8rem 1rem;font-size:1.15rem}
