@@ -1,3 +1,4 @@
+import { frameworkAiRequests } from '../data/tirfFrameworkPrompts';
 import { activityBuildBrief, frameworkBuildRoles } from '../data/tirfActivityDesign';
 import { syncLessonNavigation, bindLessonShortcuts } from './lessonDeck';
 import { initLessonTimer } from './lessonTimer';
@@ -44,7 +45,7 @@ function syncTranslation(){
  ]){const element=document.querySelector(selector);if(element){element.setAttribute('title',say(en,chinese));if(selector!=='[data-overview]')element.setAttribute('aria-label',say(en,chinese));}}
  localiseTimer();renderPlanSummary();updatePlanSource();
  document.querySelectorAll<HTMLElement>('.status:not([data-case-status]),[data-pdf-status]').forEach(status=>status.textContent='');
- document.querySelectorAll<HTMLElement>('[data-case-status]').forEach(status=>{if(status.textContent)status.textContent=say('Use the hint or partner question to revise after keeping your first attempt.','先保留初稿，再依提示或同伴問題修訂。');});
+ document.querySelectorAll<HTMLElement>('[data-case-status]').forEach(status=>{if(status.textContent)status.textContent=say('Use the feedback or partner question to revise after keeping your first attempt.','先保留初稿，再依回饋或同伴問題修訂。');});
 }
 function showSlide(index:number){
  if(!unlocked)return;
@@ -81,6 +82,7 @@ function hasOwnPlan(){return worksheet.some(field=>planValue(field.id).trim());}
 function currentPlan(){return useWorkedPlan?workedPlanText():ownPlan();}
 function updatePlanSource(){const indicator=document.querySelector('[data-plan-source]');if(indicator)indicator.textContent=useWorkedPlan?say('Using the worked classroom case copied on the previous page.','使用上一頁複製的完整課堂案例。'):hasOwnPlan()?say('The copy buttons below include your current classroom plan.','下方複製按鈕會同時包含你目前的課堂計劃。'):say('Complete your own plan first, or copy the complete worked plan from the previous page.','請先完成自己的計劃，或從上一頁複製完整示範計劃。');}
 async function copy(text:string,status:Element|null){try{await navigator.clipboard.writeText(text);if(status)status.textContent=say('Copied. Paste into WorkBuddy or Codex.','已複製，請貼入WorkBuddy或Codex。');}catch{if(status)status.textContent=say('Clipboard unavailable. Select the request and copy it manually.','無法使用剪貼簿，請選取指令並手動複製。');}}
+document.querySelectorAll<HTMLButtonElement>('[data-framework-copy]').forEach(button=>button.addEventListener('click',()=>{const request=frameworkAiRequests.find(r=>r.key===button.dataset.frameworkCopy);if(request)void copy(zh()?request.zh:request.en,button.parentElement?.querySelector('[role=status]')||null);}));
 document.querySelector('[data-copy-feedback]')?.addEventListener('click',event=>void copy(zh()?feedbackPrompt.zh:feedbackPrompt.en,(event.currentTarget as Element).parentElement?.querySelector('[role=status]')||null));
 document.querySelectorAll<HTMLButtonElement>('[data-strategy-copy]').forEach(button=>button.addEventListener('click',()=>{const strategy=tirfStrategies.find(row=>row.key===button.dataset.strategyCopy);if(strategy)void copy((zh()?caseContextZh:caseContext)+'\n\n'+(zh()?strategy.aiZh:strategy.ai),button.parentElement?.querySelector('[role=status]')||null);}));
 document.querySelector('[data-copy-worked]')?.addEventListener('click',()=>{useWorkedPlan=true;void copy(workedPlanText(),document.querySelector('[data-worked-status]'));updatePlanSource();});

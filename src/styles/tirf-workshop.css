@@ -39,3 +39,17 @@ body.tirf-reading{overflow:auto}body.tirf-reading .tirf-deck .slide{display:bloc
 .tirf-deck .activity-build li>p{max-width:78ch}
 @media(max-width:750px){.framework-build-map{grid-template-columns:1fr;gap:.7rem}.framework-build-map article{padding:.8rem 0}}
 @media print{.framework-build-map{gap:1rem}.framework-build-map h3,.framework-build-map h4{font-size:11pt!important}.framework-build-map p{font-size:10pt!important}.activity-build li{break-inside:avoid}}
+
+.tirf-deck .scenario{border-top:2px solid #bad8c5;padding:1.2rem 0;margin:1.6rem 0}
+.tirf-deck .scenario>h3{font:600 1.5rem/1.3 'Source Serif 4',Georgia,serif}
+.site-features{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:1.05rem;table-layout:fixed}
+.site-features caption{text-align:left;font-weight:600;margin-bottom:.7rem}
+.site-features th,.site-features td{text-align:left;vertical-align:top;border-bottom:1px solid #bad8c5;padding:.8rem;overflow-wrap:anywhere}
+.site-features thead{background:#edf7f0}.site-features th:first-child{width:24%}
+.teacher-assessment-steps>li{padding:.5rem 0;border-bottom:1px solid #bad8c5}
+@media(max-width:600px){.site-features{font-size:.95rem}.site-features th,.site-features td{padding:.45rem}.site-features th:first-child{width:27%}}
+
+body.lesson-deck .tirf-deck .workshop-intro h1{max-width:30ch;font:600 clamp(2.1rem,4vw,3.3rem)/1.1 'Source Serif 4',Georgia,serif;margin:.7rem 0 1.3rem}
+.tirf-deck .workshop-intro .core-definition p{font-size:1.25rem;line-height:1.4}
+.tirf-deck .workshop-intro .core-definition{padding:1rem 1.3rem;margin:1rem 0}
+.tirf-deck .workshop-intro .workshop-outcomes{margin:.6rem 0}.tirf-deck .workshop-intro .workshop-outcomes li{margin:.3rem 0;padding:.25rem 0}

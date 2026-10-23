@@ -36,6 +36,18 @@
 .feedback-model .feedback-principle{margin:1.3rem 0;padding:.9rem 0;border-block:1px solid #bad8c5}
 .feedback-model .source-note{font-size:.9rem}
 .gu-pack article{border-top:1px solid #bad8c5;padding:1rem 0;break-inside:avoid}
-@media(max-width:750px){.feedback-questions{grid-template-columns:1fr}.feedback-questions>article{display:grid;grid-template-columns:1fr 1.2fr;column-gap:1rem}.feedback-questions>article>blockquote{grid-column:2;grid-row:1/4;margin:0}.feedback-questions>article>h5,.feedback-questions>article>p{grid-column:1}.feedback-responses{gap:1.2rem}}
+@media(max-width:750px){.feedback-questions{grid-template-columns:1fr}.feedback-questions>article{display:block}.feedback-responses{gap:1.2rem}}
 @media(max-width:500px){.tirf-deck .framework-section>summary{gap:.7rem;font-size:1.05rem}.model-content{padding:1rem}.feedback-responses,.feedback-levels,.feedback-questions>article{display:block}.feedback-responses>article{margin-bottom:1rem}.feedback-questions>article>blockquote{margin:1rem 0 0}.feedback-levels>article{margin:.8rem 0}.framework-section>summary small{font-size:.95rem}}
 @media print{.feedback-model article,.feedback-purpose{break-inside:avoid}.feedback-model p,.feedback-model blockquote{font-size:10pt}.feedback-heading{break-after:avoid}.feedback-responses{margin:.7rem 0 1.4rem}.feedback-levels{gap:.6rem}.strategy-explanations li{break-inside:avoid}}
+
+/* Copyable AI instructions stay separate from examples of student feedback. */
+.tirf-deck .framework-ai-request{border-top:1px solid #bad8c5;margin:1rem 0 0;padding-top:.7rem;min-width:0}
+.tirf-deck .framework-ai-request>summary{font-size:1rem;line-height:1.4;cursor:pointer}
+.tirf-deck .framework-ai-request pre{font:400 .95rem/1.5 'Source Sans 3',Arial,sans-serif;white-space:pre-wrap;overflow-wrap:anywhere;max-width:100%;margin:.8rem 0;padding:.8rem;background:#fff;border:1px solid #bad8c5}
+.tirf-deck .framework-ai-request .status{font-size:.9rem;margin:.4rem 0}
+.tirf-deck .feedback-model .feedback-example-label{font-size:.9rem;font-weight:600;color:#1f6b45;margin:1rem 0 .3rem}
+.tirf-deck .feedback-example-label+blockquote{margin-top:.3rem}
+.gu-meaning{margin:1.5rem 0;border-top:1px solid #bad8c5;padding-top:1rem}
+.gu-meaning h4{font-size:1.2rem;line-height:1.4}
+.gu-meaning dt{font-weight:600;margin-top:1rem}
+.gu-meaning dd{margin:.3rem 0 1rem;max-width:75ch}
