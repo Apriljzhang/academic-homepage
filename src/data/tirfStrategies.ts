@@ -10,13 +10,24 @@ export const tirfStrategies = [
  {key:'peers', text:'Help students learn from each other', relation:'Peer · Where the learner is and how to get there', question:'How can peers help?', questionZh:'同伴可以怎樣協助？', application:'A partner underlines the example and asks how it supports the opinion. The writer decides what to change.', applicationZh:'同伴畫出例子，問它如何支持觀點；作者決定修改甚麼。', textZh:"讓學生互相幫助學習", role:"Peers support the writer", roleZh:"同伴支持作者", ai:"Draft a short partner-review guide. Ask the partner to find the example and explanation and ask one useful question. Keep the revision with the original writer.", aiZh:"擬寫簡短的同伴互評指引，請同伴找出例子及解釋，提出一條有用問題，修訂仍由原作者完成。", icon:wrap(person(22,66,'#b8dbea')+person(78,66,'#bcdcc7')+'<path d="M7 10h48v29H27L16 49V39H7z" fill="#c6e3d7"/><path d="M46 35h47v29H82L72 74V64H46z" fill="#f4dfaa"/><path d="M18 23h25M57 47h25M57 55h18"/>')},
  {key:'ownership', text:'Help students direct their own learning', relation:'Learner · Where the learner is and how to get there', question:'How can learners take charge?', questionZh:'學習者如何掌握自己的學習？', application:'Students check the example and explanation, revise and explain a change. Later they try a new opinion with less help.', applicationZh:'學生自查例子及解釋、修訂並說明改動，稍後在較少協助下就新觀點寫作。', textZh:"讓學生掌握自己的學習", role:"Student checks and decides", roleZh:"學生自查並作決定", ai:"Draft a self-check and a reflection question that help students choose their own revision. Add a new writing topic to see whether they can use the approach with less help.", aiZh:"設計自查及反思問題，讓學生選擇修訂方向，再加一個新寫作主題，檢視他們能否在較少協助下運用同一方法。", icon:wrap('<path d="M25 92V72L12 65l10-19V34a27 27 0 0 1 52 0v58" fill="#dce3ed"/><rect x="37" y="10" width="55" height="16" rx="3" fill="#f0c6cc"/><path d="M48 18h31"/><circle cx="58" cy="18" r="4" fill="#fff"/><rect x="37" y="36" width="55" height="16" rx="3" fill="#d4e8f3"/><path d="M47 44h21m8-2 4 4 7-8"/>')},
 ];
-const row = (s: typeof tirfStrategies[number], mobile = false) => {
- const strategy = `<div class="strategy-cell"><span class="strategy-symbol">${s.icon}</span><div><strong>${bilingual(s.text,s.textZh)}</strong><p class="strategy-role-label">${bilingual(s.role,s.roleZh)}</p></div></div>`;
- const classroom = `<p>${bilingual(s.application,s.applicationZh)}</p>`;
- const ai = `<p>${bilingual(s.ai,s.aiZh)}</p><button type="button" class="secondary" data-strategy-copy="${s.key}">${bilingual('Copy AI request','複製AI指令')}</button><p class="status" role="status"></p>`;
- return mobile ? `<article class="strategy-${s.key}">${strategy}<h4>${bilingual('In this classroom','在本課堂中')}</h4>${classroom}<h4>${bilingual('Ask Codex or WorkBuddy','請Codex或WorkBuddy協助')}</h4>${ai}</article>` : `<tr class="strategy-${s.key}"><th scope="row">${strategy}</th><td>${classroom}</td><td>${ai}</td></tr>`;
+const modelNames: Record<string, [string, string]> = {
+ intentions: ['Clarifying, sharing and understanding learning intentions and success criteria','澄清、分享並理解學習目標及成功準則'],
+ evidence: ['Engineering effective discussions, tasks and activities that elicit evidence of learning','設計有效的討論、任務與活動，蒐集學習證據'],
+ feedback: ['Providing feedback that moves learners forward','提供推動學習者前進的回饋'],
+ peers: ['Activating students as learning resources for one another','讓學生互相成為學習資源'],
+ ownership: ['Activating students as owners of their own learning','讓學生成為自己學習的主人'],
+};
+const cell = (index: number, span = '') => {
+ const s = tirfStrategies[index];
+ const [en, zh] = modelNames[s.key];
+ return `<td class="strategy-${s.key}" ${span}><div class="strategy-cell"><span class="strategy-symbol">${s.icon}</span><strong>${index+1}. ${bilingual(en,zh)}</strong></div>
+ <details class="strategy-application"><summary>${bilingual('Classroom example and AI support','課堂例子與AI協助')}</summary><div class="strategy-application-content"><h4>${bilingual('In this classroom','在本課堂中')}</h4><p>${bilingual(s.application,s.applicationZh)}</p><h4>${bilingual('Ask Codex or WorkBuddy','請Codex或WorkBuddy協助')}</h4><p>${bilingual(s.ai,s.aiZh)}</p><button type="button" class="secondary" data-strategy-copy="${s.key}">${bilingual('Copy AI request','複製AI指令')}</button><p class="status" role="status"></p></div></details></td>`;
 };
 export const strategyMatrixHtml = `<div class="strategy-matrix">
-<table class="strategy-table"><caption>${bilingual('Five strategies in the classroom case','課堂案例中的五項策略')}</caption><thead><tr><th scope="col">${bilingual('Strategy and role','策略與角色')}</th><th scope="col">${bilingual('What teachers and students do','教師與學生做甚麼')}</th><th scope="col">${bilingual('How generative AI can help the teacher prepare','生成式AI如何協助教師準備')}</th></tr></thead><tbody>${tirfStrategies.map(s=>row(s)).join('')}</tbody></table>
-<div class="strategy-mobile">${tirfStrategies.map(s=>row(s,true)).join('')}</div>
-<p class="strategy-source"><a href="https://doi.org/10.1007/s11092-008-9068-5">Black &amp; Wiliam (2009)</a>. ${bilingual('The five strategies work together. They are not five lesson stages.','五項策略互相配合，並非五個依次完成的課堂階段。')}</p></div>`;
+<div class="strategy-table-scroll" data-deck-scroll role="region" tabindex="0" aria-labelledby="strategy-matrix-caption">
+<table class="strategy-table"><caption id="strategy-matrix-caption">${bilingual('Five key strategies of formative assessment','形成性評估的五項關鍵策略')}</caption><colgroup><col class="strategy-role-column"><col><col><col></colgroup>
+<thead><tr><td class="strategy-corner"></td><th scope="col" id="strategy-going">${bilingual('Where the learner is going','學習者要達到甚麼')}</th><th scope="col" id="strategy-now">${bilingual('Where the learner is now','學習者目前在哪裏')}</th><th scope="col" id="strategy-next">${bilingual('How to get there','如何達到目標')}</th></tr></thead>
+<tbody><tr><th scope="row" id="strategy-teacher">${bilingual('Teacher','教師')}</th>${cell(0,'rowspan="3" headers="strategy-teacher strategy-peer strategy-learner strategy-going"')}${cell(1,'headers="strategy-teacher strategy-now"')}${cell(2,'headers="strategy-teacher strategy-next"')}</tr>
+<tr><th scope="row" id="strategy-peer">${bilingual('Peer','同伴')}</th>${cell(3,'colspan="2" headers="strategy-peer strategy-now strategy-next"')}</tr>
+<tr><th scope="row" id="strategy-learner">${bilingual('Learner','學習者')}</th>${cell(4,'colspan="2" headers="strategy-learner strategy-now strategy-next"')}</tr></tbody></table></div>
+<p class="strategy-source"><a href="https://doi.org/10.1007/s11092-008-9068-5">Black &amp; Wiliam (2009)</a></p></div>`;

@@ -1,3 +1,4 @@
+import { activityBuildBrief, frameworkBuildRoles } from '../data/tirfActivityDesign';
 import { syncLessonNavigation, bindLessonShortcuts } from './lessonDeck';
 import { initLessonTimer } from './lessonTimer';
 import { initTirfClassroomActivity } from './tirfClassroomActivity.js';
@@ -75,7 +76,7 @@ document.querySelectorAll<HTMLDetailsElement>('.framework-section').forEach(sect
 document.querySelectorAll<HTMLButtonElement>('[data-framework]').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('[data-framework]').forEach(node=>node.setAttribute('aria-pressed',String(node===button)));document.querySelectorAll<HTMLElement>('[data-framework-detail]').forEach(panel=>panel.hidden=panel.dataset.frameworkDetail!==button.dataset.framework);}));
 function planValue(id:string){return document.querySelector<HTMLTextAreaElement>(`#brief-${id}`)?.value||'';}
 function ownPlan(chinese=zh()){return worksheet.map(field=>`${chinese?field.labelZh:field.label}\n${planValue(field.id)|| (chinese?'［尚未填寫］':'[not yet completed]')}`).join('\n\n');}
-function workedPlanText(chinese=zh()){return (chinese?caseContextZh:caseContext)+'\n\n'+workedPlan.map(row=>`${chinese?row.stageZh:row.stage}\n${chinese?row.designZh:row.design}\n${chinese?row.frameworkZh:row.framework}`).join('\n\n');}
+function workedPlanText(chinese=zh()){return (chinese?caseContextZh:caseContext)+'\n\n'+activityBuildBrief(chinese)+'\n\n'+workedPlan.map(row=>`${chinese?row.stageZh:row.stage}\n${chinese?row.designZh:row.design}\n${chinese?row.frameworkZh:row.framework}`).join('\n\n');}
 function hasOwnPlan(){return worksheet.some(field=>planValue(field.id).trim());}
 function currentPlan(){return useWorkedPlan?workedPlanText():ownPlan();}
 function updatePlanSource(){const indicator=document.querySelector('[data-plan-source]');if(indicator)indicator.textContent=useWorkedPlan?say('Using the worked classroom case copied on the previous page.','使用上一頁複製的完整課堂案例。'):hasOwnPlan()?say('The copy buttons below include your current classroom plan.','下方複製按鈕會同時包含你目前的課堂計劃。'):say('Complete your own plan first, or copy the complete worked plan from the previous page.','請先完成自己的計劃，或從上一頁複製完整示範計劃。');}
@@ -94,17 +95,18 @@ document.querySelectorAll<HTMLButtonElement>('[data-copy-prompt]').forEach(butto
 document.querySelectorAll<HTMLTextAreaElement>('[data-brief]').forEach(field=>field.addEventListener('input',()=>{useWorkedPlan=false;updatePlanSource();}));
 function renderPlanSummary(){
  const root=document.querySelector('[data-plan-summary]');if(!root)return;root.replaceChildren();
- if(!hasOwnPlan()){const paragraph=document.createElement('p');paragraph.textContent=say('Your plan will appear here after you complete “Design for your own class”.','完成「為自己的班級設計」後，你的計劃會顯示在這裏。');root.append(paragraph);return;}
+ if(!hasOwnPlan()){const paragraph=document.createElement('p');paragraph.textContent=say('Your plan will appear here after you complete “Design formative assessment for your class”.','完成「為自己的班級設計形成性評估」後，你的計劃會顯示在這裏。');root.append(paragraph);return;}
  planningGroups.forEach((group,index)=>{const heading=document.createElement('h3');heading.textContent=zh()?group.titleZh:group.title;root.append(heading);const list=document.createElement('dl');worksheet.filter(field=>field.group===index).forEach(field=>{const term=document.createElement('dt');term.textContent=zh()?field.labelZh:field.label;const definition=document.createElement('dd');definition.textContent=planValue(field.id)||say('Not yet completed','尚未填寫');list.append(term,definition);});root.append(list);});
 }
 function addRecordText(parent:Element,tag:string,text:string){const element=document.createElement(tag);element.textContent=text;parent.append(element);return element;}
 function prepareTrainingRecord(){
  const record=document.querySelector('#workshop-record');if(!record)return;record.replaceChildren();
- addRecordText(record,'h1',say('My classroom plan and workshop notes','我的課堂計劃及工作坊備註'));
+ addRecordText(record,'h1',say('My formative assessment plan and workshop notes','我的形成性評估計劃及工作坊備註'));
  addRecordText(record,'p',workshopTitle);addRecordText(record,'p','April Jiawei Zhang · AI4ELE / TIRF · 24 October 2026');
  addRecordText(record,'h2',say('The three frameworks','三個框架'));
  addRecordText(record,'p',say('Black & Wiliam (2009): target, evidence, feedback, peer support and student ownership. Hattie & Timperley (2007): feedback questions and levels. Gu (2021): target, evidence, interpretation, feedback and action.','Black與Wiliam（2009）：目標、證據、回饋、同伴與自主學習。Hattie與Timperley（2007）：回饋問題及層面。Gu（2021）：目標、證據、詮釋、回饋與行動。'));
- addRecordText(record,'h2',say('My classroom plan','我的課堂計劃'));
+ frameworkBuildRoles.forEach(role=>addRecordText(record,'p',role.name+': '+(zh()?role.designZh:role.design)));
+ addRecordText(record,'h2',say('My formative assessment plan','我的形成性評估計劃'));
  worksheet.forEach(field=>{addRecordText(record,'h3',zh()?field.labelZh:field.label);addRecordText(record,'p',planValue(field.id)||say('Not yet completed','尚未填寫'));});
  addRecordText(record,'h2',say('The shared classroom case','共同課堂案例'));addRecordText(record,'p',zh()?openingExample.goalZh:openingExample.goal);addRecordText(record,'p',openingExample.claim);addRecordText(record,'h3',say('Paragraph A','段落A'));addRecordText(record,'p',openingExample.paragraphA);addRecordText(record,'h3',say('Paragraph B','段落B'));addRecordText(record,'p',openingExample.paragraphB);
  slides.forEach(slide=>{

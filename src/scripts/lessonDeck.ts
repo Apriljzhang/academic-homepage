@@ -14,7 +14,7 @@ export function syncLessonNavigation(current: number, total: number) {
 }
 
 export function bindLessonShortcuts(showSlide: (index: number) => void, getCurrent: () => number, total: number, overview: HTMLDialogElement | null) {
-  const interactive = 'button, a, input, textarea, select, summary, [contenteditable], [draggable="true"], [role="button"], [role="listbox"], [data-exit-drop], video, iframe';
+  const interactive = 'button, a, input, textarea, select, summary, [contenteditable], [draggable="true"], [role="button"], [role="listbox"], [data-exit-drop], [data-deck-scroll], video, iframe';
   const isInteractive = (target: EventTarget | null) => target instanceof Element && Boolean(target.closest(interactive));
   document.addEventListener('keydown', (event) => {
     if (event.defaultPrevented || isInteractive(event.target) || document.querySelector('dialog[open]')) return;
