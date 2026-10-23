@@ -2,8 +2,8 @@
 import CourseSlideLayout from '../../../layouts/CourseSlideLayout.astro';
 import LessonDeckChrome from '../../../components/lessons/LessonDeckChrome.astro';
 import B from '../../../components/lessons/TirfText.astro';
-import { classroomContextHtml, classroomActivityHtml } from '../../../data/tirfClassroom';
-import { primaryScenarioHtml, siteFeaturesHtml, teacherStepsHtml, publishHtml } from '../../../data/tirfSite';
+import { classroomContextHtml } from '../../../data/tirfClassroom';
+import { primaryScenarioHtml, siteFeaturesHtml, teacherStepsHtml, publishHtml, tryOwnSiteHtml } from '../../../data/tirfSite';
 import { frameworkConnectionsHtml } from '../../../data/tirfConnections';
 import { scenarioChoiceHtml } from '../../../data/tirfPromptButtons';
 import { frameworkAiRequestHtml } from '../../../data/tirfFrameworkPrompts';
@@ -59,16 +59,14 @@ const resources = '/teaching/training/tirf/resources/';
 <Fragment set:html={frameworkAiRequestHtml('site-primary')} /><Fragment set:html={frameworkAiRequestHtml('site-college')} />
 <details><summary><B en="Adapt the plan to your own class" zh="按自己的班級調整計劃" /></summary>
 {planningGroups.map((g,index)=><section class="planning-group"><h3><B en={g.title} zh={g.titleZh} /></h3><div class="worksheet">{worksheet.filter(w=>w.group===index).map(w=><label for={`brief-${w.id}`}><B en={w.label} zh={w.labelZh} /><textarea id={`brief-${w.id}`} data-brief={w.id} data-placeholder-en={w.help} data-placeholder-zh={w.helpZh} placeholder={w.help} rows="3"></textarea></label>)}</div></section>)}
-<button data-copy-brief><B en="Copy complete AI prompt" zh="複製完整AI指令" /></button><p class="status" data-brief-status role="status"></p></details>
+<div class="actions"><button data-copy-brief><B en="Copy complete AI prompt" zh="複製完整AI指令" /></button><button class="secondary" data-pdf-open><B en="Save my assessment plan as PDF" zh="把評估計劃儲存為PDF" /></button></div><p class="status" data-brief-status role="status"></p></details>
 </div></section>
 <section class="slide" data-title="Use the site for formative assessment" data-title-zh="用網站進行形成性評估" aria-hidden="true"><div class="slide-inner">
 <header class="slide-header"><span class="eyebrow"><B en="The teacher uses the evidence" zh="由教師運用證據" /></span></header><h2><B en="What the teacher does with the site" zh="教師如何使用網站" /></h2>
 <Fragment set:html={teacherStepsHtml} />
 <p class="takeaway"><B en="With one projector, students answer on paper or orally and the teacher records the evidence. With individual devices, students export their work for the teacher to collect." zh="只有投影機時，學生用紙本或口頭作答，由教師記錄證據；使用個人裝置時，學生匯出作答，交由教師收取。" /></p>
-<Fragment set:html={classroomActivityHtml} />
+<Fragment set:html={tryOwnSiteHtml} />
 <Fragment set:html={frameworkAiRequestHtml('site-review')} />
-<label for="repair"><B en="One problem, the change you made, and what happened when you tried again" zh="一項問題、你的修改，以及再次試做的結果" /></label><textarea id="repair" data-note="Activity repair" rows="3"></textarea>
-<div class="actions"><button data-pdf-open><B en="Save my notes as PDF" zh="把備註儲存為PDF" /></button></div>
 </div></section>
 <section class="slide" data-title="Optional: publish the site" data-title-zh="可選：發佈網站" aria-hidden="true"><div class="slide-inner">
 <header class="slide-header"><span class="eyebrow"><B en="Share a classroom link when needed" zh="有需要時分享課堂網址" /></span></header><h2><B en="Put the activity online" zh="把活動放到網上" /></h2>
@@ -76,7 +74,7 @@ const resources = '/teaching/training/tirf/resources/';
 <p><a href={`${resources}participant-pack.html`} target="_blank" rel="noopener"><B en="Workshop reference pack" zh="工作坊參考材料" /></a></p>
 </div></section>
 </main></div>
-<dialog class="tool-dialog tirf-pdf-dialog" data-pdf-dialog aria-labelledby="tirf-pdf-title"><div class="overview-head"><h2 id="tirf-pdf-title"><B en="Save your classroom design" zh="儲存你的課堂設計" /></h2><button type="button" data-pdf-close aria-label="Close / 關閉">×</button></div><p><B en="Your PDF will contain your classroom plan, review notes and any sample student writing you entered here." zh="PDF會包含你的課堂計劃、檢視備註，以及你在此輸入的模擬學生寫作。" /></p><button type="button" data-pdf-download><B en="Download PDF" zh="下載PDF" /></button><p data-pdf-status role="status"></p></dialog>
-<article class="tirf-record" id="workshop-record" aria-label="Classroom plan and workshop notes"></article>
+<dialog class="tool-dialog tirf-pdf-dialog" data-pdf-dialog aria-labelledby="tirf-pdf-title"><div class="overview-head"><h2 id="tirf-pdf-title"><B en="Save your classroom design" zh="儲存你的課堂設計" /></h2><button type="button" data-pdf-close aria-label="Close / 關閉">×</button></div><p><B en="Your PDF contains the classroom plan you entered and reference material from the workshop." zh="PDF包含你填寫的課堂計劃及工作坊參考材料。" /></p><button type="button" data-pdf-download><B en="Download PDF" zh="下載PDF" /></button><p data-pdf-status role="status"></p></dialog>
+<article class="tirf-record" id="workshop-record" aria-label="Classroom assessment plan"></article>
 <script>import '../../../scripts/tirfWorkshop';</script>
 </CourseSlideLayout>

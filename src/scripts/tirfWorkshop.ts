@@ -107,7 +107,7 @@ function renderPlanSummary(){
 function addRecordText(parent:Element,tag:string,text:string){const element=document.createElement(tag);element.textContent=text;parent.append(element);return element;}
 function prepareTrainingRecord(){
  const record=document.querySelector('#workshop-record');if(!record)return;record.replaceChildren();
- addRecordText(record,'h1',say('My formative assessment plan and workshop notes','我的形成性評估計劃及工作坊備註'));
+ addRecordText(record,'h1',say('My formative assessment plan','我的形成性評估計劃'));
  addRecordText(record,'p',workshopTitle);addRecordText(record,'p','April Jiawei Zhang · AI4ELE / TIRF · 24 October 2026');
  addRecordText(record,'h2',say('The three frameworks','三個框架'));
  addRecordText(record,'p',say('Black & Wiliam (2009): target, evidence, feedback, peer support and student ownership. Hattie & Timperley (2007): feedback questions and levels. Gu (2021): target, evidence, interpretation, feedback and action.','Black與Wiliam（2009）：目標、證據、回饋、同伴與自主學習。Hattie與Timperley（2007）：回饋問題及層面。Gu（2021）：目標、證據、詮釋、回饋與行動。'));

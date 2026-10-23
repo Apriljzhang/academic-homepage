@@ -8,8 +8,8 @@ const {frameworkAiRequests,frameworkAiRequestHtml}=await import('file://'+proces
 const {scenarioPromptButtonsHtml,scenarioChoiceHtml}=await import('file://'+process.cwd()+'/src/data/tirfPromptButtons.ts');
 const {feedbackModelHtml}=await import('file://'+process.cwd()+'/src/data/tirfFeedback.ts');
 const {guPractices}=await import('file://'+process.cwd()+'/src/data/tirfGu.ts');
-const {classroomCaseHtml,classroomContextHtml,classroomActivityHtml}=await import('file://'+process.cwd()+'/src/data/tirfClassroom.ts');
-const {primaryScenarioHtml,siteFeaturesHtml,teacherStepsHtml,publishHtml,buildEn,buildZh}=await import('file://'+process.cwd()+'/src/data/tirfSite.ts');
+const {classroomCaseHtml,classroomContextHtml}=await import('file://'+process.cwd()+'/src/data/tirfClassroom.ts');
+const {primaryScenarioHtml,siteFeaturesHtml,teacherStepsHtml,publishHtml,buildEn,buildZh,tryOwnSiteHtml}=await import('file://'+process.cwd()+'/src/data/tirfSite.ts');
 const {bilingual:b,escapeHtml:e}=await import('file://'+process.cwd()+'/src/data/tirfMarkup.ts');
 const styles=['tirf-workshop.css','tirf-strategies.css','tirf-models.css'].map(name=>fs.readFileSync('src/styles/'+name,'utf8')).join('\n');
 const activityScript=fs.readFileSync('src/scripts/tirfClassroomActivity.js','utf8').replace('export function','function');
@@ -48,7 +48,7 @@ const page=shell('Formative assessment with generative AI: workshop reference pa
 <h2>${b('How the three frameworks work together','三個框架如何配合使用')}</h2>${frameworkConnectionsHtml}
 <h2>${b('Build the assessment site','製作評估網站')}</h2><p>${b('Choose a folder and paste the prompt for your scenario into Codex or WorkBuddy. Review the plan and feedback, then ask it to create index.html. Open the preview, try the activity and ask for repairs.','選擇資料夾，把所選情境指令貼入Codex或WorkBuddy，檢視計劃及回饋後，再請它製作index.html。開啟預覽、試做，再請它修正問題。')}</p>${siteFeaturesHtml}${frameworkAiRequestHtml('site-primary')}${frameworkAiRequestHtml('site-college')}
 <details><summary>${b('Adapt the plan to your own class','按自己的班級調整計劃')}</summary>${planningGroups.map((g,i)=>`<section class="planning-group"><h3>${b(g.title,g.titleZh)}</h3>${worksheet.filter(w=>w.group===i).map(w=>`<label for="pack-${w.id}">${b(w.label,w.labelZh)}</label><textarea id="pack-${w.id}" rows="3" placeholder="${e(w.help)}" data-placeholder-en="${e(w.help)}" data-placeholder-zh="${e(w.helpZh)}"></textarea>`).join('')}</section>`).join('')}<div><button data-pack-copy-plan>${b('Copy complete AI prompt','複製完整AI指令')}</button><p class="status" role="status"></p></div></details>
-<h2>${b('Use the site for formative assessment','用網站進行形成性評估')}</h2>${teacherStepsHtml}${classroomActivityHtml}${frameworkAiRequestHtml('site-review')}<label for="pack-review">${b('One problem, your change and the result when tried again','一項問題、你的修改及再次試做的結果')}</label><textarea id="pack-review" rows="4"></textarea>
+<h2>${b('Use the site for formative assessment','用網站進行形成性評估')}</h2>${teacherStepsHtml}${tryOwnSiteHtml}${frameworkAiRequestHtml('site-review')}
 <h2>${b('Optional: publish the site','可選：發佈網站')}</h2>${publishHtml}${sourcesHtml}`);
 const target='public/teaching/training/tirf/resources/';
 fs.writeFileSync(target+'participant-pack.html',page);
