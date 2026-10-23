@@ -22,7 +22,7 @@ const cell = (index: number, span = '') => {
  const s = tirfStrategies[index];
  const [en, zh] = modelNames[s.key];
  return `<td class="strategy-${s.key}" ${span}><div class="strategy-cell"><span class="strategy-symbol">${s.icon}</span><strong>${index+1}. ${bilingual(en,zh)}</strong></div>
- <details class="strategy-application"><summary>${bilingual('College example and prompts for both scenarios','大學例子及兩個情境的指令')}</summary><div class="strategy-application-content"><h4>${bilingual('Scenario 2: college English','情境二：大學英語')}</h4><p>${bilingual(s.application,s.applicationZh)}</p>${scenarioPromptButtonsHtml(`primary-strategy-${s.key}`,`college-strategy-${s.key}`)}</div></details></td>`;
+ <details class="strategy-application"><summary>${bilingual('Classroom example and AI prompt','課堂例子及AI指令')}</summary><div class="strategy-application-content">${scenarioPromptButtonsHtml(`primary-strategy-${s.key}`,`college-strategy-${s.key}`,s.application,s.applicationZh)}</div></details></td>`;
 };
 export const strategyMatrixHtml = `<div class="strategy-matrix">
 <div class="strategy-table-scroll" data-deck-scroll role="region" tabindex="0" aria-labelledby="strategy-matrix-caption">

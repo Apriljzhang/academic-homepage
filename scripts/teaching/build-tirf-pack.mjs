@@ -3,24 +3,27 @@ const {openingExample,prompts,worksheet,planningGroups,feedbackPrompt,workedFeed
 const {tirfFrameworkReferences}=await import('file://'+process.cwd()+'/src/data/tirfSources.ts');
 const {strategyMatrixHtml,tirfStrategies}=await import('file://'+process.cwd()+'/src/data/tirfStrategies.ts');
 const {frameworkBuildHtml,activityBuildHtml}=await import('file://'+process.cwd()+'/src/data/tirfActivityDesign.ts');
-const {frameworkConnectionsHtml,frameworkLinkNotes,frameworkOriginsHtml}=await import('file://'+process.cwd()+'/src/data/tirfConnections.ts');
+const {frameworkConnectionsHtml}=await import('file://'+process.cwd()+'/src/data/tirfConnections.ts');
 const {frameworkAiRequests,frameworkAiRequestHtml}=await import('file://'+process.cwd()+'/src/data/tirfFrameworkPrompts.ts');
-const {scenarioPromptButtonsHtml}=await import('file://'+process.cwd()+'/src/data/tirfPromptButtons.ts');
+const {scenarioPromptButtonsHtml,scenarioChoiceHtml}=await import('file://'+process.cwd()+'/src/data/tirfPromptButtons.ts');
 const {feedbackModelHtml}=await import('file://'+process.cwd()+'/src/data/tirfFeedback.ts');
-const {guPractices,guMeaningHtml}=await import('file://'+process.cwd()+'/src/data/tirfGu.ts');
+const {guPractices}=await import('file://'+process.cwd()+'/src/data/tirfGu.ts');
 const {classroomCaseHtml,classroomContextHtml,classroomActivityHtml}=await import('file://'+process.cwd()+'/src/data/tirfClassroom.ts');
 const {primaryScenarioHtml,siteFeaturesHtml,teacherStepsHtml,publishHtml}=await import('file://'+process.cwd()+'/src/data/tirfSite.ts');
 const {bilingual:b,escapeHtml:e}=await import('file://'+process.cwd()+'/src/data/tirfMarkup.ts');
 const styles=['tirf-workshop.css','tirf-strategies.css','tirf-models.css'].map(name=>fs.readFileSync('src/styles/'+name,'utf8')).join('\n');
 const activityScript=fs.readFileSync('src/scripts/tirfClassroomActivity.js','utf8').replace('export function','function');
+const scenarioScript=fs.readFileSync('src/scripts/tirfScenarioChoices.js','utf8').replace('export function','function');
 const serialise=value=>JSON.stringify(value).replaceAll('<','\\u003c');
 const promptsHtml=prompts.map((p,i)=>`<section class="pack-section"><h3>${i+1}. ${b(p.title,p.titleZh)}</h3><pre data-language="en">${e(p.text)}</pre><pre data-language="zh" lang="zh-Hant" hidden>${e(p.textZh)}</pre><button data-pack-prompt="${i}">${b('Copy request','複製指令')}</button><p class="status" role="status"></p></section>`).join('');
 const sourcesHtml=`<h2>${b('Sources for the three frameworks','三個框架的來源')}</h2><ul class="sources">${tirfFrameworkReferences.map(r=>`<li>${e(r.text)} <a href="${r.href}">${b('Read source','閱讀原文')}</a></li>`).join('')}</ul>`;
 const controls=`<div class="pack-controls"><button data-pack-language>中文</button><button onclick="window.print()">${b('Print / save PDF','列印／儲存PDF')}</button></div>`;
 const packScript=`${activityScript}
+${scenarioScript}
 const caseEnglish=${serialise(caseContext)},caseChinese=${serialise(caseContextZh)},strategies=${serialise(tirfStrategies.map(({key,ai,aiZh})=>({key,ai,aiZh})))},requests=${serialise(prompts)},frameworkRequests=${serialise(frameworkAiRequests)};
 function chinese(){return document.documentElement.lang==='zh-Hant';}
 document.querySelector('[data-pack-language]').addEventListener('click',()=>{document.documentElement.lang=chinese()?'en-GB':'zh-Hant';document.querySelectorAll('[data-language]').forEach(el=>el.hidden=el.dataset.language!==(chinese()?'zh':'en'));document.querySelectorAll('[data-placeholder-en]').forEach(el=>el.placeholder=chinese()?el.dataset.placeholderZh:el.dataset.placeholderEn);document.querySelector('[data-pack-language]').textContent=chinese()?'English':'中文';});
+initTirfScenarioChoices(document);
 document.querySelectorAll('[data-classroom-activity]').forEach(initTirfClassroomActivity);
 async function copyRequest(text,button){try{await navigator.clipboard.writeText(text);button.parentElement.querySelector('[role=status]').textContent=chinese()?'已複製。':'Copied.';}catch{const status=button.parentElement.querySelector('[role=status]');status.textContent=chinese()?'請選取下方指令並複製。':'Select and copy the prompt below.';const field=document.createElement('textarea');field.readOnly=true;field.value=text;field.rows=6;field.setAttribute('aria-label',chinese()?'可複製的AI指令':'AI prompt to copy');status.append(field);field.focus();field.select();}}
 document.querySelectorAll('[data-strategy-copy]').forEach(button=>button.addEventListener('click',()=>{const s=strategies.find(row=>row.key===button.dataset.strategyCopy);copyRequest((chinese()?caseChinese:caseEnglish)+'\\n\\n'+(chinese()?s.aiZh:s.ai),button);}));
@@ -34,10 +37,10 @@ const page=shell('Formative assessment with generative AI: workshop reference pa
 <h2>${b('Workshop aims','工作坊學習目標')}</h2><p>${b('Use the three frameworks to collect, interpret and act on learning evidence. Use AI prompts to prepare questions and feedback, then ask Codex or WorkBuddy to build an HTML site for the assessment.','依三個框架蒐集、詮釋並運用學習證據。用AI指令準備問題及回饋，再請Codex或WorkBuddy製作評估用HTML網站。')}</p>
 <div class="core-definition"><p>${b('Teachers and students use evidence of learning to decide what to do next to help students reach a learning target.','教師與學生運用學習證據，決定接下來怎樣教與學，以幫助學生達到學習目標。')}</p></div>
 <h2>${b('Two English-class scenarios in China','中國英語課堂的兩個情境')}</h2>${primaryScenarioHtml}<article class="scenario"><h3>${b('2 · General college English in China','二 · 中國高校大學英語')}</h3>${classroomContextHtml}</article>
-<p>${b('Scenario 1: primary English (has / can). Scenario 2: college English (opinion writing). Copy the prompt for your scenario within each part of the framework.','情境一：小學英語（has／can）。情境二：大學英語（觀點寫作）。在框架的各部分複製適合自己情境的指令。')}</p>
-<h2>Black &amp; Wiliam (2009)</h2><p class="framework-link">${b(frameworkLinkNotes.strategies.en,frameworkLinkNotes.strategies.zh)}</p>${strategyMatrixHtml}
-<h2>Hattie &amp; Timperley (2007)</h2><p class="framework-link">${b(frameworkLinkNotes.feedback.en,frameworkLinkNotes.feedback.zh)}</p>${feedbackModelHtml}
-<h2>Gu (2021)</h2><p class="framework-link">${b(frameworkLinkNotes.gu.en,frameworkLinkNotes.gu.zh)}</p><div class="gu-pack"><article><h3>${b('Learning target','學習目標')}</h3>${scenarioPromptButtonsHtml('primary-gu-targets','gu-targets')}</article>${guPractices.map(s=>`<article><h3>${b(s.en,s.zh)}</h3><p>${b(s.explanation,s.explanationZh)}</p><p>${b(s.example,s.exampleZh)}</p>${scenarioPromptButtonsHtml('primary-gu-'+s.key,'gu-'+s.key)}</article>`).join('')}</div>${guMeaningHtml}${frameworkOriginsHtml}
+<p>${b('Choose a scenario. The example shows the classroom action; Copy AI prompt copies instructions asking AI to help prepare it.','選擇情境。例子展示課堂做法；「複製AI指令」則複製請AI協助準備材料的要求。')}</p>
+<section data-scenario-scope><h2>Black &amp; Wiliam (2009)</h2>${scenarioChoiceHtml()}${strategyMatrixHtml}</section>
+<section data-scenario-scope><h2>Hattie &amp; Timperley (2007)</h2>${scenarioChoiceHtml()}${feedbackModelHtml}</section>
+<section data-scenario-scope><h2>Gu (2021)</h2>${scenarioChoiceHtml()}<div class="gu-pack"><article><h3>${b('Learning target','學習目標')}</h3>${scenarioPromptButtonsHtml('primary-gu-targets','gu-targets','A relevant example and an explanation of how it supports the opinion.','提供相關例子，並解釋它如何支持觀點。')}</article>${guPractices.map(s=>`<article><h3>${b(s.en,s.zh)}</h3><p>${b(s.explanation,s.explanationZh)}</p>${scenarioPromptButtonsHtml('primary-gu-'+s.key,'gu-'+s.key,s.example,s.exampleZh)}</article>`).join('')}</div></section>
 <h2>${b('How the three frameworks work together','三個框架如何配合使用')}</h2>${frameworkConnectionsHtml}
 <h2>${b('Build the assessment site','製作評估網站')}</h2><p>${b('Choose a folder and paste the prompt for your scenario into Codex or WorkBuddy. Review the plan and feedback, then ask it to create index.html. Open the preview, try the activity and ask for repairs.','選擇資料夾，把所選情境指令貼入Codex或WorkBuddy，檢視計劃及回饋後，再請它製作index.html。開啟預覽、試做，再請它修正問題。')}</p>${siteFeaturesHtml}${frameworkAiRequestHtml('site-primary')}${frameworkAiRequestHtml('site-college')}
 <details><summary>${b('Adapt the plan to your own class','按自己的班級調整計劃')}</summary>${planningGroups.map((g,i)=>`<section class="planning-group"><h3>${b(g.title,g.titleZh)}</h3>${worksheet.filter(w=>w.group===i).map(w=>`<label for="pack-${w.id}">${b(w.label,w.labelZh)}</label><textarea id="pack-${w.id}" rows="3" placeholder="${e(w.help)}" data-placeholder-en="${e(w.help)}" data-placeholder-zh="${e(w.helpZh)}"></textarea>`).join('')}</section>`).join('')}</details>

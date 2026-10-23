@@ -1,3 +1,4 @@
+import { initTirfScenarioChoices } from './tirfScenarioChoices.js';
 import { frameworkAiRequests } from '../data/tirfFrameworkPrompts';
 import { activityBuildBrief, frameworkBuildRoles } from '../data/tirfActivityDesign';
 import { syncLessonNavigation, bindLessonShortcuts } from './lessonDeck';
@@ -72,6 +73,7 @@ document.querySelectorAll<HTMLButtonElement>('[data-jump]').forEach(button=>butt
 translate?.addEventListener('click',()=>{slides[current].dataset.currentLanguage=zh()?'en':'zh';syncTranslation();});
 document.querySelector('[data-overview]')?.addEventListener('click',()=>overview?.showModal());document.querySelector('[data-close-overview]')?.addEventListener('click',()=>overview?.close());
 document.querySelector('[data-fullscreen]')?.addEventListener('click',()=>{void(document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()).catch(()=>{});});
+initTirfScenarioChoices(document);
 document.querySelectorAll('[data-classroom-activity]').forEach(root=>initTirfClassroomActivity(root));
 document.querySelectorAll<HTMLDetailsElement>('.framework-section').forEach(section=>section.addEventListener('toggle',()=>{if(section.open)section.querySelector('summary')?.scrollIntoView({block:'start',behavior:'instant'});}));
 document.querySelectorAll<HTMLButtonElement>('[data-framework]').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('[data-framework]').forEach(node=>node.setAttribute('aria-pressed',String(node===button)));document.querySelectorAll<HTMLElement>('[data-framework-detail]').forEach(panel=>panel.hidden=panel.dataset.frameworkDetail!==button.dataset.framework);}));
