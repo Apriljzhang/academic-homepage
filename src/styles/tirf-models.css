@@ -69,8 +69,8 @@
 .tirf-deck .scenario-example-text{font-size:1rem!important;line-height:1.45;margin:.3rem 0 .7rem!important}
 .tirf-deck .scenario-example-prompts .status{margin:.3rem 0 0}
 .connected-assessment-model{padding:1rem 0;color:#153c2b}
-.connection-target{max-width:30rem;margin:auto;border:2px solid #1f6b45;border-radius:50%;padding:1.2rem;text-align:center;background:#edf7f0}
-.tirf-deck .connection-target h3{font-size:1.25rem;margin:0 0 .5rem}
+.connection-target{max-width:40rem;margin:auto;border:2px solid #1f6b45;border-radius:50%;padding:1.6rem 3.2rem;text-align:center;background:#edf7f0}
+.tirf-deck .connection-target h3{max-width:28rem;font-size:1.25rem;margin:0 auto .5rem}
 .tirf-deck .connection-target p,.tirf-deck .connection-cycle p,.tirf-deck .connection-participation p{font-size:1rem;line-height:1.4;margin:.35rem 0}
 .connection-target-line{position:relative;text-align:center;margin:0 0 1rem;padding:1rem 0;border-bottom:1px solid #6e8e7c;font-size:.95rem}
 .connection-target-line::before{content:'';position:absolute;top:0;left:50%;height:.8rem;border-left:1px solid #6e8e7c}
@@ -79,8 +79,12 @@
 .connection-cycle>article::before{content:'';position:absolute;height:1rem;top:-1rem;left:50%;border-left:1px solid #6e8e7c}
 .connection-cycle>article:not(:last-child)::after{content:'→';position:absolute;right:-1.3rem;top:45%;color:#1f6b45;font-size:1.2rem}
 .tirf-deck .connection-cycle h4{font-size:1.1rem;line-height:1.3;margin:0 0 .7rem}
-.connection-return{display:flex;align-items:center;gap:.6rem;justify-content:center;border-bottom:1px solid #6e8e7c;margin:.4rem 0 1rem;padding:.3rem}
-.connection-return>span{font-size:1.7rem;color:#1f6b45}.tirf-deck .connection-return p{font-size:1rem;margin:0}
+.connection-return{margin:0 0 1rem;padding-bottom:1rem;border-bottom:1px solid #6e8e7c}
+.connection-return-path{position:relative;height:1.6rem;width:calc(50% + .7rem);margin-left:calc(37.5% - .175rem);border:2px solid #1f6b45;border-top:0;border-radius:0 0 .6rem .6rem}
+.connection-return-path::before{content:'';position:absolute;left:-6px;top:0;border-left:5px solid transparent;border-right:5px solid transparent;border-bottom:9px solid #1f6b45}
+.tirf-deck .connection-return p{max-width:70ch;font-size:1rem;line-height:1.45;margin:.6rem auto 0;text-align:center}
+.connection-return strong{display:block;margin-bottom:.25rem}
+.tirf-deck .connected-assessment-model .connection-citation{font-size:.85rem;line-height:1.35;color:#496a58}
 .connection-participation{display:grid;grid-template-columns:1fr 1fr;gap:1rem;background:#edf7f0;border-left:3px solid #1f6b45;padding:.7rem 1rem}
 .connection-participation strong{display:block}
-@media(max-width:700px){.connection-cycle{grid-template-columns:1fr;gap:1.5rem}.connection-target{border-radius:1rem}.connection-target-line{border-bottom:0;margin:0;padding:1rem 0}.connection-cycle>article::before{display:none}.connection-cycle>article:not(:last-child)::after{content:'↓';right:auto;left:50%;top:auto;bottom:-1.5rem}.connection-participation{grid-template-columns:1fr;gap:.5rem}}
+@media(max-width:700px){.connection-cycle{grid-template-columns:1fr;gap:1.5rem}.connection-target{border-radius:1rem;padding:1rem}.connection-target-line{border-bottom:0;margin:0;padding:1rem 0}.connection-cycle>article::before{display:none}.connection-cycle>article:not(:last-child)::after{content:'↓';right:auto;left:50%;top:auto;bottom:-1.5rem}.connection-participation{grid-template-columns:1fr;gap:.5rem}.connection-return-path{display:none}.connection-return{margin-top:1rem;border-top:2px solid #1f6b45;padding-top:.5rem}}
