@@ -45,6 +45,7 @@ body.tirf-reading{overflow:auto}body.tirf-reading .tirf-deck .slide{display:bloc
 .site-features{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:1.05rem;table-layout:fixed}
 .site-features caption{text-align:left;font-weight:600;margin-bottom:.7rem}
 .site-features th,.site-features td{text-align:left;vertical-align:top;border-bottom:1px solid #bad8c5;padding:.8rem;overflow-wrap:anywhere}
+.site-features tbody tr:last-child>*{border-bottom:0}
 .site-features thead{background:#edf7f0}.site-features th:first-child{width:24%}
 .teacher-assessment-steps>li{padding:.5rem 0;border-bottom:1px solid #bad8c5}
 @media(max-width:600px){.site-features{font-size:.95rem}.site-features th,.site-features td{padding:.45rem}.site-features th:first-child{width:27%}}
@@ -129,7 +130,7 @@ body.lesson-deck .tirf-deck .workshop-intro h1{max-width:30ch;font:600 clamp(2.1
 @media print{.feedback-model article,.feedback-purpose{break-inside:avoid}.feedback-model p,.feedback-model blockquote{font-size:10pt}.feedback-heading{break-after:avoid}.feedback-responses{margin:.7rem 0 1.4rem}.feedback-levels{gap:.6rem}.strategy-explanations li{break-inside:avoid}}
 
 /* Copyable AI instructions stay separate from examples of student feedback. */
-.tirf-deck .framework-ai-request{border-top:1px solid #bad8c5;margin:1rem 0 0;padding-top:.7rem;min-width:0}
+.tirf-deck .framework-ai-request{border-top:0;margin:1rem 0 0;padding-top:.7rem;min-width:0}
 .tirf-deck .framework-ai-request>summary{font-size:1rem;line-height:1.4;cursor:pointer}
 .tirf-deck .framework-ai-request pre{font:400 .95rem/1.5 'Source Sans 3',Arial,sans-serif;white-space:pre-wrap;overflow-wrap:anywhere;max-width:100%;margin:.8rem 0;padding:.8rem;background:#fff;border:1px solid #bad8c5}
 .tirf-deck .framework-ai-request .status{font-size:.9rem;margin:.4rem 0}
@@ -152,7 +153,7 @@ body.lesson-deck .tirf-deck .workshop-intro h1{max-width:30ch;font:600 clamp(2.1
 .tirf-deck .scenario-choice{display:flex;flex-wrap:wrap;gap:.5rem;margin:.3rem 0 1rem}
 .tirf-deck .scenario-choice button{font-size:.98rem;padding:.55rem .8rem}
 .tirf-deck .scenario-choice button[aria-pressed=true]{background:#1f6b45;color:#fff}
-.tirf-deck .scenario-example-prompts{display:block;border-top:1px solid #bad8c5;padding-top:.6rem;margin-top:.7rem}
+.tirf-deck .scenario-example-prompts{display:block;margin-top:.7rem}
 .tirf-deck .scenario-example-label{font-size:.9rem!important;font-weight:600;color:#1f6b45;margin:0 0 .4rem!important}
 .tirf-deck .scenario-example-text{font-size:1rem!important;line-height:1.45;margin:.3rem 0 .7rem!important}
 .tirf-deck .scenario-example-prompts .status{margin:.3rem 0 0}

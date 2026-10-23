@@ -41,7 +41,7 @@
 @media print{.feedback-model article,.feedback-purpose{break-inside:avoid}.feedback-model p,.feedback-model blockquote{font-size:10pt}.feedback-heading{break-after:avoid}.feedback-responses{margin:.7rem 0 1.4rem}.feedback-levels{gap:.6rem}.strategy-explanations li{break-inside:avoid}}
 
 /* Copyable AI instructions stay separate from examples of student feedback. */
-.tirf-deck .framework-ai-request{border-top:1px solid #bad8c5;margin:1rem 0 0;padding-top:.7rem;min-width:0}
+.tirf-deck .framework-ai-request{border-top:0;margin:1rem 0 0;padding-top:.7rem;min-width:0}
 .tirf-deck .framework-ai-request>summary{font-size:1rem;line-height:1.4;cursor:pointer}
 .tirf-deck .framework-ai-request pre{font:400 .95rem/1.5 'Source Sans 3',Arial,sans-serif;white-space:pre-wrap;overflow-wrap:anywhere;max-width:100%;margin:.8rem 0;padding:.8rem;background:#fff;border:1px solid #bad8c5}
 .tirf-deck .framework-ai-request .status{font-size:.9rem;margin:.4rem 0}
@@ -64,7 +64,7 @@
 .tirf-deck .scenario-choice{display:flex;flex-wrap:wrap;gap:.5rem;margin:.3rem 0 1rem}
 .tirf-deck .scenario-choice button{font-size:.98rem;padding:.55rem .8rem}
 .tirf-deck .scenario-choice button[aria-pressed=true]{background:#1f6b45;color:#fff}
-.tirf-deck .scenario-example-prompts{display:block;border-top:1px solid #bad8c5;padding-top:.6rem;margin-top:.7rem}
+.tirf-deck .scenario-example-prompts{display:block;margin-top:.7rem}
 .tirf-deck .scenario-example-label{font-size:.9rem!important;font-weight:600;color:#1f6b45;margin:0 0 .4rem!important}
 .tirf-deck .scenario-example-text{font-size:1rem!important;line-height:1.45;margin:.3rem 0 .7rem!important}
 .tirf-deck .scenario-example-prompts .status{margin:.3rem 0 0}
