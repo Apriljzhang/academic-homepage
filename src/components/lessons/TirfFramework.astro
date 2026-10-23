@@ -1,6 +1,6 @@
 ---
 import B from './TirfText.astro';
-import { frameworkAiRequestHtml } from '../../data/tirfFrameworkPrompts';
+import { scenarioPromptButtonsHtml } from '../../data/tirfPromptButtons';
 import { guPractices, guMeaningHtml } from '../../data/tirfGu';
 const nodes = [...guPractices, {ai:'Ask AI to restate the target for your students and suggest what you could look for in their work. Check that it matches your teaching aim.', aiZh:'請AI用學生易懂的語言重述目標，建議可在作品中看甚麼；核對它是否符合你的教學目的。', key:'targets', en:'Learning target', zh:'學習目標', explanation:'The target remains the reference point in every practice.', explanationZh:'每項實踐均以學習目標為參照。', example:'A specific relevant example, plus an explanation linking it to the opinion. Look for the example and explanation when choosing a task, interpreting a response and deciding the next step.', exampleZh:'本寫作任務的目標：提供具體相關的例子，並解釋它與觀點的聯繫。選擇任務、詮釋作答及決定下一步時，都看這兩個重點。'}];
 ---
@@ -15,6 +15,6 @@ const nodes = [...guPractices, {ai:'Ask AI to restate the target for your studen
  <div class="framework-context"><span data-language="en">Formative effect</span><span data-language="zh" lang="zh-Hant" hidden>形成性效果</span><small><span data-language="en">Evaluate whether learning benefits</span><span data-language="zh" lang="zh-Hant" hidden>檢視是否促進學習</span></small></div>
 </div>
 <p class="source-note"><span data-language="en">Select a practice or the central target to see its meaning and classroom example.</span><span data-language="zh" lang="zh-Hant" hidden>點選各項實踐或中央目標，查看解釋與課堂例子。</span></p>
-<div id="framework-detail" class="takeaway" aria-live="polite">{nodes.map(({key,en,zh,explanation,explanationZh,example,exampleZh,ai,aiZh})=><div data-framework-detail={key} hidden={key!=='targets'}><div data-language="en"><h4>{en}</h4><p>{explanation}</p><p><strong>In our classroom case:</strong> {example}</p></div><div data-language="zh" lang="zh-Hant" hidden><h4>{zh}</h4><p>{explanationZh}</p><p><strong>本課堂案例：</strong>{exampleZh}</p></div><Fragment set:html={frameworkAiRequestHtml(`gu-${key}`)} /></div>)}</div>
+<div id="framework-detail" class="takeaway" aria-live="polite">{nodes.map(({key,en,zh,explanation,explanationZh,example,exampleZh,ai,aiZh})=><div data-framework-detail={key} hidden={key!=='targets'}><div data-language="en"><h4>{en}</h4><p>{explanation}</p><p><strong>Scenario 2: college English:</strong> {example}</p></div><div data-language="zh" lang="zh-Hant" hidden><h4>{zh}</h4><p>{explanationZh}</p><p><strong>情境二：大學英語：</strong>{exampleZh}</p></div><Fragment set:html={scenarioPromptButtonsHtml(`primary-gu-${key}`,`gu-${key}`)} /></div>)}</div>
 <Fragment set:html={guMeaningHtml} />
 <p class="source-note"><a href="https://doi.org/10.3389/feduc.2021.605999">Gu (2021)</a><B en=", Figure 1 and the section on classroom-based formative assessment." zh="，圖1及課堂形成性評估部分。" /></p>

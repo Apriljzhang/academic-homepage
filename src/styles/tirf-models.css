@@ -51,3 +51,8 @@
 .gu-meaning h4{font-size:1.2rem;line-height:1.4}
 .gu-meaning dt{font-weight:600;margin-top:1rem}
 .gu-meaning dd{margin:.3rem 0 1rem;max-width:75ch}
+
+/* The scenario buttons belong to the strategy, feedback focus or Gu practice. */
+.tirf-deck .scenario-prompts{display:flex;flex-wrap:wrap;gap:.45rem;margin:.8rem 0 0;align-items:center}
+.tirf-deck .scenario-prompts button{font-size:.94rem;padding:.5rem .7rem;white-space:normal;text-align:left}
+.tirf-deck .scenario-prompts .status{flex-basis:100%;font-size:.9rem;margin:0}

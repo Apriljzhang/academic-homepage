@@ -1,3 +1,4 @@
+import { scenarioPromptButtonsHtml } from './tirfPromptButtons.ts';
 import { bilingual } from './tirfMarkup.ts';
 // Role/process relationships adapted from April’s January 2026 ILTA slide 7.
 // Original SVG redraws retain the supplied symbols’ meaning.
@@ -21,7 +22,7 @@ const cell = (index: number, span = '') => {
  const s = tirfStrategies[index];
  const [en, zh] = modelNames[s.key];
  return `<td class="strategy-${s.key}" ${span}><div class="strategy-cell"><span class="strategy-symbol">${s.icon}</span><strong>${index+1}. ${bilingual(en,zh)}</strong></div>
- <details class="strategy-application"><summary>${bilingual('Classroom example and AI support','課堂例子與AI協助')}</summary><div class="strategy-application-content"><h4>${bilingual('In this classroom','在本課堂中')}</h4><p>${bilingual(s.application,s.applicationZh)}</p><h4>${bilingual('Ask Codex or WorkBuddy','請Codex或WorkBuddy協助')}</h4><p>${bilingual(s.ai,s.aiZh)}</p><button type="button" class="secondary" data-strategy-copy="${s.key}">${bilingual('Copy AI request','複製AI指令')}</button><p class="status" role="status"></p></div></details></td>`;
+ <details class="strategy-application"><summary>${bilingual('College example and prompts for both scenarios','大學例子及兩個情境的指令')}</summary><div class="strategy-application-content"><h4>${bilingual('Scenario 2: college English','情境二：大學英語')}</h4><p>${bilingual(s.application,s.applicationZh)}</p>${scenarioPromptButtonsHtml(`primary-strategy-${s.key}`,`college-strategy-${s.key}`)}</div></details></td>`;
 };
 export const strategyMatrixHtml = `<div class="strategy-matrix">
 <div class="strategy-table-scroll" data-deck-scroll role="region" tabindex="0" aria-labelledby="strategy-matrix-caption">
