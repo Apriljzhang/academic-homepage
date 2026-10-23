@@ -11,14 +11,14 @@ export const primaryContextZh = `課堂情境：中國小學四年級英語班�
 待評估作答：“It can long ears. It has jump.” 這可能反映has/can混淆；先核對學生是否理解詞彙。請他把“long ears”配到身體特徵，把“jump”配到動作，再修訂兩句話。
 證據：保留初次選擇及理由、教師回饋及修訂。教師用投影機展示網站，學生可在紙上或口頭作答，由教師記錄誰需要協助；網站不能自動蒐集紙上或口頭作答。`;
 const buildEn = `Create one self-contained index.html for this formative assessment activity. Use Chinese instructions and short English student materials. Keep the screens uncluttered, with large text, keyboard controls and a phone-friendly layout. Work in this task's folder.
-Embed the three frameworks in these functions:
+Use one connected assessment flow: the same learning target, current evidence and next step. Embed the three frameworks in the functions of this flow:
 1. Black and Wiliam (2009): show the learning target and what to look for; collect a first response and a reason from every student; provide a partner question and a self-check. Support a teacher-led projector mode with paper/oral answers, plus an individual-device mode. State how the teacher will collect the evidence in each mode.
 2. Hattie and Timperley (2007): prepare short feedback linked to the target, the current response and a useful next step. Offer task, process and self-check options for teacher review. Label prepared feedback clearly. Let the teacher choose it after reading the actual response. Keep the student's first response, let them revise and explain their change.
 3. Gu (2021): add a teacher view with the response, a possible interpretation, a question to check that interpretation, feedback and the teacher/student action. Compare the revision with the same learning target to decide whether more support is needed. Include the mistaken response in this scenario as a worked example. Keep judgements about understanding separate from English fluency.
 Provide print/download of the actual first response, feedback, revision and explanation from this device. The teacher must collect the exported records, paper answers or oral observations; this static site has no live class dashboard. Store responses on the current device. Use sample responses in the demonstration. Do not add an unrelated task or a new topic.
 First show a short plan of the screens and how they support assessment; wait for my review. After I approve the plan and feedback, create the file, open a preview with available tools, try the interactions and repair problems. Explain how to open index.html locally. Report only checks you actually ran.`;
 const buildZh = `為這項形成性評估活動製作一個獨立的index.html。指示用中文，學生材料用簡短英語。畫面簡潔、字體清晰，支援鍵盤及手機，只在本任務資料夾工作。
-將三個框架落實為以下功能：
+用同一個評估流程連結學習目標、目前證據及下一步，再把三個框架落實為流程中的功能：
 1. Black與Wiliam（2009）：展示學習目標及要看甚麼，蒐集每位學生的初次作答與理由，加入同伴提問及自查。提供教師以投影機帶領、學生在紙上／口頭作答的模式，以及個人裝置模式，說明教師在兩種模式下如何取得證據。
 2. Hattie與Timperley（2007）：準備簡短回饋，連結目標、目前作答及可行的下一步，提供任務、過程及自查選項讓教師審閱。清楚標示預設回饋，由教師閱讀實際作答後選用。保留初次作答，讓學生修訂並解釋修改原因。
 3. Gu（2021）：加入教師畫面，交代作答、可能的詮釋、核對詮釋的追問、回饋，以及教師／學生行動。依同一目標檢視修訂，決定是否仍需協助。用本情境的錯誤作答作完整示範，將對理解的判斷與英語流利程度分開。

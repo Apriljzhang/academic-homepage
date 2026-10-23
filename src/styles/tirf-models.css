@@ -56,3 +56,13 @@
 .tirf-deck .scenario-prompts{display:flex;flex-wrap:wrap;gap:.45rem;margin:.8rem 0 0;align-items:center}
 .tirf-deck .scenario-prompts button{font-size:.94rem;padding:.5rem .7rem;white-space:normal;text-align:left}
 .tirf-deck .scenario-prompts .status{flex-basis:100%;font-size:.9rem;margin:0}
+
+.tirf-deck .framework-connections{margin:1.2rem 0;border:1px solid #a9cbb7;border-radius:.4rem;padding:1rem}
+.tirf-deck .framework-connections>summary{font-size:1.15rem}
+.connections-table{width:100%;border-collapse:collapse;table-layout:fixed;margin:.5rem 0 1rem}
+.tirf-deck .connections-table th,.tirf-deck .connections-table td{text-align:left;vertical-align:top;border-bottom:1px solid #bad8c5;padding:.7rem;font-size:1.02rem;line-height:1.4;overflow-wrap:anywhere}
+.connections-table thead{background:#edf7f0}.connection-mobile-label{display:none}
+.tirf-deck .framework-connections>p{font-size:1.05rem;margin:.8rem 0}
+.tirf-deck .connection-example li{font-size:1.05rem}
+.tirf-deck .framework-origins p{font-size:1rem}
+@media(max-width:700px){.connections-table,.connections-table tbody{display:block}.connections-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.connections-table tr{display:block;margin-bottom:.8rem;border:1px solid #bad8c5}.connections-table tbody th{display:block;background:#edf7f0}.connections-table td{display:block}.connection-mobile-label{display:block;font-weight:600;margin-bottom:.2rem}}
