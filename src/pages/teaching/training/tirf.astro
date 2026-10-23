@@ -59,7 +59,7 @@ const resources = '/teaching/training/tirf/resources/';
 <Fragment set:html={frameworkAiRequestHtml('site-primary')} /><Fragment set:html={frameworkAiRequestHtml('site-college')} />
 <details><summary><B en="Adapt the plan to your own class" zh="按自己的班級調整計劃" /></summary>
 {planningGroups.map((g,index)=><section class="planning-group"><h3><B en={g.title} zh={g.titleZh} /></h3><div class="worksheet">{worksheet.filter(w=>w.group===index).map(w=><label for={`brief-${w.id}`}><B en={w.label} zh={w.labelZh} /><textarea id={`brief-${w.id}`} data-brief={w.id} data-placeholder-en={w.help} data-placeholder-zh={w.helpZh} placeholder={w.help} rows="3"></textarea></label>)}</div></section>)}
-<button data-copy-brief><B en="Copy my plan" zh="複製我的計劃" /></button><p class="status" data-brief-status role="status"></p></details>
+<button data-copy-brief><B en="Copy complete AI prompt" zh="複製完整AI指令" /></button><p class="status" data-brief-status role="status"></p></details>
 </div></section>
 <section class="slide" data-title="Use the site for formative assessment" data-title-zh="用網站進行形成性評估" aria-hidden="true"><div class="slide-inner">
 <header class="slide-header"><span class="eyebrow"><B en="The teacher uses the evidence" zh="由教師運用證據" /></span></header><h2><B en="What the teacher does with the site" zh="教師如何使用網站" /></h2>

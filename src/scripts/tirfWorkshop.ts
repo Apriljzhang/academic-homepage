@@ -1,3 +1,5 @@
+import { createCustomSitePrompt } from './tirfCustomSitePrompt.js';
+import { buildEn, buildZh } from '../data/tirfSite';
 import { initTirfScenarioChoices } from './tirfScenarioChoices.js';
 import { frameworkAiRequests } from '../data/tirfFrameworkPrompts';
 import { activityBuildBrief, frameworkBuildRoles } from '../data/tirfActivityDesign';
@@ -88,7 +90,7 @@ document.querySelectorAll<HTMLButtonElement>('[data-framework-copy]').forEach(bu
 document.querySelector('[data-copy-feedback]')?.addEventListener('click',event=>void copy(zh()?feedbackPrompt.zh:feedbackPrompt.en,(event.currentTarget as Element).parentElement?.querySelector('[role=status]')||null));
 document.querySelectorAll<HTMLButtonElement>('[data-strategy-copy]').forEach(button=>button.addEventListener('click',()=>{const strategy=tirfStrategies.find(row=>row.key===button.dataset.strategyCopy);if(strategy)void copy((zh()?caseContextZh:caseContext)+'\n\n'+(zh()?strategy.aiZh:strategy.ai),button.parentElement?.querySelector('[role=status]')||null);}));
 document.querySelector('[data-copy-worked]')?.addEventListener('click',()=>{useWorkedPlan=true;void copy(workedPlanText(),document.querySelector('[data-worked-status]'));updatePlanSource();});
-document.querySelector('[data-copy-brief]')?.addEventListener('click',()=>{useWorkedPlan=false;void copy(ownPlan(),document.querySelector('[data-brief-status]'));updatePlanSource();});
+document.querySelector('[data-copy-brief]')?.addEventListener('click',()=>{useWorkedPlan=false;void copy(createCustomSitePrompt(worksheet,Object.fromEntries(worksheet.map(field=>[field.id,planValue(field.id)])),{en:buildEn,zh:buildZh},zh()),document.querySelector('[data-brief-status]'));updatePlanSource();});
 document.querySelectorAll<HTMLButtonElement>('[data-copy-prompt]').forEach(button=>button.addEventListener('click',()=>{
  const status=button.parentElement?.querySelector('[role=status]')||null;
  if(!hasOwnPlan()&&!useWorkedPlan){if(status)status.textContent=say('First complete your classroom plan, or copy the worked plan on the previous page.','請先完成自己的課堂計劃，或複製上一頁的示範計劃。');return;}
