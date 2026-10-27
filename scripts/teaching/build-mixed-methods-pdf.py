@@ -148,7 +148,6 @@ def render(node):
     for child in node.children:result.extend(render(child))
     return result
 
-def source(slide):return [Spacer(1,8),para(slide['source'],'source')] if slide['source'] else []
 def header(c,d):
     c.setFillColor(GREEN);c.setFont('Body',9);c.drawString(40,PAGE[1]-28,'DEDC02  |  Mixed Methods Design and Reporting')
     c.setStrokeColor(LINE);c.line(40,PAGE[1]-36,PAGE[0]-40,PAGE[1]-36)
@@ -183,7 +182,6 @@ if __name__=='__main__':
       'table':ParagraphStyle('table',fontName='Body',fontSize=13,leading=17,textColor=INK),
       'tablehead':ParagraphStyle('tablehead',fontName='BodyBold',fontSize=13,leading=17,textColor=white),
       'diagram':ParagraphStyle('diagram',fontName='Body',fontSize=13,leading=18,textColor=INK,alignment=1),
-      'source':ParagraphStyle('source',fontName='Body',fontSize=9.5,leading=13,textColor=MUTED),
       'caption':ParagraphStyle('caption',fontName='Body',fontSize=11.5,leading=16,textColor=MUTED,spaceAfter=10),
       'prompt':ParagraphStyle('prompt',fontName='Body',fontSize=15,leading=21,textColor=INK,backColor=SOFT,borderPadding=9,spaceBefore=6,spaceAfter=17),
       'quote':ParagraphStyle('quote',fontName='Heading',fontSize=21,leading=28,textColor=INK,backColor=SOFT,borderPadding=10,spaceAfter=17),
@@ -201,21 +199,18 @@ if __name__=='__main__':
             for choice in choices:rows.append([para(rich(choice.find('b')[0]),'table'),para(rich(choice.find('span')[0]),'table'),para(rich(choice.find('small')[0]),'table')])
             t=Table(rows,colWidths=[WIDTH*.34,WIDTH*.3,WIDTH*.36]);t.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,0),GREEN),('GRID',(0,0),(-1,-1),.5,LINE),('VALIGN',(0,0),(-1,-1),'TOP'),('TOPPADDING',(0,0),(-1,-1),10),('BOTTOMPADDING',(0,0),(-1,-1),10)]));story.extend([t,Spacer(1,15)])
             story.append(para('Compare, explain, develop: the integration purpose determines the relationship between the strands.','prompt'))
-            story.extend(source(slide))
             for panel in root.find(cls='design-detail'):
-                story.append(PageBreak());story.extend(render(panel));story.extend(source(slide))
+                story.append(PageBreak());story.extend(render(panel))
             story.append(PageBreak());story.append(para('Additional design checks','heading'))
             for detail in root.find('details'):
                 # Panel-specific examples were included above.
                 if detail in [x for p in root.find(cls='design-detail') for x in p.find('details')]:continue
                 story.extend(render(detail))
-            story.extend(source(slide))
         elif slide['key']=='design-practice':
             for i,item in enumerate(cases):
                 if i and i%2==0:story.append(PageBreak());story.append(para('Design practice - continued','heading'))
                 label={'c':'Convergent','e':'Explanatory sequential','x':'Exploratory sequential'}[item['answer']]
                 story.extend([para(f'Scenario {i+1} / {len(cases)}','subhead'),para(escape(item['en'])),para('<b>Suggested design: '+label+'.</b> '+escape(item['feedbackEn']),'prompt')])
-            story.extend(source(slide))
         elif slide['key'] in activities:
             key=slide['key'];task=activities[key];copy=task['en'];answer=task['answer']
             # Give the activity and its worked interpretation distinct pages.
@@ -229,7 +224,6 @@ if __name__=='__main__':
             activity_parts=render(activity)
             story.extend(activity_parts[:-1])
             story.append(para('Choose an answer and explain why before checking the following page.','prompt'))
-            if key!='joint-display':story.extend(source(slide))
             story.append(PageBreak())
             story.append(para(slide['title']+' - worked interpretation','heading'))
             story.append(activity_parts[-1])
@@ -237,10 +231,9 @@ if __name__=='__main__':
             for child in root.children:
                 if child is activity:seen=True;continue
                 if seen:story.extend(render(child))
-            story.extend(source(slide))
         elif slide['key']=='thanks':
             story.extend([Spacer(1,35),para('Questions and discussion','subhead'),para('What would integrating two strands add to a study you are reading?'),para('<link href="https://apriljzhang.com/teaching/courses/dedc02/09-mixed-methods-integration/" color="#1f6b45"><u>Open the interactive lesson</u></link>','link')])
-        else:story.extend(render(root));story.extend(source(slide))
+        else:story.extend(render(root))
     args.output.parent.mkdir(parents=True,exist_ok=True)
     doc=SimpleDocTemplate(str(args.output),pagesize=PAGE,rightMargin=40,leftMargin=40,topMargin=55,bottomMargin=44,title='Mixed Methods Design and Reporting - DEDC02',author='April Jiawei Zhang')
     doc.build(story,onFirstPage=header,onLaterPages=header)

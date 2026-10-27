@@ -18,7 +18,6 @@ const renderBody = (body: string) => body.replaceAll('__LESSON_PDF__', lessonPdf
 {i===0&&<div class="title-rule"></div>}
 <div class="en" data-language="en">{i===0?<h1 set:html={s.title}/>:<h2 set:html={s.title}/>}<Fragment set:html={renderBody(s.body)}/></div>
 <div class="zh" data-language="zh" lang="zh-Hant" hidden>{i===0?<h1 set:html={s.zh}/>:<h2 set:html={s.zh}/>}<Fragment set:html={renderBody(s.bodyzh)}/></div>
-{i!==0&&<p class="source-note" set:html={s.source}/>}
 </div></section>)}
 </main>
 <script>import '../../../../scripts/dedc02MixedMethods';</script>
