@@ -106,11 +106,61 @@ class Diagram(Flowable):
             x=i*(self.box+23);self.boxdraw(n,x,8,self.box,self.height)
             if i<len(self.steps)-1:self.arrow(x+self.box+3,8+self.height/2,x+self.box+20,8+self.height/2)
 
+class MethodMap(Flowable):
+    """Draw the seven labelled nodes from the HTML methods landscape."""
+    def __init__(self,node):
+        Flowable.__init__(self)
+        self.nodes={n.attrs['data-map-node']:n for n in node.find(cls='map-node')}
+    def wrap(self,aw,ah):
+        self.width=aw;self.height=240
+        return aw,self.height
+    def draw(self):
+        c=self.canv;w=self.width;gap=12;branch=(w-24)/2;leaf=(branch-gap)/2
+        boxes={
+            'root':((w-270)/2,204,270,32),
+            'mono':(0,151,branch,32),
+            'multiple':(branch+24,151,branch,32),
+            'quan':(0,8,leaf,121),
+            'qual':(leaf+gap,8,leaf,121),
+            'multi':(branch+24,8,leaf,121),
+            'mixed':(branch+24+leaf+gap,8,leaf,121),
+        }
+        c.setStrokeColor(GREEN);c.setLineWidth(.8)
+        c.line(w/2,204,w/2,194);c.line(branch/2,194,w-branch/2,194)
+        for centre in [branch/2,w-branch/2]:c.line(centre,194,centre,183)
+        for start in [0,branch+24]:
+            c.line(start+branch/2,151,start+branch/2,140)
+            c.line(start+leaf/2,140,start+branch-leaf/2,140)
+            for centre in [start+leaf/2,start+branch-leaf/2]:c.line(centre,140,centre,129)
+        for key,(x,y,bw,bh) in boxes.items():
+            focus=key=='mixed'
+            c.setFillColor(GREEN if focus else SOFT if key in ['root','mono','multiple'] else white)
+            c.setStrokeColor(GREEN if focus else LINE);c.rect(x,y,bw,bh,fill=1,stroke=1)
+            style=styles['mapfocus'] if focus else styles['map']
+            copy=rich(self.nodes[key])
+            p=Paragraph(copy,style);_,ph=p.wrap(bw-16,1000);p.drawOn(c,x+8,y+(bh-ph)/2)
+
 def para(text,kind='body'):
     return Paragraph(text.replace('<br>', '<br/>'),styles[kind])
 def render(node):
     if isinstance(node,str):return [] if not node.strip() else [para(escape(node))]
     if node.has('diagram-builder'):return []
+    if node.has('method-tree'):return [MethodMap(node),Spacer(1,10)]
+    if node.has('concept-cards'):
+        columns=3 if node.has('cards-3') else 2
+        items=[]
+        for card in node.children:
+            if not isinstance(card,Node):continue
+            parts=[]
+            for child in card.children:
+                if isinstance(child,Node):parts.append(para(rich(child),'cardhead' if child.tag=='h3' else 'card'))
+            items.append(parts)
+        rows=[items[i:i+columns] for i in range(0,len(items),columns)]
+        t=Table(rows,colWidths=[WIDTH/columns]*columns,hAlign='LEFT')
+        t.setStyle(TableStyle([('GRID',(0,0),(-1,-1),.5,LINE),('VALIGN',(0,0),(-1,-1),'TOP'),
+                              ('LEFTPADDING',(0,0),(-1,-1),10),('RIGHTPADDING',(0,0),(-1,-1),10),
+                              ('TOPPADDING',(0,0),(-1,-1),10),('BOTTOMPADDING',(0,0),(-1,-1),10)]))
+        return [t,Spacer(1,10)]
     if 'data-reasoning-task' in node.attrs:
         task=activities[node.attrs['data-reasoning-task']];copy=task['en'];answer=task['answer']
         result=[para(copy['title'],'subhead'),para(escape(copy['question']))]
@@ -182,6 +232,10 @@ if __name__=='__main__':
       'table':ParagraphStyle('table',fontName='Body',fontSize=13,leading=17,textColor=INK),
       'tablehead':ParagraphStyle('tablehead',fontName='BodyBold',fontSize=13,leading=17,textColor=white),
       'diagram':ParagraphStyle('diagram',fontName='Body',fontSize=13,leading=18,textColor=INK,alignment=1),
+      'map':ParagraphStyle('map',fontName='Body',fontSize=12,leading=16,textColor=INK,alignment=1),
+      'mapfocus':ParagraphStyle('mapfocus',fontName='Body',fontSize=12,leading=16,textColor=white,alignment=1),
+      'cardhead':ParagraphStyle('cardhead',fontName='BodyBold',fontSize=13.5,leading=17,textColor=INK,spaceAfter=6),
+      'card':ParagraphStyle('card',fontName='Body',fontSize=13,leading=17,textColor=INK,spaceAfter=7),
       'caption':ParagraphStyle('caption',fontName='Body',fontSize=11.5,leading=16,textColor=MUTED,spaceAfter=10),
       'prompt':ParagraphStyle('prompt',fontName='Body',fontSize=15,leading=21,textColor=INK,backColor=SOFT,borderPadding=9,spaceBefore=6,spaceAfter=17),
       'quote':ParagraphStyle('quote',fontName='Heading',fontSize=21,leading=28,textColor=INK,backColor=SOFT,borderPadding=10,spaceAfter=17),

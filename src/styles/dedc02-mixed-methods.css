@@ -141,3 +141,38 @@
 @media(max-width:720px){.mm-deck .token-bank{grid-template-columns:1fr}.mm-deck .builder-flow{flex-direction:column}.mm-deck .builder-flow .builder-arrow{transform:rotate(90deg)}.mm-deck .diagram-slot{flex:auto;min-height:6rem}}
 @media print{.mm-deck :is(.diagram-builder,.activity-actions){display:none!important}.mm-deck .diagram-solution>div{display:block!important}.mm-deck .reasoning-options{display:block}.mm-deck .reasoning-options button{display:block;border:0;padding:.3rem 0;font-size:.9rem}.mm-deck .activity-feedback{font-size:.85rem}}
 .mm-deck :is(.token-bank button,.diagram-slot){user-select:none;-webkit-user-select:none}.mm-deck :is(.token-bank button,.diagram-slot)>*{pointer-events:none}
+
+/* The wider methods map and sampling comparisons use the existing lesson palette. */
+.mm-deck .method-tree { margin: .7rem 0; }
+.mm-deck .map-node { min-width: 0; padding: .65rem; border: 1px solid var(--mm-line); border-radius: .25rem; background: #fff; line-height: 1.35; text-align: center; overflow-wrap: break-word; }
+.mm-deck .map-node[data-map-node="root"] { position: relative; width: min(19rem,100%); margin: 0 auto 1.4rem; background: var(--mm-soft); }
+.mm-deck .map-node[data-map-node="root"]::after { content: ''; position: absolute; top: 100%; left: 50%; height: .7rem; border-left: 1px solid var(--mm-green); }
+.mm-deck .map-branches { position: relative; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1.4rem; }
+.mm-deck .map-branches::before { content: ''; position: absolute; top: -.7rem; left: 25%; right: 25%; border-top: 1px solid var(--mm-green); }
+.mm-deck .map-branch { position: relative; min-width: 0; }
+.mm-deck .map-branch::before { content: ''; position: absolute; bottom: 100%; left: 50%; height: .7rem; border-left: 1px solid var(--mm-green); }
+.mm-deck .map-branch > .map-node { background: var(--mm-soft); }
+.mm-deck .map-leaves { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .6rem; margin-top: .6rem; padding-top: .6rem; border-top: 1px solid var(--mm-line); }
+.mm-deck .map-leaves .map-node { font-size: .92em; }
+.mm-deck .map-leaves .map-focus { background: var(--mm-green); border-color: var(--mm-green); color: #fff; }
+.mm-deck .concept-cards { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .75rem; margin: .7rem 0; }
+.mm-deck .concept-cards.cards-3 { grid-template-columns: repeat(3,minmax(0,1fr)); }
+.mm-deck .concept-cards article { min-width: 0; padding: .6rem .75rem; border: 1px solid var(--mm-line); border-top: .2rem solid var(--mm-green); border-radius: .25rem; background: #fff; }
+.mm-deck .concept-cards article h3 { margin: 0 0 .45rem; }
+.mm-deck .concept-cards article p { margin: .25rem 0; line-height: 1.35; }
+.mm-deck .concept-cards .relation-code { padding: .35rem .45rem; background: var(--mm-soft); font-size: .9em; font-weight: 600; }
+@media screen and (max-width: 720px) {
+  .mm-deck .concept-cards, .mm-deck .concept-cards.cards-3, .mm-deck .map-branches { grid-template-columns: minmax(0,1fr); }
+  .mm-deck .map-branches { gap: 1rem; }
+  .mm-deck .map-branches::before, .mm-deck .map-branch::before { display: none; }
+  .mm-deck .map-node[data-map-node="root"] { margin-bottom: .75rem; }
+  .mm-deck .map-node[data-map-node="root"]::after { display: none; }
+}
+@media print {
+  .mm-deck .method-tree, .mm-deck .concept-cards article { break-inside: avoid; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+}
+
+@media screen {
+  .mm-deck [data-slide-key="sampling-timing"] table { line-height: 1.25; }
+  .mm-deck [data-slide-key="sampling-timing"] :is(td,th) { padding: .4rem .55rem; }
+}
