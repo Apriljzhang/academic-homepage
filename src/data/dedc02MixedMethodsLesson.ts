@@ -10,6 +10,16 @@ export const mixedMethodsSlides = [
     "cls": "density-spacious"
   },
   {
+    "key": "learning-aims",
+    "title": "Today’s learning aims",
+    "zh": "本課學習目標",
+    "body": "<p class=\"lead\">By the end of this lesson, you will be able to:</p><ul><li><b>Explain</b> why a research problem needs both quantitative and qualitative evidence.</li><li><b>Choose and diagram</b> a convergent, explanatory sequential, or exploratory sequential design.</li><li><b>Plan</b> how to connect participants, data collection, and findings across the two strands.</li><li><b>Use a joint display</b> to develop an integrated explanation and state its limits.</li><li><b>Report and appraise</b> the design, integration, and evidence supporting a study’s conclusions.</li></ul>",
+    "bodyzh": "<p class=\"lead\">完成本課後，你將能夠：</p><ul><li><b>解釋</b>研究問題為何需要同時運用量化與質性證據。</li><li><b>選擇並繪製</b>聚合式、解釋型循序或探索型循序設計。</li><li><b>規劃</b>如何連結兩部分的參與者、資料蒐集及研究發現。</li><li><b>運用聯合展示</b>形成整合解釋，並說明其界限。</li><li><b>報告並評析</b>研究設計、整合方式，以及支持研究結論的證據。</li></ul>",
+    "source": "",
+    "section": "Learning aims",
+    "cls": ""
+  },
+  {
     "key": "problem",
     "title": "Feedback was given. What changed?",
     "zh": "給了回饋，甚麼改變了？",
