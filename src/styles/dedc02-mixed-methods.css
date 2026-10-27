@@ -3,34 +3,100 @@
 @media(max-width:720px){.mm-deck .columns{grid-template-columns:1fr;gap:1rem}.mm-deck .columns>div+div{border-left:0;padding-left:0;border-top:1px solid var(--mm-line);padding-top:1rem}.mm-deck .flow{flex-direction:column}.mm-deck .arrow{transform:rotate(90deg);height:1.8rem}.mm-deck .answers{flex-direction:column}.mm-deck .step{flex:auto}.mm-deck .parallel{grid-template-columns:minmax(0,1fr) 1.4rem minmax(0,1.2fr);gap:.4rem}.mm-deck .parallel .step{font-size:.95rem;padding:.7rem .45rem}.mm-deck .join{font-size:1.4rem}.mm-deck .table-wrap{margin-bottom:1rem}.mm-deck .prose p{font-size:1rem}.mm-deck .studio-actions{align-items:flex-start;flex-direction:column}}
 @media print{@page{size:A4 landscape;margin:12mm}body.course-slide-page{overflow:visible!important}body.lesson-deck .slide{display:block!important;min-height:0;height:auto;overflow:visible;padding:0;break-after:page}.mm-deck .slide:last-child{break-after:auto}.mm-deck .slide-inner{width:100%;min-height:0}.mm-deck .slide-header{border-bottom:1px solid #bad8c5;margin-bottom:1rem;padding-bottom:.6rem}.mm-deck .eyebrow{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase}.mm-deck h1{font:600 3.7rem/.98 'Source Serif 4',Georgia,serif;margin:1rem 0}.mm-deck h2{font:600 2rem/1.1 'Source Serif 4',Georgia,serif}.mm-deck .title-rule{height:.3rem;width:4rem;background:#1f6b45}.mm-deck [hidden]{display:none!important}.mm-deck .closing-tools{display:none!important}.mm-deck table{min-width:0;font-size:.83rem}.mm-deck :is(th,td){padding:.4rem}.mm-deck .table-wrap{overflow:visible}.mm-deck .flow,.mm-deck .step,.mm-deck th,.mm-deck .prompt{print-color-adjust:exact;-webkit-print-color-adjust:exact}.mm-deck .step{font-size:.9rem;padding:.75rem .5rem}.mm-deck .source-note{font-size:.7rem}.mm-deck .lead{font-size:1.05rem}.mm-deck textarea{min-height:3rem}.mm-deck .columns{gap:1rem}}
 
-/* Larger lesson text for classroom projection; keep the shared course chrome. */
+/* Match text and spacing to the slide's density and available screen area. */
 @media screen {
-  .mm-deck {
-    --mm-body-size: clamp(1.375rem, 2.1vw, 1.75rem);
-    --mm-table-size: clamp(1.25rem, 1.9vw, 1.5rem);
+  .mm-deck .slide {
+    --mm-body-size: clamp(1.125rem, min(1.65vw, 2.85dvh), 1.5rem);
+    --mm-table-size: clamp(1rem, min(1.45vw, 2.5dvh), 1.25rem);
+    --mm-heading-size: clamp(1.85rem, min(3.2vw, 5.6dvh), 2.75rem);
+    --mm-space: clamp(.65rem, 1.5dvh, 1rem);
     font-size: var(--mm-body-size);
   }
-  .mm-deck h3 {
-    font-size: clamp(1.5rem, 2.3vw, 1.875rem);
-    line-height: 1.2;
+  .mm-deck .slide.density-dense {
+    --mm-body-size: clamp(1.0625rem, min(1.5vw, 2.55dvh), 1.25rem);
+    --mm-table-size: clamp(1rem, min(1.4vw, 2.35dvh), 1.1875rem);
+    --mm-heading-size: clamp(1.75rem, min(2.9vw, 5dvh), 2.375rem);
+    --mm-space: clamp(.5rem, 1.2dvh, .8rem);
   }
+  .mm-deck .slide.density-spacious {
+    --mm-body-size: clamp(1.25rem, min(1.85vw, 3.2dvh), 1.625rem);
+  }
+  body.lesson-deck .mm-deck .slide h1 {
+    font-size: clamp(2.5rem, min(6vw, 10dvh), 5.5rem);
+  }
+  body.lesson-deck .mm-deck .slide h2 {
+    font-size: var(--mm-heading-size);
+    line-height: 1.12;
+    margin-bottom: var(--mm-space);
+  }
+  body.lesson-deck .mm-deck h3,
+  body.lesson-deck .mm-deck .design-detail h3 {
+    font-size: 1.12em;
+    line-height: 1.25;
+  }
+  .mm-deck .diagram-builder h4 { font-size: 1.06em; }
   body.lesson-deck .mm-deck :is(.prompt, .prose p, .lead, .subtitle, .step) {
     font-size: var(--mm-body-size);
-    line-height: 1.45;
+    line-height: 1.4;
   }
-  .mm-deck table { font-size: var(--mm-table-size); }
-  .mm-deck :is(td, th) { padding: .7rem .8rem; }
-  .mm-deck :is(td, th) small { font-size: 1.125rem; }
+  .mm-deck p { line-height: 1.4; }
+  body.lesson-deck .mm-deck .density-dense .lead { max-width: 100%; }
+  .mm-deck .prose p { margin: var(--mm-space) 0; }
+  .mm-deck table { font-size: var(--mm-table-size); line-height: 1.35; }
+  .mm-deck :is(td, th) { padding: .55rem .65rem; }
+  .mm-deck :is(td, th) small { font-size: .9em; }
   .mm-deck :is(.example, .byline, .studio-actions small, .small, .closing-tools p) {
-    font-size: 1.125rem;
-    line-height: 1.45;
+    font-size: max(1rem, .85em);
+    line-height: 1.4;
   }
-  body.lesson-deck .mm-deck .source-note { font-size: 1rem; }
-  .mm-deck .answers button { min-width: 13rem; }
-  .mm-deck .studio-fields { gap: 1.25rem; }
-  .mm-deck textarea { min-height: 6.5rem; }
+  body.lesson-deck .mm-deck .slide-header { margin-bottom: var(--mm-space); }
+  .mm-deck .slide :is(.flow, .parallel, .design-choices, .lesson-resources) { margin: var(--mm-space) 0; }
+  .mm-deck .step { padding: .75rem .65rem; }
+  .mm-deck details { margin: var(--mm-space) 0; padding: .5rem .7rem; }
+  .mm-deck summary { min-height: 28px; line-height: 1.35; }
+  .mm-deck .prompt { margin-top: var(--mm-space); padding: .6rem .8rem; }
+  .mm-deck .answers button { min-width: 10rem; }
   .mm-deck .parallel { max-width: 100%; }
   .mm-deck .parallel .step { font-size: var(--mm-body-size); }
+  .mm-deck .density-dense :is(.reasoning-activity, .reasoning-options, .activity-actions) { margin: .6rem 0; }
+  .mm-deck .density-dense .reasoning-activity { padding: .4rem 0 .6rem; }
+  .mm-deck .density-dense .reasoning-options { gap: .45rem; }
+  .mm-deck .density-dense .reasoning-options button { padding: .55rem .75rem; min-height: 44px; }
+  .mm-deck .density-dense .activity-feedback { margin-bottom: .4rem; }
+  @media (min-width: 1000px) {
+    .mm-deck .slide.density-activity {
+      --mm-body-size: clamp(1rem, min(1.4vw, 2.35dvh), 1.125rem);
+      --mm-table-size: 1rem;
+      --mm-heading-size: 2rem;
+    }
+    .mm-deck .density-activity p { margin: .3rem 0; }
+    .mm-deck .density-activity .table-wrap { margin: .25rem 0; }
+    .mm-deck .density-activity table { line-height: 1.25; }
+    .mm-deck .density-activity :is(td, th) { padding: .4rem .55rem; }
+    .mm-deck .density-activity blockquote { font-size: 1.08em; line-height: 1.4; padding: .65rem .85rem; }
+    .mm-deck .density-activity .reasoning-activity h3 { margin: 0 0 .35rem; }
+    .mm-deck .density-activity :is(.reasoning-options, .activity-actions) { margin: .35rem 0; }
+    .mm-deck .density-activity .reasoning-activity {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      column-gap: 1rem;
+      margin: .35rem 0;
+      padding: .2rem 0 .4rem;
+    }
+    .mm-deck .density-activity .reasoning-activity > :is(h3, p:not(.activity-feedback), .reasoning-options) { grid-column: 1 / -1; }
+    .mm-deck .density-activity .reasoning-options { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .mm-deck .density-activity .reasoning-options button { padding: .4rem .65rem; }
+    .mm-deck .density-activity .activity-actions { grid-column: 2; grid-row: 4; align-self: center; }
+    .mm-deck .density-activity .activity-feedback { grid-column: 1; grid-row: 4; align-self: center; min-height: 44px; }
+  }
+  @media (max-width: 720px) {
+    .mm-deck .slide { --mm-body-size: 1.125rem; --mm-table-size: 1rem; }
+    .mm-deck .slide.density-dense { --mm-body-size: 1.0625rem; --mm-table-size: 1rem; }
+    .mm-deck .slide.density-spacious { --mm-body-size: 1.25rem; }
+    body.lesson-deck .mm-deck .slide h2 { font-size: clamp(1.65rem, 6.5vw, 2rem); }
+    .mm-deck .density-dense .design-choices { gap: .6rem; }
+    .mm-deck .density-dense .design-choices button { padding: .75rem; }
+  }
 }
 
 /* The design map keeps the three alternatives in one place. */

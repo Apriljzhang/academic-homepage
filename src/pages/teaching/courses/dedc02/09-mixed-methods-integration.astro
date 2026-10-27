@@ -13,7 +13,7 @@ const renderBody = (body: string) => body.replaceAll('__LESSON_PDF__', lessonPdf
 <CourseSlideLayout {title} {description} lessonDeck>
 <LessonDeckChrome {courseHref} lessonTitle="Mixed Methods Integration and Reporting" />
 <main class="deck mm-deck" aria-label="Mixed Methods Integration and Reporting slide deck">
-{slides.map((s,i)=><section class:list={['slide',{'is-active':i===0}]} id={`slide-${i+1}`} data-title={s.title.replaceAll('<br>',' ')} data-slide-key={s.key} data-language="en" aria-hidden={i!==0}><div class="slide-inner">
+{slides.map((s,i)=><section class:list={['slide',s.cls,{'is-active':i===0}]} id={`slide-${i+1}`} data-title={s.title.replaceAll('<br>',' ')} data-slide-key={s.key} data-language="en" aria-hidden={i!==0}><div class="slide-inner">
 <header class="slide-header"><span class="eyebrow">DEDC02 · {s.section}</span></header>
 {i===0&&<div class="title-rule"></div>}
 <div class="en" data-language="en">{i===0?<h1 set:html={s.title}/>:<h2 set:html={s.title}/>}<Fragment set:html={renderBody(s.body)}/></div>

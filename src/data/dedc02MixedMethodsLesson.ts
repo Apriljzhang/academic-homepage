@@ -7,7 +7,7 @@ export const mixedMethodsSlides = [
     "bodyzh": "<p class=\"subtitle\">收到教師回饋後，英語學習者的作文修訂為何有不同進展？</p><p class=\"byline\">DEDC02 · 進階教育研究方法<br>April Jiawei Zhang</p>",
     "source": "Creswell &amp; Plano Clark (2018), <i>Designing and conducting mixed methods research</i>, 3rd ed.",
     "section": "Our research problem",
-    "cls": ""
+    "cls": "density-spacious"
   },
   {
     "key": "problem",
@@ -27,7 +27,7 @@ export const mixedMethodsSlides = [
     "bodyzh": "<div class=\"table-wrap\"><table><thead><tr><th>研究問題</th><th>需要哪些證據？</th></tr></thead><tbody><tr><td>量化：從初稿到修訂稿，論證發展改善多少？</td><td>評分規準分數及修訂進步的分布。</td></tr><tr><td>質性：學生如何理解並運用教師回饋？</td><td>以教師評語及修訂稿支持的訪談。</td></tr><tr><td>整合：學生的解釋如何幫助我們理解修訂進步的差異？</td><td>明確連結分數模式與質性發現。</td></tr></tbody></table></div><p class=\"prompt\">混合方法需要結合兩部分的理由，以及透過兩者關係形成的答案。</p>",
     "source": "Creswell &amp; Plano Clark (2018), <i>Designing and conducting mixed methods research</i>, 3rd ed. · Ch. 5, local PDF pp. 250–256.",
     "section": "Our research problem",
-    "cls": ""
+    "cls": "density-dense"
   },
   {
     "key": "design-map",
@@ -37,7 +37,7 @@ export const mixedMethodsSlides = [
     "bodyzh": "<p class=\"lead\">同一個英語回饋問題，可以透過三種不同的整合關係研究。點選一種設計。</p><div class=\"design-map\" data-design-map><div class=\"design-choices\"><button type=\"button\" data-design-choice=\"convergent\" aria-expanded=\"false\" aria-controls=\"zh-design-convergent\"><b>聚合式</b><span>比較結果</span><small>QUAN + QUAL</small></button><button type=\"button\" data-design-choice=\"explanatory\" aria-expanded=\"false\" aria-controls=\"zh-design-explanatory\"><b>解釋型循序</b><span>解釋結果</span><small>QUAN → QUAL</small></button><button type=\"button\" data-design-choice=\"exploratory\" aria-expanded=\"false\" aria-controls=\"zh-design-exploratory\"><b>探索型循序</b><span>發展工具</span><small>QUAL → develop → QUAN</small></button></div><p class=\"design-empty\">先選設計，再檢視流程圖、研究例子及整合位置。</p><section class=\"design-detail\" id=\"zh-design-convergent\" data-design-panel=\"convergent\" hidden><h3>聚合式：比較修訂的兩種理解</h3><button class=\"design-back\" data-design-back>選擇另一種設計</button><p>分數模式與學生對運用回饋的描述有何異同？</p><div class=\"diagram-builder\" data-diagram-task=\"convergent\" data-task-language=\"zh\"><h4>讀描述，組合設計</h4><p>同期收集作文評分與訪談資料，分別分析，再比較有關修訂的發現，形成整合解釋。</p><p class=\"builder-instruction\">拖曳卡片至空格，或先選卡片再按空格。按已填空格可移回卡片。</p><div class=\"token-bank\" aria-label=\"可移動步驟\"><button type=\"button\" draggable=\"true\" data-task-token=\"integrate\" aria-pressed=\"false\"><span>比較發現並形成整合解釋</span><small data-token-status></small></button><button type=\"button\" draggable=\"true\" data-task-token=\"qual\" aria-pressed=\"false\"><span>訪談學生並分析回饋使用</span><small data-token-status></small></button><button type=\"button\" draggable=\"true\" data-task-token=\"quan\" aria-pressed=\"false\"><span>評分作文並分析修訂進步</span><small data-token-status></small></button></div><div class=\"builder-parallel\" aria-label=\"待完成設計圖\"><button type=\"button\" class=\"diagram-slot\" data-task-slot=\"0\"><b>A</b><span data-slot-label>放置步驟</span><small data-slot-status></small></button><button type=\"button\" class=\"diagram-slot\" data-task-slot=\"1\"><b>B</b><span data-slot-label>放置步驟</span><small data-slot-status></small></button><button type=\"button\" class=\"diagram-slot\" data-task-slot=\"2\"><b>C</b><span data-slot-label>放置步驟</span><small data-slot-status></small></button><span class=\"builder-arrow join-top\" aria-hidden=\"true\">↘</span><span class=\"builder-arrow join-bottom\" aria-hidden=\"true\">↗</span></div><div class=\"activity-actions\"><button type=\"button\" data-check-diagram>檢查設計</button><button type=\"button\" data-reset-diagram>重新開始</button></div><p class=\"activity-feedback\" data-diagram-feedback aria-live=\"polite\">閱讀描述並放置所有步驟，再檢查。</p></div><details class=\"diagram-solution\"><summary>顯示完整設計圖</summary><div><div class=\"parallel\"><div class=\"step quan\"><b>量化</b>評分作文，描述修訂進步。</div><div class=\"join\">↘</div><div class=\"step mix merge\"><b>合併</b>比較相同修訂議題的發現。<br>→ 整合詮釋</div><div class=\"step qual\"><b>質性</b>同期訪談學生。</div><div class=\"join\">↗</div></div></div></details><ul><li>各部分採用合適分析，再比較共同概念。</li><li>檢視一致、新增細節及差異。</li><li>僅有同期蒐集，仍不足以展示整合。</li></ul><details><summary>規劃可比較的證據</summary><div><div class=\"table-wrap\"><table><thead><tr><th>決策</th><th>英語回饋例子</th></tr></thead><tbody><tr><td>共同焦點</td><td>聚焦論證發展，避免以論證分數對照無關態度。</td></tr><tr><td>樣本與時段</td><td>交代哪些學生參與各部分，以及檢視哪一項寫作任務。</td></tr><tr><td>可見產出</td><td>以聯合展示連結修訂結果與訪談發現。</td></tr></tbody></table></div></div></details></section><section class=\"design-detail\" id=\"zh-design-explanatory\" data-design-panel=\"explanatory\" hidden><h3>解釋型循序：解釋修訂進步的差異</h3><button class=\"design-back\" data-design-back>選擇另一種設計</button><p>學生的解釋如何幫助我們理解初步分數模式？</p><div class=\"diagram-builder\" data-diagram-task=\"explanatory\" data-task-language=\"zh\"><h4>讀描述，組合設計</h4><p>先分析作文評分的變化，據此選擇受訪者並形成聚焦問題，分析訪談後，結合發現以解釋最初的結果。</p><p class=\"builder-instruction\">拖曳卡片至空格，或先選卡片再按空格。按已填空格可移回卡片。</p><div class=\"token-bank\" aria-label=\"可移動步驟\"><button type=\"button\" draggable=\"true\" data-task-token=\"qual\" aria-pressed=\"false\"><span>訪談學生並分析回饋使用</span><small data-token-status></small></button><button type=\"button\" draggable=\"true\" data-task-token=\"integrate\" aria-pressed=\"false\"><span>結合發現以解釋進步類型</span><small data-token-status></small></button><button type=\"button\" draggable=\"true\" data-task-token=\"quan\" aria-pressed=\"false\"><span>評分作文並辨識進步類型</span><small data-token-status></small></button><button type=\"button\" draggable=\"true\" data-task-token=\"bridge\" aria-pressed=\"false\"><span>依結果選擇學生並形成問題</span><small data-token-status></small></button></div><div class=\"builder-flow\" aria-label=\"待完成設計圖\"><button type=\"button\" class=\"diagram-slot\" data-task-slot=\"0\"><b>1</b><span data-slot-label>放置步驟</span><small data-slot-status></small></button><span class=\"builder-arrow\" aria-hidden=\"true\">→</span><button type=\"button\" class=\"diagram-slot\" data-task-slot=\"1\"><b>2</b><span data-slot-label>放置步驟</span><small data-slot-status></small></button><span class=\"builder-arrow\" aria-hidden=\"true\">→</span><button type=\"button\" class=\"diagram-slot\" data-task-slot=\"2\"><b>3</b><span data-slot-label>放置步驟</span><small data-slot-status></small></button><span class=\"builder-arrow\" aria-hidden=\"true\">→</span><button type=\"button\" class=\"diagram-slot\" data-task-slot=\"3\"><b>4</b><span data-slot-label>放置步驟</span><small data-slot-status></small></button></div><div class=\"activity-actions\"><button type=\"button\" data-check-diagram>檢查設計</button><button type=\"button\" data-reset-diagram>重新開始</button></div><p class=\"activity-feedback\" data-diagram-feedback aria-live=\"polite\">閱讀描述並放置所有步驟，再檢查。</p></div><details class=\"diagram-solution\"><summary>顯示完整設計圖</summary><div><div class=\"flow\"><div class=\"step quan\"><b>量化</b>評分初稿及修訂稿。</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step bridge\"><b>連結與建構</b>選取不同進步模式，擬定訪談問題。</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step qual\"><b>質性</b>探索學生如何運用評語。</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step mix\"><b>整合</b>在證據界限內解釋特定模式。</div></div></div></details><ul><li>初步結果引導選取訪談對象及擬定問題。</li><li>詮釋結果時，再結合兩部分相互連結的發現。</li></ul><details><summary>檢視兩階段之間的連結</summary><div><div class=\"table-wrap\"><table><thead><tr><th>初步結果</th><th>後續決策</th></tr></thead><tbody><tr><td>較大修訂進步</td><td>追問如何用評語加強主張及證據。</td></tr><tr><td>進步有限或沒有進步</td><td>追問哪些評語難以理解或應用。</td></tr><tr><td>意料之外的個案</td><td>一併檢視回饋、草稿改變與學生解釋。</td></tr></tbody></table></div></div></details></section><section class=\"design-detail\" id=\"zh-design-exploratory\" data-design-panel=\"exploratory\" hidden><h3>探索型循序：發展回饋運用量表</h3><button class=\"design-back\" data-design-back>選擇另一種設計</button><p>新的問卷應測量運用教師回饋的哪些面向？</p><div class=\"diagram-builder\" data-diagram-task=\"exploratory\" data-task-language=\"zh\"><h4>讀描述，組合設計</h4><p>先訪談以探索學生使用回饋的經驗，將發現轉化為問卷題項，再量化試測與評估，最後說明質性發現如何影響工具及其評估。</p><p class=\"builder-instruction\">拖曳卡片至空格，或先選卡片再按空格。按已填空格可移回卡片。</p><div class=\"token-bank\" aria-label=\"可移動步驟\"><button type=\"button\" draggable=\"true\" data-task-token=\"quan\" aria-pressed=\"false\"><span>試測、修訂並評估測量工具</span><small data-token-status></small></button><button type=\"button\" draggable=\"true\" data-task-token=\"qual\" aria-pressed=\"false\"><span>訪談學生以探索回饋使用</span><small data-token-status></small></button><button type=\"button\" draggable=\"true\" data-task-token=\"integrate\" aria-pressed=\"false\"><span>說明發現如何影響工具及其評估</span><small data-token-status></small></button><button type=\"button\" draggable=\"true\" data-task-token=\"bridge\" aria-pressed=\"false\"><span>將質性發現轉化為候選題項</span><small data-token-status></small></button></div><div class=\"builder-flow\" aria-label=\"待完成設計圖\"><button type=\"button\" class=\"diagram-slot\" data-task-slot=\"0\"><b>1</b><span data-slot-label>放置步驟</span><small data-slot-status></small></button><span class=\"builder-arrow\" aria-hidden=\"true\">→</span><button type=\"button\" class=\"diagram-slot\" data-task-slot=\"1\"><b>2</b><span data-slot-label>放置步驟</span><small data-slot-status></small></button><span class=\"builder-arrow\" aria-hidden=\"true\">→</span><button type=\"button\" class=\"diagram-slot\" data-task-slot=\"2\"><b>3</b><span data-slot-label>放置步驟</span><small data-slot-status></small></button><span class=\"builder-arrow\" aria-hidden=\"true\">→</span><button type=\"button\" class=\"diagram-slot\" data-task-slot=\"3\"><b>4</b><span data-slot-label>放置步驟</span><small data-slot-status></small></button></div><div class=\"activity-actions\"><button type=\"button\" data-check-diagram>檢查設計</button><button type=\"button\" data-reset-diagram>重新開始</button></div><p class=\"activity-feedback\" data-diagram-feedback aria-live=\"polite\">閱讀描述並放置所有步驟，再檢查。</p></div><details class=\"diagram-solution\"><summary>顯示完整設計圖</summary><div><div class=\"flow\"><div class=\"step qual\"><b>質性</b>探索英語學習者如何運用回饋。</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step bridge\"><b>發展</b>把發現轉化為候選題項。</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step quan\"><b>量化</b>試測、修訂及檢視量表。</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step mix\"><b>整合</b>說明發現如何影響工具及其評估。</div></div></div></details><ul><li>適用於需要發展相關概念或合適工具的情況。</li><li>須展示發展階段；僅先做訪談並不足夠。</li></ul><details><summary>追溯發現如何形成工具</summary><div><div class=\"table-wrap\"><table><thead><tr><th>質性發現</th><th>候選要素</th><th>檢查</th></tr></thead><tbody><tr><td>能指出弱點，卻未能規劃修訂。</td><td>區分理解回饋與規劃修訂。</td><td>內容審閱及認知訪談。</td></tr><tr><td>難以應用有關支持證據的評語。</td><td>題項涉及選取證據及連結主張。</td><td>試測並評估分數詮釋。</td></tr></tbody></table></div></div></details></section></div><p class=\"prompt\">比較、解釋、發展：整合目的決定兩部分如何相互連結。</p><details><summary>如何閱讀這些圖？</summary><div><p>QUAN＝量化；QUAL＝質性。+ 表示並行；→ 表示先後。箭頭旁的文字須交代階段間傳遞甚麼。側重程度須另外說明。</p></div></details><details><summary>如何配合較大型研究？</summary><div><p>實驗、個案、參與式研究及評估，可以包含一種或多種核心設計。交代較大型框架，並說明其中的整合關係。</p></div></details><details><summary>選擇設計後，還要決定甚麼？</summary><div><p>說明整合目的、時序、側重、樣本關係、整合產出，以及所選方法如何配合研究的基本假設。</p></div></details>",
     "source": "Creswell &amp; Plano Clark (2018), <i>Designing and conducting mixed methods research</i>, 3rd ed. · Ch. 3.",
     "section": "Choose a design",
-    "cls": ""
+    "cls": "density-dense"
   },
   {
     "key": "design-practice",
@@ -67,7 +67,7 @@ export const mixedMethodsSlides = [
     "bodyzh": "<div class=\"reasoning-activity\" data-reasoning-task=\"sampling\" data-task-language=\"zh\"><h3>決定訪談誰</h3><p>120名學生中，48人進步較大，72人進步有限。哪種選擇最能幫助解釋此差異？</p><div class=\"reasoning-options\" role=\"group\" aria-label=\"決定訪談誰\"><button type=\"button\" data-reasoning-option=\"0\" aria-pressed=\"false\"><b>A.</b> 只訪談分數最高的六名學生。</button><button type=\"button\" data-reasoning-option=\"1\" aria-pressed=\"false\"><b>B.</b> 從兩種進步類型各目的性選取六人。</button><button type=\"button\" data-reasoning-option=\"2\" aria-pressed=\"false\"><b>C.</b> 不看進步類型，訪談十二名志願者。</button></div><div class=\"activity-actions\"><button type=\"button\" data-check-reasoning>檢查理由</button><button type=\"button\" data-reset-reasoning>再試一次</button></div><p class=\"activity-feedback\" data-reasoning-feedback aria-live=\"polite\">先選一項並說明理由，再檢查。</p></div><details><summary>查看抽樣計劃與注意事項</summary><div><div class=\"table-wrap\"><table><thead><tr><th>虛構示例結果</th><th>目的性選取</th><th>希望理解</th></tr></thead><tbody><tr><td>120 人中，48 人進步至少 1 分。</td><td>從此模式選取 6 名學生。</td><td>如何用評語發展論證？</td></tr><tr><td>120 人中，72 人進步不足 1 分。</td><td>從此模式選取 6 名學生。</td><td>哪些內容難以理解或應用？</td></tr></tbody></table></div><p class=\"prompt\">此處以 0–4 分規準評估論證發展。1 分的界線只是示例決策，並非通用抽樣規則。</p><p>取得再次聯絡的同意，安全保存參與者連結，並報告拒絕或無法聯絡的情況。</p></div></details>",
     "source": "Illustrative study · Creswell &amp; Plano Clark (2018), <i>Designing and conducting mixed methods research</i>, 3rd ed. · Ch. 6, local PDF pp. 282–284.",
     "section": "Connect the evidence",
-    "cls": ""
+    "cls": "density-dense"
   },
   {
     "key": "interview-bridge",
@@ -77,7 +77,7 @@ export const mixedMethodsSlides = [
     "bodyzh": "<div class=\"reasoning-activity\" data-reasoning-task=\"interview-bridge\" data-task-language=\"zh\"><h3>選擇有用的跟進問題</h3><p>一名學生在論證發展上的進步有限。哪個訪談問題最直接探究此結果？</p><div class=\"reasoning-options\" role=\"group\" aria-label=\"選擇有用的跟進問題\"><button type=\"button\" data-reasoning-option=\"0\" aria-pressed=\"false\"><b>A.</b> 你喜歡教師的回饋嗎？</button><button type=\"button\" data-reasoning-option=\"1\" aria-pressed=\"false\"><b>B.</b> 為甚麼回饋未能改善你的論證？</button><button type=\"button\" data-reasoning-option=\"2\" aria-pressed=\"false\"><b>C.</b> 看著這條評語和你的草稿，你嘗試改甚麼？哪裡有困難？</button></div><div class=\"activity-actions\"><button type=\"button\" data-check-reasoning>檢查理由</button><button type=\"button\" data-reset-reasoning>再試一次</button></div><p class=\"activity-feedback\" data-reasoning-feedback aria-live=\"polite\">先選一項並說明理由，再檢查。</p></div><details><summary>查看完整訪談連結</summary><div><div class=\"table-wrap\"><table><thead><tr><th>量化模式</th><th>訪談焦點</th><th>一起檢視的證據</th></tr></thead><tbody><tr><td>較大進步</td><td>如何決定增加或解釋哪些證據？</td><td>教師評語 → 草稿改變 → 學生解釋。</td></tr><tr><td>進步有限</td><td>哪一項評語最難應用？你試過甚麼？</td><td>同一評語及相關草稿段落。</td></tr><tr><td>意料之外的個案</td><td>草稿改變為何與你的描述不同？</td><td>重新檢視分數、段落及訪談詮釋。</td></tr></tbody></table></div><p class=\"prompt\">抽樣連結兩階段；結果亦幫助建構聚焦的訪談問題。</p></div></details>",
     "source": "Illustrative interview plan · Creswell &amp; Plano Clark (2018), <i>Designing and conducting mixed methods research</i>, 3rd ed. · local PDF pp. 139, 341.",
     "section": "Connect the evidence",
-    "cls": ""
+    "cls": "density-dense"
   },
   {
     "key": "operations",
@@ -87,7 +87,7 @@ export const mixedMethodsSlides = [
     "bodyzh": "<div class=\"table-wrap\"><table><thead><tr><th>操作</th><th>作用</th><th>教育研究例子</th></tr></thead><tbody><tr><td>連結</td><td>連結樣本。</td><td>作文分數模式引導訪談抽樣。</td></tr><tr><td>建構</td><td>影響後續資料蒐集。</td><td>訪談發現用於建構回饋素養題項。</td></tr><tr><td>合併</td><td>結合發現以作比較。</td><td>按寫作議題比較修訂分數與訪談發現。</td></tr><tr><td>嵌入</td><td>在大型研究的多個環節連結探究。</td><td>AI 回饋介入前探索需要，介入中檢視實施。</td></tr></tbody></table></div><p class=\"prompt\">本示例先連結抽樣、建構訪談，再綜合詮釋相互連結的發現。</p><div class=\"lesson-resources\"><a class=\"resource-link\" href=\"https://doi.org/10.1111/1475-6773.12117\" target=\"_blank\" rel=\"noreferrer\">閱讀整合方法文獻</a></div>",
     "source": "Fetters, Curry, &amp; Creswell (2013), <i>Health Services Research, 48</i>(6 Pt 2), 2134–2156.",
     "section": "Connect the evidence",
-    "cls": ""
+    "cls": "density-dense"
   },
   {
     "key": "strand-findings",
@@ -107,7 +107,7 @@ export const mixedMethodsSlides = [
     "bodyzh": "<p class=\"example\">相互連結的虛構示例：120 組作文初稿與修訂稿；12 份訪談。以下發現均屬虛構。</p><div class=\"table-wrap\"><table><thead><tr><th>修訂模式</th><th>訪談發現</th><th>整合詮釋</th></tr></thead><tbody><tr><td>較大進步：48/120（40%）</td><td>所選學生描述增加證據，並解釋證據如何支持主張。</td><td>你的解釋是甚麼？</td></tr><tr><td>進步有限：72/120（60%）</td><td>所選學生描述聚焦語法的修改，或不確定如何修訂論證。</td><td>你的解釋是甚麼？</td></tr></tbody></table></div><div class=\"reasoning-activity\" data-reasoning-task=\"joint-display\" data-task-language=\"zh\"><h3>完成整合解釋</h3><p>所選進步有限的學生描述文法修改或不知如何規劃論證修訂。連結這些發現後，可以增加甚麼理解？</p><div class=\"reasoning-options\" role=\"group\" aria-label=\"完成整合解釋\"><button type=\"button\" data-reasoning-option=\"0\" aria-pressed=\"false\"><b>A.</b> 理解評語可能不同於知道如何用它修訂論證。</button><button type=\"button\" data-reasoning-option=\"1\" aria-pressed=\"false\"><b>B.</b> 所有學生中有60%缺乏修訂規劃能力。</button><button type=\"button\" data-reasoning-option=\"2\" aria-pressed=\"false\"><b>C.</b> 訪談證明文法修改導致進步有限。</button></div><div class=\"activity-actions\"><button type=\"button\" data-check-reasoning>檢查理由</button><button type=\"button\" data-reset-reasoning>再試一次</button></div><p class=\"activity-feedback\" data-reasoning-feedback aria-live=\"polite\">先選一項並說明理由，再檢查。</p></div><details><summary>查看整合展示與限制</summary><div><div class=\"table-wrap\"><table><thead><tr><th>修訂模式</th><th>訪談發現</th><th>整合詮釋</th></tr></thead><tbody><tr><td>較大進步：48/120（40%）</td><td>所選學生描述增加證據，並解釋證據如何支持主張。</td><td>這些解釋顯示，運用針對論證的回饋，可能與較大進步有關。</td></tr><tr><td>進步有限：72/120（60%）</td><td>所選學生描述聚焦語法的修改，或不確定如何修訂論證。</td><td>理解評語意思，可能不同於知道如何把它應用於修訂。</td></tr></tbody></table></div><p class=\"prompt\">整合推論須指出兩者關係增加甚麼理解。12 人的訪談不能確立各種解釋的普遍程度。</p></div></details>",
     "source": "Original illustrative joint display · Creswell &amp; Plano Clark (2018), <i>Designing and conducting mixed methods research</i>, 3rd ed. · local PDF pp. 340–344.",
     "section": "Develop the explanation",
-    "cls": ""
+    "cls": "density-dense density-activity"
   },
   {
     "key": "disagreement",
@@ -127,7 +127,7 @@ export const mixedMethodsSlides = [
     "bodyzh": "<div class=\"reasoning-activity\" data-reasoning-task=\"claims\" data-task-language=\"zh\"><h3>選擇有證據支持的結論</h3><p>現有120名學生的草稿評分，以及12名所選學生的連結訪談。哪個結論符合證據？</p><div class=\"reasoning-options\" role=\"group\" aria-label=\"選擇有證據支持的結論\"><button type=\"button\" data-reasoning-option=\"0\" aria-pressed=\"false\"><b>A.</b> 教師回饋導致這組學生的進步。</button><button type=\"button\" data-reasoning-option=\"1\" aria-pressed=\"false\"><b>B.</b> 所有進步有限的學生都誤解了回饋。</button><button type=\"button\" data-reasoning-option=\"2\" aria-pressed=\"false\"><b>C.</b> 使用回饋方式的差異可能幫助解釋本組學生的修訂進步。</button></div><div class=\"activity-actions\"><button type=\"button\" data-check-reasoning>檢查理由</button><button type=\"button\" data-reset-reasoning>再試一次</button></div><p class=\"activity-feedback\" data-reasoning-feedback aria-live=\"polite\">先選一項並說明理由，再檢查。</p></div><details><summary>查看結論及其限制</summary><div><blockquote>學生理解及運用回饋的差異，可能幫助解釋本群體修訂進步的差異。</blockquote><ul><li>分數模式描述改變，不能證明回饋造成改變。</li><li>訪談支持所選學生的可能解釋，不能估計其普遍程度。</li><li>檢視測量、質性分析、缺失個案、樣本連結及其他詮釋。</li></ul><p class=\"prompt\">整合解釋須獲兩部分證據及其連結方式支持。</p></div></details>",
     "source": "Creswell &amp; Plano Clark (2018), <i>Designing and conducting mixed methods research</i>, 3rd ed. · Chs. 6–8; APA JARS–Mixed, Table 1 (2024), used with JARS–Qual and JARS–Quant.",
     "section": "Develop the explanation",
-    "cls": ""
+    "cls": "density-dense"
   },
   {
     "key": "reporting-map",
@@ -137,7 +137,7 @@ export const mixedMethodsSlides = [
     "bodyzh": "<div class=\"table-wrap\"><table><thead><tr><th>部分</th><th>清楚保留研究脈絡</th></tr></thead><tbody><tr><td>引言</td><td>為何理解修訂進步需要量化及質性證據。</td></tr><tr><td>方法</td><td>混合設計、樣本、各部分分析，以及兩者如何連結。</td></tr><tr><td>結果</td><td>分數模式、質性發現及整合解釋。</td></tr><tr><td>討論</td><td>整合增加甚麼理解、哪些地方不同、仍有甚麼不確定。</td></tr></tbody></table></div><div class=\"lesson-resources\"><a class=\"resource-link\" href=\"https://apastyle.apa.org/jars/mixed-table-1.pdf\" target=\"_blank\" rel=\"noreferrer\">下載 JARS–Mixed（PDF）</a><a class=\"resource-link\" href=\"https://apastyle.apa.org/jars/qualitative\" target=\"_blank\" rel=\"noreferrer\">JARS–Qual</a><a class=\"resource-link\" href=\"https://apastyle.apa.org/jars/quantitative\" target=\"_blank\" rel=\"noreferrer\">JARS–Quant</a></div><p class=\"prompt\">混合方法標準須配合適用的質性及量化報告標準。</p>",
     "source": "APA JARS–Mixed, Table 1 (2024), used with JARS–Qual and JARS–Quant. Creswell &amp; Plano Clark (2018), <i>Designing and conducting mixed methods research</i>, 3rd ed. · local PDF pp. 388–389.",
     "section": "Report the study",
-    "cls": ""
+    "cls": "density-dense"
   },
   {
     "key": "method",
@@ -147,7 +147,7 @@ export const mixedMethodsSlides = [
     "bodyzh": "<p class=\"example\">虛構教學研究的示例段落</p><div class=\"prose\"><p>本研究採解釋型循序混合方法設計，探討英語作文修訂的差異，以 0–4 分規準評估 120 名學生初稿及修訂稿的論證發展。</p><p>初步進步模式引導目的性選取 12 名學生及擬定訪談問題。訪談聚焦如何理解及運用特定評語，並採質性內容分析。</p><p>以聯合展示連結進步模式與質性發現，形成對觀察到的差異的解釋。</p></div><p class=\"prompt\">完整方法部分仍須論證規準、抽樣準則、分析程序、研究者角色及倫理決策。</p>",
     "source": "Invented reporting example · APA JARS–Mixed, Table 1 (2024), used with JARS–Qual and JARS–Quant.",
     "section": "Report the study",
-    "cls": ""
+    "cls": "density-dense"
   },
   {
     "key": "results",
@@ -167,7 +167,7 @@ export const mixedMethodsSlides = [
     "bodyzh": "<div class=\"table-wrap\"><table><thead><tr><th>功能</th><th>本課英語回饋示例</th></tr></thead><tbody><tr><td>目的</td><td>解釋教師回饋後作文修訂的差異。</td></tr><tr><td>設計與來源</td><td>解釋型循序：先評分作文，再進行相互連結的訪談。</td></tr><tr><td>分析與整合</td><td>描述進步、分析訪談內容，以聯合展示連結發現。</td></tr><tr><td>整合發現</td><td>不同回饋運用方式，可能幫助解釋不同進步。</td></tr><tr><td>範圍</td><td>對本群體的詮釋，須保留抽樣及因果界限。</td></tr></tbody></table></div><p class=\"prompt\">依期刊摘要格式及字數要求撰寫，清楚保留整合貢獻。</p>",
     "source": "APA JARS–Mixed, Table 1 (2024), used with JARS–Qual and JARS–Quant. · p. 1.",
     "section": "Report the study",
-    "cls": ""
+    "cls": "density-dense"
   },
   {
     "key": "repair",
@@ -177,7 +177,7 @@ export const mixedMethodsSlides = [
     "bodyzh": "<blockquote>本研究採混合方法，先評分作文再訪談。訪談確認了結果，並提升了效度。</blockquote><div class=\"reasoning-activity\" data-reasoning-task=\"repair\" data-task-language=\"zh\"><h3>修訂研究報告</h3><p>哪項補充最能讓讀者追蹤整合主張？</p><div class=\"reasoning-options\" role=\"group\" aria-label=\"修訂研究報告\"><button type=\"button\" data-reasoning-option=\"0\" aria-pressed=\"false\"><b>A.</b> 「兩種方法提供三角檢證並提高效度。」</button><button type=\"button\" data-reasoning-option=\"1\" aria-pressed=\"false\"><b>B.</b> 「進步類型引導訪談抽樣與問題；連結展示比較草稿改動與訪談發現，包括不同個案。」</button><button type=\"button\" data-reasoning-option=\"2\" aria-pressed=\"false\"><b>C.</b> 「研究使用更大樣本，兩組資料都經過仔細分析。」</button></div><div class=\"activity-actions\"><button type=\"button\" data-check-reasoning>檢查理由</button><button type=\"button\" data-reset-reasoning>再試一次</button></div><p class=\"activity-feedback\" data-reasoning-feedback aria-live=\"polite\">先選一項並說明理由，再檢查。</p></div><p class=\"prompt\">接受這些主張前，你需要看到甚麼證據？</p><details><summary>檢視欠缺的證據</summary><div><ul><li>分數模式有否影響訪談抽樣及問題？</li><li>哪些參與者及寫作議題連結兩部分？</li><li>支持整合詮釋的證據在哪裏？</li><li>有否檢視不同發現及其他解釋？</li><li>具體處理了哪一項研究品質問題？</li></ul></div></details>",
     "source": "Original critique exercise · APA JARS–Mixed, Table 1 (2024), used with JARS–Qual and JARS–Quant.",
     "section": "Review a study",
-    "cls": ""
+    "cls": "density-dense density-activity"
   },
   {
     "key": "study-review",
@@ -187,7 +187,7 @@ export const mixedMethodsSlides = [
     "bodyzh": "<p class=\"lead\">選擇自己領域的文章，或下列開放取用的英語寫作研究。依據方法與結果檢視，不只看設計名稱。</p><div class=\"lesson-resources\"><a class=\"resource-link\" href=\"https://link.springer.com/article/10.1186/s40561-024-00295-9\" target=\"_blank\" rel=\"noreferrer\">閱讀 Mahapatra（2024）：ESL 寫作中的 ChatGPT 形成性回饋</a><a class=\"resource-link\" href=\"https://link.springer.com/content/pdf/10.1186/s40561-024-00295-9.pdf\" target=\"_blank\" rel=\"noreferrer\">下載文章（PDF）</a></div><ul><li>找出設計圖，辨識各部分目的。</li><li>追溯時序、參與者連結及整合程序。</li><li>指出展示整合貢獻的段落、表格或圖。</li><li>判斷證據支持哪些主張，以及哪些仍不清楚。</li></ul><details><summary>在指定文章中尋找的證據</summary><div><p>報告的量化樣本包括介入組 35 人及比較組 37 人；介入組 5 人參與全部 3 次焦點團體。檢視樣本連結、流失及整合詮釋；設計名稱本身不能確立研究品質。</p></div></details>",
     "source": "Mahapatra, S. (2024). <i>Impact of ChatGPT on ESL students’ academic writing skills: A mixed methods intervention study.</i> Smart Learning Environments, 11, 9. doi:10.1186/s40561-024-00295-9.",
     "section": "Review a study",
-    "cls": ""
+    "cls": "density-dense"
   },
   {
     "key": "recap",
@@ -207,7 +207,7 @@ export const mixedMethodsSlides = [
     "bodyzh": "<p class=\"lead\">提問與討論</p><p>對你正在閱讀的研究，結合兩部分證據會增加甚麼理解？</p><div class=\"closing-tools\"><a class=\"resource-link\" href=\"__LESSON_PDF__\" download>下載課堂 PDF（英文）</a><p>英文 PDF 包含三種設計圖及全部五個練習情境。閱讀資料及報告指引連結設於相關課堂內容旁。</p></div>",
     "source": "",
     "section": "Thank you",
-    "cls": ""
+    "cls": "density-spacious"
   }
 ];
 
