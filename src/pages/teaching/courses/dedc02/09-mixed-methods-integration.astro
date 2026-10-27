@@ -4,18 +4,20 @@ import LessonDeckChrome from '../../../../components/lessons/LessonDeckChrome.as
 import '../../../../styles/dedc02-mixed-methods.css';
 import { withBase } from '../../../../utils/paths';
 const title='Mixed Methods Integration and Reporting · DEDC02';
-const description='A bilingual doctoral lesson on mixed methods design, integration, and reporting.';
+const description='Follow an EFL feedback study from a research problem through mixed methods design, integration, reporting, and appraisal.';
 import { mixedMethodsSlides as slides } from '../../../../data/dedc02MixedMethodsLesson';
 const courseHref = withBase('/teaching/courses/dedc02');
+const lessonPdf = withBase('/teaching/courses/dedc02/mixed-methods-integration-and-reporting.pdf');
+const renderBody = (body: string) => body.replaceAll('__LESSON_PDF__', lessonPdf);
 ---
 <CourseSlideLayout {title} {description} lessonDeck>
 <LessonDeckChrome {courseHref} lessonTitle="Mixed Methods Integration and Reporting" />
 <main class="deck mm-deck" aria-label="Mixed Methods Integration and Reporting slide deck">
-{slides.map((s,i)=><section class:list={['slide',{'is-active':i===0}]} id={`slide-${i+1}`} data-title={s.title.replaceAll('<br>',' ')} data-language="en" aria-hidden={i!==0}><div class="slide-inner">
-<header class="slide-header"><span class="eyebrow">{i===0?'DEDC02 · Advanced Research Method':i<4?'Mixed methods · Foundations':i<19?'Mixed methods · Research design':i<26?'Mixed methods · Integration':i<31?'Mixed methods · Reporting':i<33?'Mixed methods · Application':'Mixed methods · References'}</span></header>
+{slides.map((s,i)=><section class:list={['slide',{'is-active':i===0}]} id={`slide-${i+1}`} data-title={s.title.replaceAll('<br>',' ')} data-slide-key={s.key} data-language="en" aria-hidden={i!==0}><div class="slide-inner">
+<header class="slide-header"><span class="eyebrow">DEDC02 · {s.section}</span></header>
 {i===0&&<div class="title-rule"></div>}
-<div class="en" data-language="en">{i===0?<h1 set:html={s.title}/>:<h2 set:html={s.title}/>}<Fragment set:html={s.body}/></div>
-<div class="zh" data-language="zh" lang="zh-Hant" hidden>{i===0?<h1 set:html={s.zh}/>:<h2 set:html={s.zh}/>}<Fragment set:html={s.bodyzh}/></div>
+<div class="en" data-language="en">{i===0?<h1 set:html={s.title}/>:<h2 set:html={s.title}/>}<Fragment set:html={renderBody(s.body)}/></div>
+<div class="zh" data-language="zh" lang="zh-Hant" hidden>{i===0?<h1 set:html={s.zh}/>:<h2 set:html={s.zh}/>}<Fragment set:html={renderBody(s.bodyzh)}/></div>
 {i!==0&&<p class="source-note" set:html={s.source}/>}
 </div></section>)}
 </main>

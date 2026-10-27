@@ -1,5 +1,6 @@
 import { syncLessonNavigation, bindLessonShortcuts } from './lessonDeck';
 import { initLessonTimer } from './lessonTimer';
+import { designScenarios as cases, diagramTasks, reasoningTasks } from '../data/dedc02MixedMethodsLesson';
 
 const slides = Array.from(document.querySelectorAll<HTMLElement>('.slide'));
 const totalLabel = document.querySelector<HTMLElement>('[data-slide-total]');
@@ -70,76 +71,236 @@ function hashSlide() {
 window.addEventListener('hashchange', () => showSlide(hashSlide(), false));
 showSlide(hashSlide());
 
-// The three scenarios are teaching illustrations, not empirical study results.
-const cases = [{en:'A survey shows an unexpected pattern. You want to interview selected respondents to understand it.',zh:'問卷出現意料之外的模式，你希望訪談特定受訪者以理解原因。',answer:'e',feedbackEn:'Explanatory sequential: quantitative results guide interview selection and questions; the final interpretation explains those results.',feedbackZh:'解釋型循序：量化結果決定訪談對象與問題，最終整合詮釋回應初步結果。'},{en:'The relevant dimensions of a new learning experience are unclear. Explore learners’ accounts, develop a measure, then examine it quantitatively.',zh:'新學習經驗的相關面向尚不清楚。先探索學生敘述，再發展量表並進行量化檢視。',answer:'x',feedbackEn:'Exploratory sequential: qualitative findings build the measure, with development and evaluation made explicit.',feedbackZh:'探索型循序：以質性發現建構量表，清楚展示發展與評估過程。'},{en:'You collect survey responses and interviews in the same period to compare how they portray the same classroom experience.',zh:'同期收集問卷與訪談，以比較兩者如何呈現同一課堂經驗。',answer:'c',feedbackEn:'Convergent: analyse each strand and merge comparable findings. Concurrent collection alone would not demonstrate integration.',feedbackZh:'聚合式：分別分析，再合併可比較的發現。僅有同期蒐集仍不足以展示整合。'}];
-let caseIndex = 0;
-
-function updateCase() {
-  const english = document.getElementById('scenario-en');
-  const chinese = document.getElementById('scenario-zh');
-  if (english) english.textContent = cases[caseIndex].en;
-  if (chinese) chinese.textContent = cases[caseIndex].zh;
-  document.querySelectorAll<HTMLElement>('[data-quiz]').forEach((quiz) => {
-    const feedback = quiz.querySelector<HTMLElement>('.feedback');
-    if (feedback) feedback.textContent = quiz.closest('.zh')
-      ? '選擇設計，並說明如何整合。'
-      : 'Choose a design and explain the integration.';
-    quiz.querySelectorAll<HTMLButtonElement>('[data-answer]').forEach((button) => {
-      button.classList.remove('selected');
-      button.setAttribute('aria-pressed', 'false');
+// Each map offers the same three relationships in English and Chinese.
+function selectDesign(design: string | null) {
+  document.querySelectorAll<HTMLElement>('[data-design-map]').forEach((map) => {
+    map.querySelectorAll<HTMLButtonElement>('[data-design-choice]').forEach((button) => {
+      const selected = button.dataset.designChoice === design;
+      button.setAttribute('aria-expanded', String(selected));
+      button.classList.toggle('selected', selected);
     });
+    map.querySelectorAll<HTMLElement>('[data-design-panel]').forEach((panel) => {
+      panel.hidden = panel.dataset.designPanel !== design;
+    });
+    const instruction = map.querySelector<HTMLElement>('.design-empty');
+    if (instruction) instruction.hidden = design !== null;
   });
 }
-
-document.querySelectorAll<HTMLButtonElement>('[data-answer]').forEach((button) => {
-  button.setAttribute('aria-pressed', 'false');
+document.querySelectorAll<HTMLButtonElement>('[data-design-choice]').forEach((button) => {
   button.addEventListener('click', () => {
-    const quiz = button.closest<HTMLElement>('.quiz');
-    if (!quiz) return;
+    const design = button.dataset.designChoice || null;
+    selectDesign(design);
+    const panel = button.closest('[data-design-map]')?.querySelector<HTMLElement>(`[data-design-panel="${design}"]`);
+    panel?.scrollIntoView({ block: 'nearest' });
+  });
+});
+document.querySelectorAll<HTMLButtonElement>('[data-design-back]').forEach((button) => {
+  button.addEventListener('click', () => {
+    selectDesign(null);
+    button.closest('[data-design-map]')?.querySelector('.design-choices')?.scrollIntoView({ block: 'start' });
+  });
+});
+document.querySelectorAll<HTMLButtonElement>('[data-jump-key]').forEach((button) => {
+  button.addEventListener('click', () => {
+    const index = slides.findIndex((slide) => slide.dataset.slideKey === button.dataset.jumpKey);
+    if (index >= 0) showSlide(index);
+  });
+});
+
+let caseIndex = 0;
+let atEnd = false;
+const selections: Array<string | undefined> = [];
+function updateCase() {
+  const item = cases[caseIndex];
+  document.querySelectorAll<HTMLElement>('[data-quiz]').forEach((quiz) => {
     const chinese = Boolean(quiz.closest('.zh'));
-    const correct = button.dataset.answer === cases[caseIndex].answer;
-    quiz.querySelectorAll<HTMLButtonElement>('[data-answer]').forEach((choice) => {
-      choice.classList.toggle('selected', choice === button);
-      choice.setAttribute('aria-pressed', String(choice === button));
+    const question = quiz.querySelector<HTMLElement>('.lead');
+    if (question) question.textContent = chinese ? item.zh : item.en;
+    const counter = quiz.querySelector<HTMLElement>('[data-scenario-count]');
+    if (counter) counter.textContent = `${chinese ? '情境' : 'Scenario'} ${caseIndex + 1} / ${cases.length}`;
+    const selected = selections[caseIndex];
+    quiz.querySelectorAll<HTMLButtonElement>('[data-answer]').forEach((button) => {
+      button.classList.toggle('selected', button.dataset.answer === selected);
+      button.setAttribute('aria-pressed', String(button.dataset.answer === selected));
     });
     const feedback = quiz.querySelector<HTMLElement>('.feedback');
     if (feedback) {
-      const lead = correct
-        ? chinese ? '合適。' : 'A good fit. '
-        : chinese ? '再想想整合的目的。' : 'Reconsider what the integration is intended to do. ';
-      feedback.textContent = lead + (chinese ? cases[caseIndex].feedbackZh : cases[caseIndex].feedbackEn);
+      const correct = selected === item.answer;
+      const lead = correct ? chinese ? '合適。' : 'A good fit. ' : chinese ? '再想想整合的目的。' : 'Reconsider the purpose of integration. ';
+      feedback.textContent = selected
+        ? lead + (chinese ? item.feedbackZh : item.feedbackEn)
+        : chinese ? '選擇設計，並說明整合位置。' : 'Choose a design and identify the integration point.';
+    }
+    const previous = quiz.querySelector<HTMLButtonElement>('[data-prevcase]');
+    if (previous) previous.disabled = caseIndex === 0;
+    const next = quiz.querySelector<HTMLButtonElement>('[data-nextcase]');
+    if (next) {
+      next.textContent = caseIndex === cases.length - 1 ? chinese ? '完成' : 'Finish' : chinese ? '下一情境 →' : 'Next scenario →';
+      next.disabled = atEnd;
+    }
+    const restart = quiz.querySelector<HTMLElement>('[data-restart]');
+    if (restart) restart.hidden = !atEnd;
+    const endMessage = quiz.querySelector<HTMLElement>('[data-case-complete]');
+    if (endMessage) {
+      endMessage.hidden = !atEnd;
+      endMessage.textContent = chinese ? '已到五個情境的最後一題，可回看或重新開始。' : 'End of the five scenarios. Revisit any item or restart.';
     }
   });
+}
+document.querySelectorAll<HTMLButtonElement>('[data-answer]').forEach((button) => {
+  button.addEventListener('click', () => { selections[caseIndex] = button.dataset.answer; updateCase(); });
 });
 document.querySelectorAll<HTMLButtonElement>('[data-nextcase]').forEach((button) => {
-  button.addEventListener('click', () => { caseIndex = (caseIndex + 1) % cases.length; updateCase(); });
-});
-
-// Keep English and Chinese versions of the same design note in sync within this tab.
-document.querySelectorAll<HTMLTextAreaElement>('[data-field]').forEach((input) => {
-  input.addEventListener('input', () => {
-    document.querySelectorAll<HTMLTextAreaElement>(`[data-field="${input.dataset.field}"]`).forEach((peer) => {
-      if (peer !== input) peer.value = input.value;
-    });
-  });
-});
-document.querySelectorAll<HTMLButtonElement>('[data-download]').forEach((button) => {
   button.addEventListener('click', () => {
-    const labels = {
-      purpose: 'Research problem and mixed purpose',
-      design: 'Design, timing, emphasis, and sample relationship',
-      integration: 'Integration operation, product, and inference boundary',
-    };
-    let text = '# My mixed methods design\n\n';
-    Object.entries(labels).forEach(([key, label]) => {
-      const value = document.querySelector<HTMLTextAreaElement>(`[data-field="${key}"]`)?.value || '';
-      text += `## ${label}\n${value}\n\n`;
-    });
-    const url = URL.createObjectURL(new Blob([text], { type: 'text/markdown;charset=utf-8' }));
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = 'my-mixed-methods-design.md';
-    link.click();
-    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    if (caseIndex < cases.length - 1) caseIndex += 1;
+    else atEnd = true;
+    updateCase();
   });
 });
+document.querySelectorAll<HTMLButtonElement>('[data-prevcase]').forEach((button) => {
+  button.addEventListener('click', () => { caseIndex = Math.max(0, caseIndex - 1); atEnd = false; updateCase(); });
+});
+document.querySelectorAll<HTMLButtonElement>('[data-restart]').forEach((button) => {
+  button.addEventListener('click', () => { caseIndex = 0; atEnd = false; selections.length = 0; updateCase(); });
+});
+updateCase();
+
+// Build diagrams from the description. State is shared across language views.
+type DiagramTask = { accept: string[][]; en: { tokens: Record<string, string>; hint: string }; zh: { tokens: Record<string, string>; hint: string } };
+const tasks = diagramTasks as Record<string, DiagramTask>;
+type DiagramState = { slots: Array<string | null>; selected: string | null; checked: boolean; needsAll: boolean };
+const diagramStates: Record<string, DiagramState> = {};
+function diagramState(key: string) {
+  return diagramStates[key] ||= { slots: tasks[key].accept.map(() => null), selected: null, checked: false, needsAll: false };
+}
+function renderDiagram(key: string) {
+  const task = tasks[key], state = diagramState(key);
+  const filled = state.slots.filter(Boolean).length;
+  const correct = state.slots.filter((token, i) => token && task.accept[i].includes(token)).length;
+  document.querySelectorAll<HTMLElement>('[data-diagram-task]').forEach((root) => {
+    if (root.dataset.diagramTask !== key) return;
+    const zh = root.dataset.taskLanguage === 'zh', copy = zh ? task.zh : task.en;
+    root.querySelectorAll<HTMLButtonElement>('[data-task-token]').forEach((button) => {
+      const token = button.dataset.taskToken!;
+      const placed = state.slots.includes(token);
+      button.setAttribute('aria-pressed', String(state.selected === token));
+      button.classList.toggle('selected', state.selected === token);
+      button.classList.toggle('is-placed', placed);
+      const label = button.querySelector('[data-token-status]');
+      if (label) label.textContent = placed ? zh ? '已放置；可選取移動' : 'Placed; select to move' : zh ? '可放置' : 'Available';
+    });
+    root.querySelectorAll<HTMLButtonElement>('[data-task-slot]').forEach((button) => {
+      const index = Number(button.dataset.taskSlot), token = state.slots[index];
+      const label = button.querySelector('[data-slot-label]'), status = button.querySelector('[data-slot-status]');
+      if (label) label.textContent = token ? copy.tokens[token] : zh ? '放置步驟' : 'Place a step';
+      const fits = Boolean(token && task.accept[index].includes(token));
+      button.classList.toggle('is-filled', Boolean(token));
+      button.classList.toggle('is-correct', state.checked && fits);
+      button.classList.toggle('needs-review', state.checked && !fits);
+      button.draggable = Boolean(token);
+      if (status) status.textContent = state.checked ? fits ? zh ? '✓ 位置合適' : '✓ Fits here' : zh ? '檢視此步驟' : 'Review this step' : '';
+    });
+    const feedback = root.querySelector<HTMLElement>('[data-diagram-feedback]');
+    if (feedback) {
+      if (state.checked) feedback.textContent = `${correct} / ${state.slots.length} ${zh ? '位置合適。' : 'steps fit. '}` + (correct === state.slots.length ? zh ? '請解釋資料如何在階段之間連接。' : 'Explain what connects the evidence between these steps.' : copy.hint);
+      else if (state.needsAll) feedback.textContent = zh ? '請先填滿所有位置，再檢查。' : 'Fill every box before checking. Choose a card, then a blank box.';
+      else if (state.selected) feedback.textContent = (zh ? '已選擇：' : 'Selected: ') + copy.tokens[state.selected] + (zh ? '。請選位置。' : '. Choose its box.');
+      else feedback.textContent = `${filled} / ${state.slots.length} ${zh ? '已放置。閱讀描述並完成設計。' : 'placed. Read the description and complete the design.'}`;
+    }
+  });
+}
+function placeStep(key: string, index: number, token: string | null) {
+  const state = diagramState(key);
+  if (token && !(token in tasks[key].en.tokens)) return;
+  if (token) state.slots = state.slots.map((value) => value === token ? null : value);
+  state.slots[index] = token;
+  state.selected = null; state.checked = false; state.needsAll = false;
+  renderDiagram(key);
+}
+document.querySelectorAll<HTMLElement>('[data-diagram-task]').forEach((root) => {
+  const key = root.dataset.diagramTask!;
+  root.querySelectorAll<HTMLButtonElement>('[data-task-token]').forEach((button) => {
+    const token = button.dataset.taskToken!;
+    button.addEventListener('click', () => {
+      const state = diagramState(key);
+      state.selected = state.selected === token ? null : token;
+      renderDiagram(key);
+    });
+    button.addEventListener('dragstart', (event) => {
+      if (!event.dataTransfer) return;
+      event.dataTransfer.setData('text/plain', `${key}:${token}`);
+      event.dataTransfer.effectAllowed = 'move';
+    });
+  });
+  root.querySelectorAll<HTMLButtonElement>('[data-task-slot]').forEach((button) => {
+    const index = Number(button.dataset.taskSlot);
+    button.addEventListener('click', () => placeStep(key, index, diagramState(key).selected));
+    button.addEventListener('dragstart', (event) => {
+      const token = diagramState(key).slots[index];
+      if (!token || !event.dataTransfer) { event.preventDefault(); return; }
+      event.dataTransfer.setData('text/plain', `${key}:${token}`);
+      event.dataTransfer.effectAllowed = 'move';
+    });
+    button.addEventListener('dragover', (event) => {
+      event.preventDefault();
+      if (event.dataTransfer) event.dataTransfer.dropEffect = 'move';
+      button.classList.add('drop-target');
+    });
+    button.addEventListener('dragleave', () => button.classList.remove('drop-target'));
+    button.addEventListener('drop', (event) => {
+      event.preventDefault(); button.classList.remove('drop-target');
+      const [source, token] = (event.dataTransfer?.getData('text/plain') || '').split(':');
+      if (source === key && token) placeStep(key, index, token);
+    });
+  });
+  root.querySelector('[data-check-diagram]')?.addEventListener('click', () => {
+    const state = diagramState(key);
+    state.needsAll = state.slots.some((token) => !token);
+    state.checked = !state.needsAll; state.selected = null;
+    renderDiagram(key);
+  });
+  root.querySelector('[data-reset-diagram]')?.addEventListener('click', () => {
+    delete diagramStates[key]; renderDiagram(key);
+  });
+});
+Object.keys(tasks).forEach(renderDiagram);
+
+// Commit to a reasoned choice before receiving option-specific feedback.
+type ReasoningTask = { answer: number; en: { feedback: string[] }; zh: { feedback: string[] } };
+const reasoning = reasoningTasks as Record<string, ReasoningTask>;
+const reasoningStates: Record<string, { selected: number | null; checked: boolean }> = {};
+function renderReasoning(key: string) {
+  const state = reasoningStates[key] ||= { selected: null, checked: false };
+  document.querySelectorAll<HTMLElement>('[data-reasoning-task]').forEach((root) => {
+    if (root.dataset.reasoningTask !== key) return;
+    const zh = root.dataset.taskLanguage === 'zh';
+    root.querySelectorAll<HTMLButtonElement>('[data-reasoning-option]').forEach((button) => {
+      const selected = Number(button.dataset.reasoningOption) === state.selected;
+      button.setAttribute('aria-pressed', String(selected));
+      button.classList.toggle('selected', selected);
+    });
+    const feedback = root.querySelector<HTMLElement>('[data-reasoning-feedback]');
+    if (feedback) {
+      if (state.checked && state.selected !== null) feedback.textContent = (state.selected === reasoning[key].answer ? zh ? '合適。' : 'Supported. ' : zh ? '再檢視理由。' : 'Reconsider the reasoning. ') + (zh ? reasoning[key].zh : reasoning[key].en).feedback[state.selected];
+      else feedback.textContent = state.selected === null ? zh ? '先選一項並說明理由，再檢查。' : 'Choose an option and explain why, then check.' : zh ? '已選擇。請先說明理由，再檢查。' : 'Choice selected. Explain your reasoning before checking.';
+    }
+    const check = root.querySelector<HTMLButtonElement>('[data-check-reasoning]');
+    if (check) check.disabled = state.selected === null;
+  });
+}
+document.querySelectorAll<HTMLElement>('[data-reasoning-task]').forEach((root) => {
+  const key = root.dataset.reasoningTask!;
+  root.querySelectorAll<HTMLButtonElement>('[data-reasoning-option]').forEach((button) => {
+    button.addEventListener('click', () => {
+      reasoningStates[key] = { selected: Number(button.dataset.reasoningOption), checked: false };
+      renderReasoning(key);
+    });
+  });
+  root.querySelector('[data-check-reasoning]')?.addEventListener('click', () => {
+    reasoningStates[key].checked = true; renderReasoning(key);
+  });
+  root.querySelector('[data-reset-reasoning]')?.addEventListener('click', () => {
+    delete reasoningStates[key]; renderReasoning(key);
+  });
+});
+Object.keys(reasoning).forEach(renderReasoning);

@@ -32,3 +32,46 @@
   .mm-deck .parallel { max-width: 100%; }
   .mm-deck .parallel .step { font-size: var(--mm-body-size); }
 }
+
+/* The design map keeps the three alternatives in one place. */
+.mm-deck .design-choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:1.25rem 0}
+.mm-deck .design-choices button{min-width:0;text-align:left;padding:1rem;border:1px solid var(--mm-line);border-top:.3rem solid var(--mm-green);border-radius:.3rem;background:white;color:var(--mm-ink);font:inherit;cursor:pointer}
+.mm-deck .design-choices :is(b,span,small){display:block;line-height:1.25}.mm-deck .design-choices span{margin:.6rem 0;font-size:.9em}.mm-deck .design-choices small{font-size:.75em;color:var(--mm-muted)}
+.mm-deck .design-choices button:hover,.mm-deck .design-choices button.selected{border-color:var(--mm-green);background:var(--mm-soft)}
+.mm-deck .design-detail{margin:1.25rem 0;padding:1.2rem;border:1px solid var(--mm-line);border-top:.3rem solid var(--mm-green);border-radius:.3rem;scroll-margin-top:6.5rem}
+.mm-deck .design-detail h3{font-size:clamp(1.7rem,2.8vw,2.25rem);margin:0 0 .8rem}.mm-deck .design-detail>.design-back{margin-bottom:.7rem}
+.mm-deck .design-empty{color:var(--mm-muted)}
+.mm-deck :is(.design-back,.mm-action,.scenario-nav button){min-height:44px;padding:.6rem .85rem;border:1px solid var(--mm-line);border-radius:.3rem;background:white;color:var(--mm-green);font:600 .85em/1.3 'Source Sans 3',Arial,sans-serif;cursor:pointer}
+.mm-deck .scenario-nav{display:flex;flex-wrap:wrap;gap:.7rem;margin:1rem 0}.mm-deck .scenario-nav button:disabled{opacity:.4;cursor:default}.mm-deck .scenario-count{color:var(--mm-green);font-weight:600;font-size:1.15rem}
+.mm-deck .lesson-resources{display:flex;flex-wrap:wrap;gap:.65rem;margin:1.2rem 0}.mm-deck .lesson-resources p{font-size:1rem;line-height:1.5}
+.mm-deck .resource-link{display:inline-flex;align-items:center;min-height:44px;padding:.65rem .9rem;border:1px solid var(--mm-line);border-radius:.3rem;background:var(--mm-soft);color:var(--mm-green);font-size:1.1rem;line-height:1.35;text-decoration:none}
+.mm-deck .resource-link:hover{border-color:var(--mm-green)}.mm-deck .closing-tools .resource-link{background:var(--mm-green);color:white;font-size:1.3rem;margin:.5rem 0 1rem}
+@media(max-width:720px){.mm-deck .design-choices{grid-template-columns:1fr}.mm-deck .design-detail{padding:.8rem}.mm-deck .lesson-resources{flex-direction:column}.mm-deck .resource-link{align-self:flex-start}}
+@media print{.mm-deck .design-detail[hidden]{display:block!important;break-before:page}.mm-deck :is(.design-choices,.design-empty,.design-back,.scenario-nav,.mm-action){display:none!important}.mm-deck .design-detail{border:0;padding:0;margin:1rem 0}.mm-deck .resource-link{font-size:.85rem;padding:.3rem .4rem}.mm-deck .lesson-resources{margin:.6rem 0}}
+
+/* Students assemble and explain the design before revealing a model. */
+.mm-deck .diagram-builder h4{font:600 1.2em/1.25 'Source Serif 4',Georgia,serif;margin:1rem 0 .7rem}
+.mm-deck .builder-instruction{font-size:.85em;color:var(--mm-muted)}
+.mm-deck .token-bank{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem;margin:1rem 0}
+.mm-deck .token-bank button{padding:.8rem;text-align:left;font:inherit;font-size:.9em;color:var(--mm-ink);background:white;border:1px solid var(--mm-line);border-radius:.25rem;cursor:grab}
+.mm-deck .token-bank small{display:block;font-size:.75em;margin-top:.35rem;color:var(--mm-muted)}
+.mm-deck .token-bank .is-placed{border-style:dashed;background:#f6f8f6}
+.mm-deck .token-bank button.selected{outline:3px solid var(--mm-green);outline-offset:2px}
+.mm-deck .builder-flow{display:flex;align-items:stretch;gap:.5rem;margin:1.5rem 0}
+.mm-deck .diagram-slot{min-width:0;flex:1;padding:.85rem;border:2px dashed #789c88;border-radius:.25rem;background:#f6faf7;color:var(--mm-ink);font:inherit;font-size:.9em;min-height:8rem;cursor:pointer;text-align:center}
+.mm-deck .diagram-slot>b{display:block;font-size:.8em;margin-bottom:.5rem}.mm-deck .diagram-slot small{display:block;font-size:.8em;margin-top:.6rem;font-weight:600}
+.mm-deck .builder-arrow{display:flex;justify-content:center;align-items:center;font-size:1.6rem}
+.mm-deck .diagram-slot.is-filled{border-style:solid;background:white}.mm-deck .diagram-slot.is-correct{background:var(--mm-soft);border-color:var(--mm-green)}.mm-deck .diagram-slot.needs-review{background:#fff5e9;border-color:#a7642e}
+.mm-deck .diagram-slot.drop-target{outline:3px solid var(--mm-green);outline-offset:3px}
+.mm-deck .builder-parallel{display:grid;grid-template-columns:minmax(0,1fr) 2.5rem minmax(0,1fr);grid-template-rows:1fr 1fr;gap:.7rem;margin:1.5rem 0}
+.mm-deck .builder-parallel [data-task-slot="0"]{grid-column:1;grid-row:1}.mm-deck .builder-parallel [data-task-slot="1"]{grid-column:1;grid-row:2}.mm-deck .builder-parallel [data-task-slot="2"]{grid-column:3;grid-row:1/3}.mm-deck .join-top{grid-column:2;grid-row:1}.mm-deck .join-bottom{grid-column:2;grid-row:2}
+.mm-deck .reasoning-activity{padding:.8rem 0 1rem;margin:.7rem 0 1rem;border-bottom:1px solid var(--mm-line)}
+.mm-deck .reasoning-options{display:grid;gap:.7rem;margin:1rem 0}
+.mm-deck .reasoning-options button{padding:.8rem 1rem;border:1px solid var(--mm-line);border-radius:.25rem;background:white;color:var(--mm-ink);font:inherit;font-size:.95em;line-height:1.4;text-align:left;cursor:pointer}
+.mm-deck .reasoning-options button.selected{border:2px solid var(--mm-green);background:var(--mm-soft)}
+.mm-deck .activity-actions{display:flex;gap:.7rem;flex-wrap:wrap;margin:1rem 0}.mm-deck .activity-actions button{padding:.65rem .9rem;min-height:44px;border:1px solid var(--mm-green);border-radius:.25rem;background:var(--mm-green);color:white;font:600 .9em/1.35 'Source Sans 3',Arial,sans-serif;cursor:pointer}.mm-deck .activity-actions button+button{background:white;color:var(--mm-green)}.mm-deck .activity-actions button:disabled{opacity:.45;cursor:default}
+.mm-deck .activity-feedback{border-left:.25rem solid var(--mm-green);padding:.6rem .9rem;background:var(--mm-soft);min-height:3.2rem;font-size:.95em}
+.mm-deck :is(.token-bank button,.diagram-slot,.reasoning-options button,.activity-actions button,.design-choices button):focus-visible{outline:3px solid #37668b;outline-offset:3px}
+@media(max-width:720px){.mm-deck .token-bank{grid-template-columns:1fr}.mm-deck .builder-flow{flex-direction:column}.mm-deck .builder-flow .builder-arrow{transform:rotate(90deg)}.mm-deck .diagram-slot{flex:auto;min-height:6rem}}
+@media print{.mm-deck :is(.diagram-builder,.activity-actions){display:none!important}.mm-deck .diagram-solution>div{display:block!important}.mm-deck .reasoning-options{display:block}.mm-deck .reasoning-options button{display:block;border:0;padding:.3rem 0;font-size:.9rem}.mm-deck .activity-feedback{font-size:.85rem}}
+.mm-deck :is(.token-bank button,.diagram-slot){user-select:none;-webkit-user-select:none}.mm-deck :is(.token-bank button,.diagram-slot)>*{pointer-events:none}

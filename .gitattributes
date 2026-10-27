@@ -1,0 +1,2 @@
+# Teaching PDFs are binary downloads, including exports whose headers are ASCII.
+*.pdf binary

@@ -1,282 +1,533 @@
 export const mixedMethodsSlides = [
   {
-    "title": "Mixed Methods<br>Integration<br>and Reporting",
-    "zh": "混合方法<br>整合與報告",
-    "body": "<p class=\"subtitle\">Research design, integration decisions, and the claims we can report</p><p class=\"byline\">DEDC02 · Advanced Research Methods in Education<br>April Jiawei Zhang</p>",
-    "bodyzh": "<p class=\"subtitle\">研究設計、整合決策與可報告的研究主張</p><p class=\"byline\">DEDC02 · 進階教育研究方法<br>April Jiawei Zhang</p>",
-    "source": "Creswell &amp; Plano Clark (2018), 3rd ed. · Chapters 3, 4, 6–8",
-    "cls": "cover"
-  },
-  {
-    "title": "Learning aims",
-    "zh": "學習目標",
-    "body": "<ul><li>Justify why a research problem needs both strands.</li><li>Choose and diagram a mixed methods design.</li><li>Specify where, how, and why integration occurs.</li><li>Produce a joint display and a bounded integrated inference.</li><li>Report the design and integration transparently.</li></ul>",
-    "bodyzh": "<ul><li>說明研究問題為何需要量化與質性兩個部分。</li><li>選擇混合方法設計，並繪出研究流程。</li><li>交代整合在何處、如何及為何發生。</li><li>製作聯合展示，提出有證據界限的整合推論。</li><li>清楚報告研究設計與整合過程。</li></ul>",
-    "source": "Creswell &amp; Plano Clark (2018), 3rd ed. · PDF pp. 121–164, 323–350; APA JARS–Mixed (2024 table), pp. 1–3",
+    "key": "cover",
+    "title": "Mixed Methods<br>Design and Reporting",
+    "zh": "混合方法<br>設計與報告",
+    "body": "<p class=\"subtitle\">How can we explain differences in EFL students’ essay revisions after teacher feedback?</p><p class=\"byline\">DEDC02 · Advanced Research Method<br>April Jiawei Zhang</p>",
+    "bodyzh": "<p class=\"subtitle\">收到教師回饋後，英語學習者的作文修訂為何有不同進展？</p><p class=\"byline\">DEDC02 · 進階教育研究方法<br>April Jiawei Zhang</p>",
+    "source": "Creswell &amp; Plano Clark (2018), <i>Designing and conducting mixed methods research</i>, 3rd ed.",
+    "section": "Our research problem",
     "cls": ""
   },
   {
-    "title": "A research puzzle",
-    "zh": "研究難題",
-    "body": "<p class=\"lead\">Students rate AI feedback as useful, yet few share their AI-assisted drafts in class.</p><div class=\"columns\"><div><h3>A survey can establish</h3><p>How common each response is, and how responses vary across learners.</p></div><div><h3>Interviews can explore</h3><p>What “useful” and “sharing” mean, and the circumstances shaping each.</p></div></div><p class=\"prompt\">What would we learn by linking these findings?</p><details><summary>Discuss, then reveal</summary><div>Usefulness for private revision may coexist with concern about public judgement. That is a candidate interpretation to examine, rather than a finding already established.</div></details>",
-    "bodyzh": "<p class=\"lead\">學生認為 AI 回饋有用，卻很少在課堂分享使用 AI 修訂的草稿。</p><div class=\"columns\"><div><h3>問卷可回答</h3><p>各種反應有多普遍，以及不同學生的反應有何差異。</p></div><div><h3>訪談可探討</h3><p>「有用」與「分享」的意義，以及影響兩者的具體情境。</p></div></div><p class=\"prompt\">把兩種結果連結起來，能多理解甚麼？</p><details><summary>討論後查看</summary><div>私人修訂時感到有用，可能與公開分享時擔心被評價並存。這只是有待檢視的解釋，並非已獲證實的發現。</div></details>",
-    "source": "Illustrative teaching scenario · Creswell &amp; Plano Clark (2018), 3rd ed. · PDF pp. 122–125",
+    "key": "problem",
+    "title": "Feedback was given. What changed?",
+    "zh": "給了回饋，甚麼改變了？",
+    "body": "<p class=\"lead\">In an EFL writing class, students receive comments on the argument in a first draft. Some develop their reasoning; others mainly correct grammar.</p><div class=\"flow\"><div class=\"step quan\"><b>First essay</b>Argument-development score</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step bridge\"><b>Teacher feedback</b>Comments on claims and evidence</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step quan\"><b>Revised essay</b>Different amounts of improvement</div></div><p class=\"prompt\">We need to understand both the pattern of revision gains and how learners used the feedback.</p><p class=\"example\">Running teaching example. All study procedures, numbers, and findings in this example are illustrative.</p>",
+    "bodyzh": "<p class=\"lead\">英語寫作課中，學生收到針對初稿論證的教師回饋。有些學生改善推理，另一些主要修改語法。</p><div class=\"flow\"><div class=\"step quan\"><b>作文初稿</b>評估論證發展</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step bridge\"><b>教師回饋</b>針對主張與證據的意見</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step quan\"><b>作文修訂稿</b>進步程度各異</div></div><p class=\"prompt\">我們須理解修訂進步的模式，以及學生如何運用回饋。</p><p class=\"example\">貫穿本課的教學示例；程序、數字與發現均屬虛構。</p>",
+    "source": "Creswell &amp; Plano Clark (2018), <i>Designing and conducting mixed methods research</i>, 3rd ed. · Chs. 3 and 5.",
+    "section": "Our research problem",
     "cls": ""
   },
   {
-    "title": "What makes the study mixed methods?",
-    "zh": "甚麼使研究成為混合方法研究？",
-    "body": "<p class=\"lead\">Quantitative inquiry + qualitative inquiry + deliberate integration</p><ul><li>Each strand answers a specified question with appropriate methods.</li><li>The design relates the strands so that one informs, develops, or is compared with the other.</li><li>The integrated interpretation addresses what is learned through their relationship.</li></ul><p class=\"prompt\">Using several instruments does not, by itself, establish integration.</p>",
-    "bodyzh": "<p class=\"lead\">量化探究 ＋ 質性探究 ＋ 有目的的整合</p><ul><li>每個研究部分均以合適方法回答明確問題。</li><li>設計使兩個部分互相提供依據、建構後續研究，或進行比較。</li><li>整合詮釋說明兩者的關係帶來甚麼新理解。</li></ul><p class=\"prompt\">單純使用多種研究工具，仍未交代整合。</p>",
-    "source": "Creswell &amp; Plano Clark (2018), 3rd ed. · Ch. 1; Creswell (2015), Ch. 16, PDF pp. 558–559",
+    "key": "questions",
+    "title": "What must we find out?",
+    "zh": "我們須了解甚麼？",
+    "body": "<div class=\"table-wrap\"><table><thead><tr><th>Question</th><th>What evidence is needed?</th></tr></thead><tbody><tr><td>QUAN: How much does argument development improve between first and revised essays?</td><td>Rubric scores and the distribution of revision gains.</td></tr><tr><td>QUAL: How do students interpret and use teacher feedback?</td><td>Interviews supported by the comments and revised drafts.</td></tr><tr><td>Mixed: How do students’ explanations help us understand differences in revision gains?</td><td>An explicit link between score patterns and qualitative findings.</td></tr></tbody></table></div><p class=\"prompt\">Mixed methods needs a reason for combining the strands and an answer developed through their relationship.</p>",
+    "bodyzh": "<div class=\"table-wrap\"><table><thead><tr><th>研究問題</th><th>需要哪些證據？</th></tr></thead><tbody><tr><td>量化：從初稿到修訂稿，論證發展改善多少？</td><td>評分規準分數及修訂進步的分布。</td></tr><tr><td>質性：學生如何理解並運用教師回饋？</td><td>以教師評語及修訂稿支持的訪談。</td></tr><tr><td>整合：學生的解釋如何幫助我們理解修訂進步的差異？</td><td>明確連結分數模式與質性發現。</td></tr></tbody></table></div><p class=\"prompt\">混合方法需要結合兩部分的理由，以及透過兩者關係形成的答案。</p>",
+    "source": "Creswell &amp; Plano Clark (2018), <i>Designing and conducting mixed methods research</i>, 3rd ed. · Ch. 5, local PDF pp. 250–256.",
+    "section": "Our research problem",
     "cls": ""
   },
   {
-    "title": "The rationale for mixing",
-    "zh": "混合方法的理由",
-    "body": "<div class=\"table-wrap\"><table class=\"\"><thead><tr><th>Need in the problem</th><th>Contribution of integration</th></tr></thead><tbody><tr><td>Compare perspectives</td><td>Examine agreement, difference, and complementary accounts.</td></tr><tr><td>Explain a pattern</td><td>Use qualitative follow-up to investigate specific quantitative results.</td></tr><tr><td>Develop a tool or measure</td><td>Build a quantitative feature from qualitative findings.</td></tr><tr><td>Understand an intervention</td><td>Relate outcomes to implementation, experience, and context.</td></tr></tbody></table></div><p class=\"prompt\">Complete: “Without integration, we could not adequately understand…”</p>",
-    "bodyzh": "<div class=\"table-wrap\"><table class=\"\"><thead><tr><th>研究問題中的需要</th><th>整合的貢獻</th></tr></thead><tbody><tr><td>比較不同觀點</td><td>檢視一致、差異與互補的解釋。</td></tr><tr><td>解釋某種模式</td><td>以後續質性研究探討特定量化結果。</td></tr><tr><td>發展工具或量表</td><td>從質性發現建構量化研究所用的工具。</td></tr><tr><td>理解介入措施</td><td>連結成效與實施過程、經驗及情境。</td></tr></tbody></table></div><p class=\"prompt\">完成句子：「若沒有整合，我們便難以充分理解……」</p>",
-    "source": "Creswell &amp; Plano Clark (2018), 3rd ed. · PDF pp. 121–150, 168–178",
+    "key": "design-map",
+    "title": "Three designs, three relationships",
+    "zh": "三種設計，三種連結關係",
+    "body": "<p class=\"lead\">The same EFL feedback problem can be studied through three different relationships. Select a design.</p><div class=\"design-map\" data-design-map><div class=\"design-choices\"><button type=\"button\" data-design-choice=\"convergent\" aria-expanded=\"false\" aria-controls=\"en-design-convergent\"><b>Convergent</b><span>Compare results</span><small>QUAN + QUAL</small></button><button type=\"button\" data-design-choice=\"explanatory\" aria-expanded=\"false\" aria-controls=\"en-design-explanatory\"><b>Explanatory sequential</b><span>Explain results</span><small>QUAN → QUAL</small></button><button type=\"button\" data-design-choice=\"exploratory\" aria-expanded=\"false\" aria-controls=\"en-design-exploratory\"><b>Exploratory sequential</b><span>Develop a tool</span><small>QUAL → develop → QUAN</small></button></div><p class=\"design-empty\">Choose a design, read its description, and build the workflow before revealing the completed diagram.</p><section class=\"design-detail\" id=\"en-design-convergent\" data-design-panel=\"convergent\" hidden><h3>Convergent: compare two views of revision</h3><button class=\"design-back\" data-design-back>Choose another design</button><p>How do score patterns and students’ descriptions of using feedback compare?</p><div class=\"diagram-builder\" data-diagram-task=\"convergent\" data-task-language=\"en\"><h4>Read, then build the design</h4><p>Collect draft scores and interviews during the same period. Analyse each strand, then compare findings about revision to develop an integrated interpretation.</p><p class=\"builder-instruction\">Drag a card into a blank box, or select a card and then select a box. Select a filled box to return its card.</p><div class=\"token-bank\" aria-label=\"Design steps to place\"><button type=\"button\" draggable=\"true\" data-task-token=\"integrate\" aria-pressed=\"false\"><span>Compare findings and develop an integrated interpretation</span><small data-token-status></small></button><button type=\"button\" draggable=\"true\" data-task-token=\"qual\" aria-pressed=\"false\"><span>Interview learners and analyse feedback use</span><small data-token-status></small></button><button type=\"button\" draggable=\"true\" data-task-token=\"quan\" aria-pressed=\"false\"><span>Score drafts and analyse revision gains</span><small data-token-status></small></button></div><div class=\"builder-parallel\" aria-label=\"Blank design diagram\"><button type=\"button\" class=\"diagram-slot\" data-task-slot=\"0\"><b>A</b><span data-slot-label>Place a step</span><small data-slot-status></small></button><button type=\"button\" class=\"diagram-slot\" data-task-slot=\"1\"><b>B</b><span data-slot-label>Place a step</span><small data-slot-status></small></button><button type=\"button\" class=\"diagram-slot\" data-task-slot=\"2\"><b>C</b><span data-slot-label>Place a step</span><small data-slot-status></small></button><span class=\"builder-arrow join-top\" aria-hidden=\"true\">↘</span><span class=\"builder-arrow join-bottom\" aria-hidden=\"true\">↗</span></div><div class=\"activity-actions\"><button type=\"button\" data-check-diagram>Check diagram</button><button type=\"button\" data-reset-diagram>Reset diagram</button></div><p class=\"activity-feedback\" data-diagram-feedback aria-live=\"polite\">Read the description and place every step before checking.</p></div><details class=\"diagram-solution\"><summary>Show completed diagram</summary><div><div class=\"parallel\"><div class=\"step quan\"><b>QUAN</b>Score drafts and describe revision gains.</div><div class=\"join\">↘</div><div class=\"step mix merge\"><b>Merge</b>Compare findings on the same revision issues.<br>→ integrated interpretation</div><div class=\"step qual\"><b>QUAL</b>Interview students during the same period.</div><div class=\"join\">↗</div></div></div></details><ul><li>Analyse each strand appropriately, then compare common concepts.</li><li>Look for agreement, added detail, and differences.</li><li>Concurrent collection alone does not demonstrate integration.</li></ul><details><summary>Plan a comparable comparison</summary><div><div class=\"table-wrap\"><table><thead><tr><th>Decision</th><th>EFL feedback example</th></tr></thead><tbody><tr><td>Shared focus</td><td>Argument development, rather than mixing argument scores with unrelated attitudes.</td></tr><tr><td>Samples and time</td><td>Describe which students contribute to each strand and which writing task is examined.</td></tr><tr><td>Visible product</td><td>A joint display connecting revision results with interview findings.</td></tr></tbody></table></div></div></details></section><section class=\"design-detail\" id=\"en-design-explanatory\" data-design-panel=\"explanatory\" hidden><h3>Explanatory sequential: explain different revision gains</h3><button class=\"design-back\" data-design-back>Choose another design</button><p>How do students’ explanations help us understand the initial score patterns?</p><div class=\"diagram-builder\" data-diagram-task=\"explanatory\" data-task-language=\"en\"><h4>Read, then build the design</h4><p>Begin with draft-score patterns. Use those results to select interviewees and develop focused questions. Analyse the interviews, then use the linked findings to explain the initial patterns.</p><p class=\"builder-instruction\">Drag a card into a blank box, or select a card and then select a box. Select a filled box to return its card.</p><div class=\"token-bank\" aria-label=\"Design steps to place\"><button type=\"button\" draggable=\"true\" data-task-token=\"qual\" aria-pressed=\"false\"><span>Interview learners and analyse feedback use</span><small data-token-status></small></button><button type=\"button\" draggable=\"true\" data-task-token=\"integrate\" aria-pressed=\"false\"><span>Use linked findings to explain the gain patterns</span><small data-token-status></small></button><button type=\"button\" draggable=\"true\" data-task-token=\"quan\" aria-pressed=\"false\"><span>Score drafts and identify gain patterns</span><small data-token-status></small></button><button type=\"button\" draggable=\"true\" data-task-token=\"bridge\" aria-pressed=\"false\"><span>Use results to select learners and shape questions</span><small data-token-status></small></button></div><div class=\"builder-flow\" aria-label=\"Blank design diagram\"><button type=\"button\" class=\"diagram-slot\" data-task-slot=\"0\"><b>1</b><span data-slot-label>Place a step</span><small data-slot-status></small></button><span class=\"builder-arrow\" aria-hidden=\"true\">→</span><button type=\"button\" class=\"diagram-slot\" data-task-slot=\"1\"><b>2</b><span data-slot-label>Place a step</span><small data-slot-status></small></button><span class=\"builder-arrow\" aria-hidden=\"true\">→</span><button type=\"button\" class=\"diagram-slot\" data-task-slot=\"2\"><b>3</b><span data-slot-label>Place a step</span><small data-slot-status></small></button><span class=\"builder-arrow\" aria-hidden=\"true\">→</span><button type=\"button\" class=\"diagram-slot\" data-task-slot=\"3\"><b>4</b><span data-slot-label>Place a step</span><small data-slot-status></small></button></div><div class=\"activity-actions\"><button type=\"button\" data-check-diagram>Check diagram</button><button type=\"button\" data-reset-diagram>Reset diagram</button></div><p class=\"activity-feedback\" data-diagram-feedback aria-live=\"polite\">Read the description and place every step before checking.</p></div><details class=\"diagram-solution\"><summary>Show completed diagram</summary><div><div class=\"flow\"><div class=\"step quan\"><b>QUAN</b>Score first and revised essays.</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step bridge\"><b>Connect + build</b>Select contrasting gains; shape interview questions.</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step qual\"><b>QUAL</b>Explore how students used the comments.</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step mix\"><b>Integrate</b>Explain specific patterns, with limits.</div></div></div></details><ul><li>The initial results guide whom to interview and what to ask.</li><li>Bring the linked findings together again when interpreting the results.</li></ul><details><summary>Inspect the bridge between phases</summary><div><div class=\"table-wrap\"><table><thead><tr><th>Initial result</th><th>Follow-up decision</th></tr></thead><tbody><tr><td>Larger revision gains</td><td>Ask how comments were used to strengthen claims and evidence.</td></tr><tr><td>Little or no revision gain</td><td>Ask which comments were difficult to interpret or apply.</td></tr><tr><td>Unexpected case</td><td>Examine the feedback, draft changes, and student explanation together.</td></tr></tbody></table></div></div></details></section><section class=\"design-detail\" id=\"en-design-exploratory\" data-design-panel=\"exploratory\" hidden><h3>Exploratory sequential: develop a feedback-use measure</h3><button class=\"design-back\" data-design-back>Choose another design</button><p>Which aspects of using teacher feedback should a new questionnaire measure?</p><div class=\"diagram-builder\" data-diagram-task=\"exploratory\" data-task-language=\"en\"><h4>Read, then build the design</h4><p>Explore learners’ feedback-use experiences through interviews. Translate the findings into questionnaire items. Pilot and evaluate the measure quantitatively, then explain how the qualitative findings shaped the tool and its evaluation.</p><p class=\"builder-instruction\">Drag a card into a blank box, or select a card and then select a box. Select a filled box to return its card.</p><div class=\"token-bank\" aria-label=\"Design steps to place\"><button type=\"button\" draggable=\"true\" data-task-token=\"quan\" aria-pressed=\"false\"><span>Pilot, refine, and evaluate the measure</span><small data-token-status></small></button><button type=\"button\" draggable=\"true\" data-task-token=\"qual\" aria-pressed=\"false\"><span>Interview learners to explore feedback use</span><small data-token-status></small></button><button type=\"button\" draggable=\"true\" data-task-token=\"integrate\" aria-pressed=\"false\"><span>Explain how findings shaped the tool and its evaluation</span><small data-token-status></small></button><button type=\"button\" draggable=\"true\" data-task-token=\"bridge\" aria-pressed=\"false\"><span>Turn qualitative findings into candidate items</span><small data-token-status></small></button></div><div class=\"builder-flow\" aria-label=\"Blank design diagram\"><button type=\"button\" class=\"diagram-slot\" data-task-slot=\"0\"><b>1</b><span data-slot-label>Place a step</span><small data-slot-status></small></button><span class=\"builder-arrow\" aria-hidden=\"true\">→</span><button type=\"button\" class=\"diagram-slot\" data-task-slot=\"1\"><b>2</b><span data-slot-label>Place a step</span><small data-slot-status></small></button><span class=\"builder-arrow\" aria-hidden=\"true\">→</span><button type=\"button\" class=\"diagram-slot\" data-task-slot=\"2\"><b>3</b><span data-slot-label>Place a step</span><small data-slot-status></small></button><span class=\"builder-arrow\" aria-hidden=\"true\">→</span><button type=\"button\" class=\"diagram-slot\" data-task-slot=\"3\"><b>4</b><span data-slot-label>Place a step</span><small data-slot-status></small></button></div><div class=\"activity-actions\"><button type=\"button\" data-check-diagram>Check diagram</button><button type=\"button\" data-reset-diagram>Reset diagram</button></div><p class=\"activity-feedback\" data-diagram-feedback aria-live=\"polite\">Read the description and place every step before checking.</p></div><details class=\"diagram-solution\"><summary>Show completed diagram</summary><div><div class=\"flow\"><div class=\"step qual\"><b>QUAL</b>Explore how EFL learners use feedback.</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step bridge\"><b>Development</b>Translate findings into candidate items.</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step quan\"><b>QUAN</b>Pilot, refine, and examine the measure.</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step mix\"><b>Integrate</b>Explain how findings shaped the tool and its evaluation.</div></div></div></details><ul><li>Use when the relevant concepts or a suitable measure need development.</li><li>The development phase must be visible. Interviewing first is not enough.</li></ul><details><summary>Trace findings into a measure</summary><div><div class=\"table-wrap\"><table><thead><tr><th>Qualitative finding</th><th>Candidate feature</th><th>Check</th></tr></thead><tbody><tr><td>Students can identify a weakness but cannot plan a revision.</td><td>Separate feedback understanding from revision planning.</td><td>Content review and cognitive interviews.</td></tr><tr><td>Students struggle to use comments about supporting evidence.</td><td>Items about selecting evidence and linking it to a claim.</td><td>Pilot and evaluate score interpretations.</td></tr></tbody></table></div></div></details></section></div><p class=\"prompt\">Compare, explain, develop: the purpose determines how the strands relate.</p><details><summary>How do we read these diagrams?</summary><div><p>QUAN means quantitative; QUAL means qualitative. + shows concurrent strands; → shows sequence. Labels must explain what passes between phases. State relative emphasis separately.</p></div></details><details><summary>How do the core designs fit a larger study?</summary><div><p>Experiments, case studies, participatory projects, and evaluations can contain one or more core designs. Name the larger framework and explain the integration within it.</p></div></details><details><summary>What else must the design specify?</summary><div><p>Specify purpose, timing, emphasis, sample relationships, an integration product, and how the methods fit the study’s assumptions.</p></div></details><div class=\"lesson-resources\"><p>Creswell &amp; Plano Clark (2018), <i>Designing and conducting mixed methods research</i>, 3rd ed. · Chapters 2–4; core designs: local PDF pp. 121–164.</p></div>",
+    "bodyzh": "<p class=\"lead\">同一個英語回饋問題，可以透過三種不同的整合關係研究。點選一種設計。</p><div class=\"design-map\" data-design-map><div class=\"design-choices\"><button type=\"button\" data-design-choice=\"convergent\" aria-expanded=\"false\" aria-controls=\"zh-design-convergent\"><b>聚合式</b><span>比較結果</span><small>QUAN + QUAL</small></button><button type=\"button\" data-design-choice=\"explanatory\" aria-expanded=\"false\" aria-controls=\"zh-design-explanatory\"><b>解釋型循序</b><span>解釋結果</span><small>QUAN → QUAL</small></button><button type=\"button\" data-design-choice=\"exploratory\" aria-expanded=\"false\" aria-controls=\"zh-design-exploratory\"><b>探索型循序</b><span>發展工具</span><small>QUAL → develop → QUAN</small></button></div><p class=\"design-empty\">先選設計，再檢視流程圖、研究例子及整合位置。</p><section class=\"design-detail\" id=\"zh-design-convergent\" data-design-panel=\"convergent\" hidden><h3>聚合式：比較修訂的兩種理解</h3><button class=\"design-back\" data-design-back>選擇另一種設計</button><p>分數模式與學生對運用回饋的描述有何異同？</p><div class=\"diagram-builder\" data-diagram-task=\"convergent\" data-task-language=\"zh\"><h4>讀描述，組合設計</h4><p>同期收集作文評分與訪談資料，分別分析，再比較有關修訂的發現，形成整合解釋。</p><p class=\"builder-instruction\">拖曳卡片至空格，或先選卡片再按空格。按已填空格可移回卡片。</p><div class=\"token-bank\" aria-label=\"可移動步驟\"><button type=\"button\" draggable=\"true\" data-task-token=\"integrate\" aria-pressed=\"false\"><span>比較發現並形成整合解釋</span><small data-token-status></small></button><button type=\"button\" draggable=\"true\" data-task-token=\"qual\" aria-pressed=\"false\"><span>訪談學生並分析回饋使用</span><small data-token-status></small></button><button type=\"button\" draggable=\"true\" data-task-token=\"quan\" aria-pressed=\"false\"><span>評分作文並分析修訂進步</span><small data-token-status></small></button></div><div class=\"builder-parallel\" aria-label=\"待完成設計圖\"><button type=\"button\" class=\"diagram-slot\" data-task-slot=\"0\"><b>A</b><span data-slot-label>放置步驟</span><small data-slot-status></small></button><button type=\"button\" class=\"diagram-slot\" data-task-slot=\"1\"><b>B</b><span data-slot-label>放置步驟</span><small data-slot-status></small></button><button type=\"button\" class=\"diagram-slot\" data-task-slot=\"2\"><b>C</b><span data-slot-label>放置步驟</span><small data-slot-status></small></button><span class=\"builder-arrow join-top\" aria-hidden=\"true\">↘</span><span class=\"builder-arrow join-bottom\" aria-hidden=\"true\">↗</span></div><div class=\"activity-actions\"><button type=\"button\" data-check-diagram>檢查設計</button><button type=\"button\" data-reset-diagram>重新開始</button></div><p class=\"activity-feedback\" data-diagram-feedback aria-live=\"polite\">閱讀描述並放置所有步驟，再檢查。</p></div><details class=\"diagram-solution\"><summary>顯示完整設計圖</summary><div><div class=\"parallel\"><div class=\"step quan\"><b>量化</b>評分作文，描述修訂進步。</div><div class=\"join\">↘</div><div class=\"step mix merge\"><b>合併</b>比較相同修訂議題的發現。<br>→ 整合詮釋</div><div class=\"step qual\"><b>質性</b>同期訪談學生。</div><div class=\"join\">↗</div></div></div></details><ul><li>各部分採用合適分析，再比較共同概念。</li><li>檢視一致、新增細節及差異。</li><li>僅有同期蒐集，仍不足以展示整合。</li></ul><details><summary>規劃可比較的證據</summary><div><div class=\"table-wrap\"><table><thead><tr><th>決策</th><th>英語回饋例子</th></tr></thead><tbody><tr><td>共同焦點</td><td>聚焦論證發展，避免以論證分數對照無關態度。</td></tr><tr><td>樣本與時段</td><td>交代哪些學生參與各部分，以及檢視哪一項寫作任務。</td></tr><tr><td>可見產出</td><td>以聯合展示連結修訂結果與訪談發現。</td></tr></tbody></table></div></div></details></section><section class=\"design-detail\" id=\"zh-design-explanatory\" data-design-panel=\"explanatory\" hidden><h3>解釋型循序：解釋修訂進步的差異</h3><button class=\"design-back\" data-design-back>選擇另一種設計</button><p>學生的解釋如何幫助我們理解初步分數模式？</p><div class=\"diagram-builder\" data-diagram-task=\"explanatory\" data-task-language=\"zh\"><h4>讀描述，組合設計</h4><p>先分析作文評分的變化，據此選擇受訪者並形成聚焦問題，分析訪談後，結合發現以解釋最初的結果。</p><p class=\"builder-instruction\">拖曳卡片至空格，或先選卡片再按空格。按已填空格可移回卡片。</p><div class=\"token-bank\" aria-label=\"可移動步驟\"><button type=\"button\" draggable=\"true\" data-task-token=\"qual\" aria-pressed=\"false\"><span>訪談學生並分析回饋使用</span><small data-token-status></small></button><button type=\"button\" draggable=\"true\" data-task-token=\"integrate\" aria-pressed=\"false\"><span>結合發現以解釋進步類型</span><small data-token-status></small></button><button type=\"button\" draggable=\"true\" data-task-token=\"quan\" aria-pressed=\"false\"><span>評分作文並辨識進步類型</span><small data-token-status></small></button><button type=\"button\" draggable=\"true\" data-task-token=\"bridge\" aria-pressed=\"false\"><span>依結果選擇學生並形成問題</span><small data-token-status></small></button></div><div class=\"builder-flow\" aria-label=\"待完成設計圖\"><button type=\"button\" class=\"diagram-slot\" data-task-slot=\"0\"><b>1</b><span data-slot-label>放置步驟</span><small data-slot-status></small></button><span class=\"builder-arrow\" aria-hidden=\"true\">→</span><button type=\"button\" class=\"diagram-slot\" data-task-slot=\"1\"><b>2</b><span data-slot-label>放置步驟</span><small data-slot-status></small></button><span class=\"builder-arrow\" aria-hidden=\"true\">→</span><button type=\"button\" class=\"diagram-slot\" data-task-slot=\"2\"><b>3</b><span data-slot-label>放置步驟</span><small data-slot-status></small></button><span class=\"builder-arrow\" aria-hidden=\"true\">→</span><button type=\"button\" class=\"diagram-slot\" data-task-slot=\"3\"><b>4</b><span data-slot-label>放置步驟</span><small data-slot-status></small></button></div><div class=\"activity-actions\"><button type=\"button\" data-check-diagram>檢查設計</button><button type=\"button\" data-reset-diagram>重新開始</button></div><p class=\"activity-feedback\" data-diagram-feedback aria-live=\"polite\">閱讀描述並放置所有步驟，再檢查。</p></div><details class=\"diagram-solution\"><summary>顯示完整設計圖</summary><div><div class=\"flow\"><div class=\"step quan\"><b>量化</b>評分初稿及修訂稿。</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step bridge\"><b>連結與建構</b>選取不同進步模式，擬定訪談問題。</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step qual\"><b>質性</b>探索學生如何運用評語。</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step mix\"><b>整合</b>在證據界限內解釋特定模式。</div></div></div></details><ul><li>初步結果引導選取訪談對象及擬定問題。</li><li>詮釋結果時，再結合兩部分相互連結的發現。</li></ul><details><summary>檢視兩階段之間的連結</summary><div><div class=\"table-wrap\"><table><thead><tr><th>初步結果</th><th>後續決策</th></tr></thead><tbody><tr><td>較大修訂進步</td><td>追問如何用評語加強主張及證據。</td></tr><tr><td>進步有限或沒有進步</td><td>追問哪些評語難以理解或應用。</td></tr><tr><td>意料之外的個案</td><td>一併檢視回饋、草稿改變與學生解釋。</td></tr></tbody></table></div></div></details></section><section class=\"design-detail\" id=\"zh-design-exploratory\" data-design-panel=\"exploratory\" hidden><h3>探索型循序：發展回饋運用量表</h3><button class=\"design-back\" data-design-back>選擇另一種設計</button><p>新的問卷應測量運用教師回饋的哪些面向？</p><div class=\"diagram-builder\" data-diagram-task=\"exploratory\" data-task-language=\"zh\"><h4>讀描述，組合設計</h4><p>先訪談以探索學生使用回饋的經驗，將發現轉化為問卷題項，再量化試測與評估，最後說明質性發現如何影響工具及其評估。</p><p class=\"builder-instruction\">拖曳卡片至空格，或先選卡片再按空格。按已填空格可移回卡片。</p><div class=\"token-bank\" aria-label=\"可移動步驟\"><button type=\"button\" draggable=\"true\" data-task-token=\"quan\" aria-pressed=\"false\"><span>試測、修訂並評估測量工具</span><small data-token-status></small></button><button type=\"button\" draggable=\"true\" data-task-token=\"qual\" aria-pressed=\"false\"><span>訪談學生以探索回饋使用</span><small data-token-status></small></button><button type=\"button\" draggable=\"true\" data-task-token=\"integrate\" aria-pressed=\"false\"><span>說明發現如何影響工具及其評估</span><small data-token-status></small></button><button type=\"button\" draggable=\"true\" data-task-token=\"bridge\" aria-pressed=\"false\"><span>將質性發現轉化為候選題項</span><small data-token-status></small></button></div><div class=\"builder-flow\" aria-label=\"待完成設計圖\"><button type=\"button\" class=\"diagram-slot\" data-task-slot=\"0\"><b>1</b><span data-slot-label>放置步驟</span><small data-slot-status></small></button><span class=\"builder-arrow\" aria-hidden=\"true\">→</span><button type=\"button\" class=\"diagram-slot\" data-task-slot=\"1\"><b>2</b><span data-slot-label>放置步驟</span><small data-slot-status></small></button><span class=\"builder-arrow\" aria-hidden=\"true\">→</span><button type=\"button\" class=\"diagram-slot\" data-task-slot=\"2\"><b>3</b><span data-slot-label>放置步驟</span><small data-slot-status></small></button><span class=\"builder-arrow\" aria-hidden=\"true\">→</span><button type=\"button\" class=\"diagram-slot\" data-task-slot=\"3\"><b>4</b><span data-slot-label>放置步驟</span><small data-slot-status></small></button></div><div class=\"activity-actions\"><button type=\"button\" data-check-diagram>檢查設計</button><button type=\"button\" data-reset-diagram>重新開始</button></div><p class=\"activity-feedback\" data-diagram-feedback aria-live=\"polite\">閱讀描述並放置所有步驟，再檢查。</p></div><details class=\"diagram-solution\"><summary>顯示完整設計圖</summary><div><div class=\"flow\"><div class=\"step qual\"><b>質性</b>探索英語學習者如何運用回饋。</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step bridge\"><b>發展</b>把發現轉化為候選題項。</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step quan\"><b>量化</b>試測、修訂及檢視量表。</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step mix\"><b>整合</b>說明發現如何影響工具及其評估。</div></div></div></details><ul><li>適用於需要發展相關概念或合適工具的情況。</li><li>須展示發展階段；僅先做訪談並不足夠。</li></ul><details><summary>追溯發現如何形成工具</summary><div><div class=\"table-wrap\"><table><thead><tr><th>質性發現</th><th>候選要素</th><th>檢查</th></tr></thead><tbody><tr><td>能指出弱點，卻未能規劃修訂。</td><td>區分理解回饋與規劃修訂。</td><td>內容審閱及認知訪談。</td></tr><tr><td>難以應用有關支持證據的評語。</td><td>題項涉及選取證據及連結主張。</td><td>試測並評估分數詮釋。</td></tr></tbody></table></div></div></details></section></div><p class=\"prompt\">比較、解釋、發展：整合目的決定兩部分如何相互連結。</p><details><summary>如何閱讀這些圖？</summary><div><p>QUAN＝量化；QUAL＝質性。+ 表示並行；→ 表示先後。箭頭旁的文字須交代階段間傳遞甚麼。側重程度須另外說明。</p></div></details><details><summary>如何配合較大型研究？</summary><div><p>實驗、個案、參與式研究及評估，可以包含一種或多種核心設計。交代較大型框架，並說明其中的整合關係。</p></div></details><details><summary>選擇設計後，還要決定甚麼？</summary><div><p>說明整合目的、時序、側重、樣本關係、整合產出，以及所選方法如何配合研究的基本假設。</p></div></details><div class=\"lesson-resources\"><p>Creswell &amp; Plano Clark (2018), <i>Designing and conducting mixed methods research</i>, 3rd ed. · Chapters 2–4; core designs: local PDF pp. 121–164.</p></div>",
+    "source": "Creswell &amp; Plano Clark (2018), <i>Designing and conducting mixed methods research</i>, 3rd ed. · Ch. 3.",
+    "section": "Choose a design",
     "cls": ""
   },
   {
-    "title": "Five design decisions",
-    "zh": "五項研究設計決策",
-    "body": "<div class=\"table-wrap\"><table class=\"\"><thead><tr><th>Decision</th><th>Make it explicit</th></tr></thead><tbody><tr><td>Purpose</td><td>What must integration add to the answer?</td></tr><tr><td>Timing</td><td>Concurrent, sequential, or a justified combination?</td></tr><tr><td>Emphasis</td><td>Which strand has greater weight, or are they balanced?</td></tr><tr><td>Relationship</td><td>Which people, sites, constructs, or time points link the strands?</td></tr><tr><td>Integration</td><td>What is connected, built, merged, or embedded—and what will it produce?</td></tr></tbody></table></div>",
-    "bodyzh": "<div class=\"table-wrap\"><table class=\"\"><thead><tr><th>決策</th><th>需要說明</th></tr></thead><tbody><tr><td>目的</td><td>整合須為研究答案增加甚麼？</td></tr><tr><td>時序</td><td>並行、循序，或有理由的組合？</td></tr><tr><td>側重</td><td>哪一部分較受重視，或兩者相若？</td></tr><tr><td>關係</td><td>透過哪些參與者、場域、概念或時間點連結？</td></tr><tr><td>整合</td><td>連結、建構、合併或嵌入甚麼？產出是甚麼？</td></tr></tbody></table></div>",
-    "source": "Creswell &amp; Plano Clark (2018), 3rd ed. · PDF pp. 118–164; Ch. 6",
+    "key": "design-practice",
+    "title": "Which design fits the question?",
+    "zh": "哪種設計配合研究問題？",
+    "body": "<div class=\"quiz\" data-quiz=\"design\"><p class=\"scenario-count\" data-scenario-count aria-live=\"polite\">Scenario 1 / 5</p><p class=\"lead\" id=\"scenario-en\">EFL essay scores show that some students improve much more than others after teacher feedback. Select students from the different gain patterns and interview them about their revisions.</p><div class=\"answers\"><button type=\"button\" data-answer=\"c\">Convergent</button><button type=\"button\" data-answer=\"e\">Explanatory sequential</button><button type=\"button\" data-answer=\"x\">Exploratory sequential</button></div><p class=\"feedback\" aria-live=\"polite\">Choose a design and identify the integration point.</p><div class=\"scenario-nav\"><button data-prevcase disabled>Previous scenario</button><button data-nextcase>Next scenario →</button><button data-restart hidden>Restart</button></div><p data-case-complete hidden>End of the five scenarios. Revisit any unanswered item or restart.</p></div>",
+    "bodyzh": "<div class=\"quiz\" data-quiz=\"design\"><p class=\"scenario-count\" data-scenario-count aria-live=\"polite\">情境 1 / 5</p><p class=\"lead\" id=\"scenario-zh\">收到教師回饋後，部分英語學習者的作文分數進步較大。按不同進步模式選取學生，訪談其修訂過程。</p><div class=\"answers\"><button type=\"button\" data-answer=\"c\">聚合式</button><button type=\"button\" data-answer=\"e\">解釋型循序</button><button type=\"button\" data-answer=\"x\">探索型循序</button></div><p class=\"feedback\" aria-live=\"polite\">選擇設計，並說明整合位置。</p><div class=\"scenario-nav\"><button data-prevcase disabled>上一情境</button><button data-nextcase>下一情境 →</button><button data-restart hidden>重新開始</button></div><p data-case-complete hidden>已完成全部情境。比較各題的整合目的。</p></div>",
+    "source": "Creswell &amp; Plano Clark (2018), <i>Designing and conducting mixed methods research</i>, 3rd ed. · Ch. 3. All five scenarios are teaching illustrations.",
+    "section": "Choose a design",
     "cls": ""
   },
   {
-    "title": "Philosophical coherence",
-    "zh": "哲學立場的一致性",
-    "body": "<div class=\"columns\"><div><h3>State your position</h3><p>Explain assumptions about knowledge, interpretation, values, and the purpose of inquiry.</p></div><div><h3>Explain the combination</h3><p>Show how the strands and their integration fit those assumptions in this study.</p></div></div><ul><li>Pragmatism is one possible position; it is not compulsory.</li><li>Transformative, dialectical, and other reasoned positions are possible.</li><li>Explain how the chosen methods fit the study’s assumptions.</li></ul>",
-    "bodyzh": "<div class=\"columns\"><div><h3>交代研究立場</h3><p>說明對知識、詮釋、價值及探究目的的基本假設。</p></div><div><h3>解釋如何結合</h3><p>說明兩個研究部分及其整合，如何符合本研究的基本假設。</p></div></div><ul><li>實用主義是一種選擇，並非必要條件。</li><li>亦可採取轉化、辯證或其他有理據的立場。</li><li>說明所選方法如何配合研究的基本假設。</li></ul>",
-    "source": "Creswell &amp; Plano Clark (2018), 3rd ed. · Ch. 2, PDF pp. 86–95",
+    "key": "follow-route",
+    "title": "Follow one route: explain revision gains",
+    "zh": "選定一條路：解釋修訂進步",
+    "body": "<p class=\"lead\">For our running study, we choose explanatory sequential design: first establish the revision pattern, then investigate how learners used the feedback.</p><div class=\"flow\"><div class=\"step quan\"><b>Score drafts</b>First and revised essays from 120 EFL learners.</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step bridge\"><b>Identify patterns</b>Larger gains and limited gains.</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step qual\"><b>Interview</b>Select 12 learners from those patterns.</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step mix\"><b>Interpret together</b>Relate feedback use to the observed gains.</div></div><p class=\"prompt\">The interview phase depends on the first-phase results; it is not just a second method added later.</p>",
+    "bodyzh": "<p class=\"lead\">本示例選擇解釋型循序設計：先辨識修訂模式，再探討學生如何運用回饋。</p><div class=\"flow\"><div class=\"step quan\"><b>評分作文</b>120 名英語學習者的初稿及修訂稿。</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step bridge\"><b>辨識模式</b>較大進步與進步有限。</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step qual\"><b>訪談</b>按模式選取 12 名學生。</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step mix\"><b>綜合詮釋</b>連結回饋運用與觀察到的進步。</div></div><p class=\"prompt\">訪談階段依據初步結果安排，而非只在其後增加另一方法。</p>",
+    "source": "Illustrative study · Creswell &amp; Plano Clark (2018), <i>Designing and conducting mixed methods research</i>, 3rd ed. · local PDF pp. 135–143, 340–344.",
+    "section": "Connect the evidence",
     "cls": ""
   },
   {
-    "title": "Three linked research questions",
-    "zh": "三類互相連結的研究問題",
-    "body": "<div class=\"table-wrap\"><table class=\"\"><thead><tr><th>Purpose</th><th>Illustrative explanatory sequential question</th></tr></thead><tbody><tr><td>QUAN</td><td>How common are perceived usefulness and public sharing, and what response profiles occur?</td></tr><tr><td>QUAL</td><td>How do selected learners describe decisions about sharing AI-assisted drafts?</td></tr><tr><td>Mixed methods</td><td>How do those accounts explain or extend the initial usefulness-and-sharing profiles?</td></tr></tbody></table></div><p class=\"prompt\">The mixed question specifies what the relationship between the strands must answer.</p>",
-    "bodyzh": "<div class=\"table-wrap\"><table class=\"\"><thead><tr><th>目的</th><th>解釋型循序的示例問題</th></tr></thead><tbody><tr><td>量化</td><td>感到有用及公開分享有多普遍？呈現哪些反應模式？</td></tr><tr><td>質性</td><td>特定學生如何描述分享 AI 輔助草稿的決策？</td></tr><tr><td>混合方法</td><td>這些敘述如何解釋或擴展初步的有用程度及分享模式？</td></tr></tbody></table></div><p class=\"prompt\">整合問題指出兩個研究部分的關係必須回答甚麼。</p>",
-    "source": "Illustrative research questions · Creswell &amp; Plano Clark (2018), 3rd ed. · Ch. 5, PDF pp. 250–256; APA JARS–Mixed (2024 table), pp. 1–3",
+    "key": "sampling",
+    "title": "Who can explain the pattern?",
+    "zh": "誰能幫助解釋這個模式？",
+    "body": "<div class=\"reasoning-activity\" data-reasoning-task=\"sampling\" data-task-language=\"en\"><h3>Decide who to interview</h3><p>Scores from 120 learners show 48 larger gains and 72 limited gains. Which selection best helps explain that difference?</p><div class=\"reasoning-options\" role=\"group\" aria-label=\"Decide who to interview\"><button type=\"button\" data-reasoning-option=\"0\" aria-pressed=\"false\"><b>A.</b> Interview only the six learners with the highest scores.</button><button type=\"button\" data-reasoning-option=\"1\" aria-pressed=\"false\"><b>B.</b> Purposefully select six learners from each gain pattern.</button><button type=\"button\" data-reasoning-option=\"2\" aria-pressed=\"false\"><b>C.</b> Interview twelve volunteers without examining their gain patterns.</button></div><div class=\"activity-actions\"><button type=\"button\" data-check-reasoning>Check reasoning</button><button type=\"button\" data-reset-reasoning>Try again</button></div><p class=\"activity-feedback\" data-reasoning-feedback aria-live=\"polite\">Choose an option and explain why, then check.</p></div><details><summary>Inspect the sampling plan and its limits</summary><div><div class=\"table-wrap\"><table><thead><tr><th>Illustrative result</th><th>Purposeful selection</th><th>What to understand</th></tr></thead><tbody><tr><td>48 of 120 improve by at least one point.</td><td>Select six learners from this pattern.</td><td>How were comments used to develop an argument?</td></tr><tr><td>72 of 120 improve by less than one point.</td><td>Select six learners from this pattern.</td><td>What was difficult to understand or apply?</td></tr></tbody></table></div><p class=\"prompt\">Scores refer to argument development on a 0–4 rubric. The one-point split is an illustrative decision, not a universal sampling rule.</p><p>Obtain consent for recontact, retain secure participant links, and report who declines or cannot be reached.</p></div></details>",
+    "bodyzh": "<div class=\"reasoning-activity\" data-reasoning-task=\"sampling\" data-task-language=\"zh\"><h3>決定訪談誰</h3><p>120名學生中，48人進步較大，72人進步有限。哪種選擇最能幫助解釋此差異？</p><div class=\"reasoning-options\" role=\"group\" aria-label=\"決定訪談誰\"><button type=\"button\" data-reasoning-option=\"0\" aria-pressed=\"false\"><b>A.</b> 只訪談分數最高的六名學生。</button><button type=\"button\" data-reasoning-option=\"1\" aria-pressed=\"false\"><b>B.</b> 從兩種進步類型各目的性選取六人。</button><button type=\"button\" data-reasoning-option=\"2\" aria-pressed=\"false\"><b>C.</b> 不看進步類型，訪談十二名志願者。</button></div><div class=\"activity-actions\"><button type=\"button\" data-check-reasoning>檢查理由</button><button type=\"button\" data-reset-reasoning>再試一次</button></div><p class=\"activity-feedback\" data-reasoning-feedback aria-live=\"polite\">先選一項並說明理由，再檢查。</p></div><details><summary>查看抽樣計劃與注意事項</summary><div><div class=\"table-wrap\"><table><thead><tr><th>虛構示例結果</th><th>目的性選取</th><th>希望理解</th></tr></thead><tbody><tr><td>120 人中，48 人進步至少 1 分。</td><td>從此模式選取 6 名學生。</td><td>如何用評語發展論證？</td></tr><tr><td>120 人中，72 人進步不足 1 分。</td><td>從此模式選取 6 名學生。</td><td>哪些內容難以理解或應用？</td></tr></tbody></table></div><p class=\"prompt\">此處以 0–4 分規準評估論證發展。1 分的界線只是示例決策，並非通用抽樣規則。</p><p>取得再次聯絡的同意，安全保存參與者連結，並報告拒絕或無法聯絡的情況。</p></div></details>",
+    "source": "Illustrative study · Creswell &amp; Plano Clark (2018), <i>Designing and conducting mixed methods research</i>, 3rd ed. · Ch. 6, local PDF pp. 282–284.",
+    "section": "Connect the evidence",
     "cls": ""
   },
   {
-    "title": "Three core mixed methods designs",
-    "zh": "三種核心混合方法設計",
-    "body": "<div class=\"table-wrap\"><table class=\"\"><thead><tr><th>Design</th><th>Sequence and intent</th><th>Central integration</th></tr></thead><tbody><tr><td>Convergent<br><small>聚合式</small></td><td>QUAN + QUAL<br>Compare or combine findings</td><td>Merge results on common concepts.</td></tr><tr><td>Explanatory sequential<br><small>解釋型循序</small></td><td>QUAN → QUAL<br>Explain a quantitative pattern</td><td>Use results to shape follow-up; interpret together.</td></tr><tr><td>Exploratory sequential<br><small>探索型循序</small></td><td>QUAL → development → QUAN<br>Develop, then examine a quantitative feature</td><td>Trace findings into the feature and its testing.</td></tr></tbody></table></div>",
-    "bodyzh": "<div class=\"table-wrap\"><table class=\"\"><thead><tr><th>設計</th><th>流程與目的</th><th>核心整合</th></tr></thead><tbody><tr><td>聚合式</td><td>QUAN + QUAL<br>比較或結合發現</td><td>按共同概念合併結果。</td></tr><tr><td>解釋型循序</td><td>QUAN → QUAL<br>解釋量化模式</td><td>以結果安排後續研究，再作整合詮釋。</td></tr><tr><td>探索型循序</td><td>QUAL → 發展階段 → QUAN<br>發展並檢視量化工具或要素</td><td>追溯質性發現如何形成工具及其檢驗。</td></tr></tbody></table></div>",
-    "source": "Creswell &amp; Plano Clark (2018), 3rd ed. · Ch. 3, PDF pp. 121–164",
+    "key": "interview-bridge",
+    "title": "Let the results shape the interviews",
+    "zh": "讓結果引導訪談",
+    "body": "<div class=\"reasoning-activity\" data-reasoning-task=\"interview-bridge\" data-task-language=\"en\"><h3>Choose a useful follow-up question</h3><p>A learner shows limited argument-development gains. Which interview question most directly investigates this result?</p><div class=\"reasoning-options\" role=\"group\" aria-label=\"Choose a useful follow-up question\"><button type=\"button\" data-reasoning-option=\"0\" aria-pressed=\"false\"><b>A.</b> Did you like the teacher’s feedback?</button><button type=\"button\" data-reasoning-option=\"1\" aria-pressed=\"false\"><b>B.</b> Why did the feedback fail to improve your argument?</button><button type=\"button\" data-reasoning-option=\"2\" aria-pressed=\"false\"><b>C.</b> Looking at this comment and your draft, what did you try to change, and what was difficult?</button></div><div class=\"activity-actions\"><button type=\"button\" data-check-reasoning>Check reasoning</button><button type=\"button\" data-reset-reasoning>Try again</button></div><p class=\"activity-feedback\" data-reasoning-feedback aria-live=\"polite\">Choose an option and explain why, then check.</p></div><details><summary>Inspect the full interview bridge</summary><div><div class=\"table-wrap\"><table><thead><tr><th>Quantitative pattern</th><th>Interview focus</th><th>Evidence to examine together</th></tr></thead><tbody><tr><td>Larger gains</td><td>How did you decide what evidence to add or explain?</td><td>Teacher comment → draft change → student explanation.</td></tr><tr><td>Limited gains</td><td>Which comment was hardest to use, and what did you try?</td><td>The same comment and the related draft passage.</td></tr><tr><td>Unexpected case</td><td>Why does the draft change differ from what you described?</td><td>Revisit the score, the passage, and the interview interpretation.</td></tr></tbody></table></div><p class=\"prompt\">Sampling connects the phases. The results also help build focused interview questions.</p></div></details>",
+    "bodyzh": "<div class=\"reasoning-activity\" data-reasoning-task=\"interview-bridge\" data-task-language=\"zh\"><h3>選擇有用的跟進問題</h3><p>一名學生在論證發展上的進步有限。哪個訪談問題最直接探究此結果？</p><div class=\"reasoning-options\" role=\"group\" aria-label=\"選擇有用的跟進問題\"><button type=\"button\" data-reasoning-option=\"0\" aria-pressed=\"false\"><b>A.</b> 你喜歡教師的回饋嗎？</button><button type=\"button\" data-reasoning-option=\"1\" aria-pressed=\"false\"><b>B.</b> 為甚麼回饋未能改善你的論證？</button><button type=\"button\" data-reasoning-option=\"2\" aria-pressed=\"false\"><b>C.</b> 看著這條評語和你的草稿，你嘗試改甚麼？哪裡有困難？</button></div><div class=\"activity-actions\"><button type=\"button\" data-check-reasoning>檢查理由</button><button type=\"button\" data-reset-reasoning>再試一次</button></div><p class=\"activity-feedback\" data-reasoning-feedback aria-live=\"polite\">先選一項並說明理由，再檢查。</p></div><details><summary>查看完整訪談連結</summary><div><div class=\"table-wrap\"><table><thead><tr><th>量化模式</th><th>訪談焦點</th><th>一起檢視的證據</th></tr></thead><tbody><tr><td>較大進步</td><td>如何決定增加或解釋哪些證據？</td><td>教師評語 → 草稿改變 → 學生解釋。</td></tr><tr><td>進步有限</td><td>哪一項評語最難應用？你試過甚麼？</td><td>同一評語及相關草稿段落。</td></tr><tr><td>意料之外的個案</td><td>草稿改變為何與你的描述不同？</td><td>重新檢視分數、段落及訪談詮釋。</td></tr></tbody></table></div><p class=\"prompt\">抽樣連結兩階段；結果亦幫助建構聚焦的訪談問題。</p></div></details>",
+    "source": "Illustrative interview plan · Creswell &amp; Plano Clark (2018), <i>Designing and conducting mixed methods research</i>, 3rd ed. · local PDF pp. 139, 341.",
+    "section": "Connect the evidence",
     "cls": ""
   },
   {
-    "title": "Reading a design diagram",
-    "zh": "閱讀研究設計圖",
-    "body": "<div class=\"flow\"><div class=\"step quan\"><b>QUAN</b><br>Collect + analyse</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step bridge\"><b>Use the results</b><br>Select cases + shape questions</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step qual\"><b>QUAL</b><br>Collect + analyse</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step mix\"><b>Integrate</b><br>Explain the pattern</div></div><ul><li><b>→</b> shows sequence; label what actually passes between phases.</li><li><b>+</b> commonly shows concurrent strands. Capitalisation may signal emphasis.</li><li>State the notation convention and show collection, analysis, and integration.</li></ul>",
-    "bodyzh": "<div class=\"flow\"><div class=\"step quan\"><b>QUAN</b><br>蒐集與分析</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step bridge\"><b>運用結果</b><br>選個案、擬問題</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step qual\"><b>QUAL</b><br>蒐集與分析</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step mix\"><b>整合</b><br>解釋模式</div></div><ul><li><b>→</b> 表示先後；須註明階段之間傳遞甚麼。</li><li><b>+</b> 通常表示並行；大小寫可表示側重程度。</li><li>交代符號規則，並展示蒐集、分析及整合。</li></ul>",
-    "source": "Creswell &amp; Plano Clark (2018), 3rd ed. · PDF pp. 118–120",
+    "key": "operations",
+    "title": "Make the connection visible",
+    "zh": "清楚展示連結",
+    "body": "<div class=\"table-wrap\"><table><thead><tr><th>Operation</th><th>What it does</th><th>Education example</th></tr></thead><tbody><tr><td>Connecting</td><td>Links the samples.</td><td>Draft-score patterns guide interview selection.</td></tr><tr><td>Building</td><td>Shapes the next data collection.</td><td>Interview findings inform feedback-literacy items.</td></tr><tr><td>Merging</td><td>Brings findings together for comparison.</td><td>Compare revision scores and interview findings by writing issue.</td></tr><tr><td>Embedding</td><td>Links inquiry at several points in a larger study.</td><td>Explore needs before an AI-feedback intervention and examine implementation during it.</td></tr></tbody></table></div><p class=\"prompt\">Our chosen route connects sampling and builds the interviews, then brings the linked findings together for interpretation.</p><div class=\"lesson-resources\"><a class=\"resource-link\" href=\"https://doi.org/10.1111/1475-6773.12117\" target=\"_blank\" rel=\"noreferrer\">Read the integration methods article</a></div>",
+    "bodyzh": "<div class=\"table-wrap\"><table><thead><tr><th>操作</th><th>作用</th><th>教育研究例子</th></tr></thead><tbody><tr><td>連結</td><td>連結樣本。</td><td>作文分數模式引導訪談抽樣。</td></tr><tr><td>建構</td><td>影響後續資料蒐集。</td><td>訪談發現用於建構回饋素養題項。</td></tr><tr><td>合併</td><td>結合發現以作比較。</td><td>按寫作議題比較修訂分數與訪談發現。</td></tr><tr><td>嵌入</td><td>在大型研究的多個環節連結探究。</td><td>AI 回饋介入前探索需要，介入中檢視實施。</td></tr></tbody></table></div><p class=\"prompt\">本示例先連結抽樣、建構訪談，再綜合詮釋相互連結的發現。</p><div class=\"lesson-resources\"><a class=\"resource-link\" href=\"https://doi.org/10.1111/1475-6773.12117\" target=\"_blank\" rel=\"noreferrer\">閱讀整合方法文獻</a></div>",
+    "source": "Fetters, Curry, &amp; Creswell (2013), <i>Health Services Research, 48</i>(6 Pt 2), 2134–2156.",
+    "section": "Connect the evidence",
     "cls": ""
   },
   {
-    "title": "Convergent design",
-    "zh": "聚合式設計",
-    "body": "<div class=\"parallel\"><div class=\"step quan\"><b>Quantitative strand</b><br>Collect → analyse</div><div class=\"join\">↘</div><div class=\"step mix merge\"><b>Merge results</b><br>Compare by shared concepts<br>→ integrated interpretation</div><div class=\"step qual\"><b>Qualitative strand</b><br>Collect → analyse</div><div class=\"join\">↗</div></div><ul><li>Work in a similar overall timeframe; plan a meaningful comparison.</li><li>Keep the strengths and context of each strand visible.</li><li>Look for agreement, expansion, and disagreement.</li></ul>",
-    "bodyzh": "<div class=\"parallel\"><div class=\"step quan\"><b>量化部分</b><br>蒐集 → 分析</div><div class=\"join\">↘</div><div class=\"step mix merge\"><b>合併結果</b><br>按共同概念比較<br>→ 整合詮釋</div><div class=\"step qual\"><b>質性部分</b><br>蒐集 → 分析</div><div class=\"join\">↗</div></div><ul><li>在相近的整體時段進行，預先規劃可行的比較。</li><li>保留各部分的優點及資料脈絡。</li><li>檢視一致、擴展與不一致之處。</li></ul>",
-    "source": "Creswell &amp; Plano Clark (2018), 3rd ed. · PDF pp. 125–134, 326–338",
+    "key": "strand-findings",
+    "title": "Two sets of findings are ready",
+    "zh": "現在有兩部分的發現",
+    "body": "<div class=\"table-wrap\"><table><thead><tr><th>Evidence</th><th>Illustrative finding</th></tr></thead><tbody><tr><td>Draft scores: 120 learners</td><td>48 improve by at least one point; 72 improve by less than one point on argument development.</td></tr><tr><td>Interviews: 12 purposefully selected learners</td><td>Some describe using comments to strengthen claim–evidence links. Others mainly describe correcting language or difficulty planning a substantive revision.</td></tr></tbody></table></div><p class=\"prompt\">Reporting these in separate paragraphs is only the starting point. What does reading them together add?</p>",
+    "bodyzh": "<div class=\"table-wrap\"><table><thead><tr><th>證據</th><th>虛構示例發現</th></tr></thead><tbody><tr><td>120 名學生的作文分數</td><td>論證發展有 48 人進步至少 1 分，72 人進步不足 1 分。</td></tr><tr><td>12 名目的性選取學生的訪談</td><td>部分學生描述如何用評語加強主張與證據的連結；另一些主要修改語言，或難以規劃內容修訂。</td></tr></tbody></table></div><p class=\"prompt\">分別用段落報告兩部分，只是起點。一起閱讀能增加甚麼理解？</p>",
+    "source": "Invented teaching findings · Creswell &amp; Plano Clark (2018), <i>Designing and conducting mixed methods research</i>, 3rd ed. · Ch. 7.",
+    "section": "Develop the explanation",
     "cls": ""
   },
   {
-    "title": "Convergent design: an education example",
-    "zh": "聚合式：教育研究例子",
-    "body": "<p class=\"lead\">How do students’ survey responses and accounts of AI feedback compare?</p><div class=\"table-wrap\"><table class=\"\"><thead><tr><th>Component</th><th>Proposed decision</th></tr></thead><tbody><tr><td>QUAN</td><td>One-wave survey of feedback usefulness and sharing behaviour.</td></tr><tr><td>QUAL</td><td>Interviews during the same period about private revision and public sharing.</td></tr><tr><td>Integration</td><td>Compare matched concepts in a joint display; interpret differences.</td></tr><tr><td>Feasibility risk</td><td>The survey and interviews may define “sharing” differently.</td></tr></tbody></table></div><p class=\"prompt\">What wording and timeframe would make comparison defensible?</p>",
-    "bodyzh": "<p class=\"lead\">學生對 AI 回饋的問卷反應，與訪談中的敘述有何異同？</p><div class=\"table-wrap\"><table class=\"\"><thead><tr><th>部分</th><th>擬採決策</th></tr></thead><tbody><tr><td>QUAN</td><td>單次問卷：回饋有用程度及分享行為。</td></tr><tr><td>QUAL</td><td>同期訪談：私人修訂及公開分享的經驗。</td></tr><tr><td>整合</td><td>以聯合展示比較相應概念，詮釋差異。</td></tr><tr><td>可行性風險</td><td>問卷與訪談對「分享」的定義可能不同。</td></tr></tbody></table></div><p class=\"prompt\">採用甚麼用語與時間範圍，才可作合理比較？</p>",
-    "source": "Illustrative proposed study · Creswell &amp; Plano Clark (2018), 3rd ed. · PDF pp. 125–134, 278–281",
+    "key": "joint-display",
+    "title": "Build an integrated explanation",
+    "zh": "建立整合解釋",
+    "body": "<p class=\"example\">Illustrative linked dataset: 120 scored draft pairs; 12 interviews. The findings below are invented.</p><div class=\"table-wrap\"><table><thead><tr><th>Revision pattern</th><th>Interview finding</th><th>Integrated interpretation</th></tr></thead><tbody><tr><td>Larger gains: 48/120 (40%)</td><td>Selected students describe adding evidence and explaining why it supports a claim.</td><td>What would you infer?</td></tr><tr><td>Limited gains: 72/120 (60%)</td><td>Selected students describe grammar-focused edits or uncertainty about how to revise the argument.</td><td>What would you infer?</td></tr></tbody></table></div><div class=\"reasoning-activity\" data-reasoning-task=\"joint-display\" data-task-language=\"en\"><h3>Complete the interpretation</h3><p>Selected learners with limited gains describe grammar edits or difficulty planning an argument revision. What does linking these findings add?</p><div class=\"reasoning-options\" role=\"group\" aria-label=\"Complete the interpretation\"><button type=\"button\" data-reasoning-option=\"0\" aria-pressed=\"false\"><b>A.</b> Understanding a comment may differ from knowing how to use it to revise an argument.</button><button type=\"button\" data-reasoning-option=\"1\" aria-pressed=\"false\"><b>B.</b> Sixty per cent of all learners lacked revision-planning skills.</button><button type=\"button\" data-reasoning-option=\"2\" aria-pressed=\"false\"><b>C.</b> The interviews prove that grammar correction caused the limited gains.</button></div><div class=\"activity-actions\"><button type=\"button\" data-check-reasoning>Check reasoning</button><button type=\"button\" data-reset-reasoning>Try again</button></div><p class=\"activity-feedback\" data-reasoning-feedback aria-live=\"polite\">Choose an option and explain why, then check.</p></div><details><summary>Inspect a completed display and its limits</summary><div><div class=\"table-wrap\"><table><thead><tr><th>Revision pattern</th><th>Interview finding</th><th>Integrated interpretation</th></tr></thead><tbody><tr><td>Larger gains: 48/120 (40%)</td><td>Selected students describe adding evidence and explaining why it supports a claim.</td><td>Their explanations suggest how acting on argument-focused feedback may relate to larger gains.</td></tr><tr><td>Limited gains: 72/120 (60%)</td><td>Selected students describe grammar-focused edits or uncertainty about how to revise the argument.</td><td>Understanding what a comment means may differ from knowing how to use it in a revision.</td></tr></tbody></table></div><p class=\"prompt\">An integrated inference states what the relationship adds. Interviews with 12 learners do not establish how common each explanation is.</p></div></details>",
+    "bodyzh": "<p class=\"example\">相互連結的虛構示例：120 組作文初稿與修訂稿；12 份訪談。以下發現均屬虛構。</p><div class=\"table-wrap\"><table><thead><tr><th>修訂模式</th><th>訪談發現</th><th>整合詮釋</th></tr></thead><tbody><tr><td>較大進步：48/120（40%）</td><td>所選學生描述增加證據，並解釋證據如何支持主張。</td><td>你的解釋是甚麼？</td></tr><tr><td>進步有限：72/120（60%）</td><td>所選學生描述聚焦語法的修改，或不確定如何修訂論證。</td><td>你的解釋是甚麼？</td></tr></tbody></table></div><div class=\"reasoning-activity\" data-reasoning-task=\"joint-display\" data-task-language=\"zh\"><h3>完成整合解釋</h3><p>所選進步有限的學生描述文法修改或不知如何規劃論證修訂。連結這些發現後，可以增加甚麼理解？</p><div class=\"reasoning-options\" role=\"group\" aria-label=\"完成整合解釋\"><button type=\"button\" data-reasoning-option=\"0\" aria-pressed=\"false\"><b>A.</b> 理解評語可能不同於知道如何用它修訂論證。</button><button type=\"button\" data-reasoning-option=\"1\" aria-pressed=\"false\"><b>B.</b> 所有學生中有60%缺乏修訂規劃能力。</button><button type=\"button\" data-reasoning-option=\"2\" aria-pressed=\"false\"><b>C.</b> 訪談證明文法修改導致進步有限。</button></div><div class=\"activity-actions\"><button type=\"button\" data-check-reasoning>檢查理由</button><button type=\"button\" data-reset-reasoning>再試一次</button></div><p class=\"activity-feedback\" data-reasoning-feedback aria-live=\"polite\">先選一項並說明理由，再檢查。</p></div><details><summary>查看整合展示與限制</summary><div><div class=\"table-wrap\"><table><thead><tr><th>修訂模式</th><th>訪談發現</th><th>整合詮釋</th></tr></thead><tbody><tr><td>較大進步：48/120（40%）</td><td>所選學生描述增加證據，並解釋證據如何支持主張。</td><td>這些解釋顯示，運用針對論證的回饋，可能與較大進步有關。</td></tr><tr><td>進步有限：72/120（60%）</td><td>所選學生描述聚焦語法的修改，或不確定如何修訂論證。</td><td>理解評語意思，可能不同於知道如何把它應用於修訂。</td></tr></tbody></table></div><p class=\"prompt\">整合推論須指出兩者關係增加甚麼理解。12 人的訪談不能確立各種解釋的普遍程度。</p></div></details>",
+    "source": "Original illustrative joint display · Creswell &amp; Plano Clark (2018), <i>Designing and conducting mixed methods research</i>, 3rd ed. · local PDF pp. 340–344.",
+    "section": "Develop the explanation",
     "cls": ""
   },
   {
-    "title": "Explanatory sequential design",
-    "zh": "解釋型循序設計",
-    "body": "<div class=\"flow\"><div class=\"step quan\"><b>QUAN</b><br>Collect + analyse</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step bridge\"><b>Follow-up decisions</b><br>Which results?<br>Which participants?<br>Which questions?</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step qual\"><b>QUAL</b><br>Collect + analyse</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step mix\"><b>Integration</b><br>How do accounts explain or extend the results?</div></div><ul><li>Begin with a quantitative pattern that requires explanation.</li><li>The results must inform the follow-up phase.</li><li>Interpret the two phases together after the qualitative analysis.</li></ul>",
-    "bodyzh": "<div class=\"flow\"><div class=\"step quan\"><b>QUAN</b><br>蒐集與分析</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step bridge\"><b>後續決策</b><br>哪些結果？<br>哪些參與者？<br>哪些問題？</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step qual\"><b>QUAL</b><br>蒐集與分析</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step mix\"><b>整合</b><br>敘述如何解釋或擴展量化結果？</div></div><ul><li>先找出需要進一步解釋的量化模式。</li><li>第一階段結果須影響後續質性研究。</li><li>質性分析完成後，綜合詮釋兩個階段。</li></ul>",
-    "source": "Creswell &amp; Plano Clark (2018), 3rd ed. · PDF pp. 135–143, 139, 340–344",
+    "key": "disagreement",
+    "title": "What if the evidence does not agree?",
+    "zh": "證據不一致時怎麼辦？",
+    "body": "<p class=\"lead\">A student’s argument score improves, but the interview mainly describes grammar correction.</p><div class=\"flow\"><div class=\"step quan\"><b>Check comparability</b>Same task, passage, time, and scoring focus?</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step qual\"><b>Revisit evidence</b>Inspect the draft changes, scoring, and interview interpretation.</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step mix\"><b>Report the difference</b>Explain what remains uncertain; follow up if justified.</div></div><p class=\"prompt\">A difference may reveal incomplete recall, a scoring issue, or another route to improvement. Do not force all cases into one explanation.</p>",
+    "bodyzh": "<p class=\"lead\">某學生的論證分數提高，但訪談主要描述語法修改。</p><div class=\"flow\"><div class=\"step quan\"><b>檢查可比性</b>相同任務、段落、時段及評分焦點？</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step qual\"><b>重新檢視證據</b>查看草稿改變、評分及訪談詮釋。</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step mix\"><b>報告差異</b>交代仍不確定的部分；有理據時再跟進。</div></div><p class=\"prompt\">差異可能反映回憶不完整、評分問題，或另一種進步途徑。不要把所有個案強行納入同一解釋。</p>",
+    "source": "Illustrative discrepancy · Creswell &amp; Plano Clark (2018), <i>Designing and conducting mixed methods research</i>, 3rd ed. · local PDF pp. 338–339.",
+    "section": "Develop the explanation",
     "cls": ""
   },
   {
-    "title": "The bridge between phases",
-    "zh": "階段之間的連結",
-    "body": "<div class=\"table-wrap\"><table class=\"\"><thead><tr><th>Quantitative result to investigate</th><th>Purposeful follow-up</th><th>Question to explore</th></tr></thead><tbody><tr><td>High usefulness + low sharing</td><td>Invite respondents with this profile.</td><td>What makes feedback useful but difficult to share?</td></tr><tr><td>High usefulness + high sharing</td><td>Include a contrasting profile.</td><td>What makes sharing acceptable or productive?</td></tr><tr><td>Low usefulness</td><td>Include a challenging case.</td><td>When did the feedback fail to help?</td></tr></tbody></table></div><p class=\"prompt\">Retain participant links securely; report who agreed, declined, or could not be contacted.</p>",
-    "bodyzh": "<div class=\"table-wrap\"><table class=\"\"><thead><tr><th>待探討的量化結果</th><th>目的性選取後續個案</th><th>探索問題</th></tr></thead><tbody><tr><td>高有用程度＋低分享</td><td>邀請符合此模式的受訪者。</td><td>回饋有用，為何仍難以分享？</td></tr><tr><td>高有用程度＋高分享</td><td>納入對照模式。</td><td>哪些條件使分享可行或有幫助？</td></tr><tr><td>低有用程度</td><td>納入挑戰初步理解的個案。</td><td>甚麼時候回饋沒有幫助？</td></tr></tbody></table></div><p class=\"prompt\">安全保存參與者連結；報告同意、拒絕及無法聯絡的情況。</p>",
-    "source": "Illustrative planning table · Creswell &amp; Plano Clark (2018), 3rd ed. · PDF pp. 139, 282–284, 341",
+    "key": "claims",
+    "title": "What can we claim?",
+    "zh": "我們能提出甚麼主張？",
+    "body": "<div class=\"reasoning-activity\" data-reasoning-task=\"claims\" data-task-language=\"en\"><h3>Choose a defensible conclusion</h3><p>We have draft scores from 120 learners and linked interviews with 12 selected learners. Which conclusion fits this evidence?</p><div class=\"reasoning-options\" role=\"group\" aria-label=\"Choose a defensible conclusion\"><button type=\"button\" data-reasoning-option=\"0\" aria-pressed=\"false\"><b>A.</b> Teacher feedback caused the improvements in this cohort.</button><button type=\"button\" data-reasoning-option=\"1\" aria-pressed=\"false\"><b>B.</b> All learners with limited gains misunderstood the feedback.</button><button type=\"button\" data-reasoning-option=\"2\" aria-pressed=\"false\"><b>C.</b> Differences in how feedback was used may help explain revision gains in this cohort.</button></div><div class=\"activity-actions\"><button type=\"button\" data-check-reasoning>Check reasoning</button><button type=\"button\" data-reset-reasoning>Try again</button></div><p class=\"activity-feedback\" data-reasoning-feedback aria-live=\"polite\">Choose an option and explain why, then check.</p></div><details><summary>Inspect the conclusion and its limits</summary><div><blockquote>Differences in how feedback was interpreted and used may help explain revision gains in this cohort.</blockquote><ul><li>The score pattern describes change; it does not prove that feedback caused the change.</li><li>The interviews support possible explanations for selected learners; they do not estimate their prevalence.</li><li>Check measurement, qualitative analysis, missing cases, sample links, and alternative interpretations.</li></ul><p class=\"prompt\">The integrated explanation must be supported by both strands and by the way they were linked.</p></div></details>",
+    "bodyzh": "<div class=\"reasoning-activity\" data-reasoning-task=\"claims\" data-task-language=\"zh\"><h3>選擇有證據支持的結論</h3><p>現有120名學生的草稿評分，以及12名所選學生的連結訪談。哪個結論符合證據？</p><div class=\"reasoning-options\" role=\"group\" aria-label=\"選擇有證據支持的結論\"><button type=\"button\" data-reasoning-option=\"0\" aria-pressed=\"false\"><b>A.</b> 教師回饋導致這組學生的進步。</button><button type=\"button\" data-reasoning-option=\"1\" aria-pressed=\"false\"><b>B.</b> 所有進步有限的學生都誤解了回饋。</button><button type=\"button\" data-reasoning-option=\"2\" aria-pressed=\"false\"><b>C.</b> 使用回饋方式的差異可能幫助解釋本組學生的修訂進步。</button></div><div class=\"activity-actions\"><button type=\"button\" data-check-reasoning>檢查理由</button><button type=\"button\" data-reset-reasoning>再試一次</button></div><p class=\"activity-feedback\" data-reasoning-feedback aria-live=\"polite\">先選一項並說明理由，再檢查。</p></div><details><summary>查看結論及其限制</summary><div><blockquote>學生理解及運用回饋的差異，可能幫助解釋本群體修訂進步的差異。</blockquote><ul><li>分數模式描述改變，不能證明回饋造成改變。</li><li>訪談支持所選學生的可能解釋，不能估計其普遍程度。</li><li>檢視測量、質性分析、缺失個案、樣本連結及其他詮釋。</li></ul><p class=\"prompt\">整合解釋須獲兩部分證據及其連結方式支持。</p></div></details>",
+    "source": "Creswell &amp; Plano Clark (2018), <i>Designing and conducting mixed methods research</i>, 3rd ed. · Chs. 6–8; APA JARS–Mixed, Table 1 (2024), used with JARS–Qual and JARS–Quant.",
+    "section": "Develop the explanation",
     "cls": ""
   },
   {
-    "title": "Exploratory sequential design",
-    "zh": "探索型循序設計",
-    "body": "<div class=\"flow\"><div class=\"step qual\"><b>QUAL</b><br>Explore experiences<br>+ analyse</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step bridge\"><b>Development</b><br>Translate findings into items, variables, or materials</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step quan\"><b>QUAN</b><br>Pilot/refine<br>+ examine the feature</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step mix\"><b>Integration</b><br>What was retained, changed, or extended?</div></div><ul><li>Use when relevant concepts or a suitable instrument need development.</li><li>Show the middle phase: qualitative findings → quantitative feature.</li><li>Evaluate the feature before making population or measurement claims.</li></ul>",
-    "bodyzh": "<div class=\"flow\"><div class=\"step qual\"><b>QUAL</b><br>探索經驗<br>並分析</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step bridge\"><b>發展階段</b><br>把發現轉化成題項、變項或材料</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step quan\"><b>QUAN</b><br>試測、修訂<br>再檢視工具</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step mix\"><b>整合</b><br>哪些內容獲保留、改變或擴展？</div></div><ul><li>適用於需要探索概念或發展合適研究工具的情況。</li><li>展示中間階段：質性發現 → 量化研究要素。</li><li>先評估工具，才提出測量或母群體層面的主張。</li></ul>",
-    "source": "Creswell &amp; Plano Clark (2018), 3rd ed. · PDF pp. 144–154, 285–288, 348–350",
+    "key": "reporting-map",
+    "title": "What must the reader be able to follow?",
+    "zh": "讀者須能追溯甚麼？",
+    "body": "<div class=\"table-wrap\"><table><thead><tr><th>Section</th><th>Keep the research story visible</th></tr></thead><tbody><tr><td>Introduction</td><td>Why revision gains need both quantitative and qualitative evidence.</td></tr><tr><td>Method</td><td>Which mixed design, which samples, which strand analyses, and exactly how the strands were linked.</td></tr><tr><td>Results</td><td>The score pattern, the qualitative findings, and the integrated explanation.</td></tr><tr><td>Discussion</td><td>What the integration adds, what differs, and what remains uncertain.</td></tr></tbody></table></div><div class=\"lesson-resources\"><a class=\"resource-link\" href=\"https://apastyle.apa.org/jars/mixed-table-1.pdf\" target=\"_blank\" rel=\"noreferrer\">Download JARS–Mixed (PDF)</a><a class=\"resource-link\" href=\"https://apastyle.apa.org/jars/qualitative\" target=\"_blank\" rel=\"noreferrer\">JARS–Qual</a><a class=\"resource-link\" href=\"https://apastyle.apa.org/jars/quantitative\" target=\"_blank\" rel=\"noreferrer\">JARS–Quant</a></div><p class=\"prompt\">Use the mixed-methods standard together with the relevant qualitative and quantitative reporting standards.</p>",
+    "bodyzh": "<div class=\"table-wrap\"><table><thead><tr><th>部分</th><th>清楚保留研究脈絡</th></tr></thead><tbody><tr><td>引言</td><td>為何理解修訂進步需要量化及質性證據。</td></tr><tr><td>方法</td><td>混合設計、樣本、各部分分析，以及兩者如何連結。</td></tr><tr><td>結果</td><td>分數模式、質性發現及整合解釋。</td></tr><tr><td>討論</td><td>整合增加甚麼理解、哪些地方不同、仍有甚麼不確定。</td></tr></tbody></table></div><div class=\"lesson-resources\"><a class=\"resource-link\" href=\"https://apastyle.apa.org/jars/mixed-table-1.pdf\" target=\"_blank\" rel=\"noreferrer\">下載 JARS–Mixed（PDF）</a><a class=\"resource-link\" href=\"https://apastyle.apa.org/jars/qualitative\" target=\"_blank\" rel=\"noreferrer\">JARS–Qual</a><a class=\"resource-link\" href=\"https://apastyle.apa.org/jars/quantitative\" target=\"_blank\" rel=\"noreferrer\">JARS–Quant</a></div><p class=\"prompt\">混合方法標準須配合適用的質性及量化報告標準。</p>",
+    "source": "APA JARS–Mixed, Table 1 (2024), used with JARS–Qual and JARS–Quant. Creswell &amp; Plano Clark (2018), <i>Designing and conducting mixed methods research</i>, 3rd ed. · local PDF pp. 388–389.",
+    "section": "Report the study",
     "cls": ""
   },
   {
-    "title": "Building an instrument from findings",
-    "zh": "從質性發現建構工具",
-    "body": "<div class=\"table-wrap\"><table class=\"\"><thead><tr><th>Qualitative finding</th><th>Candidate item / feature</th><th>Development check</th></tr></thead><tbody><tr><td>Feedback feels useful when reasons are visible.</td><td>“The feedback helps me understand why a revision is needed.”</td><td>Cognitive interviews: how is “why” understood?</td></tr><tr><td>Sharing can threaten a sense of authorship.</td><td>Separate perceived usefulness from comfort with public disclosure.</td><td>Expert review: distinct constructs?</td></tr><tr><td>Views differ by task and audience.</td><td>Specify task, audience, and recall period.</td><td>Pilot; examine item performance and score interpretation.</td></tr></tbody></table></div><p class=\"prompt\">Trace evidence → concept → feature → evaluation.</p>",
-    "bodyzh": "<div class=\"table-wrap\"><table class=\"\"><thead><tr><th>質性發現</th><th>候選題項或工具要素</th><th>發展階段檢查</th></tr></thead><tbody><tr><td>回饋說明原因時，學生較感到有用。</td><td>「回饋幫助我理解為何需要修訂。」</td><td>認知訪談：如何理解「為何」？</td></tr><tr><td>分享可能影響學生對作者身份的感受。</td><td>區分有用程度與公開披露的自在程度。</td><td>專家審閱：是否不同概念？</td></tr><tr><td>觀點因任務與受眾而異。</td><td>說明任務、受眾及回顧時段。</td><td>試測；檢視題項表現及分數詮釋。</td></tr></tbody></table></div><p class=\"prompt\">保留證據 → 概念 → 工具要素 → 評估的可追溯連結。</p>",
-    "source": "Illustrative development display · Creswell &amp; Plano Clark (2018), 3rd ed. · PDF pp. 147–150, 287–288, 348–350",
+    "key": "method",
+    "title": "Make the connection traceable in the Method",
+    "zh": "在方法部分展示可追溯的連結",
+    "body": "<p class=\"example\">Model paragraph for the invented teaching study</p><div class=\"prose\"><p>We used an explanatory sequential mixed methods design to investigate differences in EFL essay revision. We scored argument development in first and revised drafts from 120 learners using a 0–4 rubric.</p><p>The initial gain patterns guided purposeful selection of 12 learners and the interview questions. Interviews focused on how learners interpreted and used specific comments, and were examined through qualitative content analysis.</p><p>We linked the gain patterns and qualitative findings in a joint display to develop explanations of the observed differences.</p></div><p class=\"prompt\">A complete Method must also justify the rubric, sampling criteria, analytic procedures, researcher role, and ethical decisions.</p>",
+    "bodyzh": "<p class=\"example\">虛構教學研究的示例段落</p><div class=\"prose\"><p>本研究採解釋型循序混合方法設計，探討英語作文修訂的差異，以 0–4 分規準評估 120 名學生初稿及修訂稿的論證發展。</p><p>初步進步模式引導目的性選取 12 名學生及擬定訪談問題。訪談聚焦如何理解及運用特定評語，並採質性內容分析。</p><p>以聯合展示連結進步模式與質性發現，形成對觀察到的差異的解釋。</p></div><p class=\"prompt\">完整方法部分仍須論證規準、抽樣準則、分析程序、研究者角色及倫理決策。</p>",
+    "source": "Invented reporting example · APA JARS–Mixed, Table 1 (2024), used with JARS–Qual and JARS–Quant.",
+    "section": "Report the study",
     "cls": ""
   },
   {
-    "title": "Choose the design",
-    "zh": "選擇合適設計",
-    "body": "<div class=\"quiz\" data-quiz=\"design\"><p class=\"lead\" id=\"scenario-en\">A survey shows an unexpected pattern. You want to interview selected respondents to understand it.</p><div class=\"answers\"><button data-answer=\"c\">Convergent</button><button data-answer=\"e\">Explanatory sequential</button><button data-answer=\"x\">Exploratory sequential</button></div><p class=\"feedback\" aria-live=\"polite\">Choose a design and explain the integration.</p><button class=\"nextcase\" data-nextcase>Next scenario →</button></div>",
-    "bodyzh": "<div class=\"quiz\" data-quiz=\"design\"><p class=\"lead\" id=\"scenario-zh\">問卷出現意料之外的模式，你希望訪談特定受訪者以理解原因。</p><div class=\"answers\"><button data-answer=\"c\">聚合式</button><button data-answer=\"e\">解釋型循序</button><button data-answer=\"x\">探索型循序</button></div><p class=\"feedback\" aria-live=\"polite\">選擇設計，並說明如何整合。</p><button class=\"nextcase\" data-nextcase>下一情境 →</button></div>",
-    "source": "Creswell &amp; Plano Clark (2018), 3rd ed. · PDF pp. 121–164",
+    "key": "results",
+    "title": "Report what the integration adds",
+    "zh": "報告整合增加甚麼理解",
+    "body": "<p class=\"example\">Model paragraph for the same invented dataset</p><div class=\"prose\"><p>Of 120 learners, 48 improved argument development by at least one point and 72 improved by less than one point. Interviews with 12 selected learners described differences in how they used teacher feedback.</p><p>The joint display suggests that applying comments to claim–evidence links may help explain larger gains, while difficulty planning substantive revisions may help explain limited gains. These explanations are tentative and do not establish prevalence or causation.</p></div><p class=\"prompt\">Evidence → relationship between findings → added explanation → limits</p>",
+    "bodyzh": "<p class=\"example\">同一虛構資料集的示例段落</p><div class=\"prose\"><p>120 名學生中，48 人的論證發展進步至少 1 分，72 人進步不足 1 分。12 名所選學生的訪談描述了運用教師回饋的不同方式。</p><p>聯合展示顯示，把評語應用於主張與證據的連結，可能幫助解釋較大進步；難以規劃內容修訂，則可能幫助解釋進步有限。這些解釋仍屬暫定，不能確立普遍程度或因果關係。</p></div><p class=\"prompt\">證據 → 發現之間的關係 → 新增解釋 → 界限</p>",
+    "source": "Invented reporting example · Creswell &amp; Plano Clark (2018), <i>Designing and conducting mixed methods research</i>, 3rd ed. · Chs. 7–8.",
+    "section": "Report the study",
     "cls": ""
   },
   {
-    "title": "Core designs within larger frameworks",
-    "zh": "較大型框架中的核心設計",
-    "body": "<p class=\"lead\">An intervention can contain several integration points.</p><div class=\"flow\"><div class=\"step qual\"><b>Before</b><br>QUAL explores needs<br>→ refine activities</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step quan\"><b>During</b><br>QUAN outcomes<br>+ QUAL implementation</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step mix\"><b>After</b><br>Merge or connect findings<br>→ interpret outcomes</div></div><p>Experiments, case studies, participatory projects, and evaluations can use one or more core designs.</p><p class=\"prompt\">Name the larger framework and specify the mixed methods logic inside it.</p>",
-    "bodyzh": "<p class=\"lead\">一項介入研究可包含多個整合點。</p><div class=\"flow\"><div class=\"step qual\"><b>介入前</b><br>質性探索需要<br>→ 修訂活動</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step quan\"><b>介入中</b><br>量化成效<br>＋質性實施資料</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step mix\"><b>介入後</b><br>合併或連結結果<br>→ 詮釋成效</div></div><p>實驗、個案研究、參與式研究與評估，均可採用一種或多種核心設計。</p><p class=\"prompt\">交代較大型框架，並說明其中的混合方法邏輯。</p>",
-    "source": "Creswell &amp; Plano Clark (2018), 3rd ed. · Ch. 4, PDF pp. 168–178; Ch. 6",
+    "key": "abstract",
+    "title": "Keep the combined finding in the abstract",
+    "zh": "摘要須保留整合發現",
+    "body": "<div class=\"table-wrap\"><table><thead><tr><th>Move</th><th>Our EFL feedback example</th></tr></thead><tbody><tr><td>Purpose</td><td>Explain differences in essay revision after teacher feedback.</td></tr><tr><td>Design and sources</td><td>Explanatory sequential; scored drafts followed by linked interviews.</td></tr><tr><td>Analysis and integration</td><td>Describe gains; analyse interview content; connect findings in a joint display.</td></tr><tr><td>Integrated finding</td><td>Different ways of using feedback may help explain different gains.</td></tr><tr><td>Scope</td><td>An interpretation of this cohort, with sampling and causal limits.</td></tr></tbody></table></div><p class=\"prompt\">Follow the journal’s abstract structure and word limit. Keep the integrated contribution visible.</p>",
+    "bodyzh": "<div class=\"table-wrap\"><table><thead><tr><th>功能</th><th>本課英語回饋示例</th></tr></thead><tbody><tr><td>目的</td><td>解釋教師回饋後作文修訂的差異。</td></tr><tr><td>設計與來源</td><td>解釋型循序：先評分作文，再進行相互連結的訪談。</td></tr><tr><td>分析與整合</td><td>描述進步、分析訪談內容，以聯合展示連結發現。</td></tr><tr><td>整合發現</td><td>不同回饋運用方式，可能幫助解釋不同進步。</td></tr><tr><td>範圍</td><td>對本群體的詮釋，須保留抽樣及因果界限。</td></tr></tbody></table></div><p class=\"prompt\">依期刊摘要格式及字數要求撰寫，清楚保留整合貢獻。</p>",
+    "source": "APA JARS–Mixed, Table 1 (2024), used with JARS–Qual and JARS–Quant. · p. 1.",
+    "section": "Report the study",
     "cls": ""
   },
   {
-    "title": "Sampling and the scope of inference",
-    "zh": "抽樣與推論範圍",
-    "body": "<div class=\"table-wrap\"><table class=\"\"><thead><tr><th>Relationship between samples</th><th>Possible integrated claim</th><th>Boundary</th></tr></thead><tbody><tr><td>Same participants / nested subset</td><td>Relate scores to those participants’ accounts.</td><td>Follow-up participants may differ from nonparticipants.</td></tr><tr><td>Different samples, same population</td><td>Compare perspectives at a group or concept level.</td><td>Avoid attributing one person’s explanation to another’s score.</td></tr><tr><td>Different levels: learners / teachers / schools</td><td>Relate evidence across a defined context.</td><td>State the level; avoid individual claims from aggregate patterns.</td></tr></tbody></table></div><p class=\"prompt\">Justify each strand’s sample size for its purpose; no universal ratio applies.</p>",
-    "bodyzh": "<div class=\"table-wrap\"><table class=\"\"><thead><tr><th>兩組樣本的關係</th><th>可考慮的整合主張</th><th>推論界限</th></tr></thead><tbody><tr><td>相同參與者／其中一個子樣本</td><td>把分數連結到該參與者的敘述。</td><td>參與後續訪談者可能與其他人不同。</td></tr><tr><td>不同樣本、同一母群體</td><td>在群體或概念層面比較觀點。</td><td>不可把某人的解釋套用到另一人的分數。</td></tr><tr><td>不同層次：學生／教師／學校</td><td>在明確情境中連結不同層次的證據。</td><td>交代層次，避免由群體模式推論個人。</td></tr></tbody></table></div><p class=\"prompt\">各部分的樣本量須按研究目的論證，沒有通用比例。</p>",
-    "source": "Creswell &amp; Plano Clark (2018), 3rd ed. · Ch. 6, PDF pp. 278–288; APA JARS–Mixed (2024 table), pp. 1–3",
+    "key": "repair",
+    "title": "Is the integration actually reported?",
+    "zh": "有真正報告整合嗎？",
+    "body": "<blockquote>We used mixed methods. Essay scores were followed by interviews. The interviews confirmed the results and improved validity.</blockquote><div class=\"reasoning-activity\" data-reasoning-task=\"repair\" data-task-language=\"en\"><h3>Repair the reporting</h3><p>Which addition would make the integration claim most traceable?</p><div class=\"reasoning-options\" role=\"group\" aria-label=\"Repair the reporting\"><button type=\"button\" data-reasoning-option=\"0\" aria-pressed=\"false\"><b>A.</b> “Using two methods provided triangulation and increased validity.”</button><button type=\"button\" data-reasoning-option=\"1\" aria-pressed=\"false\"><b>B.</b> “Gain patterns guided interview selection and questions; a linked display compared draft changes with interview findings, including different cases.”</button><button type=\"button\" data-reasoning-option=\"2\" aria-pressed=\"false\"><b>C.</b> “A larger sample was used, and both datasets were analysed carefully.”</button></div><div class=\"activity-actions\"><button type=\"button\" data-check-reasoning>Check reasoning</button><button type=\"button\" data-reset-reasoning>Try again</button></div><p class=\"activity-feedback\" data-reasoning-feedback aria-live=\"polite\">Choose an option and explain why, then check.</p></div><p class=\"prompt\">What would you need to see before accepting these claims?</p><details><summary>Check the missing evidence</summary><div><ul><li>Did score patterns shape interview sampling and questions?</li><li>Which participants and writing issues link the strands?</li><li>Where is the evidence supporting the integrated interpretation?</li><li>Were different findings and other explanations examined?</li><li>Which specific quality problem was addressed?</li></ul></div></details>",
+    "bodyzh": "<blockquote>本研究採混合方法，先評分作文再訪談。訪談確認了結果，並提升了效度。</blockquote><div class=\"reasoning-activity\" data-reasoning-task=\"repair\" data-task-language=\"zh\"><h3>修訂研究報告</h3><p>哪項補充最能讓讀者追蹤整合主張？</p><div class=\"reasoning-options\" role=\"group\" aria-label=\"修訂研究報告\"><button type=\"button\" data-reasoning-option=\"0\" aria-pressed=\"false\"><b>A.</b> 「兩種方法提供三角檢證並提高效度。」</button><button type=\"button\" data-reasoning-option=\"1\" aria-pressed=\"false\"><b>B.</b> 「進步類型引導訪談抽樣與問題；連結展示比較草稿改動與訪談發現，包括不同個案。」</button><button type=\"button\" data-reasoning-option=\"2\" aria-pressed=\"false\"><b>C.</b> 「研究使用更大樣本，兩組資料都經過仔細分析。」</button></div><div class=\"activity-actions\"><button type=\"button\" data-check-reasoning>檢查理由</button><button type=\"button\" data-reset-reasoning>再試一次</button></div><p class=\"activity-feedback\" data-reasoning-feedback aria-live=\"polite\">先選一項並說明理由，再檢查。</p></div><p class=\"prompt\">接受這些主張前，你需要看到甚麼證據？</p><details><summary>檢視欠缺的證據</summary><div><ul><li>分數模式有否影響訪談抽樣及問題？</li><li>哪些參與者及寫作議題連結兩部分？</li><li>支持整合詮釋的證據在哪裏？</li><li>有否檢視不同發現及其他解釋？</li><li>具體處理了哪一項研究品質問題？</li></ul></div></details>",
+    "source": "Original critique exercise · APA JARS–Mixed, Table 1 (2024), used with JARS–Qual and JARS–Quant.",
+    "section": "Review a study",
     "cls": ""
   },
   {
-    "title": "Four integration operations",
-    "zh": "四種整合操作",
-    "body": "<div class=\"table-wrap\"><table class=\"\"><thead><tr><th>Operation</th><th>What changes or comes together?</th><th>Example</th></tr></thead><tbody><tr><td>Connecting</td><td>One strand informs sampling in another.</td><td>Survey profiles → interview selection.</td></tr><tr><td>Building</td><td>One strand informs data collection in another.</td><td>Findings → interview prompts or survey items.</td></tr><tr><td>Merging</td><td>Bring data/results together for comparison or analysis.</td><td>Compare survey and interview evidence by concept.</td></tr><tr><td>Embedding</td><td>Link collection and analysis at multiple points.</td><td>Qualitative inquiry before, during, and after a trial.</td></tr></tbody></table></div>",
-    "bodyzh": "<div class=\"table-wrap\"><table class=\"\"><thead><tr><th>操作</th><th>甚麼被改變或結合？</th><th>例子</th></tr></thead><tbody><tr><td>連結 Connecting</td><td>一部分影響另一部分的抽樣。</td><td>問卷模式 → 訪談對象。</td></tr><tr><td>建構 Building</td><td>一部分影響另一部分的資料蒐集。</td><td>發現 → 訪談問題或問卷題項。</td></tr><tr><td>合併 Merging</td><td>結合資料或結果以比較或分析。</td><td>按概念比較問卷及訪談證據。</td></tr><tr><td>嵌入 Embedding</td><td>在多個時間點連結蒐集與分析。</td><td>實驗前、中、後的質性探究。</td></tr></tbody></table></div>",
-    "source": "Fetters, Curry, &amp; Creswell (2013), Table 2 · Creswell &amp; Plano Clark (2018), 3rd ed. · Chs. 3, 7",
+    "key": "study-review",
+    "title": "Review an existing mixed-methods study",
+    "zh": "檢視現有混合方法研究",
+    "body": "<p class=\"lead\">Use an article from your field, or the open-access ESL writing study below. Work from its Method and Results, not its label alone.</p><div class=\"lesson-resources\"><a class=\"resource-link\" href=\"https://link.springer.com/article/10.1186/s40561-024-00295-9\" target=\"_blank\" rel=\"noreferrer\">Open Mahapatra (2024): ChatGPT formative feedback in ESL writing</a><a class=\"resource-link\" href=\"https://link.springer.com/content/pdf/10.1186/s40561-024-00295-9.pdf\" target=\"_blank\" rel=\"noreferrer\">Download the article (PDF)</a></div><ul><li>Find the design diagram and identify the purpose of each strand.</li><li>Trace timing, participant links, and the integration procedure.</li><li>Point to a passage, table, or figure showing what integration adds.</li><li>Judge which claims the evidence supports and what remains unclear.</li></ul><details><summary>Evidence to locate in the provided article</summary><div><p>The reported quantitative sample includes 35 intervention and 37 comparison students. Five intervention students participated in all three focus groups. Examine the sample link, attrition, and the integrated interpretation; the design label alone does not establish quality.</p></div></details>",
+    "bodyzh": "<p class=\"lead\">選擇自己領域的文章，或下列開放取用的英語寫作研究。依據方法與結果檢視，不只看設計名稱。</p><div class=\"lesson-resources\"><a class=\"resource-link\" href=\"https://link.springer.com/article/10.1186/s40561-024-00295-9\" target=\"_blank\" rel=\"noreferrer\">閱讀 Mahapatra（2024）：ESL 寫作中的 ChatGPT 形成性回饋</a><a class=\"resource-link\" href=\"https://link.springer.com/content/pdf/10.1186/s40561-024-00295-9.pdf\" target=\"_blank\" rel=\"noreferrer\">下載文章（PDF）</a></div><ul><li>找出設計圖，辨識各部分目的。</li><li>追溯時序、參與者連結及整合程序。</li><li>指出展示整合貢獻的段落、表格或圖。</li><li>判斷證據支持哪些主張，以及哪些仍不清楚。</li></ul><details><summary>在指定文章中尋找的證據</summary><div><p>報告的量化樣本包括介入組 35 人及比較組 37 人；介入組 5 人參與全部 3 次焦點團體。檢視樣本連結、流失及整合詮釋；設計名稱本身不能確立研究品質。</p></div></details>",
+    "source": "Mahapatra, S. (2024). <i>Impact of ChatGPT on ESL students’ academic writing skills: A mixed methods intervention study.</i> Smart Learning Environments, 11, 9. doi:10.1186/s40561-024-00295-9.",
+    "section": "Review a study",
     "cls": ""
   },
   {
-    "title": "An integration plan",
-    "zh": "整合計劃",
-    "body": "<div class=\"table-wrap\"><table class=\"\"><thead><tr><th>Design</th><th>When / operation</th><th>Observable product</th></tr></thead><tbody><tr><td>Convergent</td><td>After strand analyses: merge by shared concepts.</td><td>Joint display + interpretation of fit and difference.</td></tr><tr><td>Explanatory sequential</td><td>Between phases: connect sampling and build questions; then interpret.</td><td>Selection/prompt rationale + explanatory display.</td></tr><tr><td>Exploratory sequential</td><td>During development: build the feature; after testing: interpret.</td><td>Evidence-to-feature map + account of test results.</td></tr></tbody></table></div><p class=\"prompt\">Write the operation, the evidence it uses, and the product a reader will see.</p>",
-    "bodyzh": "<div class=\"table-wrap\"><table class=\"\"><thead><tr><th>設計</th><th>何時／如何操作</th><th>讀者可見的產出</th></tr></thead><tbody><tr><td>聚合式</td><td>各部分分析後：按共同概念合併。</td><td>聯合展示＋對一致與差異的詮釋。</td></tr><tr><td>解釋型循序</td><td>階段之間：連結抽樣、建構問題；其後整合詮釋。</td><td>選人與擬題理據＋解釋性展示。</td></tr><tr><td>探索型循序</td><td>發展期間：建構工具；檢驗後：整合詮釋。</td><td>證據與工具對照表＋對檢驗結果的說明。</td></tr></tbody></table></div><p class=\"prompt\">寫出操作、所用證據，以及讀者將看到的產出。</p>",
-    "source": "Creswell &amp; Plano Clark (2018), 3rd ed. · PDF pp. 323–350",
+    "key": "recap",
+    "title": "Follow the research story",
+    "zh": "追溯研究的完整脈絡",
+    "body": "<div class=\"flow\"><div class=\"step quan\"><b>Problem</b>What do we need to understand?</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step bridge\"><b>Design</b>Why compare, explain, or develop?</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step qual\"><b>Integration</b>What links the evidence and changes our understanding?</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step mix\"><b>Report</b>Can the reader trace and judge the conclusion?</div></div><p class=\"prompt\">For the EFL feedback study: score patterns identified a difference; linked interviews helped develop an explanation; the report made the link and its limits visible.</p><button class=\"mm-action\" data-jump-key=\"design-map\">Revisit the three-design map</button>",
+    "bodyzh": "<div class=\"flow\"><div class=\"step quan\"><b>問題</b>我們需要理解甚麼？</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step bridge\"><b>設計</b>為何比較、解釋或發展？</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step qual\"><b>整合</b>如何連結證據並增加理解？</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step mix\"><b>報告</b>讀者能否追溯並評估結論？</div></div><p class=\"prompt\">英語回饋示例中，分數模式指出差異，相互連結的訪談幫助形成解釋，報告則展示連結及界限。</p><button class=\"mm-action\" data-jump-key=\"design-map\">重看三種設計的關係圖</button>",
+    "source": "Creswell &amp; Plano Clark (2018), <i>Designing and conducting mixed methods research</i>, 3rd ed. · Chs. 3 and 6–8; APA JARS–Mixed, Table 1 (2024), used with JARS–Qual and JARS–Quant.",
+    "section": "Review a study",
     "cls": ""
   },
   {
-    "title": "A joint display",
-    "zh": "聯合展示",
-    "body": "<p class=\"lead\">A meta-inference interprets what is learned from integrated evidence.</p><div class=\"table-wrap\"><table class=\"\"><thead><tr><th>Shared issue</th><th>QUAN result</th><th>QUAL finding</th><th>Integrated inference</th></tr></thead><tbody><tr><td>A defined concept or case</td><td>Statistic + denominator / uncertainty</td><td>Analytic finding + linked evidence</td><td>What the relationship adds—and its limits</td></tr></tbody></table></div><ul><li>Choose a meaningful unit: concept, case, profile, site, or time point.</li><li>Retain enough context to evaluate both strands.</li><li>Write an interpretation across the row.</li></ul>",
-    "bodyzh": "<p class=\"lead\">整合推論（meta-inference）詮釋結合證據後獲得的理解。</p><div class=\"table-wrap\"><table class=\"\"><thead><tr><th>共同議題</th><th>量化結果</th><th>質性發現</th><th>整合推論</th></tr></thead><tbody><tr><td>明確的概念或個案</td><td>統計量＋分母／不確定性</td><td>分析發現＋相應證據</td><td>關係增加甚麼理解，以及其界限</td></tr></tbody></table></div><ul><li>選擇有意義的單位：概念、個案、模式、場域或時間點。</li><li>保留足夠脈絡，以評估兩部分證據。</li><li>逐行寫出跨越兩部分的詮釋。</li></ul>",
-    "source": "Creswell &amp; Plano Clark (2018), 3rd ed. · PDF pp. 328–338, 343–350",
-    "cls": ""
-  },
-  {
-    "title": "Worked joint display: feedback and sharing",
-    "zh": "聯合展示例子：回饋與分享",
-    "body": "<p class=\"example\">Illustrative dataset: 120 survey respondents; 12 interviewees from the same cohort. All findings below are invented.</p><div class=\"table-wrap\"><table class=\"compact\"><thead><tr><th>Issue</th><th>Survey result</th><th>Interview finding</th><th>Integrated inference</th></tr></thead><tbody><tr><td>Private usefulness</td><td>96/120 (80%) rated feedback useful.</td><td>Students valued immediate explanations during revision.</td><td>The strands support usefulness for private revision in this cohort.</td></tr><tr><td>Public sharing</td><td>24/120 (20%) shared a draft in class.</td><td>Accounts described authorship concerns and fear of judgement.</td><td>Public sharing may depend on social conditions beyond perceived usefulness.</td></tr></tbody></table></div><p class=\"prompt\">These rows concern different constructs: low sharing does not contradict high usefulness.</p>",
-    "bodyzh": "<p class=\"example\">示例資料：120 名問卷受訪者；同一群體中的 12 名訪談參與者。以下發現全屬虛構。</p><div class=\"table-wrap\"><table class=\"compact\"><thead><tr><th>議題</th><th>問卷結果</th><th>訪談發現</th><th>整合推論</th></tr></thead><tbody><tr><td>私人使用的價值</td><td>96/120（80%）認為回饋有用。</td><td>學生重視修訂時即時獲得解釋。</td><td>兩部分支持本群體在私人修訂時感到有用。</td></tr><tr><td>公開分享</td><td>24/120（20%）曾在課堂分享草稿。</td><td>敘述涉及作者身份及被評價的擔憂。</td><td>公開分享可能受有用程度以外的社會條件影響。</td></tr></tbody></table></div><p class=\"prompt\">兩行涉及不同概念：低分享並不反駁高有用程度。</p>",
-    "source": "Original illustrative example · Creswell &amp; Plano Clark (2018), 3rd ed. · PDF pp. 328–338",
-    "cls": ""
-  },
-  {
-    "title": "When findings disagree",
-    "zh": "結果不一致時",
-    "body": "<div class=\"flow\"><div class=\"step quan\"><b>Check comparability</b><br>Same construct, group, timeframe, and level?</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step qual\"><b>Examine evidence</b><br>Measurement, sampling, analysis, context</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step mix\"><b>Report the difference</b><br>Reanalyse or follow up where justified; bound the inference</div></div><ul><li>Agreement may corroborate; expansion may add another facet.</li><li>A genuine discrepancy may expose a limitation or a context-dependent account.</li><li>Preserve unresolved disagreement rather than forcing a single story.</li></ul>",
-    "bodyzh": "<div class=\"flow\"><div class=\"step quan\"><b>檢查可比性</b><br>相同概念、群體、時段及層次？</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step qual\"><b>檢視證據</b><br>測量、抽樣、分析及脈絡</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step mix\"><b>報告差異</b><br>有理據時再分析或跟進，並限定推論</div></div><ul><li>一致可互相印證；擴展可增加另一面向。</li><li>真正差異可能揭示局限，或反映情境中的不同解釋。</li><li>保留尚未解決的分歧，避免強行合成單一故事。</li></ul>",
-    "source": "Creswell &amp; Plano Clark (2018), 3rd ed. · PDF pp. 328, 338–339",
-    "cls": ""
-  },
-  {
-    "title": "An explanatory integration product",
-    "zh": "解釋型循序的整合產出",
-    "body": "<div class=\"table-wrap\"><table class=\"compact\"><thead><tr><th>Initial result</th><th>Follow-up decision</th><th>Qualitative insight</th><th>Integrated conclusion</th></tr></thead><tbody><tr><td>Useful feedback, limited public sharing</td><td>Invite contrasting sharing profiles; probe audience and authorship.</td><td>Some accounts distinguish private help from public exposure.</td><td>A social interpretation may explain the pattern for these participants; test its scope.</td></tr><tr><td>Some learners report little usefulness</td><td>Include these cases; ask about task and feedback quality.</td><td>Accounts identify vague advice and task mismatch.</td><td>Usefulness may vary with feedback specificity and task fit.</td></tr></tbody></table></div><p class=\"prompt\">The display makes both the sampling bridge and the explanatory contribution visible.</p>",
-    "bodyzh": "<div class=\"table-wrap\"><table class=\"compact\"><thead><tr><th>初步結果</th><th>後續決策</th><th>質性洞見</th><th>整合結論</th></tr></thead><tbody><tr><td>回饋有用，公開分享有限</td><td>邀請不同分享模式的個案；追問受眾及作者身份。</td><td>部分敘述區分私人幫助與公開暴露。</td><td>社會情境可能解釋這些參與者的模式；仍須檢視適用範圍。</td></tr><tr><td>部分學生認為幫助有限</td><td>納入這些個案；追問任務及回饋品質。</td><td>敘述指出建議空泛或不切合任務。</td><td>有用程度可能因具體程度與任務契合而異。</td></tr></tbody></table></div><p class=\"prompt\">展示抽樣如何連結兩階段，以及質性發現增加甚麼解釋。</p>",
-    "source": "Illustrative alternative design · Creswell &amp; Plano Clark (2018), 3rd ed. · PDF pp. 340–344",
-    "cls": ""
-  },
-  {
-    "title": "Quality of an integrated inference",
-    "zh": "整合推論的品質",
-    "body": "<div class=\"columns\"><div><h3>Strand quality</h3><ul><li>QUAN: defensible measurement, sampling, analysis, and uncertainty.</li><li>QUAL: contextual depth, transparent analysis, reflexivity, and evidence.</li></ul></div><div><h3>Integration quality</h3><ul><li>Comparable concepts and an explicit link between datasets.</li><li>A traceable inference that considers exceptions and unequal coverage.</li></ul></div></div><p class=\"prompt\">Two strong strands still need a defensible relationship.</p>",
-    "bodyzh": "<div class=\"columns\"><div><h3>各部分的品質</h3><ul><li>量化：可辯護的測量、抽樣、分析及不確定性。</li><li>質性：脈絡深度、分析透明度、反思性與證據。</li></ul></div><div><h3>整合的品質</h3><ul><li>概念可比較，且資料集的連結清楚。</li><li>推論可追溯，兼顧例外及資料涵蓋不均。</li></ul></div></div><p class=\"prompt\">即使兩部分各有品質，仍須論證兩者的關係。</p>",
-    "source": "APA JARS–Mixed (2024 table), pp. 1–3 · Creswell &amp; Plano Clark (2018), 3rd ed. · Chs. 6–8",
-    "cls": ""
-  },
-  {
-    "title": "Reporting follows the design",
-    "zh": "按設計報告研究",
-    "body": "<div class=\"table-wrap\"><table class=\"\"><thead><tr><th>Section</th><th>What the reader needs</th></tr></thead><tbody><tr><td>Introduction</td><td>Problem, need for both strands, QUAN/QUAL/mixed aims.</td></tr><tr><td>Method</td><td>Named design + rationale; strand methods; timing/emphasis; sampling links; integration procedure.</td></tr><tr><td>Results / Findings</td><td>Strand evidence and visible integration products, in an intelligible design sequence.</td></tr><tr><td>Discussion</td><td>Added understanding, divergence, alternatives, limitations, and implications.</td></tr></tbody></table></div><p class=\"prompt\">Pair JARS–Mixed with relevant JARS–Quant and JARS–Qual.</p>",
-    "bodyzh": "<div class=\"table-wrap\"><table class=\"\"><thead><tr><th>部分</th><th>讀者需要知道</th></tr></thead><tbody><tr><td>引言</td><td>研究問題、為何需要兩部分，以及量化／質性／整合目標。</td></tr><tr><td>方法</td><td>設計名稱與理據；各部分方法；時序與側重；抽樣連結；整合程序。</td></tr><tr><td>結果／發現</td><td>各部分證據及可見的整合產出，依合理設計順序呈現。</td></tr><tr><td>討論</td><td>新增理解、分歧、其他解釋、局限與啟示。</td></tr></tbody></table></div><p class=\"prompt\">JARS–Mixed 須配合適用的 JARS–Quant 及 JARS–Qual 使用。</p>",
-    "source": "APA JARS–Mixed (2024 table), pp. 1–3 · Creswell &amp; Plano Clark (2018), 3rd ed. · PDF pp. 388–389",
-    "cls": ""
-  },
-  {
-    "title": "A design paragraph that readers can evaluate",
-    "zh": "讀者可評估的設計段落",
-    "body": "<div class=\"prose\"><p><b>Design and purpose.</b> We propose an explanatory sequential mixed methods study to investigate why perceived usefulness of AI feedback may coexist with limited public sharing.</p><p><b>Sequence and link.</b> A survey will identify response profiles. Purposefully selected respondents will then be interviewed using questions informed by those results.</p><p><b>Integration.</b> We will relate each profile to the interview findings in a joint display and develop bounded explanations of the initial patterns.</p></div><p class=\"prompt\">Still specify the strand designs, emphasis, sampling criteria, analyses, and ethical procedures.</p>",
-    "bodyzh": "<div class=\"prose\"><p><b>設計與目的。</b>我們擬採解釋型循序混合方法研究，探討為何學生可能認為 AI 回饋有用，卻少有公開分享。</p><p><b>時序與連結。</b>先透過問卷辨識反應模式，再目的性選取受訪者，並以結果建構訪談問題。</p><p><b>整合。</b>以聯合展示連結各種模式與訪談發現，對初步模式提出有界限的解釋。</p></div><p class=\"prompt\">仍須說明各部分設計、側重、抽樣準則、分析及倫理程序。</p>",
-    "source": "Illustrative proposal paragraph · APA JARS–Mixed (2024 table), pp. 1–3 · Creswell &amp; Plano Clark (2018), 3rd ed. · PDF pp. 139, 388",
-    "cls": ""
-  },
-  {
-    "title": "Reporting an integrated result",
-    "zh": "報告整合結果",
-    "body": "<p class=\"example\">Model paragraph for the illustrative convergent dataset</p><div class=\"prose\"><p>In the survey, 96 of 120 respondents (80%) rated AI feedback as useful, while 24 (20%) reported sharing a draft in class. Interviews with 12 learners described a distinction between private revision and public exposure.</p><p>The joint display suggests that perceived usefulness can coexist with concerns about sharing. These accounts offer a possible social interpretation of the cohort pattern; they do not establish how prevalent those concerns were or whether they caused the sharing rate.</p></div><p class=\"prompt\">Evidence → relationship → added interpretation → boundary</p>",
-    "bodyzh": "<p class=\"example\">以虛構聚合式資料撰寫的示例段落</p><div class=\"prose\"><p>問卷中，120 人有 96 人（80%）認為 AI 回饋有用，24 人（20%）表示曾在課堂分享草稿。12 名學生的訪談敘述區分了私人修訂與公開暴露。</p><p>聯合展示顯示，感到有用可能與對分享的擔憂並存。這些敘述為群體模式提供一種可能的社會情境解釋，但不能確立擔憂的普遍程度，亦不能證明其造成該分享比例。</p></div><p class=\"prompt\">證據 → 關係 → 新增詮釋 → 界限</p>",
-    "source": "Original illustrative paragraph · Creswell &amp; Plano Clark (2018), 3rd ed. · PDF pp. 328–338, 388–389",
-    "cls": ""
-  },
-  {
-    "title": "The mixed methods abstract",
-    "zh": "混合方法摘要",
-    "body": "<ol class=\"abstract-list\"><li><b>Problem and mixed purpose</b><span>Why does this question need both forms of evidence?</span></li><li><b>Design and sources</b><span>Name the design; identify participants/data and their relationship.</span></li><li><b>Analysis and integration</b><span>State strand analyses and how results were related.</span></li><li><b>Main integrated finding</b><span>Report what was learned through the integration.</span></li><li><b>Implication and scope</b><span>Say what follows within the limits of the evidence.</span></li></ol>",
-    "bodyzh": "<ol class=\"abstract-list\"><li><b>研究問題與整合目的</b><span>為何需要兩種證據？</span></li><li><b>設計與資料來源</b><span>交代設計、參與者／資料及兩者關係。</span></li><li><b>分析與整合</b><span>說明各部分分析，以及結果如何連結。</span></li><li><b>主要整合發現</b><span>指出整合帶來甚麼理解。</span></li><li><b>啟示與範圍</b><span>在證據界限內提出意義。</span></li></ol>",
-    "source": "APA JARS–Mixed (2024 table), pp. 1–3 · p. 1",
-    "cls": ""
-  },
-  {
-    "title": "Repair an incomplete report",
-    "zh": "修訂不完整的報告",
-    "body": "<blockquote>“We used mixed methods. A questionnaire was followed by interviews. The qualitative data confirmed the quantitative results, improving validity.”</blockquote><p class=\"prompt\">What information is missing, and which claims require evidence?</p><details><summary>Check your critique</summary><div><ul><li>What design and mixed purpose? Were results used to shape the interviews?</li><li>Which participants and constructs link the strands? What analyses were done?</li><li>Where is the evidence of confirmation, and were discrepancies examined?</li><li>What specific validity issue was addressed, rather than merely asserted?</li></ul></div></details>",
-    "bodyzh": "<blockquote>「本研究採混合方法，先問卷後訪談。質性資料確認了量化結果，從而提升效度。」</blockquote><p class=\"prompt\">缺少甚麼資料？哪些主張需要證據？</p><details><summary>檢視你的評析</summary><div><ul><li>甚麼設計與整合目的？量化結果有否影響訪談？</li><li>哪些參與者及概念連結兩部分？如何分析？</li><li>「確認」的證據在哪裏？有否檢視分歧？</li><li>具體處理了哪一項效度問題，而非只是聲稱有效？</li></ul></div></details>",
-    "source": "Original critique exercise · APA JARS–Mixed (2024 table), pp. 1–3",
-    "cls": ""
-  },
-  {
-    "title": "Design studio",
-    "zh": "研究設計工作坊",
-    "body": "<p class=\"lead\">Produce a design diagram and an integration plan for your own question.</p><div class=\"studio-fields\"><label>1 · Research problem and mixed purpose<textarea data-field=\"purpose\" placeholder=\"What does integration need to add?\"></textarea></label><label>2 · Design, timing, emphasis, and sample relationship<textarea data-field=\"design\" placeholder=\"Name the design and sketch the sequence in words.\"></textarea></label><label>3 · Integration operation, product, and inference boundary<textarea data-field=\"integration\" placeholder=\"What will be related, how, and what could it warrant?\"></textarea></label></div><div class=\"studio-actions\"><button data-download>Download my design notes</button><small>Entries stay in this tab; download to keep a copy.</small></div>",
-    "bodyzh": "<p class=\"lead\">為自己的研究問題製作設計圖及整合計劃。</p><div class=\"studio-fields\"><label>1 · 研究問題與整合目的<textarea data-field=\"purpose\" placeholder=\"整合須增加甚麼理解？\"></textarea></label><label>2 · 設計、時序、側重及樣本關係<textarea data-field=\"design\" placeholder=\"寫出設計名稱，並以文字勾勒流程。\"></textarea></label><label>3 · 整合操作、產出與推論界限<textarea data-field=\"integration\" placeholder=\"連結甚麼、如何連結，以及能支持甚麼主張？\"></textarea></label></div><div class=\"studio-actions\"><button data-download>下載我的設計筆記</button><small>內容只保留於本分頁；請下載保存。</small></div>",
-    "source": "Application task · Creswell &amp; Plano Clark (2018), 3rd ed. · Chs. 3, 6–8",
-    "cls": ""
-  },
-  {
-    "title": "Peer review and the final claim",
-    "zh": "同儕檢視與最終主張",
-    "body": "<ul><li><b>Necessity:</b> What is missing from either strand alone?</li><li><b>Design:</b> Do the timing, emphasis, and sampling fit the question?</li><li><b>Integration:</b> Can a reader trace the link and inspect the product?</li><li><b>Inference:</b> Are disagreement, alternatives, and limitations visible?</li><li><b>Reporting:</b> Do the Method, Results, and Discussion reflect the design?</li></ul><p class=\"prompt\">“By integrating ___ with ___ through ___, we can understand ___, within ___.”</p>",
-    "bodyzh": "<ul><li><b>必要性：</b>單靠任何一部分會欠缺甚麼？</li><li><b>設計：</b>時序、側重及抽樣是否配合問題？</li><li><b>整合：</b>讀者能否追溯連結並檢視產出？</li><li><b>推論：</b>有否展示分歧、其他解釋與局限？</li><li><b>報告：</b>方法、結果及討論是否反映設計？</li></ul><p class=\"prompt\">「透過 ___ 把 ___ 與 ___ 整合，我們能在 ___ 範圍內理解 ___。」</p>",
-    "source": "Creswell &amp; Plano Clark (2018), 3rd ed. · Chs. 3, 6–8; APA JARS–Mixed (2024 table), pp. 1–3",
-    "cls": ""
-  },
-  {
-    "title": "Textbook readings",
-    "zh": "教材閱讀",
-    "body": "<div class=\"references\"><p><b>Creswell, J. W., &amp; Plano Clark, V. L. (2018).</b><br><i>Designing and conducting mixed methods research</i> (3rd ed.). SAGE.</p><div class=\"table-wrap\"><table class=\"compact\"><thead><tr><th>Read for</th><th>Chapter / local PDF page</th></tr></thead><tbody><tr><td>Choosing and diagramming designs</td><td>Ch. 3 · PDF pp. 106–166</td></tr><tr><td>Larger mixed methods frameworks</td><td>Ch. 4 · starts PDF p. 167</td></tr><tr><td>Sampling and linked phases</td><td>Ch. 6 · PDF pp. 278–288</td></tr><tr><td>Integration and joint displays</td><td>Ch. 7 · PDF pp. 323–350</td></tr><tr><td>Writing the integrated report</td><td>Ch. 8 · PDF pp. 388–389</td></tr></tbody></table></div><p><b>Creswell, J. W. (2015).</b> <i>Educational research: Planning, conducting, and evaluating quantitative and qualitative research</i> (5th ed.). Pearson.<br>Ch. 16, “Mixed Methods Designs” · PDF pp. 558–586.</p></div>",
-    "bodyzh": "<div class=\"references\"><p><b>Creswell, J. W., &amp; Plano Clark, V. L. (2018).</b><br><i>Designing and conducting mixed methods research</i>（第3版）. SAGE.</p><div class=\"table-wrap\"><table class=\"compact\"><thead><tr><th>閱讀目的</th><th>章節／本地 PDF 頁碼</th></tr></thead><tbody><tr><td>選擇設計與繪圖</td><td>第3章 · PDF 106–166頁</td></tr><tr><td>較大型混合方法框架</td><td>第4章 · PDF 167頁起</td></tr><tr><td>抽樣及階段連結</td><td>第6章 · PDF 278–288頁</td></tr><tr><td>整合與聯合展示</td><td>第7章 · PDF 323–350頁</td></tr><tr><td>撰寫整合報告</td><td>第8章 · PDF 388–389頁</td></tr></tbody></table></div><p><b>Creswell, J. W. (2015).</b> <i>Educational research: Planning, conducting, and evaluating quantitative and qualitative research</i>（第5版）. Pearson.<br>第16章 Mixed Methods Designs · PDF 558–586頁。</p></div>",
-    "source": "Page locations refer to the vault PDFs, not printed pagination.",
-    "cls": ""
-  },
-  {
-    "title": "Reporting and integration references",
-    "zh": "報告與整合參考資料",
-    "body": "<div class=\"references\"><p><b>American Psychological Association.</b> (2024 table). <i>Mixed Methods Article Reporting Standards (MMARS): JARS–Mixed, Table 1.</i><br><a href=\"https://apastyle.apa.org/jars/mixed-methods\" target=\"_blank\" rel=\"noreferrer\">Official JARS–Mixed page</a> · Use alongside JARS–Qual and JARS–Quant.</p><p><b>Fetters, M. D., Curry, L. A., &amp; Creswell, J. W. (2013).</b> Achieving integration in mixed methods designs—Principles and practices. <i>Health Services Research, 48</i>(6 Pt 2), 2134–2156.<br><a href=\"https://doi.org/10.1111/1475-6773.12117\" target=\"_blank\" rel=\"noreferrer\">doi:10.1111/1475-6773.12117</a></p><p class=\"small\">The educational scenarios, numerical examples, diagrams, and model paragraphs in this deck are original teaching illustrations. They do not report an empirical study.</p></div><div class=\"closing-tools\"><button data-print>Print / PDF</button><p>Print all slides in the currently displayed languages. Use the language control on each slide to choose English or Chinese.</p></div>",
-    "bodyzh": "<div class=\"references\"><p><b>American Psychological Association.</b>（2024版表格）. <i>Mixed Methods Article Reporting Standards (MMARS): JARS–Mixed, Table 1.</i><br><a href=\"https://apastyle.apa.org/jars/mixed-methods\" target=\"_blank\" rel=\"noreferrer\">JARS–Mixed 官方頁面</a> · 須配合 JARS–Qual 及 JARS–Quant。</p><p><b>Fetters, M. D., Curry, L. A., &amp; Creswell, J. W. (2013).</b> Achieving integration in mixed methods designs—Principles and practices. <i>Health Services Research, 48</i>(6 Pt 2), 2134–2156.<br><a href=\"https://doi.org/10.1111/1475-6773.12117\" target=\"_blank\" rel=\"noreferrer\">doi:10.1111/1475-6773.12117</a></p><p class=\"small\">本簡報的教育情境、數字例子、流程圖及示例段落均為教學示範，不代表真實實證研究。</p></div><div class=\"closing-tools\"><button data-print>列印／PDF</button><p>列印各投影片目前顯示的語言版本；可逐頁切換英文或中文。</p></div>",
-    "source": "APA official page and table checked 22 October 2026.",
+    "key": "thanks",
+    "title": "Thank you",
+    "zh": "謝謝大家",
+    "body": "<p class=\"lead\">Questions and discussion</p><p>What would integrating two strands add to a study you are reading?</p><div class=\"closing-tools\"><a class=\"resource-link\" href=\"__LESSON_PDF__\" download>Download the lesson PDF</a><p>The English PDF includes all three design diagrams and all five practice scenarios. Readings and reporting resources are linked beside the relevant lesson content.</p></div>",
+    "bodyzh": "<p class=\"lead\">提問與討論</p><p>對你正在閱讀的研究，結合兩部分證據會增加甚麼理解？</p><div class=\"closing-tools\"><a class=\"resource-link\" href=\"__LESSON_PDF__\" download>下載課堂 PDF（英文）</a><p>英文 PDF 包含三種設計圖及全部五個練習情境。閱讀資料及報告指引連結設於相關課堂內容旁。</p></div>",
+    "source": "",
+    "section": "Thank you",
     "cls": ""
   }
 ];
+
+export const designScenarios = [
+  {
+    "en": "EFL essay scores show that some students improve much more than others after teacher feedback. Select students from the different gain patterns and interview them about their revisions.",
+    "zh": "收到教師回饋後，部分英語學習者的作文分數進步較大。按不同進步模式選取學生，訪談其修訂過程。",
+    "answer": "e",
+    "feedbackEn": "Explanatory sequential: the quantitative pattern guides interview sampling and questions, and the interviews help interpret that pattern.",
+    "feedbackZh": "解釋型循序：量化模式引導訪談抽樣及問題，訪談再幫助詮釋該模式。"
+  },
+  {
+    "en": "You want to develop an AI-feedback-literacy questionnaire for EFL learners. First explore learners’ experiences, build candidate items, and then evaluate the questionnaire quantitatively.",
+    "zh": "你想發展英語學習者的 AI 回饋素養問卷。先探索學習經驗，再建構題項並進行量化評估。",
+    "answer": "x",
+    "feedbackEn": "Exploratory sequential: qualitative findings build a measure, followed by development and quantitative evaluation.",
+    "feedbackZh": "探索型循序：以質性發現建構量表，再經發展及量化評估。"
+  },
+  {
+    "en": "During the same writing unit, collect rubric scores and interviews about using teacher feedback. Analyse each strand, then compare findings on argument development.",
+    "zh": "在同一寫作單元收集規準分數及有關運用教師回饋的訪談，分別分析後，比較論證發展的發現。",
+    "answer": "c",
+    "feedbackEn": "Convergent: compare the results around shared writing concepts. The comparison is the integration, not simply collecting both kinds of data.",
+    "feedbackZh": "聚合式：圍繞共同寫作概念比較結果。整合在於比較，而非單純收集兩種資料。"
+  },
+  {
+    "en": "A peer-assessment study finds different speaking-score gains across EFL groups. Follow up the larger and smaller gain patterns with interviews to understand how feedback was used.",
+    "zh": "英語同儕評估研究發現，不同組別的口語分數進步程度不同。針對較大及較小進步模式進行訪談，了解如何運用回饋。",
+    "answer": "e",
+    "feedbackEn": "Explanatory sequential: initial score differences determine the follow-up focus and sample.",
+    "feedbackZh": "解釋型循序：初步分數差異決定後續研究焦點及樣本。"
+  },
+  {
+    "en": "Before designing feedback in a new English-speaking practice app, explore learners’ needs. Use those findings to develop feedback features and then test the features quantitatively.",
+    "zh": "設計新的英語口語練習應用程式回饋功能前，先探索學生需要，以發現建構功能，再進行量化檢驗。",
+    "answer": "x",
+    "feedbackEn": "Exploratory sequential: the qualitative phase informs a feature-development phase before quantitative testing.",
+    "feedbackZh": "探索型循序：質性階段先引導功能發展，再進行量化檢驗。"
+  }
+];
+
+export const diagramTasks = {
+  "convergent": {
+    "accept": [
+      [
+        "quan",
+        "qual"
+      ],
+      [
+        "quan",
+        "qual"
+      ],
+      [
+        "integrate"
+      ]
+    ],
+    "order": [
+      "integrate",
+      "qual",
+      "quan"
+    ],
+    "en": {
+      "description": "Collect draft scores and interviews during the same period. Analyse each strand, then compare findings about revision to develop an integrated interpretation.",
+      "tokens": {
+        "quan": "Score drafts and analyse revision gains",
+        "qual": "Interview learners and analyse feedback use",
+        "integrate": "Compare findings and develop an integrated interpretation"
+      },
+      "hint": "The two inputs are concurrent; either input can hold the quantitative strand. The final box brings both findings together."
+    },
+    "zh": {
+      "description": "同期收集作文評分與訪談資料，分別分析，再比較有關修訂的發現，形成整合解釋。",
+      "tokens": {
+        "quan": "評分作文並分析修訂進步",
+        "qual": "訪談學生並分析回饋使用",
+        "integrate": "比較發現並形成整合解釋"
+      },
+      "hint": "兩個輸入同步進行，量化與質性可放在任一輸入位置；最後將兩者的發現結合。"
+    }
+  },
+  "explanatory": {
+    "accept": [
+      [
+        "quan"
+      ],
+      [
+        "bridge"
+      ],
+      [
+        "qual"
+      ],
+      [
+        "integrate"
+      ]
+    ],
+    "order": [
+      "qual",
+      "integrate",
+      "quan",
+      "bridge"
+    ],
+    "en": {
+      "description": "Begin with draft-score patterns. Use those results to select interviewees and develop focused questions. Analyse the interviews, then use the linked findings to explain the initial patterns.",
+      "tokens": {
+        "quan": "Score drafts and identify gain patterns",
+        "bridge": "Use results to select learners and shape questions",
+        "qual": "Interview learners and analyse feedback use",
+        "integrate": "Use linked findings to explain the gain patterns"
+      },
+      "hint": "Start with quantitative results. Make the sampling and question-development bridge visible before the qualitative follow-up."
+    },
+    "zh": {
+      "description": "先分析作文評分的變化，據此選擇受訪者並形成聚焦問題，分析訪談後，結合發現以解釋最初的結果。",
+      "tokens": {
+        "quan": "評分作文並辨識進步類型",
+        "bridge": "依結果選擇學生並形成問題",
+        "qual": "訪談學生並分析回饋使用",
+        "integrate": "結合發現以解釋進步類型"
+      },
+      "hint": "先有量化結果，再呈現抽樣與問題建構的連結，然後進行質性跟進。"
+    }
+  },
+  "exploratory": {
+    "accept": [
+      [
+        "qual"
+      ],
+      [
+        "bridge"
+      ],
+      [
+        "quan"
+      ],
+      [
+        "integrate"
+      ]
+    ],
+    "order": [
+      "quan",
+      "qual",
+      "integrate",
+      "bridge"
+    ],
+    "en": {
+      "description": "Explore learners’ feedback-use experiences through interviews. Translate the findings into questionnaire items. Pilot and evaluate the measure quantitatively, then explain how the qualitative findings shaped the tool and its evaluation.",
+      "tokens": {
+        "qual": "Interview learners to explore feedback use",
+        "bridge": "Turn qualitative findings into candidate items",
+        "quan": "Pilot, refine, and evaluate the measure",
+        "integrate": "Explain how findings shaped the tool and its evaluation"
+      },
+      "hint": "Begin with qualitative exploration. The development step translates findings into a tool before quantitative evaluation."
+    },
+    "zh": {
+      "description": "先訪談以探索學生使用回饋的經驗，將發現轉化為問卷題項，再量化試測與評估，最後說明質性發現如何影響工具及其評估。",
+      "tokens": {
+        "qual": "訪談學生以探索回饋使用",
+        "bridge": "將質性發現轉化為候選題項",
+        "quan": "試測、修訂並評估測量工具",
+        "integrate": "說明發現如何影響工具及其評估"
+      },
+      "hint": "從質性探索開始，先將發現轉為工具，再進行量化評估。"
+    }
+  }
+};
+
+export const reasoningTasks = {
+  "sampling": {
+    "answer": 1,
+    "en": {
+      "title": "Decide who to interview",
+      "question": "Scores from 120 learners show 48 larger gains and 72 limited gains. Which selection best helps explain that difference?",
+      "options": [
+        "Interview only the six learners with the highest scores.",
+        "Purposefully select six learners from each gain pattern.",
+        "Interview twelve volunteers without examining their gain patterns."
+      ],
+      "feedback": [
+        "High scores and larger gains are different. This also omits the limited-gain pattern you want to explain.",
+        "This connects the interview sample to both initial patterns. The balanced illustrative selection supports comparison; it does not represent the 40%/60% distribution.",
+        "Volunteers may contribute useful perspectives, but this plan does not ensure that both score patterns can be followed up."
+      ]
+    },
+    "zh": {
+      "title": "決定訪談誰",
+      "question": "120名學生中，48人進步較大，72人進步有限。哪種選擇最能幫助解釋此差異？",
+      "options": [
+        "只訪談分數最高的六名學生。",
+        "從兩種進步類型各目的性選取六人。",
+        "不看進步類型，訪談十二名志願者。"
+      ],
+      "feedback": [
+        "高分與進步較大並不相同，這也遺漏了需要解釋的進步有限者。",
+        "這把訪談抽樣與兩種初始結果連接起來。此示例的均衡選擇利於比較，並不代表40%與60%的分佈。",
+        "志願者可提供有用觀點，但此計劃無法確保兩種結果都得到跟進。"
+      ]
+    }
+  },
+  "interview-bridge": {
+    "answer": 2,
+    "en": {
+      "title": "Choose a useful follow-up question",
+      "question": "A learner shows limited argument-development gains. Which interview question most directly investigates this result?",
+      "options": [
+        "Did you like the teacher’s feedback?",
+        "Why did the feedback fail to improve your argument?",
+        "Looking at this comment and your draft, what did you try to change, and what was difficult?"
+      ],
+      "feedback": [
+        "Liking feedback may matter, but it does not directly trace how this comment was used in revision.",
+        "This assumes failure and a cause before examining the learner’s actions and the relevant draft evidence.",
+        "This connects the initial pattern to a specific comment, an attempted revision, and the learner’s explanation without assuming a cause."
+      ]
+    },
+    "zh": {
+      "title": "選擇有用的跟進問題",
+      "question": "一名學生在論證發展上的進步有限。哪個訪談問題最直接探究此結果？",
+      "options": [
+        "你喜歡教師的回饋嗎？",
+        "為甚麼回饋未能改善你的論證？",
+        "看著這條評語和你的草稿，你嘗試改甚麼？哪裡有困難？"
+      ],
+      "feedback": [
+        "喜歡回饋可能有意義，但沒有直接追蹤這條評語如何用於修訂。",
+        "尚未檢視學生行動與草稿證據，就先假設失敗及其原因。",
+        "這將初始結果與特定評語、修訂嘗試及學生解釋連起來，沒有預設原因。"
+      ]
+    }
+  },
+  "joint-display": {
+    "answer": 0,
+    "en": {
+      "title": "Complete the interpretation",
+      "question": "Selected learners with limited gains describe grammar edits or difficulty planning an argument revision. What does linking these findings add?",
+      "options": [
+        "Understanding a comment may differ from knowing how to use it to revise an argument.",
+        "Sixty per cent of all learners lacked revision-planning skills.",
+        "The interviews prove that grammar correction caused the limited gains."
+      ],
+      "feedback": [
+        "This offers a tentative explanation connecting what the scores measure with what selected learners describe. Check it against linked drafts and other cases.",
+        "The 60% describes a score pattern. The twelve purposeful interviews cannot establish the prevalence of this explanation.",
+        "These interviews do not establish a causal effect. Alternative explanations and the actual draft changes still need examination."
+      ]
+    },
+    "zh": {
+      "title": "完成整合解釋",
+      "question": "所選進步有限的學生描述文法修改或不知如何規劃論證修訂。連結這些發現後，可以增加甚麼理解？",
+      "options": [
+        "理解評語可能不同於知道如何用它修訂論證。",
+        "所有學生中有60%缺乏修訂規劃能力。",
+        "訪談證明文法修改導致進步有限。"
+      ],
+      "feedback": [
+        "這提供暫定解釋，把分數所測與所選學生的描述連接起來，仍須對照草稿與其他個案。",
+        "60%指分數類型。十二人的目的性訪談無法估計這種解釋的普遍程度。",
+        "訪談無法確定因果效果，仍需檢視其他解釋與實際草稿改動。"
+      ]
+    }
+  },
+  "claims": {
+    "answer": 2,
+    "en": {
+      "title": "Choose a defensible conclusion",
+      "question": "We have draft scores from 120 learners and linked interviews with 12 selected learners. Which conclusion fits this evidence?",
+      "options": [
+        "Teacher feedback caused the improvements in this cohort.",
+        "All learners with limited gains misunderstood the feedback.",
+        "Differences in how feedback was used may help explain revision gains in this cohort."
+      ],
+      "feedback": [
+        "Before–after score changes alone do not isolate the effect of feedback from other influences.",
+        "This goes beyond the twelve selected interviewees and overlooks other possible explanations for limited gains.",
+        "This preserves the integrated contribution while keeping the explanation tentative and bounded to this study."
+      ]
+    },
+    "zh": {
+      "title": "選擇有證據支持的結論",
+      "question": "現有120名學生的草稿評分，以及12名所選學生的連結訪談。哪個結論符合證據？",
+      "options": [
+        "教師回饋導致這組學生的進步。",
+        "所有進步有限的學生都誤解了回饋。",
+        "使用回饋方式的差異可能幫助解釋本組學生的修訂進步。"
+      ],
+      "feedback": [
+        "單靠前後分數變化，無法將回饋效果與其他影響分離。",
+        "這超出了十二名所選受訪者，也忽略其他可能解釋。",
+        "這保留整合貢獻，同時將解釋維持為暫定且限於本研究。"
+      ]
+    }
+  },
+  "repair": {
+    "answer": 1,
+    "en": {
+      "title": "Repair the reporting",
+      "question": "Which addition would make the integration claim most traceable?",
+      "options": [
+        "“Using two methods provided triangulation and increased validity.”",
+        "“Gain patterns guided interview selection and questions; a linked display compared draft changes with interview findings, including different cases.”",
+        "“A larger sample was used, and both datasets were analysed carefully.”"
+      ],
+      "feedback": [
+        "This adds a quality label without showing the actual relationship between the evidence or the specific quality issue addressed.",
+        "This identifies what linked the phases and where findings were compared. The report must also show the actual evidence and explain the resulting inference.",
+        "Sample size and careful strand analysis matter, but they do not specify how the evidence was integrated."
+      ]
+    },
+    "zh": {
+      "title": "修訂研究報告",
+      "question": "哪項補充最能讓讀者追蹤整合主張？",
+      "options": [
+        "「兩種方法提供三角檢證並提高效度。」",
+        "「進步類型引導訪談抽樣與問題；連結展示比較草稿改動與訪談發現，包括不同個案。」",
+        "「研究使用更大樣本，兩組資料都經過仔細分析。」"
+      ],
+      "feedback": [
+        "這只增加品質標籤，沒有交代證據關係或處理了哪個品質問題。",
+        "這指出如何連接階段及在哪裡比較發現，報告仍須呈現實際證據並解釋推論。",
+        "樣本量與各部分分析都重要，但沒有說明證據如何整合。"
+      ]
+    }
+  }
+};
