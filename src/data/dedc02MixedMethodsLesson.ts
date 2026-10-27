@@ -50,8 +50,8 @@ export const mixedMethodsSlides = [
   {
     "title": "Philosophical coherence",
     "zh": "哲學立場的一致性",
-    "body": "<div class=\"columns\"><div><h3>State your position</h3><p>Explain assumptions about knowledge, interpretation, values, and the purpose of inquiry.</p></div><div><h3>Explain the combination</h3><p>Show how the strands and their integration fit those assumptions in this study.</p></div></div><ul><li>Pragmatism is one possible position; it is not compulsory.</li><li>Transformative, dialectical, and other reasoned positions are possible.</li><li>A design label does not resolve philosophical tensions.</li></ul>",
-    "bodyzh": "<div class=\"columns\"><div><h3>交代研究立場</h3><p>說明對知識、詮釋、價值及探究目的的基本假設。</p></div><div><h3>解釋如何結合</h3><p>說明兩個研究部分及其整合，如何符合本研究的基本假設。</p></div></div><ul><li>實用主義是一種選擇，並非必要條件。</li><li>亦可採取轉化、辯證或其他有理據的立場。</li><li>研究設計名稱本身不能解決哲學上的張力。</li></ul>",
+    "body": "<div class=\"columns\"><div><h3>State your position</h3><p>Explain assumptions about knowledge, interpretation, values, and the purpose of inquiry.</p></div><div><h3>Explain the combination</h3><p>Show how the strands and their integration fit those assumptions in this study.</p></div></div><ul><li>Pragmatism is one possible position; it is not compulsory.</li><li>Transformative, dialectical, and other reasoned positions are possible.</li><li>Explain how the chosen methods fit the study’s assumptions.</li></ul>",
+    "bodyzh": "<div class=\"columns\"><div><h3>交代研究立場</h3><p>說明對知識、詮釋、價值及探究目的的基本假設。</p></div><div><h3>解釋如何結合</h3><p>說明兩個研究部分及其整合，如何符合本研究的基本假設。</p></div></div><ul><li>實用主義是一種選擇，並非必要條件。</li><li>亦可採取轉化、辯證或其他有理據的立場。</li><li>說明所選方法如何配合研究的基本假設。</li></ul>",
     "source": "Creswell &amp; Plano Clark (2018), 3rd ed. · Ch. 2, PDF pp. 86–95",
     "cls": ""
   },
@@ -186,8 +186,8 @@ export const mixedMethodsSlides = [
   {
     "title": "When findings disagree",
     "zh": "結果不一致時",
-    "body": "<div class=\"flow\"><div class=\"step quan\"><b>Check comparability</b><br>Same construct, group, timeframe, and level?</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step qual\"><b>Examine evidence</b><br>Measurement, sampling, analysis, context</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step mix\"><b>Report the tension</b><br>Reanalyse or follow up where justified; bound the inference</div></div><ul><li>Agreement may corroborate; expansion may add another facet.</li><li>A genuine discrepancy may expose a limitation or a context-dependent account.</li><li>Preserve unresolved disagreement rather than forcing a single story.</li></ul>",
-    "bodyzh": "<div class=\"flow\"><div class=\"step quan\"><b>檢查可比性</b><br>相同概念、群體、時段及層次？</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step qual\"><b>檢視證據</b><br>測量、抽樣、分析及脈絡</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step mix\"><b>報告張力</b><br>有理據時再分析或跟進，並限定推論</div></div><ul><li>一致可互相印證；擴展可增加另一面向。</li><li>真正差異可能揭示局限，或反映情境中的不同解釋。</li><li>保留尚未解決的分歧，避免強行合成單一故事。</li></ul>",
+    "body": "<div class=\"flow\"><div class=\"step quan\"><b>Check comparability</b><br>Same construct, group, timeframe, and level?</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step qual\"><b>Examine evidence</b><br>Measurement, sampling, analysis, context</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step mix\"><b>Report the difference</b><br>Reanalyse or follow up where justified; bound the inference</div></div><ul><li>Agreement may corroborate; expansion may add another facet.</li><li>A genuine discrepancy may expose a limitation or a context-dependent account.</li><li>Preserve unresolved disagreement rather than forcing a single story.</li></ul>",
+    "bodyzh": "<div class=\"flow\"><div class=\"step quan\"><b>檢查可比性</b><br>相同概念、群體、時段及層次？</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step qual\"><b>檢視證據</b><br>測量、抽樣、分析及脈絡</div><span class=\"arrow\" aria-hidden=\"true\">→</span><div class=\"step mix\"><b>報告差異</b><br>有理據時再分析或跟進，並限定推論</div></div><ul><li>一致可互相印證；擴展可增加另一面向。</li><li>真正差異可能揭示局限，或反映情境中的不同解釋。</li><li>保留尚未解決的分歧，避免強行合成單一故事。</li></ul>",
     "source": "Creswell &amp; Plano Clark (2018), 3rd ed. · PDF pp. 328, 338–339",
     "cls": ""
   },
