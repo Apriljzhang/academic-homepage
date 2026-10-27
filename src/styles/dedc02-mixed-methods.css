@@ -176,3 +176,24 @@
   .mm-deck [data-slide-key="sampling-timing"] table { line-height: 1.25; }
   .mm-deck [data-slide-key="sampling-timing"] :is(td,th) { padding: .4rem .55rem; }
 }
+
+/* Complete teaching units keep the context, task and supporting explanation together. */
+.mm-deck .unit-route { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem .65rem; margin: .5rem 0; padding: .5rem .7rem; background: var(--mm-soft); line-height: 1.35; }
+.mm-deck .unit-detail-stack { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0 .6rem; align-items: start; }
+.mm-deck .unit-detail-stack > details { min-width: 0; margin: .45rem 0; }
+.mm-deck .unit-detail-stack > details[open] { grid-column: 1 / -1; }
+.mm-deck .case-strip .step { padding: .4rem .6rem; }
+.mm-deck .case-strip .step b { margin: 0; }
+.mm-deck .question-table:has(th:nth-child(2):last-child) th:first-child { width: 50%; }
+.mm-deck .report-examples article p { font-size: var(--mm-table-size,1rem); line-height: 1.4; }
+.mm-deck .report-examples .model-check { padding: .45rem .6rem; border-left: .2rem solid var(--mm-green); background: var(--mm-soft); }
+.mm-deck .closing-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; }
+.mm-deck .closing-actions .resource-link { margin: 0; }
+.mm-deck .slide[data-slide-key="thanks"] .closing-tools { margin: .6rem 0; }
+@media screen and (max-width: 720px) {
+  .mm-deck .unit-detail-stack { grid-template-columns: minmax(0,1fr); }
+  .mm-deck .case-strip { flex-direction: row; gap: .3rem; }
+  .mm-deck .case-strip .step { padding: .4rem .25rem; }
+  .mm-deck .case-strip .arrow { height: auto; transform: none; font-size: 1.2rem; }
+  .mm-deck .closing-actions { align-items: flex-start; flex-direction: column; }
+}

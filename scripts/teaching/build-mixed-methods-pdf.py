@@ -145,6 +145,12 @@ def para(text,kind='body'):
 def render(node):
     if isinstance(node,str):return [] if not node.strip() else [para(escape(node))]
     if node.has('diagram-builder'):return []
+    if node.has('closing-tools'):return []
+    if node.has('unit-route'):return [para(rich(node),'prompt')]
+    if node.tag=='details':
+        parts=[]
+        for child in node.children:parts.extend(render(child))
+        return [KeepTogether(parts)] if parts else []
     if node.has('method-tree'):return [MethodMap(node),Spacer(1,10)]
     if node.has('concept-cards'):
         columns=3 if node.has('cards-3') else 2
@@ -177,7 +183,7 @@ def render(node):
             if cells:data.append([para(rich(x),'tablehead' if x.tag=='th' else 'table') for x in cells])
         if not data:return []
         cols=len(data[0]); widths=[WIDTH/cols]*cols
-        if cols==2:widths=[WIDTH*.27,WIDTH*.73]
+        if cols==2 and not node.has('question-table'):widths=[WIDTH*.27,WIDTH*.73]
         t=Table(data,colWidths=widths,repeatRows=1,hAlign='LEFT')
         t.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,0),GREEN),('GRID',(0,0),(-1,-1),.5,LINE),
                               ('VALIGN',(0,0),(-1,-1),'TOP'),('LEFTPADDING',(0,0),(-1,-1),9),
@@ -269,12 +275,9 @@ if __name__=='__main__':
             key=slide['key'];task=activities[key];copy=task['en'];answer=task['answer']
             # Give the activity and its worked interpretation distinct pages.
             activity=root.find(cls='reasoning-activity')[0]
-            if key=='joint-display':
-                for child in root.children:
-                    if child is activity:break
-                    story.extend(render(child))
-            elif key=='repair':
-                story.extend(render(root.children[0]))
+            for child in root.children:
+                if child is activity:break
+                story.extend(render(child))
             activity_parts=render(activity)
             story.extend(activity_parts[:-1])
             story.append(para('Choose an answer and explain why before checking the following page.','prompt'))
@@ -286,7 +289,8 @@ if __name__=='__main__':
                 if child is activity:seen=True;continue
                 if seen:story.extend(render(child))
         elif slide['key']=='thanks':
-            story.extend([Spacer(1,35),para('Questions and discussion','subhead'),para('What would integrating two strands add to a study you are reading?'),para('<link href="https://apriljzhang.com/teaching/courses/dedc02/09-mixed-methods-integration/" color="#1f6b45"><u>Open the interactive lesson</u></link>','link')])
+            story.extend(render(root))
+            story.append(para('<link href="https://apriljzhang.com/teaching/courses/dedc02/09-mixed-methods-integration/" color="#1f6b45"><u>Open the interactive lesson</u></link>','link'))
         else:story.extend(render(root))
     args.output.parent.mkdir(parents=True,exist_ok=True)
     doc=SimpleDocTemplate(str(args.output),pagesize=PAGE,rightMargin=40,leftMargin=40,topMargin=55,bottomMargin=44,title='Mixed Methods Design and Reporting - DEDC02',author='April Jiawei Zhang')
