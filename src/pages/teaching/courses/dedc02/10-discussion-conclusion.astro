@@ -1,0 +1,32 @@
+---
+import CourseSlideLayout from '../../../../layouts/CourseSlideLayout.astro';
+import LessonDeckChrome from '../../../../components/lessons/LessonDeckChrome.astro';
+import { discussionConclusionSlides as slides } from '../../../../data/dedc02DiscussionConclusion';
+import { withBase } from '../../../../utils/paths';
+import '../../../../styles/dedc02-discussion-conclusion.css';
+const title = 'Discussion and Conclusion · DEDC02';
+const description = 'A bilingual doctoral research-methods lesson on interpreting findings, developing explanations, theory, literature, limitations, contribution, implications and conclusions.';
+const courseHref = withBase('/teaching/courses/dedc02');
+---
+<CourseSlideLayout {title} {description} lessonDeck>
+  <LessonDeckChrome {courseHref} lessonTitle="Discussion and Conclusion" />
+  <main class="deck dc-deck" aria-label="Discussion and Conclusion slide deck">
+    {slides.map((slide, index) => (
+      <section id={`slide-${index + 1}`} class:list={['slide', { 'is-active': index === 0, spacious: slide.spacious }]} data-slide-key={slide.key} data-title={slide.title.en.replaceAll('<br>', ' ')} data-title-zh={slide.title.zh.replaceAll('<br>', ' ')} data-language="en" aria-hidden={index !== 0} inert={index !== 0}>
+        <div class="slide-inner">
+          <header class="slide-header"><span class="eyebrow" data-part-en={slide.part.en} data-part-zh={slide.part.zh}>{slide.part.en}</span></header>
+          {index === 0 && <div class="title-rule"></div>}
+          <div data-language="en" lang="en-GB">
+            {index === 0 ? <h1 set:html={slide.title.en} /> : <h2 set:html={slide.title.en} />}
+            <Fragment set:html={slide.body.en} />
+          </div>
+          <div data-language="zh" lang="zh-Hant" hidden>
+            {index === 0 ? <h1 set:html={slide.title.zh} /> : <h2 set:html={slide.title.zh} />}
+            <Fragment set:html={slide.body.zh} />
+          </div>
+        </div>
+      </section>
+    ))}
+  </main>
+  <script>import '../../../../scripts/dedc02DiscussionConclusion';</script>
+</CourseSlideLayout>
