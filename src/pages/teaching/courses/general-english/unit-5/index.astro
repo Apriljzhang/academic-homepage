@@ -21,6 +21,7 @@ const description = 'Perspectives I, Unit 5: Family and friends. Four 75-minute 
           <h2 class="text-xl font-semibold"><a href={withBase(`/teaching/courses/general-english/unit-5/${session.slug}`)}>{session.number}. {session.title.en}</a></h2>
           <p class="mt-1 text-sm text-muted">{session.sections} · pp. {session.pages} · 75 minutes</p>
           <p class="mt-2">{session.outcome.en}</p>
+          {session.handout && <p class="mt-2 text-sm"><a href={withBase(session.handout)} download>Student reading and practice (PDF)</a></p>}
         </li>)}
       </ol>
       <div class="mt-8 max-w-3xl">

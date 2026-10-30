@@ -1,3 +1,5 @@
+import { unit5Session2Slides } from './generalEnglishUnit5Session2';
+
 export type Text = { en: string; zh: string };
 const t = (en: string, zh: string): Text => ({ en, zh });
 export type UnitSlide = {
@@ -6,11 +8,18 @@ export type UnitSlide = {
   columns?: { title: Text; lines: Text[] }[];
   reveal?: { title: Text; lines: Text[] };
   quiz?: { prompt: Text; choices: Text[]; correct: number; feedback: Text }[];
+  reading?: { number: number; text: Text }[];
+  practice?: { number: number; prompt: string; answer: string }[];
+  wordBank?: { word: string; meaning: Text }[];
+  table?: { headers: Text[]; rows: Text[][] };
+  links?: { label: Text; href: string; download?: boolean }[];
+  videoId?: string;
+  source?: Text;
   visual?: 'people' | 'time' | 'laugh' | 'invite';
 };
 export type UnitSession = {
   slug: string; number: number; title: Text; sections: string; pages: string;
-  outcome: Text; slides: UnitSlide[];
+  outcome: Text; slides: UnitSlide[]; handout?: string;
 };
 
 export const unit5Sessions: UnitSession[] = [
@@ -48,32 +57,8 @@ export const unit5Sessions: UnitSession[] = [
   {
     slug: 'growing-up', number: 2, title: t('Growing up, your way', '用自己的方式成長'), sections: '5B + 5C (1)', pages: '60–63',
     outcome: t('Find evidence in a reading and describe how long something has continued.', '在閱讀中找證據，並描述一件事持續了多久。'),
-    slides: [
-      { cover: true, minutes: 3, title: t('Growing up, your way.', '用自己的方式成長。'), lead: t('What makes you feel grown-up: a first job, moving away, turning eighteen—or another moment?', '甚麼讓你覺得自己長大了：第一份工作、離家生活、十八歲，或其他時刻？'), visual: 'people', takeaway: t('Today: read about a celebration, support a claim, and use for / since.', '今天：閱讀慶祝活動的文章、以證據支持說法，並運用 for／since。') },
-      { minutes: 5, ref: '5A retrieval → 5B · p. 60 · Ex. 4', title: t('A milestone worth celebrating', '值得慶祝的里程碑'), lead: t('Use a real, fictional or game-world milestone. Tell a partner why it matters.', '選真實、虛構或遊戲世界的里程碑，告訴同伴它為何重要。'), example: 'I have reached a new rank. I reached it last month. It matters because our team worked together.', steps: [t('Ask: “When did it happen?” Then discuss two questions in Ex. 4.', '追問：「When did it happen?」再討論第4題中的兩個問題。')] },
-      { minutes: 7, ref: '5B · p. 60 · Ex. 1–3', title: t('Unlock the -al words', '解開 -al 形容詞'), lead: t('Complete Ex. 1–2. Use the context to connect each adjective to its meaning.', '完成第1–2題，利用上下文理解形容詞意思。'), columns: [
-        { title: t('Meaning', '意思'), lines: [t('personal → a person', 'personal 個人的 → a person'), t('historical → history', 'historical 歷史的 → history'), t('cultural → culture', 'cultural 文化的 → culture')] },
-        { title: t('Build and check', '構詞與核對'), lines: [t('Ex. 3: form five adjectives from the nouns.', '第3題：把五個名詞變成形容詞。'), t('Check spelling: music → musical; nature → natural.', '注意拼寫：music → musical；nature → natural。')] }
-      ], takeaway: t('Say one sentence: “For me, ___ is a personal / cultural / traditional celebration.”', '說一句：「For me, ___ is a personal / cultural / traditional celebration.」') },
-      { minutes: 7, ref: '5B · pp. 60–61 · Ex. 5', title: t('Read for the big idea', '先讀主旨'), lead: t('Read “From child to adult in one day” in your e-book. Complete Ex. 5.', '在電子書閱讀 From child to adult in one day，完成第5題。'), steps: [t('First, predict from the title and photo. Then read without stopping at every new word.', '先根據標題和照片預測，再讀全文，不必每遇到生字就停下。'), t('Choose the topic and main idea. Show your partner two supporting details.', '選出主題與主旨，再向同伴指出兩項支持細節。')], takeaway: t('A main idea covers the whole article; an interesting detail covers only one part.', '主旨涵蓋整篇文章；有趣細節只涵蓋其中一部分。') },
-      { minutes: 9, ref: '5B · p. 60 · Ex. 6; article p. 61', title: t('True, false—or not there?', '正確、錯誤，還是沒有提及？'), lead: t('Complete Ex. 6. Mark the paragraph or line that supports each decision.', '完成第6題，標出支持每個判斷的段落或行數。'), columns: [
-        { title: t('True / False', 'True／False'), lines: [t('True: the article supports the statement.', 'True：文章支持這個說法。'), t('False: the article gives conflicting information.', 'False：文章提供與說法矛盾的資料。')] },
-        { title: t('Not given', 'Not given'), lines: [t('The article does not settle the claim.', '文章沒有足夠資料判斷。'), t('Your own knowledge is not evidence from this text.', '你的常識不等於這篇文章的證據。')] }
-      ], steps: [t('Compare one disagreement. Find the evidence before changing your answer.', '討論一題不同答案；先找證據，再決定是否修改。')] },
-      { minutes: 7, ref: '5B · p. 60 · Ex. 7', title: t('Evidence detectives', '證據偵探'), lead: t('Pairs choose two statements in Ex. 7. Find information that supports each one.', '兩人從第7題選兩個說法，分別找出支持資料。'), steps: [t('Write the statement number and paragraph or line reference.', '寫下題號及段落或行數。'), t('Use your own words to explain the connection. Another pair checks your evidence.', '用自己的話說明兩者如何相連，再請另一組核對。')], example: 'The article supports statement ___ in paragraph ___. It says ___. This shows ___.', takeaway: t('For a challenge, find support for the remaining statements.', '進階挑戰：找出其他說法的支持資料。') },
-      { minutes: 6, ref: '5B · p. 60 · Ex. 8; comments in the e-book', title: t('Your culture, your comment', '你的文化，你的留言'), lead: t('Read the three comments. Write your own short response of 35–50 words.', '閱讀三則留言，再寫一則35–50字的英文回應。'), steps: [t('Mention one celebration and one similarity or difference. Explain what it means to someone.', '提及一個慶祝活動、一個相同或不同之處，並解釋它對某人的意義。'), t('You can describe an imagined community or a fictional family.', '可以描述想像的社群或虛構的家庭。')], example: 'In my community, we celebrate ___. Like the celebration in the article, ___. For me, it means ___.' },
-      { minutes: 5, ref: '5B · p. 60 · Ex. 9', title: t('A celebration for your circle', '為你的圈子設計慶祝活動'), lead: t('Plan a small event for a friend group, gaming team or university club.', '為朋友群、遊戲隊或大學社團設計一個小活動。'), steps: [t('Choose a milestone, place and two activities. Agree on a budget of MOP 300 for the group.', '決定里程碑、地點和兩項活動；全組預算為澳門幣300元。'), t('Make one decision that helps a new member feel included. Keep the plan for Session 4.', '作一個能讓新成員融入的安排，把計劃留到第四節。')], example: 'We want to celebrate ___. We will meet at ___. A new member can ___.' },
-      { minutes: 7, ref: '5C · p. 62 · Ex. 1a–b · for / since', title: t('How long has it been?', '已經多久了？'), lead: t('Focus on examples a–b in the grammar box. The situation started earlier and continues now.', '先看文法框的例句a–b：情況在過去開始，並持續到現在。'), visual: 'time', columns: [
-        { title: t('for + a period', 'for + 一段時間'), lines: [t('for three years · for two months', 'for three years 三年 · for two months 兩個月'), t('We have been teammates for three years.', '我們當隊友已有三年。')] },
-        { title: t('since + a starting point', 'since + 起點'), lines: [t('since 2023 · since September', 'since 2023 自2023年起 · since September 自九月起'), t('I have known her since secondary school.', '我從中學開始便認識她。')] }
-      ], takeaway: t('How long have you…? → for a period / since a starting point.', 'How long have you…? → 用 for 說時間長度，或 since 說起點。') },
-      { minutes: 6, ref: '5C · p. 62 · Ex. 2', title: t('For or since?', 'For 還是 since？'), lead: t('Complete Ex. 2 in your e-book. Then test the two new examples here.', '在電子書完成第2題，再試這裡的兩個新例子。'), quiz: [
-        { prompt: t('We have been friends ___ five years.', 'We have been friends ___ five years.'), choices: [t('for', 'for'), t('since', 'since')], correct: 0, feedback: t('For: five years is a period of time.', '選 for：five years 是一段時間。') },
-        { prompt: t('I have lived here ___ September.', 'I have lived here ___ September.'), choices: [t('for', 'for'), t('since', 'since')], correct: 1, feedback: t('Since: September names the starting point.', '選 since：September 是開始的時間點。') }
-      ] },
-      { minutes: 8, ref: '5C · p. 62 · Ex. 3', title: t('Find a connection', '找出共同連結'), lead: t('Complete the four How long…? questions in Ex. 3. Choose two to ask your partner.', '完成第3題的四個 How long…? 問句，選兩個問同伴。'), example: 'A: How long have you known your best friend?\nB: I have known her for six years.\nA: How did you meet?\nB: We met at school.', steps: [t('Listen and note one shared experience. Introduce the connection in one sentence.', '聆聽並記下一個共同經歷，用一句話介紹這個連結。'), t('Optional challenge: ask a third question about a club, game or hobby.', '進階挑戰：再問一題社團、遊戲或興趣相關的問題。')] },
-      { minutes: 5, ref: '5B–5C · exit check', title: t('A claim. A clue. A timeline.', '一個說法、一項線索、一條時間線。'), lead: t('Finish these three lines in your notes. Share one with a partner.', '在筆記完成這三句，再選一句與同伴分享。'), steps: [t('“The article shows ___; my evidence is in paragraph ___.”', '「The article shows ___; my evidence is in paragraph ___.」'), t('“I have ___ for ___.” / “I have ___ since ___.”', '「I have ___ for ___.」／「I have ___ since ___.」'), t('Before Session 3: finish Ex. 7 if needed. Bring two sentences about a hobby, using for and since.', '第三節前：有需要可完成第7題，並準備兩個用 for 和 since 描述興趣的句子。')], takeaway: t('Keep your celebration plan. Next: recent achievements and why people laugh.', '保留慶祝計劃。下節：近期成就，以及人為甚麼會笑。') }
-    ]
+    handout: '/teaching/courses/general-english/unit-5/zhen-huan-reading-practice.pdf',
+    slides: unit5Session2Slides
   },
   {
     slug: 'experiences-and-laughter', number: 3, title: t('Experiences and laughter', '經歷與笑聲'), sections: '5C (2) + 5D', pages: '62–65',

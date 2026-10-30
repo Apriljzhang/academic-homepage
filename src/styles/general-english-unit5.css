@@ -20,6 +20,23 @@
 .u5-deck .source-note { font-size: .8rem; margin-top: 1rem; }
 .u5-deck .u5-next { display: flex; flex-wrap: wrap; gap: .75rem 2rem; }
 .u5-deck .u5-next a { color: var(--lesson-green); text-underline-offset: .2em; min-height: 44px; }
+.u5-deck .u5-links { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; }
+.u5-deck .u5-links a { display: inline-flex; align-items: center; min-height: 44px; color: var(--lesson-green); text-underline-offset: .2em; overflow-wrap: anywhere; }
+.u5-deck .u5-reading { max-width: 68ch; }
+.u5-deck .u5-reading p { line-height: 1.65; }
+.u5-deck .u5-reading strong { color: var(--lesson-green); }
+.u5-deck .u5-practice { list-style: decimal; padding-left: 2.3rem; margin: 1rem 0; }
+.u5-deck .u5-practice li { padding-left: .25rem; overflow-wrap: anywhere; }
+.u5-deck .u5-practice li + li { margin-top: 1rem; }
+.u5-deck .u5-answers li + li { margin-top: .4rem; }
+.u5-deck .u5-word-bank { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem 2rem; margin: 1rem 0; }
+.u5-deck .u5-word-bank div { border-top: 1px solid var(--lesson-line); padding-top: .5rem; }
+.u5-deck .u5-word-bank dt { font-size: 1.4rem; font-weight: 600; }
+.u5-deck .u5-word-bank dd { margin: .15rem 0 0; font-size: 1.1rem; }
+.u5-deck .u5-video { width: min(100%,48rem); aspect-ratio: 16/9; margin: 1rem 0; }
+.u5-deck .u5-video iframe { display: block; width: 100%; height: 100%; border: 0; }
+.u5-deck .u5-table table { border-collapse: collapse; width: 100%; table-layout: fixed; font-size: clamp(1rem,1.6vw,1.3rem); }
+.u5-deck .u5-table :is(th,td) { padding: .65rem; border: 1px solid var(--lesson-line); text-align: left; vertical-align: top; overflow-wrap: anywhere; }
 .u5-deck fieldset { min-width: 0; margin: 1rem 0; border: 0; border-top: 1px solid var(--lesson-line); padding: .75rem 0; }
 .u5-deck legend { padding-right: 1rem; font-weight: 600; }
 .u5-deck .u5-choices { display: flex; flex-wrap: wrap; gap: .6rem; }
@@ -52,6 +69,8 @@
   .u5-deck .u5-people { margin: .75rem 0; }
 }
 @media screen and (max-width:700px) {
+  .u5-deck .u5-word-bank { grid-template-columns: 1fr; gap: .75rem; }
+  .u5-deck .u5-table :is(th,td) { padding: .4rem; }
   .u5-deck .u5-columns { grid-template-columns: 1fr; gap: 1rem; }
   .u5-deck .u5-columns article + article { border-left: 0; border-top: 1px solid var(--lesson-line); padding: 1rem 0 0; }
   .u5-deck .u5-people span { font-size: 1rem; padding: .55rem .75rem; }
