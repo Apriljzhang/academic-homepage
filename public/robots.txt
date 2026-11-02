@@ -1,0 +1,20 @@
+# Restrict selected training and bulk-data crawlers while preserving search.
+# These are voluntary crawler instructions, not access controls.
+# See docs/scraping-protection.md for enforcement and maintenance.
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+# Also restrict Gemini training and grounding; Google Search is unaffected.
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+# Search indexing and ordinary visitors remain available.
+User-agent: *
+Disallow:
