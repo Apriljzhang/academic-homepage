@@ -30,16 +30,20 @@ export const discussionConclusionSlides: Slide[] = [
     body: c(lead('Interpret findings, develop explanations and show what the study adds to knowledge.') + '<p class="opening-question">What makes a discussion persuasive enough to withstand methodological scrutiny?</p>', lead('詮釋研究發現、發展解釋，並說明研究如何增進理解。') + '<p class="opening-question">一段討論需要甚麼，才能經得起研究方法上的檢視？</p>'),
   },
   {
-    key: 'route', part: c('The research task', '研究任務'), title: c('From findings to a research argument', '從研究發現到研究論證'),
-    body: c(table(['Teaching time', 'Focus', 'What you will produce'], [
-      ['20 minutes', 'Results: answer the research questions', 'A finding and its scope'],
-      ['100 minutes', 'Discussion: interpret, explain, compare and evaluate', 'A developed discussion argument'],
-      ['20 minutes', 'Conclusion: synthesise the whole study', 'A conclusion and a methodological defence'],
-    ]) + takeaway('Keep one finding from your own project in view. If data are unavailable, use the constructed study supplied here.'), table(['教學時間', '重點', '完成的成果'], [
-      ['20 分鐘', '結果：回答研究提問', '一項發現及其適用範圍'],
-      ['100 分鐘', '討論：詮釋、解釋、比較及評估', '一個充分發展的討論論證'],
-      ['20 分鐘', '結論：綜合整項研究', '結論及研究方法答辯'],
-    ]) + takeaway('全課持續處理自己專案的一項發現；尚無資料時，可使用本課的虛構研究。')),
+    key: 'route', part: c('The research task', '研究任務'), title: c('Learning aims', '學習目標'),
+    body: c(lead('By the end of this session, you will be able to:') + list(
+      'Distinguish the roles of Results, Discussion and Conclusion in a research argument.',
+      'Interpret findings, develop evidence-supported explanations and evaluate competing interpretations.',
+      'Connect findings to theory and previous research to articulate the study’s contribution.',
+      'Evaluate how limitations affect claims and derive justified implications for research and practice.',
+      'Synthesise the study’s overall answer, contribution and scope in a coherent Conclusion.',
+    ), lead('完成本課後，你將能夠：') + list(
+      '區分結果、討論與結論在研究論證中的作用。',
+      '詮釋研究發現，發展有證據支持的解釋，並評估其他可能詮釋。',
+      '把發現連結至理論及既有研究，清楚說明研究貢獻。',
+      '評估限制如何影響研究主張，並推導有理據的研究及實務啟示。',
+      '在連貫的結論中，綜合整項研究的答案、貢獻及適用範圍。',
+    )),
   },
   {
     key: 'section-jobs', part: results, title: c('What work does each section do?', '各部分完成甚麼工作？'),
