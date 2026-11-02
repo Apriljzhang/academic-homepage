@@ -2,7 +2,7 @@
 
 Route: `/teaching/courses/dedc02/10-discussion-conclusion/`.
 
-The 140-minute session has 20 minutes on Results, 100 on Discussion (including limitations, contribution and implications), and 20 on Conclusion. The reference slides are reading resources, not an additional teaching block. There are no breaks or slide footers. Shared navigation remains in the established lesson chrome.
+The 140-minute session has 20 minutes on Results, 100 on Discussion (including limitations, contribution and implications), and 20 on Conclusion. The student deck contains 30 slides; source panels, reading links and reference slides are omitted. There are no breaks or slide footers. Shared navigation remains in the established lesson chrome.
 
 The transferable content is the movement from an analytical finding to a substantive interpretation; developing and checking explanations; connecting findings to theoretical propositions; explaining relationships with previous research; integrating findings and handling contradictory evidence; deriving limitations, contribution and implications; and synthesising the whole argument in a Conclusion.
 
@@ -34,4 +34,4 @@ The running EFL feedback study (120 learners, 48/72 gain patterns, 12 interviewe
 
 Responses, choices and review checks use browser-local storage under `dedc02-discussion-conclusion-v1`. English/Traditional Chinese views share response values without translating the student's writing. Storage failure is disclosed beside the activities. Markdown export includes the current responses and checked explanations; no data are submitted to a server. Existing lesson storage keys are unchanged.
 
-The website contains bibliographic references and public article links. Copyrighted textbook PDFs and private vault files are not uploaded.
+Source provenance is retained in this development document. The student deck has no resource panels or reference slides. Copyrighted textbook PDFs and private vault files are not uploaded.

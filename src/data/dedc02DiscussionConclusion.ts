@@ -8,14 +8,6 @@ const reveal = (label: string, body: string) => `<details><summary>${label}</sum
 const columns = (a: string, b: string) => `<div class="dc-columns"><div>${a}</div><div>${b}</div></div>`;
 const list = (...items: string[]) => `<ul>${items.map(s => `<li>${s}</li>`).join('')}</ul>`;
 const table = (heads: string[], rows: string[][]) => `<div class="table-wrap"><table><thead><tr>${heads.map(s => `<th scope="col">${s}</th>`).join('')}</tr></thead><tbody>${rows.map(row => `<tr>${row.map((s, i) => i === 0 ? `<th scope="row">${s}</th>` : `<td>${s}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
-const source = (en: string, zh: string, html: string) => c(reveal(en, html), reveal(zh, html));
-const sources = {
-  creswell: source('Textbook basis', '教材依據', '<p>Creswell (2015), <i>Educational research</i>, 5th ed., ch. 6, pp. 196–198; ch. 8, pp. 256–258; ch. 9, pp. 273–275.</p>'),
-  miles: source('Textbook basis', '教材依據', '<p>Miles, Huberman, &amp; Saldaña (2014), <i>Qualitative data analysis</i>, 3rd ed., ch. 11: “Drawing and verifying conclusions”. The analytical tactics come from qualitative research; adapt the checks to the study’s design and epistemology.</p>'),
-  dornyei: source('Textbook basis', '教材依據', '<p>Dörnyei (2007), <i>Research methods in applied linguistics</i>, §§12.3.4–12.3.5, pp. 284–286; §13.1.2, pp. 297–298.</p>'),
-  mixed: source('Textbook basis', '教材依據', '<p>Creswell &amp; Plano Clark (2018), <i>Designing and conducting mixed methods research</i>, 3rd ed., chs. 7–8: interpretation, meta-inferences and design-specific reporting.</p>'),
-  bryman: source('Textbook basis', '教材依據', '<p>Clark, Foster, Sloan, &amp; Bryman (2021), <i>Bryman’s social research methods</i>, 6th ed., ch. 25: writing up research, Discussion and Conclusion.</p>'),
-};
 const field = (id: string, label: string, lang: 'en' | 'zh', placeholder = '', rows = 3) => `<label class="response-field" for="${id}-${lang}"><span>${label}</span><textarea id="${id}-${lang}" data-response="${id}" data-label="${esc(label)}" rows="${rows}" placeholder="${esc(placeholder)}"></textarea></label>`;
 const save = (lang: 'en' | 'zh') => `<p class="save-status" data-save-status aria-live="polite">${lang === 'zh' ? '輸入會保存在此瀏覽器；切換語言會保留原文。' : 'Entries stay in this browser. Switching language keeps your original wording.'}</p>`;
 const quiz = (id: string, prompt: string, options: { label: string; why: string; fits?: boolean }[], lang: 'en' | 'zh') => `<div class="dc-quiz" data-quiz="${id}" data-quiz-language="${lang}"><p class="question">${prompt}</p><div class="choices" role="group" aria-label="${esc(prompt)}">${options.map((o, i) => `<button type="button" data-choice="${i}" data-option-label="${esc(o.label)}" data-fits="${Boolean(o.fits)}" aria-pressed="false"><span>${o.label}</span><span data-explanation hidden>${o.why}</span></button>`).join('')}</div><div class="activity-actions"><button type="button" data-check>${lang === 'zh' ? '檢視理由' : 'Examine the reasoning'}</button><button type="button" data-retry>${lang === 'zh' ? '重新選擇' : 'Try again'}</button></div><p class="quiz-feedback" data-feedback role="status">${lang === 'zh' ? '先作判斷並說明理由，再查看回應。' : 'Make a judgement and explain why before checking.'}</p></div>`;
@@ -51,12 +43,12 @@ export const discussionConclusionSlides: Slide[] = [
       { label: 'Reporting a finding', why: 'The sentence proposes meaning and an explanation; the underlying observed pattern still needs to be shown.' },
       { label: 'Developing an interpretation', why: 'It moves from a pattern to a possible explanation. Ask what evidence supports the link.', fits: true },
       { label: 'Providing a complete conclusion', why: 'It could appear in a conclusion, but by itself it does not synthesise the study’s overall answer or contribution.' },
-    ], 'en') + reveal('Section labels vary', '<p>Qualitative findings may already include substantial interpretation. Results and Discussion can be combined. Identify the intellectual work, then choose a structure appropriate to the design and publication.</p>') + sources.dornyei.en,
+    ], 'en') + reveal('Section labels vary', '<p>Qualitative findings may already include substantial interpretation. Results and Discussion can be combined. Identify the intellectual work, then choose a structure appropriate to the design and publication.</p>'),
     table(['結果／發現', '討論', '結論'], [['呈現回答研究提問的模式。', '發展其意義、解釋及重要性。', '說明整項研究的答案及貢獻。']]) + quiz('section-job', '「此模式顯示，運用回饋的機會可能有助解釋修訂表現的差異。」這句話完成甚麼工作？', [
       { label: '報告研究發現', why: '此句提出意義及解釋；仍須交代它所根據的觀察模式。' },
       { label: '發展詮釋', why: '由模式推進至可能的解釋，須追問支持此連結的證據。', fits: true },
       { label: '提供完整結論', why: '此句可出現在結論，但本身未綜合整項研究的答案及貢獻。' },
-    ], 'zh') + reveal('部分名稱可以不同', '<p>質性發現可以包含充分詮釋；結果與討論亦可合併。先辨識其思考工作，再按設計及出版要求安排結構。</p>') + sources.dornyei.zh),
+    ], 'zh') + reveal('部分名稱可以不同', '<p>質性發現可以包含充分詮釋；結果與討論亦可合併。先辨識其思考工作，再按設計及出版要求安排結構。</p>')),
   },
   {
     key: 'running-study', part: results, title: c('Our constructed feedback study', '本課的虛構回饋研究'),
@@ -69,26 +61,26 @@ export const discussionConclusionSlides: Slide[] = [
       ['Scores and their distribution', 'Revision gains differed across learners.', 'Magnitude, variation and uncertainty; identify the cohort.'],
       ['Codes, excerpts and draft changes', 'Some learners described difficulty translating comments into revisions.', 'Source, context, variation and contrary cases.'],
       ['Linked score and interview patterns', 'Reported feedback use differed across the selected gain groups.', 'Which cases are linked; how the subset was chosen.'],
-    ]) + takeaway('Results establish the pattern. Discussion develops what it means and why it may have occurred.') + sources.creswell.en,
+    ]) + takeaway('Results establish the pattern. Discussion develops what it means and why it may have occurred.'),
     table(['分析材料', '實質發現', '保留甚麼'], [
       ['分數及其分布', '學生的修訂進步有所不同。', '幅度、差異、不確定性，以及研究群體。'],
       ['編碼、節錄及草稿改變', '部分學生描述把評語轉化為修訂時的困難。', '來源、語境、差異及相反個案。'],
       ['相連的分數及訪談模式', '所選不同進步組別報告的回饋運用有所不同。', '哪些個案相連，以及如何選取子樣本。'],
-    ]) + takeaway('結果建立模式；討論發展其意義及可能成因。') + sources.creswell.zh),
+    ]) + takeaway('結果建立模式；討論發展其意義及可能成因。')),
   },
   {
     key: 'discussion-map', part: discussion, title: c('Six tasks in a developed discussion', '充分發展討論的六項任務'),
     body: c('<div class="discussion-map">' + [
       ['Interpret', 'Explain the substantive meaning of a specific finding.'], ['Explain', 'Develop and examine possible reasons for the pattern.'], ['Connect to theory', 'Identify the proposition or concept the evidence bears on.'], ['Compare', 'Use previous studies to clarify agreement, differences and conditions.'], ['Integrate', 'Bring findings together, including contradictions and exceptions.'], ['Establish significance', 'Specify the contribution, implications and limits.'],
-    ].map(([h, p]) => reveal(h, `<p>${p}</p>`)).join('') + '</div>' + takeaway('Organise around research questions or substantive claims. Use these tasks where the evidence calls for them; they are not six compulsory paragraphs.') + sources.bryman.en,
+    ].map(([h, p]) => reveal(h, `<p>${p}</p>`)).join('') + '</div>' + takeaway('Organise around research questions or substantive claims. Use these tasks where the evidence calls for them; they are not six compulsory paragraphs.'),
     '<div class="discussion-map">' + [
       ['詮釋', '說明一項具體發現的實質意義。'], ['解釋', '發展並檢視模式的可能成因。'], ['連結理論', '指出證據涉及哪項命題或概念。'], ['比較', '透過既有研究釐清一致、差異及成立條件。'], ['整合', '綜合不同發現，包括矛盾及例外。'], ['建立重要性', '說明貢獻、啟示及限制。'],
-    ].map(([h, p]) => reveal(h, `<p>${p}</p>`)).join('') + '</div>' + takeaway('按研究提問或實質主張組織。依證據需要運用這些任務，無須寫成固定六段。') + sources.bryman.zh),
+    ].map(([h, p]) => reveal(h, `<p>${p}</p>`)).join('') + '</div>' + takeaway('按研究提問或實質主張組織。依證據需要運用這些任務，無須寫成固定六段。')),
   },
   {
     key: 'interpret', part: discussion, title: c('Interpretation changes the level of the claim', '詮釋改變主張的層次'),
-    body: c('<ol class="inference-steps"><li><b>Observed pattern</b><span>Revision gains differ; some learners report difficulty acting on comments.</span></li><li><b>Substantive interpretation</b><span>Access to comments and using comments productively are distinct issues.</span></li><li><b>Possible explanation</b><span>Learners may need opportunities and support to translate comments into action.</span></li><li><b>Scope</b><span>This evidence concerns this programme and these observed revisions.</span></li></ol>' + takeaway('Each step adds an inference. Identify the evidence or reasoning that permits it.') + sources.creswell.en,
-    '<ol class="inference-steps"><li><b>觀察模式</b><span>修訂進步不同；部分學生報告難以採取行動。</span></li><li><b>實質詮釋</b><span>取得評語與有效運用評語，是可區分的問題。</span></li><li><b>可能解釋</b><span>學生可能需要機會及支援，才可把評語轉化為行動。</span></li><li><b>適用範圍</b><span>證據涉及此課程及所觀察的修訂。</span></li></ol>' + takeaway('每一步都加入推論。指出容許這一步的證據或理據。') + sources.creswell.zh),
+    body: c('<ol class="inference-steps"><li><b>Observed pattern</b><span>Revision gains differ; some learners report difficulty acting on comments.</span></li><li><b>Substantive interpretation</b><span>Access to comments and using comments productively are distinct issues.</span></li><li><b>Possible explanation</b><span>Learners may need opportunities and support to translate comments into action.</span></li><li><b>Scope</b><span>This evidence concerns this programme and these observed revisions.</span></li></ol>' + takeaway('Each step adds an inference. Identify the evidence or reasoning that permits it.'),
+    '<ol class="inference-steps"><li><b>觀察模式</b><span>修訂進步不同；部分學生報告難以採取行動。</span></li><li><b>實質詮釋</b><span>取得評語與有效運用評語，是可區分的問題。</span></li><li><b>可能解釋</b><span>學生可能需要機會及支援，才可把評語轉化為行動。</span></li><li><b>適用範圍</b><span>證據涉及此課程及所觀察的修訂。</span></li></ol>' + takeaway('每一步都加入推論。指出容許這一步的證據或理據。')),
   },
   {
     key: 'claim-lab', part: discussion, title: c('Which claim can the design support?', '設計支持哪項主張？'),
@@ -115,18 +107,18 @@ export const discussionConclusionSlides: Slide[] = [
       ['Refinement', 'Which condition or distinction makes the explanation more precise?'],
       ['Challenge', 'Which assumption is difficult to reconcile with the evidence?'],
       ['Development', 'What new relationship is proposed, and what evidence would test it?'],
-    ]) + takeaway('Name the proposition and explain the relationship. Adding a theory citation does not perform this work.') + sources.dornyei.en,
+    ]) + takeaway('Name the proposition and explain the relationship. Adding a theory citation does not perform this work.'),
     table(['關係', '需要發展的推理'], [
       ['支持', '出現了哪個預期模式？研究有多直接地檢視它？'],
       ['修正', '哪個條件或區別，使解釋更精確？'],
       ['挑戰', '哪項假設難以與證據相容？'],
       ['發展', '提出甚麼新關係？甚麼證據可檢視它？'],
-    ]) + takeaway('指出命題並解釋其關係；加入理論引文本身，尚未完成這項工作。') + sources.dornyei.zh),
+    ]) + takeaway('指出命題並解釋其關係；加入理論引文本身，尚未完成這項工作。')),
   },
   {
     key: 'conceptual-coherence', part: discussion, title: c('From a local pattern to a conceptual explanation', '從具體模式到概念性解釋'),
-    body: c(lead('A textbook example from Miles, Huberman and Saldaña’s school-improvement research.') + '<div class="evidence-chain"><div><b>Observed pattern</b><p>Some staff invested great effort and made strong claims about benefits; outcome evidence offered little support.</p></div><div><b>Conceptual interpretation</b><p>The authors connected the pattern to effort justification within cognitive dissonance theory.</p></div><div><b>Analytical check</b><p>Contrasts across sites helped them see different combinations of effort, claims and evidence.</p></div></div>' + reveal('Discuss the theoretical move', '<p>Which observations need explaining? How does effort justification connect them? What evidence could favour a different explanation? An available theoretical label is not proof of the mechanism.</p>') + sources.miles.en,
-    lead('Miles、Huberman 及 Saldaña 在學校改進研究中的教材例子。') + '<div class="evidence-chain"><div><b>觀察模式</b><p>部分教職員投入很大心力，並強調成效；成果證據卻支持有限。</p></div><div><b>概念性詮釋</b><p>作者把此模式連結至認知失調理論中的「努力合理化」。</p></div><div><b>分析檢查</b><p>跨研究地點的比較，使努力、成效主張與證據的不同組合清晰可見。</p></div></div>' + reveal('討論這個理論推進', '<p>哪些觀察需要解釋？努力合理化如何連結它們？甚麼證據可能支持另一解釋？找到可用的理論標籤，尚未證實其機制。</p>') + sources.miles.zh),
+    body: c(lead('A textbook example from Miles, Huberman and Saldaña’s school-improvement research.') + '<div class="evidence-chain"><div><b>Observed pattern</b><p>Some staff invested great effort and made strong claims about benefits; outcome evidence offered little support.</p></div><div><b>Conceptual interpretation</b><p>The authors connected the pattern to effort justification within cognitive dissonance theory.</p></div><div><b>Analytical check</b><p>Contrasts across sites helped them see different combinations of effort, claims and evidence.</p></div></div>' + reveal('Discuss the theoretical move', '<p>Which observations need explaining? How does effort justification connect them? What evidence could favour a different explanation? An available theoretical label is not proof of the mechanism.</p>'),
+    lead('Miles、Huberman 及 Saldaña 在學校改進研究中的教材例子。') + '<div class="evidence-chain"><div><b>觀察模式</b><p>部分教職員投入很大心力，並強調成效；成果證據卻支持有限。</p></div><div><b>概念性詮釋</b><p>作者把此模式連結至認知失調理論中的「努力合理化」。</p></div><div><b>分析檢查</b><p>跨研究地點的比較，使努力、成效主張與證據的不同組合清晰可見。</p></div></div>' + reveal('討論這個理論推進', '<p>哪些觀察需要解釋？努力合理化如何連結它們？甚麼證據可能支持另一解釋？找到可用的理論標籤，尚未證實其機制。</p>')),
   },
   {
     key: 'literature', part: discussion, title: c('Explain agreement and disagreement', '解釋研究之間的一致與差異'),
@@ -135,13 +127,13 @@ export const discussionConclusionSlides: Slide[] = [
       ['Population and setting', 'Could participants, institutional conditions or tasks matter?'],
       ['Design and time', 'Are we comparing an association, a short-term intervention or a longitudinal process?'],
       ['Outcome and estimate', 'Do effects differ in direction, magnitude or uncertainty?'],
-    ]) + reveal('A weak comparison', '<p>“Our finding agrees with Study A and disagrees with Study B.”</p>') + reveal('A developed comparison', '<p>“The studies may differ because one assessed immediate supported performance and the other assessed independent performance. The distinction changes what each result indicates about learning.”</p><p>This is a constructed example. Check the actual methods before using such an explanation.</p>') + sources.creswell.en,
+    ]) + reveal('A weak comparison', '<p>“Our finding agrees with Study A and disagrees with Study B.”</p>') + reveal('A developed comparison', '<p>“The studies may differ because one assessed immediate supported performance and the other assessed independent performance. The distinction changes what each result indicates about learning.”</p><p>This is a constructed example. Check the actual methods before using such an explanation.</p>'),
     table(['比較發現之前', '追問'], [
       ['構念與測量', '兩項研究是否以可比較方式探究相同現象？'],
       ['對象與情境', '參與者、制度條件或任務差異是否重要？'],
       ['設計與時間', '比較的是關聯、短期介入，還是長期過程？'],
       ['結果與估計', '效果的方向、幅度或不確定性是否不同？'],
-    ]) + reveal('較薄弱的比較', '<p>「我們的發現與研究 A 一致，但與研究 B 不同。」</p>') + reveal('充分發展的比較', '<p>「兩項研究可能因結果測量不同而有差異：一項測量即時受支援表現，另一項測量獨立表現。這個區別改變了結果對學習的意義。」</p><p>此為虛構寫作例子；使用這種解釋前，必須核對實際方法。</p>') + sources.creswell.zh),
+    ]) + reveal('較薄弱的比較', '<p>「我們的發現與研究 A 一致，但與研究 B 不同。」</p>') + reveal('充分發展的比較', '<p>「兩項研究可能因結果測量不同而有差異：一項測量即時受支援表現，另一項測量獨立表現。這個區別改變了結果對學習的意義。」</p><p>此為虛構寫作例子；使用這種解釋前，必須核對實際方法。</p>')),
   },
   {
     key: 'deslauriers', part: discussion, title: c('Two measures can tell different stories', '兩種測量可以呈現不同模式'),
@@ -149,12 +141,12 @@ export const discussionConclusionSlides: Slide[] = [
       { label: 'Students cannot judge anything about their learning.', why: 'This exceeds the measures, setting and comparison investigated.' },
       { label: 'The two measures are interchangeable indicators of effectiveness.', why: 'The contrasting results make the distinction between perceived and tested learning consequential.' },
       { label: 'Perceived learning and test performance can diverge under these instructional conditions.', why: 'This retains both findings and their setting. Explain the contrast and examine what each measure captures.', fits: true },
-    ], 'en') + reveal('Read the empirical study', '<p>Deslauriers, McCarty, Miller, Callaghan, &amp; Kestin (2019). <a href="https://doi.org/10.1073/pnas.1821936116" target="_blank" rel="noopener noreferrer">Measuring actual learning versus feeling of learning</a>. <i>PNAS, 116</i>, 19251–19257.</p>'),
+    ], 'en'),
     lead('Deslauriers 等人（2019）：基礎物理課的主動學習與學習感受。') + columns('<h3>測得的學習表現</h3><p>主動學習條件的學生，在學習測驗表現較好。</p>', '<h3>學習感受</h3><p>他們卻報告覺得自己學得較少。</p>') + quiz('perception-learning', '對此差異，哪種詮釋最有理據？', [
       { label: '學生完全無法判斷自己的學習。', why: '此主張超越了研究的測量、情境及比較。' },
       { label: '兩項測量是可互換的成效指標。', why: '兩種結果的差異，使「感知學習」與「測得學習」的區別很重要。' },
       { label: '在這些教學條件下，學習感受與測驗表現可能不一致。', why: '同時保留兩項發現及其情境；須解釋差異，不能只選方便的測量。', fits: true },
-    ], 'zh') + reveal('閱讀實證研究', '<p>Deslauriers, McCarty, Miller, Callaghan, &amp; Kestin (2019). <a href="https://doi.org/10.1073/pnas.1821936116" target="_blank" rel="noopener noreferrer">Measuring actual learning versus feeling of learning</a>. <i>PNAS, 116</i>, 19251–19257.</p>')),
+    ], 'zh')),
   },
   {
     key: 'rival-explanations', part: discussion, title: c('Make explanations compete on evidence', '以證據比較不同解釋'),
@@ -162,22 +154,22 @@ export const discussionConclusionSlides: Slide[] = [
       ['Comments were difficult to understand.', 'A learner’s explanation of the comment, linked to the actual comment and attempted revision.'],
       ['There was little opportunity to act.', 'Assessment timing, revision opportunities and accounts of when comments became available.'],
       ['The scoring missed relevant changes.', 'Rubric coverage and examples of changes outside the scored dimension.'],
-    ]) + field('rival', 'Choose two explanations. What evidence would favour one over the other?', 'en') + reveal('Methodological debrief', '<p>List what each explanation predicts, what supports it and what challenges it. If the study cannot distinguish alternatives, retain that uncertainty in Discussion. New analyses or data collection require a justified plan.</p>') + sources.miles.en + save('en'),
+    ]) + field('rival', 'Choose two explanations. What evidence would favour one over the other?', 'en') + reveal('Methodological debrief', '<p>List what each explanation predicts, what supports it and what challenges it. If the study cannot distinguish alternatives, retain that uncertainty in Discussion. New analyses or data collection require a justified plan.</p>') + save('en'),
     lead('虛構研究：部分學生雖收到評語，進步仍有限。') + table(['可能解釋', '可區分解釋的證據'], [
       ['評語難以理解。', '學生如何解釋評語，並連結實際評語及嘗試修訂的內容。'],
       ['採取行動的機會有限。', '評核時序、修訂機會，以及評語何時可用的報告。'],
       ['評分未涵蓋相關改變。', '規準涵蓋範圍，以及評分向度以外的改變例子。'],
-    ]) + field('rival', '選兩種解釋：甚麼證據較支持其中一種？', 'zh') + reveal('研究方法討論', '<p>列出各解釋的預期、支持及挑戰證據。若研究無法區分，就在討論保留此不確定性。新分析或新資料蒐集，須有合理計劃。</p>') + sources.miles.zh + save('zh')),
+    ]) + field('rival', '選兩種解釋：甚麼證據較支持其中一種？', 'zh') + reveal('研究方法討論', '<p>列出各解釋的預期、支持及挑戰證據。若研究無法區分，就在討論保留此不確定性。新分析或新資料蒐集，須有合理計劃。</p>') + save('zh')),
   },
   {
     key: 'negative-cases', part: discussion, title: c('Let contrasting cases refine the interpretation', '讓不同個案修正詮釋'),
-    body: c(lead('Carless (2020) followed four undergraduates’ feedback experiences over five years, using repeated interviews and documentary evidence.') + columns('<h3>What the design contributes</h3><p>It makes individual trajectories and changes in experiences visible.</p><p>The researcher also describes his academic-adviser relationship with participants.</p>', '<h3>What to examine</h3><p>Which interpretations accommodate variation across cases and time?</p><p>How might the researcher’s position shape what is said and interpreted?</p>') + field('negative-case', 'Constructed exercise: one learner understands comments but cannot use them before the next assessment. How does this qualify “understanding feedback is sufficient for uptake”?', 'en') + reveal('A possible revision', '<p>Understanding may be relevant to uptake, while timing and opportunities to act also need examination. A counterexample can refine a sufficiency claim; it does not show that understanding is irrelevant.</p>') + reveal('Read the empirical study', '<p>Carless (2020). <a href="https://doi.org/10.1080/07294360.2019.1684455" target="_blank" rel="noopener noreferrer">Longitudinal perspectives on students’ experiences of feedback</a>. <i>Higher Education Research &amp; Development, 39</i>, 425–438.</p><p>The exercise above is constructed, not a quotation or reported case from the article.</p>') + save('en'),
-    lead('Carless（2020）透過重複訪談及文件證據，追蹤四名本科生五年的回饋經驗。') + columns('<h3>設計的貢獻</h3><p>呈現個人的發展軌跡及經驗改變。</p><p>研究者亦交代自己作為參與者學業顧問的關係。</p>', '<h3>需要檢視</h3><p>哪些詮釋能涵蓋跨個案及跨時間的差異？</p><p>研究者的位置如何影響受訪者表達及研究詮釋？</p>') + field('negative-case', '虛構練習：一名學生理解評語，卻無法在下一次評核前運用。這如何修正「理解回饋足以促成運用」？', 'zh') + reveal('一種可能修正', '<p>理解可能與運用有關，但時序及行動機會亦需檢視。反例可以修正充分條件的主張，卻不表示理解毫不相關。</p>') + reveal('閱讀實證研究', '<p>Carless (2020). <a href="https://doi.org/10.1080/07294360.2019.1684455" target="_blank" rel="noopener noreferrer">Longitudinal perspectives on students’ experiences of feedback</a>. <i>Higher Education Research &amp; Development, 39</i>, 425–438.</p><p>上述練習為虛構，並非文章引文或已報告個案。</p>') + save('zh')),
+    body: c(lead('Carless (2020) followed four undergraduates’ feedback experiences over five years, using repeated interviews and documentary evidence.') + columns('<h3>What the design contributes</h3><p>It makes individual trajectories and changes in experiences visible.</p><p>The researcher also describes his academic-adviser relationship with participants.</p>', '<h3>What to examine</h3><p>Which interpretations accommodate variation across cases and time?</p><p>How might the researcher’s position shape what is said and interpreted?</p>') + field('negative-case', 'Constructed exercise: one learner understands comments but cannot use them before the next assessment. How does this qualify “understanding feedback is sufficient for uptake”?', 'en') + reveal('A possible revision', '<p>Understanding may be relevant to uptake, while timing and opportunities to act also need examination. A counterexample can refine a sufficiency claim; it does not show that understanding is irrelevant.</p>') + save('en'),
+    lead('Carless（2020）透過重複訪談及文件證據，追蹤四名本科生五年的回饋經驗。') + columns('<h3>設計的貢獻</h3><p>呈現個人的發展軌跡及經驗改變。</p><p>研究者亦交代自己作為參與者學業顧問的關係。</p>', '<h3>需要檢視</h3><p>哪些詮釋能涵蓋跨個案及跨時間的差異？</p><p>研究者的位置如何影響受訪者表達及研究詮釋？</p>') + field('negative-case', '虛構練習：一名學生理解評語，卻無法在下一次評核前運用。這如何修正「理解回饋足以促成運用」？', 'zh') + reveal('一種可能修正', '<p>理解可能與運用有關，但時序及行動機會亦需檢視。反例可以修正充分條件的主張，卻不表示理解毫不相關。</p>') + save('zh')),
   },
   {
     key: 'synthesis', part: discussion, title: c('Bring the findings into one explanation', '把發現綜合成解釋'),
-    body: c(columns('<h3>Three separate statements</h3>' + list('Gains varied.', 'Some learners reported understanding comments.', 'Some still described difficulty revising.'), '<h3>A synthetic interpretation</h3><p>In this constructed study, understanding a comment may leave further work: deciding what to change and having an opportunity to do so.</p><p>The interpretation connects the findings and identifies an unresolved process.</p>') + takeaway('Ask what becomes visible when findings are considered together. Retain contradictions that change the explanation.') + sources.dornyei.en,
-    columns('<h3>三個分開的陳述</h3>' + list('進步有所不同。', '部分學生報告理解評語。', '部分學生仍描述修訂困難。'), '<h3>綜合詮釋</h3><p>在此虛構研究中，理解評語之後，可能仍須決定如何改變，以及取得行動機會。</p><p>此詮釋連結不同發現，並指出尚未釐清的過程。</p>') + takeaway('追問：把發現放在一起後，看見了甚麼？保留會改變解釋的矛盾。') + sources.dornyei.zh),
+    body: c(columns('<h3>Three separate statements</h3>' + list('Gains varied.', 'Some learners reported understanding comments.', 'Some still described difficulty revising.'), '<h3>A synthetic interpretation</h3><p>In this constructed study, understanding a comment may leave further work: deciding what to change and having an opportunity to do so.</p><p>The interpretation connects the findings and identifies an unresolved process.</p>') + takeaway('Ask what becomes visible when findings are considered together. Retain contradictions that change the explanation.'),
+    columns('<h3>三個分開的陳述</h3>' + list('進步有所不同。', '部分學生報告理解評語。', '部分學生仍描述修訂困難。'), '<h3>綜合詮釋</h3><p>在此虛構研究中，理解評語之後，可能仍須決定如何改變，以及取得行動機會。</p><p>此詮釋連結不同發現，並指出尚未釐清的過程。</p>') + takeaway('追問：把發現放在一起後，看見了甚麼？保留會改變解釋的矛盾。')),
   },
   {
     key: 'integration', part: discussion, title: c('What does combining the strands add?', '結合兩部分，增加甚麼理解？'),
@@ -188,7 +180,7 @@ export const discussionConclusionSlides: Slide[] = [
       { label: 'Treat every interview as confirmation of the score pattern.', why: 'Interviews can qualify or contradict the interpretation. Their selection and retrospective nature also matter.' },
       { label: 'Check linked cases, variation and contrary evidence; identify what integration adds.', why: 'This examines whether the combined interpretation is supported. Six interviewees per pattern do not represent every learner in that group.', fits: true },
       { label: 'Repeat both sets of findings in the Conclusion.', why: 'Repetition does not establish an integrated explanation or answer the mixed-methods question.' },
-    ], 'en') + sources.mixed.en,
+    ], 'en'),
     table(['虛構研究的分數', '選定訪談的報告', '整合詮釋'], [
       ['較大進步：48 人', '部分學生描述把評語轉化為具體改變。', '可於相連草稿中檢視的可能過程。'],
       ['進步有限：72 人', '部分學生描述不確定如何修訂，或行動機會有限。', '不同限制可能產生相似分數模式。'],
@@ -196,18 +188,18 @@ export const discussionConclusionSlides: Slide[] = [
       { label: '把所有訪談都視為確認分數模式。', why: '訪談可能修正或反駁詮釋；選取方式及回溯性質亦很重要。' },
       { label: '檢查相連個案、差異及相反證據，指出整合增加的理解。', why: '這可檢視整合詮釋有否依據；每組 6 名受訪者不能代表該組全部學生。', fits: true },
       { label: '在結論重複兩部分的發現。', why: '重複尚未建立整合解釋，亦未回答混合方法提問。' },
-    ], 'zh') + sources.mixed.zh),
+    ], 'zh')),
   },
   {
     key: 'replication', part: discussion, title: c('Discuss what held up, and what changed', '討論哪些發現得到重現，哪些改變了'),
     body: c(lead('Mueller & Oppenheimer (2014), Study 1, and Urry et al.’s (2021) preregistered replication.') + table(['Finding', 'Original Study 1', 'Replication'], [
       ['Laptop notes: more words and verbatim overlap', 'Observed', 'Observed again'],
       ['Longhand advantage on conceptual quiz items', 'Reported', 'Small, nonsignificant quiz differences'],
-    ]) + field('replication', 'What should a Discussion retain, revise and leave unresolved?', 'en') + reveal('Reasoning to retain', '<p>Separate the note characteristics from the learning outcome. Examine estimates and uncertainty. A nonsignificant difference alone does not establish equivalence. The replication concerns Study 1 and immediate testing; it does not settle every note-taking question.</p>') + reveal('Empirical sources', '<p><a href="https://doi.org/10.1177/0956797614524581" target="_blank" rel="noopener noreferrer">Mueller &amp; Oppenheimer (2014)</a>; <a href="https://doi.org/10.1177/0956797620965541" target="_blank" rel="noopener noreferrer">Urry et al. (2021)</a>, <i>Psychological Science</i>.</p>') + save('en'),
+    ]) + field('replication', 'What should a Discussion retain, revise and leave unresolved?', 'en') + reveal('Reasoning to retain', '<p>Separate the note characteristics from the learning outcome. Examine estimates and uncertainty. A nonsignificant difference alone does not establish equivalence. The replication concerns Study 1 and immediate testing; it does not settle every note-taking question.</p>') + save('en'),
     lead('Mueller 與 Oppenheimer（2014）的研究一，以及 Urry 等人（2021）的預先註冊重複研究。') + table(['發現', '原研究一', '重複研究'], [
       ['電腦筆記：較多字數及逐字重疊', '觀察到', '再次觀察到'],
       ['手寫筆記在概念測驗題的優勢', '有報告', '測驗差異小且未達顯著'],
-    ]) + field('replication', '討論應保留、修正哪些主張？哪些問題仍未解決？', 'zh') + reveal('應保留的推理', '<p>區分筆記特徵與學習結果，檢視估計及不確定性。未達顯著本身不能確立等效。此重複研究涉及研究一及即時測驗，無法解決所有筆記問題。</p>') + reveal('實證來源', '<p><a href="https://doi.org/10.1177/0956797614524581" target="_blank" rel="noopener noreferrer">Mueller &amp; Oppenheimer (2014)</a>；<a href="https://doi.org/10.1177/0956797620965541" target="_blank" rel="noopener noreferrer">Urry et al. (2021)</a>，<i>Psychological Science</i>。</p>') + save('zh')),
+    ]) + field('replication', '討論應保留、修正哪些主張？哪些問題仍未解決？', 'zh') + reveal('應保留的推理', '<p>區分筆記特徵與學習結果，檢視估計及不確定性。未達顯著本身不能確立等效。此重複研究涉及研究一及即時測驗，無法解決所有筆記問題。</p>') + save('zh')),
   },
   {
     key: 'scope', part: discussion, title: c('A limitation changes a particular inference', '限制影響具體推論'),
@@ -216,13 +208,13 @@ export const discussionConclusionSlides: Slide[] = [
       ['No comparison condition', 'Attributing change to feedback', 'Other influences on revision remain possible.'],
       ['Retrospective interviews', 'Reconstructing the process', 'Reported reasons may differ from event-time processes.'],
       ['A narrow scoring dimension', 'Overall writing development', 'Changes outside that dimension may be missed.'],
-    ]) + takeaway('Specify what becomes less certain, why, and how much it matters to the main argument.') + sources.creswell.en,
+    ]) + takeaway('Specify what becomes less certain, why, and how much it matters to the main argument.'),
     table(['限制', '受影響推論', '後果'], [
       ['單一課程', '轉用至其他情境', '指出可能重要的情境特徵。'],
       ['沒有比較組', '把改變歸因於回饋', '其他修訂影響仍然可能存在。'],
       ['回溯訪談', '重構過程', '報告的原因可能與當時過程不同。'],
       ['評分向度較窄', '整體寫作發展', '向度以外的改變可能被遺漏。'],
-    ]) + takeaway('說明甚麼變得較不確定、為甚麼，以及對主要論證有多重要。') + sources.creswell.zh),
+    ]) + takeaway('說明甚麼變得較不確定、為甚麼，以及對主要論證有多重要。')),
   },
   {
     key: 'limitation-lab', part: discussion, title: c('Make future research address the uncertainty', '讓後續研究回應不確定性'),
@@ -243,17 +235,17 @@ export const discussionConclusionSlides: Slide[] = [
       ['Empirical', 'A new or more credible pattern, estimate, distinction or documented experience.'],
       ['Theoretical', 'A proposition, explanation or condition that is supported, refined or challenged.'],
       ['Methodological', 'Evidence about what a procedure reveals, misses or enables.'],
-    ]) + reveal('Novel context is a starting point', '<p>“This is the first study in this city” identifies location novelty. Explain what investigating that context changes in our understanding.</p>') + field('contribution', 'Before this study, we understood… This evidence now clarifies…', 'en') + sources.bryman.en + save('en'),
+    ]) + reveal('Novel context is a starting point', '<p>“This is the first study in this city” identifies location novelty. Explain what investigating that context changes in our understanding.</p>') + field('contribution', 'Before this study, we understood… This evidence now clarifies…', 'en') + save('en'),
     table(['可能貢獻', '需要展示'], [
       ['實證', '新的或更可信的模式、估計、區別，或被記錄的經驗。'],
       ['理論', '獲支持、修正或挑戰的命題、解釋或成立條件。'],
       ['方法', '某程序能揭示、遺漏或促成甚麼的證據。'],
-    ]) + reveal('新情境是起點', '<p>「這是本市首項研究」指出地點的新穎性；仍須說明探究此情境如何改變理解。</p>') + field('contribution', '研究之前，我們理解的是……這些證據現在釐清……', 'zh') + sources.bryman.zh + save('zh')),
+    ]) + reveal('新情境是起點', '<p>「這是本市首項研究」指出地點的新穎性；仍須說明探究此情境如何改變理解。</p>') + field('contribution', '研究之前，我們理解的是……這些證據現在釐清……', 'zh') + save('zh')),
   },
   {
     key: 'implications', part: discussion, title: c('Connect implications to findings and conditions', '把啟示連結至發現及條件'),
-    body: c('<div class="implication-flow"><div><b>Finding</b><p>Some learners report difficulty acting on comments.</p></div><div><b>Proposed action</b><p>Trial a structured opportunity to interpret and use feedback.</p></div><div><b>Conditions and evaluation</b><p>Provide revision time and examine actual uptake and independent performance.</p></div></div>' + columns('<h3>Research implication</h3><p>Examine whether action-oriented support explains or changes the observed pattern.</p>', '<h3>Practical implication</h3><p>Teachers could pilot that support and evaluate it. This study has not established its effectiveness.</p>') + takeaway('Name the actor, action, evidential basis and conditions. A recommendation may be a proposal to evaluate, not an established intervention.') + sources.creswell.en,
-    '<div class="implication-flow"><div><b>發現</b><p>部分學生報告難以運用評語。</p></div><div><b>建議行動</b><p>試行有結構的機會，讓學生理解及運用回饋。</p></div><div><b>條件及評估</b><p>提供修訂時間，檢視實際運用及獨立表現。</p></div></div>' + columns('<h3>研究啟示</h3><p>檢視行動導向支援能否解釋或改變所觀察模式。</p>', '<h3>實務啟示</h3><p>教師可試行並評估此支援；本研究尚未確立其成效。</p>') + takeaway('指出行動者、行動、證據基礎及條件。建議可以是待評估方案，未必是已證實有效的介入。') + sources.creswell.zh),
+    body: c('<div class="implication-flow"><div><b>Finding</b><p>Some learners report difficulty acting on comments.</p></div><div><b>Proposed action</b><p>Trial a structured opportunity to interpret and use feedback.</p></div><div><b>Conditions and evaluation</b><p>Provide revision time and examine actual uptake and independent performance.</p></div></div>' + columns('<h3>Research implication</h3><p>Examine whether action-oriented support explains or changes the observed pattern.</p>', '<h3>Practical implication</h3><p>Teachers could pilot that support and evaluate it. This study has not established its effectiveness.</p>') + takeaway('Name the actor, action, evidential basis and conditions. A recommendation may be a proposal to evaluate, not an established intervention.'),
+    '<div class="implication-flow"><div><b>發現</b><p>部分學生報告難以運用評語。</p></div><div><b>建議行動</b><p>試行有結構的機會，讓學生理解及運用回饋。</p></div><div><b>條件及評估</b><p>提供修訂時間，檢視實際運用及獨立表現。</p></div></div>' + columns('<h3>研究啟示</h3><p>檢視行動導向支援能否解釋或改變所觀察模式。</p>', '<h3>實務啟示</h3><p>教師可試行並評估此支援；本研究尚未確立其成效。</p>') + takeaway('指出行動者、行動、證據基礎及條件。建議可以是待評估方案，未必是已證實有效的介入。')),
   },
   {
     key: 'discussion-clinic', part: discussion, title: c('Develop the discussion, then test the argument', '先發展討論，再檢視論證'),
@@ -272,13 +264,13 @@ export const discussionConclusionSlides: Slide[] = [
   },
   {
     key: 'conclusion-job', part: conclusion, title: c('Close the whole argument', '完成整項研究的論證'),
-    body: c(columns('<h3>Discussion</h3><p>Develops the meaning, explanations and significance of particular findings.</p><p>Examines literature relationships, alternatives and limitations.</p>', '<h3>Conclusion</h3><p>Brings the study’s overall answer and contribution into focus.</p><p>Shows what the reader can carry forward, within the evidence’s scope.</p>') + takeaway('A separate Conclusion is not universal. When included, its synthesis should be proportionate to the Discussion already developed.') + sources.bryman.en + sources.dornyei.en,
-    columns('<h3>討論</h3><p>發展具體發現的意義、解釋及重要性。</p><p>檢視文獻關係、其他解釋及限制。</p>', '<h3>結論</h3><p>聚焦整項研究的答案及貢獻。</p><p>說明讀者可在證據範圍內帶走甚麼理解。</p>') + takeaway('並非所有文章均有獨立結論。設有結論時，綜合的篇幅應配合先前討論。') + sources.bryman.zh + sources.dornyei.zh),
+    body: c(columns('<h3>Discussion</h3><p>Develops the meaning, explanations and significance of particular findings.</p><p>Examines literature relationships, alternatives and limitations.</p>', '<h3>Conclusion</h3><p>Brings the study’s overall answer and contribution into focus.</p><p>Shows what the reader can carry forward, within the evidence’s scope.</p>') + takeaway('A separate Conclusion is not universal. When included, its synthesis should be proportionate to the Discussion already developed.'),
+    columns('<h3>討論</h3><p>發展具體發現的意義、解釋及重要性。</p><p>檢視文獻關係、其他解釋及限制。</p>', '<h3>結論</h3><p>聚焦整項研究的答案及貢獻。</p><p>說明讀者可在證據範圍內帶走甚麼理解。</p>') + takeaway('並非所有文章均有獨立結論。設有結論時，綜合的篇幅應配合先前討論。')),
   },
   {
     key: 'closing-synthesis', part: conclusion, title: c('Return to the problem with a fuller answer', '帶著更完整的答案回到研究問題'),
-    body: c('<div class="evidence-chain"><div><b>Original problem</b><p>Why can access to feedback coexist with limited revision?</p></div><div><b>What the study clarifies</b><p>Access, interpretation and opportunities for action need to be distinguished.</p></div><div><b>What follows</b><p>Examine how those processes interact, using linked evidence and an appropriate follow-up design.</p></div></div>' + takeaway('This is a constructed synthesis. A real conclusion must be earned by the study’s actual findings and Discussion.') + reveal('Check the ending', '<p>Does it answer the original question? Does it state what understanding changed? Does it preserve the main uncertainty? Remove a new causal claim, new evidence or a recommendation that has not been developed.</p>') + sources.bryman.en,
-    '<div class="evidence-chain"><div><b>原始問題</b><p>為何取得回饋，仍可能只有有限修訂？</p></div><div><b>研究釐清了甚麼</b><p>取得、詮釋及行動機會需要區分。</p></div><div><b>由此推進</b><p>以相連證據及適當後續設計，檢視這些過程如何互相作用。</p></div></div>' + takeaway('這是虛構的綜合示例；真實結論必須由實際發現及討論支持。') + reveal('檢查結尾', '<p>有否回答原始提問？說明理解如何改變？保留主要不確定性？刪去尚未發展的新因果主張、新證據或建議。</p>') + sources.bryman.zh),
+    body: c('<div class="evidence-chain"><div><b>Original problem</b><p>Why can access to feedback coexist with limited revision?</p></div><div><b>What the study clarifies</b><p>Access, interpretation and opportunities for action need to be distinguished.</p></div><div><b>What follows</b><p>Examine how those processes interact, using linked evidence and an appropriate follow-up design.</p></div></div>' + takeaway('This is a constructed synthesis. A real conclusion must be earned by the study’s actual findings and Discussion.') + reveal('Check the ending', '<p>Does it answer the original question? Does it state what understanding changed? Does it preserve the main uncertainty? Remove a new causal claim, new evidence or a recommendation that has not been developed.</p>'),
+    '<div class="evidence-chain"><div><b>原始問題</b><p>為何取得回饋，仍可能只有有限修訂？</p></div><div><b>研究釐清了甚麼</b><p>取得、詮釋及行動機會需要區分。</p></div><div><b>由此推進</b><p>以相連證據及適當後續設計，檢視這些過程如何互相作用。</p></div></div>' + takeaway('這是虛構的綜合示例；真實結論必須由實際發現及討論支持。') + reveal('檢查結尾', '<p>有否回答原始提問？說明理解如何改變？保留主要不確定性？刪去尚未發展的新因果主張、新證據或建議。</p>')),
   },
   {
     key: 'conclusion-clinic', part: conclusion, title: c('Choose a defensible closing claim', '選擇可論證的結論主張'),
@@ -302,15 +294,5 @@ export const discussionConclusionSlides: Slide[] = [
     key: 'take-forward', part: c('Your research argument', '你的研究論證'), title: c('Take your reasoning into the manuscript', '把推理帶進文稿'),
     body: c(field('next-edit', 'The most important revision I will make, and why', 'en', 'Name a claim or inferential link, not just a section to expand.') + '<div class="export-actions"><button type="button" data-export>Download my responses</button><button type="button" data-print>Print this lesson</button></div><p data-export-status role="status"></p>' + takeaway('Discussion develops the explanation. Conclusion synthesises the answer. Both depend on evidence and methodological judgement.') + save('en'),
     field('next-edit', '我最需要作出的修訂，以及原因', 'zh', '指出主張或推理連結，超越「擴充某部分」。') + '<div class="export-actions"><button type="button" data-export>下載我的回應</button><button type="button" data-print>列印本課</button></div><p data-export-status role="status"></p>' + takeaway('討論發展解釋；結論綜合答案。兩者均依賴證據及研究方法判斷。') + save('zh')),
-  },
-  {
-    key: 'textbooks', part: c('References', '參考資料'), title: c('Methodology foundations', '研究方法基礎'),
-    body: c('<div class="references"><p>Creswell, J. W. (2015). <i>Educational research: Planning, conducting, and evaluating quantitative and qualitative research</i> (5th ed.). Pearson. Chapters 6, 8–9.</p><p>Dörnyei, Z. (2007). <i>Research methods in applied linguistics: Quantitative, qualitative, and mixed methodologies</i>. Oxford University Press. §§12.3.4–12.3.5; §13.1.2.</p><p>Miles, M. B., Huberman, A. M., &amp; Saldaña, J. (2014). <i>Qualitative data analysis: A methods sourcebook</i> (3rd ed.). SAGE. Chapter 11.</p><p>Clark, T., Foster, L., Sloan, L., &amp; Bryman, A. (2021). <i>Bryman’s social research methods</i> (6th ed.). Oxford University Press. Chapter 25.</p><p>Creswell, J. W., &amp; Plano Clark, V. L. (2018). <i>Designing and conducting mixed methods research</i> (3rd ed.). SAGE. Chapters 7–8.</p></div>',
-    '<div class="references"><p>Creswell, J. W. (2015). <i>Educational research: Planning, conducting, and evaluating quantitative and qualitative research</i> (5th ed.). Pearson。第 6、8–9 章。</p><p>Dörnyei, Z. (2007). <i>Research methods in applied linguistics: Quantitative, qualitative, and mixed methodologies</i>. Oxford University Press。§§12.3.4–12.3.5；§13.1.2。</p><p>Miles, M. B., Huberman, A. M., &amp; Saldaña, J. (2014). <i>Qualitative data analysis: A methods sourcebook</i> (3rd ed.). SAGE。第 11 章。</p><p>Clark, T., Foster, L., Sloan, L., &amp; Bryman, A. (2021). <i>Bryman’s social research methods</i> (6th ed.). Oxford University Press。第 25 章。</p><p>Creswell, J. W., &amp; Plano Clark, V. L. (2018). <i>Designing and conducting mixed methods research</i> (3rd ed.). SAGE。第 7–8 章。</p></div>'),
-  },
-  {
-    key: 'readings', part: c('References', '參考資料'), title: c('Empirical readings and discussion guides', '實證閱讀及討論指引'),
-    body: c('<div class="references"><p>Deslauriers et al. (2019). <a href="https://doi.org/10.1073/pnas.1821936116" target="_blank" rel="noopener noreferrer">Measuring actual learning versus feeling of learning in response to being actively engaged in the classroom</a>. <i>PNAS, 116</i>, 19251–19257.</p><p>Carless (2020). <a href="https://doi.org/10.1080/07294360.2019.1684455" target="_blank" rel="noopener noreferrer">Longitudinal perspectives on students’ experiences of feedback: A need for teacher–student partnerships</a>. <i>Higher Education Research &amp; Development, 39</i>, 425–438.</p><p>Mueller &amp; Oppenheimer (2014). <a href="https://doi.org/10.1177/0956797614524581" target="_blank" rel="noopener noreferrer">The pen is mightier than the keyboard</a>. <i>Psychological Science, 25</i>, 1159–1168.</p><p>Urry et al. (2021). <a href="https://doi.org/10.1177/0956797620965541" target="_blank" rel="noopener noreferrer">Don’t ditch the laptop just yet</a>. <i>Psychological Science, 32</i>, 326–339.</p><p><a href="https://apastyle.apa.org/instructional-aids/discussion-phrases-guide.pdf" target="_blank" rel="noopener noreferrer">APA Discussion Phrases Guide</a> · <a href="https://libguides.usc.edu/writingguide/discussion" target="_blank" rel="noopener noreferrer">USC Discussion guide</a> · <a href="https://library.sacredheart.edu/c.php?g=29803&amp;p=185933" target="_blank" rel="noopener noreferrer">Sacred Heart Discussion guide</a></p></div>',
-    '<div class="references"><p>Deslauriers 等人（2019）。<a href="https://doi.org/10.1073/pnas.1821936116" target="_blank" rel="noopener noreferrer">Measuring actual learning versus feeling of learning in response to being actively engaged in the classroom</a>。<i>PNAS, 116</i>, 19251–19257。</p><p>Carless（2020）。<a href="https://doi.org/10.1080/07294360.2019.1684455" target="_blank" rel="noopener noreferrer">Longitudinal perspectives on students’ experiences of feedback: A need for teacher–student partnerships</a>。<i>Higher Education Research &amp; Development, 39</i>, 425–438。</p><p>Mueller 與 Oppenheimer（2014）。<a href="https://doi.org/10.1177/0956797614524581" target="_blank" rel="noopener noreferrer">The pen is mightier than the keyboard</a>。<i>Psychological Science, 25</i>, 1159–1168。</p><p>Urry 等人（2021）。<a href="https://doi.org/10.1177/0956797620965541" target="_blank" rel="noopener noreferrer">Don’t ditch the laptop just yet</a>。<i>Psychological Science, 32</i>, 326–339。</p><p><a href="https://apastyle.apa.org/instructional-aids/discussion-phrases-guide.pdf" target="_blank" rel="noopener noreferrer">APA 討論語句指引</a> · <a href="https://libguides.usc.edu/writingguide/discussion" target="_blank" rel="noopener noreferrer">USC 討論指引</a> · <a href="https://library.sacredheart.edu/c.php?g=29803&amp;p=185933" target="_blank" rel="noopener noreferrer">Sacred Heart 討論指引</a></p></div>'),
   },
 ];
