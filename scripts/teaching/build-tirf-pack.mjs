@@ -42,7 +42,7 @@ const shell=(title,content)=>`<!doctype html><html lang="en-GB"><head><meta char
 const page=shell('Formative assessment with generative AI: workshop reference pack',`
 <h1>${b('Designing formative assessment with generative AI','用生成式AI設計形成性評估')}</h1>
 <p>${b('April Jiawei Zhang · AI4ELE / TIRF · 24 October 2026','張家維 · AI4ELE／TIRF · 2026年10月24日')}</p>
-<h2>${b('Workshop aims','工作坊學習目標')}</h2><p>${b('Use the three frameworks to collect, interpret and act on learning evidence. Use AI prompts to prepare questions and feedback, then ask Codex or WorkBuddy to build an HTML site for the assessment.','依三個框架蒐集、詮釋並運用學習證據。用AI指令準備問題及回饋，再請Codex或WorkBuddy製作評估用HTML網站。')}</p>
+<h2>${b('Workshop aims','工作坊學習目標')}</h2><p>${b('Use the three frameworks to collect, interpret and act on learning evidence. Use AI prompts to prepare questions and feedback, then ask Codex or WorkBuddy to build an HTML site for the assessment.','依三個框架蒐集、詮釋並運用學習證據。用AI指令準備問題及反馈，再請Codex或WorkBuddy製作評估用HTML網站。')}</p>
 <div class="core-definition"><p>${b('Teachers and students use evidence of learning to decide what to do next to help students reach a learning target.','教師與學生運用學習證據，決定接下來怎樣教與學，以幫助學生達到學習目標。')}</p></div>
 <h2>${b('Two English-class scenarios in China','中國英語課堂的兩個情境')}</h2>${primaryScenarioHtml}<article class="scenario"><h3>${b('2 · General college English in China','二 · 中國高校大學英語')}</h3>${classroomContextHtml}</article>
 ${frameworkUseHtml}

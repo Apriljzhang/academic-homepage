@@ -44,16 +44,16 @@ export const discussionConclusionSlides: Slide[] = [
       { label: 'Developing an interpretation', why: 'It moves from a pattern to a possible explanation. Ask what evidence supports the link.', fits: true },
       { label: 'Providing a complete conclusion', why: 'It could appear in a conclusion, but by itself it does not synthesise the study’s overall answer or contribution.' },
     ], 'en') + reveal('Section labels vary', '<p>Qualitative findings may already include substantial interpretation. Results and Discussion can be combined. Identify the intellectual work, then choose a structure appropriate to the design and publication.</p>'),
-    table(['結果／發現', '討論', '結論'], [['呈現回答研究提問的模式。', '發展其意義、解釋及重要性。', '說明整項研究的答案及貢獻。']]) + quiz('section-job', '「此模式顯示，運用回饋的機會可能有助解釋修訂表現的差異。」這句話完成甚麼工作？', [
+    table(['結果／發現', '討論', '結論'], [['呈現回答研究提問的模式。', '發展其意義、解釋及重要性。', '說明整項研究的答案及貢獻。']]) + quiz('section-job', '「此模式顯示，運用反馈的機會可能有助解釋修訂表現的差異。」這句話完成甚麼工作？', [
       { label: '報告研究發現', why: '此句提出意義及解釋；仍須交代它所根據的觀察模式。' },
       { label: '發展詮釋', why: '由模式推進至可能的解釋，須追問支持此連結的證據。', fits: true },
       { label: '提供完整結論', why: '此句可出現在結論，但本身未綜合整項研究的答案及貢獻。' },
     ], 'zh') + reveal('部分名稱可以不同', '<p>質性發現可以包含充分詮釋；結果與討論亦可合併。先辨識其思考工作，再按設計及出版要求安排結構。</p>')),
   },
   {
-    key: 'running-study', part: results, title: c('Our constructed feedback study', '本課的虛構回饋研究'),
+    key: 'running-study', part: results, title: c('Our constructed feedback study', '本課的虛構反馈研究'),
     body: c(lead('How do learners use teacher feedback, and how does that use relate to revision?') + columns('<h3>Evidence available</h3>' + list('First and revised essays from 120 EFL learners in one programme.', 'Argument development scored on a 0–4 rubric.', '48 learners gained at least one point; 72 gained less.', 'Twelve consenting interviewees: six from each gain pattern.'), '<h3>Conditions to retain</h3>' + list('No randomly assigned comparison condition.', 'Interviews are retrospective reports.', 'Selected draft comparisons can show what changed.', 'The one-point split is an illustrative sampling decision.')) + takeaway('All numbers and example learner statements in this running study are constructed for teaching. They are not published findings.'),
-    lead('學生如何運用教師回饋？這種運用與修訂有何關係？') + columns('<h3>可用證據</h3>' + list('同一課程 120 名英語學習者的初稿及修訂稿。', '以 0–4 分規準評估論證發展。', '48 人進步至少 1 分；72 人進步不足 1 分。', '從兩種模式各選取 6 名同意參與的學生訪談。'), '<h3>必須保留的條件</h3>' + list('沒有隨機分派的比較組。', '訪談提供回溯性報告。', '選定的草稿比較可展示具體改變。', '以 1 分劃分只是示例抽樣決策。')) + takeaway('本課貫穿研究的數字及學生示例話語均為教學而虛構，並非已發表的發現。')),
+    lead('學生如何運用教師反馈？這種運用與修訂有何關係？') + columns('<h3>可用證據</h3>' + list('同一課程 120 名英語學習者的初稿及修訂稿。', '以 0–4 分規準評估論證發展。', '48 人進步至少 1 分；72 人進步不足 1 分。', '從兩種模式各選取 6 名同意參與的學生訪談。'), '<h3>必須保留的條件</h3>' + list('沒有隨機分派的比較組。', '訪談提供回溯性報告。', '選定的草稿比較可展示具體改變。', '以 1 分劃分只是示例抽樣決策。')) + takeaway('本課貫穿研究的數字及學生示例話語均為教學而虛構，並非已發表的發現。')),
   },
   {
     key: 'results-answer', part: results, title: c('Report an answer, with its evidence', '以證據支持研究答案'),
@@ -65,7 +65,7 @@ export const discussionConclusionSlides: Slide[] = [
     table(['分析材料', '實質發現', '保留甚麼'], [
       ['分數及其分布', '學生的修訂進步有所不同。', '幅度、差異、不確定性，以及研究群體。'],
       ['編碼、節錄及草稿改變', '部分學生描述把評語轉化為修訂時的困難。', '來源、語境、差異及相反個案。'],
-      ['相連的分數及訪談模式', '所選不同進步組別報告的回饋運用有所不同。', '哪些個案相連，以及如何選取子樣本。'],
+      ['相連的分數及訪談模式', '所選不同進步組別報告的反馈運用有所不同。', '哪些個案相連，以及如何選取子樣本。'],
     ]) + takeaway('結果建立模式；討論發展其意義及可能成因。')),
   },
   {
@@ -90,15 +90,15 @@ export const discussionConclusionSlides: Slide[] = [
       { label: 'Feedback has no effect because most learners gained less than one point.', why: 'The one-point threshold does not establish absence of an effect. There is no counterfactual comparison, and smaller changes may still matter.' },
     ], 'en') + field('claim', 'Your defensible claim', 'en', 'State the finding, the interpretation and its scope.') + save('en'),
     quiz('claim-scope', '使用虛構研究：單一課程、草稿評分、選定訪談，且沒有比較組。', [
-      { label: '教師回饋導致了進步。', why: '草稿雖有進步，但此設計無法把回饋與練習、教學等其他影響分開。' },
+      { label: '教師反馈導致了進步。', why: '草稿雖有進步，但此設計無法把反馈與練習、教學等其他影響分開。' },
       { label: '學生報告及草稿證據顯示，把評語轉化為修訂的情況並不一致。', why: '連結可用來源，並保留其範圍；仍須核對相連個案是否支持此詮釋。', fits: true },
-      { label: '多數學生進步不足 1 分，所以回饋沒有效果。', why: '1 分界線不能確立沒有效果；研究缺少反事實比較，較小改變亦可能重要。' },
+      { label: '多數學生進步不足 1 分，所以反馈沒有效果。', why: '1 分界線不能確立沒有效果；研究缺少反事實比較，較小改變亦可能重要。' },
     ], 'zh') + field('claim', '你能論證的主張', 'zh', '交代發現、詮釋及其範圍。') + save('zh')),
   },
   {
     key: 'paragraph-moves', part: discussion, title: c('Make the reasoning in a paragraph visible', '讓段落的推理清晰可見'),
     body: c(lead('Constructed paragraph. Select a function to locate its work.') + '<div class="annotation-tools" role="group" aria-label="Discussion functions">' + [['claim', 'Interpretation'], ['evidence', 'Evidence'], ['explanation', 'Explanation'], ['boundary', 'Boundary'], ['significance', 'Significance']].map(([key, label]) => `<button type="button" data-annotation="${key}" aria-pressed="false">${label}</button>`).join('') + '</div><div class="annotated-paragraph"><p><span data-move="claim">The findings suggest a gap between receiving feedback and being able to use it.</span> <span data-move="evidence">Gains varied, and selected interviewees described difficulty deciding how to revise.</span> <span data-move="explanation">One interpretation is that comments required action-oriented support beyond access alone.</span> <span data-move="boundary">The evidence does not isolate that support as a cause of improvement.</span> <span data-move="significance">It identifies a distinction that a subsequent intervention could examine.</span></p></div>' + takeaway('The paragraph is developed through connected reasoning. Its shape and length should follow the argument.'),
-    lead('虛構段落：選擇功能，找出相應的論證工作。') + '<div class="annotation-tools" role="group" aria-label="討論功能">' + [['claim', '詮釋'], ['evidence', '證據'], ['explanation', '解釋'], ['boundary', '範圍'], ['significance', '重要性']].map(([key, label]) => `<button type="button" data-annotation="${key}" aria-pressed="false">${label}</button>`).join('') + '</div><div class="annotated-paragraph"><p><span data-move="claim">研究發現顯示，收到回饋與能運用回饋之間存在差距。</span><span data-move="evidence">學生的進步不同，部分受訪者描述難以決定如何修訂。</span><span data-move="explanation">一種詮釋是：除了取得評語，學生還需要把評語轉化為行動的支援。</span><span data-move="boundary">證據尚未把此支援辨識為進步的原因。</span><span data-move="significance">此研究辨識了一個可由後續介入檢視的區別。</span></p></div>' + takeaway('段落透過相連推理發展；形狀及長度應由論證需要決定。')),
+    lead('虛構段落：選擇功能，找出相應的論證工作。') + '<div class="annotation-tools" role="group" aria-label="討論功能">' + [['claim', '詮釋'], ['evidence', '證據'], ['explanation', '解釋'], ['boundary', '範圍'], ['significance', '重要性']].map(([key, label]) => `<button type="button" data-annotation="${key}" aria-pressed="false">${label}</button>`).join('') + '</div><div class="annotated-paragraph"><p><span data-move="claim">研究發現顯示，收到反馈與能運用反馈之間存在差距。</span><span data-move="evidence">學生的進步不同，部分受訪者描述難以決定如何修訂。</span><span data-move="explanation">一種詮釋是：除了取得評語，學生還需要把評語轉化為行動的支援。</span><span data-move="boundary">證據尚未把此支援辨識為進步的原因。</span><span data-move="significance">此研究辨識了一個可由後續介入檢視的區別。</span></p></div>' + takeaway('段落透過相連推理發展；形狀及長度應由論證需要決定。')),
   },
   {
     key: 'theory', part: discussion, title: c('What does the finding do to the theory?', '發現對理論有何作用？'),
@@ -164,7 +164,7 @@ export const discussionConclusionSlides: Slide[] = [
   {
     key: 'negative-cases', part: discussion, title: c('Let contrasting cases refine the interpretation', '讓不同個案修正詮釋'),
     body: c(lead('Carless (2020) followed four undergraduates’ feedback experiences over five years, using repeated interviews and documentary evidence.') + columns('<h3>What the design contributes</h3><p>It makes individual trajectories and changes in experiences visible.</p><p>The researcher also describes his academic-adviser relationship with participants.</p>', '<h3>What to examine</h3><p>Which interpretations accommodate variation across cases and time?</p><p>How might the researcher’s position shape what is said and interpreted?</p>') + field('negative-case', 'Constructed exercise: one learner understands comments but cannot use them before the next assessment. How does this qualify “understanding feedback is sufficient for uptake”?', 'en') + reveal('A possible revision', '<p>Understanding may be relevant to uptake, while timing and opportunities to act also need examination. A counterexample can refine a sufficiency claim; it does not show that understanding is irrelevant.</p>') + save('en'),
-    lead('Carless（2020）透過重複訪談及文件證據，追蹤四名本科生五年的回饋經驗。') + columns('<h3>設計的貢獻</h3><p>呈現個人的發展軌跡及經驗改變。</p><p>研究者亦交代自己作為參與者學業顧問的關係。</p>', '<h3>需要檢視</h3><p>哪些詮釋能涵蓋跨個案及跨時間的差異？</p><p>研究者的位置如何影響受訪者表達及研究詮釋？</p>') + field('negative-case', '虛構練習：一名學生理解評語，卻無法在下一次評核前運用。這如何修正「理解回饋足以促成運用」？', 'zh') + reveal('一種可能修正', '<p>理解可能與運用有關，但時序及行動機會亦需檢視。反例可以修正充分條件的主張，卻不表示理解毫不相關。</p>') + save('zh')),
+    lead('Carless（2020）透過重複訪談及文件證據，追蹤四名本科生五年的反馈經驗。') + columns('<h3>設計的貢獻</h3><p>呈現個人的發展軌跡及經驗改變。</p><p>研究者亦交代自己作為參與者學業顧問的關係。</p>', '<h3>需要檢視</h3><p>哪些詮釋能涵蓋跨個案及跨時間的差異？</p><p>研究者的位置如何影響受訪者表達及研究詮釋？</p>') + field('negative-case', '虛構練習：一名學生理解評語，卻無法在下一次評核前運用。這如何修正「理解反馈足以促成運用」？', 'zh') + reveal('一種可能修正', '<p>理解可能與運用有關，但時序及行動機會亦需檢視。反例可以修正充分條件的主張，卻不表示理解毫不相關。</p>') + save('zh')),
   },
   {
     key: 'synthesis', part: discussion, title: c('Bring the findings into one explanation', '把發現綜合成解釋'),
@@ -211,7 +211,7 @@ export const discussionConclusionSlides: Slide[] = [
     ]) + takeaway('Specify what becomes less certain, why, and how much it matters to the main argument.'),
     table(['限制', '受影響推論', '後果'], [
       ['單一課程', '轉用至其他情境', '指出可能重要的情境特徵。'],
-      ['沒有比較組', '把改變歸因於回饋', '其他修訂影響仍然可能存在。'],
+      ['沒有比較組', '把改變歸因於反馈', '其他修訂影響仍然可能存在。'],
       ['回溯訪談', '重構過程', '報告的原因可能與當時過程不同。'],
       ['評分向度較窄', '整體寫作發展', '向度以外的改變可能被遺漏。'],
     ]) + takeaway('說明甚麼變得較不確定、為甚麼，以及對主要論證有多重要。')),
@@ -223,7 +223,7 @@ export const discussionConclusionSlides: Slide[] = [
       { label: 'Measure both constructs over time, with a design and model suited to the proposed relationship.', why: 'Repeated observations can examine ordering and reciprocal patterns. They still require assumptions and do not automatically remove confounding.', fits: true },
       { label: 'Add more citations about confidence.', why: 'Literature can develop the rationale, but citations cannot supply the missing temporal evidence.' },
     ], 'en') + field('limitation', 'Your limitation → affected claim → uncertainty → appropriate follow-up', 'en') + save('en'),
-    quiz('limitation-repair', '單次問卷無法確立信心是否先於回饋投入。哪種後續研究最直接回應此問題？', [
+    quiz('limitation-repair', '單次問卷無法確立信心是否先於反馈投入。哪種後續研究最直接回應此問題？', [
       { label: '以更多受訪者重做相同單次問卷。', why: '這可能改善精確度或涵蓋範圍，卻不能確立時間先後。' },
       { label: '在多個時點測量兩項構念，使用適合所提關係的設計及模型。', why: '重複觀察可檢視先後及相互關係，但仍依賴假設，亦不會自動消除混淆。', fits: true },
       { label: '增加關於信心的引文。', why: '文獻可發展理據，但無法補上缺失的時間證據。' },
@@ -245,12 +245,12 @@ export const discussionConclusionSlides: Slide[] = [
   {
     key: 'implications', part: discussion, title: c('Connect implications to findings and conditions', '把啟示連結至發現及條件'),
     body: c('<div class="implication-flow"><div><b>Finding</b><p>Some learners report difficulty acting on comments.</p></div><div><b>Proposed action</b><p>Trial a structured opportunity to interpret and use feedback.</p></div><div><b>Conditions and evaluation</b><p>Provide revision time and examine actual uptake and independent performance.</p></div></div>' + columns('<h3>Research implication</h3><p>Examine whether action-oriented support explains or changes the observed pattern.</p>', '<h3>Practical implication</h3><p>Teachers could pilot that support and evaluate it. This study has not established its effectiveness.</p>') + takeaway('Name the actor, action, evidential basis and conditions. A recommendation may be a proposal to evaluate, not an established intervention.'),
-    '<div class="implication-flow"><div><b>發現</b><p>部分學生報告難以運用評語。</p></div><div><b>建議行動</b><p>試行有結構的機會，讓學生理解及運用回饋。</p></div><div><b>條件及評估</b><p>提供修訂時間，檢視實際運用及獨立表現。</p></div></div>' + columns('<h3>研究啟示</h3><p>檢視行動導向支援能否解釋或改變所觀察模式。</p>', '<h3>實務啟示</h3><p>教師可試行並評估此支援；本研究尚未確立其成效。</p>') + takeaway('指出行動者、行動、證據基礎及條件。建議可以是待評估方案，未必是已證實有效的介入。')),
+    '<div class="implication-flow"><div><b>發現</b><p>部分學生報告難以運用評語。</p></div><div><b>建議行動</b><p>試行有結構的機會，讓學生理解及運用反馈。</p></div><div><b>條件及評估</b><p>提供修訂時間，檢視實際運用及獨立表現。</p></div></div>' + columns('<h3>研究啟示</h3><p>檢視行動導向支援能否解釋或改變所觀察模式。</p>', '<h3>實務啟示</h3><p>教師可試行並評估此支援；本研究尚未確立其成效。</p>') + takeaway('指出行動者、行動、證據基礎及條件。建議可以是待評估方案，未必是已證實有效的介入。')),
   },
   {
     key: 'discussion-clinic', part: discussion, title: c('Develop the discussion, then test the argument', '先發展討論，再檢視論證'),
     body: c('<div class="writing-example"><h3>Constructed draft</h3><p>“Most learners improved little. This proves that teacher feedback is ineffective. Our study fills a gap. Teachers should give more detailed comments.”</p></div>' + field('discussion-revision', 'Repair the interpretation, explanation, contribution and implication', 'en') + reveal('One defensible development', '<p>The uneven gains suggest that receiving comments did not consistently translate into stronger argument development in this cohort. Selected interview accounts point to difficulties deciding how to act, an interpretation to examine against linked draft changes and contrary cases. The study distinguishes access to comments from their use in revision; it does not establish whether more detail would improve outcomes. A follow-up could evaluate support for interpreting and acting on feedback.</p>') + reveal('Why the revision is stronger', '<p>It anchors the interpretation in a specific pattern, develops a possible process, specifies the knowledge added and derives a study that could examine the unresolved explanation. It also retains the design’s scope.</p>') + save('en'),
-    '<div class="writing-example"><h3>虛構初稿</h3><p>「多數學生進步有限，證明教師回饋無效。我們的研究填補空白。教師應提供更詳細的評語。」</p></div>' + field('discussion-revision', '修正詮釋、解釋、貢獻及啟示', 'zh') + reveal('一種可論證的發展', '<p>不一致的進步顯示，收到評語未能在此群體中穩定地轉化為更強的論證發展。選定訪談指向決定如何行動的困難；此詮釋仍須與相連草稿改變及相反個案核對。研究區分取得評語與修訂時運用評語，卻未確立更多細節能否改善結果。後續研究可評估理解及運用回饋的支援。</p>') + reveal('修訂為何較充分', '<p>以具體模式為詮釋根據，發展可能過程，指出增加的理解，並提出可檢視未決解釋的研究，同時保留設計範圍。</p>') + save('zh')),
+    '<div class="writing-example"><h3>虛構初稿</h3><p>「多數學生進步有限，證明教師反馈無效。我們的研究填補空白。教師應提供更詳細的評語。」</p></div>' + field('discussion-revision', '修正詮釋、解釋、貢獻及啟示', 'zh') + reveal('一種可論證的發展', '<p>不一致的進步顯示，收到評語未能在此群體中穩定地轉化為更強的論證發展。選定訪談指向決定如何行動的困難；此詮釋仍須與相連草稿改變及相反個案核對。研究區分取得評語與修訂時運用評語，卻未確立更多細節能否改善結果。後續研究可評估理解及運用反馈的支援。</p>') + reveal('修訂為何較充分', '<p>以具體模式為詮釋根據，發展可能過程，指出增加的理解，並提出可檢視未決解釋的研究，同時保留設計範圍。</p>') + save('zh')),
   },
   {
     key: 'discussion-studio', part: discussion, title: c('Develop your discussion argument', '發展你的討論論證'),
@@ -270,7 +270,7 @@ export const discussionConclusionSlides: Slide[] = [
   {
     key: 'closing-synthesis', part: conclusion, title: c('Return to the problem with a fuller answer', '帶著更完整的答案回到研究問題'),
     body: c('<div class="evidence-chain"><div><b>Original problem</b><p>Why can access to feedback coexist with limited revision?</p></div><div><b>What the study clarifies</b><p>Access, interpretation and opportunities for action need to be distinguished.</p></div><div><b>What follows</b><p>Examine how those processes interact, using linked evidence and an appropriate follow-up design.</p></div></div>' + takeaway('This is a constructed synthesis. A real conclusion must be earned by the study’s actual findings and Discussion.') + reveal('Check the ending', '<p>Does it answer the original question? Does it state what understanding changed? Does it preserve the main uncertainty? Remove a new causal claim, new evidence or a recommendation that has not been developed.</p>'),
-    '<div class="evidence-chain"><div><b>原始問題</b><p>為何取得回饋，仍可能只有有限修訂？</p></div><div><b>研究釐清了甚麼</b><p>取得、詮釋及行動機會需要區分。</p></div><div><b>由此推進</b><p>以相連證據及適當後續設計，檢視這些過程如何互相作用。</p></div></div>' + takeaway('這是虛構的綜合示例；真實結論必須由實際發現及討論支持。') + reveal('檢查結尾', '<p>有否回答原始提問？說明理解如何改變？保留主要不確定性？刪去尚未發展的新因果主張、新證據或建議。</p>')),
+    '<div class="evidence-chain"><div><b>原始問題</b><p>為何取得反馈，仍可能只有有限修訂？</p></div><div><b>研究釐清了甚麼</b><p>取得、詮釋及行動機會需要區分。</p></div><div><b>由此推進</b><p>以相連證據及適當後續設計，檢視這些過程如何互相作用。</p></div></div>' + takeaway('這是虛構的綜合示例；真實結論必須由實際發現及討論支持。') + reveal('檢查結尾', '<p>有否回答原始提問？說明理解如何改變？保留主要不確定性？刪去尚未發展的新因果主張、新證據或建議。</p>')),
   },
   {
     key: 'conclusion-clinic', part: conclusion, title: c('Choose a defensible closing claim', '選擇可論證的結論主張'),
@@ -279,8 +279,8 @@ export const discussionConclusionSlides: Slide[] = [
       { label: 'We used scores and interviews. More research is needed.', why: 'This lists methods and a generic next step, leaving the substantive answer and contribution unstated.' },
       { label: 'The study distinguishes receiving comments from using them in revision and identifies processes for further investigation in this programme.', why: 'It states the knowledge added and retains its scope. The final wording still needs to match the actual evidence developed in Discussion.', fits: true },
     ], 'en') + reveal('Strength is not certainty', '<p>A strong conclusion states the most consequential answer the evidence supports. Adding stronger verbs cannot supply missing evidence.</p>'),
-    quiz('conclusion-choice', '哪個結尾可由虛構回饋研究推導？', [
-      { label: '研究證明詳細回饋能提升所有大學的學業成就。', why: '加入未檢視的原因、改換結果變項，並大幅超出情境。' },
+    quiz('conclusion-choice', '哪個結尾可由虛構反馈研究推導？', [
+      { label: '研究證明詳細反馈能提升所有大學的學業成就。', why: '加入未檢視的原因、改換結果變項，並大幅超出情境。' },
       { label: '我們使用分數及訪談，需要更多研究。', why: '只列方法及籠統下一步，尚未交代實質答案及貢獻。' },
       { label: '研究區分收到評語與修訂時運用評語，並辨識此課程中值得進一步探究的過程。', why: '說明增加的理解，並保留其範圍；最終用語仍須符合討論所發展的實際證據。', fits: true },
     ], 'zh') + reveal('有力不等於確定', '<p>有力的結論說明證據所支持、最具意義的答案；更強烈的動詞無法補上缺失證據。</p>')),

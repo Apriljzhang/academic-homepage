@@ -49,7 +49,7 @@ function syncTranslation(){
  ]){const element=document.querySelector(selector);if(element){element.setAttribute('title',say(en,chinese));if(selector!=='[data-overview]')element.setAttribute('aria-label',say(en,chinese));}}
  localiseTimer();renderPlanSummary();updatePlanSource();
  document.querySelectorAll<HTMLElement>('.status:not([data-case-status]),[data-pdf-status]').forEach(status=>status.textContent='');
- document.querySelectorAll<HTMLElement>('[data-case-status]').forEach(status=>{if(status.textContent)status.textContent=say('Use the feedback or partner question to revise after keeping your first attempt.','先保留初稿，再依回饋或同伴問題修訂。');});
+ document.querySelectorAll<HTMLElement>('[data-case-status]').forEach(status=>{if(status.textContent)status.textContent=say('Use the feedback or partner question to revise after keeping your first attempt.','先保留初稿，再依反馈或同伴問題修訂。');});
 }
 function showSlide(index:number){
  if(!unlocked)return;
@@ -112,7 +112,7 @@ function prepareTrainingRecord(){
  addRecordText(record,'h1',say('My formative assessment plan','我的形成性評估計劃'));
  addRecordText(record,'p',workshopTitle);addRecordText(record,'p','April Jiawei Zhang · AI4ELE / TIRF · 24 October 2026');
  addRecordText(record,'h2',say('The three frameworks','三個框架'));
- addRecordText(record,'p',say('Black & Wiliam (2009): target, evidence, feedback, peer support and student ownership. Hattie & Timperley (2007): feedback questions and levels. Gu (2021): target, evidence, interpretation, feedback and action.','Black與Wiliam（2009）：目標、證據、回饋、同伴與自主學習。Hattie與Timperley（2007）：回饋問題及層面。Gu（2021）：目標、證據、詮釋、回饋與行動。'));
+ addRecordText(record,'p',say('Black & Wiliam (2009): target, evidence, feedback, peer support and student ownership. Hattie & Timperley (2007): feedback questions and levels. Gu (2021): target, evidence, interpretation, feedback and action.','Black與Wiliam（2009）：目標、證據、反馈、同伴與自主學習。Hattie與Timperley（2007）：反馈問題及層面。Gu（2021）：目標、證據、詮釋、反馈與行動。'));
  frameworkBuildRoles.forEach(role=>addRecordText(record,'p',role.name+': '+(zh()?role.designZh:role.design)));
  addRecordText(record,'h2',say('My formative assessment plan','我的形成性評估計劃'));
  worksheet.forEach(field=>{addRecordText(record,'h3',zh()?field.labelZh:field.label);addRecordText(record,'p',planValue(field.id)||say('Not yet completed','尚未填寫'));});

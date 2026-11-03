@@ -18,12 +18,12 @@ export function initTirfClassroomActivity(root) {
   const reason=root.querySelector('#case-reason');
   const status=root.querySelector('[data-case-status]');
   if(!first.value.trim()||!reason.value.trim()){
-   status.textContent=chinese?'請先說明選擇並寫初稿，再查看回饋。':'Explain your choice and write a first attempt before opening the feedback.';
+   status.textContent=chinese?'請先說明選擇並寫初稿，再查看反馈。':'Explain your choice and write a first attempt before opening the feedback.';
    (!reason.value.trim()?reason:first).focus();return;
   }
   first.readOnly=true; reason.readOnly=true;
   root.querySelector('[data-case-feedback]').hidden=false;
   button.hidden=true;
-  status.textContent=chinese?'已保留初稿。請用回饋或同伴問題修訂，並解釋改動。':'First attempt kept. Use the feedback or partner question to revise and explain a change.';
+  status.textContent=chinese?'已保留初稿。請用反馈或同伴問題修訂，並解釋改動。':'First attempt kept. Use the feedback or partner question to revise and explain a change.';
  });
 }
