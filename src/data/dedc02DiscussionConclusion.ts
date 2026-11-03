@@ -56,17 +56,17 @@ export const discussionConclusionSlides: Slide[] = [
     lead('學生如何運用教師反馈？這種運用與修訂有何關係？') + columns('<h3>可用證據</h3>' + list('同一課程 120 名英語學習者的初稿及修訂稿。', '以 0–4 分規準評估論證發展。', '48 人進步至少 1 分；72 人進步不足 1 分。', '從兩種模式各選取 6 名同意參與的學生訪談。'), '<h3>必須保留的條件</h3>' + list('沒有隨機分派的比較組。', '訪談提供回溯性報告。', '選定的草稿比較可展示具體改變。', '以 1 分劃分只是示例抽樣決策。')) + takeaway('本課貫穿研究的數字及學生示例話語均為教學而虛構，並非已發表的發現。')),
   },
   {
-    key: 'results-answer', part: results, title: c('Report an answer, with its evidence', '以證據支持研究答案'),
-    body: c(table(['Analytical material', 'Substantive finding', 'Keep visible'], [
-      ['Scores and their distribution', 'Revision gains differed across learners.', 'Magnitude, variation and uncertainty; identify the cohort.'],
-      ['Codes, excerpts and draft changes', 'Some learners described difficulty translating comments into revisions.', 'Source, context, variation and contrary cases.'],
-      ['Linked score and interview patterns', 'Reported feedback use differed across the selected gain groups.', 'Which cases are linked; how the subset was chosen.'],
-    ]) + takeaway('Results establish the pattern. Discussion develops what it means and why it may have occurred.'),
-    table(['分析材料', '實質發現', '保留甚麼'], [
-      ['分數及其分布', '學生的修訂進步有所不同。', '幅度、差異、不確定性，以及研究群體。'],
-      ['編碼、節錄及草稿改變', '部分學生描述把評語轉化為修訂時的困難。', '來源、語境、差異及相反個案。'],
-      ['相連的分數及訪談模式', '所選不同進步組別報告的反馈運用有所不同。', '哪些個案相連，以及如何選取子樣本。'],
-    ]) + takeaway('結果建立模式；討論發展其意義及可能成因。')),
+    key: 'results-answer', part: results, title: c('What to report with each finding', '報告研究發現時，須交代甚麼？'),
+    body: c(lead('Examples from the constructed feedback study.') + table(['What you analysed', 'What you found', 'What readers need to assess the finding'], [
+      ['First- and revised-draft scores', 'Students improved by different amounts.', 'State who was studied, how much scores changed, how gains differed and how uncertain any estimates are.'],
+      ['Interview excerpts and changes in students’ drafts', 'Some students described difficulty turning comments into revisions.', 'Provide quotations and draft examples. Explain whose words or work they are, their context, and any examples that differ from the pattern.'],
+      ['Interview responses matched to the same students’ scores', 'Selected students in the two gain groups reported different ways of using feedback.', 'Explain which students’ scores and interviews were matched and how the 12 interviewees were selected. Their reports do not automatically represent all 120 learners.'],
+    ]) + takeaway('Report the finding and the evidence readers need to judge it. In the Discussion, explain what the finding means and why it may have occurred.'),
+    lead('以下例子來自本課的虛構反馈研究。') + table(['你分析了甚麼', '你發現了甚麼', '讀者需要甚麼，才能判斷這項發現'], [
+      ['學生初稿及修訂稿的分數', '學生的進步幅度不同。', '交代研究涉及哪些學生、分數改變多少、進步有何差異，以及估計有多大不確定性。'],
+      ['訪談節錄及學生草稿的改變', '部分學生描述了把評語轉化為修訂的困難。', '提供訪談引文及草稿例子。交代是誰的話語或作品、相關背景，以及不符合此模式的例子。'],
+      ['把同一學生的訪談回應與分數配對分析', '兩種進步組別中，選定學生報告了不同的反馈運用方式。', '說明哪些學生的分數及訪談已配對，以及如何選取這 12 名受訪者。他們的報告不能自動代表全部 120 名學生。'],
+    ]) + takeaway('報告研究發現時，須提供讓讀者判斷的證據。在討論中，進一步解釋發現的意義及可能成因。')),
   },
   {
     key: 'discussion-map', part: discussion, title: c('Six tasks in a developed discussion', '充分發展討論的六項任務'),
