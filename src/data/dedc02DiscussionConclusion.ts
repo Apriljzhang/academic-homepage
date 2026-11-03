@@ -83,17 +83,31 @@ export const discussionConclusionSlides: Slide[] = [
     '<ol class="inference-steps"><li><b>觀察模式</b><span>修訂進步不同；部分學生報告難以採取行動。</span></li><li><b>實質詮釋</b><span>取得評語與有效運用評語，是可區分的問題。</span></li><li><b>可能解釋</b><span>學生可能需要機會及支援，才可把評語轉化為行動。</span></li><li><b>適用範圍</b><span>證據涉及此課程及所觀察的修訂。</span></li></ol>' + takeaway('每一步都加入推論。指出容許這一步的證據或理據。')),
   },
   {
-    key: 'claim-lab', part: discussion, title: c('Which claim can the design support?', '設計支持哪項主張？'),
-    body: c(quiz('claim-scope', 'Use the constructed study: one programme, draft scores, selected interviews and no comparison condition.', [
-      { label: 'Teacher feedback caused the improvement.', why: 'Drafts improved, but this design does not isolate feedback from practice, teaching or other influences.' },
-      { label: 'Learners’ reports and draft evidence suggest that translating comments into revision was uneven.', why: 'This connects the available sources while retaining their scope. Check that the linked cases actually support the interpretation.', fits: true },
-      { label: 'Feedback has no effect because most learners gained less than one point.', why: 'The one-point threshold does not establish absence of an effect. There is no counterfactual comparison, and smaller changes may still matter.' },
-    ], 'en') + field('claim', 'Your defensible claim', 'en', 'State the finding, the interpretation and its scope.') + save('en'),
-    quiz('claim-scope', '使用虛構研究：單一課程、草稿評分、選定訪談，且沒有比較組。', [
-      { label: '教師反馈導致了進步。', why: '草稿雖有進步，但此設計無法把反馈與練習、教學等其他影響分開。' },
-      { label: '學生報告及草稿證據顯示，把評語轉化為修訂的情況並不一致。', why: '連結可用來源，並保留其範圍；仍須核對相連個案是否支持此詮釋。', fits: true },
-      { label: '多數學生進步不足 1 分，所以反馈沒有效果。', why: '1 分界線不能確立沒有效果；研究缺少反事實比較，較小改變亦可能重要。' },
-    ], 'zh') + field('claim', '你能論證的主張', 'zh', '交代發現、詮釋及其範圍。') + save('zh')),
+    key: 'claim-lab', part: discussion, title: c('Compare three research claims', '比較三項研究主張'),
+    body: c(lead('All three statements are claims about what the study shows. Discuss which is best supported and why.') + columns(
+      '<h3>Evidence for this activity · constructed</h3>' + list('One programme, 120 learners: 48 gained at least one rubric point; 72 gained less.', 'Twelve selected interviewees, six from each gain group. Some described difficulty deciding how to revise.', 'No comparison condition; interviews are retrospective reports.'),
+      '<h3>Questions for your discussion</h3>' + list('<b>Evidence:</b> which observation supports each claim?', '<b>Design:</b> can it establish a cause or the absence of an effect?', '<b>Scope:</b> does the statement stay within the participants and evidence studied?')
+    ) + quiz('claim-scope', 'Compare A, B and C with a partner. Choose the best-supported claim and explain why the other two go beyond the evidence.', [
+      { label: 'A. Teacher feedback caused the improvement.', why: 'This is a causal claim. Improvement alone cannot separate feedback from practice, teaching or other influences.' },
+      { label: 'B. Among the selected interviewees in this programme, some described difficulty turning teacher comments into revisions.', why: 'This descriptive claim matches the supplied interview summary and identifies whose experiences it concerns. It does not establish what caused improvement.', fits: true },
+      { label: 'C. Feedback has no effect because most learners gained less than one point.', why: 'This claims an absence of effect. The one-point threshold is not a test of no effect, and smaller gains may matter. Without a suitable comparison, the feedback effect remains uncertain.' },
+    ], 'en') + reveal('Compare the reasoning for all three claims', table(['Claim', 'Judgement', 'What would justify a stronger claim?'], [
+      ['A · Cause', 'The design cannot isolate a feedback effect.', 'A credible comparison that addresses alternative explanations.'],
+      ['B · Reported experience', 'Supported by the supplied interview summary, within the selected cases.', 'Inspect excerpts and linked drafts before claiming a pattern across sources. Broader claims need evidence beyond these cases.'],
+      ['C · No effect', 'The score threshold cannot establish no effect.', 'A design that estimates the feedback effect, with enough precision to assess whether a meaningful effect can be ruled out.'],
+    ])) + takeaway('Judge a claim by its evidence, the inference the design permits and its scope. Adding “may” or “suggests” cannot repair a claim without supporting evidence.'),
+    lead('三句都是關於研究顯示甚麼的主張。討論哪項最有證據支持，以及為甚麼。') + columns(
+      '<h3>本活動的證據 · 教學虛構</h3>' + list('同一課程 120 名學生：48 人進步至少 1 分；72 人進步不足 1 分。', '從兩種進步組別各選 6 人，共訪談 12 人；部分受訪者描述難以決定如何修訂。', '沒有比較組；訪談是回溯性報告。'),
+      '<h3>討論問題</h3>' + list('<b>證據：</b>哪項觀察支持每一句主張？', '<b>設計：</b>能否確立原因，或判斷沒有效果？', '<b>範圍：</b>主張是否限於實際研究的參與者及證據？')
+    ) + quiz('claim-scope', '與同伴比較 A、B、C。選出最有證據支持的一項，說明其餘兩項如何超出證據。', [
+      { label: 'A. 教師反馈導致了進步。', why: '這是因果主張。僅憑進步，無法把反馈與練習、教學等其他影響分開。' },
+      { label: 'B. 在此課程選取的受訪者中，部分學生描述了把教師評語轉化為修訂的困難。', why: '這項描述性主張符合所提供的訪談摘要，並交代涉及誰的經驗；尚未確立進步的原因。', fits: true },
+      { label: 'C. 多數學生進步不足 1 分，所以反馈沒有效果。', why: '這項主張判定沒有效果，但 1 分界線並非無效果檢驗，較小進步亦可能重要。缺少適當比較，反馈效果仍不確定。' },
+    ], 'zh') + reveal('比較三項主張的推理', table(['主張', '判斷', '更強的主張需要甚麼？'], [
+      ['A · 原因', '此設計無法辨識反馈的獨立效果。', '能處理其他可能解釋的可信比較。'],
+      ['B · 報告的經驗', '所提供的訪談摘要支持此描述，範圍限於選定個案。', '若要主張不同來源呈現一致模式，須檢視訪談節錄及相連草稿。更廣的主張需要這些個案以外的證據。'],
+      ['C · 沒有效果', '分數界線不能確立沒有效果。', '能估計反馈效果的設計，且估計須足夠精確，才可評估能否排除有實質意義的效果。'],
+    ])) + takeaway('按證據、設計容許的推論及適用範圍判斷主張。缺少支持證據時，加入「可能」或「顯示」亦無法修補主張。')),
   },
   {
     key: 'paragraph-moves', part: discussion, title: c('Make the reasoning in a paragraph visible', '讓段落的推理清晰可見'),

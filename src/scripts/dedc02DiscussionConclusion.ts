@@ -166,6 +166,7 @@ document.querySelectorAll('[data-export]').forEach(button => button.addEventList
     seen.add(key);
     lines.push(`## ${field.dataset.label}`, '', state.responses[key] || (lang === 'zh' ? '［未填寫］' : '[Not entered]'), '');
   });
+  if (state.responses.claim) lines.push(lang === 'zh' ? '## 此活動先前保存的回應' : '## Previously saved response to this activity', '', state.responses.claim, '');
   lines.push(lang === 'zh' ? '## 活動選擇與推理回應' : '## Activity choices and reasoning', '');
   document.querySelectorAll<HTMLElement>(`[data-quiz-language="${lang}"]`).forEach(root => {
     const value = state.quizzes[root.dataset.quiz!];
