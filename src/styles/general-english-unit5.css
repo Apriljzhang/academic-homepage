@@ -87,3 +87,8 @@
   .u5-deck :is(p,li,legend,summary) { font-size: 13pt; }
   .u5-deck details > :not(summary) { display: block !important; }
 }
+
+/* A handout cue stays beside its activity and wraps naturally on phones. */
+.u5-deck .u5-handout-cue { display: flex; align-items: flex-start; gap: .65rem; width: fit-content; max-width: 100%; margin: 1rem 0 1.25rem; padding: .65rem 1rem; border: 1px solid var(--lesson-line); border-radius: 1rem 1rem 1rem .2rem; background: var(--lesson-soft); color: var(--lesson-green); }
+.u5-deck .u5-handout-cue svg { flex: 0 0 1.25rem; width: 1.25rem; height: 1.25rem; margin-top: .15rem; }
+.u5-deck .u5-handout-cue p { margin: 0; font-size: clamp(1rem,1.5vw,1.15rem); line-height: 1.45; overflow-wrap: anywhere; }
