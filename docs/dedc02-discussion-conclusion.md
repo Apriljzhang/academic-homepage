@@ -6,6 +6,8 @@ The 140-minute session has 20 minutes on Results, 100 on Discussion (including l
 
 The transferable content is the movement from an analytical finding to a substantive interpretation; developing and checking explanations; connecting findings to theoretical propositions; explaining relationships with previous research; integrating findings and handling contradictory evidence; deriving limitations, contribution and implications; and synthesising the whole argument in a Conclusion.
 
+Slide 11 explains the school-improvement case directly: staff implementing new instructional practices, claims about reading scores or pupils’ attitudes, missing or weak outcome evidence, and contrasts across sites. The example is paraphrased from Miles et al., chapter 11, “Making Conceptual/Theoretical Coherence” (physical PDF pp. 256–257). The textbook attribution sentence and publisher hyperlink are omitted from the student slide.
+
 ## Discussion paragraph teaching
 
 Interpretation, explanation, links to theory and previous research, and the study’s contribution lead the Discussion teaching. The annotated paragraph illustrates selectable functions, not a required sentence pattern. It has no compulsory boundary sentence. Add a qualification where it materially changes the interpretation; address substantive limitations in the dedicated limitations activities and at the relevant point in the argument. The writing studio keeps its existing saved-response keys, with the limitation prompt in an expandable section.
