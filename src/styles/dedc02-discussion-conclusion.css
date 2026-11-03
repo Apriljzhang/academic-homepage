@@ -9,6 +9,8 @@
 .dc-deck .dc-columns>div{min-width:0}.dc-deck .dc-columns>div+div{border-left:1px solid var(--lesson-line);padding-left:2rem}
 .dc-deck .table-wrap{width:100%;overflow-x:auto;margin:1rem 0}
 .dc-deck table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:.95em;line-height:1.4}
+.dc-deck .slide[data-slide-key="theory"] table{table-layout:auto;min-width:0}
+.dc-deck .slide[data-slide-key="theory"] tr>:first-child{width:1%;white-space:nowrap}
 .dc-deck :is(th,td){padding:.65rem .75rem;text-align:left;vertical-align:top;border:1px solid var(--lesson-line);overflow-wrap:anywhere}
 .dc-deck thead th{background:var(--lesson-green);color:#fff;font-weight:600}.dc-deck tbody th{font-weight:600;background:var(--lesson-soft)}
 .dc-deck .takeaway{padding:.7rem .9rem;border-left:.3rem solid var(--lesson-green);background:var(--lesson-soft);margin:1rem 0;line-height:1.45}
