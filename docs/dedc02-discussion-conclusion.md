@@ -6,6 +6,12 @@ The 140-minute session has 20 minutes on Results, 100 on Discussion (including l
 
 The transferable content is the movement from an analytical finding to a substantive interpretation; developing and checking explanations; connecting findings to theoretical propositions; explaining relationships with previous research; integrating findings and handling contradictory evidence; deriving limitations, contribution and implications; and synthesising the whole argument in a Conclusion.
 
+## Discussion paragraph teaching
+
+Interpretation, explanation, links to theory and previous research, and the study’s contribution lead the Discussion teaching. The annotated paragraph illustrates selectable functions, not a required sentence pattern. It has no compulsory boundary sentence. Add a qualification where it materially changes the interpretation; address substantive limitations in the dedicated limitations activities and at the relevant point in the argument. The writing studio keeps its existing saved-response keys, with the limitation prompt in an expandable section.
+
+This teaching choice follows the distinction between interpreting findings and discussing limitations in the APA Discussion Phrases Guide, Creswell (2015, printed pp. 196–198 and 256–258), and Clark et al. (2021, chapter 25). The USC and Sacred Heart discussion guides also advise explaining significance and avoiding an apologetic tone. Source information stays in these development notes.
+
 ## Source verification
 
 The following chapters were read in the Academic Reading vault's extracted Markdown and checked against the local source PDFs. Physical PDF pages are reader positions, not necessarily printed citation pages. Filename years were not used as publication years.
