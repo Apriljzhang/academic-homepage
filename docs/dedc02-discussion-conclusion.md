@@ -4,7 +4,7 @@ Route: `/teaching/courses/dedc02/10-discussion-conclusion/`.
 
 ## Teaching sequence and methodological foundation
 
-The 14-slide bilingual lesson is a method-led lecture. Slide 2 restores measurable learning aims beginning “By the end of today’s session, you will be able to…”. The learning storyline is explicit: develop an answer → examine and position it → establish what it adds → bring the answer together. Stage labels in the shared slide metadata keep the sequence visible.
+The 15-slide bilingual lesson is a method-led lecture. Slide 2 restores measurable learning aims beginning “By the end of today’s session, you will be able to…”. The learning storyline is explicit: develop an answer → examine and position it → establish what it adds → bring the answer together. Stage labels in the shared slide metadata keep the sequence visible.
 
 The lecture distinguishes the work of Results, Discussion and Conclusion without separate thesis-versus-article teaching tracks. Each substantive topic explains the purpose, teaches how to develop it, and provides a check on the reasoning. Complete, attributed original excerpts then illustrate the method in expandable panels on the same slide. The examples support the teaching and are available without a PDF download.
 
@@ -55,3 +55,9 @@ Removing input activities does not remove stored data. The existing local-storag
 ## Earlier methodological grounding retained
 
 The earlier lesson's source checks covered Creswell (2015), chs. 6, 8–9; Dörnyei (2007), §§12.3.4–12.3.5 and §13.1.2; Miles, Huberman, & Saldaña (2014), ch. 11; Clark et al. (2021), ch. 25; and Creswell & Plano Clark (2018), chs. 7–8. This revision retains the transferable principles of interpretation, evidential reasoning, theoretical coherence and design-appropriate reporting. The sequence is a teaching synthesis, not a framework attributed wholesale to one textbook. Prior empirical examples requiring unrelated study contexts have been removed from the visible sequence.
+
+## Closing page and lesson PDFs
+
+Slide 14 remains the final teaching page, on the Conclusion’s takeaway. Slide 15 is a separate bilingual Thank you page with direct downloads of the complete English and Chinese lesson PDFs. Print and earlier-response export controls also live on this closing page. Both PDFs include the expanded publication examples and the function explanations as readable notes; original English quotations remain in English in the Chinese version. No personal saved responses are included.
+
+Run the production Astro build, then `scripts/teaching/export-dedc02-discussion-pdf.mjs` with Playwright available. `PLAYWRIGHT_MODULE` can identify an installed Playwright module and `CHROME_BIN` can identify a local Chrome executable. Rebuild Astro after exporting so the new PDFs are copied into `dist`.

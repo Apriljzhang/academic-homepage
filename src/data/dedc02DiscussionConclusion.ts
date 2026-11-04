@@ -1,4 +1,5 @@
 import excerpts from './dedc02DiscussionExcerpts.json';
+import { withBase } from '../utils/paths';
 
 type Copy = { en: string; zh: string };
 type Slide = { key: string; title: Copy; part: Copy; body: Copy; spacious?: boolean };
@@ -14,8 +15,8 @@ const source = (key: ExcerptKey, lang: 'en'|'zh') => {
   return `<p class="example-source">${entry.source === 'zhang' ? 'Zhang &amp; Hyland (2022)' : 'Payne, Ajjawi, &amp; Holloway (2023)'} · ${lang === 'en' ? `accepted manuscript, PDF ${entry.pages.includes('–') ? 'pp.' : 'p.'}` : '接受稿，PDF 第'} ${entry.pages}${lang === 'zh' ? ' 頁' : ''} · <a href="${doi(entry.source)}" target="_blank" rel="noreferrer">${lang === 'en' ? 'Publication details' : '論文資料'}</a></p>`;
 };
 const context = (paper: 'zhang'|'payne', lang: 'en'|'zh') => `<aside class="study-context"><p>${paper === 'zhang'
-  ? lang === 'en' ? '<b>Study context:</b> a Chinese university writing course; one teacher and 33 students; automated writing evaluation (AWE), peer and teacher feedback; analysis of drafts, feedback and retrospective interviews.' : '<b>研究背景：</b>中國一所大學的寫作課；1 名教師及 33 名學生；自動寫作評估（AWE）、同儕及教師回饋；分析草稿、回饋及回溯訪談。'
-  : lang === 'en' ? '<b>Study context:</b> interviews with ten higher-education teachers about the knowledge, skills and dispositions they use to make technology-enhanced feedback more relational. Their curriculum responsibilities varied.' : '<b>研究背景：</b>訪談 10 名高等教育教師，了解他們如何運用知識、技能及傾向，使科技輔助回饋更具關係性；受訪教師的課程責任各有不同。'}</p></aside>`;
+  ? lang === 'en' ? '<b>Study context:</b> a Chinese university writing course; one teacher and 33 students; automated writing evaluation (AWE), peer and teacher feedback; analysis of drafts, feedback and retrospective interviews.' : '<b>研究背景：</b>中國一所大學的寫作課；1 名教師及 33 名學生；自動寫作評估（AWE）、同儕及教師反馈；分析草稿、反馈及回溯訪談。'
+  : lang === 'en' ? '<b>Study context:</b> interviews with ten higher-education teachers about the knowledge, skills and dispositions they use to make technology-enhanced feedback more relational. Their curriculum responsibilities varied.' : '<b>研究背景：</b>訪談 10 名高等教育教師，了解他們如何運用知識、技能及傾向，使科技輔助反馈更具關係性；受訪教師的課程責任各有不同。'}</p></aside>`;
 const excerpt = (key: ExcerptKey, lang: 'en'|'zh', functions: FunctionNote[], blockIndexes?: number[]) => {
   const entry = excerpts[key];
   let paragraphs = '';
@@ -56,7 +57,7 @@ const functionNotes: Record<ExcerptKey, {en:FunctionNote[];zh:FunctionNote[]}> =
       ['literature','既有研究','作者指出與詮釋相關的既有概念；引文交代本段哪些主張連結至已有學術研究。'],
       ['explanation','可能解釋','作者把活動連結至較易處理的修訂，以及文法與內容的分工。「We believe」表明這是作者詮釋；課堂個案尚未辨識獨立因果效果。'],
       ['evidence','支持證據','「As illustrated by the students」把解釋連回學生報告的修訂經驗，讓讀者知道哪項發現支持所提過程。'],
-      ['problem','需要解釋的問題','評估及修訂文章的困難，指出對回饋過程的解釋需要回應甚麼問題。'],
+      ['problem','需要解釋的問題','評估及修訂文章的困難，指出對反馈過程的解釋需要回應甚麼問題。'],
     ] },
   'literature': { en: [
       ['earlier','Earlier framework','The authors identify the specific design dimension they are engaging with and locate it at curriculum and assessment level.'],
@@ -66,7 +67,7 @@ const functionNotes: Record<ExcerptKey, {en:FunctionNote[];zh:FunctionNote[]}> =
       ['contribution','What the comparison adds','The final sentence states the focus of the design strategies identified here. The comparison makes that focus more precise.'],
     ], zh: [
       ['earlier','既有框架','作者指出所回應的具體設計向度，並交代其關注課程及評核層面。'],
-      ['finding','本研究發現','受訪者的報告引入本研究對對話性、形成性回饋的發現。'],
+      ['finding','本研究發現','受訪者的報告引入本研究對對話性、形成性反馈的發現。'],
       ['context','相關情境','不同課程責任構成具體情境差異，使比較有證據基礎。'],
       ['explanation','差異的解釋','「This may explain」明確連結情境差異與研究差異；「may」保留解釋的推測性質。'],
       ['contribution','比較增加的理解','結尾交代本研究辨識的設計策略重點；比較使這個重點更精確。'],
@@ -82,7 +83,7 @@ const functionNotes: Record<ExcerptKey, {en:FunctionNote[];zh:FunctionNote[]}> =
       ['interpretation','中心詮釋','教師的角色構成段落的中心詮釋，把各項活動連起來。'],
       ['evidence','連結的證據','作者援引教師的行動及學生評語，說明支援如何運作。'],
       ['explanation','過程可能如何運作','不同模式、進步感及反思用來解釋投入；這些機制仍屬作者詮釋。'],
-      ['qualification','解釋的成立條件','結尾考慮缺少教師回饋時可能如何，指出一項所提條件；研究並未實驗性地移除此步驟。'],
+      ['qualification','解釋的成立條件','結尾考慮缺少教師反馈時可能如何，指出一項所提條件；研究並未實驗性地移除此步驟。'],
     ] },
   'significance': { en: [
       ['contribution','Contribution','The opening identifies a change in understanding: considering how feedback types are combined. A contribution claim needs this specific addition, supported by the study.'],
@@ -90,8 +91,8 @@ const functionNotes: Record<ExcerptKey, {en:FunctionNote[];zh:FunctionNote[]}> =
       ['significance','Why it matters','The claimed benefits explain why the combined approach matters for involvement, motivation and different dimensions of engagement. Here significance concerns importance, not a statistical test.'],
       ['synthesis','How the importance is developed','The paragraph introduces a set of connected benefits and links each to the engagement concepts. The authors develop the importance through those relationships.'],
     ], zh: [
-      ['contribution','貢獻','開頭指出理解的改變：考慮不同回饋如何組合。貢獻主張需要這種具體新增理解，並由研究支持。'],
-      ['literature','學術議題','下一句把新增理解連結至對電腦產生回饋的疑問。'],
+      ['contribution','貢獻','開頭指出理解的改變：考慮不同反馈如何組合。貢獻主張需要這種具體新增理解，並由研究支持。'],
+      ['literature','學術議題','下一句把新增理解連結至對電腦產生反馈的疑問。'],
       ['significance','為何重要','所提益處解釋整合方式對參與、動機及不同投入向度有何意義。此處指實質重要性，並非統計顯著性。'],
       ['synthesis','如何發展重要性','段落引入相連益處，並逐項連結至投入概念，透過這些關係發展重要性。'],
     ] },
@@ -102,7 +103,7 @@ const functionNotes: Record<ExcerptKey, {en:FunctionNote[];zh:FunctionNote[]}> =
       ['scope','Scope of the claim','“In this situation at least” explicitly restricts the synthesis to the studied setting.'],
       ['implication','Practical consequence','The challenge in enacting the approach follows directly from the contrasting evidence.'],
     ], zh: [
-      ['qualification','限定','作者為詮釋加入條件，承認回饋方式以外的影響。'],
+      ['qualification','限定','作者為詮釋加入條件，承認反馈方式以外的影響。'],
       ['contrary','不同證據','未投入的學生顯示，這種方式並非對所有人以同樣方式運作。'],
       ['explanation','其他可能影響','段落考慮動機、修訂要求的感受及教師支援；這些是有待檢視的可能影響，並非已辨識的獨立因果效果。'],
       ['scope','主張範圍','「In this situation at least」把綜合理解明確限於研究情境。'],
@@ -132,7 +133,7 @@ const functionNotes: Record<ExcerptKey, {en:FunctionNote[];zh:FunctionNote[]}> =
       ['conditions','行動條件','開頭指出支援投入所需的技能、意識及學習條件。'],
       ['problem','回應的問題','評核責任及批改負擔建立了建議方案要回應的實務問題。'],
       ['literature','連結較廣研究','文獻把課堂問題放進較廣的評核工作量討論。'],
-      ['evidence','建議理據','能在毋須大幅改變課堂安排下整合回饋，構成到其他地方探索的理據。'],
+      ['evidence','建議理據','能在毋須大幅改變課堂安排下整合反馈，構成到其他地方探索的理據。'],
       ['recommendation','所提啟示','作者建議在其他課堂探索，並提出可能益處；這些延伸需要在地調整及評估，尚非那些情境已建立的效果。'],
       ['significance','實務重要性','結尾解釋在學者面對較廣壓力之下，建議為何可能重要。'],
     ] },
@@ -151,7 +152,7 @@ const functionNotes: Record<ExcerptKey, {en:FunctionNote[];zh:FunctionNote[]}> =
       ['scope','範圍與不確定性','作者保留課堂情境、有限概括性及外推困難，使整體答案準確。'],
       ['implication','由此推導甚麼','作者邀請在其他情境調整及探索，並交代有支援的教學可能；啟示由先前論證發展而來。'],
       ['future','後續研究','其他方法的建議回應檢視認知投入的困難；有用的後續研究由已辨識的不確定性推導。'],
-      ['takeaway','嵌入結論的核心訊息','最後一段發展讀者應保留的理解：投入是複雜的，有支援的回饋過程有助把回饋轉化為學習。末句凝聚這項綜合，其力量由前面段落建立。'],
+      ['takeaway','嵌入結論的核心訊息','最後一段發展讀者應保留的理解：投入是複雜的，有支援的反馈過程有助把反馈轉化為學習。末句凝聚這項綜合，其力量由前面段落建立。'],
     ] },
 };
 const example = (key:ExcerptKey,lang:'en'|'zh',blockIndexes?:number[]) => `<details class="published-example"><summary>${lang==='en'?'Original example: read and underline the authors’ moves':'原文例子：閱讀並劃出作者的寫作功能'}</summary><div>${context(excerpts[key].source==='zhang'?'zhang':'payne',lang)}${excerpt(key,lang,functionNotes[key][lang],blockIndexes)}</div></details>`;
@@ -341,11 +342,15 @@ export const discussionConclusionSlides: Slide[] = [
       ['Keep the relationship that makes it informative','State the process, distinction or condition that the study has clarified and why it matters. This gives the ending substantive content.'],
       ['Retain the scope that keeps it accurate','Keep a necessary qualification within the synthesis. Make every part traceable to the evidence and reasoning already developed.'],
       ['Let the ending crystallise the answer','Read the Conclusion as a connected whole. Its final statement should make the established understanding clear to a reader who will not retain every detail.'],
-    ])+check('en','If the ending needs a new result, causal claim or undeveloped recommendation to work, revise the claim or develop the missing argument earlier. In the example, read all three paragraphs together before selecting “Takeaway”.')+example('conclusion','en')+'<div class="export-actions"><button type="button" data-print>Print this lesson</button><button type="button" data-export data-previous-responses hidden>Download previously saved responses</button></div><p data-export-status role="status"></p>',prose('核心訊息是細節之後，讀者應保留的中心理解。摘要選取重點；綜合解釋這些重點放在一起代表甚麼。核心訊息嵌入這項綜合，可以在結尾段落中逐步發展。')+method('zh',[
+    ])+check('en','If the ending needs a new result, causal claim or undeveloped recommendation to work, revise the claim or develop the missing argument earlier. In the example, read all three paragraphs together before selecting “Takeaway”.')+example('conclusion','en'),prose('核心訊息是細節之後，讀者應保留的中心理解。摘要選取重點；綜合解釋這些重點放在一起代表甚麼。核心訊息嵌入這項綜合，可以在結尾段落中逐步發展。')+method('zh',[
       ['選出中心理解','辨認能把重要發現連回原始問題的答案。'],
       ['保留使答案有內容的關係','交代研究釐清的過程、區別或條件，以及為何重要，使結尾具實質內容。'],
       ['保留使答案準確的範圍','把必要限定納入綜合，使各部分可追溯至先前已發展的證據及推理。'],
       ['讓結尾凝聚答案','把結論讀成相連整體，讓最後陳述向未必記得全部細節的讀者清楚傳達已建立的理解。'],
-    ])+check('zh','若結尾需要新結果、新因果主張或尚未發展的建議才成立，應修正主張或在前文補足論證。閱讀例子時，先把三段連起來看，再點選核心訊息。')+example('conclusion','zh')+'<div class="export-actions"><button type="button" data-print>列印本課</button><button type="button" data-export data-previous-responses hidden>下載先前保存的回應</button></div><p data-export-status role="status"></p>'),
+    ])+check('zh','若結尾需要新結果、新因果主張或尚未發展的建議才成立，應修正主張或在前文補足論證。閱讀例子時，先把三段連起來看，再點選核心訊息。')+example('conclusion','zh')),
+  },
+  {
+    key:'thank-you',part:c('Discussion and Conclusion','討論與結論'),title:c('Thank you','謝謝'),spacious:true,
+    body:c(`<div class="export-actions"><a class="lesson-pdf-link" href="${withBase('/teaching/courses/dedc02/discussion-conclusion-en.pdf')}" download>Download lesson PDF (English)</a><a class="lesson-pdf-link" href="${withBase('/teaching/courses/dedc02/discussion-conclusion-zh.pdf')}" download>Download lesson PDF (中文)</a></div>`+'<div class="export-actions"><button type="button" data-print>Print this lesson</button><button type="button" data-export data-previous-responses hidden>Download previously saved responses</button></div><p data-export-status role="status"></p>',`<div class="export-actions"><a class="lesson-pdf-link" href="${withBase('/teaching/courses/dedc02/discussion-conclusion-en.pdf')}" download>下載課堂 PDF（英文）</a><a class="lesson-pdf-link" href="${withBase('/teaching/courses/dedc02/discussion-conclusion-zh.pdf')}" download>下載課堂 PDF（中文）</a></div>`+'<div class="export-actions"><button type="button" data-print>列印本課</button><button type="button" data-export data-previous-responses hidden>下載先前保存的回應</button></div><p data-export-status role="status"></p>'),
   },
 ];

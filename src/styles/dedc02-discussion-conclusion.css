@@ -75,3 +75,9 @@
 .dc-deck .published-example>div{padding-top:.5rem}
 @media(max-width:720px){.dc-deck .method-table table,.dc-deck .method-table tbody{display:block;width:100%}.dc-deck .method-table thead{display:none}.dc-deck .method-table tr{display:block;margin:.8rem 0;border:1px solid var(--lesson-line)}.dc-deck .method-table :is(th,td){display:block;width:100%!important;border:0}.dc-deck .method-table td::before{content:attr(data-label) ': ';display:block;font-weight:600;margin-bottom:.15rem}.dc-deck .reasoning-method{padding-left:1.4rem}}
 @media print{.dc-deck .published-example>div{display:block!important}.dc-deck .published-example>summary{font-size:10pt}.dc-deck .reasoning-method li,.dc-deck .method-table tr{break-inside:avoid}}
+
+.dc-deck .slide[data-slide-key="thank-you"] h2{font-size:clamp(3rem,7vw,6rem);line-height:1.05;margin:1rem 0 2rem}
+.dc-deck a.lesson-pdf-link{display:inline-flex;align-items:center;min-height:44px;padding:.7rem 1rem;background:var(--lesson-green);color:#fff;border:1px solid var(--lesson-green);border-radius:.3rem;font-weight:600;font-size:.95em;line-height:1.35;text-decoration:none}
+.dc-deck a.lesson-pdf-link:hover{background:var(--lesson-ink)}
+@media(max-width:720px){.dc-deck a.lesson-pdf-link{width:100%}}
+@media print{.dc-deck .slide[data-slide-key="thank-you"] h2{font-size:3.7rem}}
