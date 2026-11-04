@@ -2,13 +2,23 @@
 
 Route: `/teaching/courses/dedc02/10-discussion-conclusion/`.
 
-## Teaching sequence
+## Teaching sequence and methodological foundation
 
-The nine-slide bilingual lecture is organised around connected learning questions. Each substantive slide places its explanation, study context, complete source passage, function controls and decoding notes together. The route is: the research argument; developing interpretation and explanation with theory and evidence; engaging with literature; synthesising findings; contribution and significance; contradictory evidence and limitations; implications; and the complete Conclusion.
+The 14-slide bilingual lesson is a method-led lecture. Slide 2 restores measurable learning aims beginning “By the end of today’s session, you will be able to…”. The learning storyline is explicit: develop an answer → examine and position it → establish what it adds → bring the answer together. Stage labels in the shared slide metadata keep the sequence visible.
 
-The Conclusion is read as three consecutive original paragraphs on one slide. Its embedded takeaway is explained in relation to the overall answer, contribution, scope and implications. It is not presented as an extra mandatory sentence or a repetition of each result.
+The lecture distinguishes the work of Results, Discussion and Conclusion without separate thesis-versus-article teaching tracks. Each substantive topic explains the purpose, teaches how to develop it, and provides a check on the reasoning. Complete, attributed original excerpts then illustrate the method in expandable panels on the same slide. The examples support the teaching and are available without a PDF download.
 
-There are no student writing prompts, quizzes, response fields or peer-review inputs. The normal language, timer, navigation, overview and print controls remain. Earlier responses under `dedc02-discussion-conclusion-v1` remain intact; a download control appears only for browsers with earlier saved responses.
+The sequence covers planning the Discussion; substantive, explanatory, theoretical, contextual/developmental and synthetic routes to interpretation; developing explanations and examining rivals; conceptual/theoretical coherence and synthesis; supporting, extending, qualifying and challenging earlier research; a specific procedure for findings that differ from prior studies; contradictory evidence and design limitations; significance, contribution and implications; construction of the Conclusion; and the takeaway embedded in its synthesis. These interpretation routes are a teaching synthesis, not a taxonomy attributed wholesale to one author.
+
+The method teaching was re-grounded on 4 November 2026 in the following local methodology textbook passages:
+
+- Creswell (2015), *Educational Research*, ch. 6, printed pp. 196–198 / physical PDF pp. 218–220: major findings, explanations drawing on theory and earlier research, limitations and focused future research. Ch. 8, printed pp. 256–258 / physical PDF pp. 278–280: qualitative meaning-making, larger meanings, literature comparisons, limitations and implications. Both ranges were checked again in the source PDF. The lesson distinguishes qualitative interpretive judgement from ungrounded assertion and quantitative practical meaning from statistical significance.
+- Dörnyei (2007), *Research Methods in Applied Linguistics*, §§12.3.4–12.3.5, physical/printed pp. 284–286, and §13.1.2, pp. 297–298: conceptual Discussion, interpretations and implications, validity of conclusions, joining the threads into an overall explanation, nontechnical closing answers, necessary qualifications and grounded future research. Both ranges were checked again in the source PDF. The vault filename begins 2009; the book's verified copyright year is 2007.
+- Miles, Huberman, & Saldaña (2014), *Qualitative Data Analysis*, ch. 11: generating meaning and testing conclusions, logical evidential chains, conceptual/theoretical coherence, negative evidence and rival explanations. The relevant extracted chapter passages were reread. These qualitative tactics inform design-appropriate reasoning; they are not imposed as a universal quantitative validity checklist.
+
+The Conclusion is taught before the full three-paragraph example is read. Its takeaway is a central understanding developed through synthesis, with its answer, contribution and necessary scope. Functions can combine and change order; the teaching does not impose a fixed sentence formula.
+
+There are no student writing prompts, quizzes, response fields or peer-review inputs. Language, timer, navigation, overview and print controls remain. Printing temporarily opens the original-example panels, then restores their previous expanded/collapsed state. Earlier responses under `dedc02-discussion-conclusion-v1` remain intact; a download control appears only for browsers with earlier saved responses.
 
 ## Published examples verified from the Academic Reading vault
 
@@ -32,9 +42,9 @@ Vault sources (kept private and unchanged):
 
 The source passages are continuous English prose in both language views. The Chinese toggle translates the lecture explanation, context, function labels and decoding notes; it does not replace the original English excerpt with a translation. Each excerpt gives its authors, year, physical accepted-manuscript PDF location and publication DOI on the slide. Reading it requires no PDF download.
 
-Function metadata adds inline spans without changing the source text. Buttons above each passage underline matching words or sentences in place. A sentence can have several functions; selecting a function displays an explanatory note below the complete passage. The default passage has no underlining, and the clear control restores that state. Function assignments and critical qualifications are the lecture's analysis, not labels supplied by the published authors.
+Function metadata adds inline spans without changing the source text. Buttons above each passage underline matching words or sentences in place. A sentence can have several functions; selecting a function displays an explanatory note above the complete passage. The default passage has no underlining, and the clear control restores that state. Function assignments and critical qualifications are the lecture's analysis, not labels supplied by the published authors.
 
-The excerpts cover Zhang and Hyland's Discussion (PDF pp. 23–25) and complete Conclusion (pp. 25–26), plus Payne and colleagues' literature comparison (p. 19) and limitations paragraph (p. 21). The original paragraphs retain author claims for analysis; decoding notes distinguish those interpretations and recommendations from causal effects established by the design. Carless and Winstone are encountered through Payne and colleagues' comparison, not claimed as independently inspected in this revision.
+The interpretation and explanation examples use the first and second complete paragraphs of the original two-paragraph `develop` excerpt respectively. Function controls are filtered to the roles present in the selected paragraph. The excerpts cover Zhang and Hyland's Discussion (PDF pp. 23–25) and complete Conclusion (pp. 25–26), plus Payne and colleagues' literature comparison (p. 19) and limitations paragraph (p. 21). The original paragraphs retain author claims for analysis; decoding notes distinguish those interpretations and recommendations from causal effects established by the design. Carless and Winstone are encountered through Payne and colleagues' comparison, not claimed as independently inspected in this revision.
 
 Only the attributed excerpts selected for teaching are published. Full PDFs, local vault paths and unrelated source bodies remain private and unchanged.
 

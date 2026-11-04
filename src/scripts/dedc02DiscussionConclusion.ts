@@ -89,6 +89,17 @@ document.querySelector('[data-fullscreen]')?.addEventListener('click', () => {
   const action = document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen();
   void action.catch(() => {});
 });
+const openedForPrint = new Set<HTMLDetailsElement>();
+window.addEventListener('beforeprint', () => {
+  document.querySelectorAll<HTMLDetailsElement>('.published-example:not([open])').forEach(example => {
+    openedForPrint.add(example);
+    example.open = true;
+  });
+});
+window.addEventListener('afterprint', () => {
+  openedForPrint.forEach(example => { example.open = false; });
+  openedForPrint.clear();
+});
 document.querySelectorAll('[data-print]').forEach(button => button.addEventListener('click', () => window.print()));
 bindLessonShortcuts(showSlide, () => current, slides.length, overview);
 initLessonTimer();

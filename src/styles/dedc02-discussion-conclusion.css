@@ -61,3 +61,17 @@
 .dc-deck .annotation-help{border-left:3px solid var(--lesson-green);padding:.55rem .75rem;background:var(--lesson-soft);font-size:.9em;line-height:1.45;min-height:3em}
 @media(max-width:720px){.dc-deck .method-steps li{padding-left:2.1rem}.dc-deck .annotation-help{min-height:0}.dc-deck .original-excerpt{line-height:1.65}}
 @media print{.dc-deck .annotation-help,.dc-deck .annotation-instruction{display:none}.dc-deck .original-excerpt p,.dc-deck .original-excerpt li{font-size:10.5pt;line-height:1.5}.dc-deck .study-context{font-size:10pt}.dc-deck .original-excerpt{break-inside:auto}}
+/* Teach the reasoning first; original passages are supporting worked examples. */
+.dc-deck .method-heading{margin:1.2rem 0 .5rem;font-size:1.08em}
+.dc-deck .reasoning-method,.dc-deck .learning-aims{list-style:decimal;padding-left:1.6rem;margin:.5rem 0 1rem}
+.dc-deck .reasoning-method li{padding-left:.25rem;margin:.75rem 0;line-height:1.45}
+.dc-deck .reasoning-method b,.dc-deck .reasoning-method span{display:block}
+.dc-deck .reasoning-method span{margin-top:.25rem;max-width:92ch}
+.dc-deck .reasoning-check{border-left:.25rem solid var(--lesson-green);background:var(--lesson-soft);padding:.7rem .9rem;margin:1rem 0;line-height:1.45}
+.dc-deck .method-table{margin:1rem 0;max-width:100%}.dc-deck .method-table table{min-width:0;table-layout:fixed;font-size:.95em}
+.dc-deck .method-table th:first-child{width:20%}.dc-deck .method-table :is(th,td){padding:.65rem .75rem;line-height:1.45}
+.dc-deck .published-example{margin:1.3rem 0;border-top:1px solid var(--lesson-line)}
+.dc-deck .published-example>summary{padding:.5rem 0;min-height:44px}
+.dc-deck .published-example>div{padding-top:.5rem}
+@media(max-width:720px){.dc-deck .method-table table,.dc-deck .method-table tbody{display:block;width:100%}.dc-deck .method-table thead{display:none}.dc-deck .method-table tr{display:block;margin:.8rem 0;border:1px solid var(--lesson-line)}.dc-deck .method-table :is(th,td){display:block;width:100%!important;border:0}.dc-deck .method-table td::before{content:attr(data-label) ': ';display:block;font-weight:600;margin-bottom:.15rem}.dc-deck .reasoning-method{padding-left:1.4rem}}
+@media print{.dc-deck .published-example>div{display:block!important}.dc-deck .published-example>summary{font-size:10pt}.dc-deck .reasoning-method li,.dc-deck .method-table tr{break-inside:avoid}}
