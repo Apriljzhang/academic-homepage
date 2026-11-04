@@ -1,0 +1,476 @@
+{
+  "develop": {
+    "source": "zhang",
+    "pages": "23",
+    "blocks": [
+      {
+        "kind": "p",
+        "spans": [
+          {
+            "text": "This study reinforces the view that student engagement with feedback is a complex process (e.g., Handley et al., 2011; Yu et al., 2019; Zhang & Hyland, 2018) as it taps into three dynamically interconnected dimensions. ",
+            "functions": [
+              "interpretation",
+              "theory",
+              "literature"
+            ]
+          },
+          {
+            "text": "With respect to behavioural and affective dimensions, not only do students need to devote time and invest effort in their writing and revision after receiving feedback, but they must also regulate emotional and attitudinal reactions toward feedback. ",
+            "functions": [
+              "theory"
+            ]
+          },
+          {
+            "text": "Perhaps the most difficult part of engagement is its cognitive dimension as it requires students to employ cognitive and meta-cognitive strategies to evaluate feedback on their writing and monitor their revision. ",
+            "functions": [
+              "theory"
+            ]
+          },
+          {
+            "text": "How to evaluate written texts, identify problems, and revise can pose tremendous challenges to students.",
+            "functions": [
+              "problem"
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "p",
+        "spans": [
+          {
+            "text": "We believe that the integrated approach in this study played a pivotal role in facilitating student engagement with feedback, writing, and revision. ",
+            "functions": [
+              "interpretation"
+            ]
+          },
+          {
+            "text": "The teacher was aware of feedback research where AWE feedback is found to offer immediate diagnostic assessment and multiple drafting opportunities (Stevenson & Phakiti, 2014), and how peer feedback might reduce writing anxiety and promote collaborative learning (Yu et al., 2019). ",
+            "functions": [
+              "literature"
+            ]
+          },
+          {
+            "text": "As a result, she integrated both to create a feedback-and-revision process that made student revision less daunting and more manageable. ",
+            "functions": [
+              "explanation"
+            ]
+          },
+          {
+            "text": "As illustrated by the students, the complementarity of AWE feedback and peer feedback enabled them to distribute their attention to grammar and content in different drafts.",
+            "functions": [
+              "evidence",
+              "explanation"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "synthesis": {
+    "source": "zhang",
+    "pages": "23–24",
+    "blocks": [
+      {
+        "kind": "p",
+        "spans": [
+          {
+            "text": "The integrated approach encouraged the students to focus on local and global areas at different stages of their writing and helped them realise that revision is an integral part of writing. ",
+            "functions": [
+              "synthesis"
+            ]
+          },
+          {
+            "text": "Moreover, the purposeful and systematic combination of AWE, peer, and teacher feedback helped enriched students’ learning experiences by offering varied learning modes (human and machine) and diverse readership (peer and teacher). ",
+            "functions": [
+              "synthesis",
+              "explanation"
+            ]
+          },
+          {
+            "text": "It is important to emphasise the role of teachers in the feedback cycle. ",
+            "functions": [
+              "interpretation"
+            ]
+          },
+          {
+            "text": "As this study shows, the teacher’s active involvement in both AWE and peer feedback, by asking students to focus on improving their scores at the AWE stage and produce a reflective report after peer feedback contributed to students’ active engagement through a sense of progress and reflection. ",
+            "functions": [
+              "evidence",
+              "explanation"
+            ]
+          },
+          {
+            "text": "Without the final step of teacher feedback, however, the integrated approach would probably have been less effective as many of the students commented on its importance in their writing.",
+            "functions": [
+              "qualification",
+              "explanation"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "significance": {
+    "source": "zhang",
+    "pages": "24",
+    "blocks": [
+      {
+        "kind": "p",
+        "spans": [
+          {
+            "text": "By following a teacher that integrates three types of feedback we have sought to move away from simplistic dichotomies about the ‘best’ type and learnt that there is no single best approach to written feedback. ",
+            "functions": [
+              "contribution"
+            ]
+          },
+          {
+            "text": "The integrated approach responds to those who question the legitimacy of computer-generated diagnostics (e.g., Stevenson & Phakiti, 2014; Ware, 2011) by supporting it with peer and teacher feedback. ",
+            "functions": [
+              "literature"
+            ]
+          },
+          {
+            "text": "It creates positive synergistic effect that increases student involvement and motivation. ",
+            "functions": [
+              "significance"
+            ]
+          },
+          {
+            "text": "Overall, the integration of three types of feedback seems to offer the following benefits:",
+            "functions": [
+              "synthesis"
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "li",
+        "spans": [
+          {
+            "text": "encourage the students to devote time and effort in their writing and revising, which is an effective way to improve their behavioural engagement.",
+            "functions": [
+              "significance",
+              "synthesis"
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "li",
+        "spans": [
+          {
+            "text": "reduce the demotivating wait for timely feedback and offers peer support for writing development, promoting affective engagement.",
+            "functions": [
+              "significance",
+              "synthesis"
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "li",
+        "spans": [
+          {
+            "text": "require students to analyse, evaluate, monitor, and regulate their writing and revisions, thus drawing on cognitive strategies.",
+            "functions": [
+              "significance",
+              "synthesis"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "exceptions": {
+    "source": "zhang",
+    "pages": "24–25",
+    "blocks": [
+      {
+        "kind": "p",
+        "spans": [
+          {
+            "text": "We believe that the integrated approach is not a panacea to poor engagement of some students and that individual factors, such as motivation and language proficiency, can also colour the picture (Zhang & Hyland, 2018). ",
+            "functions": [
+              "qualification",
+              "literature"
+            ]
+          },
+          {
+            "text": "Indeed, there were students in this study that failed to engage and responded with indifference to the multiple feedback types, seeing the revision cycle as overkill and inefficacious. ",
+            "functions": [
+              "contrary"
+            ]
+          },
+          {
+            "text": "Not all students will be sufficiently incentivised to participate in what might seem a trick to get them to work harder on the same piece of writing. ",
+            "functions": [
+              "explanation"
+            ]
+          },
+          {
+            "text": "This is one challenge that lies in enacting this approach. ",
+            "functions": [
+              "implication"
+            ]
+          },
+          {
+            "text": "However, we believe that enough students were encouraged by the teacher’s obvious enthusiasm for the approach, her interest in her students’ improvement, and her use of supportive teaching methods to make improvement. ",
+            "functions": [
+              "explanation",
+              "evidence"
+            ]
+          },
+          {
+            "text": "Together this meant that the approach, in this situation at least, helped to promote student involvement and address learners’ different needs.",
+            "functions": [
+              "scope",
+              "synthesis"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "implications": {
+    "source": "zhang",
+    "pages": "25",
+    "blocks": [
+      {
+        "kind": "p",
+        "spans": [
+          {
+            "text": "For teachers, promoting student engagement with feedback requires skills and awareness, involving the creation of inclusive and cooperative learning conditions. ",
+            "functions": [
+              "conditions"
+            ]
+          },
+          {
+            "text": "As shown in this study, the heavy assessment duties and marking load, described by Harland and Wald (2020) as ‘assessment arms race’, are not uncommon in many higher education contexts across the globe (Boud & Molloy, 2013). ",
+            "functions": [
+              "literature",
+              "problem"
+            ]
+          },
+          {
+            "text": "The fact that the teacher was able to integrate different types of feedback in her class without major alterations to classroom arrangements shows that her approach is worth exploring in other classrooms where writing, revision, and assessment are important components. ",
+            "functions": [
+              "evidence",
+              "recommendation"
+            ]
+          },
+          {
+            "text": "Moreover, with growing time constraints, student numbers and pressures on academics to engage in research, administration and outreach, this integrated approach may offer a much-needed solution to student dissatisfaction with their feedback experiences in many parts of the world.",
+            "functions": [
+              "significance",
+              "recommendation"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "literature": {
+    "source": "payne",
+    "pages": "19",
+    "blocks": [
+      {
+        "kind": "p",
+        "spans": [
+          {
+            "text": "Carless and Winstone’s (2020) design dimension is differently positioned; their dimension focuses on the ways in which teachers contribute to effective feedback processes through their design of curricula and assessment. ",
+            "functions": [
+              "earlier"
+            ]
+          },
+          {
+            "text": "This positioning appears to be aligned with Boud and Dawson’s (2021) macro-level development and/or meso-level coordination and staging responsibilities. ",
+            "functions": [
+              "earlier"
+            ]
+          },
+          {
+            "text": "Many of our participants suggested that the feedback process would be improved if it could be made more dialogic and formative, indicating that sequenced assessments may better enable students to use feedback from one assignment to the next. ",
+            "functions": [
+              "finding"
+            ]
+          },
+          {
+            "text": "However, due to our participants’ varied levels of responsibility they were not all responsible for curriculum design. ",
+            "functions": [
+              "context"
+            ]
+          },
+          {
+            "text": "This may explain the difference in strategies that we identified compared with Carless and Winstone (2020). ",
+            "functions": [
+              "explanation"
+            ]
+          },
+          {
+            "text": "Instead, our design literacy strategies were aimed at managing the tensions between grading and feedback (Boud and Dawson 2021).",
+            "functions": [
+              "contribution"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "limitations": {
+    "source": "payne",
+    "pages": "21",
+    "blocks": [
+      {
+        "kind": "p",
+        "spans": [
+          {
+            "text": "Our research question centred on teacher feedback literacies and strategies required to implement relational technology-enhanced feedback. ",
+            "functions": [
+              "question"
+            ]
+          },
+          {
+            "text": "We interviewed ten higher education teachers across a range of disciplines and cohorts with technology-enhanced feedback experience to understand their reported feedback literacies. ",
+            "functions": [
+              "design"
+            ]
+          },
+          {
+            "text": "One limitation of this approach is that there might be discrepancies between participants’ actual feedback practices and what they reported. ",
+            "functions": [
+              "limitation"
+            ]
+          },
+          {
+            "text": "It was not our intention to measure nor make claims of the efficacy of technology-enhanced feedback nor its ability to improve academic performance. ",
+            "functions": [
+              "scope"
+            ]
+          },
+          {
+            "text": "It was also not our intention to produce generalisable findings, thus there may be additional literacies and strategies not identified here. ",
+            "functions": [
+              "scope"
+            ]
+          },
+          {
+            "text": "Qualitative research samples are small, for good reason, and are justified when good purposive sampling has taken place (Ritchie et al. 2014).",
+            "functions": [
+              "justification"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "conclusion": {
+    "source": "zhang",
+    "pages": "25–26",
+    "blocks": [
+      {
+        "kind": "p",
+        "spans": [
+          {
+            "text": "Overall, our study shows that student engagement with feedback can be facilitated with an integrated approach and the integration of different types of feedback merits attention from both researchers and practitioners in higher education. ",
+            "functions": [
+              "answer",
+              "significance"
+            ]
+          },
+          {
+            "text": "We have sought to bring the fields of assessment in higher education and L2 writing together in our study. ",
+            "functions": [
+              "contribution"
+            ]
+          },
+          {
+            "text": "These are two fields where feedback takes a prominent role. ",
+            "functions": [
+              "contribution"
+            ]
+          },
+          {
+            "text": "We have done this by tracking changes in student drafts, a method commonly used in L2 writing research but less common in assessment in higher education. ",
+            "functions": [
+              "contribution"
+            ]
+          },
+          {
+            "text": "Together with self-report data, we hope this has helped to shed some light on student engagement with feedback. ",
+            "functions": [
+              "contribution",
+              "answer"
+            ]
+          },
+          {
+            "text": "The challenges of extrapolating to other classrooms and populations should be recognised and our conclusions seen as suggestive.",
+            "functions": [
+              "scope"
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "p",
+        "spans": [
+          {
+            "text": "We recognise, of course, that a case study has limited generalisability and reflects the thoughts and practices of individuals in one context. ",
+            "functions": [
+              "scope"
+            ]
+          },
+          {
+            "text": "It does, however, allow us to explore these thoughts and practices in greater detail to raise important issues which may escape large scale surveys while illuminating points which may be relevant for teachers in other situations. ",
+            "functions": [
+              "contribution"
+            ]
+          },
+          {
+            "text": "We hope this encourages others to reflect on the possibilities our study suggests and explore how the use of different types of feedback might promote greater engagement among their own students, adapting the approach to their own classroom context and constraints. ",
+            "functions": [
+              "implication"
+            ]
+          },
+          {
+            "text": "We also acknowledge that there is space for future studies to adopt other methodological approaches to measure cognitive engagement through, for example, think-aloud protocols and eye-tracking software.",
+            "functions": [
+              "future"
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "p",
+        "spans": [
+          {
+            "text": "Most importantly, we argue that student engagement with feedback is a complex issue and that we cannot change students overnight. ",
+            "functions": [
+              "takeaway",
+              "scope"
+            ]
+          },
+          {
+            "text": "We can, however, develop inclusive pedagogies and create supportive learning environments that facilitate their engagement in writing and revision. ",
+            "functions": [
+              "takeaway",
+              "implication"
+            ]
+          },
+          {
+            "text": "By integrating multiple types of feedback – AWE, peer and teacher feedback – teachers might not only offer students a more varied writing experience that accommodates different learning styles and needs, but also facilitate active redrafting and improved writing through greater behavioural, affective and cognitive engagement. ",
+            "functions": [
+              "takeaway",
+              "implication"
+            ]
+          },
+          {
+            "text": "This, then, is an effective means of using assessment to feedforward: turning feedback into learning.",
+            "functions": [
+              "takeaway"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

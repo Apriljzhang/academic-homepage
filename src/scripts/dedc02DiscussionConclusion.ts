@@ -151,9 +151,9 @@ document.querySelectorAll<HTMLInputElement>('[data-review]').forEach(input => {
 });
 document.querySelectorAll<HTMLButtonElement>('[data-annotation]').forEach(button => button.addEventListener('click', () => {
   const root = button.closest('.annotation-example');
-  const key = button.getAttribute('aria-pressed') === 'true' ? 'all' : button.dataset.annotation;
+  const key = button.getAttribute('aria-pressed') === 'true' ? 'clear' : button.dataset.annotation;
   root?.querySelectorAll<HTMLButtonElement>('[data-annotation]').forEach(peer => peer.setAttribute('aria-pressed', String(peer.dataset.annotation === key)));
-  root?.querySelectorAll<HTMLElement>('[data-move]').forEach(row => row.classList.toggle('highlighted', key !== 'all' && row.dataset.move === key));
+  root?.querySelectorAll<HTMLElement>('[data-move]').forEach(row => row.classList.toggle('highlighted', Boolean(key && key !== 'clear' && row.dataset.move?.split(' ').includes(key))));
   const note = root?.querySelector<HTMLElement>('[data-annotation-note]');
   const selected = Array.from(root?.querySelectorAll<HTMLButtonElement>('[data-annotation]') || []).find(peer => peer.dataset.annotation === key);
   if (note) note.textContent = selected?.dataset.annotationHelp || '';
@@ -161,7 +161,7 @@ document.querySelectorAll<HTMLButtonElement>('[data-annotation]').forEach(button
 
 document.querySelectorAll('[data-export]').forEach(button => button.addEventListener('click', () => {
   const lang = language();
-  const lines = ['# DEDC02 — Discussion and Conclusion', '', lang === 'zh' ? '個人課堂回應。論文教學意譯及虛構練習均另有標示。' : 'Personal lesson responses. Published-paper teaching paraphrases and invented practice scenarios are labelled separately.', ''];
+  const lines = ['# DEDC02 — Discussion and Conclusion', '', lang === 'zh' ? '先前版本保存在此瀏覽器的課堂回應。' : 'Lesson responses saved in this browser by an earlier version.', ''];
   const seen = new Set<string>();
   document.querySelectorAll<HTMLTextAreaElement>(`.slide-inner > [data-language="${lang}"] [data-response]`).forEach(field => {
     const key = field.dataset.response!;
@@ -201,5 +201,7 @@ document.querySelectorAll('[data-export]').forEach(button => button.addEventList
   window.setTimeout(() => URL.revokeObjectURL(url), 1000);
   document.querySelectorAll('[data-export-status]').forEach(output => { output.textContent = output.closest('[data-language="zh"]') ? '已準備下載回應檔案。' : 'Response file prepared for download.'; });
 }));
+const hasPreviousResponses = Object.values(state.responses).some(value => value.trim()) || Object.values(state.quizzes).some(value => value.choice !== null) || Object.values(state.review).some(Boolean);
+document.querySelectorAll<HTMLElement>('[data-previous-responses]').forEach(button => { button.hidden = !hasPreviousResponses; });
 updateSaveStatus();
 showSlide(hashSlide());

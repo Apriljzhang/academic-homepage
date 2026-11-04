@@ -4,9 +4,11 @@ Route: `/teaching/courses/dedc02/10-discussion-conclusion/`.
 
 ## Teaching sequence
 
-The 31-slide bilingual lesson teaches methods before examples. It distinguishes Results, Discussion and Conclusion; planning the Discussion; interpreting and explaining findings; engaging with theory and literature; synthesising evidence and handling contradictions; significance, contribution, implications and limitations; and developing a Conclusion. The takeaway is the central understanding embedded in the Conclusion's synthesis, not a separate repetitive results summary or an extra mandatory sentence.
+The nine-slide bilingual lecture is organised around connected learning questions. Each substantive slide places its explanation, study context, complete source passage, function controls and decoding notes together. The route is: the research argument; developing interpretation and explanation with theory and evidence; engaging with literature; synthesising findings; contribution and significance; contradictory evidence and limitations; implications; and the complete Conclusion.
 
-Each substantive Discussion element has an explicit how-to method. Paragraph functions are flexible; they are not compulsory sentence sequences or subsection headings. A limitation is discussed where it materially changes the argument. The closing activities retain writing, peer review, browser-local responses, Markdown export and printing. Shared lesson chrome, controls and storage key `dedc02-discussion-conclusion-v1` are unchanged.
+The Conclusion is read as three consecutive original paragraphs on one slide. Its embedded takeaway is explained in relation to the overall answer, contribution, scope and implications. It is not presented as an extra mandatory sentence or a repetition of each result.
+
+There are no student writing prompts, quizzes, response fields or peer-review inputs. The normal language, timer, navigation, overview and print controls remain. Earlier responses under `dedc02-discussion-conclusion-v1` remain intact; a download control appears only for browsers with earlier saved responses.
 
 ## Published examples verified from the Academic Reading vault
 
@@ -26,15 +28,19 @@ Vault sources (kept private and unchanged):
 
 ## Evidence and quotation boundaries
 
-The large annotated examples are explicitly labelled teaching paraphrases; their function labels and explanatory notes are the lesson's analysis. They preserve the source contexts and do not present the classroom case as an experimental causal estimate. Short original extracts are separately identified, underlined and decoded. The Zhang and Hyland extract stops before the original citations and further discussion; an ellipsis marks the omission. Chinese text is a teaching translation, not an original published quotation.
+`src/data/dedc02DiscussionExcerpts.json` contains eight selected excerpts: fourteen complete paragraphs or original list items in total. They were extracted from the local accepted-manuscript PDFs and checked as exact contiguous matches after removing page furniture and normalising line-wrapping whitespace. Wording, citations, punctuation, original grammatical forms, paragraph order and the original numbered benefits list are retained. No paraphrases replace the quoted examples, and no sentences are reordered into function categories.
 
-Carless and Winstone are discussed as the earlier framework engaged with by Payne and colleagues. The lesson does not claim to have independently verified that framework's original paper during this revision. No full publisher PDFs, private vault paths or local source bodies are published in the student deck.
+The source passages are continuous English prose in both language views. The Chinese toggle translates the lecture explanation, context, function labels and decoding notes; it does not replace the original English excerpt with a translation. Each excerpt gives its authors, year, physical accepted-manuscript PDF location and publication DOI on the slide. Reading it requires no PDF download.
 
-## Constructed practice and saved responses
+Function metadata adds inline spans without changing the source text. Buttons above each passage underline matching words or sentences in place. A sentence can have several functions; selecting a function displays an explanatory note below the complete passage. The default passage has no underlining, and the clear control restores that state. Function assignments and critical qualifications are the lecture's analysis, not labels supplied by the published authors.
 
-Two practice slides and the draft-repair task retain the earlier invented feedback study: 120 learners, varied gains, twelve selected interviewees and no comparison group. These activities are clearly separated from the 33-student published case and explicitly marked invented. Quiz choice indices for the retained activities are preserved.
+The excerpts cover Zhang and Hyland's Discussion (PDF pp. 23–25) and complete Conclusion (pp. 25–26), plus Payne and colleagues' literature comparison (p. 19) and limitations paragraph (p. 21). The original paragraphs retain author claims for analysis; decoding notes distinguish those interpretations and recommendations from causal effects established by the design. Carless and Winstone are encountered through Payne and colleagues' comparison, not claimed as independently inspected in this revision.
 
-All saved response values and review checks stay under their existing keys. Fields and quizzes removed from the visible teaching sequence are retained in storage and included in Markdown export when previously completed. `dedc02DiscussionLegacy.json` stores original bilingual prompts/options so older quiz choices remain interpretable. It contains no student data. English/Traditional Chinese views share response text without translating student writing. Responses are not sent to a server.
+Only the attributed excerpts selected for teaching are published. Full PDFs, local vault paths and unrelated source bodies remain private and unchanged.
+
+## Earlier saved responses
+
+Removing input activities does not remove stored data. The existing local-storage key and reader are unchanged, and the excerpt interactions do not write or clear saved responses. The existing response export can recover earlier writing, review selections and quiz choices. `dedc02DiscussionLegacy.json` retains the original bilingual quiz prompts and options for that export. The download action is hidden for browsers without previous responses. No student data are included in the source excerpt file or transmitted to a server.
 
 ## Earlier methodological grounding retained
 

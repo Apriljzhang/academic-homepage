@@ -50,12 +50,14 @@
 .dc-deck .study-context p{margin:.25rem 0 0;line-height:1.4}.dc-deck .study-context b{font-weight:600}
 .dc-deck .adaptation-label,.dc-deck .example-source,.dc-deck .annotation-instruction{font-size:.85em;line-height:1.4}
 .dc-deck .adaptation-label{color:var(--lesson-muted)}.dc-deck .example-source{margin-top:.7rem}
-.dc-deck .annotated-paragraph{background:#fff;border-left:0;padding:0;font-size:1em}
-.dc-deck .annotated-paragraph .move-row{display:grid;grid-template-columns:9.2rem minmax(0,1fr);gap:1rem;border-top:1px solid var(--lesson-line);padding:.75rem .6rem;margin:0;line-height:1.5;box-shadow:none;background:#fff}
-.dc-deck .move-label{font-size:.84em;line-height:1.4;padding-top:.1rem;color:var(--lesson-green)}
-.dc-deck .annotated-paragraph .move-row.highlighted{background:#edf7f0;box-shadow:inset .25rem 0 #1f6b45}
-.dc-deck .move-row.highlighted>span{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px;text-decoration-color:#1f6b45}
-.dc-deck .annotation-help{border-left:3px solid var(--lesson-green);padding:.55rem .75rem;background:var(--lesson-soft);font-size:.9em;min-height:3.5em;line-height:1.4}
-.dc-deck .source-quote{font-style:italic}
-@media(max-width:720px){.dc-deck .annotated-paragraph .move-row{grid-template-columns:1fr;gap:.3rem;padding:.7rem .5rem}.dc-deck .method-steps li{padding-left:2.1rem}.dc-deck .annotation-help{min-height:0}}
-@media print{.dc-deck .method-steps li{padding:.4rem 0 .4rem 2rem}.dc-deck .annotation-help,.dc-deck .annotation-instruction{display:none}.dc-deck .annotated-paragraph .move-row{grid-template-columns:8rem minmax(0,1fr);padding:.45rem .5rem}.dc-deck .move-label{font-size:10pt}.dc-deck .study-context{font-size:10pt}.dc-deck .method-steps li,.dc-deck .move-row{break-inside:avoid}}
+/* Published excerpts remain continuous prose in their original paragraph order. */
+.dc-deck .original-excerpt{margin:1rem 0;padding:0;border:0;background:#fff;font:inherit;line-height:1.65;overflow-wrap:break-word}
+.dc-deck .original-excerpt p{margin:0 0 1rem;line-height:1.65}
+.dc-deck .original-excerpt ol{list-style:decimal;margin:.5rem 0 1rem;padding-left:1.7rem}
+.dc-deck .original-excerpt li{margin:.4rem 0;line-height:1.65}
+.dc-deck .original-excerpt [data-move]{display:inline;font:inherit;color:inherit}
+.dc-deck .original-excerpt [data-move].highlighted{text-decoration-line:underline;text-decoration-thickness:2px;text-underline-offset:4px;text-decoration-color:var(--lesson-green);background:none;box-shadow:none}
+.dc-deck .lecture-explanation{max-width:92ch;margin:.75rem 0 1.2rem;line-height:1.5}
+.dc-deck .annotation-help{border-left:3px solid var(--lesson-green);padding:.55rem .75rem;background:var(--lesson-soft);font-size:.9em;line-height:1.45;min-height:3em}
+@media(max-width:720px){.dc-deck .method-steps li{padding-left:2.1rem}.dc-deck .annotation-help{min-height:0}.dc-deck .original-excerpt{line-height:1.65}}
+@media print{.dc-deck .annotation-help,.dc-deck .annotation-instruction{display:none}.dc-deck .original-excerpt p,.dc-deck .original-excerpt li{font-size:10.5pt;line-height:1.5}.dc-deck .study-context{font-size:10pt}.dc-deck .original-excerpt{break-inside:auto}}
