@@ -114,6 +114,7 @@ function renderQuiz(id: string) {
     const buttons = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-choice]'));
     const selected = buttons.find(button => button.dataset.choice === value.choice);
     buttons.forEach(button => button.setAttribute('aria-pressed', String(button === selected)));
+    map.style.setProperty('--selected-row', String(buttons.indexOf(selected) + 2));
     const output = root.querySelector<HTMLElement>('[data-feedback]');
     if (!output) return;
     output.classList.toggle('needs-review', Boolean(value.checked && selected?.dataset.fits !== 'true'));
@@ -216,3 +217,65 @@ const hasPreviousResponses = Object.values(state.responses).some(value => value.
 document.querySelectorAll<HTMLElement>('[data-previous-responses]').forEach(button => { button.hidden = !hasPreviousResponses; });
 updateSaveStatus();
 showSlide(hashSlide());
+
+// Thesis explanations share a selection across the English and Chinese views.
+const thesisMaps = Array.from(document.querySelectorAll<HTMLElement>('[data-thesis-language]'));
+function fillThesisPurpose(output: HTMLElement, text: string) {
+  const parts = text.split('\n');
+  if (parts.length === 1) { output.textContent = text; return; }
+  const list = document.createElement('ol');
+  for (const part of parts) { const item = document.createElement('li'); item.textContent = part; list.append(item); }
+  output.replaceChildren(list);
+}
+function fitThesisExplanations() {
+  thesisMaps.forEach(map => {
+    const explorer = map.querySelector<HTMLElement>('.thesis-explorer');
+    if (!explorer || !map.offsetWidth) return;
+    if (window.matchMedia('(max-width: 850px)').matches) { explorer.style.paddingBottom = '0px'; return; }
+    const bottom = explorer.getBoundingClientRect().bottom - parseFloat(getComputedStyle(explorer).paddingBottom);
+    const outputs = Array.from(map.querySelectorAll<HTMLElement>('.thesis-explanation:not([hidden])'));
+    const extra = Math.max(0, ...outputs.map(output => Math.ceil(output.getBoundingClientRect().bottom - bottom)));
+    explorer.style.paddingBottom = `${extra}px`;
+  });
+}
+window.addEventListener('resize', fitThesisExplanations);
+translate?.addEventListener('click', () => requestAnimationFrame(fitThesisExplanations));
+function selectThesisPart(id: string, source: HTMLElement) {
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  thesisMaps.forEach(map => {
+    const buttons = Array.from(map.querySelectorAll<HTMLButtonElement>('[data-thesis-part]'));
+    const selected = buttons.find(button => button.dataset.thesisPart === id);
+    if (!selected) return;
+    buttons.forEach(button => button.setAttribute('aria-pressed', String(button === selected)));
+    map.style.setProperty('--selected-row', String(buttons.indexOf(selected) + 2));
+    for (const [selector, text, offset] of [
+      ['[data-thesis-question-output]', selected.dataset.thesisQuestion || '', -8],
+      ['[data-thesis-purpose-output]', selected.dataset.thesisPurpose || '', 8],
+    ] as const) {
+      const output = map.querySelector<HTMLElement>(selector);
+      if (!output) continue;
+      if (selector === '[data-thesis-purpose-output]') fillThesisPurpose(output, text); else output.textContent = text;
+      output.hidden = false;
+      if (!reduced) output.animate([{ opacity: 0, transform: `translateX(${offset}px)` }, { opacity: 1, transform: 'translateX(0)' }], { duration: 180, easing: 'ease-out' });
+    }
+  });
+  requestAnimationFrame(fitThesisExplanations);
+  if (window.matchMedia('(max-width: 850px)').matches) source.querySelector('[data-thesis-question-output]')?.scrollIntoView({ block: 'start', behavior: reduced ? 'instant' : 'smooth' });
+}
+thesisMaps.forEach(map => {
+  const print = document.createElement('div'); print.className = 'thesis-print';
+  const heading = document.createElement('div'); heading.className = 'thesis-print-head';
+  for (const selector of ['.thesis-question-panel h3', '.thesis-stack h3', '.thesis-purpose-panel h3']) {
+    const label = document.createElement('span'); label.textContent = map.querySelector(selector)?.textContent || ''; heading.append(label);
+  }
+  print.append(heading);
+  map.querySelectorAll<HTMLButtonElement>('[data-thesis-part]').forEach(button => {
+    button.addEventListener('click', () => selectThesisPart(button.dataset.thesisPart || '', map));
+    const row = document.createElement('div'); row.className = 'thesis-print-row';
+    const question = document.createElement('p'); question.textContent = button.dataset.thesisQuestion || '';
+    const chapter = document.createElement('div'); chapter.className = 'thesis-part'; chapter.dataset.thesisKind = button.dataset.thesisKind; chapter.style.cssText = button.style.cssText; chapter.innerHTML = button.innerHTML;
+    const purpose = document.createElement('div'); purpose.className = 'thesis-purpose-content'; fillThesisPurpose(purpose, button.dataset.thesisPurpose || '');
+    row.append(question, chapter, purpose); print.append(row);
+  });
+  map.append(print);
+});

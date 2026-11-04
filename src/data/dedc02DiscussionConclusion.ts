@@ -157,22 +157,44 @@ const functionNotes: Record<ExcerptKey, {en:FunctionNote[];zh:FunctionNote[]}> =
     ] },
 };
 const example = (key:ExcerptKey,lang:'en'|'zh',blockIndexes?:number[]) => `<details class="published-example"><summary>${lang==='en'?'Original example: read and underline the authors’ moves':'原文例子：閱讀並劃出作者的寫作功能'}</summary><div>${context(excerpts[key].source==='zhang'?'zhang':'payne',lang)}${excerpt(key,lang,functionNotes[key][lang],blockIndexes)}</div></details>`;
-const stageA = c('1 · Develop an answer','1 · 發展答案');
-const stageB = c('2 · Examine and position the answer','2 · 檢視答案並連結文獻');
-const stageC = c('3 · Establish what the answer adds','3 · 建立答案的貢獻');
+const stageA = c('Discussion: meaning and explanation','討論：意義與解釋');
+const stageB = c('Discussion: comparison and evaluation','討論：比較與評估');
+const stageC = c('Discussion: contribution and implications','討論：貢獻與啟示');
 const stageD = c('4 · Bring the answer together','4 · 綜合整體答案');
 
 const thesisChapters = [
-  {title:c('Introduction','引言'),share:10,top:8,bottom:28,question:c('What problem and question drive the study?','甚麼問題及提問推動這項研究？'),purpose:c('Establish the problem, gap, purpose and research questions.','建立研究問題、缺口、目的及研究提問。')},
-  {title:c('Literature review','文獻回顧'),share:20,top:28,bottom:42,question:c('What is known, and what remains unresolved?','已知甚麼？哪些問題仍未解決？'),purpose:c('Synthesise relevant research and justify the study’s focus.','綜合相關研究，說明研究焦點的理據。')},
-  {title:c('Conceptual framework','概念框架'),share:10,top:42,bottom:50,question:c('Which concepts and relationships guide the study?','哪些概念及關係指導研究？'),purpose:c('Define key concepts and explain the relationships to examine.','界定核心概念，說明需要探究的關係。')},
+  {title:c('Introduction','引言'),share:10,top:8,bottom:28,question:c('What problem and question drive the study?','甚麼問題及提問推動這項研究？'),purpose:c('Establish a territory: introduce the topic, its importance and relevant research.\nEstablish a niche: identify an unresolved question or gap.\nOccupy the niche: state the study’s purpose and research questions, showing how it responds.','建立研究領域：介紹主題、其重要性及相關研究。\n指出研究空間：辨認尚未解決的問題或研究缺口。\n說明本研究如何回應：交代研究目的與研究提問，以及研究如何回應上述問題。')},
+  {title:c('Literature review','文獻回顧'),share:25,top:28,bottom:50,question:c('What is known, and what remains unresolved?','已知甚麼？哪些問題仍未解決？'),purpose:c('Synthesise relevant research and justify the study’s focus.','綜合相關研究，說明研究焦點的理據。')},
   {title:c('Methodology','研究方法'),share:15,top:50,bottom:54,question:c('How can the question be answered?','如何回答研究提問？'),purpose:c('Justify the design, sampling, data collection and analysis.','論證設計、抽樣、資料蒐集及分析的選擇。')},
   {title:c('Results','研究結果'),share:20,top:54,bottom:42,question:c('What did the analysis establish?','分析建立了哪些發現？'),purpose:c('Present the findings with the evidence supporting them.','呈現研究發現，以及支持它們的證據。')},
-  {title:c('Discussion','討論'),share:20,top:42,bottom:24,question:c('What do the findings mean and add?','發現有甚麼意義？增加了甚麼理解？'),purpose:c('Interpret and explain; connect to theory and research; develop contributions and implications.','詮釋及解釋發現，連結理論與既有研究，發展貢獻及啟示。')},
-  {title:c('Conclusion and recommendations','結論與建議'),share:5,top:24,bottom:8,question:c('What overall answer should the reader retain?','讀者應保留甚麼整體答案？'),purpose:c('Synthesise the answer and contribution, with justified recommendations.','綜合整體答案及貢獻，提出有理據的建議。')},
+  {title:c('Discussion','討論'),share:25,top:42,bottom:24,question:c('What do the findings mean and add?','發現有甚麼意義？增加了甚麼理解？'),purpose:c('Interpret the findings: explain the main answer and its meaning.\nExplain and evaluate: examine possible explanations, compare with theory and research, and consider relevant limitations.\nDevelop implications: explain the contribution and what follows for research or practice.','詮釋研究發現：說明主要答案及其意義。\n解釋與評估：檢視可能解釋，與理論及既有研究比較，並考慮相關限制。\n發展研究啟示：說明研究貢獻，以及對研究或實務可推導甚麼。')},
+  {title:c('Conclusion','結論'),share:5,top:24,bottom:8,question:c('What overall answer should the reader retain?','讀者應保留甚麼整體答案？'),purpose:c('Synthesise the overall answer and contribution, and state the central takeaway.','綜合整體答案及貢獻，說明讀者應保留的核心理解。')},
 ];
-const thesisShape = (top:number,bottom:number) => `<svg viewBox="0 0 360 64" preserveAspectRatio="none" aria-hidden="true" focusable="false"><polygon points="${top},1 ${360-top},1 ${360-bottom},63 ${bottom},63" vector-effect="non-scaling-stroke" /></svg>`;
-const thesisStructure = (lang:'en'|'zh') => `<figure class="thesis-figure"><figcaption>${lang==='en'?'Illustrative shares of the main-text word count across seven chapters (total 100%).':'七個正文篇章的參考字數比例，合共 100%。'}</figcaption><div class="thesis-map-head" aria-hidden="true"><span>${lang==='en'?'Question it answers':'回答的問題'}</span><span>${lang==='en'?'Chapter and share':'篇章與比例'}</span><span>${lang==='en'?'What to develop':'需要發展的內容'}</span></div><div class="thesis-map-row thesis-front"><p>${lang==='en'?'What was studied and found?':'研究探究及發現了甚麼？'}</p><div class="thesis-chapter">${thesisShape(0,18)}<b>${lang==='en'?'Abstract':'摘要'}</b></div><p>${lang==='en'?'Summarise the problem, approach, main findings and overall answer.':'概述研究問題、方法、主要發現及整體答案。'}</p></div><ol class="thesis-map">${thesisChapters.map((chapter,i)=>`<li class="thesis-map-row${i>=5?' thesis-key-chapter':''}" data-thesis-share="${chapter.share}"><p class="thesis-question">${chapter.question[lang]}</p><div class="thesis-chapter">${thesisShape(chapter.top,chapter.bottom)}<b>${i+1}. ${chapter.title[lang]}</b><strong class="thesis-share">${chapter.share}%</strong></div><p class="thesis-purpose">${chapter.purpose[lang]}</p></li>`).join('')}</ol><div class="thesis-support"><p><b>${lang==='en'?'Acknowledgements':'致謝'}</b><span>${lang==='en'?'Recognise support':'感謝提供協助的人士'}</span></p><p><b>${lang==='en'?'References':'參考文獻'}</b><span>${lang==='en'?'List the sources cited':'列出文中引用的來源'}</span></p><p><b>${lang==='en'?'Appendices, where needed':'附錄（如有需要）'}</b><span>${lang==='en'?'Provide supporting material':'提供補充資料'}</span></p></div></figure>`;
+const thesisPalette = [ ['#e4effb','#9bb9d8'], ['#eee7f7','#b9a4ce'], ['#fbe7df','#d6ad9b'], ['#fff1ca','#d4be7c'], ['#def2e8','#9ec8b2'], ['#f6e4ed','#cea7ba'], ['#e1f2f6','#99c0ca'] ];
+const thesisParts = [
+  {id:'abstract',title:c('Abstract','摘要'),share:null,top:0,bottom:18,fill:'#e9edf8',stroke:'#aab7d2',question:c('What was studied and found?','研究探究及發現了甚麼？'),purpose:c('Problem: state the research problem and purpose.\nApproach: indicate the research design and methods.\nFindings: report the main results.\nConclusion: state the overall answer and its significance.','問題：說明研究問題及目的。\n方法：交代研究設計與方法。\n發現：報告主要研究結果。\n結論：說明整體答案及其重要性。')},
+  ...thesisChapters.map((chapter,i)=>({...chapter,id:`chapter-${i}`,fill:thesisPalette[i][0],stroke:thesisPalette[i][1]})),
+  {id:'acknowledgements',title:c('Acknowledgements','致謝'),share:null,top:8,bottom:4,fill:'#f5eddc',stroke:'#cbbfa5',question:c('Who supported the research?','哪些人士協助了這項研究？'),purpose:c('Recognise the people and organisations that supported the work.','感謝支持研究的人士及機構。')},
+  {id:'references',title:c('References','參考文獻'),share:null,top:4,bottom:0,fill:'#e7eef2',stroke:'#a6bbc6',question:c('Which sources informed the argument?','哪些來源支持了研究論證？'),purpose:c('List the sources cited, with complete and consistent publication details.','列出文中引用的來源，提供完整、一致的出版資料。')},
+  {id:'appendices',title:c('Appendices','附錄'),share:null,top:0,bottom:0,fill:'#efece6',stroke:'#bbb5aa',question:c('What supporting material does the reader need?','讀者需要甚麼補充資料？'),purpose:c('Provide relevant supporting material, such as instruments or extended documentation, where needed.','按需要提供相關補充資料，例如研究工具或較詳細的程序記錄。')},
+];
+// CARS move names follow Swales (1990); the descriptions are teaching paraphrases.
+const thesisKinds = ['abstract','introduction','literature','methodology','results','discussion','conclusion','acknowledgements','references','appendices'];
+const thesisHeights = [44,64,44,60,44,64,44,40,40,40];
+const thesisShape = (kind:string) => {
+  const h = thesisHeights[thesisKinds.indexOf(kind)] || 44;
+  const shapes:Record<string,string> = {
+    abstract:'M100 1 H260 Q270 1 270 11 V33 Q270 43 260 43 H100 Q90 43 90 33 V11 Q90 1 100 1 Z',
+    introduction:'M12 1 H348 Q360 1 357 13 L290 60 Q289 63 284 63 H76 Q71 63 70 60 L3 13 Q0 1 12 1 Z',
+    literature:'M70 1 H290 L275 43 H85 Z',
+    methodology:'M85 1 H275 L260 59 H100 Z',
+    results:'M100 1 H260 V43 H100 Z',
+    discussion:'M107 1 H253 Q260 1 263 10 L334 58 Q338 63 330 63 H30 Q22 63 26 58 L97 10 Q100 1 107 1 Z',
+  };
+  const outline=shapes[kind] || `M32 1 H328 Q336 1 336 9 V${h-9} Q336 ${h-1} 328 ${h-1} H32 Q24 ${h-1} 24 ${h-9} V9 Q24 1 32 1 Z`;
+  return `<svg viewBox="0 0 360 ${h}" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path class="thesis-outline" d="${outline}" vector-effect="non-scaling-stroke"/></svg>`;
+};
+const thesisStructure = (lang:'en'|'zh') => `<figure class="thesis-interactive" data-thesis-language="${lang}"><div class="thesis-explorer"><aside class="thesis-panel thesis-question-panel"><h3>${lang==='en'?'Question it answers':'回答的問題'}</h3><p class="thesis-explanation" data-thesis-question-output data-heading="${lang==='en'?'Question it answers':'回答的問題'}" aria-live="polite" hidden></p></aside><div class="thesis-stack"><h3>${lang==='en'?'Thesis parts':'論文部分'}</h3>${thesisParts.map((part,index)=>`<button type="button" class="thesis-part" data-thesis-part="${part.id}" data-thesis-kind="${thesisKinds[index]}" data-thesis-question="${esc(part.question[lang])}" data-thesis-purpose="${esc(part.purpose[lang])}" ${part.share===null?'':`data-thesis-share="${part.share}"`} aria-pressed="false" style="--part-fill:${part.fill};--part-stroke:${part.stroke};--part-row:${index+2};--part-height:${thesisHeights[index]}px">${thesisShape(thesisKinds[index])}<span class="thesis-part-content"><span class="thesis-part-label">${part.title[lang]}${part.share===null?'':` <strong class="thesis-share">${part.share}%</strong>`}</span></span></button>`).join('')}</div><aside class="thesis-panel thesis-purpose-panel"><h3>${lang==='en'?'What to develop':'需要發展的內容'}</h3><div class="thesis-explanation" data-thesis-purpose-output data-heading="${lang==='en'?'What to develop':'需要發展的內容'}" aria-live="polite" hidden></div></aside></div></figure>`;
 
 export const discussionConclusionSlides: Slide[] = [
   {
@@ -197,62 +219,46 @@ export const discussionConclusionSlides: Slide[] = [
     ])+prose('部分報告會合併章節。先辨認其思考工作，再按報告要求安排結構。學習路徑一致：發展答案 → 檢視並連結文獻 → 建立新增理解 → 綜合整體答案。')),
   },
   {
-    key:'plan-discussion',part:stageA,title:c('How to plan a connected Discussion','如何規劃連貫的討論'),
-    body:c(prose('Begin with the research questions and the important findings that answer them. Give each subsection a central interpretive claim, then develop the reasoning that makes it defensible.')+method('en',[
-      ['Group findings around the answer they help develop','Select the patterns that matter to each research question. Bring related findings together and give the central findings sufficient space.'],
-      ['State what the finding helps us understand','Use that interpretation as the controlling idea of the paragraph or subsection. Recall the specific evidence needed to support it.'],
-      ['Develop the reasoning around that idea','Explain possible reasons, use theory and literature to examine the interpretation, and consider contradictory evidence or limitations where they change the claim.'],
-      ['Show why the answer matters','Identify what becomes clearer, the contribution to knowledge and the implications that follow. Connect the next subsection to the developing answer.'],
-    ])+check('en','Paragraph functions can be combined and reordered. A strong paragraph has a central idea and visible links between evidence, interpretation and explanation; a complex argument may need several paragraphs.')+additionalSource('discussion','en'),prose('由研究提問及回答它的重要發現開始。每個小節建立一項中心詮釋，再發展使它有理據的推理。')+method('zh',[
-      ['按有助發展的答案組織發現','選出對各研究提問重要的模式，把相關發現放在一起，給核心發現足夠篇幅。'],
-      ['指出發現幫助理解甚麼','以此詮釋作為段落或小節的中心意思，重提支持它所需的具體證據。'],
-      ['圍繞中心意思發展推理','解釋可能成因，運用理論及文獻檢視詮釋；在矛盾證據或限制改變主張之處處理它們。'],
-      ['說明答案為何重要','指出甚麼變得清楚、對知識有何貢獻，以及可推導甚麼啟示，再把下一小節連回逐步形成的答案。'],
-    ])+check('zh','各項功能可結合及調整次序。有力段落有中心意思，並清楚連結證據、詮釋及解釋；複雜論證可能需要數段。')+additionalSource('discussion','zh')),
+    key:'plan-discussion',part:c('Discussion','討論'),title:c('Discussion: the main elements','討論的主要元素'),
+    body:c(prose('Develop the answer to the research question through these elements. Combine and order them to suit the argument.')+table(['Element','Question to answer','What to include'],[
+      ['Main answer','What is the most important answer to the research question?','Briefly identify the key finding that the Discussion will develop.'],
+      ['Interpretation and explanation','What does it mean, and why might it have occurred?','Explain the substantive meaning and examine possible reasons using evidence.'],
+      ['Theory and previous research','How does the finding relate to existing understanding?','Explain what is supported, extended, qualified or challenged, and why.'],
+      ['Contribution and implications','What becomes clearer, and what follows?','State the addition to knowledge and the research or practical consequences.'],
+      ['Limitations and next questions','What remains uncertain, and how could it be resolved?','Explain the affected inference and identify a useful next investigation.'],
+    ])+check('en','A heading tells the reader where the paragraph belongs. The reasoning explains how the evidence supports its interpretation and importance.')+additionalSource('discussion','en'),prose('透過以下元素發展對研究提問的答案，按論證需要組合及安排次序。')+table(['元素','需要回答的問題','應發展的內容'],[
+      ['主要答案','研究對核心提問最重要的回答是甚麼？','簡要指出討論將發展的主要發現。'],
+      ['詮釋與解釋','發現代表甚麼？為何可能出現？','說明實質意義，並以證據檢視可能成因。'],
+      ['理論與既有研究','發現與已有理解有何關係？','說明支持、延伸、修正或挑戰了甚麼，以及為甚麼。'],
+      ['貢獻與啟示','甚麼變得更清楚？由此可推導甚麼？','交代新增理解，以及研究或實務方面的後續意義。'],
+      ['限制與後續問題','哪些問題仍不確定？如何釐清？','指出受影響的推論，提出有用的下一步研究。'],
+    ])+check('zh','標題交代段落的位置；推理則解釋證據如何支持詮釋，以及詮釋為何重要。')+additionalSource('discussion','zh')),
   },
   {
-    key:'interpret-findings',part:stageA,title:c('How to interpret a finding','如何詮釋研究發現'),
-    body:c(prose('Interpretation explains what a finding means for the research question. Choose the kind of meaning the evidence can support. Several routes may contribute to the same argument.')+table(['Route','How to develop the interpretation','What to check'],[
-      ['Substantive meaning','Translate the observed pattern into an answer about the phenomenon. For numerical results, explain direction, magnitude and uncertainty in the context of the measure.','Does the interpretation retain the outcome, participants and precision of the finding?'],
-      ['Explanatory meaning','Identify a process that could account for the pattern. Explain the connection and state whether it is supported or still a possibility.','Which evidence bears on the process? Could other processes produce the same pattern?'],
-      ['Theoretical meaning','Relate the finding to a specific concept or proposition. Explain whether it supports, refines or challenges the expected relationship.','Is the concept appropriate, and was the relevant relationship actually examined?'],
-      ['Contextual or developmental meaning','Use contrasts across cases, settings or time to explain conditions, experiences or change.','What makes the cases or observations comparable? Where does the interpretation apply?'],
-      ['Synthetic meaning','Consider related findings together and state the understanding that their combination makes possible.','Can the findings be connected through linked cases, timing or a justified analytic argument?'],
-    ])+check('en','A p value, theme label or quotation needs an explanation of its substantive meaning. Distinguish the observed pattern, participants’ accounts and the researcher’s interpretation.')+example('develop','en',[0]),prose('詮釋說明發現對研究提問有甚麼意義。選擇證據能支持的理解方式；同一論證可結合數種途徑。')+table(['途徑','如何發展詮釋','需要檢視甚麼'],[
-      ['實質意義','把觀察模式轉化為關於研究現象的答案；量化結果須按測量情境解釋方向、幅度及不確定性。','有否保留發現所涉及的結果、對象及精確程度？'],
-      ['解釋性意義','指出可能產生模式的過程，交代其連結，以及已有支持還是仍屬可能。','甚麼證據涉及此過程？其他過程能否產生相同模式？'],
-      ['理論意義','把發現連結至具體概念或命題，解釋它如何支持、修正或挑戰預期關係。','概念是否適切？研究有否實際檢視相關關係？'],
-      ['情境或發展意義','利用跨個案、情境或時間的對照，理解條件、經驗或變化。','個案或觀察為何可比較？詮釋適用於何處？'],
-      ['綜合意義','把相關發現放在一起，指出結合之後能形成甚麼理解。','能否以相連個案、時序或有理據的分析論證建立連結？'],
-    ])+check('zh','p 值、主題標籤或引文，仍需說明實質意義。區分觀察模式、參與者報告及研究者詮釋。')+example('develop','zh',[0])),
+    key:'interpret-findings',part:c('Discussion: interpretation','討論：詮釋'),title:c('Explain what a finding means','解釋研究發現的意義'),
+    body:c(method('en',[
+      ['Start with a specific finding','Identify the pattern, estimate, contrast or theme that answers the research question.'],
+      ['State its substantive meaning','Explain what the finding tells us about the phenomenon, in language the reader can understand.'],
+      ['Show why that interpretation is reasonable','Use relevant observations, variation, context and earlier research to explain the link.'],
+    ])+check('en','For quantitative findings, interpret magnitude and uncertainty in context. For qualitative findings, explain the meaning of a pattern and its variation. Statistical significance alone does not establish importance.')+example('develop','en',[0]),method('zh',[
+      ['由具體發現開始','指出回答研究提問的模式、估計、對照或主題。'],
+      ['說明實質意義','用讀者能理解的語言，解釋發現使我們對研究現象理解了甚麼。'],
+      ['交代詮釋的理據','運用相關觀察、差異、情境及既有研究，說明兩者如何連結。'],
+    ])+check('zh','量化研究須在情境中解釋幅度及不確定性；質性研究須解釋模式的意義及變化。統計顯著性本身不能確立重要性。')+example('develop','zh',[0])),
   },
   {
-    key:'develop-explanations',part:stageA,title:c('How to develop and examine explanations','如何發展及檢視解釋'),
+    key:'develop-explanations',part:stageA,title:c('Explain why the finding may have occurred','解釋發現為何可能出現'),
     body:c(prose('Once the meaning is clear, ask why the pattern might have occurred. Develop an explanation through a chain of reasoning and give plausible alternatives a fair examination.')+method('en',[
       ['Formulate a possible process','Draw on theory, prior research, contextual knowledge and participants’ accounts. Explain how the process could produce the finding, including the intermediate steps.'],
       ['Identify evidence that would distinguish explanations','Ask what each explanation would lead you to expect. Examine the relevant observations, case contrasts, estimates, time order or linked sources.'],
       ['Examine credible rivals and contrary evidence','Consider other influences, measurement explanations and cases that do not fit. Judge them using evidence appropriate to the design.'],
       ['State the evidential status','Explain which account is better supported, which remains plausible and which the study cannot distinguish. Identify a focused follow-up if decisive evidence is missing.'],
-    ])+check('en','An association establishes a relationship within the design’s assumptions. A participant’s reported reason is an account to interpret. A causal explanation needs a design and evidence that address alternative causes.')+example('develop','en',[1]),prose('意義清楚之後，再追問模式為何可能出現。以推理鏈發展解釋，並公平檢視合理的其他解釋。')+method('zh',[
+    ])+check('en','An association establishes a relationship within the design’s assumptions. A participant’s reported reason is an account to interpret. A causal explanation needs a design and evidence that address alternative causes.')+prose('Use theory to connect related findings: name the concept, explain the proposed relationship and show how it fits the observations. Inductive studies can build a conceptual explanation without testing a named theory.')+example('develop','en',[1])+example('synthesis','en'),prose('意義清楚之後，再追問模式為何可能出現。以推理鏈發展解釋，並公平檢視合理的其他解釋。')+method('zh',[
       ['提出可能過程','運用理論、既有研究、情境理解及參與者報告，解釋過程如何產生發現，包括中間步驟。'],
       ['辨認能區分解釋的證據','各種解釋預期看見甚麼？檢視相關觀察、個案對照、估計、時間先後或相連來源。'],
       ['檢視可信的其他解釋及相反證據','考慮其他影響、測量解釋及不符合的個案，按設計適用的證據作判斷。'],
       ['交代證據狀態','指出哪項解釋較有支持、哪項仍屬可能，以及研究無法區分甚麼。若缺少關鍵證據，提出聚焦的後續研究。'],
-    ])+check('zh','關聯在設計假設下建立變項關係；參與者報告的原因仍需詮釋；因果解釋需要能處理其他原因的設計與證據。')+example('develop','zh',[1])),
-  },
-  {
-    key:'theory-synthesis',part:stageA,title:c('How to build a coherent account','如何建立連貫的解釋'),
-    body:c(prose('An explanation becomes more useful when it connects the findings. Use theory or a conceptual account to clarify those connections, then show what the evidence does to that account. Inductive and descriptive studies can develop a grounded account without testing a named theory.')+method('en',[
-      ['Connect the relevant findings','Identify the shared question and explain how the findings complement, qualify or contradict each other. In mixed methods, show what the combination adds beyond the separate findings.'],
-      ['Specify the conceptual relationship','Name the concept or proposition that explains the connection in plain language. State what pattern it would lead you to expect.'],
-      ['Examine the relationship against the evidence','Explain whether the evidence supports the account, identifies a condition, challenges an assumption or suggests a new relationship to investigate.'],
-      ['State the integrated understanding','Bring the findings into a substantive answer and retain differences that materially change it. Explain how the account reaches beyond the individual observations.'],
-    ])+check('en','A theory citation supplies a source; the argument must explain the link. Consistency with a theory supports a bounded interpretation, while stronger claims require stronger tests.')+example('synthesis','en'),prose('解釋能連起不同發現時，會更有理解力。以理論或概念解釋釐清連結，再說明證據如何支持或改變它。歸納性及描述性研究可以建立有資料根據的解釋，毋須一律檢驗具名理論。')+method('zh',[
-      ['連結相關發現','辨認共同提問，說明發現如何互相補充、限定或矛盾；混合方法須交代結合後比各自報告增加了甚麼。'],
-      ['指出概念關係','用清楚語言交代能解釋連結的概念或命題，以及按它預期看見甚麼。'],
-      ['以證據檢視關係','解釋證據支持了甚麼、辨識了哪些條件、挑戰了哪項假設，或提出甚麼有待探究的新關係。'],
-      ['交代整合理解','把發現綜合成實質答案，保留會改變它的差異，說明整體解釋如何超越逐項觀察。'],
-    ])+check('zh','理論引文提供來源；論證仍須解釋連結。與理論一致支持有範圍的詮釋，更強的主張需要更有力的檢驗。')+example('synthesis','zh')),
+    ])+check('zh','關聯在設計假設下建立變項關係；參與者報告的原因仍需詮釋；因果解釋需要能處理其他原因的設計與證據。')+prose('運用理論連結相關發現：指出概念，解釋所提關係，說明它如何配合觀察。歸納研究亦可建立概念解釋，毋須一律檢驗具名理論。')+example('develop','zh',[1])+example('synthesis','zh')),
   },
   {
     key:'engage-literature',part:stageB,title:c('How to engage with existing literature','如何回應既有文獻'),
@@ -295,14 +301,14 @@ export const discussionConclusionSlides: Slide[] = [
       ['A design, data or analysis limitation','Name the affected inference and explain how the constraint changes confidence in the claim. Specify what the evidence still supports.','Qualify the causal, measurement, process or transfer claim that is affected; preserve the supported understanding.'],
     ])+method('en',[
       ['Make the consequence explicit','Connect the evidence or constraint to the specific claim. Explain why it matters to the main argument and how consequential it is.'],
-      ['Link any follow-up to the uncertainty','Propose the observation, comparison, measure or design that would address the remaining question. Keep the proposal proportionate to what is unresolved.'],
-    ])+check('en','A list of limitations leaves their effect unclear. Explain the affected inference and its consequence at the relevant point in the argument.')+example('exceptions','en')+example('limitations','en'),prose('同樣的檢視亦適用於研究內部。相反證據檢驗解釋，限制影響具體推論。說清楚後果，讀者才能判斷答案的適用範圍。')+table(['需要關注甚麼','如何推理','主張可能如何改變'],[
+      ['Link follow-up research to a decision between explanations','Name the unresolved question and the observation, comparison, measure or design that could distinguish the explanations. Explain how the answer would change the study’s interpretation.'],
+    ])+check('en','Explain which inference a limitation affects and what the evidence still supports. Earlier research can inform an explanation; it cannot establish causal order in the present study’s cross-sectional data.')+example('exceptions','en')+example('limitations','en'),prose('同樣的檢視亦適用於研究內部。相反證據檢驗解釋，限制影響具體推論。說清楚後果，讀者才能判斷答案的適用範圍。')+table(['需要關注甚麼','如何推理','主張可能如何改變'],[
       ['不符合的個案或發現','核對可信程度與背景，與整體證據比較，檢視它是否揭示條件或另一過程。','修正解釋、收窄範圍；若相反證據動搖核心主張，則重新考慮。'],
       ['設計、資料或分析限制','指出受影響推論，解釋限制如何改變主張的可信程度，交代證據仍支持甚麼。','限定受影響的因果、測量、過程或轉用主張，保留有支持的理解。'],
     ])+method('zh',[
       ['清楚交代後果','把證據或限制連結至具體主張，解釋它為何影響主要論證，以及影響有多重要。'],
-      ['把後續研究連結至不確定性','提出能回應餘下問題的觀察、比較、測量或設計，使建議與未解決之處相稱。'],
-    ])+check('zh','只列限制仍未交代影響；須在相關論證處說明受影響推論及其後果。')+example('exceptions','zh')+example('limitations','zh')),
+      ['以後續研究區分可能解釋','指出未解決提問，以及可區分解釋的觀察、比較、測量或設計，說明答案將如何改變目前的詮釋。'],
+    ])+check('zh','說明限制影響哪項推論，以及證據仍支持甚麼。既有研究可協助解釋，但無法替本研究的橫斷資料確立因果先後。')+example('exceptions','zh')+example('limitations','zh')),
   },
   {
     key:'significance-contribution',part:stageC,title:c('How to develop significance and contribution','如何發展重要性與研究貢獻'),
@@ -325,49 +331,31 @@ export const discussionConclusionSlides: Slide[] = [
       ['Name the actor and action','For practice, specify who could do what. For research, specify the unresolved question and the study that could address it.'],
       ['State the conditions','Explain the setting, resources, support or assumptions needed for the response to make sense. Consider who or what falls outside its scope.'],
       ['Propose an appropriate level of action and evaluation','An untested suggestion can be piloted and assessed. Stronger recommendations require evidence of effectiveness and applicability. Explain what evidence would show whether the proposed action helps.'],
-    ])+check('en','The action should address the problem identified by the findings. “More research is needed” becomes useful when it names the uncertainty and a way to investigate it.')+example('implications','en'),prose('啟示發展由答案可推導甚麼。把每項建議追溯至發現，解釋所提回應為何有理據。')+method('zh',[
+    ])+check('en','Ask what this finding adds to the reason for the recommendation. An observed association can motivate an intervention to test; evidence of effectiveness is needed to recommend it with confidence.')+example('implications','en'),prose('啟示發展由答案可推導甚麼。把每項建議追溯至發現，解釋所提回應為何有理據。')+method('zh',[
       ['辨認發現及其後果','指出證據揭示的問題或可能性，解釋它與建議回應之間的推理。'],
       ['指出行動者及行動','實務方面說明誰可做甚麼；研究方面指出未解決提問，以及可回應它的研究。'],
       ['交代成立條件','解釋所需情境、資源、支援或假設，考慮哪些人或情況超出範圍。'],
       ['提出適當程度的行動及評估','尚未檢驗的建議可先試行及評估；更強建議需要成效及適用性證據，並交代如何判斷建議行動是否有幫助。'],
-    ])+check('zh','行動應回應發現辨識的問題。「需要更多研究」要指出不確定性及探究方式，才有具體用途。')+example('implications','zh')),
+    ])+check('zh','問一問：這項發現為建議增加了甚麼理據？觀察到的關聯可引出值得檢驗的介入；要有把握地推薦介入，則需要成效證據。')+example('implications','zh')),
   },
   {
-    key:'build-conclusion',part:stageD,title:c('How to construct the Conclusion','如何建立結論'),
-    body:c(prose('The Discussion has developed the answer in detail. The Conclusion now brings the established reasoning together at the level of the whole study. Select the ideas needed to communicate what is now understood and why it matters.')+table(['Function','How to develop it','How it differs from the Discussion'],[
-      ['Overall answer','Return to the central research question and combine the main findings into a direct, substantive answer.','Select the understanding reached after the detailed interpretations have been examined.'],
-      ['Contribution and importance','State the particular addition to knowledge and why that addition matters.','Foreground the central contribution already justified in the Discussion.'],
-      ['Necessary scope','Retain the condition or uncertainty that materially affects the overall answer.','Carry forward the key qualification while keeping the detailed evaluation in the Discussion.'],
-      ['Warranted consequence','Briefly state the key implication or focused next question if it is needed to understand the answer’s significance.','Use consequences that have already been developed and justified.'],
-      ['Embedded takeaway','Connect these ideas into the central understanding the reader should retain.','Bring the argument to a clear close through synthesis.'],
-    ])+check('en','Adapt these functions to the study’s needs. Read the Conclusion against the Introduction and final Discussion claims: the answer, contribution and scope should align.')+additionalSource('conclusion','en'),prose('討論已詳細發展答案；結論現在在整項研究的層面，綜合已建立的推理。選出能傳達現在理解甚麼、以及為何重要的概念。')+table(['功能','如何發展','與討論的不同工作'],[
-      ['整體答案','回到核心研究提問，把主要發現結合為直接、實質的答案。','選出經過詳細詮釋及檢視後形成的理解。'],
-      ['貢獻及重要性','說明具體新增知識，以及它為何重要。','突出討論中已有理據的中心貢獻。'],
-      ['必要範圍','保留實質影響整體答案的條件或不確定性。','帶出關鍵限定，把詳細評估留在討論。'],
-      ['有依據的後續意義','若有助理解答案的重要性，簡要提出關鍵啟示或聚焦的後續問題。','運用先前已發展及論證的後果。'],
-      ['嵌入的核心訊息','把以上概念連成讀者應保留的中心理解。','透過綜合清楚完成論證。'],
-    ])+check('zh','按研究需要組合各項功能。把結論與引言及討論的最終主張核對：答案、貢獻及範圍應相互配合。')+additionalSource('conclusion','zh')),
-  },
-  {
-    key:'takeaway',part:stageD,title:c('How the Conclusion delivers its takeaway','結論如何形成核心訊息'),
-    body:c(prose('A takeaway is the central understanding the reader should retain after the details. A summary selects the main points; synthesis explains what they amount to together. The takeaway is embedded in that synthesis and can develop across the ending paragraph.')+method('en',[
-      ['Choose the central understanding','Identify the answer that connects the important findings to the original problem.'],
-      ['Keep the relationship that makes it informative','State the process, distinction or condition that the study has clarified and why it matters. This gives the ending substantive content.'],
-      ['Retain the scope that keeps it accurate','Keep a necessary qualification within the synthesis. Make every part traceable to the evidence and reasoning already developed.'],
-      ['Let the ending crystallise the answer','Read the Conclusion as a connected whole. Its final statement should make the established understanding clear to a reader who will not retain every detail.'],
-    ])+check('en','If the ending needs a new result, causal claim or undeveloped recommendation to work, revise the claim or develop the missing argument earlier. In the example, read all three paragraphs together before selecting “Takeaway”.')+example('conclusion','en'),prose('核心訊息是細節之後，讀者應保留的中心理解。摘要選取重點；綜合解釋這些重點放在一起代表甚麼。核心訊息嵌入這項綜合，可以在結尾段落中逐步發展。')+method('zh',[
-      ['選出中心理解','辨認能把重要發現連回原始問題的答案。'],
-      ['保留使答案有內容的關係','交代研究釐清的過程、區別或條件，以及為何重要，使結尾具實質內容。'],
-      ['保留使答案準確的範圍','把必要限定納入綜合，使各部分可追溯至先前已發展的證據及推理。'],
-      ['讓結尾凝聚答案','把結論讀成相連整體，讓最後陳述向未必記得全部細節的讀者清楚傳達已建立的理解。'],
-    ])+check('zh','若結尾需要新結果、新因果主張或尚未發展的建議才成立，應修正主張或在前文補足論證。閱讀例子時，先把三段連起來看，再點選核心訊息。')+example('conclusion','zh')),
+    key:'build-conclusion',part:c('Conclusion','結論'),title:c('Conclusion: answer, contribution and takeaway','結論：答案、貢獻與核心訊息'),
+    body:c(prose('Bring the study’s established understanding together. Use three questions to plan a connected ending; the takeaway develops through that synthesis.')+table(['Question','Element','How to develop it'],[
+      ['What is the overall answer?','Answer','Combine the important findings into a direct answer to the central research question.'],
+      ['What does the study add, and why does it matter?','Contribution and importance','State the particular understanding the study has established and why it is consequential.'],
+      ['What should the reader retain or take forward?','Closing takeaway','Connect the answer and its importance. Include the key implication or focused next question where it follows from the Discussion.'],
+    ])+check('en','Read the ending as a whole. Its central message should follow from the answer and contribution. Retain a qualification when it materially changes that answer. The example’s three paragraphs form one connected Conclusion.')+example('conclusion','en')+additionalSource('conclusion','en'),prose('綜合研究已建立的理解，以三個問題規劃連貫的結尾；核心訊息在這項綜合中形成。')+table(['問題','元素','如何發展'],[
+      ['整項研究的答案是甚麼？','整體答案','把重要發現結合為對核心研究提問的直接回答。'],
+      ['研究增加了甚麼？為何重要？','貢獻與重要性','說明研究建立了哪項具體理解，以及它為何有意義。'],
+      ['讀者應保留或帶走甚麼理解？','結尾的核心訊息','連結答案及其重要性；按討論已建立的理據，帶出關鍵啟示或聚焦的後續問題。'],
+    ])+check('zh','把結尾讀成整體，讓中心訊息由答案及貢獻推導。保留會實質影響答案的限定。例子中的三段共同形成一個連貫的結論。')+example('conclusion','zh')+additionalSource('conclusion','zh')),
   },
   {
     key:'thesis-structure',part:c('Putting the thesis together','整合博士論文'),title:c('A possible PhD thesis structure','博士論文結構與參考比例'),
-    body:c(thesisStructure('en')+'<p class="reasoning-check thesis-supervisor-note">If there is disagreement about the structure or proportions, discuss it with your supervisor and follow their guidance.</p>',thesisStructure('zh')+'<p class="reasoning-check thesis-supervisor-note">如對章節結構或比例有不同意見，請與導師討論，並聽取導師的指導。</p>'),
+    body:c(prose('Select a part to see the question it answers and what to develop.')+thesisStructure('en')+'<p class="reasoning-check thesis-supervisor-note">If there is disagreement about the structure or proportions, discuss it with your supervisor and follow their guidance.</p>',prose('點選論文部分，查看它回答的問題及需要發展的內容。')+thesisStructure('zh')+'<p class="reasoning-check thesis-supervisor-note">如對章節結構或比例有不同意見，請與導師討論，並聽取導師的指導。</p>'),
   },
   {
     key:'thank-you',part:c('Discussion and Conclusion','討論與結論'),title:c('Thank you','謝謝'),spacious:true,
-    body:c(`<div class="export-actions"><a class="lesson-pdf-link" href="${withBase('/teaching/courses/dedc02/discussion-conclusion-en.pdf')}" download>Download lesson PDF (English)</a><a class="lesson-pdf-link" href="${withBase('/teaching/courses/dedc02/discussion-conclusion-zh.pdf')}" download>Download lesson PDF (中文)</a></div>`+'<div class="export-actions"><button type="button" data-print>Print this lesson</button><button type="button" data-export data-previous-responses hidden>Download previously saved responses</button></div><p data-export-status role="status"></p>',`<div class="export-actions"><a class="lesson-pdf-link" href="${withBase('/teaching/courses/dedc02/discussion-conclusion-en.pdf')}" download>下載課堂 PDF（英文）</a><a class="lesson-pdf-link" href="${withBase('/teaching/courses/dedc02/discussion-conclusion-zh.pdf')}" download>下載課堂 PDF（中文）</a></div>`+'<div class="export-actions"><button type="button" data-print>列印本課</button><button type="button" data-export data-previous-responses hidden>下載先前保存的回應</button></div><p data-export-status role="status"></p>'),
+    body:c(`<div class="closing-actions"><a class="pdf-cta" data-lesson-pdf href="${withBase('/teaching/courses/dedc02/discussion-conclusion-en.pdf')}" download>Download lesson PDF</a><a class="course-return" href="${withBase('/teaching/courses/dedc02/')}">DEDC02 course materials</a></div>`+'<div class="export-actions"><button type="button" data-export data-previous-responses hidden>Download previously saved responses</button></div><p data-export-status role="status"></p>',`<div class="closing-actions"><a class="pdf-cta" data-lesson-pdf href="${withBase('/teaching/courses/dedc02/discussion-conclusion-zh.pdf')}" download>下載本課 PDF</a><a class="course-return" href="${withBase('/teaching/courses/dedc02/')}">DEDC02 課程材料</a></div>`+'<div class="export-actions"><button type="button" data-export data-previous-responses hidden>下載先前保存的回應</button></div><p data-export-status role="status"></p>'),
   },
 ];

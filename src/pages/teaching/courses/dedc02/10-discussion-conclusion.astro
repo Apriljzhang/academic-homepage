@@ -15,7 +15,7 @@ const courseHref = withBase('/teaching/courses/dedc02');
       <section id={`slide-${index + 1}`} class:list={['slide', { 'is-active': index === 0, spacious: slide.spacious }]} data-slide-key={slide.key} data-title={slide.title.en.replaceAll('<br>', ' ')} data-title-zh={slide.title.zh.replaceAll('<br>', ' ')} data-language="en" aria-hidden={index !== 0} inert={index !== 0}>
         <div class="slide-inner">
           <header class="slide-header"><span class="eyebrow" data-part-en={slide.part.en} data-part-zh={slide.part.zh}>{slide.part.en}</span></header>
-          {index === 0 && <div class="title-rule"></div>}
+          {(index === 0 || slide.key === 'thank-you') && <div class="title-rule"></div>}
           <div data-language="en" lang="en-GB">
             {index === 0 ? <h1 set:html={slide.title.en} /> : <h2 set:html={slide.title.en} />}
             <Fragment set:html={slide.body.en} />
