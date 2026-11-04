@@ -1,0 +1,218 @@
+{
+  "section-job": {
+    "en": {
+      "prompt": "“The pattern suggests that opportunities to use feedback help explain differences in revision.” What work is this sentence doing?",
+      "options": [
+        {
+          "label": "Reporting a finding",
+          "why": "The sentence proposes meaning and an explanation; the underlying observed pattern still needs to be shown."
+        },
+        {
+          "label": "Developing an interpretation",
+          "why": "It moves from a pattern to a possible explanation. Ask what evidence supports the link."
+        },
+        {
+          "label": "Providing a complete conclusion",
+          "why": "It could appear in a conclusion, but by itself it does not synthesise the study’s overall answer or contribution."
+        }
+      ]
+    },
+    "zh": {
+      "prompt": "「此模式顯示，運用反馈的機會可能有助解釋修訂表現的差異。」這句話完成甚麼工作？",
+      "options": [
+        {
+          "label": "報告研究發現",
+          "why": "此句提出意義及解釋；仍須交代它所根據的觀察模式。"
+        },
+        {
+          "label": "發展詮釋",
+          "why": "由模式推進至可能的解釋，須追問支持此連結的證據。"
+        },
+        {
+          "label": "提供完整結論",
+          "why": "此句可出現在結論，但本身未綜合整項研究的答案及貢獻。"
+        }
+      ]
+    }
+  },
+  "claim-scope": {
+    "en": {
+      "prompt": "Compare A, B and C with a partner. Choose the best-supported claim and explain why the other two go beyond the evidence.",
+      "options": [
+        {
+          "label": "A. Teacher feedback caused the improvement.",
+          "why": "This is a causal claim. Improvement alone cannot separate feedback from practice, teaching or other influences."
+        },
+        {
+          "label": "B. Among the selected interviewees in this programme, some described difficulty turning teacher comments into revisions.",
+          "why": "This descriptive claim matches the supplied interview summary and identifies whose experiences it concerns. It does not establish what caused improvement."
+        },
+        {
+          "label": "C. Feedback has no effect because most learners gained less than one point.",
+          "why": "This claims an absence of effect. The one-point threshold is not a test of no effect, and smaller gains may matter. Without a suitable comparison, the feedback effect remains uncertain."
+        }
+      ]
+    },
+    "zh": {
+      "prompt": "與同伴比較 A、B、C。選出最有證據支持的一項，說明其餘兩項如何超出證據。",
+      "options": [
+        {
+          "label": "A. 教師反馈導致了進步。",
+          "why": "這是因果主張。僅憑進步，無法把反馈與練習、教學等其他影響分開。"
+        },
+        {
+          "label": "B. 在此課程選取的受訪者中，部分學生描述了把教師評語轉化為修訂的困難。",
+          "why": "這項描述性主張符合所提供的訪談摘要，並交代涉及誰的經驗；尚未確立進步的原因。"
+        },
+        {
+          "label": "C. 多數學生進步不足 1 分，所以反馈沒有效果。",
+          "why": "這項主張判定沒有效果，但 1 分界線並非無效果檢驗，較小進步亦可能重要。缺少適當比較，反馈效果仍不確定。"
+        }
+      ]
+    }
+  },
+  "perception-learning": {
+    "en": {
+      "prompt": "What is the strongest interpretation of the contrast?",
+      "options": [
+        {
+          "label": "Students cannot judge anything about their learning.",
+          "why": "This exceeds the measures, setting and comparison investigated."
+        },
+        {
+          "label": "The two measures are interchangeable indicators of effectiveness.",
+          "why": "The contrasting results make the distinction between perceived and tested learning consequential."
+        },
+        {
+          "label": "Perceived learning and test performance can diverge under these instructional conditions.",
+          "why": "This retains both findings and their setting. Explain the contrast and examine what each measure captures."
+        }
+      ]
+    },
+    "zh": {
+      "prompt": "對此差異，哪種詮釋最有理據？",
+      "options": [
+        {
+          "label": "學生完全無法判斷自己的學習。",
+          "why": "此主張超越了研究的測量、情境及比較。"
+        },
+        {
+          "label": "兩項測量是可互換的成效指標。",
+          "why": "兩種結果的差異，使「感知學習」與「測得學習」的區別很重要。"
+        },
+        {
+          "label": "在這些教學條件下，學習感受與測驗表現可能不一致。",
+          "why": "同時保留兩項發現及其情境；須解釋差異，不能只選方便的測量。"
+        }
+      ]
+    }
+  },
+  "integration": {
+    "en": {
+      "prompt": "What remains necessary before claiming that interview accounts explain score differences?",
+      "options": [
+        {
+          "label": "Treat every interview as confirmation of the score pattern.",
+          "why": "Interviews can qualify or contradict the interpretation. Their selection and retrospective nature also matter."
+        },
+        {
+          "label": "Check linked cases, variation and contrary evidence; identify what integration adds.",
+          "why": "This examines whether the combined interpretation is supported. Six interviewees per pattern do not represent every learner in that group."
+        },
+        {
+          "label": "Repeat both sets of findings in the Conclusion.",
+          "why": "Repetition does not establish an integrated explanation or answer the mixed-methods question."
+        }
+      ]
+    },
+    "zh": {
+      "prompt": "若要主張訪談能解釋分數差異，還需要甚麼？",
+      "options": [
+        {
+          "label": "把所有訪談都視為確認分數模式。",
+          "why": "訪談可能修正或反駁詮釋；選取方式及回溯性質亦很重要。"
+        },
+        {
+          "label": "檢查相連個案、差異及相反證據，指出整合增加的理解。",
+          "why": "這可檢視整合詮釋有否依據；每組 6 名受訪者不能代表該組全部學生。"
+        },
+        {
+          "label": "在結論重複兩部分的發現。",
+          "why": "重複尚未建立整合解釋，亦未回答混合方法提問。"
+        }
+      ]
+    }
+  },
+  "limitation-repair": {
+    "en": {
+      "prompt": "A one-time survey cannot establish whether confidence precedes feedback engagement. Which follow-up most directly addresses this problem?",
+      "options": [
+        {
+          "label": "Repeat the same one-time survey with more respondents.",
+          "why": "This may improve precision or coverage, but it does not establish temporal ordering."
+        },
+        {
+          "label": "Measure both constructs over time, with a design and model suited to the proposed relationship.",
+          "why": "Repeated observations can examine ordering and reciprocal patterns. They still require assumptions and do not automatically remove confounding."
+        },
+        {
+          "label": "Add more citations about confidence.",
+          "why": "Literature can develop the rationale, but citations cannot supply the missing temporal evidence."
+        }
+      ]
+    },
+    "zh": {
+      "prompt": "單次問卷無法確立信心是否先於反馈投入。哪種後續研究最直接回應此問題？",
+      "options": [
+        {
+          "label": "以更多受訪者重做相同單次問卷。",
+          "why": "這可能改善精確度或涵蓋範圍，卻不能確立時間先後。"
+        },
+        {
+          "label": "在多個時點測量兩項構念，使用適合所提關係的設計及模型。",
+          "why": "重複觀察可檢視先後及相互關係，但仍依賴假設，亦不會自動消除混淆。"
+        },
+        {
+          "label": "增加關於信心的引文。",
+          "why": "文獻可發展理據，但無法補上缺失的時間證據。"
+        }
+      ]
+    }
+  },
+  "conclusion-choice": {
+    "en": {
+      "prompt": "Which ending follows from the constructed feedback study?",
+      "options": [
+        {
+          "label": "The study proves that detailed feedback raises achievement in all universities.",
+          "why": "It adds an untested cause, changes the outcome and extends far beyond the setting."
+        },
+        {
+          "label": "We used scores and interviews. More research is needed.",
+          "why": "This lists methods and a generic next step, leaving the substantive answer and contribution unstated."
+        },
+        {
+          "label": "The study distinguishes receiving comments from using them in revision and identifies processes for further investigation in this programme.",
+          "why": "It states the knowledge added and retains its scope. The final wording still needs to match the actual evidence developed in Discussion."
+        }
+      ]
+    },
+    "zh": {
+      "prompt": "哪個結尾可由虛構反馈研究推導？",
+      "options": [
+        {
+          "label": "研究證明詳細反馈能提升所有大學的學業成就。",
+          "why": "加入未檢視的原因、改換結果變項，並大幅超出情境。"
+        },
+        {
+          "label": "我們使用分數及訪談，需要更多研究。",
+          "why": "只列方法及籠統下一步，尚未交代實質答案及貢獻。"
+        },
+        {
+          "label": "研究區分收到評語與修訂時運用評語，並辨識此課程中值得進一步探究的過程。",
+          "why": "說明增加的理解，並保留其範圍；最終用語仍須符合討論所發展的實際證據。"
+        }
+      ]
+    }
+  }
+}

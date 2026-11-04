@@ -7,7 +7,6 @@ const takeaway = (s: string) => `<p class="takeaway">${s}</p>`;
 const reveal = (label: string, body: string) => `<details><summary>${label}</summary><div>${body}</div></details>`;
 const columns = (a: string, b: string) => `<div class="dc-columns"><div>${a}</div><div>${b}</div></div>`;
 const list = (...items: string[]) => `<ul>${items.map(s => `<li>${s}</li>`).join('')}</ul>`;
-const table = (heads: string[], rows: string[][]) => `<div class="table-wrap"><table><thead><tr>${heads.map(s => `<th scope="col">${s}</th>`).join('')}</tr></thead><tbody>${rows.map(row => `<tr>${row.map((s, i) => i === 0 ? `<th scope="row">${s}</th>` : `<td>${s}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
 const field = (id: string, label: string, lang: 'en' | 'zh', placeholder = '', rows = 3) => `<label class="response-field" for="${id}-${lang}"><span>${label}</span><textarea id="${id}-${lang}" data-response="${id}" data-label="${esc(label)}" rows="${rows}" placeholder="${esc(placeholder)}"></textarea></label>`;
 const save = (lang: 'en' | 'zh') => `<p class="save-status" data-save-status aria-live="polite">${lang === 'zh' ? '輸入會保存在此瀏覽器；切換語言會保留原文。' : 'Entries stay in this browser. Switching language keeps your original wording.'}</p>`;
 const quiz = (id: string, prompt: string, options: { label: string; why: string; fits?: boolean }[], lang: 'en' | 'zh') => `<div class="dc-quiz" data-quiz="${id}" data-quiz-language="${lang}"><p class="question">${prompt}</p><div class="choices" role="group" aria-label="${esc(prompt)}">${options.map((o, i) => `<button type="button" data-choice="${i}" data-option-label="${esc(o.label)}" data-fits="${Boolean(o.fits)}" aria-pressed="false"><span>${o.label}</span><span data-explanation hidden>${o.why}</span></button>`).join('')}</div><div class="activity-actions"><button type="button" data-check>${lang === 'zh' ? '檢視理由' : 'Examine the reasoning'}</button><button type="button" data-retry>${lang === 'zh' ? '重新選擇' : 'Try again'}</button></div><p class="quiz-feedback" data-feedback role="status">${lang === 'zh' ? '先作判斷並說明理由，再查看回應。' : 'Make a judgement and explain why before checking.'}</p></div>`;
@@ -15,298 +14,201 @@ const discussion = c('Discussion', '討論');
 const conclusion = c('Conclusion', '結論');
 const results = c('Results', '結果');
 
+// Methods precede worked examples. All study details below are constructed for teaching.
+const steps = (...rows: string[][]) => `<ol class="method-steps">${rows.map(([h, p]) => `<li><b>${h}</b><span>${p}</span></li>`).join('')}</ol>`;
+const question = (s: string) => `<p class="guiding-question">${s}</p>`;
+const context = (lang: 'en' | 'zh', extra = '') => `<aside class="study-context"><b>${lang === 'en' ? 'Teaching example · invented study' : '教學例子 · 虛構研究'}</b><p>${lang === 'en' ? 'In one English-writing programme, 120 learners revised an essay after teacher comments. Gains varied. Some of 12 selected interviewees described difficulty deciding how to revise. There was no comparison group.' : '同一英語寫作課程的 120 名學生收到教師評語後修訂文章，進步幅度各異。12 名選定受訪者中，部分人表示難以決定如何修訂。研究沒有比較組。'}${extra}</p></aside>`;
+const annotated = (lang: 'en' | 'zh', rows: string[][]) => `<div class="annotation-example"><p class="annotation-instruction">${lang === 'en' ? 'Read the labelled paragraph. Select a function to highlight its sentence and see what it does.' : '先閱讀附有功能標示的段落，再選擇功能，突顯相關句子及查看說明。'}</p><div class="annotation-tools" role="group" aria-label="${lang === 'en' ? 'Paragraph functions' : '段落功能'}">${rows.map(([key,label,,help]) => `<button type="button" data-annotation="${key}" data-annotation-help="${esc(help)}" aria-pressed="false">${label}</button>`).join('')}<button type="button" data-annotation="all" data-annotation-help="${lang === 'en' ? 'All functions are labelled. Their order and length can change to suit your argument.' : '每項功能均已標示；可按論證需要調整次序及篇幅。'}" aria-pressed="true">${lang === 'en' ? 'Show all' : '顯示全部'}</button></div><div class="annotated-paragraph">${rows.map(([key,label,text]) => `<p class="move-row" data-move="${key}"><b class="move-label">${label}</b><span>${text}</span></p>`).join('')}</div><p class="annotation-help" data-annotation-note role="status">${lang === 'en' ? 'Each label names the work done by the sentence beside it.' : '各標籤指出旁邊句子在段落中的作用。'}</p></div>`;
+
+const source = (lang: 'en'|'zh', pages: string, paper: 'zhang'|'payne' = 'zhang') => `<p class="example-source">${paper === 'zhang' ? 'Zhang &amp; Hyland (2022)' : 'Payne, Ajjawi, &amp; Holloway (2023)'} · ${lang === 'en' ? 'accepted manuscript, PDF pp.' : '接受稿，PDF 第'} ${pages}${lang === 'zh' ? ' 頁' : ''} · <a href="${paper === 'zhang' ? 'https://doi.org/10.1016/j.asw.2021.100586' : 'https://doi.org/10.1080/02602938.2022.2155610'}" target="_blank" rel="noreferrer">${lang === 'en' ? 'Publication' : '論文'}</a></p>`;
+const realContext = (lang: 'en'|'zh') => `<aside class="study-context"><b>${lang === 'en' ? 'Study context · Zhang & Hyland (2022)' : '研究背景 · Zhang 與 Hyland（2022）'}</b><p>${lang === 'en' ? 'One teacher and 33 students in a Chinese university writing course used automated, peer and teacher feedback in sequence. The researchers examined drafts, feedback and retrospective interviews. Most students engaged with the process; some did not.' : '中國一所大學寫作課的 1 名教師及 33 名學生，依次運用自動、同儕及教師回饋。研究者分析草稿、回饋及回溯訪談。多數學生投入此過程，亦有部分學生未投入。'}</p></aside>`;
+
 export const discussionConclusionSlides: Slide[] = [
   {
     key: 'opening', part: c('DEDC02 · Advanced Research Method', 'DEDC02 · 進階教育研究方法'), spacious: true,
     title: c('Discussion<br>and Conclusion', '討論與結論'),
-    body: c(lead('Interpret findings, develop explanations and show what the study adds to knowledge.') + '<p class="opening-question">How do we explain what our findings mean and why they matter?</p>', lead('詮釋研究發現、發展解釋，並說明研究如何增進理解。') + '<p class="opening-question">如何說明研究發現的意義，以及它們為何重要？</p>'),
+    body: c(lead('How to explain your findings, show why they matter and bring your study to a clear close.') + '<p class="opening-question">What should the reader understand after reading your study?</p>', lead('如何解釋發現、說明其重要性，並清楚完成研究論證。') + '<p class="opening-question">讀完研究後，你希望讀者理解甚麼？</p>'),
   },
   {
-    key: 'route', part: c('The research task', '研究任務'), title: c('Learning aims', '學習目標'),
-    body: c(lead('By the end of this session, you will be able to:') + list(
-      'Distinguish the roles of Results, Discussion and Conclusion in a research argument.',
-      'Interpret findings, develop evidence-supported explanations and evaluate competing interpretations.',
-      'Connect findings to theory and previous research to articulate the study’s contribution.',
-      'Evaluate how limitations affect claims and derive justified implications for research and practice.',
-      'Synthesise the study’s overall answer, contribution and scope in a coherent Conclusion.',
-    ), lead('完成本課後，你將能夠：') + list(
-      '區分結果、討論與結論在研究論證中的作用。',
-      '詮釋研究發現，發展有證據支持的解釋，並評估其他可能詮釋。',
-      '把發現連結至理論及既有研究，清楚說明研究貢獻。',
-      '評估限制如何影響研究主張，並推導有理據的研究及實務啟示。',
-      '在連貫的結論中，綜合整項研究的答案、貢獻及適用範圍。',
-    )),
+    key: 'route', part: c('Our writing task', '本課寫作任務'), title: c('What you will learn to write', '你將學習寫甚麼'),
+    body: c(steps(['A Discussion with a clear argument', 'Interpret findings, develop explanations and connect them to theory and previous studies.'], ['An account of why the study matters', 'Develop significance, contribution and implications; address contradictions and limitations.'], ['A Conclusion with a clear takeaway', 'Bring the overall answer and contribution together so the reader knows what understanding to carry forward.']) + takeaway('Learn the method first. Then use the annotations to see how published authors carry out the work.'), steps(['有清楚論證的討論', '詮釋發現、發展解釋，並連結理論及既有研究。'], ['研究為何重要', '發展重要性、貢獻及啟示，處理矛盾證據與限制。'], ['有清楚核心訊息的結論', '綜合整項研究的答案與貢獻，讓讀者知道應帶走甚麼理解。']) + takeaway('先學方法，再透過標註，看已發表論文如何完成這些工作。')),
   },
   {
-    key: 'section-jobs', part: results, title: c('What work does each section do?', '各部分完成甚麼工作？'),
-    body: c(table(['Results / Findings', 'Discussion', 'Conclusion'], [['Establish the patterns that answer the questions.', 'Develop their meaning, explanations and significance.', 'State the study’s overall answer and contribution.']]) + quiz('section-job', '“The pattern suggests that opportunities to use feedback help explain differences in revision.” What work is this sentence doing?', [
-      { label: 'Reporting a finding', why: 'The sentence proposes meaning and an explanation; the underlying observed pattern still needs to be shown.' },
-      { label: 'Developing an interpretation', why: 'It moves from a pattern to a possible explanation. Ask what evidence supports the link.', fits: true },
-      { label: 'Providing a complete conclusion', why: 'It could appear in a conclusion, but by itself it does not synthesise the study’s overall answer or contribution.' },
-    ], 'en') + reveal('Section labels vary', '<p>Qualitative findings may already include substantial interpretation. Results and Discussion can be combined. Identify the intellectual work, then choose a structure appropriate to the design and publication.</p>'),
-    table(['結果／發現', '討論', '結論'], [['呈現回答研究提問的模式。', '發展其意義、解釋及重要性。', '說明整項研究的答案及貢獻。']]) + quiz('section-job', '「此模式顯示，運用反馈的機會可能有助解釋修訂表現的差異。」這句話完成甚麼工作？', [
-      { label: '報告研究發現', why: '此句提出意義及解釋；仍須交代它所根據的觀察模式。' },
-      { label: '發展詮釋', why: '由模式推進至可能的解釋，須追問支持此連結的證據。', fits: true },
-      { label: '提供完整結論', why: '此句可出現在結論，但本身未綜合整項研究的答案及貢獻。' },
-    ], 'zh') + reveal('部分名稱可以不同', '<p>質性發現可以包含充分詮釋；結果與討論亦可合併。先辨識其思考工作，再按設計及出版要求安排結構。</p>')),
+    key: 'section-jobs', part: results, title: c('Results, Discussion and Conclusion', '結果、討論與結論'),
+    body: c(question('What question does each section answer?') + steps(['Results: what did you find?', 'Present the findings and the evidence that supports them.'], ['Discussion: what do the findings mean, and why?', 'Develop interpretations and explanations. Relate them to scholarship and examine what they add.'], ['Conclusion: what is the study’s overall answer?', 'Synthesise the answer, contribution and scope into a clear understanding the reader can carry forward.']) + reveal('When sections are combined', '<p>Some qualitative reports combine findings and interpretation; some journals combine Discussion and Conclusion. These writing functions still need to be recognisable.</p>'), question('各部分回答甚麼問題？') + steps(['結果：發現了甚麼？', '呈現研究發現及支持它們的證據。'], ['討論：發現代表甚麼？為何出現？', '發展詮釋及解釋，連結學術研究，檢視它增加了甚麼理解。'], ['結論：整項研究的答案是甚麼？', '綜合答案、貢獻與適用範圍，形成讀者可帶走的清楚理解。']) + reveal('部分合併時', '<p>部分質性報告把發現與詮釋合併；部分期刊把討論與結論合併。這些寫作功能仍須清楚可辨。</p>')),
   },
   {
-    key: 'running-study', part: results, title: c('Our constructed feedback study', '本課的虛構反馈研究'),
-    body: c(lead('How do learners use teacher feedback, and how does that use relate to revision?') + columns('<h3>Evidence available</h3>' + list('First and revised essays from 120 EFL learners in one programme.', 'Argument development scored on a 0–4 rubric.', '48 learners gained at least one point; 72 gained less.', 'Twelve consenting interviewees: six from each gain pattern.'), '<h3>Conditions to retain</h3>' + list('No randomly assigned comparison condition.', 'Interviews are retrospective reports.', 'Selected draft comparisons can show what changed.', 'The one-point split is an illustrative sampling decision.')) + takeaway('All numbers and example learner statements in this running study are constructed for teaching. They are not published findings.'),
-    lead('學生如何運用教師反馈？這種運用與修訂有何關係？') + columns('<h3>可用證據</h3>' + list('同一課程 120 名英語學習者的初稿及修訂稿。', '以 0–4 分規準評估論證發展。', '48 人進步至少 1 分；72 人進步不足 1 分。', '從兩種模式各選取 6 名同意參與的學生訪談。'), '<h3>必須保留的條件</h3>' + list('沒有隨機分派的比較組。', '訪談提供回溯性報告。', '選定的草稿比較可展示具體改變。', '以 1 分劃分只是示例抽樣決策。')) + takeaway('本課貫穿研究的數字及學生示例話語均為教學而虛構，並非已發表的發現。')),
+    key: 'discussion-plan', part: discussion, title: c('Plan the Discussion around your questions', '圍繞研究提問規劃討論'),
+    body: c(question('Which findings need explaining to answer each research question?') + steps(['Choose the important findings', 'Group findings that help answer the same question. Give the main findings the most attention.'], ['Write a working answer', 'In one sentence, state what this group of findings helps you understand. This is the idea the subsection will develop.'], ['Build the reasoning', 'Explain the meaning, supporting evidence, possible reasons and relationship to earlier research. Address qualifications where they affect the argument.']) + takeaway('Use the writing functions where they help the argument. Their order and length can vary; they are not compulsory paragraphs.'), question('哪些發現需要解釋，才能回答各項研究提問？') + steps(['選出重要發現', '把回答同一提問的發現放在一起，把最多篇幅留給核心發現。'], ['先寫暫定答案', '用一句話說明這組發現有助理解甚麼，作為該小節要發展的中心意思。'], ['建立推理', '解釋意義、支持證據、可能成因及與既有研究的關係；在影響論證之處交代限定。']) + takeaway('按論證需要運用各項功能，可調整次序與篇幅，無須把每項功能各寫成固定一段。')),
   },
   {
-    key: 'results-answer', part: results, title: c('What to report with each finding', '報告研究發現時，須交代甚麼？'),
-    body: c(lead('Examples from the constructed feedback study.') + table(['What you analysed', 'What you found', 'What readers need to assess the finding'], [
-      ['First- and revised-draft scores', 'Students improved by different amounts.', 'State who was studied, how much scores changed, how gains differed and how uncertain any estimates are.'],
-      ['Interview excerpts and changes in students’ drafts', 'Some students described difficulty turning comments into revisions.', 'Provide quotations and draft examples. Explain whose words or work they are, their context, and any examples that differ from the pattern.'],
-      ['Interview responses matched to the same students’ scores', 'Selected students in the two gain groups reported different ways of using feedback.', 'Explain which students’ scores and interviews were matched and how the 12 interviewees were selected. Their reports do not automatically represent all 120 learners.'],
-    ]) + takeaway('Report the finding and the evidence readers need to judge it. In the Discussion, explain what the finding means and why it may have occurred.'),
-    lead('以下例子來自本課的虛構反馈研究。') + table(['你分析了甚麼', '你發現了甚麼', '讀者需要甚麼，才能判斷這項發現'], [
-      ['學生初稿及修訂稿的分數', '學生的進步幅度不同。', '交代研究涉及哪些學生、分數改變多少、進步有何差異，以及估計有多大不確定性。'],
-      ['訪談節錄及學生草稿的改變', '部分學生描述了把評語轉化為修訂的困難。', '提供訪談引文及草稿例子。交代是誰的話語或作品、相關背景，以及不符合此模式的例子。'],
-      ['把同一學生的訪談回應與分數配對分析', '兩種進步組別中，選定學生報告了不同的反馈運用方式。', '說明哪些學生的分數及訪談已配對，以及如何選取這 12 名受訪者。他們的報告不能自動代表全部 120 名學生。'],
-    ]) + takeaway('報告研究發現時，須提供讓讀者判斷的證據。在討論中，進一步解釋發現的意義及可能成因。')),
+    key: 'results-answer', part: results, title: c('Give the reader enough evidence', '提供足夠證據讓讀者判斷'),
+    body: c(question('What must the reader know before judging your interpretation?') + steps(['State the finding clearly', 'Identify the participants, setting and outcome or experience being described.'], ['Show the evidence in an appropriate form', 'For numerical findings, report magnitude and uncertainty as appropriate. For qualitative findings, provide contextualised extracts or cases and explain the pattern.'], ['Keep the evidence connected to the claim', 'Make clear which observation supports which claim. Distinguish what you observed from what participants reported.']) + takeaway('In the Discussion, recall only the evidence needed to develop the argument. Full reporting belongs with the findings.'), question('讀者判斷詮釋前，需要知道甚麼？') + steps(['清楚交代發現', '指出參與者、情境，以及所描述的結果或經驗。'], ['按證據性質呈現', '量化發現按需要報告幅度及不確定性；質性發現提供有背景的節錄或個案，並解釋模式。'], ['把證據連結至主張', '說明哪項觀察支持哪項主張，區分研究者的觀察與參與者的報告。']) + takeaway('討論中只重提發展論證所需的證據；完整報告放在研究發現部分。')),
   },
   {
-    key: 'discussion-map', part: discussion, title: c('Six tasks in a developed discussion', '充分發展討論的六項任務'),
-    body: c('<div class="discussion-map">' + [
-      ['Interpret', 'Explain the substantive meaning of a specific finding.'], ['Explain', 'Develop and examine possible reasons for the pattern.'], ['Connect to theory', 'Identify the proposition or concept the evidence bears on.'], ['Compare', 'Use previous studies to clarify agreement, differences and conditions.'], ['Integrate', 'Bring findings together, including contradictions and exceptions.'], ['Establish significance', 'Show what the study adds to understanding and what follows from it.'],
-    ].map(([h, p]) => reveal(h, `<p>${p}</p>`)).join('') + '</div>' + takeaway('Organise around research questions or substantive claims. Use these tasks where the evidence calls for them; they are not six compulsory paragraphs.'),
-    '<div class="discussion-map">' + [
-      ['詮釋', '說明一項具體發現的實質意義。'], ['解釋', '發展並檢視模式的可能成因。'], ['連結理論', '指出證據涉及哪項命題或概念。'], ['比較', '透過既有研究釐清一致、差異及成立條件。'], ['整合', '綜合不同發現，包括矛盾及例外。'], ['建立重要性', '說明研究增加了甚麼理解，以及可由此提出甚麼啟示。'],
-    ].map(([h, p]) => reveal(h, `<p>${p}</p>`)).join('') + '</div>' + takeaway('按研究提問或實質主張組織。依證據需要運用這些任務，無須寫成固定六段。')),
+    key: 'interpret', part: discussion, title: c('Interpretation, explanation and significance', '詮釋、解釋與重要性'),
+    body: c(question('These are related, but each does a different job. What does each add?') + steps(['Interpretation: what does the finding mean?', 'State what the pattern helps us understand about the issue being studied.'], ['Explanation: why might it have happened?', 'Propose a reason or process and examine the evidence for it.'], ['Significance: why does this matter?', 'Explain how that understanding changes an important idea, problem or decision.']) + takeaway('A developed Discussion makes the links clear: finding → meaning → possible reason → why it matters.'), question('三者相互關連，各自增加甚麼？') + steps(['詮釋：發現代表甚麼？', '指出這個模式使我們對研究議題有甚麼理解。'], ['解釋：為何可能出現？', '提出可能原因或過程，並檢視支持它的證據。'], ['重要性：這為何值得關注？', '說明這項理解如何改變重要概念、問題或決策。']) + takeaway('充分的討論會交代清楚連結：發現 → 意義 → 可能成因 → 為何重要。')),
   },
   {
-    key: 'interpret', part: discussion, title: c('Move from a finding to its meaning', '從研究發現發展其意義'),
-    body: c('<ol class="inference-steps"><li><b>What was found?</b><span>Revision gains differ; some learners report difficulty acting on comments.</span></li><li><b>What does it mean?</b><span>Receiving comments and knowing how to use them involve distinct processes.</span></li><li><b>What might explain it?</b><span>Learners may need opportunities and support to translate comments into action.</span></li><li><b>Why does it matter?</b><span>This draws attention to how learners interpret comments and plan revisions.</span></li></ol>' + takeaway('Explain how your interpretation follows from the findings, then develop what it adds to our understanding.'),
-    '<ol class="inference-steps"><li><b>發現了甚麼？</b><span>修訂進步不同；部分學生報告難以運用評語。</span></li><li><b>這代表甚麼？</b><span>收到評語與知道如何運用評語，涉及不同過程。</span></li><li><b>可能有甚麼解釋？</b><span>學生可能需要機會及支援，才可把評語轉化為行動。</span></li><li><b>為甚麼重要？</b><span>這使我們關注學生如何理解評語及規劃修訂。</span></li></ol>' + takeaway('說明詮釋如何由研究發現推導，再發展它增加了甚麼理解。')),
+    key: 'paragraph-method', part: discussion, title: c('Develop a Discussion paragraph', '如何發展討論段落'),
+    body: c(question('What does the reader need to follow your reasoning?') + steps(['Give the paragraph one central idea', 'State the interpretation you want to develop.'], ['Anchor it in a specific finding', 'Recall the relevant observation, estimate or case. Explain how it supports your interpretation.'], ['Develop and examine the explanation', 'Connect evidence to a plausible process; use theory and literature where they help. Consider other explanations.'], ['Show what follows', 'Explain why this understanding matters, and qualify it if a limitation changes the claim.']) + takeaway('These are writing functions. Several may appear in one sentence, and a complex argument may need several paragraphs.'), question('讀者需要甚麼，才能跟得上你的推理？') + steps(['給段落一個中心意思', '說明你要發展的詮釋。'], ['以具體發現支持', '重提相關觀察、估計或個案，並解釋它如何支持詮釋。'], ['發展並檢視解釋', '把證據連結至合理過程，按需要運用理論及文獻，考慮其他可能解釋。'], ['說明由此得到甚麼', '解釋理解的重要性；若限制改變主張，就交代所需限定。']) + takeaway('以上是寫作功能：一句可完成多項功能，複雜論證亦可能需要數段。')),
   },
   {
-    key: 'claim-lab', part: discussion, title: c('Compare three research claims', '比較三項研究主張'),
-    body: c(lead('All three statements are claims about what the study shows. Discuss which is best supported and why.') + columns(
-      '<h3>Evidence for this activity · constructed</h3>' + list('One programme, 120 learners: 48 gained at least one rubric point; 72 gained less.', 'Twelve selected interviewees, six from each gain group. Some described difficulty deciding how to revise.', 'No comparison condition; interviews are retrospective reports.'),
-      '<h3>Questions for your discussion</h3>' + list('<b>Evidence:</b> which observation supports each claim?', '<b>Design:</b> can it establish a cause or the absence of an effect?', '<b>Scope:</b> does the statement stay within the participants and evidence studied?')
-    ) + quiz('claim-scope', 'Compare A, B and C with a partner. Choose the best-supported claim and explain why the other two go beyond the evidence.', [
-      { label: 'A. Teacher feedback caused the improvement.', why: 'This is a causal claim. Improvement alone cannot separate feedback from practice, teaching or other influences.' },
-      { label: 'B. Among the selected interviewees in this programme, some described difficulty turning teacher comments into revisions.', why: 'This descriptive claim matches the supplied interview summary and identifies whose experiences it concerns. It does not establish what caused improvement.', fits: true },
-      { label: 'C. Feedback has no effect because most learners gained less than one point.', why: 'This claims an absence of effect. The one-point threshold is not a test of no effect, and smaller gains may matter. Without a suitable comparison, the feedback effect remains uncertain.' },
-    ], 'en') + reveal('Compare the reasoning for all three claims', table(['Claim', 'Judgement', 'What would justify a stronger claim?'], [
-      ['A · Cause', 'The design cannot isolate a feedback effect.', 'A credible comparison that addresses alternative explanations.'],
-      ['B · Reported experience', 'Supported by the supplied interview summary, within the selected cases.', 'Inspect excerpts and linked drafts before claiming a pattern across sources. Broader claims need evidence beyond these cases.'],
-      ['C · No effect', 'The score threshold cannot establish no effect.', 'A design that estimates the feedback effect, with enough precision to assess whether a meaningful effect can be ruled out.'],
-    ])) + takeaway('Judge a claim by its evidence, the inference the design permits and its scope. Adding “may” or “suggests” cannot repair a claim without supporting evidence.'),
-    lead('三句都是關於研究顯示甚麼的主張。討論哪項最有證據支持，以及為甚麼。') + columns(
-      '<h3>本活動的證據 · 教學虛構</h3>' + list('同一課程 120 名學生：48 人進步至少 1 分；72 人進步不足 1 分。', '從兩種進步組別各選 6 人，共訪談 12 人；部分受訪者描述難以決定如何修訂。', '沒有比較組；訪談是回溯性報告。'),
-      '<h3>討論問題</h3>' + list('<b>證據：</b>哪項觀察支持每一句主張？', '<b>設計：</b>能否確立原因，或判斷沒有效果？', '<b>範圍：</b>主張是否限於實際研究的參與者及證據？')
-    ) + quiz('claim-scope', '與同伴比較 A、B、C。選出最有證據支持的一項，說明其餘兩項如何超出證據。', [
-      { label: 'A. 教師反馈導致了進步。', why: '這是因果主張。僅憑進步，無法把反馈與練習、教學等其他影響分開。' },
-      { label: 'B. 在此課程選取的受訪者中，部分學生描述了把教師評語轉化為修訂的困難。', why: '這項描述性主張符合所提供的訪談摘要，並交代涉及誰的經驗；尚未確立進步的原因。', fits: true },
-      { label: 'C. 多數學生進步不足 1 分，所以反馈沒有效果。', why: '這項主張判定沒有效果，但 1 分界線並非無效果檢驗，較小進步亦可能重要。缺少適當比較，反馈效果仍不確定。' },
-    ], 'zh') + reveal('比較三項主張的推理', table(['主張', '判斷', '更強的主張需要甚麼？'], [
-      ['A · 原因', '此設計無法辨識反馈的獨立效果。', '能處理其他可能解釋的可信比較。'],
-      ['B · 報告的經驗', '所提供的訪談摘要支持此描述，範圍限於選定個案。', '若要主張不同來源呈現一致模式，須檢視訪談節錄及相連草稿。更廣的主張需要這些個案以外的證據。'],
-      ['C · 沒有效果', '分數界線不能確立沒有效果。', '能估計反馈效果的設計，且估計須足夠精確，才可評估能否排除有實質意義的效果。'],
-    ])) + takeaway('按證據、設計容許的推論及適用範圍判斷主張。缺少支持證據時，加入「可能」或「顯示」亦無法修補主張。')),
+    key: 'published-study', part: discussion, title: c('The study behind our main example', '主要例子的研究背景'),
+    body: c(lead('Zhang & Hyland (2022) · Fostering student engagement with feedback') + steps(['Question and setting', 'How did students engage with a sequence of feedback activities? One teacher and 33 students took part in a university writing course in China.'], ['What the researchers examined', 'Students used automated writing feedback, peer feedback and teacher feedback. The researchers analysed drafts, feedback and retrospective interviews.'], ['What they reported', 'Most students engaged behaviourally, emotionally and cognitively; some remained indifferent. The Discussion considers how the feedback activities and teacher support might explain this pattern.']) + takeaway('Behavioural engagement = effort and action; affective engagement = feelings and attitudes; cognitive engagement = thinking, evaluating and monitoring.') + source('en','1, 6–8, 23–26'), lead('Zhang 與 Hyland（2022）· 透過整合方式促進學生投入回饋') + steps(['研究提問與情境', '學生如何投入一連串回饋活動？參與者是中國一所大學寫作課的 1 名教師及 33 名學生。'], ['研究者檢視了甚麼', '學生運用自動寫作回饋、同儕回饋及教師回饋。研究者分析草稿、回饋及回溯訪談。'], ['研究報告了甚麼', '多數學生在行為、情感及認知方面投入，亦有學生態度冷淡。討論檢視回饋活動與教師支援如何可能解釋此模式。']) + takeaway('行為投入＝努力及行動；情感投入＝感受與態度；認知投入＝思考、評估及監察。') + source('zh','1、6–8、23–26')),
   },
   {
-    key: 'paragraph-moves', part: discussion, title: c('Make the reasoning in a paragraph visible', '讓段落的推理清晰可見'),
-    body: c(lead('Constructed paragraph. Select a function to see how it develops the interpretation.') + '<div class="annotation-tools" role="group" aria-label="Discussion functions">' + [['claim', 'Interpretation'], ['evidence', 'Evidence'], ['explanation', 'Explanation'], ['significance', 'Significance']].map(([key, label]) => `<button type="button" data-annotation="${key}" aria-pressed="false">${label}</button>`).join('') + '</div><div class="annotated-paragraph"><p><span data-move="claim">The findings suggest a gap between receiving feedback and being able to use it.</span> <span data-move="evidence">Gains varied, and selected interviewees described difficulty deciding how to revise.</span> <span data-move="explanation">One explanation is that learners need support in deciding how to turn a comment into a specific change.</span> <span data-move="significance">This distinction directs attention to interpreting comments and planning revisions as processes to investigate and support.</span></p></div>' + takeaway('Develop a clear interpretation through evidence and explanation, then show why it matters. Choose and combine these functions to suit your argument.'),
-    lead('虛構段落：選擇功能，看看它如何發展詮釋。') + '<div class="annotation-tools" role="group" aria-label="討論功能">' + [['claim', '詮釋'], ['evidence', '證據'], ['explanation', '解釋'], ['significance', '重要性']].map(([key, label]) => `<button type="button" data-annotation="${key}" aria-pressed="false">${label}</button>`).join('') + '</div><div class="annotated-paragraph"><p><span data-move="claim">研究發現顯示，收到反馈與能運用反馈之間存在差距。</span><span data-move="evidence">學生的進步不同，部分受訪者描述難以決定如何修訂。</span><span data-move="explanation">一種可能解釋是：學生需要支援，才能決定如何把一則評語轉化為具體修改。</span><span data-move="significance">這個區別使我們關注理解評語及規劃修訂的過程，並探究如何支援這些過程。</span></p></div>' + takeaway('透過證據及解釋發展清晰的詮釋，再說明它為何重要。按論證需要選擇及組合這些功能。')),
+    key: 'paragraph-moves', part: discussion, title: c('See how a Discussion develops its argument', '看討論如何發展論證'),
+    body: c(realContext('en') + '<p class="adaptation-label">Teaching paraphrase of the Discussion; these are not the authors’ exact words.</p>' + annotated('en', [
+      ['claim','Interpretation','The authors interpret engagement as a response to the combined feedback process.','Interpretation states what the pattern means: attention turns to the combined process.'],
+      ['evidence','Evidence','Students described using automated feedback and peer feedback to attend to grammar and content in different drafts.','Evidence recalls a specific finding supporting the interpretation.'],
+      ['explanation','Explanation','The authors suggest that dividing revision across these activities made the work easier to manage.','Explanation proposes how the pattern arose. “Suggest” keeps the proposed process distinguishable from a proven cause.'],
+      ['significance','Significance','This directs attention to how teachers organise and support feedback across drafts.','Significance explains why the interpretation matters for understanding feedback practice.'],
+    ]) + source('en','23–25') + reveal('Read a short annotated extract in the authors’ words', '<p class="source-quote">“<u>This study reinforces the view</u> that student engagement with feedback is a <u>complex process</u> […]”</p><p><b>“Reinforces the view”:</b> positions the finding in relation to existing scholarship. <b>“Complex process”:</b> states the interpretation developed in the paragraph. The following sentences unpack behavioural, emotional and cognitive engagement.</p><p>The extract ends before the authors’ citations and further explanation.</p>' + source('en','23')), realContext('zh') + '<p class="adaptation-label">以下是討論部分的教學意譯，並非作者原句。</p>' + annotated('zh', [
+      ['claim','詮釋','學生的投入與各項回饋活動如何配合有關。','詮釋說明模式的意義，把注意力放在整個過程。'],
+      ['evidence','證據','學生描述，在不同草稿中運用自動及同儕回饋，分別關注文法與內容。','證據重提支持詮釋的具體發現。'],
+      ['explanation','解釋','作者提出，把修訂工作分配至這些活動，可能使任務較容易處理。','解釋提出可能過程，並保留其推測性質。'],
+      ['significance','重要性','這使我們關注教師如何在多稿寫作中組織及支援回饋。','重要性說明這項詮釋為何影響我們對回饋實務的理解。'],
+    ]) + source('zh','23–25') + reveal('閱讀作者原文的短節錄', '<p class="source-quote">“<u>This study reinforces the view</u> that student engagement with feedback is a <u>complex process</u> […]”</p><p><b>“Reinforces the view”：</b>把發現連結至已有學術觀點。<b>“Complex process”：</b>指出段落要發展的詮釋。隨後句子進一步解釋行為、情感及認知投入。</p><p>節錄在作者引文及後續說明之前結束。</p>' + source('zh','23'))),
   },
   {
-    key: 'theory', part: discussion, title: c('What does the finding do to the theory?', '發現對理論有何作用？'),
-    body: c(table(['Relationship', 'Reasoning to develop'], [
-      ['Support', 'Which expected pattern appeared, and how directly was it examined?'],
-      ['Refinement', 'Which condition or distinction makes the explanation more precise?'],
-      ['Challenge', 'Which assumption is difficult to reconcile with the evidence?'],
-      ['Development', 'What new relationship is proposed, and what evidence would test it?'],
-    ]) + takeaway('Name the proposition and explain the relationship. Adding a theory citation does not perform this work.'),
-    table(['關係', '需要發展的推理'], [
-      ['支持', '出現了哪個預期模式？研究有多直接地檢視它？'],
-      ['修正', '哪個條件或區別，使解釋更精確？'],
-      ['挑戰', '哪項假設難以與證據相容？'],
-      ['發展', '提出甚麼新關係？甚麼證據可檢視它？'],
-    ]) + takeaway('指出命題並解釋其關係；加入理論引文本身，尚未完成這項工作。')),
+    key: 'rival-explanations', part: discussion, title: c('Develop and test explanations', '如何發展並檢視解釋'),
+    body: c(question('What would make your proposed explanation convincing?') + steps(['Name the process', 'Explain how the proposed reason could produce the finding. Make the intermediate steps explicit.'], ['Look for evidence that distinguishes explanations', 'Ask what each possible explanation predicts, and which observations support or challenge it.'], ['State how far you can go', 'Distinguish an explanation supported by the analysis from one that remains plausible and needs testing.']) + reveal('Apply it to your study', field('rival', 'Choose two explanations. What evidence would favour one over the other?', 'en') + save('en')), question('怎樣使你提出的解釋有說服力？') + steps(['指出具體過程', '說明可能原因如何產生發現，交代中間步驟。'], ['尋找能區分解釋的證據', '各種解釋預期看見甚麼？哪些觀察支持或挑戰它？'], ['交代可解釋到甚麼程度', '區分分析已有支持的解釋，以及仍屬合理、尚待檢驗的解釋。']) + reveal('應用於你的研究', field('rival','選兩種解釋：甚麼證據較支持其中一種？','zh') + save('zh'))),
   },
   {
-    key: 'conceptual-coherence', part: discussion, title: c('From a finding to a theoretical explanation', '從研究發現發展理論解釋'),
-    body: c(lead('School-improvement case: researchers compared sites introducing new teaching practices.') + '<p>At some sites, staff worked to the point of exhaustion to implement the practices. They reported improvements in reading scores or children’s attitudes towards school, but supporting outcome evidence was missing or weak. Other sites showed different combinations of effort and claims of success.</p>' + '<div class="evidence-chain"><div><b>What needs explaining?</b><p>Why did strong effort coincide with strong claims of success despite weak outcome evidence?</p></div><div><b>A theoretical explanation</b><p><strong>Effort justification:</strong> people may judge outcomes more favourably to make substantial effort feel worthwhile. This connects the pattern to cognitive dissonance theory.</p></div><div><b>What comparison adds</b><p>Comparing sites helps examine how effort, claims of success and outcome evidence vary together.</p></div></div>' + reveal('Discuss: what does the theory add?', '<p>Compare “Staff reported improvement” with “Staff may have judged outcomes more favourably because they had invested substantial effort.” The first describes what was reported. The second proposes a reason for the pattern and suggests what to examine across sites: how effort relates to claims and their supporting evidence.</p>') + takeaway('Connect the observed pattern to a concept that helps explain how or why it occurs. Explain the connection in plain language.'),
-    lead('學校改進案例：研究者比較不同地點推行新教學做法的情況。') + '<p>在部分地點，教職員為推行新做法投入大量心力，甚至筋疲力盡。他們表示學生的閱讀分數或對學校的態度有所改善，但支持這些成效的證據缺失或薄弱。其他地點則呈現不同的努力程度及成效主張。</p>' + '<div class="evidence-chain"><div><b>甚麼需要解釋？</b><p>為甚麼投入很大心力的人，會在成果證據薄弱時，仍強調做法很有成效？</p></div><div><b>一種理論解釋</b><p><strong>努力合理化：</strong>人可能更傾向肯定成效，使自己投入的大量心力顯得值得。這把觀察模式連結至認知失調理論。</p></div><div><b>比較有何幫助？</b><p>比較不同地點，可檢視努力程度、成效主張及成果證據如何一同變化。</p></div></div>' + reveal('討論：理論增加了甚麼理解？', '<p>比較「教職員表示有改善」與「教職員可能因投入大量心力，而更傾向肯定成效」。前者描述他們報告了甚麼；後者提出模式的可能成因，並指出跨地點比較可檢視甚麼：努力程度如何連結至成效主張，以及支持主張的證據。</p>') + takeaway('把觀察模式連結至有助解釋其成因或過程的概念，並用清楚的語言說明兩者的關係。')),
+    key: 'theory', part: discussion, title: c('Link findings to theory', '如何把發現連結至理論'),
+    body: c(question('What idea does the theory give you that helps explain this finding?') + steps(['Identify the specific idea', 'Name the concept or expected relationship in plain language. Explain what the theory would lead you to expect.'], ['Match the idea to evidence', 'Show which finding supports, qualifies or challenges that expectation. A theory’s name alone cannot establish the link.'], ['Explain what changes', 'Does the finding support the idea in this setting, identify a condition, or suggest a revision? State what your design can establish.']) + reveal('In the published example', '<p>Zhang and Hyland discuss engagement through behavioural, affective and cognitive dimensions. They interpret students’ effort, feelings and revision strategies through these concepts. The concepts organise an explanation of engagement; the study does not establish a universal causal model.</p>' + source('en','3–5, 23–24')), question('理論提供了哪項概念，幫助解釋這項發現？') + steps(['指出具體概念', '用清楚語言交代理論概念或預期關係，說明按理論應看見甚麼。'], ['把概念連結至證據', '說明哪項發現支持、限定或挑戰預期，單寫理論名稱尚未建立連結。'], ['解釋理解如何改變', '研究是在此情境支持概念、指出條件，還是建議修正？交代設計可支持的程度。']) + reveal('已發表例子的做法', '<p>Zhang 與 Hyland 以行為、情感及認知向度理解投入，藉此詮釋學生的努力、感受及修訂策略。這些概念組織了對投入的解釋；研究尚未建立普遍的因果模型。</p>' + source('zh','3–5、23–24'))),
   },
   {
-    key: 'literature', part: discussion, title: c('Explain agreement and disagreement', '解釋研究之間的一致與差異'),
-    body: c(table(['Before comparing findings', 'Ask'], [
-      ['Construct and measure', 'Did both studies investigate the same phenomenon in comparable ways?'],
-      ['Population and setting', 'Could participants, institutional conditions or tasks matter?'],
-      ['Design and time', 'Are we comparing an association, a short-term intervention or a longitudinal process?'],
-      ['Outcome and estimate', 'Do effects differ in direction, magnitude or uncertainty?'],
-    ]) + reveal('A weak comparison', '<p>“Our finding agrees with Study A and disagrees with Study B.”</p>') + reveal('A developed comparison', '<p>“The studies may differ because one assessed immediate supported performance and the other assessed independent performance. The distinction changes what each result indicates about learning.”</p><p>This is a constructed example. Check the actual methods before using such an explanation.</p>'),
-    table(['比較發現之前', '追問'], [
-      ['構念與測量', '兩項研究是否以可比較方式探究相同現象？'],
-      ['對象與情境', '參與者、制度條件或任務差異是否重要？'],
-      ['設計與時間', '比較的是關聯、短期介入，還是長期過程？'],
-      ['結果與估計', '效果的方向、幅度或不確定性是否不同？'],
-    ]) + reveal('較薄弱的比較', '<p>「我們的發現與研究 A 一致，但與研究 B 不同。」</p>') + reveal('充分發展的比較', '<p>「兩項研究可能因結果測量不同而有差異：一項測量即時受支援表現，另一項測量獨立表現。這個區別改變了結果對學習的意義。」</p><p>此為虛構寫作例子；使用這種解釋前，必須核對實際方法。</p>')),
+    key: 'literature', part: discussion, title: c('Use literature to develop the argument', '如何運用文獻發展論證'),
+    body: c(question('What does the comparison with earlier research help the reader understand?') + steps(['Choose a relevant earlier claim', 'State the finding or idea you are engaging with. Read the source’s methods and context as well as its conclusion.'], ['Explain the relationship', 'Does your finding support, extend, qualify or challenge it? Compare the same outcome or concept; check participants, measures, tasks and timing.'], ['Develop the reason and consequence', 'Explain a plausible reason for agreement or difference, using evidence. Then state what the comparison adds to the current understanding.']) + takeaway('A useful link explains the relationship and its meaning. A list of authors leaves the reader to build the connection.'), question('與既有研究比較後，讀者多理解了甚麼？') + steps(['選出相關的既有主張', '交代你要回應的發現或概念，同時閱讀來源的方法、情境與結論。'], ['解釋兩者的關係', '你的發現支持、延伸、限定或挑戰它？比較相同結果或概念，核對對象、測量、任務及時間。'], ['發展原因及意義', '以證據解釋一致或差異的可能原因，再說明此比較增加了甚麼理解。']) + takeaway('有用的連結會解釋關係及意義；只列作者，會把建立連結的工作留給讀者。')),
   },
   {
-    key: 'deslauriers', part: discussion, title: c('Two measures can tell different stories', '兩種測量可以呈現不同模式'),
-    body: c(lead('Deslauriers et al. (2019): active learning and the feeling of learning in introductory physics.') + columns('<h3>Measured learning</h3><p>Students in the active condition performed better on the learning tests.</p>', '<h3>Feeling of learning</h3><p>They reported feeling that they learned less.</p>') + quiz('perception-learning', 'What is the strongest interpretation of the contrast?', [
-      { label: 'Students cannot judge anything about their learning.', why: 'This exceeds the measures, setting and comparison investigated.' },
-      { label: 'The two measures are interchangeable indicators of effectiveness.', why: 'The contrasting results make the distinction between perceived and tested learning consequential.' },
-      { label: 'Perceived learning and test performance can diverge under these instructional conditions.', why: 'This retains both findings and their setting. Explain the contrast and examine what each measure captures.', fits: true },
-    ], 'en'),
-    lead('Deslauriers 等人（2019）：基礎物理課的主動學習與學習感受。') + columns('<h3>測得的學習表現</h3><p>主動學習條件的學生，在學習測驗表現較好。</p>', '<h3>學習感受</h3><p>他們卻報告覺得自己學得較少。</p>') + quiz('perception-learning', '對此差異，哪種詮釋最有理據？', [
-      { label: '學生完全無法判斷自己的學習。', why: '此主張超越了研究的測量、情境及比較。' },
-      { label: '兩項測量是可互換的成效指標。', why: '兩種結果的差異，使「感知學習」與「測得學習」的區別很重要。' },
-      { label: '在這些教學條件下，學習感受與測驗表現可能不一致。', why: '同時保留兩項發現及其情境；須解釋差異，不能只選方便的測量。', fits: true },
-    ], 'zh')),
+    key: 'literature-example', part: discussion, title: c('Decode a published literature comparison', '拆解已發表論文的文獻比較'),
+    body: c('<aside class="study-context"><b>Payne, Ajjawi, &amp; Holloway (2023)</b><p>The researchers interviewed 10 higher-education teachers about using technology to make feedback more personal and relational. Their Discussion compares the feedback-design strategies reported by these teachers with Carless and Winstone’s framework.</p></aside><p class="adaptation-label">Teaching paraphrase of the authors’ comparison; the labels are our analysis.</p>' + annotated('en', [
+      ['previous','Earlier literature','Carless and Winstone’s design dimension concerns designing curricula and assessment to support feedback.','Name the specific earlier idea, so the reader knows what is being compared.'],
+      ['finding','Current finding','In this study, teachers described strategies for managing the relationship between grading and feedback.','State what this study adds to the comparison.'],
+      ['explanation','Possible explanation','The authors note that some participants had no responsibility for curriculum design, which may explain the different emphasis.','Use an observed contextual difference to develop a possible explanation.'],
+      ['meaning','Meaning of the comparison','The comparison suggests that feedback literacies need to be understood in relation to teachers’ responsibilities and contexts.','Explain the wider understanding developed by the comparison.'],
+    ]) + source('en','19, 21','payne') + reveal('Read the authors’ explanation link', '<p class="source-quote">“<u>This may explain</u> the difference in strategies that we identified <u>compared with Carless and Winstone (2020)</u>.”</p><p><b>“This”</b> refers to the preceding observation about curriculum responsibilities. <b>“May explain”</b> marks a possible explanation. <b>“Compared with”</b> explicitly links the explanation to the earlier framework.</p>' + source('en','19','payne')), '<aside class="study-context"><b>Payne、Ajjawi 與 Holloway（2023）</b><p>研究訪談 10 名高等教育教師，探討如何以科技使回饋更具個人及關係性。他們在討論中，把受訪教師報告的回饋設計策略，與 Carless 和 Winstone 的框架比較。</p></aside><p class="adaptation-label">以下是作者比較的教學意譯；功能標籤屬本課分析。</p>' + annotated('zh', [
+      ['previous','既有文獻','Carless 與 Winstone 的設計向度，關注如何設計課程及評核以支援回饋。','指出具體既有概念，讓讀者知道比較甚麼。'],
+      ['finding','本研究發現','本研究的教師描述了處理評分與回饋關係的策略。','交代本研究為比較提供甚麼。'],
+      ['explanation','可能解釋','作者指出，部分參與者沒有課程設計責任，這可能解釋兩者重點的差異。','以觀察到的情境差異，發展可能解釋。'],
+      ['meaning','比較的意義','此比較顯示，理解回饋素養時，需要考慮教師的責任及情境。','說明比較所發展的較廣理解。'],
+    ]) + source('zh','19、21','payne') + reveal('閱讀作者如何建立解釋連結', '<p class="source-quote">“<u>This may explain</u> the difference in strategies that we identified <u>compared with Carless and Winstone (2020)</u>.”</p><p><b>“This”</b> 回指前文關於課程責任的觀察；<b>“may explain”</b> 表示可能解釋；<b>“compared with”</b> 把解釋明確連結至已有框架。</p>' + source('zh','19','payne'))),
   },
   {
-    key: 'rival-explanations', part: discussion, title: c('Make explanations compete on evidence', '以證據比較不同解釋'),
-    body: c(lead('Constructed study: some learners gained little despite receiving comments.') + table(['Possible explanation', 'Discriminating evidence to seek'], [
-      ['Comments were difficult to understand.', 'A learner’s explanation of the comment, linked to the actual comment and attempted revision.'],
-      ['There was little opportunity to act.', 'Assessment timing, revision opportunities and accounts of when comments became available.'],
-      ['The scoring missed relevant changes.', 'Rubric coverage and examples of changes outside the scored dimension.'],
-    ]) + field('rival', 'Choose two explanations. What evidence would favour one over the other?', 'en') + reveal('Methodological debrief', '<p>List what each explanation predicts, what supports it and what challenges it. If the study cannot distinguish alternatives, retain that uncertainty in Discussion. New analyses or data collection require a justified plan.</p>') + save('en'),
-    lead('虛構研究：部分學生雖收到評語，進步仍有限。') + table(['可能解釋', '可區分解釋的證據'], [
-      ['評語難以理解。', '學生如何解釋評語，並連結實際評語及嘗試修訂的內容。'],
-      ['採取行動的機會有限。', '評核時序、修訂機會，以及評語何時可用的報告。'],
-      ['評分未涵蓋相關改變。', '規準涵蓋範圍，以及評分向度以外的改變例子。'],
-    ]) + field('rival', '選兩種解釋：甚麼證據較支持其中一種？', 'zh') + reveal('研究方法討論', '<p>列出各解釋的預期、支持及挑戰證據。若研究無法區分，就在討論保留此不確定性。新分析或新資料蒐集，須有合理計劃。</p>') + save('zh')),
+    key: 'synthesis', part: discussion, title: c('Bring the findings together', '如何綜合不同發現'),
+    body: c(question('What do you understand when you consider the findings together?') + steps(['Put related findings beside one another', 'Identify the shared question and check whether the findings concern comparable participants, cases and periods.'], ['Explain the combined pattern', 'Show how findings support, complement or contradict each other. Explain the understanding that emerges from the combination.'], ['Retain unresolved differences', 'Explain which cases or sources do not fit. For mixed methods, show what combining the strands adds beyond reporting each separately.']) + reveal('Check your integration', quiz('integration', 'What remains necessary before claiming that interviews explain score differences?', [
+      {label:'Treat every interview as confirmation of the score pattern.',why:'Interviews may support, qualify or contradict the interpretation.'},
+      {label:'Check linked cases, variation and contrary evidence; identify what integration adds.',why:'Examine the same cases and the evidence for the proposed connection. Selected interviewees do not automatically represent every learner.',fits:true},
+      {label:'Repeat both sets of findings in the Conclusion.',why:'Repetition does not explain the relationship between the findings.'},
+    ],'en')), question('把發現放在一起後，多理解了甚麼？') + steps(['並列相關發現', '辨認共同提問，核對發現是否涉及可比較的參與者、個案及時段。'], ['解釋整體模式', '說明發現如何互相支持、補充或矛盾，並解釋綜合後形成的理解。'], ['保留未解決差異', '說明哪些個案或來源不符合；混合方法須交代結合兩部分後，比各自報告增加了甚麼。']) + reveal('檢查你的整合', quiz('integration','若要主張訪談解釋分數差異，還需甚麼？',[
+      {label:'把所有訪談都視為確認分數模式。',why:'訪談可支持、限定或挑戰詮釋。'},
+      {label:'檢查相連個案、差異及相反證據，指出整合增加的理解。',why:'檢視同一個案及所提連結的證據；選定受訪者不能自動代表全部學生。',fits:true},
+      {label:'在結論重複兩部分的發現。',why:'重複尚未解釋發現之間的關係。'},
+    ],'zh'))),
   },
   {
-    key: 'negative-cases', part: discussion, title: c('Let contrasting cases refine the interpretation', '讓不同個案修正詮釋'),
-    body: c(lead('Carless (2020) followed four undergraduates’ feedback experiences over five years, using repeated interviews and documentary evidence.') + columns('<h3>What the design contributes</h3><p>It makes individual trajectories and changes in experiences visible.</p><p>The researcher also describes his academic-adviser relationship with participants.</p>', '<h3>What to examine</h3><p>Which interpretations accommodate variation across cases and time?</p><p>How might the researcher’s position shape what is said and interpreted?</p>') + field('negative-case', 'Constructed exercise: one learner understands comments but cannot use them before the next assessment. How does this qualify “understanding feedback is sufficient for uptake”?', 'en') + reveal('A possible revision', '<p>Understanding may be relevant to uptake, while timing and opportunities to act also need examination. A counterexample can refine a sufficiency claim; it does not show that understanding is irrelevant.</p>') + save('en'),
-    lead('Carless（2020）透過重複訪談及文件證據，追蹤四名本科生五年的反馈經驗。') + columns('<h3>設計的貢獻</h3><p>呈現個人的發展軌跡及經驗改變。</p><p>研究者亦交代自己作為參與者學業顧問的關係。</p>', '<h3>需要檢視</h3><p>哪些詮釋能涵蓋跨個案及跨時間的差異？</p><p>研究者的位置如何影響受訪者表達及研究詮釋？</p>') + field('negative-case', '虛構練習：一名學生理解評語，卻無法在下一次評核前運用。這如何修正「理解反馈足以促成運用」？', 'zh') + reveal('一種可能修正', '<p>理解可能與運用有關，但時序及行動機會亦需檢視。反例可以修正充分條件的主張，卻不表示理解毫不相關。</p>') + save('zh')),
+    key: 'negative-cases', part: discussion, title: c('Use contradictory evidence to refine the claim', '如何用矛盾證據修正主張'),
+    body: c(question('Which finding or case does your explanation struggle to account for?') + steps(['Find the exception', 'Look deliberately for cases, estimates or accounts that do not fit the proposed explanation.'], ['Ask what it changes', 'Does it reveal a condition, suggest another process or require a different explanation?'], ['Revise the claim', 'State more precisely who, when or under what conditions the interpretation applies.']) + reveal('In the published example', '<p>Zhang and Hyland report students who remained indifferent to the feedback cycle. They discuss individual motivation and language proficiency as possible influences. This qualifies the claim that the combined approach facilitates engagement.</p>' + source('en','24')) + reveal('Apply it', field('negative-case','A contrasting case: what would it change in your interpretation?','en') + save('en')), question('你的解釋難以涵蓋哪項發現或哪個個案？') + steps(['尋找例外', '主動尋找不符合所提解釋的個案、估計或報告。'], ['追問它改變了甚麼', '它是否指出成立條件、另一過程，或要求不同解釋？'], ['修正主張', '更準確交代詮釋適用於誰、何時及甚麼條件。']) + reveal('已發表例子的做法', '<p>Zhang 與 Hyland 報告有學生對回饋循環態度冷淡，並討論個人動機及語言能力的可能影響，藉此限定整合方式能促進投入的主張。</p>' + source('zh','24')) + reveal('應用', field('negative-case','不同個案會如何改變你的詮釋？','zh') + save('zh'))),
   },
   {
-    key: 'synthesis', part: discussion, title: c('Bring the findings into one explanation', '把發現綜合成解釋'),
-    body: c(columns('<h3>Three separate statements</h3>' + list('Gains varied.', 'Some learners reported understanding comments.', 'Some still described difficulty revising.'), '<h3>A synthetic interpretation</h3><p>In this constructed study, understanding a comment may leave further work: deciding what to change and having an opportunity to do so.</p><p>The interpretation connects the findings and identifies an unresolved process.</p>') + takeaway('Ask what becomes visible when findings are considered together. Retain contradictions that change the explanation.'),
-    columns('<h3>三個分開的陳述</h3>' + list('進步有所不同。', '部分學生報告理解評語。', '部分學生仍描述修訂困難。'), '<h3>綜合詮釋</h3><p>在此虛構研究中，理解評語之後，可能仍須決定如何改變，以及取得行動機會。</p><p>此詮釋連結不同發現，並指出尚未釐清的過程。</p>') + takeaway('追問：把發現放在一起後，看見了甚麼？保留會改變解釋的矛盾。')),
+    key: 'significance', part: discussion, title: c('Develop the significance of a finding', '如何發展研究發現的重要性'),
+    body: c(question('Why should the reader care about this understanding?') + steps(['Name the issue it changes', 'Return to a problem, assumption or decision established in your Introduction and literature review.'], ['Explain the difference the finding makes', 'State what can now be understood more clearly, and why the old account is incomplete or less precise.'], ['Show the consequence within scope', 'Explain why this changes how scholars think or what practitioners need to consider. Keep the importance proportional to the evidence.']) + reveal('Follow the reasoning in our main example', '<p><b>Issue:</b> which type of feedback best supports students? <b>New understanding:</b> the study directs attention to how feedback types and teacher support work together. <b>Why it matters:</b> feedback design needs attention to the sequence of activities and students’ engagement across drafts.</p><p>This is a teaching interpretation of the authors’ Discussion, not a tested comparison of every feedback approach.</p>' + source('en','24–25')) + takeaway('Statistical significance concerns a statistical test. Here, significance means why a finding matters for understanding or action.'), question('讀者為何應關注這項理解？') + steps(['指出它影響的問題', '回到引言及文獻回顧已建立的問題、假設或決策。'], ['解釋發現造成的改變', '說明現在何處理解得更清楚，以及原來理解有何不足或不夠精確。'], ['在範圍內說明後果', '解釋它如何影響學術思考，或實務工作者需要考慮甚麼；重要性須與證據相稱。']) + reveal('追蹤主要例子的推理', '<p><b>問題：</b>哪種回饋較能支援學生？<b>新理解：</b>研究使我們關注不同回饋及教師支援如何配合。<b>為何重要：</b>設計回饋須考慮活動次序，以及學生在多稿寫作中的投入。</p><p>這是對作者討論的教學詮釋，研究並未檢驗所有回饋方式的效果。</p>' + source('zh','24–25')) + takeaway('統計顯著性涉及統計檢驗；此處的重要性，是發現對理解或行動有何意義。')),
   },
   {
-    key: 'integration', part: discussion, title: c('What does combining the strands add?', '結合兩部分，增加甚麼理解？'),
-    body: c(table(['Scores in the constructed study', 'Selected interview accounts', 'Integrated interpretation'], [
-      ['Larger gains: 48 learners', 'Some describe turning comments into specific changes.', 'A possible process to inspect in linked drafts.'],
-      ['Limited gains: 72 learners', 'Some describe uncertainty or limited opportunity to revise.', 'Different constraints may produce similar score patterns.'],
-    ]) + quiz('integration', 'What remains necessary before claiming that interview accounts explain score differences?', [
-      { label: 'Treat every interview as confirmation of the score pattern.', why: 'Interviews can qualify or contradict the interpretation. Their selection and retrospective nature also matter.' },
-      { label: 'Check linked cases, variation and contrary evidence; identify what integration adds.', why: 'This examines whether the combined interpretation is supported. Six interviewees per pattern do not represent every learner in that group.', fits: true },
-      { label: 'Repeat both sets of findings in the Conclusion.', why: 'Repetition does not establish an integrated explanation or answer the mixed-methods question.' },
-    ], 'en'),
-    table(['虛構研究的分數', '選定訪談的報告', '整合詮釋'], [
-      ['較大進步：48 人', '部分學生描述把評語轉化為具體改變。', '可於相連草稿中檢視的可能過程。'],
-      ['進步有限：72 人', '部分學生描述不確定如何修訂，或行動機會有限。', '不同限制可能產生相似分數模式。'],
-    ]) + quiz('integration', '若要主張訪談能解釋分數差異，還需要甚麼？', [
-      { label: '把所有訪談都視為確認分數模式。', why: '訪談可能修正或反駁詮釋；選取方式及回溯性質亦很重要。' },
-      { label: '檢查相連個案、差異及相反證據，指出整合增加的理解。', why: '這可檢視整合詮釋有否依據；每組 6 名受訪者不能代表該組全部學生。', fits: true },
-      { label: '在結論重複兩部分的發現。', why: '重複尚未建立整合解釋，亦未回答混合方法提問。' },
-    ], 'zh')),
+    key: 'contribution', part: discussion, title: c('Explain what your study contributes', '如何說明研究貢獻'),
+    body: c(question('What does this study add to what was already known?') + steps(['Establish the earlier understanding', 'Use verified literature to state what was known and what remained unclear.'], ['Identify the addition', 'Name the new evidence, explanation, condition, distinction or methodological insight your study provides.'], ['Show what earns the claim', 'Connect the addition to specific findings. Explain how the context matters if your contribution concerns a new setting.']) + field('contribution','Before this study, we understood… This evidence now clarifies…','en') + takeaway('Significance explains why the understanding matters. Contribution identifies the specific addition made by your study.') + save('en'), question('這項研究為已有知識增加了甚麼？') + steps(['建立原有理解', '以核實過的文獻，說明已知甚麼、仍有甚麼不清楚。'], ['指出新增部分', '說明研究提供的新證據、解釋、條件、區別或方法理解。'], ['交代主張的根據', '把新增部分連結至具體發現；若涉及新情境，須解釋情境為何重要。']) + field('contribution','研究之前，我們理解的是……這些證據現在釐清……','zh') + takeaway('重要性說明理解為何值得關注；貢獻指出本研究增加的具體部分。') + save('zh')),
   },
   {
-    key: 'replication', part: discussion, title: c('Discuss what held up, and what changed', '討論哪些發現得到重現，哪些改變了'),
-    body: c(lead('Mueller & Oppenheimer (2014), Study 1, and Urry et al.’s (2021) preregistered replication.') + table(['Finding', 'Original Study 1', 'Replication'], [
-      ['Laptop notes: more words and verbatim overlap', 'Observed', 'Observed again'],
-      ['Longhand advantage on conceptual quiz items', 'Reported', 'Small, nonsignificant quiz differences'],
-    ]) + field('replication', 'What should a Discussion retain, revise and leave unresolved?', 'en') + reveal('Reasoning to retain', '<p>Separate the note characteristics from the learning outcome. Examine estimates and uncertainty. A nonsignificant difference alone does not establish equivalence. The replication concerns Study 1 and immediate testing; it does not settle every note-taking question.</p>') + save('en'),
-    lead('Mueller 與 Oppenheimer（2014）的研究一，以及 Urry 等人（2021）的預先註冊重複研究。') + table(['發現', '原研究一', '重複研究'], [
-      ['電腦筆記：較多字數及逐字重疊', '觀察到', '再次觀察到'],
-      ['手寫筆記在概念測驗題的優勢', '有報告', '測驗差異小且未達顯著'],
-    ]) + field('replication', '討論應保留、修正哪些主張？哪些問題仍未解決？', 'zh') + reveal('應保留的推理', '<p>區分筆記特徵與學習結果，檢視估計及不確定性。未達顯著本身不能確立等效。此重複研究涉及研究一及即時測驗，無法解決所有筆記問題。</p>') + save('zh')),
+    key: 'implications', part: discussion, title: c('Derive implications from the findings', '如何由發現推導啟示'),
+    body: c(question('Given this understanding, what should someone consider doing or investigating?') + steps(['Start with a specific finding', 'Identify the problem or possibility the evidence makes visible.'], ['Explain the proposed response', 'Name who could act, what they could do, and why this action follows from the finding.'], ['State conditions and evaluation', 'Explain the setting, resources or support required and how the proposed response could be assessed.']) + columns('<h3>For practice</h3><p>Propose an action proportionate to the evidence. An untested suggestion can be presented as something to pilot and evaluate.</p>', '<h3>For research</h3><p>Identify the unresolved question and a design capable of addressing it.</p>') + takeaway('Contribution = what the study adds. Implication = what follows from that addition.'), question('有了這項理解，誰可以考慮做甚麼或研究甚麼？') + steps(['由具體發現出發', '指出證據使甚麼問題或可能性變得可見。'], ['解釋建議回應', '說明誰可採取甚麼行動，以及為何可由發現推導此行動。'], ['交代條件及評估', '說明所需情境、資源或支援，以及如何評估建議做法。']) + columns('<h3>實務方面</h3><p>建議須與證據相稱，尚未檢驗的方案可表述為有待試行及評估。</p>','<h3>研究方面</h3><p>指出未解決問題，以及可回應它的研究設計。</p>') + takeaway('貢獻＝研究增加了甚麼；啟示＝由這項新增理解可推導甚麼。')),
   },
   {
-    key: 'scope', part: discussion, title: c('A limitation changes a particular inference', '限制影響具體推論'),
-    body: c(lead('Discuss limitations that change how a finding should be interpreted or used. Explain each where it matters to the argument.') + table(['Constraint', 'Affected inference', 'Consequence'], [
-      ['One programme', 'Transfer to other settings', 'Identify which contextual features may matter.'],
-      ['No comparison condition', 'Attributing change to feedback', 'Other influences on revision remain possible.'],
-      ['Retrospective interviews', 'Reconstructing the process', 'Reported reasons may differ from event-time processes.'],
-      ['A narrow scoring dimension', 'Overall writing development', 'Changes outside that dimension may be missed.'],
-    ]) + takeaway('Specify what becomes less certain, why, and how much it matters to the main argument.'),
-    lead('討論會影響發現的詮釋或運用的限制，在相關論證處說明。') + table(['限制', '受影響推論', '後果'], [
-      ['單一課程', '轉用至其他情境', '指出可能重要的情境特徵。'],
-      ['沒有比較組', '把改變歸因於反馈', '其他修訂影響仍然可能存在。'],
-      ['回溯訪談', '重構過程', '報告的原因可能與當時過程不同。'],
-      ['評分向度較窄', '整體寫作發展', '向度以外的改變可能被遺漏。'],
-    ]) + takeaway('說明甚麼變得較不確定、為甚麼，以及對主要論證有多重要。')),
+    key: 'scope', part: discussion, title: c('Explain the effect of a limitation', '如何解釋限制的影響'),
+    body: c(question('Which particular claim becomes less certain, and why?') + steps(['Name the relevant constraint', 'Identify a feature of the sample, design, measurement, data or analysis that matters to the argument.'], ['Trace its effect on the claim', 'Explain what it prevents you from knowing or how it may change the interpretation.'], ['Preserve what the evidence supports', 'Qualify the affected claim and identify what remains defensible. Develop a follow-up only when it addresses the uncertainty.']) + takeaway('A useful limitation explains a consequence. “The sample was small” leaves that consequence unstated.'), question('哪項具體主張變得較不確定？為甚麼？') + steps(['指出相關限制', '找出對論證有影響的樣本、設計、測量、資料或分析特徵。'], ['追蹤它對主張的影響', '解釋它使你無法知道甚麼，或如何可能改變詮釋。'], ['保留證據仍支持的部分', '限定受影響主張，說明仍有根據的理解；後續研究須能回應該不確定性。']) + takeaway('有用的限制會解釋後果；「樣本較小」尚未說明後果。')),
   },
   {
-    key: 'limitation-lab', part: discussion, title: c('Make future research address the uncertainty', '讓後續研究回應不確定性'),
-    body: c(quiz('limitation-repair', 'A one-time survey cannot establish whether confidence precedes feedback engagement. Which follow-up most directly addresses this problem?', [
-      { label: 'Repeat the same one-time survey with more respondents.', why: 'This may improve precision or coverage, but it does not establish temporal ordering.' },
-      { label: 'Measure both constructs over time, with a design and model suited to the proposed relationship.', why: 'Repeated observations can examine ordering and reciprocal patterns. They still require assumptions and do not automatically remove confounding.', fits: true },
-      { label: 'Add more citations about confidence.', why: 'Literature can develop the rationale, but citations cannot supply the missing temporal evidence.' },
-    ], 'en') + field('limitation', 'Your limitation → affected claim → uncertainty → appropriate follow-up', 'en') + save('en'),
-    quiz('limitation-repair', '單次問卷無法確立信心是否先於反馈投入。哪種後續研究最直接回應此問題？', [
-      { label: '以更多受訪者重做相同單次問卷。', why: '這可能改善精確度或涵蓋範圍，卻不能確立時間先後。' },
-      { label: '在多個時點測量兩項構念，使用適合所提關係的設計及模型。', why: '重複觀察可檢視先後及相互關係，但仍依賴假設，亦不會自動消除混淆。', fits: true },
-      { label: '增加關於信心的引文。', why: '文獻可發展理據，但無法補上缺失的時間證據。' },
-    ], 'zh') + field('limitation', '你的限制 → 受影響主張 → 不確定性 → 適當後續研究', 'zh') + save('zh')),
+    key: 'limitation-lab', part: discussion, title: c('Connect a limitation to a useful next study', '把限制連結至有用的後續研究'),
+    body: c(realContext('en') + '<p class="adaptation-label">Teaching paraphrase of the Conclusion and limitations.</p>' + annotated('en', [
+      ['constraint','Limitation','The study follows one teacher and one class in a particular setting.','Name the actual feature that affects the claim.'],
+      ['consequence','Effect on the claim','Its findings provide insight into that classroom; whether the approach works similarly in other settings remains uncertain.','Explain the affected inference: transfer to other contexts.'],
+      ['followup','Next study','Teachers and researchers could examine how the approach needs adapting to other classroom conditions.','Address the uncertainty with a focused question. This is a teaching paraphrase of the authors’ invitation to adapt and explore.'],
+    ]) + source('en','25–26') + reveal('Apply it to your study', field('limitation','Your limitation → affected claim → uncertainty → appropriate follow-up','en') + save('en')), realContext('zh') + '<p class="adaptation-label">以下是結論及限制部分的教學意譯。</p>' + annotated('zh', [
+      ['constraint','限制','研究追蹤特定情境中的一名教師及一個班級。','指出影響主張的實際特徵。'],
+      ['consequence','對主張的影響','發現有助理解該課堂；這種方式在其他情境是否同樣適用，仍不確定。','解釋受影響的推論：能否轉用至其他情境。'],
+      ['followup','後續研究','教師與研究者可探究，在其他課堂條件下需要如何調整這種方式。','以聚焦提問回應不確定性，意譯作者對調整及探索的建議。'],
+    ]) + source('zh','25–26') + reveal('應用於你的研究',field('limitation','你的限制 → 受影響主張 → 不確定性 → 適當後續研究','zh') + save('zh'))),
   },
   {
-    key: 'contribution', part: discussion, title: c('What has become clearer because of this study?', '這項研究讓甚麼變得更清楚？'),
-    body: c(table(['Possible contribution', 'What must be demonstrated'], [
-      ['Empirical', 'A new or more credible pattern, estimate, distinction or documented experience.'],
-      ['Theoretical', 'A proposition, explanation or condition that is supported, refined or challenged.'],
-      ['Methodological', 'Evidence about what a procedure reveals, misses or enables.'],
-    ]) + reveal('Novel context is a starting point', '<p>“This is the first study in this city” identifies location novelty. Explain what investigating that context changes in our understanding.</p>') + field('contribution', 'Before this study, we understood… This evidence now clarifies…', 'en') + save('en'),
-    table(['可能貢獻', '需要展示'], [
-      ['實證', '新的或更可信的模式、估計、區別，或被記錄的經驗。'],
-      ['理論', '獲支持、修正或挑戰的命題、解釋或成立條件。'],
-      ['方法', '某程序能揭示、遺漏或促成甚麼的證據。'],
-    ]) + reveal('新情境是起點', '<p>「這是本市首項研究」指出地點的新穎性；仍須說明探究此情境如何改變理解。</p>') + field('contribution', '研究之前，我們理解的是……這些證據現在釐清……', 'zh') + save('zh')),
+    key: 'claim-lab', part: discussion, title: c('Check that the claim matches the evidence', '檢查主張是否符合證據'),
+    body: c(context('en') + quiz('claim-scope','Which claim is best supported by this invented study?',[
+      {label:'A. Teacher feedback caused the improvement.',why:'Without a credible comparison, improvement cannot be separated from practice, teaching or other influences.'},
+      {label:'B. Among the selected interviewees in this programme, some described difficulty turning teacher comments into revisions.',why:'This describes the reported experience and identifies whose experience it concerns.',fits:true},
+      {label:'C. The study shows that teacher feedback has no effect.',why:'Varied gains and interview reports cannot establish the absence of an effect. The design cannot isolate the feedback effect.'},
+    ],'en') + takeaway('Check the evidence, the inference the design permits, and the people or settings covered by the claim.'), context('zh') + quiz('claim-scope','哪項主張最符合此虛構研究的證據？',[
+      {label:'A. 教師回饋導致了進步。',why:'缺少可信比較，無法把回饋與練習、教學等其他影響分開。'},
+      {label:'B. 在此課程選取的受訪者中，部分學生描述了把教師評語轉化為修訂的困難。',why:'這項主張描述受訪者報告的經驗，並交代涉及誰。',fits:true},
+      {label:'C. 研究顯示教師回饋沒有效果。',why:'進步差異及訪談不能確立沒有效果；此設計不能辨識回饋的獨立效果。'},
+    ],'zh') + takeaway('檢查證據、設計容許的推論，以及主張涵蓋的對象與情境。')),
   },
   {
-    key: 'implications', part: discussion, title: c('Connect implications to findings and conditions', '把啟示連結至發現及條件'),
-    body: c('<div class="implication-flow"><div><b>Finding</b><p>Some learners report difficulty acting on comments.</p></div><div><b>Proposed action</b><p>Trial a structured opportunity to interpret and use feedback.</p></div><div><b>Conditions and evaluation</b><p>Provide revision time and examine actual uptake and independent performance.</p></div></div>' + columns('<h3>Research implication</h3><p>Examine whether action-oriented support explains or changes the observed pattern.</p>', '<h3>Practical implication</h3><p>Teachers could pilot structured feedback discussion and revision time, then evaluate learners’ uptake and independent performance.</p>') + takeaway('Connect each recommendation to a finding, name who would act and explain how the proposed action could be evaluated.'),
-    '<div class="implication-flow"><div><b>發現</b><p>部分學生報告難以運用評語。</p></div><div><b>建議行動</b><p>試行有結構的機會，讓學生理解及運用反馈。</p></div><div><b>條件及評估</b><p>提供修訂時間，檢視實際運用及獨立表現。</p></div></div>' + columns('<h3>研究啟示</h3><p>檢視行動導向支援能否解釋或改變所觀察模式。</p>', '<h3>實務啟示</h3><p>教師可試行有結構的反馈討論及修訂時間，再評估學生如何運用反馈，以及獨立完成任務的表現。</p>') + takeaway('把每項建議連結至研究發現，說明誰可採取行動，以及如何評估建議方案。')),
+    key: 'discussion-clinic', part: discussion, title: c('Repair a weak Discussion', '修訂薄弱的討論'),
+    body: c(context('en') + '<div class="writing-example"><b>Invented draft to revise</b><p>“Most learners improved little. This proves that teacher feedback is ineffective. Our study fills a gap. Teachers should give more detailed comments.”</p></div>' + field('discussion-revision','Revise the draft: meaning → explanation → why it matters → justified next step','en') + reveal('Compare after writing', '<p>The varied gains and interview reports suggest that receiving comments and knowing how to act on them need separate attention. Some selected interviewees described difficulty deciding how to revise. One possible explanation is that they needed support to turn comments into specific changes. This makes learners’ interpretation of comments a useful focus for further investigation; structured opportunities to discuss and apply feedback could be piloted and evaluated.</p><p><b>Check:</b> the revision gives evidence, proposes an explanation and links a next step to the problem. It leaves the effect of feedback unresolved.</p>') + save('en'), context('zh') + '<div class="writing-example"><b>待修訂的虛構初稿</b><p>「多數學生進步有限，證明教師回饋無效。我們的研究填補空白。教師應提供更詳細的評語。」</p></div>' + field('discussion-revision','修訂：意義 → 解釋 → 為何重要 → 有理據的下一步','zh') + reveal('完成寫作後再比較','<p>進步幅度各異，加上訪談報告，顯示收到評語與知道如何運用評語需要分開關注。部分選定受訪者描述了決定如何修訂的困難。一種可能解釋是，他們需要支援，才可把評語轉化為具體改變。因此，學生如何理解評語值得進一步研究；可試行有結構的討論及運用回饋的機會，再作評估。</p><p><b>檢查：</b>修訂提供證據、提出解釋，並把下一步連結至問題，保留回饋效果尚未確定之處。</p>') + save('zh')),
   },
   {
-    key: 'discussion-clinic', part: discussion, title: c('Develop the discussion, then test the argument', '先發展討論，再檢視論證'),
-    body: c('<div class="writing-example"><h3>Constructed draft</h3><p>“Most learners improved little. This proves that teacher feedback is ineffective. Our study fills a gap. Teachers should give more detailed comments.”</p></div>' + field('discussion-revision', 'Repair the interpretation, explanation, contribution and implication', 'en') + reveal('One developed discussion', '<p>Uneven revision gains and interview reports of difficulty acting on comments suggest that receiving feedback and using it involve distinct processes. Some learners appear to need help deciding what a comment means for their next draft. The study therefore directs attention to the work of interpreting comments and planning revisions. A useful next step is to examine how structured opportunities to discuss and apply feedback shape that process.</p>') + reveal('Why the revision is stronger', '<p>It explains what the pattern means, proposes a reason for it, identifies what the study adds and develops a focused next question. Each sentence advances the interpretation.</p>') + save('en'),
-    '<div class="writing-example"><h3>虛構初稿</h3><p>「多數學生進步有限，證明教師反馈無效。我們的研究填補空白。教師應提供更詳細的評語。」</p></div>' + field('discussion-revision', '修正詮釋、解釋、貢獻及啟示', 'zh') + reveal('一種充分發展的討論', '<p>修訂進步的差異，以及訪談中關於運用評語的困難，顯示收到反馈與運用反馈涉及不同過程。部分學生似乎需要協助，才能決定一則評語對下一稿有何意義。因此，研究使我們關注理解評語及規劃修訂所需的思考。後續可探究有結構的討論及運用反馈的機會，如何影響這個過程。</p>') + reveal('修訂為何較充分', '<p>它解釋模式的意義，提出可能成因，說明研究增加了甚麼理解，並發展聚焦的後續問題。每一句都推進詮釋。</p>') + save('zh')),
+    key: 'discussion-studio', part: discussion, title: c('Write your own Discussion argument', '撰寫自己的討論論證'),
+    body: c(lead('Choose one important finding from your project. Draft the reasoning before polishing the language.') + '<div class="response-grid">' + field('studio-finding','Finding and answer to the research question','en') + field('studio-interpretation','What it means and how you might explain it','en') + field('studio-evidence','Evidence supporting or qualifying the interpretation','en') + field('studio-theory','How it relates to a specific theory or earlier finding','en') + '</div>' + field('studio-significance','Why it matters, what it adds, and what follows','en') + reveal('A limitation affecting this argument',field('studio-boundary','Explain how the limitation changes this interpretation','en')) + save('en'), lead('選擇專案的一項重要發現，先建立推理，再潤飾語言。') + '<div class="response-grid">' + field('studio-finding','發現及對研究提問的答案','zh') + field('studio-interpretation','它代表甚麼？可能如何解釋？','zh') + field('studio-evidence','支持或限定詮釋的證據','zh') + field('studio-theory','與具體理論或既有發現的關係','zh') + '</div>' + field('studio-significance','為何重要？增加了甚麼？可推導甚麼？','zh') + reveal('影響此論證的限制',field('studio-boundary','說明限制如何改變這項詮釋','zh')) + save('zh')),
   },
   {
-    key: 'discussion-studio', part: discussion, title: c('Develop your discussion argument', '發展你的討論論證'),
-    body: c(lead('Use your project or the constructed study. Choose the prompts that help you explain your findings and their contribution.') + '<div class="response-grid">' + field('studio-finding', 'Finding and answer to the question', 'en') + field('studio-interpretation', 'Substantive meaning and possible explanation', 'en') + field('studio-evidence', 'Evidence that supports or refines the interpretation', 'en') + field('studio-theory', 'Relationship to a specific theory or previous finding', 'en') + field('studio-significance', 'Contribution and warranted implication', 'en') + '</div>' + reveal('A limitation that affects this argument', field('studio-boundary', 'If relevant, explain how a limitation changes this interpretation', 'en')) + save('en'),
-    lead('使用自己專案或本課虛構研究，選擇有助解釋發現及貢獻的提示。') + '<div class="response-grid">' + field('studio-finding', '發現及對研究提問的答案', 'zh') + field('studio-interpretation', '實質意義及可能解釋', 'zh') + field('studio-evidence', '支持或修正詮釋的證據', 'zh') + field('studio-theory', '與具體理論或既有發現的關係', 'zh') + field('studio-significance', '貢獻及有理據的啟示', 'zh') + '</div>' + reveal('會影響此論證的限制', field('studio-boundary', '如有相關限制，說明它如何改變這項詮釋', 'zh')) + save('zh')),
+    key: 'peer-review', part: discussion, title: c('Review the whole Discussion', '檢視整個討論'),
+    body: c(lead('Read a partner’s argument. Identify one link that needs developing.') + '<div class="review-checks">' + ['Can I locate the finding behind the interpretation?', 'Is the proposed explanation supported, plausible or still unexamined?', 'Does the theory or literature comparison develop the argument?', 'Would contradictory evidence or a limitation change the claim?', 'Are significance, contribution and implications connected to evidence?'].map((s,i)=>`<label><input type="checkbox" data-review="${i}"><span>${s}</span></label>`).join('') + '</div>' + field('peer-revision','Reviewer’s suggestion and your revision','en') + save('en'), lead('閱讀同伴的論證，指出一處需要發展的連結。') + '<div class="review-checks">' + ['能否找到詮釋所根據的發現？','解釋已有支持、僅屬合理，還是尚未檢視？','理論或文獻比較是否發展了論證？','矛盾證據或限制會否改變主張？','重要性、貢獻及啟示是否連結至證據？'].map((s,i)=>`<label><input type="checkbox" data-review="${i}"><span>${s}</span></label>`).join('') + '</div>' + field('peer-revision','評閱者的建議及你的修訂','zh') + save('zh')),
   },
   {
-    key: 'peer-review', part: discussion, title: c('Strengthen the links in the argument', '加強論證中的推理連結'),
-    body: c(lead('Exchange arguments. Suggest one way to make the interpretation clearer or better supported.') + '<div class="review-checks">' + ['Can I locate the finding behind the interpretation?', 'Is the proposed explanation evidenced, plausible or still unexamined?', 'Does the literature comparison clarify the interpretation?', 'Does a contrary case change the claim?', 'Do the contribution and implication follow from the evidence?'].map((s, i) => `<label><input type="checkbox" data-review="${i}"> <span>${s}</span></label>`).join('') + '</div>' + field('peer-revision', 'Reviewer’s suggestion and your revision', 'en') + takeaway('Record the points you discussed and the revision you agreed.') + save('en'),
-    lead('交換論證，提出一項建議，讓詮釋更清晰或有更充分的支持。') + '<div class="review-checks">' + ['能否找到詮釋所根據的發現？', '解釋已有證據、僅屬合理，還是尚未檢視？', '文獻比較是否釐清詮釋？', '相反個案會否改變主張？', '貢獻及啟示是否由證據推導？'].map((s, i) => `<label><input type="checkbox" data-review="${i}"> <span>${s}</span></label>`).join('') + '</div>' + field('peer-revision', '評閱者的建議及你的修訂', 'zh') + takeaway('記錄你們討論的重點，以及同意作出的修訂。') + save('zh')),
+    key: 'conclusion-job', part: conclusion, title: c('What a Conclusion does', '結論完成甚麼工作'),
+    body: c(question('What should the reader understand about the study as a whole?') + columns('<h3>The Discussion develops the reasoning</h3><p>It explains particular findings, examines possible reasons, engages with scholarship and works through qualifications.</p>', '<h3>The Conclusion brings the answer together</h3><p>It states the overall understanding reached, the study’s contribution and the scope of that answer.</p>') + takeaway('The takeaway is embedded in this synthesis: the central understanding the reader should retain. Repeating each result leaves the reader to work out that understanding.') + reveal('What belongs in the ending?', '<p>Use only claims already established in the paper. Briefly retain a key implication or uncertainty when it is needed to understand the overall answer. Follow the journal’s requirements for a separate or combined Conclusion.</p>'), question('讀者應對整項研究形成甚麼理解？') + columns('<h3>討論發展推理</h3><p>解釋各項發現、檢視可能成因、回應學術研究，並處理所需限定。</p>','<h3>結論綜合答案</h3><p>說明整體理解、研究貢獻，以及這項答案的適用範圍。</p>') + takeaway('核心訊息嵌入這項綜合之中，是讀者應記住的中心理解。逐項重複結果，會把綜合的工作留給讀者。') + reveal('結尾應包括甚麼？','<p>只運用文中已建立的主張。若關鍵啟示或不確定性影響整體答案，則簡要保留。獨立或合併結論須按期刊要求安排。</p>')),
   },
   {
-    key: 'conclusion-job', part: conclusion, title: c('Close the whole argument', '完成整項研究的論證'),
-    body: c(columns('<h3>Discussion</h3><p>Develops the meaning, explanations and significance of particular findings.</p><p>Examines literature relationships, alternatives and limitations.</p>', '<h3>Conclusion</h3><p>Brings the study’s overall answer and contribution into focus.</p><p>Shows what the reader can carry forward, within the evidence’s scope.</p>') + takeaway('A separate Conclusion is not universal. When included, its synthesis should be proportionate to the Discussion already developed.'),
-    columns('<h3>討論</h3><p>發展具體發現的意義、解釋及重要性。</p><p>檢視文獻關係、其他解釋及限制。</p>', '<h3>結論</h3><p>聚焦整項研究的答案及貢獻。</p><p>說明讀者可在證據範圍內帶走甚麼理解。</p>') + takeaway('並非所有文章均有獨立結論。設有結論時，綜合的篇幅應配合先前討論。')),
+    key: 'conclusion-method', part: conclusion, title: c('Build a Conclusion', '如何發展結論'),
+    body: c(question('How do the findings change your answer to the original problem?') + steps(['Answer the main question', 'Combine the important findings into the overall answer developed in your Discussion.'], ['State the contribution', 'Identify the clearest addition to knowledge and why that addition matters.'], ['Keep the necessary scope', 'Retain the main condition or uncertainty so the answer remains accurate.'], ['End with the central understanding', 'Write the takeaway that follows from this synthesis. A focused implication can form part of it if already justified.']) + takeaway('These are functions to combine, not four compulsory sentences. The takeaway can emerge across the paragraph and become clearest in its ending.'), question('研究發現如何改變你對原始問題的答案？') + steps(['回答主要提問','把重要發現結合成討論中已發展的整體答案。'],['說明貢獻','指出最清楚的新增知識，以及它為何重要。'],['保留必要範圍','保留主要成立條件或不確定性，使答案準確。'],['以中心理解收束','寫出由綜合而來的核心訊息；若先前已有充分理據，可包含聚焦的啟示。']) + takeaway('以上功能可結合，無須固定四句。核心訊息可以貫穿整段，在結尾最清楚地呈現。')),
   },
   {
-    key: 'closing-synthesis', part: conclusion, title: c('Return to the problem with a fuller answer', '帶著更完整的答案回到研究問題'),
-    body: c('<div class="evidence-chain"><div><b>Original problem</b><p>Why can access to feedback coexist with limited revision?</p></div><div><b>What the study clarifies</b><p>Access, interpretation and opportunities for action need to be distinguished.</p></div><div><b>What follows</b><p>Examine how those processes interact, using linked evidence and an appropriate follow-up design.</p></div></div>' + takeaway('This is a constructed synthesis. A real conclusion must be earned by the study’s actual findings and Discussion.') + reveal('Check the ending', '<p>Does it answer the original question? Does it state what understanding changed? Does it preserve the main uncertainty? Remove a new causal claim, new evidence or a recommendation that has not been developed.</p>'),
-    '<div class="evidence-chain"><div><b>原始問題</b><p>為何取得反馈，仍可能只有有限修訂？</p></div><div><b>研究釐清了甚麼</b><p>取得、詮釋及行動機會需要區分。</p></div><div><b>由此推進</b><p>以相連證據及適當後續設計，檢視這些過程如何互相作用。</p></div></div>' + takeaway('這是虛構的綜合示例；真實結論必須由實際發現及討論支持。') + reveal('檢查結尾', '<p>有否回答原始提問？說明理解如何改變？保留主要不確定性？刪去尚未發展的新因果主張、新證據或建議。</p>')),
+    key: 'closing-synthesis', part: conclusion, title: c('Decode the Conclusion’s takeaway', '拆解結論中的核心訊息'),
+    body: c(realContext('en') + '<p class="adaptation-label">Teaching paraphrase of the authors’ Conclusion, not a quotation.</p>' + annotated('en', [
+      ['answer','Overall answer','The case suggests that combining automated, peer and teacher feedback can support students’ engagement with writing and revision.','Bring the findings together into an answer to the study’s central question.'],
+      ['contribution','Contribution','Tracing changes in drafts alongside interviews helps show how that engagement unfolds.','Identify what the study contributes: insight into the process, using more than self-report alone.'],
+      ['scope','Scope','The account comes from one classroom, so its relevance elsewhere depends on local conditions.','Keep the main boundary visible without reopening the full limitations discussion.'],
+      ['takeaway','Takeaway within the Conclusion','The central lesson is to organise feedback as a supported process through which students can turn comments into learning.','This is the understanding the reader should retain. It synthesises the answer and its practical meaning.'],
+    ]) + source('en','25–26') + reveal('A short phrase from the original ending', '<p class="source-quote">“turning feedback into learning”</p><p>The phrase gains meaning from the preceding explanation of feedback activities, support and engagement.</p>'), realContext('zh') + '<p class="adaptation-label">以下是作者結論的教學意譯，並非引文。</p>' + annotated('zh', [
+      ['answer','整體答案','此個案顯示，結合自動、同儕及教師回饋，可能支援學生投入寫作與修訂。','把不同發現綜合為主要研究提問的答案。'],
+      ['contribution','貢獻','結合草稿改變及訪談，有助呈現投入如何發展。','指出研究增加的理解：藉多於自我報告的證據，了解過程。'],
+      ['scope','範圍','此報告來自一個課堂，能否在其他地方參考，須考慮當地條件。','保留主要界線，毋須重開整段限制討論。'],
+      ['takeaway','嵌入結論的核心訊息','中心理解是：把回饋組織成有支援的過程，使學生能把評語轉化為學習。','這是讀者應記住的理解，綜合答案及其實務意義。'],
+    ]) + source('zh','25–26') + reveal('原文結尾的短語','<p class="source-quote">“turning feedback into learning”</p><p>前文對回饋活動、支援及投入的解釋，使此短語有具體意義。</p>')),
   },
   {
-    key: 'conclusion-clinic', part: conclusion, title: c('Choose a defensible closing claim', '選擇可論證的結論主張'),
-    body: c(quiz('conclusion-choice', 'Which ending follows from the constructed feedback study?', [
-      { label: 'The study proves that detailed feedback raises achievement in all universities.', why: 'It adds an untested cause, changes the outcome and extends far beyond the setting.' },
-      { label: 'We used scores and interviews. More research is needed.', why: 'This lists methods and a generic next step, leaving the substantive answer and contribution unstated.' },
-      { label: 'The study distinguishes receiving comments from using them in revision and identifies processes for further investigation in this programme.', why: 'It states the knowledge added and retains its scope. The final wording still needs to match the actual evidence developed in Discussion.', fits: true },
-    ], 'en') + reveal('Strength is not certainty', '<p>A strong conclusion states the most consequential answer the evidence supports. Adding stronger verbs cannot supply missing evidence.</p>'),
-    quiz('conclusion-choice', '哪個結尾可由虛構反馈研究推導？', [
-      { label: '研究證明詳細反馈能提升所有大學的學業成就。', why: '加入未檢視的原因、改換結果變項，並大幅超出情境。' },
-      { label: '我們使用分數及訪談，需要更多研究。', why: '只列方法及籠統下一步，尚未交代實質答案及貢獻。' },
-      { label: '研究區分收到評語與修訂時運用評語，並辨識此課程中值得進一步探究的過程。', why: '說明增加的理解，並保留其範圍；最終用語仍須符合討論所發展的實際證據。', fits: true },
-    ], 'zh') + reveal('有力不等於確定', '<p>有力的結論說明證據所支持、最具意義的答案；更強烈的動詞無法補上缺失證據。</p>')),
+    key: 'takeaway-method', part: conclusion, title: c('Make the takeaway specific to the study', '使核心訊息扣緊研究'),
+    body: c(question('What can the reader now understand that a list of results would leave unclear?') + steps(['Write the overall answer in plain language','Begin with what the study helps us understand about its problem.'],['Keep the important relationship','Retain the process, distinction or condition that makes the answer informative.'],['Check every part against the Discussion','A reader should be able to trace the takeaway back to the evidence and reasoning already developed.']) + columns('<h3>A repeated result</h3><p>“Most students engaged with the activities; some did not.”</p>','<h3>A synthesised takeaway</h3><p>“This classroom account points to feedback as a supported sequence of activities, with students’ engagement shaping how the process unfolds.”</p>') + '<p class="adaptation-label">Teaching comparison based on Zhang &amp; Hyland (2022); wording is ours.</p>' + takeaway('The takeaway belongs inside the Conclusion’s argument. It must remain specific, supported and appropriately scoped.'), question('哪些理解無法僅靠列出結果清楚呈現？') + steps(['用清楚語言寫出整體答案','由研究使我們對問題多理解了甚麼開始。'],['保留重要關係','保留使答案有內容的過程、區別或條件。'],['逐項核對討論','讀者應能把核心訊息追溯至先前的證據及推理。']) + columns('<h3>重提結果</h3><p>「多數學生投入活動，亦有部分學生沒有投入。」</p>','<h3>綜合的核心訊息</h3><p>「此課堂個案使我們關注回饋作為一連串有支援的活動，以及學生投入如何影響這個過程。」</p>') + '<p class="adaptation-label">根據 Zhang 與 Hyland（2022）的教學比較，措辭屬本課改寫。</p>' + takeaway('核心訊息是結論論證的一部分，須具體、有支持，並符合研究範圍。')),
   },
   {
-    key: 'conclusion-studio', part: conclusion, title: c('Write the conclusion your study has earned', '寫出研究證據支持的結論'),
-    body: c(lead('Bring the answer, contribution and warranted consequence together. Let the study determine the paragraph’s shape.') + field('conclusion', 'Your conclusion', 'en', 'What do we now understand, why does it matter, and within what scope?', 7) + field('conclusion-check', 'Which sentence is most vulnerable, and what supports it?', 'en') + reveal('If your project is still a protocol', '<p>Describe the knowledge the planned study aims to generate and the claims the design could support. Keep anticipated findings clearly hypothetical.</p>') + save('en'),
-    lead('綜合答案、貢獻及有依據的後續意義；段落形狀由研究需要決定。') + field('conclusion', '你的結論', 'zh', '我們現在理解了甚麼？為何重要？適用於甚麼範圍？', 7) + field('conclusion-check', '哪一句最容易受質疑？支持它的證據是甚麼？', 'zh') + reveal('專案仍是研究方案時', '<p>說明計劃產生的理解，以及設計可支持的主張；清楚標示預期發現仍屬假設。</p>') + save('zh')),
+    key: 'conclusion-clinic', part: conclusion, title: c('Recognise a useful Conclusion', '辨認有用的結論'),
+    body: c(context('en') + quiz('conclusion-choice','Which ending gives an overall answer supported by this invented study?',[
+      {label:'The study proves that detailed feedback raises achievement in all universities.',why:'This adds a causal claim and extends beyond the setting and evidence.'},
+      {label:'We used scores and interviews. More research is needed.',why:'This lists methods and a generic next step, leaving the answer unstated.'},
+      {label:'The study distinguishes receiving comments from using them in revision and identifies processes for further investigation in this programme.',why:'It combines the answer and its meaning while retaining the study’s scope.',fits:true},
+    ],'en') + takeaway('The reader should leave with an understanding, not the task of reconstructing your answer from a list.'), context('zh') + quiz('conclusion-choice','哪個結尾提供了此虛構研究支持的整體答案？',[
+      {label:'研究證明詳細回饋能提升所有大學的學業成就。',why:'此句增加因果主張，並超出情境與證據。'},
+      {label:'我們使用分數及訪談，需要更多研究。',why:'只列方法及籠統下一步，尚未交代答案。'},
+      {label:'研究區分收到評語與修訂時運用評語，並辨識此課程中值得進一步探究的過程。',why:'綜合答案及意義，同時保留研究範圍。',fits:true},
+    ],'zh') + takeaway('讀者應帶走一項理解，無須自行從清單中重建你的答案。')),
   },
   {
-    key: 'take-forward', part: c('Your research argument', '你的研究論證'), title: c('Take your reasoning into the manuscript', '把推理帶進文稿'),
-    body: c(field('next-edit', 'The most important revision I will make, and why', 'en', 'Name a claim or inferential link, not just a section to expand.') + '<div class="export-actions"><button type="button" data-export>Download my responses</button><button type="button" data-print>Print this lesson</button></div><p data-export-status role="status"></p>' + takeaway('Discussion develops the explanation. Conclusion synthesises the answer. Both depend on evidence and methodological judgement.') + save('en'),
-    field('next-edit', '我最需要作出的修訂，以及原因', 'zh', '指出主張或推理連結，超越「擴充某部分」。') + '<div class="export-actions"><button type="button" data-export>下載我的回應</button><button type="button" data-print>列印本課</button></div><p data-export-status role="status"></p>' + takeaway('討論發展解釋；結論綜合答案。兩者均依賴證據及研究方法判斷。') + save('zh')),
+    key: 'conclusion-studio', part: conclusion, title: c('Write your Conclusion', '撰寫你的結論'),
+    body: c(lead('Use the argument you have developed. Combine the overall answer, contribution and scope so the takeaway is clear.') + field('conclusion','Your Conclusion','en','What does the study help us understand, why does that matter, and within what scope?',6) + field('conclusion-check','Underline the words carrying the central takeaway. Which finding or argument supports them?','en') + reveal('If your project is still a proposal','<p>State what the planned study aims to clarify and what claims the design could support. Keep anticipated answers explicitly hypothetical.</p>') + save('en'), lead('運用已發展的論證，綜合整體答案、貢獻及範圍，使核心訊息清楚。') + field('conclusion','你的結論','zh','研究幫助理解甚麼？為何重要？適用於甚麼範圍？',6) + field('conclusion-check','劃出承載核心訊息的字句。哪項發現或論證支持它？','zh') + reveal('專案仍是研究計劃時','<p>交代研究擬釐清甚麼，以及設計可支持哪些主張；清楚標明預期答案仍屬假設。</p>') + save('zh')),
+  },
+  {
+    key: 'take-forward', part: c('Your writing', '你的寫作'), title: c('Take your argument into the manuscript', '把論證帶進文稿'),
+    body: c(steps(['Review the Discussion','Check meaning, explanation, theory, literature, synthesis, significance, contribution, implications and relevant limitations.'],['Read the Conclusion on its own','Can a reader identify the overall answer and the understanding to carry forward? Check it against the Discussion.']) + field('next-edit','The most important revision I will make, and why','en','Name a claim or a link in the reasoning.') + '<div class="export-actions"><button type="button" data-export>Download my responses</button><button type="button" data-print>Print this lesson</button></div><p data-export-status role="status"></p>' + save('en'), steps(['檢視討論','檢查意義、解釋、理論、文獻、綜合、重要性、貢獻、啟示及相關限制。'],['單獨閱讀結論','讀者能否辨認整體答案及應帶走的理解？再與討論核對。']) + field('next-edit','我最需要作出的修訂，以及原因','zh','指出一項主張或推理連結。') + '<div class="export-actions"><button type="button" data-export>下載我的回應</button><button type="button" data-print>列印本課</button></div><p data-export-status role="status"></p>' + save('zh')),
   },
 ];

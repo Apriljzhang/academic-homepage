@@ -1,5 +1,6 @@
 import { bindLessonShortcuts, syncLessonNavigation } from './lessonDeck';
 import { initLessonTimer } from './lessonTimer';
+import legacyActivities from '../data/dedc02DiscussionLegacy.json';
 
 const slides = Array.from(document.querySelectorAll<HTMLElement>('.dc-deck .slide'));
 const overview = document.querySelector<HTMLDialogElement>('.overview-dialog');
@@ -149,24 +150,30 @@ document.querySelectorAll<HTMLInputElement>('[data-review]').forEach(input => {
   });
 });
 document.querySelectorAll<HTMLButtonElement>('[data-annotation]').forEach(button => button.addEventListener('click', () => {
-  const active = button.getAttribute('aria-pressed') !== 'true';
-  const key = button.dataset.annotation;
-  const slide = button.closest('.slide');
-  slide?.querySelectorAll<HTMLButtonElement>('[data-annotation]').forEach(peer => peer.setAttribute('aria-pressed', String(active && peer.dataset.annotation === key)));
-  slide?.querySelectorAll<HTMLElement>('[data-move]').forEach(span => span.classList.toggle('highlighted', active && span.dataset.move === key));
+  const root = button.closest('.annotation-example');
+  const key = button.getAttribute('aria-pressed') === 'true' ? 'all' : button.dataset.annotation;
+  root?.querySelectorAll<HTMLButtonElement>('[data-annotation]').forEach(peer => peer.setAttribute('aria-pressed', String(peer.dataset.annotation === key)));
+  root?.querySelectorAll<HTMLElement>('[data-move]').forEach(row => row.classList.toggle('highlighted', key !== 'all' && row.dataset.move === key));
+  const note = root?.querySelector<HTMLElement>('[data-annotation-note]');
+  const selected = Array.from(root?.querySelectorAll<HTMLButtonElement>('[data-annotation]') || []).find(peer => peer.dataset.annotation === key);
+  if (note) note.textContent = selected?.dataset.annotationHelp || '';
 }));
 
 document.querySelectorAll('[data-export]').forEach(button => button.addEventListener('click', () => {
   const lang = language();
-  const lines = ['# DEDC02 — Discussion and Conclusion', '', lang === 'zh' ? '個人課堂回應。保留所用虛構研究的標示。' : 'Personal lesson responses. Retain the constructed-study labels when using the supplied scenario.', ''];
+  const lines = ['# DEDC02 — Discussion and Conclusion', '', lang === 'zh' ? '個人課堂回應。論文教學意譯及虛構練習均另有標示。' : 'Personal lesson responses. Published-paper teaching paraphrases and invented practice scenarios are labelled separately.', ''];
   const seen = new Set<string>();
-  document.querySelectorAll<HTMLTextAreaElement>(`[data-language="${lang}"] [data-response]`).forEach(field => {
+  document.querySelectorAll<HTMLTextAreaElement>(`.slide-inner > [data-language="${lang}"] [data-response]`).forEach(field => {
     const key = field.dataset.response!;
     if (seen.has(key)) return;
     seen.add(key);
     lines.push(`## ${field.dataset.label}`, '', state.responses[key] || (lang === 'zh' ? '［未填寫］' : '[Not entered]'), '');
   });
-  if (state.responses.claim) lines.push(lang === 'zh' ? '## 此活動先前保存的回應' : '## Previously saved response to this activity', '', state.responses.claim, '');
+  const earlierResponses = Object.entries(state.responses).filter(([key]) => !seen.has(key));
+  if (earlierResponses.length) {
+    lines.push(lang === 'zh' ? '## 先前活動保存的回應' : '## Saved responses from earlier activities', '');
+    earlierResponses.forEach(([key, value]) => lines.push(`### ${key}`, '', value, ''));
+  }
   lines.push(lang === 'zh' ? '## 活動選擇與推理回應' : '## Activity choices and reasoning', '');
   document.querySelectorAll<HTMLElement>(`[data-quiz-language="${lang}"]`).forEach(root => {
     const value = state.quizzes[root.dataset.quiz!];
@@ -175,8 +182,18 @@ document.querySelectorAll('[data-export]').forEach(button => button.addEventList
     lines.push(`### ${root.querySelector('.question')?.textContent}`, '', selected.dataset.optionLabel || '', '');
     if (value?.checked) lines.push(selected.querySelector('[data-explanation]')?.textContent || '', '');
   });
+  const renderedQuizzes = new Set(Array.from(document.querySelectorAll<HTMLElement>('[data-quiz]')).map(root => root.dataset.quiz));
+  const legacy = legacyActivities as Record<string, Record<string, { prompt: string; options: { label: string; why: string }[] }>>;
+  Object.entries(state.quizzes).forEach(([key, value]) => {
+    if (renderedQuizzes.has(key) || value.choice == null) return;
+    const activity = legacy[key]?.[lang];
+    const selected = activity?.options[Number(value.choice)];
+    if (!selected) return;
+    lines.push(`### ${activity.prompt}`, '', selected.label, '');
+    if (value.checked) lines.push(selected.why, '');
+  });
   lines.push(lang === 'zh' ? '## 同儕檢視記錄' : '## Peer review record', '');
-  document.querySelectorAll<HTMLInputElement>(`[data-language="${lang}"] [data-review]`).forEach(input => lines.push(`- [${input.checked ? 'x' : ' '}] ${input.closest('label')?.querySelector('span')?.textContent}`));
+  document.querySelectorAll<HTMLInputElement>(`.slide-inner > [data-language="${lang}"] [data-review]`).forEach(input => lines.push(`- [${input.checked ? 'x' : ' '}] ${input.closest('label')?.querySelector('span')?.textContent}`));
   const blob = new Blob([lines.join('\n')], { type: 'text/markdown;charset=utf-8' });
   const url = URL.createObjectURL(blob);
   const link = document.createElement('a'); link.href = url; link.download = 'DEDC02-discussion-conclusion-responses.md';
