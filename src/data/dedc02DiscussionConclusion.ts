@@ -162,6 +162,18 @@ const stageB = c('2 · Examine and position the answer','2 · 檢視答案並連
 const stageC = c('3 · Establish what the answer adds','3 · 建立答案的貢獻');
 const stageD = c('4 · Bring the answer together','4 · 綜合整體答案');
 
+const thesisChapters = [
+  {title:c('Introduction','引言'),share:10,top:8,bottom:28,question:c('What problem and question drive the study?','甚麼問題及提問推動這項研究？'),purpose:c('Establish the problem, gap, purpose and research questions.','建立研究問題、缺口、目的及研究提問。')},
+  {title:c('Literature review','文獻回顧'),share:20,top:28,bottom:42,question:c('What is known, and what remains unresolved?','已知甚麼？哪些問題仍未解決？'),purpose:c('Synthesise relevant research and justify the study’s focus.','綜合相關研究，說明研究焦點的理據。')},
+  {title:c('Conceptual framework','概念框架'),share:10,top:42,bottom:50,question:c('Which concepts and relationships guide the study?','哪些概念及關係指導研究？'),purpose:c('Define key concepts and explain the relationships to examine.','界定核心概念，說明需要探究的關係。')},
+  {title:c('Methodology','研究方法'),share:15,top:50,bottom:54,question:c('How can the question be answered?','如何回答研究提問？'),purpose:c('Justify the design, sampling, data collection and analysis.','論證設計、抽樣、資料蒐集及分析的選擇。')},
+  {title:c('Results','研究結果'),share:20,top:54,bottom:42,question:c('What did the analysis establish?','分析建立了哪些發現？'),purpose:c('Present the findings with the evidence supporting them.','呈現研究發現，以及支持它們的證據。')},
+  {title:c('Discussion','討論'),share:20,top:42,bottom:24,question:c('What do the findings mean and add?','發現有甚麼意義？增加了甚麼理解？'),purpose:c('Interpret and explain; connect to theory and research; develop contributions and implications.','詮釋及解釋發現，連結理論與既有研究，發展貢獻及啟示。')},
+  {title:c('Conclusion and recommendations','結論與建議'),share:5,top:24,bottom:8,question:c('What overall answer should the reader retain?','讀者應保留甚麼整體答案？'),purpose:c('Synthesise the answer and contribution, with justified recommendations.','綜合整體答案及貢獻，提出有理據的建議。')},
+];
+const thesisShape = (top:number,bottom:number) => `<svg viewBox="0 0 360 64" preserveAspectRatio="none" aria-hidden="true" focusable="false"><polygon points="${top},1 ${360-top},1 ${360-bottom},63 ${bottom},63" vector-effect="non-scaling-stroke" /></svg>`;
+const thesisStructure = (lang:'en'|'zh') => `<figure class="thesis-figure"><figcaption>${lang==='en'?'Illustrative shares of the main-text word count across seven chapters (total 100%).':'七個正文篇章的參考字數比例，合共 100%。'}</figcaption><div class="thesis-map-head" aria-hidden="true"><span>${lang==='en'?'Question it answers':'回答的問題'}</span><span>${lang==='en'?'Chapter and share':'篇章與比例'}</span><span>${lang==='en'?'What to develop':'需要發展的內容'}</span></div><div class="thesis-map-row thesis-front"><p>${lang==='en'?'What was studied and found?':'研究探究及發現了甚麼？'}</p><div class="thesis-chapter">${thesisShape(0,18)}<b>${lang==='en'?'Abstract':'摘要'}</b></div><p>${lang==='en'?'Summarise the problem, approach, main findings and overall answer.':'概述研究問題、方法、主要發現及整體答案。'}</p></div><ol class="thesis-map">${thesisChapters.map((chapter,i)=>`<li class="thesis-map-row${i>=5?' thesis-key-chapter':''}" data-thesis-share="${chapter.share}"><p class="thesis-question">${chapter.question[lang]}</p><div class="thesis-chapter">${thesisShape(chapter.top,chapter.bottom)}<b>${i+1}. ${chapter.title[lang]}</b><strong class="thesis-share">${chapter.share}%</strong></div><p class="thesis-purpose">${chapter.purpose[lang]}</p></li>`).join('')}</ol><div class="thesis-support"><p><b>${lang==='en'?'Acknowledgements':'致謝'}</b><span>${lang==='en'?'Recognise support':'感謝提供協助的人士'}</span></p><p><b>${lang==='en'?'References':'參考文獻'}</b><span>${lang==='en'?'List the sources cited':'列出文中引用的來源'}</span></p><p><b>${lang==='en'?'Appendices, where needed':'附錄（如有需要）'}</b><span>${lang==='en'?'Provide supporting material':'提供補充資料'}</span></p></div></figure>`;
+
 export const discussionConclusionSlides: Slide[] = [
   {
     key:'opening',part:c('DEDC02 · Advanced Research Method','DEDC02 · 進階教育研究方法'),spacious:true,
@@ -349,6 +361,10 @@ export const discussionConclusionSlides: Slide[] = [
       ['保留使答案準確的範圍','把必要限定納入綜合，使各部分可追溯至先前已發展的證據及推理。'],
       ['讓結尾凝聚答案','把結論讀成相連整體，讓最後陳述向未必記得全部細節的讀者清楚傳達已建立的理解。'],
     ])+check('zh','若結尾需要新結果、新因果主張或尚未發展的建議才成立，應修正主張或在前文補足論證。閱讀例子時，先把三段連起來看，再點選核心訊息。')+example('conclusion','zh')),
+  },
+  {
+    key:'thesis-structure',part:c('Putting the thesis together','整合博士論文'),title:c('A possible PhD thesis structure','博士論文結構與參考比例'),
+    body:c(thesisStructure('en')+'<p class="reasoning-check thesis-supervisor-note">If there is disagreement about the structure or proportions, discuss it with your supervisor and follow their guidance.</p>',thesisStructure('zh')+'<p class="reasoning-check thesis-supervisor-note">如對章節結構或比例有不同意見，請與導師討論，並聽取導師的指導。</p>'),
   },
   {
     key:'thank-you',part:c('Discussion and Conclusion','討論與結論'),title:c('Thank you','謝謝'),spacious:true,
