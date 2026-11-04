@@ -58,6 +58,8 @@ The earlier lesson's source checks covered Creswell (2015), chs. 6, 8–9; Dörn
 
 ## Closing page and lesson PDFs
 
+Additional reading links appear in both language views: Sacred Heart University’s [Discussion guide](https://library.sacredheart.edu/c.php?g=29803&p=185933) on slide 4 and [Conclusion guide](https://library.sacredheart.edu/c.php?g=29803&p=185935) on slide 13. The same clickable sources are included in both lesson PDFs.
+
 Slide 14 remains the final teaching page, on the Conclusion’s takeaway. Slide 15 is a separate bilingual Thank you page with direct downloads of the complete English and Chinese lesson PDFs. Print and earlier-response export controls also live on this closing page. Both PDFs include the expanded publication examples and the function explanations as readable notes; original English quotations remain in English in the Chinese version. No personal saved responses are included.
 
 Run the production Astro build, then `scripts/teaching/export-dedc02-discussion-pdf.mjs` with Playwright available. `PLAYWRIGHT_MODULE` can identify an installed Playwright module and `CHROME_BIN` can identify a local Chrome executable. Rebuild Astro after exporting so the new PDFs are copied into `dist`.

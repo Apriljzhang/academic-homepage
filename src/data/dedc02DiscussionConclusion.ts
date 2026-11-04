@@ -43,6 +43,7 @@ const excerpt = (key: ExcerptKey, lang: 'en'|'zh', functions: FunctionNote[], bl
 const method = (lang: 'en'|'zh', rows: [string,string][]) => `<h3 class="method-heading">${lang === 'en' ? 'How to develop it' : '如何發展'}</h3><ol class="reasoning-method">${rows.map(([title,body]) => `<li><b>${title}</b><span>${body}</span></li>`).join('')}</ol>`;
 const table = (heads: string[], rows: string[][]) => `<div class="method-table"><table><thead><tr>${heads.map(h=>`<th scope="col">${h}</th>`).join('')}</tr></thead><tbody>${rows.map(row=>`<tr>${row.map((cell,i)=>i===0?`<th scope="row">${cell}</th>`:`<td data-label="${esc(heads[i])}">${cell}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
 const check = (lang:'en'|'zh',text:string) => `<p class="reasoning-check"><b>${lang==='en'?'Check the reasoning':'檢視推理'}:</b> ${text}</p>`;
+const additionalSource = (section:'discussion'|'conclusion',lang:'en'|'zh') => `<p class="example-source additional-source">${lang==='en'?'Additional source':'延伸參考'}: <a href="https://library.sacredheart.edu/c.php?g=29803&amp;p=${section==='discussion'?'185933':'185935'}" target="_blank" rel="noopener noreferrer">Sacred Heart University · ${section==='discussion'?(lang==='en'?'Discussion guide':'討論撰寫指南'):(lang==='en'?'Conclusion guide':'結論撰寫指南')}</a></p>`;
 const functionNotes: Record<ExcerptKey, {en:FunctionNote[];zh:FunctionNote[]}> = {
   'develop': { en: [
       ['interpretation','Interpretation','The highlighted sentences state what the authors make of the findings. The rest of the paragraph develops that interpretation through relevant concepts or supporting evidence.'],
@@ -190,12 +191,12 @@ export const discussionConclusionSlides: Slide[] = [
       ['State what the finding helps us understand','Use that interpretation as the controlling idea of the paragraph or subsection. Recall the specific evidence needed to support it.'],
       ['Develop the reasoning around that idea','Explain possible reasons, use theory and literature to examine the interpretation, and consider contradictory evidence or limitations where they change the claim.'],
       ['Show why the answer matters','Identify what becomes clearer, the contribution to knowledge and the implications that follow. Connect the next subsection to the developing answer.'],
-    ])+check('en','Paragraph functions can be combined and reordered. A strong paragraph has a central idea and visible links between evidence, interpretation and explanation; a complex argument may need several paragraphs.'),prose('由研究提問及回答它的重要發現開始。每個小節建立一項中心詮釋，再發展使它有理據的推理。')+method('zh',[
+    ])+check('en','Paragraph functions can be combined and reordered. A strong paragraph has a central idea and visible links between evidence, interpretation and explanation; a complex argument may need several paragraphs.')+additionalSource('discussion','en'),prose('由研究提問及回答它的重要發現開始。每個小節建立一項中心詮釋，再發展使它有理據的推理。')+method('zh',[
       ['按有助發展的答案組織發現','選出對各研究提問重要的模式，把相關發現放在一起，給核心發現足夠篇幅。'],
       ['指出發現幫助理解甚麼','以此詮釋作為段落或小節的中心意思，重提支持它所需的具體證據。'],
       ['圍繞中心意思發展推理','解釋可能成因，運用理論及文獻檢視詮釋；在矛盾證據或限制改變主張之處處理它們。'],
       ['說明答案為何重要','指出甚麼變得清楚、對知識有何貢獻，以及可推導甚麼啟示，再把下一小節連回逐步形成的答案。'],
-    ])+check('zh','各項功能可結合及調整次序。有力段落有中心意思，並清楚連結證據、詮釋及解釋；複雜論證可能需要數段。')),
+    ])+check('zh','各項功能可結合及調整次序。有力段落有中心意思，並清楚連結證據、詮釋及解釋；複雜論證可能需要數段。')+additionalSource('discussion','zh')),
   },
   {
     key:'interpret-findings',part:stageA,title:c('How to interpret a finding','如何詮釋研究發現'),
@@ -327,13 +328,13 @@ export const discussionConclusionSlides: Slide[] = [
       ['Necessary scope','Retain the condition or uncertainty that materially affects the overall answer.','Carry forward the key qualification while keeping the detailed evaluation in the Discussion.'],
       ['Warranted consequence','Briefly state the key implication or focused next question if it is needed to understand the answer’s significance.','Use consequences that have already been developed and justified.'],
       ['Embedded takeaway','Connect these ideas into the central understanding the reader should retain.','Bring the argument to a clear close through synthesis.'],
-    ])+check('en','Adapt these functions to the study’s needs. Read the Conclusion against the Introduction and final Discussion claims: the answer, contribution and scope should align.'),prose('討論已詳細發展答案；結論現在在整項研究的層面，綜合已建立的推理。選出能傳達現在理解甚麼、以及為何重要的概念。')+table(['功能','如何發展','與討論的不同工作'],[
+    ])+check('en','Adapt these functions to the study’s needs. Read the Conclusion against the Introduction and final Discussion claims: the answer, contribution and scope should align.')+additionalSource('conclusion','en'),prose('討論已詳細發展答案；結論現在在整項研究的層面，綜合已建立的推理。選出能傳達現在理解甚麼、以及為何重要的概念。')+table(['功能','如何發展','與討論的不同工作'],[
       ['整體答案','回到核心研究提問，把主要發現結合為直接、實質的答案。','選出經過詳細詮釋及檢視後形成的理解。'],
       ['貢獻及重要性','說明具體新增知識，以及它為何重要。','突出討論中已有理據的中心貢獻。'],
       ['必要範圍','保留實質影響整體答案的條件或不確定性。','帶出關鍵限定，把詳細評估留在討論。'],
       ['有依據的後續意義','若有助理解答案的重要性，簡要提出關鍵啟示或聚焦的後續問題。','運用先前已發展及論證的後果。'],
       ['嵌入的核心訊息','把以上概念連成讀者應保留的中心理解。','透過綜合清楚完成論證。'],
-    ])+check('zh','按研究需要組合各項功能。把結論與引言及討論的最終主張核對：答案、貢獻及範圍應相互配合。')),
+    ])+check('zh','按研究需要組合各項功能。把結論與引言及討論的最終主張核對：答案、貢獻及範圍應相互配合。')+additionalSource('conclusion','zh')),
   },
   {
     key:'takeaway',part:stageD,title:c('How the Conclusion delivers its takeaway','結論如何形成核心訊息'),
