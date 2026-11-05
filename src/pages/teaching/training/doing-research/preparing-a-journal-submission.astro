@@ -5,11 +5,11 @@ import {submissionSlides} from '../../../../data/doingResearchSubmission';
 import {withBase} from '../../../../utils/paths';
 import '../../../../styles/doing-research-submission.css';
 const title='Preparing a Journal Submission · Doing Research';
-const description='A 130-minute bilingual doctoral workshop using your own abstract: journal finders, CRediT, reporting, a shared AI-policy audit, cover letters, highlights, ORCID and peer review.';
+const description='A bilingual doctoral lesson on ORCID, writing clear abstracts, journal requirements and finders, authorship, reporting, AI disclosure, cover letters, highlights and submission files.';
 const courseHref=withBase('/teaching/training/doing-research');
 ---
 <CourseSlideLayout {title} {description} lessonDeck>
-  <LessonDeckChrome {courseHref} lessonTitle="Preparing a journal submission" courseLabel="Doing Research" />
+  <LessonDeckChrome {courseHref} lessonTitle="Preparing a journal submission" courseLabel="Doing Research" timer={false} />
   <main class="deck submission-deck" aria-label="Preparing a journal submission slide deck">
     {submissionSlides.map((slide,index)=><section id={slide.id} class:list={['slide',{'is-active':index===0}]} data-title={slide.title} data-title-zh={slide.titleZh} aria-hidden={index!==0} inert={index!==0}>
       <div class="slide-inner">

@@ -1,18 +1,18 @@
 ---
 import '../../styles/lesson-deck.css';
-interface Props { courseHref: string; lessonTitle: string; courseLabel?: string; classDraw?: boolean; }
-const { courseHref, lessonTitle, courseLabel = 'DEDC02 course materials', classDraw = false } = Astro.props;
+interface Props { courseHref: string; lessonTitle: string; courseLabel?: string; classDraw?: boolean; timer?: boolean; }
+const { courseHref, lessonTitle, courseLabel = 'DEDC02 course materials', classDraw = false, timer = true } = Astro.props;
 ---
 
-<div class="lesson-tools" aria-label="Language and timer controls" data-lesson-chrome>
+<div class="lesson-tools" aria-label={timer ? 'Language and timer controls' : 'Language control'} data-lesson-chrome>
   <button class="lesson-language" type="button" data-global-translate data-translate-current aria-pressed="false" title="Translate the current slide">中文</button>
-  <div class="lesson-timer" aria-label="Activity timer" data-timer-ding>
+  {timer && <div class="lesson-timer" aria-label="Activity timer" data-timer-ding>
     <input type="number" min="0.1" max="999" step="0.5" inputmode="decimal" placeholder="min" aria-label="Timer minutes" data-timer-minutes />
     <output data-timer-output hidden aria-live="polite">00:00</output>
     <button type="button" data-timer-start>Start</button>
     <button type="button" data-timer-reset aria-label="Reset timer" title="Reset timer">↻</button>
     <span class="visually-hidden" data-timer-status role="status" aria-live="assertive"></span>
-  </div>
+  </div>}
 </div>
 
 {classDraw && <>
