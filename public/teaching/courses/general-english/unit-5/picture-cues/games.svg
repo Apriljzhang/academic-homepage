@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="96" height="64" preserveAspectRatio="xMinYMin meet" viewBox="0 0 96 64" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="96" height="64"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-64)" style="clip-path: url(#clip)">
+		<g transform="">
+			<polygon points="18 45, 33 50, 63 50, 78 45, 85 15, 75 10, 62 24, 34 24, 21 10, 11 15" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1.8; fill: none; fill-rule: evenodd;"/>
+			<path d="M 24,35 L 40,35 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1.8;"/>
+			<path d="M 32,27 L 32,43 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1.8;"/>
+			<circle cx="65" cy="40" r="2.8" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1.8; fill: none; fill-rule: evenodd;"/>
+			<circle cx="73" cy="33" r="2.8" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1.8; fill: none; fill-rule: evenodd;"/>
+			<circle cx="65" cy="26" r="2.8" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1.8; fill: none; fill-rule: evenodd;"/>
+			<circle cx="57" cy="33" r="2.8" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1.8; fill: none; fill-rule: evenodd;"/>
+			<path d="M 43,35 L 47,35 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1.8;"/>
+			<path d="M 49,35 L 53,35 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1.8;"/>
+		</g>
+	</g>
+</svg>
