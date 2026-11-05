@@ -24,11 +24,8 @@ const description = doingResearchTheme.description;
         <ol class="mt-4 grid gap-2 sm:grid-cols-2">
           {doingResearchTheme.sessions.map((session) => (
             <li>
-              <a href={withBase(`/teaching/training/${doingResearchTheme.slug}/${session.slug}`)} class="group flex min-h-20 items-center justify-between gap-3 rounded-lg border border-border bg-surface px-4 py-3 no-underline transition hover:border-secondary hover:bg-main-faint">
-                <span>
-                  <span class="block text-xs font-semibold uppercase tracking-[0.12em] text-secondary">Topic {session.number}</span>
-                  <span class="mt-1 block text-base font-semibold text-ink group-hover:text-secondary">{session.title}</span>
-                </span>
+              <a href={withBase(`/teaching/training/${doingResearchTheme.slug}/${session.slug}`)} class="group flex items-center justify-between gap-3 border-b border-border py-3 no-underline transition hover:text-secondary">
+                <span class="text-base font-semibold text-ink group-hover:text-secondary">{session.number}. {session.title}</span>
                 <span class="shrink-0 text-lg text-secondary" aria-hidden="true">→</span>
               </a>
             </li>
