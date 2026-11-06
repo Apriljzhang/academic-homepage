@@ -134,11 +134,6 @@ export const researchThemesDetailed: readonly ResearchThemeDetailed[] = [
         citationHtml:
           '<em>The algorithmic mirror: Linking multidimensional AI literacy to evaluative judgment and writing quality in AI-assisted L2 argumentative writing</em>.',
       },
-      {
-        status: 'In preparation',
-        citationHtml:
-          '<em>The Impact of AI Chatbot on EFL learners\' speaking performance via flow experience</em>.',
-      },
     ],
   },
   {
@@ -194,6 +189,12 @@ export type PublicationItem = {
 
 /** Peer-reviewed work and doctoral dissertation, newest first. APA 7th. */
 export const publications: PublicationItem[] = [
+  {
+    citationHtml:
+      'Zhang, A. J., & Wei, W. (2026). Reactive and proactive agency in GenAI-assisted speaking practice: Task fulfilment, boundary testing, and ownership claiming among young adolescent EFL learners. <em>Innovation in Language Learning and Teaching</em>. Advance online publication. <a href="https://doi.org/10.1080/17501229.2026.2754275" target="_blank" rel="noopener noreferrer">https://doi.org/10.1080/17501229.2026.2754275</a>',
+    doiUrl: 'https://doi.org/10.1080/17501229.2026.2754275',
+    pdfPath: '/publications/2026-reactive-proactive-agency-genai-speaking.pdf',
+  },
   {
     citationHtml:
       'Cheng, L., & Zhang, A. J. (2026). Washback research in language assessment: Fundamentals and contexts. <em>Language Assessment Quarterly</em>. Advance online publication. <a href="https://doi.org/10.1080/15434303.2026.2746363" target="_blank" rel="noopener noreferrer">https://doi.org/10.1080/15434303.2026.2746363</a>',
