@@ -21,13 +21,12 @@ const description = 'Perspectives I, Unit 5: Family and friends. Four 75-minute 
           <h2 class="text-xl font-semibold"><a href={withBase(`/teaching/courses/general-english/unit-5/${session.slug}`)}>{session.number}. {session.title.en}</a></h2>
           <p class="mt-1 text-sm text-muted">{session.sections} · pp. {session.pages} · 75 minutes</p>
           <p class="mt-2">{session.outcome.en}</p>
-          {session.handout && <p class="mt-2 text-sm"><a href={withBase(session.handout)} download>{session.number === 4 ? 'Celebration calendar and worksheet (PDF)' : 'Student reading and practice (PDF)'}</a></p>}
-          {session.number === 4 && <p class="mt-2 text-sm"><a href={withBase('/teaching/courses/general-english/unit-5/invitations-language-bank.pdf')} download>Invitation language bank (PDF)</a></p>}
+          {session.handout && <p class="mt-2 text-sm"><a href={withBase(session.handout)} download>{session.number === 4 ? 'Complete Session 4 handout (PDF)' : 'Student reading and practice (PDF)'}</a></p>}
         </li>)}
       </ol>
       <div class="mt-8 max-w-3xl">
         <h2 class="text-xl font-semibold">Your Unit 5 work</h2>
-        <p class="mt-3">In Session 4, build your own celebration calendar, invite classmates, and record who can attend. Use what you learn to write an informal invitation and a polite reply. Keep your calendar, invitation map and written notes as your Unit 5 work.</p>
+        <p class="mt-3">In Session 4, use the language bank, plan two personal celebrations and write an invitation before the rotating conversations. Bring back replies and new information, complete your guest circles and write a polite response. Everything is in one printable handout.</p>
       </div>
       <a href={withBase('/teaching/courses/general-english')} class="mt-8 inline-flex text-sm font-semibold">← General English I</a>
     </PageShell>
