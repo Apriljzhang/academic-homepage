@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../../../../../layouts/BaseLayout.astro';
+import SiteHeader from '../../../../../components/SiteHeader.astro';
+import SiteFooter from '../../../../../components/SiteFooter.astro';
+import PageShell from '../../../../../components/PageShell.astro';
+import { unit9Sessions } from '../../../../../data/generalEnglishUnit9';
+import { withBase } from '../../../../../utils/paths';
+const title = 'Unit 9 practice sheets · General English I';
+const description = 'Printable original practice and campus-life tasks for four 75-minute Unit 9 lessons.';
+const selected: Record<number,string[]> = {
+  1:['priorities','experience','role-plan','team-update','exit'],
+  2:['expert-reading','response-plan','reply-draft','reply-revised','exit'],
+  3:['interview-plan','interview-notes','reported-answers','verified-report','exit'],
+  4:['ted-evidence','campus-plan','email-plan','email-draft','email-final','exit'],
+};
+---
+<BaseLayout {title} {description}>
+  <SiteHeader />
+  <main id="main-content" class="bg-page">
+    <PageShell accentBar>
+      <h1 class="font-serif text-3xl font-semibold text-ink">Unit 9 practice sheets</h1>
+      <p class="mt-4">Print these sheets or use the prompts in your notebook. Use the lesson slides for examples, instructions and answer checks. 題目可列印或抄入筆記；示範、活動指示及答案在課堂投影片。</p>
+      <p class="mt-3">Name / 姓名: ____________________ &nbsp; Class / 班別: __________</p>
+      <button type="button" data-print-practice class="print-action mt-5 rounded border border-border px-4 py-3 font-semibold">Print practice sheets / 列印練習紙</button>
+      {unit9Sessions.map(session => <section class="practice-session">
+        <h2>{session.number}. {session.title.en}</h2><p>{session.title.zh}</p>
+        <p class="text-muted">{session.sections} · pp. {session.pages} · 75 minutes</p>
+        <p>{session.outcome.en}</p>
+        {session.slides.filter(slide => slide.practice).map(slide => <div class="practice-block"><h3>{slide.title.en}</h3><ol>{slide.practice!.map(item => <li><p>{item.prompt}</p><div class="answer-line"></div></li>)}</ol></div>)}
+        {session.slides.filter(slide => slide.fields?.some(field => selected[session.number].includes(field.key))).map(slide => <div class="practice-block">
+          <h3>{slide.title.en}</h3><p>{slide.lead.en}</p>
+          {slide.fields!.filter(field => selected[session.number].includes(field.key)).map(field => <div class="practice-field"><strong>{field.label.en} / {field.label.zh}</strong>{field.hint && <p class="text-muted">{field.hint}</p>}<div class:list={['writing-lines',{'long-writing':field.rows>=7}]}></div></div>)}
+        </div>)}
+        <a class="screen-link" href={withBase(`/teaching/courses/general-english/unit-9/${session.slug}`)}>Open Session {session.number}</a>
+      </section>)}
+      <a class="screen-link" href={withBase('/teaching/courses/general-english/unit-9')}>← Unit 9 overview</a>
+    </PageShell>
+  </main>
+  <SiteFooter />
+</BaseLayout>
+<script>document.querySelector('[data-print-practice]')?.addEventListener('click', () => window.print());</script>
+<style>
+.practice-session { max-width:76ch; margin:3rem 0; padding-top:1.5rem; border-top:1px solid var(--color-rule); }
+h2 { font-size:1.6rem; font-weight:600; } h3 { font-size:1.2rem; font-weight:600; margin:1.5rem 0 .6rem; }
+.practice-block { margin:1.4rem 0; } .practice-block ol { list-style:decimal; padding-left:1.5rem; } .practice-block li { margin:.8rem 0; }
+.practice-field { margin:1rem 0; } .answer-line { border-bottom:1px solid #aaa; height:2rem; }
+.writing-lines { height:7rem; margin:.7rem 0 1rem; background:repeating-linear-gradient(to bottom,transparent 0,transparent calc(1.75rem - 1px),#ccc calc(1.75rem - 1px),#ccc 1.75rem); }
+.long-writing { height:14rem; } .screen-link { display:inline-block; padding:.75rem 0; }
+@media print {
+ :global(header), :global(footer), .print-action, .screen-link { display:none !important; }
+ :global(body), :global(main) { background:white !important; color:black !important; }
+ :global(main > *) { padding:0 !important; }
+ .practice-session { break-before:page; max-width:none; border-top:0; margin:0; }
+ .practice-block { break-inside:avoid; } h2,h3,strong { break-after:avoid; }
+ .writing-lines { background:none; border-bottom:1px solid #aaa; }
+}
+</style>

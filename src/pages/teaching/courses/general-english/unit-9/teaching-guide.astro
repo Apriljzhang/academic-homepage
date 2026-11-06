@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../../../../../layouts/BaseLayout.astro';
+import SiteHeader from '../../../../../components/SiteHeader.astro';
+import SiteFooter from '../../../../../components/SiteFooter.astro';
+import PageShell from '../../../../../components/PageShell.astro';
+import { unit9Sessions } from '../../../../../data/generalEnglishUnit9';
+import { withBase } from '../../../../../utils/paths';
+const title = 'Unit 9 teaching guide · General English I';
+const description = 'Preparation, 75-minute teaching sequences, feedback guidance and original listening alternatives for Unit 9.';
+---
+<BaseLayout {title} {description}>
+  <SiteHeader />
+  <main id="main-content" class="bg-page"><PageShell accentBar>
+    <article class="guide">
+      <h1>Unit 9 teaching guide</h1>
+      <p>Four 75-minute lessons for first-year undergraduates, using <em>Perspectives</em> Pre-Intermediate. The sequence covers 9A–9E selectively and connects the language to decisions students can make now.</p>
+      <h2>Before teaching</h2>
+      <ul>
+        <li>Open the e-book at pp.104–115. Check Audio 53, 59 and 60, Audio 56–57, and Video 9.2 / 9.4. Audio and textbook video are played from the e-book, not hosted on this site.</li>
+        <li>For Session 4, select short sections about finite supplies and recovering or reusing materials. Keep each viewing short enough for replay and discussion within the 18-minute block.</li>
+        <li>Use the printable practice sheets, notebooks or browser response spaces. No student writing is uploaded or submitted by these pages. Each session has a separate browser save key and a text download.</li>
+        <li>The student-book p.152 email model was not supplied. Session 4 uses a clearly identified original model.</li>
+        <li>The course syllabus distributes Unit 9 across two weeks. This requested four-lesson sequence is a compact version; additional textbook drills can be selected according to observed needs.</li>
+      </ul>
+      <h2>Teaching routine</h2>
+      <p>Give individual thinking time, let students rehearse in pairs, create a reason to communicate, then offer feedback before a second attempt. Collect an individual response at the end. Brief Chinese planning can support ideas; the final spoken or written product should use accessible English.</p>
+      <p>Offer a vocabulary bank and sentence openings to students who need support. Confident students can add a follow-up question, an alternative interpretation or an unexpected constraint. Students may choose real or imagined experiences.</p>
+      {unit9Sessions.map(session => { let elapsed=0; return <section>
+        <h2>{session.number}. {session.title.en}</h2><p>{session.outcome.en}</p>
+        <table><thead><tr><th>Minutes</th><th>Activity</th></tr></thead><tbody>{session.slides.map(slide => { const start=elapsed; elapsed+=slide.minutes; return <tr><td>{start}–{elapsed}</td><td><a href={withBase(`/teaching/courses/general-english/unit-9/${session.slug}#slide-${session.slides.indexOf(slide)+1}`)}>{slide.title.en}</a>{slide.ref && <small>{slide.ref}</small>}</td></tr>; })}</tbody></table>
+      </section>; })}
+      <h2>What to check</h2>
+      <table><thead><tr><th>Lesson</th><th>Evidence</th><th>Feedback priority</th></tr></thead><tbody>
+        <tr><td>1</td><td>Role explanation and two-event sentence</td><td>Specific reason; accurate event order and had + past participle.</td></tr>
+        <tr><td>2</td><td>Reading grid and revised reply</td><td>Evidence supports the interpretation; advice addresses the actual problem.</td></tr>
+        <tr><td>3</td><td>Verified report and individual exit response</td><td>Information, certainty and conditions survive; pronouns and tense fit.</td></tr>
+        <tr><td>4</td><td>Listening notes and revised enquiry</td><td>Listening evidence is distinct from the student’s proposal; purpose and questions are clear.</td></tr>
+      </tbody></table>
+      <p>Use these as formative checks. The website does not assign grades. During group work, note a few examples for whole-class feedback and ask every student to revise one sentence. Avoid correcting every error during a speaking turn.</p>
+      <h2>Original listening alternatives</h2>
+      <p>If the e-book audio is unavailable, read the following original dialogues twice with the text initially hidden. These are substitute tasks, not transcripts of Audio 53 or 59. Use the questions here instead of the corresponding textbook questions.</p>
+      <details><summary>Session 1: priorities</summary>
+        <p><strong>Teacher-read dialogue</strong></p>
+        <blockquote>
+          <p>A: The welcome team needs a photographer and someone to answer questions. Which role would you choose?</p>
+          <p>B: I would enjoy taking photos. Before I came to university, I had helped a friend photograph a school event. I want to try something creative.</p>
+          <p>A: I would choose the welcome desk. I like talking to people, and the hours fit my timetable.</p>
+          <p>B: Does the pay matter to you?</p>
+          <p>A: Some extra money would help, but I need time for my assignments too.</p>
+        </blockquote>
+        <ol><li>Which role does B prefer, and why?</li><li>What experience had B had?</li><li>Name two things A considers.</li><li>True, false or not given: A wants to work every evening.</li></ol>
+        <p><strong>Key:</strong> photographer / creative work; helped photograph a school event; suitable hours, study time and some money; not given.</p>
+      </details>
+      <details><summary>Session 3: a useful design role</summary>
+        <p><strong>Teacher-read dialogue</strong></p>
+        <blockquote>
+          <p>Adviser: What do you enjoy doing outside class?</p>
+          <p>Student: I like drawing, and I often help my friends understand new apps.</p>
+          <p>Adviser: You might enjoy learning about user experience design. Designers find out what people need and make products easier to use.</p>
+          <p>Student: Would I work alone?</p>
+          <p>Adviser: You would often work with a team. You would need to listen carefully and explain your ideas.</p>
+          <p>Student: I have never studied design. Could I try a beginner workshop?</p>
+          <p>Adviser: That sounds like a useful first step. You could ask what experience and equipment you need.</p>
+        </blockquote>
+        <ol><li>What two interests or activities does the student mention?</li><li>What does the adviser say designers try to improve?</li><li>What two communication actions does the adviser mention?</li><li>What does the student want to try?</li></ol>
+        <p><strong>Key:</strong> drawing and helping friends with apps; ease of use; listening and explaining; a beginner workshop.</p>
+      </details>
+      <details><summary>Session 4: if video cannot play</summary>
+        <p><strong>Original teacher-written summary, not a quotation or transcript</strong></p>
+        <blockquote>A sailor on a long journey must plan the supplies she carries. There is limited food and fuel, and she cannot simply visit a shop whenever something runs out. Ellen MacArthur connected that experience with the resources people use on Earth. Her talk asks how products and materials could remain useful for longer. For students, this might begin with sharing equipment, repairing an object or finding a new user for a book.</blockquote>
+        <p>Read it twice. Ask students to identify the main idea and two supporting details, then distinguish the talk’s central idea from the campus examples added in this summary. Key: limited supplies require planning; food/fuel are examples; sharing equipment, repairing an object and passing on books are teacher-added campus applications.</p>
+        <p>This supported listening task replaces the video comprehension activity. For authentic weak-form listening, retain Audio 56–57 if available; otherwise model the original practice sentence and explain that it is teacher-led practice.</p>
+      </details>
+      <h2>Content boundaries</h2>
+      <p>Past perfect clarifies an earlier event viewed from a past moment; it is not compulsory whenever <em>before</em> or <em>after</em> appears. Reported speech practice starts with common backshift, while allowing contextually valid present forms for information that remains true. Reported questions are not assessed. Question intonation patterns are useful tendencies, not universal rules.</p>
+      <p>The older TED talk’s resource estimates are historical claims, and the careers recording’s salary comparisons are not current careers guidance. The lesson focuses on listening, reasoning and language use. All campus roles and workshops introduced in the extension tasks are fictional teaching situations.</p>
+      <p><a href={withBase('/teaching/courses/general-english/unit-9')}>← Unit 9 overview</a></p>
+    </article>
+  </PageShell></main>
+  <SiteFooter />
+</BaseLayout>
+<style>
+.guide { max-width:78ch; } h1 { font:600 2.5rem/1.1 'Source Serif 4',serif; } h2 { font-size:1.35rem; font-weight:600; margin:2rem 0 .7rem; }
+p,li { line-height:1.65; } p { margin:.9rem 0; } ul,ol { padding-left:1.5rem; list-style:revert; } li + li { margin-top:.5rem; }
+table { width:100%; border-collapse:collapse; margin:1rem 0; } td,th { text-align:left; vertical-align:top; border-bottom:1px solid var(--color-rule); padding:.65rem; } th:first-child { width:6rem; } small { display:block; margin-top:.3rem; }
+details { border-block-start:1px solid var(--color-rule); padding:1rem 0; } summary { cursor:pointer; min-height:44px; font-weight:600; } blockquote { border-left:3px solid var(--color-rule); padding-left:1rem; }
+@media (max-width:600px) { td,th { padding:.45rem; font-size:.95rem; } }
+</style>

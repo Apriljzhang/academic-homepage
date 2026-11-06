@@ -1,0 +1,20 @@
+.u9-deck .u9-responses { margin: 1.25rem 0; }
+.u9-field { display: block; margin: 1rem 0; font-size: 1.1rem; font-weight: 600; }
+.u9-field > span:first-child { display: block; margin-bottom: .5rem; }
+.u9-field textarea { box-sizing: border-box; display: block; width: 100%; resize: vertical; min-height: 7rem; padding: .8rem 1rem; border: 1px solid var(--lesson-line,#bad8c5); border-radius: .35rem; background: #fff; color: var(--lesson-ink,#0f4a32); font: 400 1.15rem/1.6 'Source Sans 3',sans-serif; }
+.u9-field-status { display: block; color: var(--lesson-muted,#607b6d); font-size: .85rem; font-weight: 400; margin-top: .35rem; }
+.u9-timeline { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); padding: 0 !important; list-style: none; gap: 1rem; margin: 1.5rem 0; }
+.u9-timeline li { margin: 0 !important; border-top: 4px solid var(--lesson-green); padding-top: .7rem; }
+.u9-export { margin-top: 1rem; border-top: 1px solid var(--lesson-line); padding-top: 1rem; }
+.u9-export :is(button,a) { display: inline-flex; align-items: center; min-height: 44px; margin: .3rem .7rem .3rem 0; border: 1px solid var(--lesson-green); border-radius: .3rem; padding: .5rem 1rem; background: #fff; color: var(--lesson-green); font: inherit; cursor: pointer; }
+.u9-teacher p { font-size: 1rem !important; }
+.u9-print-notes { display: none; }
+.u9-reading-cue { border-left: 3px solid #1f6b45; padding-left: 1rem; }
+@media (max-width:600px) { .u9-timeline { grid-template-columns: 1fr; gap: .7rem; } }
+@media print {
+ body.lesson-deck .u9-deck { display:none !important; }
+ .u9-print-notes { display:block; color:#000; padding:1cm; font:12pt/1.5 sans-serif; }
+ .u9-print-notes h1 { font-size:22pt; }
+ .u9-print-notes h2 { font-size:14pt; margin-top:1.3rem; break-after:avoid; }
+ .u9-print-notes p { white-space:pre-wrap; overflow-wrap:anywhere; }
+}
