@@ -5,7 +5,8 @@ const overview = document.querySelector<HTMLDialogElement>('.overview-dialog');
 const languageButton = document.querySelector<HTMLButtonElement>('[data-global-translate]');
 const legacyAnchors: Record<string,string> = {
   credit:'finish', contributions:'authorship', integrity:'submission',
-  'letter-check':'letter-draft', 'peer-review':'finish',
+  'letter-example':'letter-purpose', 'letter-draft':'letter-purpose',
+  'letter-check':'letter-moves', 'letter-review':'letter-moves', 'peer-review':'finish',
 };
 let current = 0;
 
