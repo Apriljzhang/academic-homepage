@@ -29,6 +29,10 @@ const selected: Record<number,string[]> = {
         {session.slides.filter(slide => slide.practice).map(slide => <div class="practice-block"><h3>{slide.title.en}</h3><ol>{slide.practice!.map(item => <li><p>{item.prompt}</p><div class="answer-line"></div></li>)}</ol></div>)}
         {session.slides.filter(slide => slide.fields?.some(field => selected[session.number].includes(field.key))).map(slide => <div class="practice-block">
           <h3>{slide.title.en}</h3><p>{slide.lead.en}</p>
+          {session.number === 2 && slide.fields?.some(field => field.key === 'response-plan') && <blockquote>“Our group spent three hours preparing a five-minute presentation. One person did most of the work, and we barely used English. What did we actually learn?”</blockquote>}
+          {slide.example && <blockquote class="practice-example">{slide.example}</blockquote>}
+          {slide.columns && <div>{slide.columns.map(column => <div><strong>{column.title.en}</strong><ul>{column.lines.map(line => <li>{line.en}</li>)}</ul></div>)}</div>}
+          {slide.steps && <ul>{slide.steps.map(step => <li>{step.en}</li>)}</ul>}
           {slide.fields!.filter(field => selected[session.number].includes(field.key)).map(field => <div class="practice-field"><strong>{field.label.en} / {field.label.zh}</strong>{field.hint && <p class="text-muted">{field.hint}</p>}<div class:list={['writing-lines',{'long-writing':field.rows>=7}]}></div></div>)}
         </div>)}
         <a class="screen-link" href={withBase(`/teaching/courses/general-english/unit-9/${session.slug}`)}>Open Session {session.number}</a>
@@ -43,7 +47,7 @@ const selected: Record<number,string[]> = {
 .practice-session { max-width:76ch; margin:3rem 0; padding-top:1.5rem; border-top:1px solid var(--color-rule); }
 h2 { font-size:1.6rem; font-weight:600; } h3 { font-size:1.2rem; font-weight:600; margin:1.5rem 0 .6rem; }
 .practice-block { margin:1.4rem 0; } .practice-block ol { list-style:decimal; padding-left:1.5rem; } .practice-block li { margin:.8rem 0; }
-.practice-field { margin:1rem 0; } .answer-line { border-bottom:1px solid #aaa; height:2rem; }
+.practice-example { white-space:pre-line; border-left:2px solid var(--color-rule); padding-left:1rem; margin:1rem 0; } .practice-block ul { list-style:disc; padding-left:1.5rem; } .practice-field { margin:1rem 0; } .answer-line { border-bottom:1px solid #aaa; height:2rem; }
 .writing-lines { height:7rem; margin:.7rem 0 1rem; background:repeating-linear-gradient(to bottom,transparent 0,transparent calc(1.75rem - 1px),#ccc calc(1.75rem - 1px),#ccc 1.75rem); }
 .long-writing { height:14rem; } .screen-link { display:inline-block; padding:.75rem 0; }
 @media print {
