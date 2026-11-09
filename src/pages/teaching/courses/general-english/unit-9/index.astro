@@ -15,7 +15,7 @@ const description = 'Four complete 75-minute General English lessons: everyday s
       <p class="type-label text-secondary">General English I · Unit 9</p>
       <h1 class="mt-2 font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">All in a day’s work</h1>
       <p class="type-intro mt-4">What can I do now, and what do I want to learn next?</p>
-      <p class="mt-4 max-w-3xl text-muted">Four lessons of 75 minutes for first-year undergraduates. Start with your own skills, explore different views, pass on information accurately and ask about an opportunity you could use.</p>
+      <p class="mt-4 max-w-3xl text-muted">Four lessons of 75 minutes for first-year undergraduates. Build a job spider and a life-event timeline, explore different views, pass on information accurately and ask about an opportunity you could use.</p>
       <p class="mt-3 max-w-3xl text-muted">Keep your e-book open for the reading, audio and video. The slides open in English, with Traditional Chinese support, a timer and class name draws. Write in your notebook or in the response spaces; browser notes are not submitted.</p>
       <ol class="mt-8 max-w-4xl divide-y divide-border border-y border-border">
         {unit9Sessions.map(session => <li class="py-5">
@@ -24,13 +24,14 @@ const description = 'Four complete 75-minute General English lessons: everyday s
           <p class="mt-2">{session.outcome.en}</p>
         </li>)}
       </ol>
+      <p class="mt-5 max-w-3xl"><a href={withBase('/teaching/courses/general-english/unit-9/session-1/student-handout.pdf')}>Session 1 student handout (PDF)</a> · <a href={withBase('/teaching/courses/general-english/unit-9/session-1/group-mats-and-cards.pdf')}>Mats and cut-out cards (PDF)</a></p>
       <div class="mt-7 flex flex-wrap gap-x-7 gap-y-3">
         <a href={withBase('/teaching/courses/general-english/unit-9/practice')} class="py-2 font-semibold">Printable practice sheets</a>
         <a href={withBase('/teaching/courses/general-english/unit-9/teaching-guide')} class="py-2 font-semibold">Teaching guide</a>
       </div>
       <div class="mt-7 max-w-3xl">
         <h2 class="text-xl font-semibold">Keep what you make</h2>
-        <p class="mt-3">A role recommendation, a reply to a classmate, a verified report and a revised enquiry email show what you can do by the end of the unit. Download your work from the last slide of each lesson.</p>
+        <p class="mt-3">A job explanation and life-event story, a reply to a classmate, a verified report and a revised enquiry email show what you can do by the end of the unit. Download your work from the last slide of each lesson.</p>
       </div>
       <a href={withBase('/teaching/courses/general-english')} class="mt-8 inline-flex py-2 text-sm font-semibold">← General English I</a>
     </PageShell>

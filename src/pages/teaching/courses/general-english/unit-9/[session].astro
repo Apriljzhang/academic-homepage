@@ -1,6 +1,7 @@
 ---
 import CourseSlideLayout from '../../../../../layouts/CourseSlideLayout.astro';
 import LessonDeckChrome from '../../../../../components/lessons/LessonDeckChrome.astro';
+import Unit9Session1Mat from '../../../../../components/lessons/Unit9Session1Mat.astro';
 import { unit9Sessions, type Unit9Session } from '../../../../../data/generalEnglishUnit9';
 import '../../../../../styles/general-english-unit5.css';
 import '../../../../../styles/general-english-unit9.css';
@@ -35,6 +36,7 @@ const languages = ['en', 'zh'] as const;
           {slide.ref && <p class="u5-ebook"><span>{/\bp{1,2}\./.test(slide.ref) ? (lang === 'en' ? 'E-book reference' : '電子書參考') : (lang === 'en' ? 'Class task' : '課堂任務')}</span>{slide.ref}</p>}
           {slide.handoutCue && <aside class="u5-handout-cue" aria-label={lang === 'en' ? 'Handout support' : '講義支援'}><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 3h8l4 4v14H6z" /><path d="M14 3v5h4M9 12h6M9 16h6" /></svg><p>{slide.handoutCue[lang]}</p></aside>}
           {slide.reading && <article class="u5-reading" aria-label={lang === 'en' ? 'Class reading' : '課堂閱讀'}>{slide.reading.map(paragraph => <p><strong>[{paragraph.number}]</strong> {paragraph.text[lang]}</p>)}</article>}
+          {slide.mat && <Unit9Session1Mat kind={slide.mat} {lang} />}
           {slide.timeline && <ol class="u9-timeline">{slide.timeline.map(point => <li>{point[lang]}</li>)}</ol>}
           {slide.wordBank && <dl class="u5-word-bank">{slide.wordBank.map(item => <div><dt lang="en">{item.word}</dt><dd>{item.meaning[lang]}</dd></div>)}</dl>}
           {slide.table && <div class="u5-table"><table><thead><tr>{slide.table.headers.map(header => <th scope="col">{header[lang]}</th>)}</tr></thead><tbody>{slide.table.rows.map(row => <tr>{row.map(cell => <td>{cell[lang]}</td>)}</tr>)}</tbody></table></div>}

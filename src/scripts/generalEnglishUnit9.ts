@@ -1,4 +1,4 @@
-// Reuse the existing General English navigation, language, quiz, timer and name-draw controls.
+// Reuse the existing General English navigation, language, timer and name-draw controls.
 import './generalEnglishUnit5';
 
 const deck = document.querySelector<HTMLElement>('[data-unit9-session]');
@@ -6,13 +6,13 @@ const session = deck?.dataset.unit9Session || '1';
 const title = deck?.dataset.sessionTitle || 'Unit 9';
 const storageKey = `general-english-unit9-session-${session}-v1`;
 const inputs = Array.from(document.querySelectorAll<HTMLTextAreaElement>('[data-u9-field]'));
-const fields: Record<string, string> = {};
+const fields: Record<string, string> = Object.create(null);
 try {
   const stored = JSON.parse(localStorage.getItem(storageKey) || '{}');
   if (stored && typeof stored === 'object' && !Array.isArray(stored)) {
-    for (const input of inputs) {
-      const key = input.dataset.u9Field!;
-      if (Object.hasOwn(stored, key) && typeof stored[key] === 'string') fields[key] = stored[key];
+    // Keep notes from earlier lesson versions available in storage and exports.
+    for (const [key, value] of Object.entries(stored)) {
+      if (typeof value === 'string') fields[key] = value;
     }
   }
 } catch { /* Notes remain usable when browser storage is unavailable. */ }
@@ -38,11 +38,14 @@ inputs.forEach(input => {
 });
 function entries() {
   const seen = new Set<string>();
-  return inputs.filter(input => {
+  const current = inputs.filter(input => {
     const key = input.dataset.u9Field!;
     if (seen.has(key) || !fields[key]?.trim()) return false;
     seen.add(key); return true;
   }).map(input => ({ label: input.dataset.fieldLabel || input.dataset.u9Field!, value: fields[input.dataset.u9Field!] }));
+  const earlier = Object.entries(fields).filter(([key, value]) => !seen.has(key) && value.trim())
+    .map(([key, value]) => ({ label: `Earlier lesson response: ${key}`, value }));
+  return [...current, ...earlier];
 }
 function exportStatus(button: Element, message: string) {
   const output = button.closest('.u9-export')?.querySelector('[data-u9-export-status]');

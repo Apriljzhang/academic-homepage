@@ -1,739 +1,588 @@
 import type { UnitSlide, Text } from './generalEnglishUnit5';
 export type Unit9Field = { key: string; label: Text; hint: string; rows: number };
-export type Unit9Slide = UnitSlide & { id: string; fields?: Unit9Field[]; timeline?: Text[]; teacher?: Text; export?: boolean };
+export type Unit9Slide = UnitSlide & { id: string; fields?: Unit9Field[]; timeline?: Text[]; teacher?: Text; export?: boolean; mat?: 'jobs' | 'timeline' };
 export type Unit9Session = { number: number; slug: string; title: Text; sections: string; pages: string; outcome: Text; slides: Unit9Slide[] };
 export const unit9Sessions: Unit9Session[] = [
   {
     "number": 1,
     "slug": "skills-and-opportunities",
     "title": {
-      "en": "What can I contribute?",
-      "zh": "我能作出甚麼貢獻？"
+      "en": "Jobs, skills and my life story",
+      "zh": "職業、技能與我的人生故事"
     },
     "sections": "9A",
     "pages": "104–107",
     "outcome": {
-      "en": "Describe roles, identify work priorities and explain an earlier experience.",
-      "zh": "描述角色、辨認工作取向，並說明較早發生的經歷。"
+      "en": "Explain a job and its skills, identify work priorities, and share a five-event story using the past perfect.",
+      "zh": "說明職業及技能、辨認工作取向，並用過去完成式分享五事件故事。"
     },
     "slides": [
       {
         "minutes": 3,
         "title": {
-          "en": "What can I contribute?",
-          "zh": "我能作出甚麼貢獻？"
+          "en": "Jobs, skills and my life story",
+          "zh": "職業、技能與我的人生故事"
         },
         "lead": {
-          "en": "A campus event needs a team. What could you bring to it?",
-          "zh": "校園活動需要團隊。你能帶來甚麼？"
+          "en": "Two hands-on tasks. Two things each person will share.",
+          "zh": "兩項操作活動，每人分享兩項個人成果。"
         },
         "cover": true,
-        "steps": [
+        "columns": [
           {
-            "en": "Tell a partner one thing you enjoy doing. Ordinary skills count.",
-            "zh": "告訴同伴一件你喜歡做的事，日常技能也可以。"
+            "title": {
+              "en": "Task 1: explain a job",
+              "zh": "活動一：說明職業"
+            },
+            "lines": [
+              {
+                "en": "Build a job spider with your group. Explain one job, two useful skills and your own work preference.",
+                "zh": "與小組製作職業蜘蛛圖，說明一個職業、兩項技能及個人工作取向。"
+              }
+            ]
+          },
+          {
+            "title": {
+              "en": "Task 2: tell your story",
+              "zh": "活動二：講述故事"
+            },
+            "lines": [
+              {
+                "en": "Build your own five-event timeline. Connect earlier and later events in a short story.",
+                "zh": "製作自己的五事件時間線，用簡短故事連起先後事件。"
+              }
+            ]
           }
         ],
-        "takeaway": {
-          "en": "Today: describe roles → listen for priorities → connect experience to a role.",
-          "zh": "今天：描述角色 → 聽出取向 → 把經歷與角色連起來。"
+        "handoutCue": {
+          "en": "Keep the four-page handout open. Use the spider mat, a personal timeline and the cut-out cards.",
+          "zh": "保持四頁講義打開，使用蜘蛛圖、個人時間線及剪裁卡。"
         },
-        "id": "s1-1"
+        "links": [
+          {
+            "label": {
+              "en": "Student handout: four pages",
+              "zh": "學生講義：四頁"
+            },
+            "href": "/teaching/courses/general-english/unit-9/session-1/student-handout.pdf",
+            "download": true
+          },
+          {
+            "label": {
+              "en": "Mats and cut-out cards",
+              "zh": "操作墊及剪裁卡"
+            },
+            "href": "/teaching/courses/general-english/unit-9/session-1/group-mats-and-cards.pdf",
+            "download": true
+          }
+        ],
+        "id": "s1-task-1"
       },
       {
-        "minutes": 5,
+        "minutes": 6,
         "title": {
-          "en": "Choose your two priorities",
-          "zh": "選出最重視的兩項"
+          "en": "Collect words you can use",
+          "zh": "累積能直接使用的詞句"
         },
         "lead": {
-          "en": "What matters when you choose a part-time job or student activity?",
-          "zh": "選兼職或學生活動時，你重視甚麼？"
+          "en": "Read the word bank, then try the sentence patterns with a partner.",
+          "zh": "先讀詞庫，再與同伴練習句型。"
+        },
+        "ref": "9A · pp. 105–106; recycled vocabulary from Units 1, 2 and 5",
+        "handoutCue": {
+          "en": "Handout p.1: word bank → sentence frames → three guided items.",
+          "zh": "講義第1頁：詞庫 → 句型 → 三項引導練習。"
         },
         "columns": [
           {
             "title": {
-              "en": "Your options",
-              "zh": "可選項目"
+              "en": "Units 1 and 2",
+              "zh": "第一、二單元"
             },
             "lines": [
               {
-                "en": "enjoyment · money · useful experience",
-                "zh": "樂趣 · 收入 · 有用的經驗"
+                "en": "calm · helpful · confident · honest · hard-working",
+                "zh": "calm 冷靜 · helpful 樂於助人 · confident 自信 · honest 誠實 · hard-working 勤奮"
               },
               {
-                "en": "helping people · convenient hours · working with friends",
-                "zh": "幫助別人 · 合適的時間 · 與朋友合作"
+                "en": "communication · imagination · location · urban · rural",
+                "zh": "communication 溝通 · imagination 想像力 · location 位置 · urban 城市 · rural 鄉郊"
               }
             ]
           },
           {
             "title": {
-              "en": "Ask and compare",
-              "zh": "提問與比較"
+              "en": "Units 5 and 9",
+              "zh": "第五、九單元"
             },
             "lines": [
               {
-                "en": "What matters most to you? Why?",
-                "zh": "你最重視甚麼？為甚麼？"
+                "en": "teammate · partner · classmate · neighbour · family",
+                "zh": "teammate 隊友 · partner 伙伴 · classmate 同學 · neighbour 鄰居 · family 家人"
               },
               {
-                "en": "Would your priorities change during exam week?",
-                "zh": "考試週時，你的取向會改變嗎？"
+                "en": "nurse · architect · chef · reporter · be part of a team",
+                "zh": "nurse 護士 · architect 建築師 · chef 廚師 · reporter 記者 · be part of a team 成為團隊一員"
               }
             ]
           }
         ],
-        "example": "I value flexible hours because I need time for my assignments.",
-        "fields": [
+        "example": "A nurse needs to be calm.\nA reporter needs to communicate clearly.\nAn architect needs imagination.",
+        "practice": [
           {
-            "key": "priorities",
-            "label": {
-              "en": "My two priorities and reasons",
-              "zh": "我的兩項取向及原因"
-            },
-            "hint": "",
-            "rows": 3
-          }
-        ],
-        "id": "s1-2"
-      },
-      {
-        "minutes": 6,
-        "title": {
-          "en": "Who makes your day possible?",
-          "zh": "誰讓你的一天順利進行？"
-        },
-        "lead": {
-          "en": "Think about breakfast, travelling to class and using your phone.",
-          "zh": "想想吃早餐、上學及使用手機。"
-        },
-        "ref": "9A · p. 105 · Ex. 2, 4",
-        "wordBank": [
-          {
-            "word": "chef",
-            "meaning": {
-              "en": "prepares and cooks food",
-              "zh": "準備及烹調食物"
-            }
+            "number": 1,
+            "prompt": "A nurse needs to ___ calm. (be / have)",
+            "answer": "be"
           },
           {
-            "word": "software developer",
-            "meaning": {
-              "en": "creates computer programs",
-              "zh": "開發電腦程式"
-            }
+            "number": 2,
+            "prompt": "A reporter needs to ___ clearly. (communicate / communication)",
+            "answer": "communicate"
           },
           {
-            "word": "accountant",
-            "meaning": {
-              "en": "prepares and checks financial records",
-              "zh": "編製及核對財務紀錄"
-            }
-          },
-          {
-            "word": "architect",
-            "meaning": {
-              "en": "designs buildings",
-              "zh": "設計建築物"
-            }
-          },
-          {
-            "word": "paramedic",
-            "meaning": {
-              "en": "gives emergency medical care",
-              "zh": "提供緊急醫療照護"
-            }
-          },
-          {
-            "word": "cleaner",
-            "meaning": {
-              "en": "keeps places clean",
-              "zh": "保持地方清潔"
-            }
+            "number": 3,
+            "prompt": "A shop manager needs good ___ skills. (communicate / communication)",
+            "answer": "communication"
           }
         ],
         "steps": [
           {
-            "en": "Match the jobs in Ex. 2. Explain two jobs without translating the title.",
-            "zh": "完成第2題配對，用英語解釋兩個職業的工作。"
-          },
-          {
-            "en": "Choose one essential task from your day. What would happen if nobody did it?",
-            "zh": "選一天中的一項必要工作。如果沒有人做，會怎樣？"
+            "en": "Say one new example with a partner. Keep needs to be + adjective, needs to + verb and needs + noun distinct.",
+            "zh": "與同伴說一個新例子，分清 needs to be + 形容詞、needs to + 動詞及 needs + 名詞。"
           }
         ],
-        "id": "s1-3"
-      },
-      {
-        "minutes": 6,
-        "title": {
-          "en": "A role needs actions",
-          "zh": "角色需要具體行動"
-        },
-        "lead": {
-          "en": "Use job vocabulary to describe a student team.",
-          "zh": "運用職業詞彙描述學生團隊。"
-        },
-        "table": {
-          "headers": [
-            {
-              "en": "Role",
-              "zh": "角色"
-            },
-            {
-              "en": "What you do",
-              "zh": "工作內容"
-            },
-            {
-              "en": "A useful skill",
-              "zh": "有用技能"
-            }
-          ],
-          "rows": [
-            [
-              {
-                "en": "Welcome assistant",
-                "zh": "接待助手"
-              },
-              {
-                "en": "Answer questions and explain directions",
-                "zh": "回答問題及指路"
-              },
-              {
-                "en": "communication · patience",
-                "zh": "溝通 · 耐心"
-              }
-            ],
-            [
-              {
-                "en": "Event organiser",
-                "zh": "活動統籌"
-              },
-              {
-                "en": "Coordinate people and check the schedule",
-                "zh": "協調人手及核對時間表"
-              },
-              {
-                "en": "organisation · teamwork",
-                "zh": "組織 · 團隊合作"
-              }
-            ],
-            [
-              {
-                "en": "Photographer",
-                "zh": "攝影員"
-              },
-              {
-                "en": "Take and select useful photographs",
-                "zh": "拍攝及挑選合適照片"
-              },
-              {
-                "en": "observation · creativity",
-                "zh": "觀察 · 創意"
-              }
-            ],
-            [
-              {
-                "en": "Publicity assistant",
-                "zh": "宣傳助手"
-              },
-              {
-                "en": "Write clear posts and prepare posters",
-                "zh": "撰寫清楚的帖文及製作海報"
-              },
-              {
-                "en": "writing · design",
-                "zh": "寫作 · 設計"
-              }
-            ]
-          ]
-        },
-        "steps": [
-          {
-            "en": "Describe a role. Your partner guesses it, then gives one reason it could be enjoyable or difficult.",
-            "zh": "描述一個角色，讓同伴猜，再說一個有趣或困難之處。"
-          }
-        ],
-        "id": "s1-4"
-      },
-      {
-        "minutes": 3,
-        "title": {
-          "en": "Before you listen",
-          "zh": "聆聽前準備"
-        },
-        "lead": {
-          "en": "Julia and Tomas discuss a science photographer and their own work priorities.",
-          "zh": "Julia 和 Tomas 討論科學攝影師及各自的工作取向。"
-        },
-        "ref": "9A · p. 106 · Audio 53 · Ex. 6",
-        "steps": [
-          {
-            "en": "Make two columns: Julia / Tomas. Predict where adventure, fun, money, safety and staying near family might go.",
-            "zh": "分成 Julia／Tomas 兩欄，預測 adventure、fun、money、safety 及 staying near family 屬於哪欄。"
-          },
-          {
-            "en": "Your predictions are guesses. Leave space for listening evidence.",
-            "zh": "預測只是猜想，留空記錄聆聽證據。"
-          }
-        ],
-        "id": "s1-5"
+        "id": "s1-task-2"
       },
       {
         "minutes": 4,
         "title": {
-          "en": "Listen for what matters",
-          "zh": "聽出重視的事情"
+          "en": "Hear the job and the priority",
+          "zh": "聽出職業與取向"
         },
         "lead": {
-          "en": "Play Audio 53 once. Check the priorities, without trying to write every word.",
-          "zh": "播放音訊53一次，核對取向，不必逐字記錄。"
+          "en": "Listen to the teacher’s four worker clues twice.",
+          "zh": "聽老師讀四個工作者線索兩次。"
         },
-        "ref": "9A · p. 106 · Ex. 6",
+        "handoutCue": {
+          "en": "Handout p.2: choose any two speakers. Record the job, what matters and words you heard.",
+          "zh": "講義第2頁：選其中兩位，記下職業、取向及聽到的詞。"
+        },
+        "example": "doing something I enjoy · making money\nworking close to home · being part of a team",
+        "steps": [
+          {
+            "en": "First listen: identify the job. Second listen: notice the priority and evidence. Compare notes with a partner.",
+            "zh": "第一次聽辨認職業，第二次聽取向及證據，再與同伴核對。"
+          }
+        ],
         "fields": [
           {
-            "key": "listening",
+            "key": "job-listening",
             "label": {
-              "en": "Julia / Tomas: priorities and words I heard",
-              "zh": "Julia／Tomas：取向及聽到的詞"
+              "en": "Two speakers: job / priority / evidence",
+              "zh": "兩位說話者：職業／取向／證據"
             },
             "hint": "",
-            "rows": 3
+            "rows": 4
           }
         ],
         "reveal": {
           "title": {
-            "en": "Check and explain",
-            "zh": "核對並解釋"
+            "en": "Check after listening",
+            "zh": "聽後核對"
           },
           "lines": [
             {
-              "en": "Julia: adventure and fun. Tomas: money, safety and staying near family.",
-              "zh": "Julia：冒險與樂趣。Tomas：收入、安全及與家人住得近。"
+              "en": "1 chef: enjoying work. 2 software developer: making money.",
+              "zh": "1 廚師：喜歡自己的工作。2 軟件開發員：賺錢。"
+            },
+            {
+              "en": "3 nurse: working close to home. 4 architect: being part of a team.",
+              "zh": "3 護士：在家附近工作。4 建築師：成為團隊一員。"
             }
           ]
         },
         "teacher": {
-          "en": "If audio is unavailable, use the original substitute dialogue in the teaching guide. Its questions are separate from textbook Ex. 6–7.",
-          "zh": "沒有音訊時，可使用教學指引的原創替代對話；其問題與課本第6–7題不同。"
+          "en": "Read the original worker clues in teaching-notes.pdf, p.2. This task replaces Audio 53 in the revised Session 1.",
+          "zh": "朗讀教學筆記PDF第2頁的原創工作者線索，本活動取代修訂後第一節的音訊53。"
         },
-        "id": "s1-6"
+        "id": "s1-task-3"
       },
       {
-        "minutes": 5,
+        "minutes": 10,
         "title": {
-          "en": "True, false or not given?",
-          "zh": "正確、錯誤，還是未提及？"
+          "en": "Build your job spider",
+          "zh": "製作職業蜘蛛圖"
         },
         "lead": {
-          "en": "Replay the relevant parts. A possible idea is different from a stated fact.",
-          "zh": "重聽相關部分，可能的意思與明確說出的事實有分別。"
+          "en": "Read the cards together. Choose four jobs and place two useful skills or qualities beside each.",
+          "zh": "一起讀卡片，選四個職業，為每個配兩項有用技能或特質。"
         },
-        "ref": "9A · p. 106 · Ex. 7: items 3, 5, 6, 9",
+        "handoutCue": {
+          "en": "Handout p.2, steps 1–3 + spider mat. Each person explains at least one match.",
+          "zh": "講義第2頁步驟1–3及蜘蛛圖，每人至少解釋一項配對。"
+        },
+        "mat": "jobs",
         "steps": [
           {
-            "en": "Decide on items 3, 5, 6 and 9. Write a keyword supporting each decision.",
-            "zh": "判斷第3、5、6及9小題，記下支持每項判斷的關鍵詞。"
+            "en": "Put one job card in each job slot. Put two skill cards in its connected slots.",
+            "zh": "每個職業框放一張職業卡，相關技能框各放一張技能卡。"
           },
           {
-            "en": "Compare with a partner before checking. For false items, correct the statement.",
-            "zh": "先與同伴比較再核對，把錯誤的說法改正。"
+            "en": "Choose a quality and an action where useful. Write a repeated or new skill on a blank card.",
+            "zh": "適合時，可各選一項特質及行動，用空白卡重複或新增技能。"
+          },
+          {
+            "en": "Ask why the skill matters. More than one job can use the same skill.",
+            "zh": "問這項技能為何重要，同一技能可用於多個職業。"
           }
         ],
-        "reveal": {
-          "title": {
-            "en": "Check and explain",
-            "zh": "核對並解釋"
-          },
-          "lines": [
-            {
-              "en": "3 True: Julia has not decided exactly what she wants to do.",
-              "zh": "3 正確：Julia 尚未確定想做甚麼。"
-            },
-            {
-              "en": "5 False: Tomas does not want to be away from his family so much.",
-              "zh": "5 錯誤：Tomas 不想經常遠離家人。"
-            },
-            {
-              "en": "6 False: Tomas says he does not want to be a doctor.",
-              "zh": "6 錯誤：Tomas 說他不想當醫生。"
-            },
-            {
-              "en": "9 Not given: Julia says money matters less, but does not state how much she wants.",
-              "zh": "9 未提及：Julia 較不重視收入，但沒有說想賺多少錢。"
-            }
-          ]
-        },
-        "id": "s1-7"
+        "id": "s1-task-4"
       },
       {
         "minutes": 5,
         "title": {
-          "en": "Two events. Which came first?",
-          "zh": "兩件事，哪件先發生？"
+          "en": "Turn a match into an explanation",
+          "zh": "把配對變成說明"
         },
         "lead": {
-          "en": "The lesson started at 9.00. I arrived at 9.10.",
-          "zh": "課堂九時開始，我九時十分到達。"
+          "en": "Point to the cards and explain the connection.",
+          "zh": "指著卡片，說明兩者關係。"
         },
-        "ref": "9A · pp. 106–107 · Past perfect",
-        "timeline": [
+        "handoutCue": {
+          "en": "Handout p.1 model and p.2 question prompts. Keep these visible.",
+          "zh": "參考講義第1頁示範及第2頁提問提示，持續保留作支援。"
+        },
+        "example": "A reporter talks to people and writes news.\nReporters need to be honest and communicate clearly because other people rely on their information.\nI would like this job because I enjoy meeting people.",
+        "steps": [
           {
-            "en": "9.00 · lesson started",
-            "zh": "9:00 · 課堂開始"
+            "en": "Each student asks: Why does this job need that skill? Could another job need it too?",
+            "zh": "每人問：這個職業為何需要這項技能？另一職業也會需要嗎？"
           },
           {
-            "en": "9.10 · I arrived",
-            "zh": "9:10 · 我到達"
-          },
-          {
-            "en": "Now · I am telling you",
-            "zh": "現在 · 我正在講述"
+            "en": "Check one match that your group disagreed about. Revise the reason or change the card.",
+            "zh": "核對一項有分歧的配對，修改原因或更換卡片。"
           }
         ],
-        "example": "By the time I arrived, the lesson had already started.",
+        "id": "s1-task-5"
+      },
+      {
+        "minutes": 7,
+        "title": {
+          "en": "My job explanation",
+          "zh": "我的職業說明"
+        },
+        "lead": {
+          "en": "Prepare for two minutes. Then everyone shares for 45–60 seconds.",
+          "zh": "準備兩分鐘，再由每人分享45–60秒。"
+        },
+        "handoutCue": {
+          "en": "Handout p.2: My explanation. Use four short points, then speak from the cards or keywords.",
+          "zh": "講義第2頁「My explanation」，準備四個短重點，再指卡片或用關鍵詞說明。"
+        },
+        "steps": [
+          {
+            "en": "Name the job and say what the person does. Justify two skills or qualities.",
+            "zh": "說職業及工作內容，解釋兩項技能或特質。"
+          },
+          {
+            "en": "State your work preference and a reason. A listener asks one follow-up question.",
+            "zh": "表達個人取向及原因，聆聽者追問一題。"
+          },
+          {
+            "en": "Keep one phrase you improved after feedback.",
+            "zh": "保留一個收到回饋後改善的表達。"
+          }
+        ],
+        "fields": [
+          {
+            "key": "job-report",
+            "label": {
+              "en": "My job, two skills, reasons and work preference",
+              "zh": "我的職業、兩項技能、原因及工作取向"
+            },
+            "hint": "",
+            "rows": 6
+          }
+        ],
+        "id": "s1-task-6"
+      },
+      {
+        "minutes": 7,
+        "title": {
+          "en": "Look back from a past moment",
+          "zh": "從過去某一刻回望"
+        },
+        "lead": {
+          "en": "Use the timeline to show two events, not just two verb forms.",
+          "zh": "用時間線顯示兩件事的先後，不只改動詞形式。"
+        },
+        "ref": "9A · pp. 106–107 · Past perfect",
+        "handoutCue": {
+          "en": "Handout p.3: examples and verb table. Point to the earlier event before you choose the verb.",
+          "zh": "講義第3頁例子及動詞表，選動詞形式前先指出較早事件。"
+        },
+        "timeline": [
+          {
+            "en": "2020 · met my best friend",
+            "zh": "2020年 · 認識最好的朋友"
+          },
+          {
+            "en": "2026 · started university",
+            "zh": "2026年 · 開始大學生活"
+          },
+          {
+            "en": "Now · telling the story",
+            "zh": "現在 · 講述故事"
+          }
+        ],
+        "example": "By the time I started university, I had already met my best friend.",
         "columns": [
           {
             "title": {
-              "en": "Earlier past event",
-              "zh": "較早的過去事件"
+              "en": "Earlier event",
+              "zh": "較早事件"
             },
             "lines": [
               {
-                "en": "had / had not + past participle",
-                "zh": "had／had not + 過去分詞"
-              },
-              {
-                "en": "The lesson had started.",
-                "zh": "課堂已經開始。"
+                "en": "had + past participle: had met",
+                "zh": "had + 過去分詞：had met"
               }
             ]
           },
           {
             "title": {
-              "en": "Later past event",
-              "zh": "較後的過去事件"
+              "en": "Later past point",
+              "zh": "較後的過去時間點"
             },
             "lines": [
               {
-                "en": "past simple",
-                "zh": "一般過去式"
-              },
-              {
-                "en": "I arrived.",
-                "zh": "我到達。"
+                "en": "past simple: started",
+                "zh": "一般過去式：started"
               }
             ]
           }
         ],
         "takeaway": {
-          "en": "The past perfect looks back from a past moment. Both events are before now.",
-          "zh": "過去完成式從過去某一刻回望較早的事情；兩件事都在現在之前。"
+          "en": "Both events are before now. The past perfect looks back from the later past point.",
+          "zh": "兩件事都在現在之前，過去完成式從較後的過去時間點回望。"
         },
-        "id": "s1-8"
+        "id": "s1-task-7"
       },
       {
         "minutes": 5,
         "title": {
-          "en": "Put the events in order",
-          "zh": "排出事件次序"
+          "en": "Rehearse the language first",
+          "zh": "先練習所需語言"
         },
         "lead": {
-          "en": "Say which action happened first, then complete the sentence.",
-          "zh": "先說哪個動作較早，再完成句子。"
+          "en": "Complete the three guided items. Explain which event was earlier.",
+          "zh": "完成三項引導練習，說明哪件事較早發生。"
+        },
+        "handoutCue": {
+          "en": "Handout p.3: Try it aloud. Use the verb table and practise with a partner.",
+          "zh": "講義第3頁「Try it aloud」，參考動詞表，與同伴練習。"
         },
         "practice": [
           {
             "number": 1,
-            "prompt": "I reached the bus stop at 8.10. The bus left at 8.05. By the time I reached the stop, the bus ___ (leave).",
-            "answer": "had left — leaving happened before reaching the stop."
+            "prompt": "By the time I started university, I ___ already ___ my best friend. (meet)",
+            "answer": "had / met"
           },
           {
             "number": 2,
-            "prompt": "We arrived at the event. Nobody had prepared the signs. Which happened first: arriving or preparing?",
-            "answer": "Arriving happened; preparing had not happened before that past moment."
+            "prompt": "When I gave my first presentation, I ___ never ___ in front of a large group. (speak)",
+            "answer": "had / spoken"
           },
           {
             "number": 3,
-            "prompt": "Before I joined the media team, I ___ (never / edit) a video.",
-            "answer": "had never edited — my lack of experience was before joining."
-          },
-          {
-            "number": 4,
-            "prompt": "After we checked the room, we started the event. Must checked become had checked?",
-            "answer": "No. After already makes the sequence clear. Had checked is also possible."
+            "prompt": "After I moved to a new home, I ___ a neighbour. (help)",
+            "answer": "helped — helping happened after moving."
           }
         ],
-        "id": "s1-9"
+        "example": "By the time I ___, I had already ___.\nWhen I ___, I had ___.",
+        "takeaway": {
+          "en": "With before/after, past simple can also make order clear. Do not put every event in the past perfect.",
+          "zh": "before／after 也可配一般過去式把先後說清楚，不必把每項事件都寫成過去完成式。"
+        },
+        "id": "s1-task-8"
       },
       {
-        "minutes": 3,
+        "minutes": 8,
         "title": {
-          "en": "Make experience visible",
-          "zh": "把經歷說清楚"
+          "en": "Build your five-event timeline",
+          "zh": "製作五事件時間線"
         },
         "lead": {
-          "en": "Small experiences can show a useful skill.",
-          "zh": "小經歷也能反映有用技能。"
+          "en": "Choose real or imagined past events. Add ages or dates of your own.",
+          "zh": "選真實或虛構的過去事件，填上自己的年齡或日期。"
         },
-        "example": "Before I started university, I had organised a trip with two friends. I checked the times and made a plan.",
+        "handoutCue": {
+          "en": "Handout p.4, steps 1–2 + your timeline mat + event cards.",
+          "zh": "講義第4頁步驟1–2、個人時間線及事件卡。"
+        },
+        "mat": "timeline",
         "steps": [
           {
-            "en": "Use a real or invented example: helping someone, planning a trip, making a poster or solving a small problem.",
-            "zh": "用真實或虛構例子：幫助別人、規劃旅行、製作海報或解決小問題。"
+            "en": "Choose five cards and place them before NOW, from earlier to later. Use blanks to repeat or add an event.",
+            "zh": "選五張卡，按先後放在 NOW 之前；用空白卡重複或新增事件。"
+          },
+          {
+            "en": "Make the order fit your story. Check which events happened before university or another later event.",
+            "zh": "讓次序符合自己的故事，核對哪些事在大學或另一較後事件之前。"
           }
         ],
         "fields": [
           {
-            "key": "experience",
+            "key": "timeline-events",
             "label": {
-              "en": "One earlier experience and the skill it shows",
-              "zh": "一項較早的經歷及相關技能"
+              "en": "My five events with ages or dates",
+              "zh": "我的五件事及年齡或日期"
             },
             "hint": "",
-            "rows": 3
+            "rows": 5
           }
         ],
-        "id": "s1-10"
+        "id": "s1-task-9"
       },
       {
-        "minutes": 3,
+        "minutes": 7,
         "title": {
-          "en": "Your team challenge",
-          "zh": "團隊挑戰"
+          "en": "Find the person, place and feeling",
+          "zh": "找出人物、地方及感受"
         },
         "lead": {
-          "en": "Plan a one-hour welcome activity for new students.",
-          "zh": "規劃一小時的新生活動。"
+          "en": "Each group member answers questions about their own timeline.",
+          "zh": "每位組員回答有關自己時間線的問題。"
         },
+        "handoutCue": {
+          "en": "Use the question bank on p.4 and the people / places / feelings bank on p.3.",
+          "zh": "使用講義第4頁問題庫，以及第3頁人物、地方及感受詞庫。"
+        },
+        "example": "Who was with you? My best friend / a teammate / my family.\nWhere were you? In a new home / an urban area / a rural area.\nHow did you feel? I felt nervous / excited / more confident.",
         "steps": [
           {
-            "en": "Work in groups of four. Choose an activity and a role for each person.",
-            "zh": "四人一組，選活動並為每人分配角色。"
+            "en": "Point to two pairs of events. Ask what had already happened by the later event.",
+            "zh": "指出兩組事件，問較後事件發生時，甚麼已經發生。"
           },
           {
-            "en": "Your plan needs a location, a simple schedule and someone responsible for each task.",
-            "zh": "計劃須有地點、簡單時間表及各項工作的負責人。"
+            "en": "Check that your partner can identify the earlier event from your sentence.",
+            "zh": "核對同伴能否從你的句子辨認較早事件。"
           }
         ],
-        "example": "Our activity is ___. We need someone to ___. I suggest ___ because ___.",
-        "id": "s1-11"
+        "id": "s1-task-10"
       },
       {
         "minutes": 6,
         "title": {
-          "en": "Prepare your contribution",
-          "zh": "準備你的貢獻"
+          "en": "Prepare my life-event story",
+          "zh": "準備我的人生事件故事"
         },
         "lead": {
-          "en": "Everyone prepares a role recommendation before the discussion.",
-          "zh": "每人在討論前先準備一個角色建議。"
+          "en": "Use the five sentence frames, then check two time connections with a partner.",
+          "zh": "使用五個句型提示，再與同伴核對兩項時間關係。"
         },
-        "columns": [
-          {
-            "title": {
-              "en": "Build your explanation",
-              "zh": "組織說明"
-            },
-            "lines": [
-              {
-                "en": "I would like to help with … because …",
-                "zh": "我想協助……，因為……"
-              },
-              {
-                "en": "Before I …, I had …",
-                "zh": "在我……之前，我已經……"
-              }
-            ]
-          },
-          {
-            "title": {
-              "en": "If you are trying something new",
-              "zh": "首次嘗試也可以"
-            },
-            "lines": [
-              {
-                "en": "I have not tried … yet, but I would like to learn.",
-                "zh": "我尚未試過……，但想學習。"
-              },
-              {
-                "en": "I could work with … to practise …",
-                "zh": "我可以跟……合作，練習……"
-              }
-            ]
-          }
-        ],
+        "handoutCue": {
+          "en": "Handout p.4: My five-event story. Refer to p.3 for forms; write keywords if you are ready.",
+          "zh": "講義第4頁「My five-event story」，參考第3頁動詞形式；準備好時可只寫關鍵詞。"
+        },
         "fields": [
           {
-            "key": "role-plan",
+            "key": "timeline-story",
             "label": {
-              "en": "My role, evidence and one thing to learn",
-              "zh": "我的角色、支持經歷及一項學習需要"
+              "en": "My five-event story",
+              "zh": "我的五事件故事"
             },
-            "hint": "",
-            "rows": 3
+            "hint": "Include two past-perfect connections, a person, a place and a feeling.",
+            "rows": 8
           }
         ],
-        "id": "s1-12"
+        "steps": [
+          {
+            "en": "Choose one sentence to improve before sharing. Keep your timeline ready to point to.",
+            "zh": "分享前選一句改善，準備指著時間線說明。"
+          }
+        ],
+        "id": "s1-task-11"
       },
       {
         "minutes": 5,
         "title": {
-          "en": "Agree on the team",
-          "zh": "商議團隊分工"
+          "en": "Everyone tells a story",
+          "zh": "每人講述故事"
         },
         "lead": {
-          "en": "Each person speaks for 30–45 seconds. Listeners ask a useful question.",
-          "zh": "每人說30–45秒，聆聽者提出有用問題。"
+          "en": "Take turns: 45–60 seconds each, with the timeline as your prompt.",
+          "zh": "輪流分享，每人45–60秒，以時間線作提示。"
+        },
+        "handoutCue": {
+          "en": "Handout p.4 checklist. Listeners identify the earlier event in one pair and suggest one improvement.",
+          "zh": "使用講義第4頁檢查表，聆聽者指出一組事件中較早的一項，並提一項改善。"
         },
         "steps": [
           {
-            "en": "Use your notes as prompts. Explain the experience; avoid reading a whole paragraph.",
-            "zh": "以筆記提示，說明經歷，避免整段照讀。"
+            "en": "Share five past events, with two earlier/later connections. Include a person, place and feeling.",
+            "zh": "分享五項過去事件及兩項先後關係，加入人物、地方及感受。"
           },
           {
-            "en": "Ask: What did you do? When can you help? What support would you need?",
-            "zh": "提問：你做了甚麼？何時能幫忙？需要甚麼支援？"
-          },
-          {
-            "en": "Agree on a team plan. A person can share a role.",
-            "zh": "商議團隊計劃，同一角色可由多人分擔。"
+            "en": "Respond to feedback by saying one improved sentence aloud.",
+            "zh": "按回饋，口頭說一次改善後的句子。"
           }
         ],
-        "id": "s1-13"
-      },
-      {
-        "minutes": 5,
-        "title": {
-          "en": "Something has changed",
-          "zh": "安排有變"
-        },
-        "lead": {
-          "en": "Your photographer cannot arrive until halfway through the event.",
-          "zh": "攝影員只能在活動進行一半後到達。"
-        },
-        "steps": [
-          {
-            "en": "Decide how to cover the first half. Change responsibilities if needed.",
-            "zh": "決定如何處理前半段，需要時調整分工。"
-          },
-          {
-            "en": "Prepare a 45-second update explaining the revised plan and one reason.",
-            "zh": "準備45秒更新，說明修改後的安排及一個原因。"
-          }
-        ],
-        "fields": [
-          {
-            "key": "team-update",
-            "label": {
-              "en": "Our revised plan",
-              "zh": "我們修改後的計劃"
-            },
-            "hint": "",
-            "rows": 3
-          }
-        ],
-        "id": "s1-14"
-      },
-      {
-        "minutes": 4,
-        "title": {
-          "en": "Make the explanation clearer",
-          "zh": "把說明說清楚"
-        },
-        "lead": {
-          "en": "Give a neighbouring group one useful observation, then improve your update.",
-          "zh": "向鄰組提出一項有用觀察，再改善更新說明。"
-        },
-        "steps": [
-          {
-            "en": "Check: is everyone responsible for something? Does the experience support the role? Is the event order clear?",
-            "zh": "核對：每人都有職責嗎？經歷能支持角色嗎？事件先後清楚嗎？"
-          },
-          {
-            "en": "Choose one sentence to improve and say the update again.",
-            "zh": "選一句改善，再說一次更新。"
-          }
-        ],
-        "takeaway": {
-          "en": "A successful team uses people’s skills and makes room to learn.",
-          "zh": "有效的團隊運用成員技能，也安排學習機會。"
-        },
-        "id": "s1-15"
-      },
-      {
-        "minutes": 5,
-        "title": {
-          "en": "Show what you can do",
-          "zh": "展示你的學習"
-        },
-        "lead": {
-          "en": "Complete this on your own before comparing answers.",
-          "zh": "先獨立完成，再比較答案。"
-        },
-        "fields": [
-          {
-            "key": "exit",
-            "label": {
-              "en": "My role choice, reason and two-event sentence",
-              "zh": "我的角色選擇、原因及兩件事的句子"
-            },
-            "hint": "I would choose … because … By the time …, … had …",
-            "rows": 4
-          }
-        ],
-        "quiz": [
-          {
-            "prompt": {
-              "en": "By the time we arrived, the event ___.",
-              "zh": "By the time we arrived, the event ___."
-            },
-            "choices": [
-              {
-                "en": "has started",
-                "zh": "has started"
-              },
-              {
-                "en": "had started",
-                "zh": "had started"
-              },
-              {
-                "en": "starts",
-                "zh": "starts"
-              }
-            ],
-            "correct": 1,
-            "feedback": {
-              "en": "Had started marks the event before our past arrival.",
-              "zh": "had started 表示在我們到達之前，活動已開始。"
-            }
-          }
-        ],
-        "id": "s1-16"
+        "id": "s1-task-12"
       },
       {
         "minutes": 2,
         "title": {
-          "en": "Bring one small example",
-          "zh": "帶來一個小例子"
+          "en": "Keep the language you built",
+          "zh": "保留你累積的語言"
         },
         "lead": {
-          "en": "Before Session 2, note three things you have learned in different parts of your life.",
-          "zh": "第二節前，記下在生活不同範疇學過的三件事。"
+          "en": "Finish the last two lines of your handout. Keep both individual outputs.",
+          "zh": "完成講義最後兩行，保留兩項個人成果。"
         },
-        "steps": [
+        "handoutCue": {
+          "en": "Handout p.4: useful phrase + improved sentence. Your handout is your language record.",
+          "zh": "講義第4頁：有用表達及改善後句子，講義就是你的語言記錄。"
+        },
+        "fields": [
           {
-            "en": "Choose study, a hobby, a shared responsibility or helping someone. About 10 minutes.",
-            "zh": "可選學習、興趣、共同責任或幫助別人，約10分鐘。"
+            "key": "session1-reflection",
+            "label": {
+              "en": "A useful phrase and my improved sentence",
+              "zh": "一個有用表達及我的改善句子"
+            },
+            "hint": "",
+            "rows": 4
+          }
+        ],
+        "links": [
+          {
+            "label": {
+              "en": "Student handout: four pages",
+              "zh": "學生講義：四頁"
+            },
+            "href": "/teaching/courses/general-english/unit-9/session-1/student-handout.pdf",
+            "download": true
           },
           {
-            "en": "Keep today’s role explanation. You will connect experiences to skills next time.",
-            "zh": "保留今天的角色說明，下次會把經歷與技能連起來。"
+            "label": {
+              "en": "Mats and cut-out cards",
+              "zh": "操作墊及剪裁卡"
+            },
+            "href": "/teaching/courses/general-english/unit-9/session-1/group-mats-and-cards.pdf",
+            "download": true
+          },
+          {
+            "label": {
+              "en": "Teacher print and lesson notes",
+              "zh": "教師列印及教學筆記"
+            },
+            "href": "/teaching/courses/general-english/unit-9/session-1/teaching-notes.pdf",
+            "download": true
           }
         ],
         "export": true,
-        "id": "s1-17"
+        "id": "s1-task-13"
       }
     ]
   },

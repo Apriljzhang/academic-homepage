@@ -1,0 +1,262 @@
+{
+  "jobs": [
+    {
+      "en": "accountant",
+      "zh": "會計師"
+    },
+    {
+      "en": "architect",
+      "zh": "建築師"
+    },
+    {
+      "en": "chef",
+      "zh": "廚師"
+    },
+    {
+      "en": "cleaner",
+      "zh": "清潔員"
+    },
+    {
+      "en": "construction worker",
+      "zh": "建築工人"
+    },
+    {
+      "en": "nurse",
+      "zh": "護士"
+    },
+    {
+      "en": "software developer",
+      "zh": "軟件開發員"
+    },
+    {
+      "en": "reporter",
+      "zh": "記者"
+    },
+    {
+      "en": "secondary school teacher",
+      "zh": "中學教師"
+    },
+    {
+      "en": "shop manager",
+      "zh": "店舖經理"
+    },
+    {
+      "en": "electronic engineer",
+      "zh": "電子工程師"
+    },
+    {
+      "en": "paramedic",
+      "zh": "急救員"
+    }
+  ],
+  "skills": [
+    {
+      "en": "be calm",
+      "zh": "保持冷靜",
+      "unit": "U1"
+    },
+    {
+      "en": "be friendly",
+      "zh": "待人友善",
+      "unit": "U1"
+    },
+    {
+      "en": "be helpful",
+      "zh": "樂於助人",
+      "unit": "U1"
+    },
+    {
+      "en": "be confident",
+      "zh": "有自信",
+      "unit": "U1"
+    },
+    {
+      "en": "be honest",
+      "zh": "誠實",
+      "unit": "U1"
+    },
+    {
+      "en": "be hard-working",
+      "zh": "勤奮",
+      "unit": "U1"
+    },
+    {
+      "en": "communicate clearly",
+      "zh": "清楚溝通",
+      "unit": "U2"
+    },
+    {
+      "en": "use imagination",
+      "zh": "運用想像力",
+      "unit": "U2"
+    },
+    {
+      "en": "describe a location",
+      "zh": "描述位置",
+      "unit": "U2"
+    },
+    {
+      "en": "support a teammate",
+      "zh": "支援隊友",
+      "unit": "U5"
+    },
+    {
+      "en": "work with a partner",
+      "zh": "與伙伴合作",
+      "unit": "U5"
+    },
+    {
+      "en": "be part of a team",
+      "zh": "成為團隊一員",
+      "unit": "U9"
+    },
+    {
+      "en": "focus on details",
+      "zh": "留意細節",
+      "unit": "U9"
+    },
+    {
+      "en": "work with materials",
+      "zh": "運用材料",
+      "unit": "U9"
+    },
+    {
+      "en": "use computer programs",
+      "zh": "使用電腦程式",
+      "unit": "U9"
+    },
+    {
+      "en": "prepare food",
+      "zh": "準備食物",
+      "unit": "U9"
+    },
+    {
+      "en": "care for people",
+      "zh": "照顧別人",
+      "unit": "U9"
+    },
+    {
+      "en": "check money carefully",
+      "zh": "仔細核對金錢",
+      "unit": "U9"
+    }
+  ],
+  "events": [
+    {
+      "en": "start primary school",
+      "zh": "開始上小學",
+      "forms": "started / had started"
+    },
+    {
+      "en": "start secondary school",
+      "zh": "開始上中學",
+      "forms": "started / had started"
+    },
+    {
+      "en": "move to a new home",
+      "zh": "搬到新家",
+      "forms": "moved / had moved"
+    },
+    {
+      "en": "live in a rural area",
+      "zh": "在鄉郊居住",
+      "forms": "lived / had lived"
+    },
+    {
+      "en": "travel to a new city",
+      "zh": "到新城市旅行",
+      "forms": "travelled / had travelled"
+    },
+    {
+      "en": "meet my best friend",
+      "zh": "認識最好的朋友",
+      "forms": "met / had met"
+    },
+    {
+      "en": "join a team",
+      "zh": "加入團隊",
+      "forms": "joined / had joined"
+    },
+    {
+      "en": "learn a musical instrument",
+      "zh": "學習樂器",
+      "forms": "learned / had learned"
+    },
+    {
+      "en": "help a neighbour",
+      "zh": "幫助鄰居",
+      "forms": "helped / had helped"
+    },
+    {
+      "en": "plan a family celebration",
+      "zh": "策劃家庭慶祝活動",
+      "forms": "planned / had planned"
+    },
+    {
+      "en": "give my first presentation",
+      "zh": "第一次作匯報",
+      "forms": "gave / had given"
+    },
+    {
+      "en": "win a prize",
+      "zh": "得獎",
+      "forms": "won / had won"
+    },
+    {
+      "en": "graduate from school",
+      "zh": "從學校畢業",
+      "forms": "graduated / had graduated"
+    },
+    {
+      "en": "start university",
+      "zh": "開始大學生活",
+      "forms": "started / had started"
+    },
+    {
+      "en": "apply for a part-time job",
+      "zh": "申請兼職",
+      "forms": "applied / had applied"
+    },
+    {
+      "en": "become more confident",
+      "zh": "變得更有自信",
+      "forms": "became / had become"
+    },
+    {
+      "en": "decide on a career",
+      "zh": "選定職業方向",
+      "forms": "decided / had decided"
+    },
+    {
+      "en": "do something useful",
+      "zh": "做有用的事",
+      "forms": "did / had done"
+    }
+  ],
+  "workers": [
+    {
+      "text": "I prepare food for other people. I enjoy cooking and trying new dishes. Enjoying my work is more important to me than making a lot of money.",
+      "job": "chef",
+      "priority": "doing something I enjoy",
+      "evidence": "enjoy cooking"
+    },
+    {
+      "text": "I create computer programs. I like working with a team, but my main priority is making enough money to support myself.",
+      "job": "software developer",
+      "priority": "making money",
+      "evidence": "main priority is making enough money"
+    },
+    {
+      "text": "I care for people who are ill. I want a job close to home because I like spending time with my family.",
+      "job": "nurse",
+      "priority": "working close to home",
+      "evidence": "close to home / family"
+    },
+    {
+      "text": "I design buildings and work with different materials. Being part of a team is the most important thing for me. I enjoy sharing ideas with other people.",
+      "job": "architect",
+      "priority": "being part of a team",
+      "evidence": "most important thing"
+    }
+  ]
+}

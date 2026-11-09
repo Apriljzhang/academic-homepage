@@ -8,7 +8,7 @@ import { withBase } from '../../../../../utils/paths';
 const title = 'Unit 9 practice sheets · General English I';
 const description = 'Printable original practice and campus-life tasks for four 75-minute Unit 9 lessons.';
 const selected: Record<number,string[]> = {
-  1:['priorities','experience','role-plan','team-update','exit'],
+  1:['job-listening','job-report','timeline-events','timeline-story','session1-reflection'],
   2:['expert-reading','response-plan','reply-draft','reply-revised','exit'],
   3:['interview-plan','interview-notes','reported-answers','verified-report','exit'],
   4:['ted-evidence','campus-plan','email-plan','email-draft','email-final','exit'],
@@ -22,6 +22,7 @@ const selected: Record<number,string[]> = {
       <p class="mt-4">Print these sheets or use the prompts in your notebook. Use the lesson slides for examples, instructions and answer checks. 題目可列印或抄入筆記；示範、活動指示及答案在課堂投影片。</p>
       <p class="mt-3">Name / 姓名: ____________________ &nbsp; Class / 班別: __________</p>
       <button type="button" data-print-practice class="print-action mt-5 rounded border border-border px-4 py-3 font-semibold">Print practice sheets / 列印練習紙</button>
+      <p class="mt-4"><a href={withBase('/teaching/courses/general-english/unit-9/session-1/student-handout.pdf')}>Session 1: scaffolded student handout (PDF)</a> · <a href={withBase('/teaching/courses/general-english/unit-9/session-1/group-mats-and-cards.pdf')}>Matching mats and cut-out cards (PDF)</a></p>
       {unit9Sessions.map(session => <section class="practice-session">
         <h2>{session.number}. {session.title.en}</h2><p>{session.title.zh}</p>
         <p class="text-muted">{session.sections} · pp. {session.pages} · 75 minutes</p>
