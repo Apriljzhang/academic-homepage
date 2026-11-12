@@ -140,3 +140,35 @@
   .q-slot .q-statement { display: block; padding: .3rem; font-size: .76rem; overflow-wrap: anywhere; }
   .q-slot .q-statement b { display: block; margin-bottom: .25rem; }
 }
+
+/* Beginner route: actions first, terminology alongside its meaning. */
+.q-roadmap { list-style: decimal; padding-left: 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: .35rem 2rem; }
+.q-roadmap li { padding: .45rem .25rem; border-bottom: 1px solid #bad8c5; font-size: 1.06rem; }
+.q-roadmap strong, .q-roadmap span { display: block; }
+.q-roadmap span { color: #526d5e; font-size: .9rem; margin-top: .15rem; }
+.q-sort-steps { list-style: decimal; padding-left: 1.4rem; display: grid; grid-template-columns: 1fr 1fr; gap: .5rem 2rem; margin: .8rem 0 1.2rem; }
+.q-sort-steps li { font-size: 1rem; line-height: 1.4; padding-left: .2rem; }
+.q-beginner-analysis strong, .q-beginner-analysis span { display: block !important; width: auto !important; max-width: none !important; }
+.q-beginner-analysis span { margin-top: .3rem; }
+.q-beginner-analysis span strong { display: inline !important; }
+.q-method-detail { border-top: 1px solid #bad8c5; margin-top: 1rem; padding: .75rem 0; }
+.q-method-detail summary { min-height: 44px; display: list-item; font-size: 1.05rem; }
+.q-deck .q-method-detail p { font-size: 1rem; }
+@media screen and (max-width: 700px) { .q-roadmap, .q-sort-steps { grid-template-columns: 1fr; } }
+
+/* Worked examples retain readable full statements and scroll on narrow displays. */
+.q-deck .q-worked-table { font-size: 1.05rem; }
+.q-deck .q-worked-table th, .q-deck .q-worked-table td { text-align: left; vertical-align: top; }
+.q-demo-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .5rem; margin: .8rem 0; }
+.q-demo-grid h3 { text-align: center; }
+.q-demo-card { display: flex; gap: .4rem; min-height: 100px; border: 1px solid #bad8c5; background: #edf7f0; padding: .6rem; margin-bottom: .5rem; font-size: .92rem; line-height: 1.3; }
+@media screen and (max-width: 700px) {
+ .q-demo-grid { grid-template-columns: 1fr; }
+ .q-demo-grid > div { display: grid; grid-template-columns: 3rem 1fr; gap: .35rem; }
+ .q-demo-grid h3 { grid-row: 1 / 4; }
+ .q-demo-card { min-height: 0; }
+ .q-deck .q-worked-table { font-size: .82rem; }
+}
+
+.q-table-scroll { max-width: 100%; overflow-x: auto; }
+.q-worked-table:has(th:nth-child(10)) { min-width: 620px; }
