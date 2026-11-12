@@ -105,69 +105,38 @@ for page_no in range(4):
 p.save()
 
 p=Page(OUT/'student-handout.pdf')
-p.start('Phrases, viewpoints and tone','Name: __________________________  Class: __________  Keep your language bank open.')
-p.heading('1. Build useful chunks','把介詞與前面的詞一起學，不只背介詞。',48)
-y=p.para('<b>Today\'s core:</b> apply for; agree with; graduate from; depend on; introduce someone to; decide on; ask for; borrow something from; prepare for; learn from; focus on; benefit from.',12,60,186,10.2)
-y=p.para('<b>Complete and say aloud:</b> 1. apply ___ a job; 2. agree ___ a classmate; 3. graduate ___ school; 4. depend ___ the job; 5. introduce me ___ a teammate; 6. decide ___ a career; 7. prepare ___ work; 8. learn ___ a mistake.',12,y+4,186,10.1)
-y=p.para('<b>Repair:</b> I agree to my classmate. → _________________________________________<br/>I am interested in learn about jobs. → _________________________________________',12,y+4,186,10.1,leading=20)
-y=p.heading('2. Separate the reading questions','觀點、理由、例子及語氣是不同的問題。',y+11)
-y=p.table(['Look for','Ask yourself'],[
- ('Viewpoint / position','What is the writer\'s answer: yes, no or it depends?'),
- ('Reason','Why does the writer think this?'),
- ('Example / experience','What concrete case or experience does the writer describe?'),
- ('Tone','What attitude comes through the wording? Which words create it?')],12,y,[49,137],9.6)
-y=p.heading('3. Group the reading cards: texts A-F','先按立場分組，再按語氣重新分組；每次移動都指出詞句。',y+11)
-y=p.table(['Text','Yes / no / depends','Reason or example','Tone + exact cue'],[(x,'','','') for x in 'ABCDEF'],12,y,[16,43,66,61],9,rowheights=[10]+[12]*6)
-y=p.para('<b>Use:</b> The writer\'s position is ____ because ____. The tone sounds ____; the words “____” suggest ____. A word or phrase can sometimes help show both.',12,y+4,186,9.5)
-p.end('Viewpoint = the position. Tone = the attitude expressed through language. Keep the two labels separate.')
-
-p.start('Build a claim that can convince','Debate question: Does school prepare you for the world of work?')
-p.heading('4. Make your support do some work','論點、理由、例子及解釋要連得起來。',48)
-y=p.table(['Part','Model: a qualified yes'],[
- ('Claim','School prepares students for teamwork, although job-specific training is still needed.'),
- ('Reason','Many jobs depend on communication with other people.'),
- ('Concrete example','Paul says school football developed his teamwork skills. In a group presentation, classmates also have to explain and coordinate their work.'),
- ('Link to the claim','These activities practise communication and shared responsibility, which are also needed in many workplaces.'),
- ('Respond to an objection','Some group tasks are badly organised. Clear roles and feedback can give each student an opportunity for practice.')],12,60,[40,146],10)
-y=p.para('Paul describes one person\'s experience. It illustrates a possible benefit; it does not prove that every school task prepares everyone for work. Add a specific experience or a clearly labelled imagined example of your own.',12,y+5,186,9.5)
-y=p.heading('My individual argument','先自己準備，再與同伴互相檢查。',y+12)
-y=p.para('My claim: _________________________________________________________________<br/>My reason: ________________________________________________________________<br/>A reading example (writer + idea): ____________________________________________<br/>My own real or imagined example: _____________________________________________<br/>This supports my claim because: ______________________________________________<br/>A likely objection: __________________________________________________________<br/>My response: _______________________________________________________________',12,y,186,10,leading=23)
-y=p.para('<b>Three chunks I will use:</b> __________________ / __________________ / __________________',12,y+6,186,10)
-p.end('A strong claim is precise and supportable. Explain why your example supports it.')
-
-p.start('Debate, listen and improve','Groups of four: Pair A and Pair B defend different claims. State what you mean by “school”.')
-p.heading('5. Take turns and persuade','每人都要發言，聆聽者記下對方最有力的支持。',48)
-y=p.para('<b>Before starting:</b> agree whether school means education before university or formal education more broadly. Identify the level in your examples.<br/><b>Round 1:</b> A1 opens (45 seconds), B1 opens (45 seconds), A2 responds (45 seconds), B2 responds (45 seconds). Listeners note the claim and support.<br/><b>Plan for one minute:</b> improve an example or answer a challenge.<br/><b>Round 2:</b> A2 and B2 open; A1 and B1 respond (45 seconds each). Everyone now makes a claim and responds to an objection.<br/><b>Final two minutes:</b> explain which support was most convincing and why.',12,60,186,10)
-y=p.heading('Language that helps a listener follow','清楚表達立場，承認合理之處，再回應問題。',y+11)
-y=p.table(['Purpose','Useful language'],[
- ('State a claim','I argue that … because … / School prepares students for …'),
- ('Use the reading','Paul argues that … / Lydia\'s experience suggests …'),
- ('Explain the connection','This matters because … / This example shows how …'),
- ('Concede and respond','I agree with you that … . However, …'),
- ('Ask for stronger support','Could you give a specific example? How does that support your claim?'),
- ('Qualify the claim','It depends on … / This may apply to … / One reason for this is …')],12,y,[43,143],9.8)
-y=p.heading('6. Keep a better argument and new language','回饋後修訂；記下能再次使用的詞組。',y+11)
-y=p.para('The strongest support I heard: _______________________________________________<br/>It was convincing because: __________________________________________________<br/>My revised claim + support: __________________________________________________<br/>____________________________________________________________________________<br/>A phrase I learned / corrected: _________________________________________________',12,y,186,10,leading=22)
-y=p.para('<b>Check:</b> [ ] clear claim  [ ] concrete support  [ ] explained connection  [ ] answered an objection  [ ] three accurate preposition chunks  [ ] tone supports the purpose.',12,y+5,186,9.7)
-p.end('You may change your position after hearing stronger support. Evaluate the reasoning, not agreement with your own view.')
+p.start('Phrases, viewpoints and debate','Name: ______________________________   Class: __________')
+p.heading('1. Practise the phrases','',47)
+y=p.para('apply for; agree with; graduate from; depend on; introduce someone to; decide on; ask for; borrow something from; prepare for; learn from; focus on; benefit from.',12,52,186,10)
+y=p.para('<b>Complete:</b> apply ___ a job; agree ___ a classmate; graduate ___ school; depend ___ the job; introduce me ___ a teammate; decide ___ a career; prepare ___ work; learn ___ a mistake.',12,y+3,186,9.8)
+y=p.para('<b>Correct:</b> I agree to my classmate. _____________________________________________<br/>I am interested in learn about jobs. ______________________________________________',12,y+3,186,9.8,leading=17)
+p.heading('2. Read and group','',y+9)
+y=p.para('<b>Viewpoint:</b> yes / no / it depends. <b>Tone:</b> attitude shown by exact words.',12,y+13,186,9.5)
+y=p.table(['Writer','Viewpoint','Reason / example','Tone + exact words'],[(x,'','','') for x in ['A Lydia','B Sophia','C Daniela','D Paul','E Danh','F Aslan']],12,y+4,[27,30,65,64],9.2,rowheights=[9]+[10]*6)
+p.heading('3. My debate argument','',y+10)
+y=p.para('<b>Does school prepare you for the world of work?</b>',12,y+14,186,10.2)
+y=p.para('My claim: __________________________________________________________________<br/>Reason: ___________________________________________________________________<br/>Reading example: _____________________________________________________________<br/>My own example: ______________________________________________________________<br/>This supports my claim because: _________________________________________________<br/>A possible objection: __________________________________________________________<br/>My response: __________________________________________________________________',12,y+4,186,9.5,leading=18)
+y=p.para('<b>Three phrases I will use:</b> __________________ / __________________ / __________________',12,y+4,186,9.5)
+y=p.para('I argue that ... because ...  |  This shows ...  |  I agree with you that ... . However, ...',12,y+3,186,9.2)
+p.end('Debate: 45 seconds per turn. Swap opening / response roles in round 2.')
 p.save()
 
 p=Page(OUT/'teaching-notes.pdf')
 p.start('Teach the language, then debate','Session 2: dependent prepositions; viewpoint versus tone; claims with convincing support. 75 minutes.')
 p.heading('Print and organise','先準備詞庫、講義及網頁分組板。',48)
-y=p.para('<b>Per student:</b> three-page student handout. Keep the four-page language bank for review, or share one reference copy between two students.<br/><b>Grouping boards:</b> show all six reading cards together. Students drag cards into groups, or select a card then choose a group button. Discuss placements before revealing notes. The phrase board groups the core 12 or all 60 by preposition or meaning. No reading cut-outs are needed.<br/><b>Source:</b> responses transcribed from the user-supplied Unit 9B p.109 photograph. The six full responses appear in the HTML reading games with source credit.',12,60,186,9.7)
+y=p.para('<b>Per student:</b> one-page student handout. Keep the four-page language bank for review, or share one reference copy between two students.<br/><b>Grouping boards:</b> show all six reading cards together. Students drag cards into groups, or select a card then choose a group button. Discuss placements before checking. Phrase relay: pairs alternate 60-second story turns using three chunks. The other pair checks use and awards points. No reading cut-outs are needed.<br/><b>Source:</b> responses transcribed from the user-supplied Unit 9B p.109 photograph. The six full responses appear in the HTML reading games with source credit.',12,60,186,9.7)
 y=p.heading('75-minute sequence','詞庫先作支援，最後用於個人論證與回應。',y+11)
 y=p.table(['Time','Teaching and material'],[
  ('0-4','Same position, different tone: compare the two original opening comments.'),
  ('4-9','Language bank p.1 + handout p.1: notice word + preposition + noun / pronoun / -ing. Twelve starred chunks are the active set.'),
  ('9-17','Complete eight gaps and repair two sentences. In pairs, say a personalised example with a recycled unit word.'),
- ('17-23','Phrase board: sort 12 core cards by preposition, then meaning. Explain placements and adapt examples. Cover prepositions to re-sort. Keep three chunks for debate; all 60 are available for review.'),
- ('23-28','Handout p.1: separate position, reason, example and tone. Model a tone judgement with exact wording.'),
- ('28-39','Viewpoint board: read all six cards, group them under yes / no / depends, and justify placements. Reveal discussion notes after groups explain their reasons.'),
+ ('17-23','Phrase relay: two pairs A/B build a three-sentence story with three chunks in 60 seconds. Alternate speakers. Award 1 point per accurate chunk, 1 per meaningful sentence, and 1 for a connected story (7 maximum). Play four turns.'),
+ ('23-28','Use the slide questions and handout grid to separate position, reason, example and tone. Model a tone judgement with exact wording.'),
+ ('28-39','Viewpoint board: read all six cards, group them under yes / no / depends, and justify placements. Use Check grouping after students explain.'),
  ('39-47','Tone board: regroup all six cards by tone using exact wording. Compare A/F (both no) and B/D (both yes). Accept alternative tone labels with evidence.'),
- ('47-55','Handout p.2: model claim, reason, concrete example, link and response. Show why a personal example is limited support.'),
+ ('47-55','Slides + handout section 3: model claim, reason, concrete example, link and response. Show why a personal example is limited support.'),
  ('55-62','Each student prepares an argument. Pair checks the example-to-claim link and three preposition chunks.'),
- ('62-71','Handout p.3: two debate rounds and feedback. Every student makes an opening and a response.'),
+ ('62-71','Handout section 3: two debate rounds and feedback. Every student makes an opening and a response.'),
  ('71-75','Individual exit: revised claim + support, most convincing evidence heard, and a corrected / newly learned chunk.')],12,y,[23,163],8.8)
 y=p.para('<b>Scope:</b> 60 chunks are a reference resource; do not try to teach all as new items in 75 minutes. Recycle Units 1 (feelings / qualities), 2 (education, places, communication), 5 (people / teamwork) and 9 (jobs / work priorities) in examples and arguments.',12,y+5,186,9.3)
 p.end('Keep the bank and frames available. Offer keyword prompts to confident speakers and full sentence frames to others.')
@@ -182,7 +151,7 @@ y=p.table(['Text','Position + support','Tone + possible cue'],[
  ('E Danh','Depends: subjects may not directly match a job, but can reveal interests and careers.','Measured / qualified: “in some cases”, “However”, “probably”.'),
  ('F Aslan','No: he questions the relevance of school learning to practical job tasks.','Dismissive / abrupt or frustrated: short rhetorical answers, “Never!”, “Sadly”.')],12,60,[23,76,87],9.2)
 y=p.para('<b>Separate the axes:</b> A and F share a negative position but sound different. B and D share an affirmative position but use different voices. “Factual” in the book describes a matter-of-fact style; it does not establish that a claim is true. Critical tone can be measured and useful. A phrase can signal both position and tone.',12,y+5,186,9.7)
-y=p.para('<b>Board routine:</b> take turns placing cards and explaining why. Invite another student to support or challenge a placement. Reveal discussion notes without moving the cards. Tone groups are open to alternative labels supported by exact wording. Meaning groups can overlap; ask students to explain their choices.',12,y+8,186,9.5)
+y=p.para('<b>Board routine:</b> take turns placing cards and explaining why. Invite another student to support or challenge a placement. Check grouping gives feedback without moving cards; Teacher controls provides model sorting. Tone groups are open to alternative labels supported by exact wording. Ask students to explain their tone choices.',12,y+8,186,9.5)
 y=p.heading('Preposition key and useful distinctions','整個詞組一起核對。',y+11)
 y=p.para('<b>Eight gaps:</b> for / with / from / on / to / on / for / from.<br/><b>Repairs:</b> I agree <b>with</b> my classmate. I am interested in <b>learning</b> about jobs.<br/><b>Contrast:</b> agree with a person / agree on a plan / agree to a proposal. After a preposition use a noun, pronoun or -ing form. Accept other grammatically valid patterns when their meaning fits.',12,y,186,9.7)
 p.end('Do not score viewpoint as tone. Require a cue and an explanation for each tone label.')
@@ -203,7 +172,7 @@ y=p.para('<b>Evidence boundary:</b> the six reading responses are selected perso
 p.end('Individual product: an opening, a response, and a revised written claim with support and useful chunks.')
 p.save()
 
-for name,n in [('language-bank.pdf',4),('student-handout.pdf',3),('teaching-notes.pdf',3)]:
+for name,n in [('language-bank.pdf',4),('student-handout.pdf',1),('teaching-notes.pdf',3)]:
  if SELECTED is not None and name not in SELECTED:continue
  reader=PdfReader(OUT/name);assert len(reader.pages)==n,(name,len(reader.pages));shutil.copy2(OUT/name,LOCAL/name);print(name,n,'pages')
 print('Selected print PDFs ready. Reading and phrase activities use HTML grouping boards.')

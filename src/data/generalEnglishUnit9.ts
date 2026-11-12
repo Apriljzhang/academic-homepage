@@ -1,6 +1,6 @@
 import type { UnitSlide, Text } from './generalEnglishUnit5';
 export type Unit9Field = { key: string; label: Text; hint: string; rows: number };
-export type Unit9Slide = UnitSlide & { id: string; fields?: Unit9Field[]; timeline?: Text[]; teacher?: Text; export?: boolean; mat?: 'jobs' | 'timeline'; game?: 'phrases' | 'viewpoint' | 'tone' };
+export type Unit9Slide = UnitSlide & { id: string; fields?: Unit9Field[]; timeline?: Text[]; teacher?: Text; export?: boolean; mat?: 'jobs' | 'timeline'; game?: 'phrases' | 'viewpoint' | 'tone'; quotePairs?: { title: Text; quotes: { speaker: string; quote: string; cue: string; note: Text }[] }[] };
 export type Unit9Session = { number: number; slug: string; title: Text; sections: string; pages: string; outcome: Text; slides: Unit9Slide[] };
 export const unit9Sessions: Unit9Session[] = [
   {
@@ -646,8 +646,8 @@ export const unit9Sessions: Unit9Session[] = [
           }
         ],
         "handoutCue": {
-          "en": "Keep the printed phrase bank and three-page handout open. The book responses are inside the games.",
-          "zh": "打開列印詞庫及三頁講義；課本回應已放在遊戲內。"
+          "en": "Keep the printed phrase bank and one-page handout open. The book responses are inside the games.",
+          "zh": "打開列印詞庫及單頁講義；課本回應已放在遊戲內。"
         },
         "links": [
           {
@@ -801,28 +801,14 @@ export const unit9Sessions: Unit9Session[] = [
       {
         "minutes": 6,
         "title": {
-          "en": "Group the phrases",
-          "zh": "把詞組分組"
+          "en": "Phrase relay",
+          "zh": "詞組接力"
         },
         "lead": {
-          "en": "All cards share one board. Sort, explain and rearrange.",
-          "zh": "所有卡片同在一個分組板：分類、解釋，再調整。"
-        },
-        "handoutCue": {
-          "en": "Start with 12 core chunks. Group by preposition, then by meaning. Open a card’s meaning and example when needed.",
-          "zh": "先用12個核心詞組，按介詞、再按意思分組；需要時打開卡片的意思及例句。"
+          "en": "Three chunks. Three connected sentences. Sixty seconds.",
+          "zh": "三個詞組，三句相連的故事，60秒。"
         },
         "game": "phrases",
-        "steps": [
-          {
-            "en": "Take turns moving a card. Explain its meaning and adapt the example with one word from Unit 1, 2, 5 or 9. Cover the prepositions for a second sort.",
-            "zh": "輪流移動卡片，解釋意思，並用第1、2、5或9單元的一個詞改寫例句；第二次可遮住介詞再分類。"
-          },
-          {
-            "en": "Discuss alternative meaning groups. Keep three chunks for the debate. The all-60 bank stays on one board for later review.",
-            "zh": "討論其他合理的意思分組，保留三個詞組用於辯論；全部60項也可在同一板上複習。"
-          }
-        ],
         "id": "s2-redesign-4"
       },
       {
@@ -836,8 +822,8 @@ export const unit9Sessions: Unit9Session[] = [
           "zh": "立場標籤不會自動說明理由，也不等於語氣。"
         },
         "handoutCue": {
-          "en": "Handout p.1: the four-question table and reading grid.",
-          "zh": "講義第1頁：四個問題表及閱讀記錄表。"
+          "en": "Handout section 2: use these four questions to fill the reading grid.",
+          "zh": "講義第2部分：用這四個問題填寫閱讀表。"
         },
         "table": {
           "headers": [
@@ -903,21 +889,11 @@ export const unit9Sessions: Unit9Session[] = [
           "zh": "把作者的立場分組"
         },
         "lead": {
-          "en": "Read all six cards. Move writers into Yes, No or It depends, and explain the support for each placement.",
-          "zh": "閱讀六張卡片，把作者移到「是、否、視乎情況」組，並解釋每次分組的依據。"
+          "en": "Group the writers by viewpoint. Each person explains a reason for one placement.",
+          "zh": "按立場分組，每人解釋一張卡片的分組理由。"
         },
         "ref": "9B · p.109 · Does school prepare you for the world of work?",
-        "handoutCue": {
-          "en": "Handout p.1: texts A–F. Agree a placement with your group, then move the card. Reveal discussion notes after explaining your reasons.",
-          "zh": "講義第1頁文本A–F：小組先討論位置，再移動卡片；說明理由後才顯示討論提示。"
-        },
         "game": "viewpoint",
-        "steps": [
-          {
-            "en": "Each student explains at least one placement. Compare two writers in the same group and revise a placement if the text changes your mind.",
-            "zh": "每人至少解釋一張卡片的位置，比較同組兩位作者；如文本改變你的想法，可重新移動。"
-          }
-        ],
         "fields": [
           {
             "key": "expert-reading",
@@ -938,48 +914,72 @@ export const unit9Sessions: Unit9Session[] = [
           "zh": "同一立場，不同語氣"
         },
         "lead": {
-          "en": "Compare Lydia with Aslan, then Sophia with Paul.",
-          "zh": "比較 Lydia 與 Aslan，再比較 Sophia 與 Paul。"
+          "en": "Compare the highlighted words. Same position; different voices.",
+          "zh": "比較標示的詞句：立場相同，語氣不同。"
         },
-        "columns": [
+        "takeaway": {
+          "en": "Point to the words that create each tone.",
+          "zh": "指出形成每種語氣的詞句。"
+        },
+        "id": "s2-redesign-7",
+        "quotePairs": [
           {
             "title": {
-              "en": "Lydia and Aslan: both no",
-              "zh": "Lydia 與 Aslan：都答否"
+              "en": "Both say no",
+              "zh": "都答否"
             },
-            "lines": [
+            "quotes": [
               {
-                "en": "Lydia contrasts what she learned with what she used at work. Aslan gives short rhetorical answers such as Never!",
-                "zh": "Lydia 比較所學與工作用途；Aslan 用 Never! 等簡短反問回應。"
+                "speaker": "Lydia",
+                "quote": "Learning facts about Ancient Rome and Ancient China was interesting, but I haven't used them in my job.",
+                "cue": "but I haven't used them",
+                "note": {
+                  "en": "Critical, measured",
+                  "zh": "批判、平穩"
+                }
               },
               {
-                "en": "How does the wording change the effect?",
-                "zh": "措辭如何改變效果？"
+                "speaker": "Aslan",
+                "quote": "Does a firefighter learn to fight fires at school? Never!",
+                "cue": "Never!",
+                "note": {
+                  "en": "Abrupt, dismissive",
+                  "zh": "直截、不以為然"
+                }
               }
             ]
           },
           {
             "title": {
-              "en": "Sophia and Paul: both yes",
-              "zh": "Sophia 與 Paul：都答是"
+              "en": "Both say yes",
+              "zh": "都答是"
             },
-            "lines": [
+            "quotes": [
               {
-                "en": "Sophia uses a family story and warm affirmation. Paul strongly emphasises teamwork benefits.",
-                "zh": "Sophia 用家庭故事及親切肯定；Paul 強調團隊合作益處。"
+                "speaker": "Sophia",
+                "quote": "By the time I graduated from high school, I had definitely learned to think. My grandmother was right!",
+                "cue": "My grandmother was right!",
+                "note": {
+                  "en": "Warm, affirming",
+                  "zh": "親切、肯定"
+                }
               },
               {
-                "en": "A label needs evidence from words or sentences.",
-                "zh": "標籤需要詞句證據。"
+                "speaker": "Paul",
+                "quote": "Playing sports at school definitely provided me with a lot of teamwork skills.",
+                "cue": "definitely",
+                "note": {
+                  "en": "Confident, emphatic",
+                  "zh": "自信、強調"
+                }
               }
             ]
           }
         ],
-        "takeaway": {
-          "en": "Critical can be measured; warm does not mean proven true. The book’s factual tone describes a style, not verified accuracy.",
-          "zh": "批判可以平穩；親切不等於內容已證實。課本的 factual tone 描述風格，不是準確性認證。"
-        },
-        "id": "s2-redesign-7"
+        "source": {
+          "en": "Extracts: Perspectives Pre-Intermediate, Unit 9B, p.109.",
+          "zh": "節錄：Perspectives Pre-Intermediate，第9B課，第109頁。"
+        }
       },
       {
         "minutes": 5,
@@ -988,12 +988,8 @@ export const unit9Sessions: Unit9Session[] = [
           "zh": "把語氣分組，解釋你的解讀"
         },
         "lead": {
-          "en": "All six texts are here again. Group the voices by tone and quote the wording that supports your choices.",
-          "zh": "六篇文本再次同時出現，按語氣分組，再引用支持判斷的措辭。"
-        },
-        "handoutCue": {
-          "en": "Handout p.1: tone + exact cue. Use Another tone for your own label. Groups may differ when their evidence supports the reading.",
-          "zh": "講義第1頁：語氣及確切線索；「另一種語氣」可用自訂標籤，有詞句支持時可以有不同分法。"
+          "en": "Group by tone. Quote the words that support your choices.",
+          "zh": "按語氣分組，引用支持判斷的詞句。"
         },
         "game": "tone",
         "fields": [
@@ -1020,8 +1016,8 @@ export const unit9Sessions: Unit9Session[] = [
           "zh": "強論點要清楚、有合理範圍，並能獲支持；先說明真正要論證甚麼。"
         },
         "handoutCue": {
-          "en": "Handout p.2: model claim, reason, example, link and response.",
-          "zh": "講義第2頁：示範論點、理由、例子、關聯及回應。"
+          "en": "Handout section 3: plan your own argument.",
+          "zh": "講義第3部分：準備自己的論證。"
         },
         "example": "School prepares students for teamwork, although job-specific training is still needed.",
         "steps": [
@@ -1117,8 +1113,8 @@ export const unit9Sessions: Unit9Session[] = [
           "zh": "先獨立寫，再請同伴檢查例子與論點的關係。"
         },
         "handoutCue": {
-          "en": "Handout p.2: individual argument. Handout p.3: debate roles and sentence frames.",
-          "zh": "講義第2頁個人論證；第3頁辯論角色及句型。"
+          "en": "Handout section 3: individual argument. Handout section 3: debate roles and sentence frames.",
+          "zh": "講義第3部分個人論證；第3頁辯論角色及句型。"
         },
         "steps": [
           {
@@ -1158,8 +1154,8 @@ export const unit9Sessions: Unit9Session[] = [
           "zh": "四人一組，兩對提出不同論點；每人都開場及回應。"
         },
         "handoutCue": {
-          "en": "Handout p.3. Round 1: 3 min → improve: 1 min → round 2: 3 min → feedback: 2 min.",
-          "zh": "講義第3頁：第一輪3分鐘 → 改善1分鐘 → 第二輪3分鐘 → 回饋2分鐘。"
+          "en": "45 seconds each. Swap roles in round 2; finish with feedback.",
+          "zh": "每人45秒，第二輪交換角色，最後給回饋。"
         },
         "steps": [
           {
@@ -1189,8 +1185,8 @@ export const unit9Sessions: Unit9Session[] = [
           "zh": "聆聽後修訂，保留完整詞庫供日後複習。"
         },
         "handoutCue": {
-          "en": "Handout p.3: strongest support / revised claim / a learned or corrected chunk.",
-          "zh": "講義第3頁：最強支持／修訂論點／新學或修正的詞組。"
+          "en": "Keep your revised claim and one useful phrase in your notebook.",
+          "zh": "在筆記本保留修訂論點及一個有用詞組。"
         },
         "fields": [
           {

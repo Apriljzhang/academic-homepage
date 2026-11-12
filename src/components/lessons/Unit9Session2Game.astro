@@ -1,46 +1,23 @@
 ---
 import reading from '../../data/generalEnglishUnit9Session2Reading.json';
-import bank from '../../data/generalEnglishUnit9Session2Language.json';
-interface Props { kind: 'phrases' | 'viewpoint' | 'tone'; lang: 'en' | 'zh'; }
-const {kind,lang}=Astro.props;
-const zh=lang==='zh';
-const items=kind==='phrases'?bank.phrases:reading.responses;
+interface Props { kind:'viewpoint'|'tone'; lang:'en'|'zh'; }
+const {kind,lang}=Astro.props;const zh=lang==='zh';
 ---
 <div class="u9-s2-game" data-s2-game={kind} data-s2-lang={lang} data-deck-scroll>
-  <div class="s2-tools">
-    {kind==='phrases' && <>
-      <label>{zh?'詞庫':'Bank'} <select data-s2-bank aria-label={zh?'選擇詞庫':'Choose phrase bank'}><option value="core">{zh?'12個核心詞組':'12 core chunks'}</option><option value="all">{zh?'全部60個詞組':'All 60 chunks'}</option></select></label>
-      <label>{zh?'分組方式':'Group by'} <select data-s2-mode aria-label={zh?'選擇分組方式':'Choose grouping'}><option value="preposition">{zh?'介詞':'Preposition'}</option><option value="meaning">{zh?'意思':'Meaning'}</option></select></label>
-      <label class="s2-hide"><input type="checkbox" data-s2-hide /> {zh?'遮住介詞':'Cover prepositions'}</label>
-    </>}
-    <button type="button" data-s2-check>{zh?'核對分組':'Check grouping'}</button>
-    <button type="button" data-s2-model aria-pressed="false">{zh?'顯示討論提示':'Show discussion notes'}</button>
-    <button type="button" data-s2-reset>{zh?'放回未分組區':'Return all cards'}</button>
-    <output data-s2-progress></output>
-  </div>
+  <div class="s2-tools"><button type="button" data-s2-check>{zh?'核對分組':'Check grouping'}</button><button type="button" data-s2-reset>{zh?'重設分組':'Reset board'}</button><output data-s2-progress></output></div>
   <p class="s2-check-summary" data-s2-check-summary role="status" aria-live="polite" hidden></p>
-  <p class="s2-help">{zh?'拖曳卡片到下方組別或分組按鈕。也可先按卡片的「選取」，再按組別；手機及鍵盤均可操作。':'Drag cards into a group or onto a group button. You can also select a card, then choose its group. Revisit a placement when your discussion changes.'}</p>
-  <div class="s2-destinations" aria-label={zh?'移動卡片的組別':'Card destinations'}>
-    <p data-s2-selected>{zh?'先選取一張卡片，再選組別。':'Select a card, then choose a group.'}</p>
-    <div data-s2-targets></div>
-  </div>
+  <p class="s2-help">{zh?'拖曳到組別；也可先按卡片的「移動」，再選組別。':'Drag into a group, or choose Move on a card and then its group.'}</p>
+  <div class="s2-destinations" aria-label={zh?'卡片組別':'Card destinations'}><p data-s2-selected></p><div data-s2-targets></div></div>
   <p class="s2-status" data-s2-status role="status" aria-live="polite"></p>
   <section class="s2-pool" data-s2-zone="pool" aria-label={zh?'未分組卡片':'Unsorted cards'}>
     <h3>{zh?'未分組':'Unsorted'} <span data-s2-pool-count></span></h3>
-    <div class="s2-pool-cards" data-s2-cards>
-      {items.map((item,i)=><article class="s2-card" data-s2-card={String(i)} draggable="false" hidden={kind==='phrases'&&!bank.phrases[i].core}>
-        <div class="s2-card-heading"><h4 data-s2-card-title>{kind==='phrases'?bank.phrases[i].phrase:`${reading.responses[i].id}. ${reading.responses[i].name}`}</h4><button type="button" data-s2-select aria-pressed="false" aria-label={`${zh?'選取':'Select'} ${kind==='phrases'?bank.phrases[i].phrase:reading.responses[i].name}`}>{zh?'選取':'Select'}</button></div>
-        {kind==='phrases'?<details class="s2-language"><summary>{zh?'意思與例句':'Meaning and example'}</summary><p>{bank.phrases[i].zh}</p><p lang="en">{bank.phrases[i].example}</p></details>:<><p class="s2-job">{reading.responses[i].job}</p><p class="s2-passage" lang="en">{reading.responses[i].text}</p></>}
-        <p class="s2-model-note" data-s2-card-model hidden></p>
-        <p class="s2-card-check" data-s2-card-check hidden></p>
-      </article>)}
-    </div>
-    <p class="s2-empty" data-s2-empty>{zh?'所有卡片已分組；可繼續移動及討論。':'All cards have a group. Keep discussing and move any card again.'}</p>
+    <div class="s2-pool-cards" data-s2-cards>{reading.responses.map((item,i)=><article class="s2-card" data-s2-card={String(i)} draggable="false"><div class="s2-card-heading"><h4>{item.id}. {item.name}</h4><button type="button" data-s2-select aria-pressed="false" aria-label={`${zh?'移動':'Move'} ${item.name}`}>{zh?'移動':'Move'}</button></div><p class="s2-job">{item.job}</p><p class="s2-passage" lang="en">{item.text}</p><p class="s2-card-check" data-s2-card-check hidden></p></article>)}</div>
+    <p class="s2-empty" data-s2-empty>{zh?'全部已分組，可核對。':'All cards grouped. Ready to check.'}</p>
   </section>
   <div class="s2-groups" data-s2-groups></div>
-  {kind!=='phrases' && <p class="source-note">Perspectives Pre-Intermediate · Unit 9B · p.109 · {zh?'課本註明回應改編自 Debate.org':'Book responses adapted from Debate.org'}</p>}
-  <p class="s2-discuss">{kind==='phrases'?(zh?'解釋兩個詞組的意思，再用第1、2、5或9單元的詞改寫例句。意思組別可以重疊；說明你的分組理由。':'Explain two chunks, then adapt their examples using words from Units 1, 2, 5 or 9. Meaning groups can overlap: explain your grouping.'):(kind==='tone'?(zh?'語氣分組可以有不同答案；引用確切詞句支持你的標籤。「另一種語氣」由你命名。':'Defend a tone label with exact wording. Different groupings can be supported; name your own label in “Another tone”.'):(zh?'說明作者的立場及一個支持理由；再比較同一組的作者，措辭是否相似？':'Explain the writer’s position and a supporting reason. Compare writers in the same group: does their wording sound similar?'))}</p>
-  <details class="s2-teacher"><summary>{zh?'教師工具':'Teacher controls'}</summary><p>{zh?'示範分組會重新放置目前詞庫的卡片。語氣與意思分組是示範解讀，可接受有理由支持的其他分法。':'This replaces the current board’s placements with model groups. Tone and meaning groups allow other interpretations supported by reasons.'}</p><button type="button" data-s2-sort>{zh?'按示範答案分組':'Sort into model groups'}</button></details>
+  {kind==='tone'&&<label class="s2-tone-label">{zh?'「另一種語氣」的名稱':'Name your other tone'}<input data-s2-tone-name maxlength="40" placeholder={zh?'例如：沮喪':'e.g. frustrated'} /></label>}
+  <p class="source-note">Perspectives Pre-Intermediate · Unit 9B · p.109 · {zh?'回應改編自 Debate.org':'Responses adapted from Debate.org'}</p>
+  <details class="s2-teacher"><summary>{zh?'教師工具':'Teacher controls'}</summary><button type="button" data-s2-sort>{zh?'按示範答案分組':'Sort into model groups'}</button></details>
 </div>
 <script>import '../../scripts/generalEnglishUnit9Session2';</script>
 <style is:global>
@@ -48,9 +25,10 @@ const items=kind==='phrases'?bank.phrases:reading.responses;
 .s2-tools{display:flex;gap:.7rem 1rem;align-items:center;flex-wrap:wrap}.s2-tools label{font-size:1rem}.s2-tools select{font:inherit;max-width:100%;border:1px solid var(--lesson-line);color:var(--lesson-ink);background:white;padding:.4rem;min-height:44px}.s2-hide{display:flex;gap:.4rem;align-items:center;min-height:44px}.s2-hide input{width:1.2rem;height:1.2rem}.s2-tools output,.s2-help,.s2-discuss{font-size:1rem!important}.s2-help{color:var(--lesson-muted);margin:.9rem 0}
 .u9-s2-game button{min-height:44px;border:1px solid var(--lesson-green);background:white;color:var(--lesson-green);border-radius:.3rem;padding:.5rem .8rem;font:inherit;cursor:pointer;overflow-wrap:anywhere}.u9-s2-game button:focus-visible,.s2-card summary:focus-visible{outline:3px solid var(--lesson-green);outline-offset:3px}.u9-s2-game button[aria-pressed="true"]{background:var(--lesson-green);color:white}
 .u9-s2-game [data-s2-check]{background:var(--lesson-green);color:#fff}.s2-check-summary{padding:.8rem 1rem;background:var(--lesson-soft);border-left:3px solid var(--lesson-green);font-size:1rem!important}.s2-card-check{font-size:.95rem!important;line-height:1.45;padding:.5rem;margin:.7rem 0 0;background:#edf7f0;border-left:3px solid #1f6b45}.s2-card.needs-review .s2-card-check{background:#fff5df;border-color:#8b6519}.s2-teacher{margin:2rem 0 0;padding:1rem 0;border-top:1px solid var(--lesson-line);max-width:70ch}.s2-teacher summary{cursor:pointer;font-size:1rem;min-height:44px;padding:.5rem 0;color:var(--lesson-muted)}.s2-teacher summary:focus-visible{outline:3px solid var(--lesson-green);outline-offset:3px}.s2-teacher p{font-size:1rem!important}
-.s2-destinations{position:sticky;top:5rem;z-index:2;background:#fff;padding:.6rem 0;border-block:1px solid var(--lesson-line)}.s2-destinations p{margin:0 0 .5rem;font-size:.95rem!important}.s2-destinations>div{display:flex;gap:.4rem;flex-wrap:wrap}.s2-destinations button{font-size:.95rem}.s2-status{font-size:.95rem!important;min-height:1.5em;margin:.4rem 0;color:var(--lesson-muted)}
+.s2-destinations{position:sticky;top:5rem;z-index:2;background:#fff;padding:.6rem 0;border-block:1px solid var(--lesson-line)}.s2-destinations p{margin:0 0 .5rem;font-size:.95rem!important}.s2-destinations>div{display:flex;gap:.4rem;flex-wrap:wrap}.s2-destinations [data-s2-destination]{font-size:.95rem;min-height:44px;padding:.5rem .8rem;border:1px dashed var(--lesson-green);border-radius:.3rem;display:flex;align-items:center}.s2-destinations button[data-s2-destination]{border-style:solid}.s2-status{font-size:.95rem!important;min-height:1.5em;margin:.4rem 0;color:var(--lesson-muted)}
 .s2-pool{padding:1rem 0;margin:0 0 1.3rem}.s2-pool>h3{font-size:1.25rem}.s2-pool-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem}.s2-card{background:#fff;border:1px solid var(--lesson-line);border-top:3px solid var(--lesson-green);padding:.8rem;min-width:0;cursor:grab;align-self:start}.s2-card.is-selected{outline:3px solid var(--lesson-green);outline-offset:2px}.s2-card.is-dragging{opacity:.5}.s2-card-heading{display:flex;gap:.5rem;align-items:flex-start;justify-content:space-between}.s2-card h4{font-size:1.1rem;margin:0;font-weight:600;line-height:1.35;overflow-wrap:anywhere}.s2-card-heading button{touch-action:none;cursor:grab;font-size:.85rem;min-width:3.4rem;padding:.35rem .5rem;flex-shrink:0}.s2-card .s2-job{font-size:.85rem;margin:.3rem 0 .7rem;color:var(--lesson-muted)}.s2-card .s2-passage{font-size:1rem;line-height:1.5;margin:0}.s2-card .s2-language{margin:.6rem 0 0}.s2-language summary{font-size:.9rem;cursor:pointer;min-height:30px}.s2-language p{font-size:1rem!important;line-height:1.5}.s2-model-note{border-top:1px solid var(--lesson-line);padding-top:.6rem;font-size:.95rem!important;white-space:pre-line}.s2-empty{font-size:1rem!important;color:var(--lesson-muted)}
 .s2-groups{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem}.s2-group{background:var(--lesson-soft);border:1px dashed var(--lesson-green);padding:.7rem;min-width:0;min-height:100px}.s2-group>h3{font-size:1.1rem;margin:0 0 .7rem;line-height:1.4}.s2-group [data-s2-cards]{display:grid;gap:.7rem}.s2-group .s2-empty{margin:0}.s2-drag-ghost{position:fixed;z-index:1000;pointer-events:none;max-width:260px;padding:.6rem .9rem;background:#1f6b45;color:#fff;border-radius:.3rem;font:600 1rem "Source Sans 3",sans-serif;box-shadow:0 6px 18px #163d2b33}.s2-drop-active{outline:3px solid var(--lesson-green);outline-offset:2px;background:#deefe3!important}
-@media(max-width:800px){.s2-pool-cards,.s2-groups{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:520px){.s2-pool-cards,.s2-groups{grid-template-columns:1fr}.s2-destinations{top:4.7rem}.s2-destinations>div{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.s2-destinations button{font-size:.85rem;padding:.35rem .5rem}.s2-card{scroll-margin-top:22rem}.s2-card h4{font-size:1.15rem}}
+@media(max-width:800px){.s2-pool-cards,.s2-groups{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:520px){.s2-pool-cards,.s2-groups{grid-template-columns:1fr}.s2-destinations{top:4.7rem}.s2-destinations>div{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.s2-destinations [data-s2-destination]{font-size:.85rem;padding:.35rem .5rem}.s2-card{scroll-margin-top:22rem}.s2-card h4{font-size:1.15rem}}
+.u9-s2-game button:disabled{opacity:.45;cursor:default}.s2-tone-label{display:flex;gap:.7rem;align-items:center;flex-wrap:wrap;margin:1rem 0;font-size:1rem}.s2-tone-label input{font:inherit;min-height:44px;padding:.4rem .7rem;border:1px solid var(--lesson-line);max-width:100%}
 @media print{.s2-destinations,.s2-tools,.s2-card-heading button,.s2-teacher{display:none}.s2-card{break-inside:avoid}}
 </style>
