@@ -1,63 +1,94 @@
 import bank from '../data/generalEnglishUnit9Session2Language.json';
 import book from '../data/generalEnglishUnit9Session2Reading.json';
-type Kind='phrases'|'viewpoint'|'tone';
-type Choice={en:string;zh:string;correct:boolean};
-type Question={prompt:string;choices:Choice[];model:string;modelZh:string;followup:string;followupZh:string};
-type State={kind:Kind;items:number[];index:number;mode:number;all:boolean;selected:number|null;checked:boolean;attempted:Set<string>;correct:Set<string>;q:Question};
+import {prepositionGroups,meaningGroups,viewpointGroups,toneGroups,phraseMeaningGroups,type BoardKind,type BoardGroup} from '../data/generalEnglishUnit9Session2Board';
+type State={all:boolean;mode:string;hide:boolean;models:boolean;selected:string|null;placements:Record<string,Record<string,string>>};
 const roots=Array.from(document.querySelectorAll<HTMLElement>('[data-s2-game]'));
-const states=new Map<Kind,State>();
-const shuffle=<T>(array:T[])=>{const result=[...array];for(let i=result.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[result[i],result[j]]=[result[j],result[i]];}return result;};
-const replacePrep=(text:string,prep:string)=>text.replace(new RegExp(`\\b${prep}\\b`),'____');
-const indexOfItem=(state:State)=>state.items[state.index];
-function question(state:State):Question{
- const id=indexOfItem(state);
- if(state.kind==='phrases'){
-  const item=bank.phrases[id];
-  const pool=state.mode===0?bank.phrases.filter(x=>x.zh!==item.zh&&x.kind===item.kind).map(x=>x.zh):['for','with','from','on','to','in','at','about','of'].filter(x=>x!==item.prep);
-  const answer=state.mode===0?item.zh:item.prep;
-  const alternatives=shuffle([...new Set(pool)]).slice(0,3);
-  return {prompt:state.mode===0?item.phrase:replacePrep(state.mode===1?item.phrase:item.example,item.prep),choices:shuffle([{en:answer,zh:answer,correct:true},...alternatives.map(x=>({en:x,zh:x,correct:false}))]),model:`${item.phrase}\n${item.zh}\n${item.example}`,modelZh:`${item.phrase}\n${item.zh}\n${item.example}`,followup:state.mode===2?'Say a new sentence using the whole chunk and a word from Unit 1, 2, 5 or 9. A partner checks the meaning and pattern.':'Say the complete chunk, then explain or adapt the example. The answer practises this bank’s pattern; another preposition can sometimes express a different meaning.',followupZh:state.mode===2?'用完整詞組及第1、2、5或9單元的一個詞，說一句自己的句子；同伴核對意思及句型。':'說完整詞組，再解釋或改寫例句；本題練習詞庫中的配搭，其他介詞有時可表達不同意思。'};
+const states=new Map<BoardKind,State>();
+const storageKey='ge-u9-s2-grouping-v1';
+let saved:Record<string,State>={};try{saved=JSON.parse(localStorage.getItem(storageKey)||'{}');}catch{/* Private browsing may disable storage. */}
+const groups=(kind:BoardKind,s:State):BoardGroup[]=>kind==='phrases'?(s.mode==='meaning'?meaningGroups:prepositionGroups):kind==='viewpoint'?viewpointGroups:toneGroups;
+const items=(kind:BoardKind,s:State)=>kind==='phrases'?bank.phrases.flatMap((x,i)=>s.all||x.core?[String(i)]:[]):book.responses.map((_,i)=>String(i));
+const label=(kind:BoardKind,id:string)=>kind==='phrases'?bank.phrases[Number(id)].phrase:book.responses[Number(id)].name;
+const save=()=>{try{localStorage.setItem(storageKey,JSON.stringify(Object.fromEntries(states)));}catch{/* Sorting remains available without storage. */}};
+const placement=(s:State)=>s.placements[s.mode]??(s.placements[s.mode]={});
+function notes(kind:BoardKind,id:string,s:State,zh:boolean){
+ const i=Number(id);if(kind==='phrases'){
+  const item=bank.phrases[i];const group=meaningGroups.find(x=>x.id===phraseMeaningGroups[i])!;
+  return `${item.phrase}\n${item.zh}\n${item.example}\n${s.mode==='meaning'?(zh?`一種分法：${group.zh}；如能解釋意思，也可放在其他組。`:`One possible group: ${group.en}. Explain another placement if its meaning fits.`):''}`;
  }
- const item=book.responses[id];
- if(state.kind==='viewpoint')return {prompt:'',choices:[{en:'Yes',zh:'是',correct:item.position==='yes'},{en:'No',zh:'否',correct:item.position==='no'},{en:'It depends',zh:'視乎情況',correct:item.position==='depends'}],model:item.positionWhy,modelZh:item.positionWhyZh,followup:'Name one reason or experience in the text. Keep this position label separate from the tone.',followupZh:'指出文本中的一個理由或經歷，把立場標籤與語氣分開。'};
- return {prompt:'',choices:shuffle([{en:item.tone,zh:item.toneZh,correct:true},...item.toneDistractors.map(x=>({en:x,zh:x,correct:false}))]),model:`A supported reading: ${item.tone}.\nCue: “${item.cue}”\n${item.toneWhy}`,modelZh:`一個有依據的解讀：${item.toneZh}。\n線索：「${item.cue}」\n${item.toneWhyZh}`,followup:'Suggest another defensible tone label and point to wording that supports it. A critical tone does not automatically make a claim wrong.',followupZh:'可提出另一個合理語氣標籤，並指出支持詞句；批判語氣不代表論點必然錯誤。'};
+ const item=book.responses[i];return kind==='viewpoint'?(zh?item.positionWhyZh:item.positionWhy):(zh?`${item.toneZh}；線索：「${item.cue}」。${item.toneWhyZh}`:`${item.tone}. Cue: “${item.cue}”. ${item.toneWhy}`);
 }
-function reset(kind:Kind,all=false,mixed=false):State{
- const items=kind==='phrases'?bank.phrases.flatMap((x,i)=>all||x.core?[i]:[]):book.responses.map((_,i)=>i);
- const state:State={kind,items:mixed?shuffle(items):items,index:0,mode:0,all,selected:null,checked:false,attempted:new Set(),correct:new Set(),q:null!};
- state.q=question(state);states.set(kind,state);return state;
-}
-function advance(state:State){
- if(state.kind==='phrases'&&state.mode<2)state.mode++;else{state.mode=0;state.index++;}
- state.selected=null;state.checked=false;state.q=question(state);render(state.kind);
-}
-function render(kind:Kind){
- const state=states.get(kind)!;const id=indexOfItem(state);
+function render(kind:BoardKind){
+ const s=states.get(kind)!;const ids=items(kind,s);const assigned=placement(s);const categories=groups(kind,s);const valid=new Set(['pool',...categories.map(x=>x.id)]);
+ ids.forEach(id=>{if(!valid.has(assigned[id]))assigned[id]='pool';});
  roots.filter(root=>root.dataset.s2Game===kind).forEach(root=>{
-  const zh=root.dataset.s2Lang==='zh';
-  const progress=root.querySelector('[data-s2-progress]');
-  if(progress)progress.textContent=kind==='phrases'?`${state.index+1} / ${state.items.length} · ${state.correct.size} / ${state.attempted.size} ${zh?'已核對答對':'checked correctly'}`:`${zh?'文本':'Text'} ${book.responses[id].id} · ${state.index+1} / ${state.items.length}`;
-  const bankSelect=root.querySelector<HTMLSelectElement>('[data-s2-bank]');if(bankSelect)bankSelect.value=state.all?'all':'core';
-  const mode=root.querySelector<HTMLSelectElement>('[data-s2-mode]');if(mode)mode.value=String(state.mode);
-  const heading=root.querySelector('[data-s2-question]');if(heading)heading.textContent=kind==='phrases'?([zh?'哪個意思最符合？':'Which meaning fits this chunk?',zh?'詞組需要哪個介詞？':'Which preposition completes the chunk?',zh?'用詞庫配搭完成例句，再說自己的句子。':'Complete the example with the bank’s pattern, then make your own sentence.'][state.mode]):kind==='viewpoint'?(zh?'作者對問題的立場是甚麼？先選邊，再指出理由。':'What is the writer’s position? Pick a side, then point to a reason.'):(zh?'哪個語氣描述最有詞句支持？':'Which tone description is best supported by the wording?');
-  const prompt=root.querySelector('[data-s2-prompt]');if(prompt)prompt.textContent=state.q.prompt;
-  const author=root.querySelector('[data-s2-author]');if(author)author.textContent=`${book.responses[id].id}. ${book.responses[id].name} · ${book.responses[id].job}`;
-  const passage=root.querySelector('[data-s2-passage]');if(passage)passage.textContent=book.responses[id].text;
-  root.querySelectorAll<HTMLButtonElement>('[data-s2-choice]').forEach((button,i)=>{const choice=state.q.choices[i];button.hidden=!choice;if(!choice)return;button.textContent=zh?choice.zh:choice.en;button.setAttribute('aria-pressed',String(state.selected===i));});
-  const check=root.querySelector<HTMLButtonElement>('[data-s2-check]');if(check)check.disabled=state.selected===null;
-  const last=state.index===state.items.length-1&&(kind!=='phrases'||state.mode===2);
-  const next=root.querySelector<HTMLButtonElement>('[data-s2-next]');if(next){next.disabled=!state.checked||last;next.textContent=last?(zh?'本輪完成，可重新開始':'Round complete; restart to review'):(zh?'下一題':'Next challenge');}
-  const feedback=root.querySelector('[data-s2-feedback]');if(feedback)feedback.textContent=state.checked?`${state.q.choices[state.selected!].correct?(zh?'符合本題的配搭／解讀。\n':'That matches the model pattern or reading.\n'):(zh?'比較以下配搭／有依據的解讀。\n':'Compare your choice with the model pattern or supported reading.\n')}${zh?state.q.modelZh:state.q.model}`:'';
-  const followup=root.querySelector('[data-s2-followup]');if(followup)followup.textContent=state.checked?(zh?state.q.followupZh:state.q.followup):'';
+  const zh=root.dataset.s2Lang==='zh';const groupLabel=(id:string)=>id==='pool'?(zh?'未分組':'Unsorted'):(categories.find(x=>x.id===id)?.[zh?'zh':'en']||id);
+  const bankSelect=root.querySelector<HTMLSelectElement>('[data-s2-bank]');if(bankSelect)bankSelect.value=s.all?'all':'core';
+  const mode=root.querySelector<HTMLSelectElement>('[data-s2-mode]');if(mode)mode.value=s.mode;
+  const hide=root.querySelector<HTMLInputElement>('[data-s2-hide]');if(hide)hide.checked=s.hide;
+  const reveal=root.querySelector<HTMLButtonElement>('[data-s2-model]')!;reveal.setAttribute('aria-pressed',String(s.models));reveal.textContent=s.models?(zh?'隱藏討論提示':'Hide discussion notes'):(zh?'顯示討論提示':'Show discussion notes');
+  const progress=root.querySelector('[data-s2-progress]')!;const count=ids.filter(id=>assigned[id]!=='pool').length;progress.textContent=zh?`${count} / ${ids.length} 張已分組`:`${count} / ${ids.length} cards grouped`;
+  root.querySelector('[data-s2-selected]')!.textContent=s.selected!==null?(zh?`已選取：${label(kind,s.selected)}。選擇組別。`:`Selected: ${label(kind,s.selected)}. Choose a group.`):(zh?'先選取卡片，再選組別；也可拖曳到組別按鈕。':'Select a card, then choose a group; or drag onto a group button.');
+  const targets=root.querySelector<HTMLElement>('[data-s2-targets]')!;targets.replaceChildren();
+  [{id:'pool',en:'Unsorted',zh:'未分組'},...categories].forEach(group=>{const button=document.createElement('button');button.type='button';button.dataset.s2Destination=group.id;button.textContent=`${zh?group.zh:group.en} (${ids.filter(id=>assigned[id]===group.id).length})`;button.setAttribute('aria-label',zh?`移到${group.zh}`:`Move to ${group.en}`);targets.append(button);});
+  const groupRoot=root.querySelector<HTMLElement>('[data-s2-groups]')!;
+  // Keep card nodes (and their open language notes) while rebuilding category shells.
+  const cards=Array.from(root.querySelectorAll<HTMLElement>('[data-s2-card]'));
+  groupRoot.replaceChildren();categories.forEach(group=>{const section=document.createElement('section');section.className='s2-group';section.dataset.s2Zone=group.id;section.setAttribute('aria-label',groupLabel(group.id));const heading=document.createElement('h3');heading.textContent=`${groupLabel(group.id)} (${ids.filter(id=>assigned[id]===group.id).length})`;const list=document.createElement('div');list.dataset.s2Cards='';const hint=document.createElement('p');hint.className='s2-empty';hint.textContent=zh?'把卡片拖到這裏。':'Drag cards here.';hint.hidden=ids.some(id=>assigned[id]===group.id);section.append(heading,list,hint);groupRoot.append(section);});
+  cards.forEach(card=>{const id=card.dataset.s2Card!;const visible=ids.includes(id);card.hidden=!visible;card.classList.toggle('is-selected',s.selected===id);card.querySelector('[data-s2-select]')!.setAttribute('aria-pressed',String(s.selected===id));if(kind==='phrases')card.querySelector('[data-s2-card-title]')!.textContent=s.hide?bank.phrases[Number(id)].phrase.replace(new RegExp(`\\b${bank.phrases[Number(id)].prep}\\b`),'____'):bank.phrases[Number(id)].phrase;
+   const note=card.querySelector<HTMLElement>('[data-s2-card-model]')!;note.hidden=!s.models;note.textContent=notes(kind,id,s,zh);
+   const destination=visible?assigned[id]:'pool';root.querySelector(`[data-s2-zone="${destination}"] [data-s2-cards]`)!.append(card);
+  });
+  const ungrouped=ids.length-count;root.querySelector('[data-s2-pool-count]')!.textContent=`(${ungrouped})`;root.querySelector<HTMLElement>('.s2-pool > [data-s2-empty]')!.hidden=ungrouped>0;
  });
+ save();
+}
+function move(kind:BoardKind,id:string,destination:string){
+ const s=states.get(kind)!;if(!items(kind,s).includes(id)||!['pool',...groups(kind,s).map(x=>x.id)].includes(destination))return;
+ placement(s)[id]=destination;s.selected=null;render(kind);
+ roots.filter(root=>root.dataset.s2Game===kind).forEach(root=>{const zh=root.dataset.s2Lang==='zh';const group=groups(kind,s).find(x=>x.id===destination);root.querySelector<HTMLButtonElement>(`[data-s2-destination="${destination}"]`)?.focus({preventScroll:true});root.querySelector('[data-s2-status]')!.textContent=zh?`已將 ${label(kind,id)} 移到${group?.zh||'未分組'}。`:`Moved ${label(kind,id)} to ${group?.en||'Unsorted'}.`;});
 }
 roots.forEach(root=>{
- const kind=root.dataset.s2Game as Kind;if(!states.has(kind))reset(kind);
- root.querySelectorAll<HTMLButtonElement>('[data-s2-choice]').forEach((button,i)=>button.addEventListener('click',()=>{const state=states.get(kind)!;state.selected=i;state.checked=false;render(kind);}));
- root.querySelector('[data-s2-check]')?.addEventListener('click',()=>{const state=states.get(kind)!;if(state.selected===null)return;const key=`${indexOfItem(state)}:${state.mode}`;if(!state.attempted.has(key)){state.attempted.add(key);if(state.q.choices[state.selected].correct)state.correct.add(key);}state.checked=true;render(kind);});
- root.querySelector('[data-s2-next]')?.addEventListener('click',()=>advance(states.get(kind)!));
- root.querySelector('[data-s2-restart]')?.addEventListener('click',()=>{const old=states.get(kind)!;reset(kind,old.all,kind==='phrases');render(kind);});
- root.querySelector<HTMLSelectElement>('[data-s2-bank]')?.addEventListener('change',event=>{reset(kind,(event.target as HTMLSelectElement).value==='all');render(kind);});
- root.querySelector<HTMLSelectElement>('[data-s2-mode]')?.addEventListener('change',event=>{const state=states.get(kind)!;state.mode=Number((event.target as HTMLSelectElement).value);state.selected=null;state.checked=false;state.q=question(state);render(kind);});
+ const kind=root.dataset.s2Game as BoardKind;
+ if(!states.has(kind)){
+  const old=saved[kind];states.set(kind,{all:old?.all===true,mode:kind==='phrases'&&old?.mode==='meaning'?'meaning':kind==='phrases'?'preposition':kind,hide:old?.hide===true,models:false,selected:null,placements:old?.placements&&typeof old.placements==='object'?old.placements:{}});
+ }
+ root.addEventListener('click',event=>{const target=(event.target as Element).closest<HTMLElement>('button');if(!target)return;const s=states.get(kind)!;
+  if(target.matches('[data-s2-select]')){const card=target.closest<HTMLElement>('[data-s2-card]')!;s.selected=s.selected===card.dataset.s2Card?null:card.dataset.s2Card!;render(kind);card.querySelector<HTMLButtonElement>('[data-s2-select]')?.focus({preventScroll:true});}
+  if(target.matches('[data-s2-destination]')){if(s.selected!==null)move(kind,s.selected,target.dataset.s2Destination!);else root.querySelector('[data-s2-status]')!.textContent=root.dataset.s2Lang==='zh'?'先選取卡片，或直接拖曳卡片。':'Select a card first, or drag a card onto this group.';}
+  if(target.matches('[data-s2-model]')){s.models=!s.models;render(kind);}
+  if(target.matches('[data-s2-reset]')){items(kind,s).forEach(id=>placement(s)[id]='pool');s.selected=null;s.models=false;render(kind);root.querySelector('[data-s2-status]')!.textContent=root.dataset.s2Lang==='zh'?'卡片已放回未分組區。':'Cards returned to Unsorted.';}
+ });
+ root.querySelector<HTMLSelectElement>('[data-s2-bank]')?.addEventListener('change',event=>{const s=states.get(kind)!;s.all=(event.target as HTMLSelectElement).value==='all';s.selected=null;render(kind);});
+ root.querySelector<HTMLSelectElement>('[data-s2-mode]')?.addEventListener('change',event=>{const s=states.get(kind)!;s.mode=(event.target as HTMLSelectElement).value;s.selected=null;render(kind);});
+ root.querySelector<HTMLInputElement>('[data-s2-hide]')?.addEventListener('change',event=>{states.get(kind)!.hide=(event.target as HTMLInputElement).checked;render(kind);});
+ // Pointer dragging works with a mouse and with a touch on the Select handle.
+ let gesture:{id:string;pointer:number;x:number;y:number;active:boolean;ghost:HTMLElement|null}|null=null;
+ let suppressClick=false;
+ root.addEventListener('click',event=>{if(suppressClick){event.preventDefault();event.stopImmediatePropagation();suppressClick=false;}},true);
+ const clearDrag=()=>{gesture?.ghost?.remove();root.querySelectorAll('.s2-drop-active,.is-dragging').forEach(x=>x.classList.remove('s2-drop-active','is-dragging'));gesture=null;};
+ root.addEventListener('pointerdown',event=>{
+  const target=event.target as Element;const card=target.closest<HTMLElement>('[data-s2-card]');
+  if(!card||event.button!==0||target.closest('summary,details,a,input,textarea,select')||(event.pointerType==='touch'&&!target.closest('[data-s2-select]')))return;
+  gesture={id:card.dataset.s2Card!,pointer:event.pointerId,x:event.clientX,y:event.clientY,active:false,ghost:null};
+ });
+ root.addEventListener('pointermove',event=>{
+  if(!gesture||gesture.pointer!==event.pointerId)return;
+  if(!gesture.active&&Math.hypot(event.clientX-gesture.x,event.clientY-gesture.y)<8)return;
+  event.preventDefault();
+  if(!gesture.active){gesture.active=true;root.setPointerCapture(event.pointerId);const ghost=document.createElement('div');ghost.className='s2-drag-ghost';ghost.textContent=label(kind,gesture.id);ghost.setAttribute('aria-hidden','true');document.body.append(ghost);gesture.ghost=ghost;root.querySelector(`[data-s2-card="${gesture.id}"]`)?.classList.add('is-dragging');}
+  gesture.ghost!.style.left=`${Math.min(event.clientX+12,window.innerWidth-180)}px`;gesture.ghost!.style.top=`${event.clientY+12}px`;
+  root.querySelectorAll('.s2-drop-active').forEach(x=>x.classList.remove('s2-drop-active'));
+  const zone=document.elementFromPoint(event.clientX,event.clientY)?.closest<HTMLElement>('[data-s2-destination],[data-s2-zone]');
+  if(zone&&root.contains(zone))zone.classList.add('s2-drop-active');
+ });
+ root.addEventListener('pointerup',event=>{
+  if(!gesture||gesture.pointer!==event.pointerId)return;
+  const id=gesture.id;const active=gesture.active;
+  const zone=document.elementFromPoint(event.clientX,event.clientY)?.closest<HTMLElement>('[data-s2-destination],[data-s2-zone]');
+  clearDrag();if(root.hasPointerCapture(event.pointerId))root.releasePointerCapture(event.pointerId);
+  if(active){suppressClick=true;setTimeout(()=>{suppressClick=false;},0);if(zone&&root.contains(zone))move(kind,id,zone.dataset.s2Destination||zone.dataset.s2Zone!);}
+ });
+ root.addEventListener('pointercancel',clearDrag);
 });
 states.forEach((_,kind)=>render(kind));

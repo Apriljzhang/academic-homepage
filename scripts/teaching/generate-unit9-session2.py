@@ -3,6 +3,11 @@ Run with a Python environment containing reportlab and pypdf.
 """
 from pathlib import Path
 import json, shutil, re
+from io import BytesIO
+import argparse
+parser=argparse.ArgumentParser()
+parser.add_argument("--only",nargs="+",choices=["language-bank.pdf","student-handout.pdf","teaching-notes.pdf"])
+SELECTED=parser.parse_args().only
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4, landscape
 from reportlab.lib.units import mm
@@ -32,7 +37,8 @@ INK=HexColor('#183b2b'); RULE=HexColor('#a7b8ae'); LIGHT=HexColor('#f1f5f2'); GR
 
 class Page:
  def __init__(self,path):
-  self.c=canvas.Canvas(str(path),pagesize=A4)
+  self.buffer=BytesIO()
+  self.c=canvas.Canvas(self.buffer,pagesize=A4)
   self.c.setTitle(path.stem.replace('-',' ').title())
   self.c.setAuthor('General English I')
   self.c.setCreator('ReportLab; prepared with Codex')
@@ -80,7 +86,9 @@ class Page:
   self.line(12,self.H/mm-13,self.W/mm-12,self.H/mm-13)
   self.text(footer or 'Use the language bank while you work.',12,self.H/mm-8,7.5,color=GREY)
   self.c.setFont('Body',7.5);self.c.drawRightString(self.W-12*mm,8*mm,str(self.num));self.c.showPage()
- def save(self):self.c.save()
+ def save(self):
+  self.c.save()
+  if SELECTED is None or self.path.name in SELECTED:self.path.write_bytes(self.buffer.getvalue())
 
 # 60 reusable chunks. Core patterns are marked, not all 60 assessed in one lesson.
 p=Page(OUT/'language-bank.pdf')
@@ -108,7 +116,7 @@ y=p.table(['Look for','Ask yourself'],[
  ('Reason','Why does the writer think this?'),
  ('Example / experience','What concrete case or experience does the writer describe?'),
  ('Tone','What attitude comes through the wording? Which words create it?')],12,y,[49,137],9.6)
-y=p.heading('3. Play pick a side: texts A-F','先在HTML遊戲選立場，再獨立選語氣；每項判斷都指出詞句。',y+11)
+y=p.heading('3. Group the reading cards: texts A-F','先按立場分組，再按語氣重新分組；每次移動都指出詞句。',y+11)
 y=p.table(['Text','Yes / no / depends','Reason or example','Tone + exact cue'],[(x,'','','') for x in 'ABCDEF'],12,y,[16,43,66,61],9,rowheights=[10]+[12]*6)
 y=p.para('<b>Use:</b> The writer\'s position is ____ because ____. The tone sounds ____; the words “____” suggest ____. A word or phrase can sometimes help show both.',12,y+4,186,9.5)
 p.end('Viewpoint = the position. Tone = the attitude expressed through language. Keep the two labels separate.')
@@ -146,17 +154,17 @@ p.save()
 
 p=Page(OUT/'teaching-notes.pdf')
 p.start('Teach the language, then debate','Session 2: dependent prepositions; viewpoint versus tone; claims with convincing support. 75 minutes.')
-p.heading('Print and organise','先準備詞庫、講義及閱讀卡。',48)
-y=p.para('<b>Per student:</b> three-page student handout. Keep the four-page language bank for review, or share one reference copy between two students.<br/><b>Classroom games:</b> project the HTML phrase game and the two pick-a-side games, or let pairs play on a device. Students can move to yes / no / depends areas, point or vote from their seats. No reading cut-outs are needed.<br/><b>Source:</b> responses transcribed from the user-supplied Unit 9B p.109 photograph. The six full responses appear in the HTML reading games with source credit.',12,60,186,9.7)
+p.heading('Print and organise','先準備詞庫、講義及網頁分組板。',48)
+y=p.para('<b>Per student:</b> three-page student handout. Keep the four-page language bank for review, or share one reference copy between two students.<br/><b>Grouping boards:</b> show all six reading cards together. Students drag cards into groups, or select a card then choose a group button. Discuss placements before revealing notes. The phrase board groups the core 12 or all 60 by preposition or meaning. No reading cut-outs are needed.<br/><b>Source:</b> responses transcribed from the user-supplied Unit 9B p.109 photograph. The six full responses appear in the HTML reading games with source credit.',12,60,186,9.7)
 y=p.heading('75-minute sequence','詞庫先作支援，最後用於個人論證與回應。',y+11)
 y=p.table(['Time','Teaching and material'],[
  ('0-4','Same position, different tone: compare the two original opening comments.'),
  ('4-9','Language bank p.1 + handout p.1: notice word + preposition + noun / pronoun / -ing. Twelve starred chunks are the active set.'),
  ('9-17','Complete eight gaps and repair two sentences. In pairs, say a personalised example with a recycled unit word.'),
- ('17-23','HTML phrase game: meaning, missing preposition and use in a sentence. Play a few core items in class; the full 60 remain available for review. Choose three chunks for the debate.'),
+ ('17-23','Phrase board: sort 12 core cards by preposition, then meaning. Explain placements and adapt examples. Cover prepositions to re-sort. Keep three chunks for debate; all 60 are available for review.'),
  ('23-28','Handout p.1: separate position, reason, example and tone. Model a tone judgement with exact wording.'),
- ('28-39','HTML viewpoint game: read each response, choose yes / no / depends, then explain a reason before revealing the feedback.'),
- ('39-47','HTML tone game: identify attitude and a cue in the same texts. Compare A/F (both no) and B/D (both yes). Do not score position as tone.'),
+ ('28-39','Viewpoint board: read all six cards, group them under yes / no / depends, and justify placements. Reveal discussion notes after groups explain their reasons.'),
+ ('39-47','Tone board: regroup all six cards by tone using exact wording. Compare A/F (both no) and B/D (both yes). Accept alternative tone labels with evidence.'),
  ('47-55','Handout p.2: model claim, reason, concrete example, link and response. Show why a personal example is limited support.'),
  ('55-62','Each student prepares an argument. Pair checks the example-to-claim link and three preposition chunks.'),
  ('62-71','Handout p.3: two debate rounds and feedback. Every student makes an opening and a response.'),
@@ -172,9 +180,9 @@ y=p.table(['Text','Position + support','Tone + possible cue'],[
  ('C Daniela','Depends on the job: school is a foundation; further specialist learning is needed.','Measured / qualified: “It depends”; “a great start, but …”.'),
  ('D Paul','Yes: school football helped develop teamwork.','Confident / emphatic: “definitely”; positive emphasis on teamwork.'),
  ('E Danh','Depends: subjects may not directly match a job, but can reveal interests and careers.','Measured / qualified: “in some cases”, “However”, “probably”.'),
- ('F Aslan','No: he questions the relevance of school learning to practical job tasks.','Dismissive / abrupt or frustrated: short rhetorical answers, “Never!”, “Sadly”.')],12,60,[13,86,87],9.2)
+ ('F Aslan','No: he questions the relevance of school learning to practical job tasks.','Dismissive / abrupt or frustrated: short rhetorical answers, “Never!”, “Sadly”.')],12,60,[23,76,87],9.2)
 y=p.para('<b>Separate the axes:</b> A and F share a negative position but sound different. B and D share an affirmative position but use different voices. “Factual” in the book describes a matter-of-fact style; it does not establish that a claim is true. Critical tone can be measured and useful. A phrase can signal both position and tone.',12,y+5,186,9.7)
-y=p.para('<b>Game routine:</b> everyone chooses before the answer is revealed. Ask for a reason, then check the feedback. In the tone game, the options offer one supported interpretation; accept other labels when students explain exact wording.',12,y+8,186,9.5)
+y=p.para('<b>Board routine:</b> take turns placing cards and explaining why. Invite another student to support or challenge a placement. Reveal discussion notes without moving the cards. Tone groups are open to alternative labels supported by exact wording. Meaning groups can overlap; ask students to explain their choices.',12,y+8,186,9.5)
 y=p.heading('Preposition key and useful distinctions','整個詞組一起核對。',y+11)
 y=p.para('<b>Eight gaps:</b> for / with / from / on / to / on / for / from.<br/><b>Repairs:</b> I agree <b>with</b> my classmate. I am interested in <b>learning</b> about jobs.<br/><b>Contrast:</b> agree with a person / agree on a plan / agree to a proposal. After a preposition use a noun, pronoun or -ing form. Accept other grammatically valid patterns when their meaning fits.',12,y,186,9.7)
 p.end('Do not score viewpoint as tone. Require a cue and an explanation for each tone label.')
@@ -196,5 +204,6 @@ p.end('Individual product: an opening, a response, and a revised written claim w
 p.save()
 
 for name,n in [('language-bank.pdf',4),('student-handout.pdf',3),('teaching-notes.pdf',3)]:
+ if SELECTED is not None and name not in SELECTED:continue
  reader=PdfReader(OUT/name);assert len(reader.pages)==n,(name,len(reader.pages));shutil.copy2(OUT/name,LOCAL/name);print(name,n,'pages')
-print('Three print PDFs ready. Reading and phrase activities are HTML games; no cut-out report pack.')
+print('Selected print PDFs ready. Reading and phrase activities use HTML grouping boards.')

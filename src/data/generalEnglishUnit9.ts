@@ -801,26 +801,26 @@ export const unit9Sessions: Unit9Session[] = [
       {
         "minutes": 6,
         "title": {
-          "en": "Play with the phrase bank",
-          "zh": "玩轉詞組庫"
+          "en": "Group the phrases",
+          "zh": "把詞組分組"
         },
         "lead": {
-          "en": "Play a few core items now. Use all 60 later for more review.",
-          "zh": "現在玩幾個核心題目，之後可用全部60項繼續複習。"
+          "en": "All cards share one board. Sort, explain and rearrange.",
+          "zh": "所有卡片同在一個分組板：分類、解釋，再調整。"
         },
         "handoutCue": {
-          "en": "Bank game: meaning → preposition → use in context. Say your own sentence after a context question.",
-          "zh": "詞庫遊戲：意思 → 介詞 → 句中運用；情境題後再說自己的句子。"
+          "en": "Start with 12 core chunks. Group by preposition, then by meaning. Open a card’s meaning and example when needed.",
+          "zh": "先用12個核心詞組，按介詞、再按意思分組；需要時打開卡片的意思及例句。"
         },
         "game": "phrases",
         "steps": [
           {
-            "en": "Work with a partner. Both choose before checking. Explain the meaning and use one word from Unit 1, 2, 5 or 9 in a new sentence.",
-            "zh": "與同伴先各自選擇再核對，解釋意思，並用第1、2、5或9單元的一個詞造句。"
+            "en": "Take turns moving a card. Explain its meaning and adapt the example with one word from Unit 1, 2, 5 or 9. Cover the prepositions for a second sort.",
+            "zh": "輪流移動卡片，解釋意思，並用第1、2、5或9單元的一個詞改寫例句；第二次可遮住介詞再分類。"
           },
           {
-            "en": "Keep three chunks for your debate. The game checks recall; your partner checks your original sentence.",
-            "zh": "保留三個詞組用於辯論。遊戲核對記憶，同伴核對你自己的句子。"
+            "en": "Discuss alternative meaning groups. Keep three chunks for the debate. The all-60 bank stays on one board for later review.",
+            "zh": "討論其他合理的意思分組，保留三個詞組用於辯論；全部60項也可在同一板上複習。"
           }
         ],
         "id": "s2-redesign-4"
@@ -899,23 +899,23 @@ export const unit9Sessions: Unit9Session[] = [
       {
         "minutes": 11,
         "title": {
-          "en": "Pick the writer’s side",
-          "zh": "選出作者的立場"
+          "en": "Group the writers’ viewpoints",
+          "zh": "把作者的立場分組"
         },
         "lead": {
-          "en": "Read each full response. Choose the writer’s answer, then point to a reason.",
-          "zh": "閱讀每篇完整回應，選作者的回答，再指出一個理由。"
+          "en": "Read all six cards. Move writers into Yes, No or It depends, and explain the support for each placement.",
+          "zh": "閱讀六張卡片，把作者移到「是、否、視乎情況」組，並解釋每次分組的依據。"
         },
         "ref": "9B · p.109 · Does school prepare you for the world of work?",
         "handoutCue": {
-          "en": "Handout p.1: texts A–F. Vote or move to Yes / No / It depends. Record the reason before checking.",
-          "zh": "講義第1頁文本A–F，可投票或移到「是／否／視乎情況」區；核對前記下理由。"
+          "en": "Handout p.1: texts A–F. Agree a placement with your group, then move the card. Reveal discussion notes after explaining your reasons.",
+          "zh": "講義第1頁文本A–F：小組先討論位置，再移動卡片；說明理由後才顯示討論提示。"
         },
         "game": "viewpoint",
         "steps": [
           {
-            "en": "Everyone chooses before the teacher checks. You are identifying the writer’s position, not stating your own yet.",
-            "zh": "老師核對前每人先選；現在辨認作者立場，稍後才表達自己的。"
+            "en": "Each student explains at least one placement. Compare two writers in the same group and revise a placement if the text changes your mind.",
+            "zh": "每人至少解釋一張卡片的位置，比較同組兩位作者；如文本改變你的想法，可重新移動。"
           }
         ],
         "fields": [
@@ -984,16 +984,16 @@ export const unit9Sessions: Unit9Session[] = [
       {
         "minutes": 5,
         "title": {
-          "en": "Pick a tone, prove it with wording",
-          "zh": "選語氣，用措辭支持"
+          "en": "Group tones, defend your reading",
+          "zh": "把語氣分組，解釋你的解讀"
         },
         "lead": {
-          "en": "Choose a supported tone description. Say the cue before revealing the model explanation.",
-          "zh": "選有依據的語氣描述，先說線索，再揭示示範解釋。"
+          "en": "All six texts are here again. Group the voices by tone and quote the wording that supports your choices.",
+          "zh": "六篇文本再次同時出現，按語氣分組，再引用支持判斷的措辭。"
         },
         "handoutCue": {
-          "en": "Handout p.1: tone + exact cue. More than one label can be defensible if the evidence fits.",
-          "zh": "講義第1頁：語氣及確切線索；有證據時，多個標籤都可能合理。"
+          "en": "Handout p.1: tone + exact cue. Use Another tone for your own label. Groups may differ when their evidence supports the reading.",
+          "zh": "講義第1頁：語氣及確切線索；「另一種語氣」可用自訂標籤，有詞句支持時可以有不同分法。"
         },
         "game": "tone",
         "fields": [
