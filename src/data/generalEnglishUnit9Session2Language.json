@@ -1,0 +1,484 @@
+{
+  "phrases": [
+    {
+      "phrase": "apply for a job",
+      "zh": "申請工作",
+      "example": "My hard-working classmate wants to apply for a job as a reporter.",
+      "core": true,
+      "kind": "verb",
+      "prep": "for"
+    },
+    {
+      "phrase": "agree with a classmate",
+      "zh": "同意同學的看法",
+      "example": "I agree with my classmate that education can develop communication skills.",
+      "core": true,
+      "kind": "verb",
+      "prep": "with"
+    },
+    {
+      "phrase": "graduate from school",
+      "zh": "從學校畢業",
+      "example": "My cousin wants to become an accountant after she graduates from school.",
+      "core": true,
+      "kind": "verb",
+      "prep": "from"
+    },
+    {
+      "phrase": "depend on the situation",
+      "zh": "取決於情況",
+      "example": "The skills a nurse needs depend on the situation and the team.",
+      "core": true,
+      "kind": "verb",
+      "prep": "on"
+    },
+    {
+      "phrase": "introduce someone to a team",
+      "zh": "向團隊介紹某人",
+      "example": "The shop manager introduced a friendly new partner to our team.",
+      "core": true,
+      "kind": "verb",
+      "prep": "to"
+    },
+    {
+      "phrase": "decide on a career",
+      "zh": "選定職業方向",
+      "example": "My best friend has not decided on a career, but she enjoys design.",
+      "core": true,
+      "kind": "verb",
+      "prep": "on"
+    },
+    {
+      "phrase": "ask for help",
+      "zh": "尋求幫助",
+      "example": "A nervous student can ask a helpful classmate for help.",
+      "core": true,
+      "kind": "verb",
+      "prep": "for"
+    },
+    {
+      "phrase": "borrow something from someone",
+      "zh": "向某人借用物品",
+      "example": "I borrowed a book about modern buildings from my neighbour.",
+      "core": true,
+      "kind": "verb",
+      "prep": "from"
+    },
+    {
+      "phrase": "prepare for an interview",
+      "zh": "準備面試",
+      "example": "My confident cousin is preparing for an interview with an architect.",
+      "core": true,
+      "kind": "verb",
+      "prep": "for"
+    },
+    {
+      "phrase": "learn from a mistake",
+      "zh": "從錯誤中學習",
+      "example": "An honest teammate can learn from a mistake instead of hiding it.",
+      "core": true,
+      "kind": "verb",
+      "prep": "from"
+    },
+    {
+      "phrase": "focus on a task",
+      "zh": "專注於任務",
+      "example": "Our quiet partner helps us focus on the construction task.",
+      "core": true,
+      "kind": "verb",
+      "prep": "on"
+    },
+    {
+      "phrase": "benefit from feedback",
+      "zh": "從回饋中獲益",
+      "example": "Even a talented software developer can benefit from feedback.",
+      "core": true,
+      "kind": "verb",
+      "prep": "from"
+    },
+    {
+      "phrase": "agree on a plan",
+      "zh": "就計劃達成共識",
+      "example": "Our teammates agreed on a plan for a family celebration.",
+      "core": false,
+      "kind": "verb",
+      "prep": "on"
+    },
+    {
+      "phrase": "agree to a proposal",
+      "zh": "同意一項提議",
+      "example": "The manager agreed to a proposal about sustainable materials.",
+      "core": false,
+      "kind": "verb",
+      "prep": "to"
+    },
+    {
+      "phrase": "disagree with someone",
+      "zh": "不同意某人的看法",
+      "example": "I disagree with my uncle about working close to home.",
+      "core": false,
+      "kind": "verb",
+      "prep": "with"
+    },
+    {
+      "phrase": "believe in someone",
+      "zh": "相信某人的能力",
+      "example": "A helpful teacher believes in a shy student and encourages her.",
+      "core": false,
+      "kind": "verb",
+      "prep": "in"
+    },
+    {
+      "phrase": "belong to a club",
+      "zh": "屬於某個社團",
+      "example": "My sociable classmate belongs to an international music club.",
+      "core": false,
+      "kind": "verb",
+      "prep": "to"
+    },
+    {
+      "phrase": "listen to a partner",
+      "zh": "聆聽伙伴",
+      "example": "A good teammate listens to a partner before making a decision.",
+      "core": false,
+      "kind": "verb",
+      "prep": "to"
+    },
+    {
+      "phrase": "talk to a teacher",
+      "zh": "與老師交談",
+      "example": "My worried friend talked to a teacher about her education.",
+      "core": false,
+      "kind": "verb",
+      "prep": "to"
+    },
+    {
+      "phrase": "talk about work",
+      "zh": "談論工作",
+      "example": "My aunt and I talked about her work as a nurse.",
+      "core": false,
+      "kind": "verb",
+      "prep": "about"
+    },
+    {
+      "phrase": "think about a problem",
+      "zh": "思考問題",
+      "example": "The electronic engineer thought about the problem with the materials.",
+      "core": false,
+      "kind": "verb",
+      "prep": "about"
+    },
+    {
+      "phrase": "think of an example",
+      "zh": "想到例子",
+      "example": "Can you think of an example of good communication in your family?",
+      "core": false,
+      "kind": "verb",
+      "prep": "of"
+    },
+    {
+      "phrase": "wait for a reply",
+      "zh": "等待回覆",
+      "example": "My nervous brother is waiting for a reply from the shop manager.",
+      "core": false,
+      "kind": "verb",
+      "prep": "for"
+    },
+    {
+      "phrase": "look for information",
+      "zh": "尋找資訊",
+      "example": "We are looking for information about accommodation in an urban area.",
+      "core": false,
+      "kind": "verb",
+      "prep": "for"
+    },
+    {
+      "phrase": "participate in a discussion",
+      "zh": "參與討論",
+      "example": "A quiet classmate can participate in a discussion with a partner.",
+      "core": false,
+      "kind": "verb",
+      "prep": "in"
+    },
+    {
+      "phrase": "contribute to a team",
+      "zh": "為團隊作貢獻",
+      "example": "Every hard-working student can contribute to a team.",
+      "core": false,
+      "kind": "verb",
+      "prep": "to"
+    },
+    {
+      "phrase": "succeed in solving a problem",
+      "zh": "成功解決問題",
+      "example": "Our confident team succeeded in solving a problem with transport.",
+      "core": false,
+      "kind": "verb",
+      "prep": "in"
+    },
+    {
+      "phrase": "deal with a disagreement",
+      "zh": "處理分歧",
+      "example": "A calm shop manager can deal with a disagreement between teammates.",
+      "core": false,
+      "kind": "verb",
+      "prep": "with"
+    },
+    {
+      "phrase": "cope with pressure",
+      "zh": "應付壓力",
+      "example": "A paramedic needs to cope with pressure and stay calm.",
+      "core": false,
+      "kind": "verb",
+      "prep": "with"
+    },
+    {
+      "phrase": "apologise for a mistake",
+      "zh": "為錯誤道歉",
+      "example": "The honest reporter apologised for a mistake in her story.",
+      "core": false,
+      "kind": "verb",
+      "prep": "for"
+    },
+    {
+      "phrase": "thank someone for advice",
+      "zh": "感謝某人的建議",
+      "example": "I thanked my grandfather for his advice about my career.",
+      "core": false,
+      "kind": "verb",
+      "prep": "for"
+    },
+    {
+      "phrase": "provide someone with information",
+      "zh": "向某人提供資訊",
+      "example": "A secondary school teacher provided us with information about education.",
+      "core": false,
+      "kind": "verb",
+      "prep": "with"
+    },
+    {
+      "phrase": "protect someone from harm",
+      "zh": "保護某人免受傷害",
+      "example": "Firefighters work as a team to protect people from harm.",
+      "core": false,
+      "kind": "verb",
+      "prep": "from"
+    },
+    {
+      "phrase": "compare one thing with another",
+      "zh": "比較兩件事物",
+      "example": "Compare rural accommodation with a modern home in an urban area.",
+      "core": false,
+      "kind": "verb",
+      "prep": "with"
+    },
+    {
+      "phrase": "spend time on a task",
+      "zh": "花時間做某項任務",
+      "example": "Our artistic classmate spent time on a proposal for a new building.",
+      "core": false,
+      "kind": "verb",
+      "prep": "on"
+    },
+    {
+      "phrase": "recover from a setback",
+      "zh": "從挫折中恢復",
+      "example": "A cheerful teammate helped our family recover from a difficult experience.",
+      "core": false,
+      "kind": "verb",
+      "prep": "from"
+    },
+    {
+      "phrase": "interested in a subject",
+      "zh": "對某科目感興趣",
+      "example": "My musical cousin is interested in education and communication.",
+      "core": false,
+      "kind": "adjective",
+      "prep": "in"
+    },
+    {
+      "phrase": "good at communicating",
+      "zh": "擅長溝通",
+      "example": "A friendly salesperson is good at communicating with strangers.",
+      "core": false,
+      "kind": "adjective",
+      "prep": "at"
+    },
+    {
+      "phrase": "not yet good at a skill",
+      "zh": "尚未擅長某技能",
+      "example": "I am not yet good at design, but I have imagination and want to learn.",
+      "core": false,
+      "kind": "adjective",
+      "prep": "at"
+    },
+    {
+      "phrase": "worried about an outcome",
+      "zh": "擔心結果",
+      "example": "My classmate is worried about applying for an apprenticeship.",
+      "core": false,
+      "kind": "adjective",
+      "prep": "about"
+    },
+    {
+      "phrase": "afraid of making mistakes",
+      "zh": "害怕犯錯",
+      "example": "My shy partner is afraid of making mistakes in front of strangers.",
+      "core": false,
+      "kind": "adjective",
+      "prep": "of"
+    },
+    {
+      "phrase": "proud of an achievement",
+      "zh": "為成就感到自豪",
+      "example": "Our grandmother is proud of my sister for graduating from school.",
+      "core": false,
+      "kind": "adjective",
+      "prep": "of"
+    },
+    {
+      "phrase": "responsible for a task",
+      "zh": "負責某項任務",
+      "example": "The manager is responsible for communication with the construction team.",
+      "core": false,
+      "kind": "adjective",
+      "prep": "for"
+    },
+    {
+      "phrase": "ready for a challenge",
+      "zh": "準備好迎接挑戰",
+      "example": "Our confident team is ready for a tough task in a new location.",
+      "core": false,
+      "kind": "adjective",
+      "prep": "for"
+    },
+    {
+      "phrase": "similar to something",
+      "zh": "與某事物相似",
+      "example": "Working with a classmate is sometimes similar to working with a teammate.",
+      "core": false,
+      "kind": "adjective",
+      "prep": "to"
+    },
+    {
+      "phrase": "different from something",
+      "zh": "與某事物不同",
+      "example": "A rural location is different from a crowded shopping district.",
+      "core": false,
+      "kind": "adjective",
+      "prep": "from"
+    },
+    {
+      "phrase": "familiar with a place",
+      "zh": "熟悉某地方",
+      "example": "Our helpful neighbour is familiar with the local transport system.",
+      "core": false,
+      "kind": "adjective",
+      "prep": "with"
+    },
+    {
+      "phrase": "satisfied with a result",
+      "zh": "對結果感到滿意",
+      "example": "The architect is satisfied with our imaginative proposal.",
+      "core": false,
+      "kind": "adjective",
+      "prep": "with"
+    },
+    {
+      "phrase": "a reason for a decision",
+      "zh": "作出決定的原因",
+      "example": "One reason for my decision is the chance to work close to my family.",
+      "core": false,
+      "kind": "noun",
+      "prep": "for"
+    },
+    {
+      "phrase": "a need for a skill",
+      "zh": "對某技能的需要",
+      "example": "Many jobs have a need for clear communication and teamwork.",
+      "core": false,
+      "kind": "noun",
+      "prep": "for"
+    },
+    {
+      "phrase": "an opportunity for practice",
+      "zh": "練習機會",
+      "example": "A school team gives shy classmates an opportunity for practice.",
+      "core": false,
+      "kind": "noun",
+      "prep": "for"
+    },
+    {
+      "phrase": "a demand for a service",
+      "zh": "對某服務的需求",
+      "example": "There is a demand for transport between the rural area and the city.",
+      "core": false,
+      "kind": "noun",
+      "prep": "for"
+    },
+    {
+      "phrase": "respect for other people",
+      "zh": "尊重別人",
+      "example": "An honest professional shows respect for partners and strangers.",
+      "core": false,
+      "kind": "noun",
+      "prep": "for"
+    },
+    {
+      "phrase": "an interest in a subject",
+      "zh": "對某科目的興趣",
+      "example": "My brother has an interest in modern buildings and sustainable materials.",
+      "core": false,
+      "kind": "noun",
+      "prep": "in"
+    },
+    {
+      "phrase": "experience of an activity",
+      "zh": "某活動的經驗",
+      "example": "My experience of planning a family celebration helped me work with a team.",
+      "core": false,
+      "kind": "noun",
+      "prep": "of"
+    },
+    {
+      "phrase": "confidence in someone",
+      "zh": "對某人有信心",
+      "example": "Our classmates have confidence in their calm and helpful team leader.",
+      "core": false,
+      "kind": "noun",
+      "prep": "in"
+    },
+    {
+      "phrase": "an effect on something",
+      "zh": "對某事物的影響",
+      "example": "A crowded location can have an effect on communication.",
+      "core": false,
+      "kind": "noun",
+      "prep": "on"
+    },
+    {
+      "phrase": "a solution to a problem",
+      "zh": "問題的解決方法",
+      "example": "Our designer suggested a solution to the problem with the building material.",
+      "core": false,
+      "kind": "noun",
+      "prep": "to"
+    },
+    {
+      "phrase": "a response to a claim",
+      "zh": "對論點的回應",
+      "example": "Give a calm response to your classmate's claim about education.",
+      "core": false,
+      "kind": "noun",
+      "prep": "to"
+    },
+    {
+      "phrase": "access to something",
+      "zh": "使用或取得某事物的機會",
+      "example": "Students in rural areas need access to education and useful information.",
+      "core": false,
+      "kind": "noun",
+      "prep": "to"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 import type { UnitSlide, Text } from './generalEnglishUnit5';
 export type Unit9Field = { key: string; label: Text; hint: string; rows: number };
-export type Unit9Slide = UnitSlide & { id: string; fields?: Unit9Field[]; timeline?: Text[]; teacher?: Text; export?: boolean; mat?: 'jobs' | 'timeline' };
+export type Unit9Slide = UnitSlide & { id: string; fields?: Unit9Field[]; timeline?: Text[]; teacher?: Text; export?: boolean; mat?: 'jobs' | 'timeline'; game?: 'phrases' | 'viewpoint' | 'tone' };
 export type Unit9Session = { number: number; slug: string; title: Text; sections: string; pages: string; outcome: Text; slides: Unit9Slide[] };
 export const unit9Sessions: Unit9Session[] = [
   {
@@ -590,91 +590,101 @@ export const unit9Sessions: Unit9Session[] = [
     "number": 2,
     "slug": "learning-beyond-subjects",
     "title": {
-      "en": "What am I learning beyond my subjects?",
-      "zh": "除了學科知識，我還學到甚麼？"
+      "en": "Prepositions, tone and persuasion",
+      "zh": "介詞、語氣與說服"
     },
     "sections": "9B",
     "pages": "108–109",
     "outcome": {
-      "en": "Read viewpoints, explain tone with evidence and connect an experience to a useful skill.",
-      "zh": "閱讀不同觀點、用證據解釋語氣，並把經歷與有用技能連起來。"
+      "en": "Use dependent-preposition chunks, distinguish tone from viewpoint, and defend a claim with reasons and concrete support.",
+      "zh": "運用依賴介詞詞組，區分語氣與立場，並用理由及具體支持論證。"
     },
     "slides": [
       {
-        "minutes": 3,
-        "title": {
-          "en": "What did you actually learn?",
-          "zh": "你實際學到了甚麼？"
-        },
-        "lead": {
-          "en": "Think of a task that seemed useful, frustrating or both.",
-          "zh": "想一項有用、令人困擾，或兩者皆有的任務。"
-        },
-        "cover": true,
-        "steps": [
-          {
-            "en": "Explain it to a partner in two sentences.",
-            "zh": "用兩句向同伴說明。"
-          }
-        ],
-        "takeaway": {
-          "en": "Today: read different views → examine wording → give a specific response.",
-          "zh": "今天：閱讀不同觀點 → 分析措辭 → 提出具體回應。"
-        },
-        "id": "s2-1"
-      },
-      {
         "minutes": 4,
         "title": {
-          "en": "Take a position",
-          "zh": "表達立場"
+          "en": "Prepositions, tone and persuasion",
+          "zh": "介詞、語氣與說服"
         },
         "lead": {
-          "en": "“A university course is useful only if it directly prepares you for a job.”",
-          "zh": "「大學課程只有直接為就業作準備，才有用。」"
+          "en": "Does school prepare you for the world of work? Build language, read voices and make a supported claim.",
+          "zh": "學校能讓你準備好進入職場嗎？累積語言、辨認聲音，再提出有支持的論點。"
         },
-        "steps": [
+        "cover": true,
+        "columns": [
           {
-            "en": "Choose agree, disagree or unsure. Give one reason and listen to a different view.",
-            "zh": "選同意、不同意或不確定；說一個原因，再聽不同看法。"
+            "title": {
+              "en": "Two comments, one position",
+              "zh": "兩個留言，同一立場"
+            },
+            "lines": [
+              {
+                "en": "School can prepare students for teamwork when tasks require shared responsibility.",
+                "zh": "當任務需要共同負責時，學校能讓學生準備好團隊合作。"
+              },
+              {
+                "en": "Of course school prepares you. Only lazy people disagree.",
+                "zh": "學校當然能讓你準備好，只有懶惰的人才不同意。"
+              }
+            ]
           },
           {
-            "en": "You can change your position after reading.",
-            "zh": "閱讀後可以改變立場。"
-          }
-        ],
-        "fields": [
-          {
-            "key": "first-position",
-            "label": {
-              "en": "My starting position and reason",
-              "zh": "我的最初立場及原因"
+            "title": {
+              "en": "Compare the effect",
+              "zh": "比較效果"
             },
-            "hint": "",
-            "rows": 3
+            "lines": [
+              {
+                "en": "Both say yes. Which wording helps you consider the claim? What support is missing?",
+                "zh": "兩句都答是。哪種措辭有助你思考論點？缺少甚麼支持？"
+              },
+              {
+                "en": "Position is the answer. Tone is the attitude expressed through wording.",
+                "zh": "立場是回答；語氣是措辭表達的態度。"
+              }
+            ]
           }
         ],
-        "id": "s2-2"
+        "handoutCue": {
+          "en": "Keep the printed phrase bank and three-page handout open. The book responses are inside the games.",
+          "zh": "打開列印詞庫及三頁講義；課本回應已放在遊戲內。"
+        },
+        "links": [
+          {
+            "label": {
+              "en": "60-phrase print bank",
+              "zh": "60個詞組列印詞庫"
+            },
+            "href": "/teaching/courses/general-english/unit-9/session-2/language-bank.pdf",
+            "download": true
+          },
+          {
+            "label": {
+              "en": "Student handout and debate planner",
+              "zh": "學生講義及辯論準備紙"
+            },
+            "href": "/teaching/courses/general-english/unit-9/session-2/student-handout.pdf",
+            "download": true
+          }
+        ],
+        "id": "s2-redesign-1"
       },
       {
         "minutes": 5,
         "title": {
-          "en": "Useful words travel together",
-          "zh": "把常用詞組一起學"
+          "en": "Learn the word and its preposition together",
+          "zh": "把詞與介詞一起學"
         },
         "lead": {
-          "en": "Notice the preposition that belongs with each verb.",
-          "zh": "留意各動詞配搭的介詞。"
+          "en": "Use the whole chunk, then change one detail for your own life.",
+          "zh": "使用完整詞組，再改一項細節，變成自己的生活例子。"
         },
-        "ref": "9B · p. 108 · Ex. 1",
+        "ref": "9B · p.108 · Dependent prepositions; review Units 1, 2, 5 and 9",
+        "handoutCue": {
+          "en": "Language bank p.1: the 12 starred core chunks. Handout p.1: section 1.",
+          "zh": "詞庫第1頁：12個星號核心詞組；講義第1頁第1部分。"
+        },
         "wordBank": [
-          {
-            "word": "apply for",
-            "meaning": {
-              "en": "apply for a society role",
-              "zh": "申請社團職位"
-            }
-          },
           {
             "word": "agree with",
             "meaning": {
@@ -683,619 +693,544 @@ export const unit9Sessions: Unit9Session[] = [
             }
           },
           {
-            "word": "graduate from",
-            "meaning": {
-              "en": "graduate from university",
-              "zh": "大學畢業"
-            }
-          },
-          {
             "word": "depend on",
             "meaning": {
-              "en": "depend on the timetable",
-              "zh": "取決於時間表"
+              "en": "depend on the job",
+              "zh": "取決於職業"
             }
           },
           {
-            "word": "introduce someone to",
+            "word": "prepare for",
             "meaning": {
-              "en": "introduce a friend to the team",
-              "zh": "向團隊介紹朋友"
+              "en": "prepare for an interview",
+              "zh": "準備面試"
             }
           },
           {
-            "word": "decide on",
+            "word": "learn from",
             "meaning": {
-              "en": "decide on a topic",
-              "zh": "選定題目"
+              "en": "learn from a mistake",
+              "zh": "從錯誤中學習"
+            }
+          },
+          {
+            "word": "focus on",
+            "meaning": {
+              "en": "focus on communication",
+              "zh": "專注於溝通"
+            }
+          },
+          {
+            "word": "benefit from",
+            "meaning": {
+              "en": "benefit from feedback",
+              "zh": "從回饋中獲益"
             }
           }
         ],
-        "steps": [
-          {
-            "en": "Complete Ex. 1. Say the whole phrase when checking, including the preposition.",
-            "zh": "完成第1題，核對時說完整詞組，包括介詞。"
-          }
-        ],
-        "id": "s2-3"
+        "example": "I agree with my classmate that education can develop communication skills.\nA nervous student can ask a helpful classmate for help.",
+        "takeaway": {
+          "en": "After a preposition: a noun, a pronoun or an -ing form. Interested in design / interested in it / interested in designing.",
+          "zh": "介詞後可接名詞、代名詞或-ing形式：interested in design／interested in it／interested in designing。"
+        },
+        "id": "s2-redesign-2"
       },
       {
-        "minutes": 5,
+        "minutes": 8,
         "title": {
-          "en": "Use the phrase in your life",
-          "zh": "把詞組用在生活中"
+          "en": "Complete, repair and personalise",
+          "zh": "填空、修正及個人化"
         },
         "lead": {
-          "en": "Choose the preposition, then replace one detail with your own.",
-          "zh": "選介詞，再改一項細節，變成自己的句子。"
+          "en": "Choose the preposition, say the whole chunk, then make a sentence.",
+          "zh": "選介詞，說完整詞組，再造句。"
+        },
+        "handoutCue": {
+          "en": "Handout p.1: eight gaps and two repairs. Use the bank, then cover it and try again.",
+          "zh": "講義第1頁：八個填空及兩項修正；先用詞庫，再遮住重試。"
         },
         "practice": [
           {
             "number": 1,
-            "prompt": "I applied ___ a role in the student society.",
-            "answer": "for"
+            "prompt": "apply ___ a job / agree ___ a classmate",
+            "answer": "for / with"
           },
           {
             "number": 2,
-            "prompt": "We have not decided ___ a presentation topic.",
-            "answer": "on"
+            "prompt": "graduate ___ school / depend ___ the job",
+            "answer": "from / on"
           },
           {
             "number": 3,
-            "prompt": "Whether I can attend depends ___ my timetable.",
-            "answer": "on"
+            "prompt": "introduce me ___ a teammate / decide ___ a career",
+            "answer": "to / on"
           },
           {
             "number": 4,
-            "prompt": "I agree ___ Mei that we need another rehearsal.",
-            "answer": "with"
+            "prompt": "prepare ___ work / learn ___ a mistake",
+            "answer": "for / from"
           },
           {
             "number": 5,
-            "prompt": "Please introduce me ___ your project partner.",
-            "answer": "to"
+            "prompt": "Repair: I agree to my classmate.",
+            "answer": "I agree with my classmate."
+          },
+          {
+            "number": 6,
+            "prompt": "Repair: I am interested in learn about jobs.",
+            "answer": "I am interested in learning about jobs."
           }
         ],
         "fields": [
           {
             "key": "phrase",
             "label": {
-              "en": "Two original sentences using today’s phrases",
-              "zh": "用今天的詞組寫兩句自己的句子"
+              "en": "Two personal sentences using different chunks and recycled unit words",
+              "zh": "用不同詞組及複習詞彙，寫兩句自己的句子"
             },
             "hint": "",
-            "rows": 3
+            "rows": 4
           }
         ],
-        "id": "s2-4"
-      },
-      {
-        "minutes": 4,
-        "title": {
-          "en": "One question, six answers",
-          "zh": "一個問題，六個回答"
+        "takeaway": {
+          "en": "Agree with a person; agree on a plan; agree to a proposal. The complement helps choose the pattern.",
+          "zh": "agree with a person；agree on a plan；agree to a proposal。後面的內容有助選擇配搭。"
         },
-        "lead": {
-          "en": "Does school prepare you for the world of work?",
-          "zh": "學校能讓你準備好進入職場嗎？"
-        },
-        "ref": "9B · pp. 108–109 · Ex. 3–4",
-        "steps": [
-          {
-            "en": "Skim all six paragraphs. Read the first and last sentences and look for position words.",
-            "zh": "略讀六段，留意首尾句及立場詞。"
-          },
-          {
-            "en": "Mark each writer yes, no or depends. Do not stop at every new word.",
-            "zh": "標示每位作者的立場：yes、no 或 depends，不必每遇生詞就停下。"
-          }
-        ],
-        "teacher": {
-          "en": "Keep the six full paragraphs in the e-book. Do not project an answer before students have located evidence.",
-          "zh": "完整六段使用電子書；學生找出證據後才揭示答案。"
-        },
-        "id": "s2-5"
+        "id": "s2-redesign-3"
       },
       {
         "minutes": 6,
         "title": {
-          "en": "Become the reader for one voice",
-          "zh": "負責讀懂一個觀點"
+          "en": "Play with the phrase bank",
+          "zh": "玩轉詞組庫"
         },
         "lead": {
-          "en": "Each person reads one paragraph closely. In smaller groups, take two each.",
-          "zh": "每人細讀一段；人數較少時，每人負責兩段。"
+          "en": "Play a few core items now. Use all 60 later for more review.",
+          "zh": "現在玩幾個核心題目，之後可用全部60項繼續複習。"
         },
-        "ref": "9B · p. 109",
+        "handoutCue": {
+          "en": "Bank game: meaning → preposition → use in context. Say your own sentence after a context question.",
+          "zh": "詞庫遊戲：意思 → 介詞 → 句中運用；情境題後再說自己的句子。"
+        },
+        "game": "phrases",
         "steps": [
           {
-            "en": "Find the writer’s position, their main reason and a phrase that supports your interpretation.",
-            "zh": "找出立場、主要原因及支持你解讀的詞句。"
+            "en": "Work with a partner. Both choose before checking. Explain the meaning and use one word from Unit 1, 2, 5 or 9 in a new sentence.",
+            "zh": "與同伴先各自選擇再核對，解釋意思，並用第1、2、5或9單元的一個詞造句。"
           },
           {
-            "en": "Prepare a short explanation in your own words. A new word can be checked after you identify the main idea.",
-            "zh": "用自己的話準備簡短說明，先找主旨，再查必要生詞。"
+            "en": "Keep three chunks for your debate. The game checks recall; your partner checks your original sentence.",
+            "zh": "保留三個詞組用於辯論。遊戲核對記憶，同伴核對你自己的句子。"
+          }
+        ],
+        "id": "s2-redesign-4"
+      },
+      {
+        "minutes": 5,
+        "title": {
+          "en": "Four different reading questions",
+          "zh": "四個不同的閱讀問題"
+        },
+        "lead": {
+          "en": "A position label does not explain the reason or identify the tone.",
+          "zh": "立場標籤不會自動說明理由，也不等於語氣。"
+        },
+        "handoutCue": {
+          "en": "Handout p.1: the four-question table and reading grid.",
+          "zh": "講義第1頁：四個問題表及閱讀記錄表。"
+        },
+        "table": {
+          "headers": [
+            {
+              "en": "Look for",
+              "zh": "辨認內容"
+            },
+            {
+              "en": "Ask",
+              "zh": "提問"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Viewpoint / position",
+                "zh": "觀點／立場"
+              },
+              {
+                "en": "What is the answer: yes, no or depends?",
+                "zh": "回答是：是、否，還是視乎情況？"
+              }
+            ],
+            [
+              {
+                "en": "Reason",
+                "zh": "理由"
+              },
+              {
+                "en": "Why does the writer think this?",
+                "zh": "作者為何這樣想？"
+              }
+            ],
+            [
+              {
+                "en": "Example / experience",
+                "zh": "例子／經歷"
+              },
+              {
+                "en": "What specific case is described?",
+                "zh": "描述了甚麼具體情況？"
+              }
+            ],
+            [
+              {
+                "en": "Tone",
+                "zh": "語氣"
+              },
+              {
+                "en": "What attitude does the wording express? Which words show it?",
+                "zh": "措辭表達甚麼態度？哪些詞顯示出來？"
+              }
+            ]
+          ]
+        },
+        "example": "The position is ____. The reason is ____.\nThe tone sounds ____; the words “____” suggest ____.",
+        "id": "s2-redesign-5"
+      },
+      {
+        "minutes": 11,
+        "title": {
+          "en": "Pick the writer’s side",
+          "zh": "選出作者的立場"
+        },
+        "lead": {
+          "en": "Read each full response. Choose the writer’s answer, then point to a reason.",
+          "zh": "閱讀每篇完整回應，選作者的回答，再指出一個理由。"
+        },
+        "ref": "9B · p.109 · Does school prepare you for the world of work?",
+        "handoutCue": {
+          "en": "Handout p.1: texts A–F. Vote or move to Yes / No / It depends. Record the reason before checking.",
+          "zh": "講義第1頁文本A–F，可投票或移到「是／否／視乎情況」區；核對前記下理由。"
+        },
+        "game": "viewpoint",
+        "steps": [
+          {
+            "en": "Everyone chooses before the teacher checks. You are identifying the writer’s position, not stating your own yet.",
+            "zh": "老師核對前每人先選；現在辨認作者立場，稍後才表達自己的。"
           }
         ],
         "fields": [
           {
             "key": "expert-reading",
             "label": {
-              "en": "Writer / position / reason / textual evidence",
-              "zh": "作者／立場／原因／文本證據"
+              "en": "Writers’ positions and concrete support",
+              "zh": "作者立場及具體支持"
             },
-            "hint": "Name: … Position: … Reason: … Evidence: …",
-            "rows": 5
+            "hint": "A: … B: … C: … D: … E: … F: …",
+            "rows": 6
           }
         ],
-        "id": "s2-6"
-      },
-      {
-        "minutes": 6,
-        "title": {
-          "en": "Build the whole picture",
-          "zh": "拼出完整圖像"
-        },
-        "lead": {
-          "en": "Share your paragraph. Listeners complete their reading grid.",
-          "zh": "分享負責的段落，聆聽者完成閱讀表。"
-        },
-        "table": {
-          "headers": [
-            {
-              "en": "Writer",
-              "zh": "作者"
-            },
-            {
-              "en": "Position",
-              "zh": "立場"
-            },
-            {
-              "en": "Reason + evidence",
-              "zh": "原因及證據"
-            }
-          ],
-          "rows": [
-            [
-              {
-                "en": "Lydia",
-                "zh": "Lydia"
-              },
-              {
-                "en": "Yes / no / depends",
-                "zh": "是／否／視乎情況"
-              },
-              {
-                "en": "Find a phrase in p. 109",
-                "zh": "在第109頁找出詞句"
-              }
-            ],
-            [
-              {
-                "en": "Sophia",
-                "zh": "Sophia"
-              },
-              {
-                "en": "Yes / no / depends",
-                "zh": "是／否／視乎情況"
-              },
-              {
-                "en": "Find a phrase in p. 109",
-                "zh": "在第109頁找出詞句"
-              }
-            ],
-            [
-              {
-                "en": "Daniela",
-                "zh": "Daniela"
-              },
-              {
-                "en": "Yes / no / depends",
-                "zh": "是／否／視乎情況"
-              },
-              {
-                "en": "Find a phrase in p. 109",
-                "zh": "在第109頁找出詞句"
-              }
-            ],
-            [
-              {
-                "en": "Paul",
-                "zh": "Paul"
-              },
-              {
-                "en": "Yes / no / depends",
-                "zh": "是／否／視乎情況"
-              },
-              {
-                "en": "Find a phrase in p. 109",
-                "zh": "在第109頁找出詞句"
-              }
-            ],
-            [
-              {
-                "en": "Danh",
-                "zh": "Danh"
-              },
-              {
-                "en": "Yes / no / depends",
-                "zh": "是／否／視乎情況"
-              },
-              {
-                "en": "Find a phrase in p. 109",
-                "zh": "在第109頁找出詞句"
-              }
-            ],
-            [
-              {
-                "en": "Aslan",
-                "zh": "Aslan"
-              },
-              {
-                "en": "Yes / no / depends",
-                "zh": "是／否／視乎情況"
-              },
-              {
-                "en": "Find a phrase in p. 109",
-                "zh": "在第109頁找出詞句"
-              }
-            ]
-          ]
-        },
-        "steps": [
-          {
-            "en": "Ask one clarification question. Then open the paragraph and check the explanation against it.",
-            "zh": "提出一個澄清問題，再打開相關段落核對。"
-          }
-        ],
-        "id": "s2-7"
-      },
-      {
-        "minutes": 4,
-        "title": {
-          "en": "Check the interpretation",
-          "zh": "核對解讀"
-        },
-        "lead": {
-          "en": "Decide whether the reasons fit the writer’s overall position.",
-          "zh": "判斷原因是否符合作者整體立場。"
-        },
-        "ref": "9B · p. 108 · Ex. 4–6",
-        "reveal": {
-          "title": {
-            "en": "Check and explain",
-            "zh": "核對並解釋"
-          },
-          "lines": [
-            {
-              "en": "No: Lydia and Aslan. Yes: Sophia and Paul. Depends: Daniela and Danh.",
-              "zh": "否：Lydia 和 Aslan。是：Sophia 和 Paul。視乎情況：Daniela 和 Danh。"
-            },
-            {
-              "en": "Sophia emphasises thinking; Paul connects teamwork in sport to work.",
-              "zh": "Sophia 強調思考；Paul 把運動中的團隊合作與工作連起來。"
-            },
-            {
-              "en": "Daniela recognises a starting point and further learning; Danh emphasises exploring interests.",
-              "zh": "Daniela 肯定起步基礎及後續學習；Danh 強調探索興趣。"
-            }
-          ]
-        },
-        "steps": [
-          {
-            "en": "Complete Ex. 6. For one answer, identify how the exercise paraphrases the reading.",
-            "zh": "完成第6題，選一題指出題目如何改述閱讀內容。"
-          }
-        ],
-        "id": "s2-8"
-      },
-      {
-        "minutes": 5,
-        "title": {
-          "en": "What creates the tone?",
-          "zh": "甚麼形成語氣？"
-        },
-        "lead": {
-          "en": "Tone comes from choices of words and sentences.",
-          "zh": "語氣來自詞語及句式的選擇。"
-        },
-        "ref": "9B · p. 108 · Ex. 7",
-        "steps": [
-          {
-            "en": "Find wording that makes Aslan sound dismissive and Sophia sound warm.",
-            "zh": "找出讓 Aslan 顯得不屑、Sophia 顯得親切的措辭。"
-          },
-          {
-            "en": "Find qualifications in Daniela’s or Danh’s paragraph. Explain what they limit.",
-            "zh": "在 Daniela 或 Danh 的段落找出限定語，說明它們限制了甚麼。"
-          }
-        ],
-        "takeaway": {
-          "en": "A friendly tone does not prove a claim. An unfriendly writer may still raise a useful problem.",
-          "zh": "友善語氣不代表論點已獲證實；語氣不友善的作者也可能提出有用問題。"
-        },
-        "id": "s2-9"
-      },
-      {
-        "minutes": 5,
-        "title": {
-          "en": "Same topic, different wording",
-          "zh": "同一話題，不同措辭"
-        },
-        "lead": {
-          "en": "Read these original student comments. Which sounds dismissive, warm or qualified?",
-          "zh": "閱讀這些原創學生留言，判斷哪個顯得不屑、親切或有保留。"
-        },
-        "reading": [
-          {
-            "number": 1,
-            "text": {
-              "en": "Group work is a waste of time. Nobody learns anything.",
-              "zh": "分組工作浪費時間，根本沒有人學到任何東西。"
-            }
-          },
-          {
-            "number": 2,
-            "text": {
-              "en": "My partner helped me explain an idea I had struggled with. I felt much more confident after our rehearsal.",
-              "zh": "同伴幫我把一直說不清的想法講明白；排練後我更有信心。"
-            }
-          },
-          {
-            "number": 3,
-            "text": {
-              "en": "Group work can help us practise explaining ideas, although the tasks need clear responsibilities.",
-              "zh": "分組工作能讓我們練習解釋想法，但任務需要清楚分工。"
-            }
-          }
-        ],
-        "quiz": [
-          {
-            "prompt": {
-              "en": "Which comment makes the broadest unsupported claim?",
-              "zh": "哪個留言作出的無證據概括最大？"
-            },
-            "choices": [
-              {
-                "en": "1",
-                "zh": "1"
-              },
-              {
-                "en": "2",
-                "zh": "2"
-              },
-              {
-                "en": "3",
-                "zh": "3"
-              }
-            ],
-            "correct": 0,
-            "feedback": {
-              "en": "Nobody learns anything generalises to everyone without evidence.",
-              "zh": "Nobody learns anything 在沒有證據下概括所有人。"
-            }
-          }
-        ],
-        "source": {
-          "en": "Original class examples.",
-          "zh": "原創課堂例子。"
-        },
-        "id": "s2-10"
+        "id": "s2-redesign-6"
       },
       {
         "minutes": 3,
         "title": {
-          "en": "A complaint worth examining",
-          "zh": "值得分析的抱怨"
+          "en": "Same position, different tone",
+          "zh": "同一立場，不同語氣"
         },
         "lead": {
-          "en": "Read the situation before deciding what advice to give.",
-          "zh": "先讀情況，再決定給甚麼建議。"
+          "en": "Compare Lydia with Aslan, then Sophia with Paul.",
+          "zh": "比較 Lydia 與 Aslan，再比較 Sophia 與 Paul。"
         },
-        "example": "“Our group spent three hours preparing a five-minute presentation. One person did most of the work, and we barely used English. What did we actually learn?”",
-        "steps": [
+        "columns": [
           {
-            "en": "Name one real problem. Name one possible learning benefit. What detail would you need to know?",
-            "zh": "指出一項實際問題及一項可能的學習益處；還需要知道甚麼？"
+            "title": {
+              "en": "Lydia and Aslan: both no",
+              "zh": "Lydia 與 Aslan：都答否"
+            },
+            "lines": [
+              {
+                "en": "Lydia contrasts what she learned with what she used at work. Aslan gives short rhetorical answers such as Never!",
+                "zh": "Lydia 比較所學與工作用途；Aslan 用 Never! 等簡短反問回應。"
+              },
+              {
+                "en": "How does the wording change the effect?",
+                "zh": "措辭如何改變效果？"
+              }
+            ]
+          },
+          {
+            "title": {
+              "en": "Sophia and Paul: both yes",
+              "zh": "Sophia 與 Paul：都答是"
+            },
+            "lines": [
+              {
+                "en": "Sophia uses a family story and warm affirmation. Paul strongly emphasises teamwork benefits.",
+                "zh": "Sophia 用家庭故事及親切肯定；Paul 強調團隊合作益處。"
+              },
+              {
+                "en": "A label needs evidence from words or sentences.",
+                "zh": "標籤需要詞句證據。"
+              }
+            ]
           }
         ],
-        "id": "s2-11"
+        "takeaway": {
+          "en": "Critical can be measured; warm does not mean proven true. The book’s factual tone describes a style, not verified accuracy.",
+          "zh": "批判可以平穩；親切不等於內容已證實。課本的 factual tone 描述風格，不是準確性認證。"
+        },
+        "id": "s2-redesign-7"
       },
       {
         "minutes": 5,
         "title": {
-          "en": "Connect an action to a skill",
-          "zh": "把行動與技能連起來"
+          "en": "Pick a tone, prove it with wording",
+          "zh": "選語氣，用措辭支持"
         },
         "lead": {
-          "en": "Choose a precise action instead of writing “It is useful.”",
-          "zh": "選具體行動，避免只寫「這很有用」。"
+          "en": "Choose a supported tone description. Say the cue before revealing the model explanation.",
+          "zh": "選有依據的語氣描述，先說線索，再揭示示範解釋。"
+        },
+        "handoutCue": {
+          "en": "Handout p.1: tone + exact cue. More than one label can be defensible if the evidence fits.",
+          "zh": "講義第1頁：語氣及確切線索；有證據時，多個標籤都可能合理。"
+        },
+        "game": "tone",
+        "fields": [
+          {
+            "key": "tone-evidence",
+            "label": {
+              "en": "Two tone judgements with exact wording",
+              "zh": "兩項語氣判斷及確切措辭"
+            },
+            "hint": "The tone sounds …; the words “…” suggest …",
+            "rows": 4
+          }
+        ],
+        "id": "s2-redesign-8"
+      },
+      {
+        "minutes": 4,
+        "title": {
+          "en": "Make a claim worth supporting",
+          "zh": "提出值得支持的論點"
+        },
+        "lead": {
+          "en": "A strong claim is precise and supportable. Identify what you are actually arguing.",
+          "zh": "強論點要清楚、有合理範圍，並能獲支持；先說明真正要論證甚麼。"
+        },
+        "handoutCue": {
+          "en": "Handout p.2: model claim, reason, example, link and response.",
+          "zh": "講義第2頁：示範論點、理由、例子、關聯及回應。"
+        },
+        "example": "School prepares students for teamwork, although job-specific training is still needed.",
+        "steps": [
+          {
+            "en": "Say whether school means education before university or formal education more broadly. Label the level in your examples.",
+            "zh": "說明 school 指大學前教育還是更廣義的正規教育，例子須註明階段。"
+          },
+          {
+            "en": "Choose a qualified yes, no or depends. Identify the part another pair could challenge.",
+            "zh": "可選有條件的是、否或視乎情況，指出另一組可以質疑哪部分。"
+          }
+        ],
+        "id": "s2-redesign-9"
+      },
+      {
+        "minutes": 4,
+        "title": {
+          "en": "Explain why the example matters",
+          "zh": "解釋例子為何重要"
+        },
+        "lead": {
+          "en": "Connect claim → reason → concrete support → explanation → response.",
+          "zh": "連起論點 → 理由 → 具體支持 → 解釋 → 回應。"
         },
         "table": {
           "headers": [
             {
-              "en": "Action",
-              "zh": "行動"
+              "en": "Part",
+              "zh": "部分"
             },
             {
-              "en": "Skill practised",
-              "zh": "練習的技能"
-            },
-            {
-              "en": "A possible improvement",
-              "zh": "可作的改善"
+              "en": "Example",
+              "zh": "示範"
             }
           ],
           "rows": [
             [
               {
-                "en": "Explaining a slide",
-                "zh": "解釋投影片"
+                "en": "Reason",
+                "zh": "理由"
               },
               {
-                "en": "Making information clear",
-                "zh": "清楚傳達資訊"
-              },
-              {
-                "en": "Rehearse with a listener",
-                "zh": "向聆聽者排練"
+                "en": "Many jobs depend on communication with other people.",
+                "zh": "許多工作依靠與別人溝通。"
               }
             ],
             [
               {
-                "en": "Comparing sources",
-                "zh": "比較資料來源"
+                "en": "Reading support",
+                "zh": "閱讀支持"
               },
               {
-                "en": "Checking evidence",
-                "zh": "核對證據"
-              },
-              {
-                "en": "Explain why a source is suitable",
-                "zh": "說明來源為何合適"
+                "en": "Paul says school football developed his teamwork skills.",
+                "zh": "Paul 說學校足球活動培養了團隊技能。"
               }
             ],
             [
               {
-                "en": "Dividing tasks",
-                "zh": "分配任務"
+                "en": "Link",
+                "zh": "關聯"
               },
               {
-                "en": "Coordinating responsibilities",
-                "zh": "協調責任"
+                "en": "Shared activities can practise coordination used in many workplaces.",
+                "zh": "共同活動可練習許多職場所需的協調。"
+              }
+            ],
+            [
+              {
+                "en": "Response",
+                "zh": "回應"
               },
               {
-                "en": "Agree a check-in time",
-                "zh": "約定進度核對時間"
+                "en": "Some groups are badly organised. Clear roles can help each classmate contribute.",
+                "zh": "有些小組安排欠佳，清楚分工可讓每位同學作貢獻。"
               }
             ]
           ]
         },
-        "fields": [
-          {
-            "key": "response-plan",
-            "label": {
-              "en": "Problem / possible benefit / one practical change",
-              "zh": "問題／可能益處／一項實際改變"
-            },
-            "hint": "",
-            "rows": 3
-          }
-        ],
-        "id": "s2-12"
+        "takeaway": {
+          "en": "The six responses are personal views. Use them to illustrate ideas; they do not prove what all schools do.",
+          "zh": "六篇回應是個人觀點，可用作說明想法，不足以證明所有學校的情況。"
+        },
+        "id": "s2-redesign-10"
       },
       {
         "minutes": 7,
         "title": {
-          "en": "Write a useful reply",
-          "zh": "寫有用的回覆"
+          "en": "Prepare your own case",
+          "zh": "準備自己的論證"
         },
         "lead": {
-          "en": "Write 70–90 words to the student. Recognise the problem and give a specific next step.",
-          "zh": "寫70–90字回覆同學，指出問題並提出具體下一步。"
+          "en": "Write individually, then ask a partner to test the connection between your example and claim.",
+          "zh": "先獨立寫，再請同伴檢查例子與論點的關係。"
         },
-        "example": "I understand why you feel … One useful part could be … For example, … Next time, your group could …",
-        "steps": [
-          {
-            "en": "Use one idea from the reading and one concrete example. Acknowledge the reading writer by name.",
-            "zh": "運用一個閱讀觀點及一個具體例子，寫出閱讀作者的名字。"
-          }
-        ],
-        "fields": [
-          {
-            "key": "reply-draft",
-            "label": {
-              "en": "My first reply",
-              "zh": "我的初稿"
-            },
-            "hint": "Aim for 70–90 words.",
-            "rows": 7
-          }
-        ],
-        "id": "s2-13"
-      },
-      {
-        "minutes": 5,
-        "title": {
-          "en": "Read it as your classmate",
-          "zh": "以同學角度閱讀"
-        },
-        "lead": {
-          "en": "Exchange replies. Give one suggestion that the writer can use immediately.",
-          "zh": "交換回覆，給一項可立即採用的建議。"
+        "handoutCue": {
+          "en": "Handout p.2: individual argument. Handout p.3: debate roles and sentence frames.",
+          "zh": "講義第2頁個人論證；第3頁辯論角色及句型。"
         },
         "steps": [
           {
-            "en": "Underline the specific problem and proposed action. Is the connection between activity and skill explained?",
-            "zh": "劃出具體問題及建議行動，有解釋活動與技能的關係嗎？"
+            "en": "Use one named reading idea and one specific personal experience or clearly labelled imagined example.",
+            "zh": "用一個註明作者的閱讀觀點，以及一個具體個人經驗或清楚註明的虛構例子。"
           },
           {
-            "en": "Check one dependent preposition if used. Ask about one unclear sentence.",
-            "zh": "如有介詞配搭，核對一處，並問一句意思不清楚的句子。"
+            "en": "Use at least three preposition chunks. Recycle qualities, places, people and jobs from Units 1, 2, 5 and 9.",
+            "zh": "至少用三個介詞詞組，重用第1、2、5、9單元的特質、地方、人物及職業詞。"
+          },
+          {
+            "en": "Prepare a likely objection and a response.",
+            "zh": "準備一項可能異議及回應。"
           }
         ],
         "fields": [
           {
-            "key": "reply-revised",
+            "key": "debate-plan",
             "label": {
-              "en": "My revised reply",
-              "zh": "我的修訂稿"
+              "en": "Claim / reason / reading support / example / link / response",
+              "zh": "論點／理由／閱讀支持／例子／關聯／回應"
             },
-            "hint": "Make at least one useful change.",
-            "rows": 7
+            "hint": "",
+            "rows": 8
           }
         ],
-        "id": "s2-14"
+        "id": "s2-redesign-11"
       },
       {
-        "minutes": 5,
+        "minutes": 9,
         "title": {
-          "en": "What do you think now?",
-          "zh": "你現在怎樣看？"
+          "en": "Debate: convince a listener",
+          "zh": "辯論：說服聆聽者"
         },
         "lead": {
-          "en": "Return to your first position. You may keep it, qualify it or change it.",
-          "zh": "回到最初立場，可以保留、加上條件或改變。"
+          "en": "Groups of four. Two pairs defend contrasting claims. Every student opens and responds.",
+          "zh": "四人一組，兩對提出不同論點；每人都開場及回應。"
+        },
+        "handoutCue": {
+          "en": "Handout p.3. Round 1: 3 min → improve: 1 min → round 2: 3 min → feedback: 2 min.",
+          "zh": "講義第3頁：第一輪3分鐘 → 改善1分鐘 → 第二輪3分鐘 → 回饋2分鐘。"
+        },
+        "steps": [
+          {
+            "en": "Round 1: A1 and B1 open; A2 and B2 respond. Each turn is 45 seconds.",
+            "zh": "第一輪：A1、B1開場，A2、B2回應，每次45秒。"
+          },
+          {
+            "en": "Plan for one minute. Round 2: swap the opening and response roles.",
+            "zh": "準備一分鐘；第二輪交換開場及回應角色。"
+          },
+          {
+            "en": "Name the most convincing support you heard and explain why it worked.",
+            "zh": "指出聽到的最有說服力支持，解釋其作用。"
+          }
+        ],
+        "example": "I argue that … because …\nI agree with you that … . However, …\nCould you give a specific example? How does that support your claim?",
+        "id": "s2-redesign-12"
+      },
+      {
+        "minutes": 4,
+        "title": {
+          "en": "Keep a stronger argument and useful language",
+          "zh": "保留更好的論證及有用語言"
+        },
+        "lead": {
+          "en": "Revise after listening. Keep the full phrase bank for later review.",
+          "zh": "聆聽後修訂，保留完整詞庫供日後複習。"
+        },
+        "handoutCue": {
+          "en": "Handout p.3: strongest support / revised claim / a learned or corrected chunk.",
+          "zh": "講義第3頁：最強支持／修訂論點／新學或修正的詞組。"
         },
         "fields": [
           {
             "key": "exit",
             "label": {
-              "en": "My position, reading evidence and personal example",
-              "zh": "我的立場、閱讀證據及個人例子"
+              "en": "My revised claim and support; a useful chunk; one tone choice",
+              "zh": "我的修訂論點及支持、有用詞組及語氣選擇"
             },
-            "hint": "I now think … In the reading, … In my experience, …",
-            "rows": 5
+            "hint": "",
+            "rows": 6
           }
         ],
-        "takeaway": {
-          "en": "Show where an interpretation comes from. A label alone is not enough.",
-          "zh": "說明解讀的依據，只有標籤並不足夠。"
-        },
-        "id": "s2-15"
-      },
-      {
-        "minutes": 3,
-        "title": {
-          "en": "Prepare a small interview",
-          "zh": "準備小訪談"
-        },
-        "lead": {
-          "en": "Ask a classmate about an interest, an experience and something they want to learn.",
-          "zh": "問同學一項興趣、一項經歷及一項想學的事情。"
-        },
-        "steps": [
+        "links": [
           {
-            "en": "Write keywords from three answers. Check your notes with the speaker. About 10 minutes.",
-            "zh": "記錄三個答案的關鍵詞，並跟說話者核對，約10分鐘。"
+            "label": {
+              "en": "60-phrase print bank",
+              "zh": "60個詞組列印詞庫"
+            },
+            "href": "/teaching/courses/general-english/unit-9/session-2/language-bank.pdf",
+            "download": true
           },
           {
-            "en": "You can use a fictional profile from the next lesson if you cannot arrange an interview.",
-            "zh": "未能安排訪談時，可使用下節的虛構人物資料。"
+            "label": {
+              "en": "Student handout and debate planner",
+              "zh": "學生講義及辯論準備紙"
+            },
+            "href": "/teaching/courses/general-english/unit-9/session-2/student-handout.pdf",
+            "download": true
+          },
+          {
+            "label": {
+              "en": "Teaching notes and answer guide",
+              "zh": "教學筆記及答案指引"
+            },
+            "href": "/teaching/courses/general-english/unit-9/session-2/teaching-notes.pdf",
+            "download": true
           }
         ],
         "export": true,
-        "id": "s2-16"
+        "id": "s2-redesign-13"
       }
     ]
   },

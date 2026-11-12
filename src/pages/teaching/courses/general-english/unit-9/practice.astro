@@ -9,7 +9,7 @@ const title = 'Unit 9 practice sheets · General English I';
 const description = 'Printable original practice and campus-life tasks for four 75-minute Unit 9 lessons.';
 const selected: Record<number,string[]> = {
   1:['job-listening','job-report','timeline-events','timeline-story','session1-reflection'],
-  2:['expert-reading','response-plan','reply-draft','reply-revised','exit'],
+  2:['phrase','expert-reading','tone-evidence','debate-plan','exit'],
   3:['interview-plan','interview-notes','reported-answers','verified-report','exit'],
   4:['ted-evidence','campus-plan','email-plan','email-draft','email-final','exit'],
 };
@@ -23,6 +23,7 @@ const selected: Record<number,string[]> = {
       <p class="mt-3">Name / 姓名: ____________________ &nbsp; Class / 班別: __________</p>
       <button type="button" data-print-practice class="print-action mt-5 rounded border border-border px-4 py-3 font-semibold">Print practice sheets / 列印練習紙</button>
       <p class="mt-4"><a href={withBase('/teaching/courses/general-english/unit-9/session-1/student-handout.pdf')}>Session 1: scaffolded student handout (PDF)</a> · <a href={withBase('/teaching/courses/general-english/unit-9/session-1/group-mats-and-cards.pdf')}>Matching mats and cut-out cards (PDF)</a></p>
+      <p class="mt-4"><a href={withBase('/teaching/courses/general-english/unit-9/session-2/language-bank.pdf')}>Session 2: 60-phrase bank (PDF)</a> · <a href={withBase('/teaching/courses/general-english/unit-9/session-2/student-handout.pdf')}>Tone and debate handout (PDF)</a></p>
       {unit9Sessions.map(session => <section class="practice-session">
         <h2>{session.number}. {session.title.en}</h2><p>{session.title.zh}</p>
         <p class="text-muted">{session.sections} · pp. {session.pages} · 75 minutes</p>
@@ -30,7 +31,6 @@ const selected: Record<number,string[]> = {
         {session.slides.filter(slide => slide.practice).map(slide => <div class="practice-block"><h3>{slide.title.en}</h3><ol>{slide.practice!.map(item => <li><p>{item.prompt}</p><div class="answer-line"></div></li>)}</ol></div>)}
         {session.slides.filter(slide => slide.fields?.some(field => selected[session.number].includes(field.key))).map(slide => <div class="practice-block">
           <h3>{slide.title.en}</h3><p>{slide.lead.en}</p>
-          {session.number === 2 && slide.fields?.some(field => field.key === 'response-plan') && <blockquote>“Our group spent three hours preparing a five-minute presentation. One person did most of the work, and we barely used English. What did we actually learn?”</blockquote>}
           {slide.example && <blockquote class="practice-example">{slide.example}</blockquote>}
           {slide.columns && <div>{slide.columns.map(column => <div><strong>{column.title.en}</strong><ul>{column.lines.map(line => <li>{line.en}</li>)}</ul></div>)}</div>}
           {slide.steps && <ul>{slide.steps.map(step => <li>{step.en}</li>)}</ul>}

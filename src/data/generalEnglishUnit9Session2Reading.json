@@ -1,0 +1,120 @@
+{
+  "title": "Does school prepare you for the world of work?",
+  "source": "Perspectives Pre-Intermediate, Unit 9B, p.109. Transcribed from the user-supplied photograph; line breaks and dash styles normalised. The book credits comments adapted from Debate.org.",
+  "responses": [
+    {
+      "id": "A",
+      "name": "Lydia",
+      "job": "software engineer",
+      "text": "If you want to be a software designer and build an app, you don't need to know about history, literature or biology. When I applied for my first job, I hadn't learned any computer programming or project management skills. Learning facts about Ancient Rome and Ancient China was interesting, but I haven't used them in my job.",
+      "position": "no",
+      "positionWhy": "No: Lydia contrasts her first job requirements with what she had learned.",
+      "positionWhyZh": "否：Lydia 比較第一份工作的要求與學校所學。",
+      "tone": "critical / measured",
+      "toneZh": "批判／平穩陳述",
+      "cue": "I haven't used them in my job",
+      "toneDistractors": [
+        "playful / joking",
+        "excited / celebratory",
+        "angry with people"
+      ],
+      "toneWhy": "Her tone is critical of relevance but fairly measured. Other supported descriptions are possible.",
+      "toneWhyZh": "她質疑相關性，措辭較平穩；其他有證據的描述也可接受。"
+    },
+    {
+      "id": "B",
+      "name": "Sophia",
+      "job": "lawyer",
+      "text": "My grandmother once told me that at school she hadn't learned what to think; she'd learned how to think. I agree with her. When we study history, we learn about people, politics, mistakes in the past and the history of great ideas. All of these things help us to understand our place in the world and to learn to think clearly. By the time I graduated from high school, I had definitely learned to think. My grandmother was right!",
+      "position": "yes",
+      "positionWhy": "Yes: Sophia says history helped her learn how to think.",
+      "positionWhyZh": "是：Sophia 認為歷史幫助她學會思考。",
+      "tone": "warm / affirming",
+      "toneZh": "親切／肯定",
+      "cue": "My grandmother was right!",
+      "toneDistractors": [
+        "dismissive / abrupt",
+        "uncertain / hesitant",
+        "detached / impersonal"
+      ],
+      "toneWhy": "The family story and exclamation create warm affirmation. This is separate from her yes position.",
+      "toneWhyZh": "家庭故事與感嘆句形成親切而肯定的語氣；這與「是」的立場分開判斷。"
+    },
+    {
+      "id": "C",
+      "name": "Daniela",
+      "job": "chef",
+      "text": "It depends on the type of job you want. If you want to be a teacher, then school is the perfect preparation. If you want to be a chef, school is a great start, but then you need something more - you need to learn all about food. When I got my first job, my boss said it was the beginning of my education.",
+      "position": "depends",
+      "positionWhy": "It depends: Daniela separates a useful foundation from further job-specific learning.",
+      "positionWhyZh": "視乎情況：Daniela 區分學校基礎與後續專門學習。",
+      "tone": "measured / qualified",
+      "toneZh": "平穩／有保留",
+      "cue": "It depends on the type of job you want.",
+      "toneDistractors": [
+        "mocking / sarcastic",
+        "outraged / hostile",
+        "excited / celebratory"
+      ],
+      "toneWhy": "It depends and the contrast after but qualify her judgement. A qualified tone is not the same as having no position.",
+      "toneWhyZh": "It depends 及 but 後的對比限制了判斷範圍；有保留不代表沒有立場。"
+    },
+    {
+      "id": "D",
+      "name": "Paul",
+      "job": "manager",
+      "text": "When you play football at school, you learn about the sport - the rules, how to move the ball, etc. - but you also learn about working with a team. In most jobs, you work with some kind of team. Playing sports at school definitely provided me with a lot of teamwork skills.",
+      "position": "yes",
+      "positionWhy": "Yes: Paul links school football with teamwork skills used at work.",
+      "positionWhyZh": "是：Paul 把學校足球活動與工作所需團隊技能連起來。",
+      "tone": "confident / emphatic",
+      "toneZh": "自信／強調",
+      "cue": "definitely provided me with a lot of teamwork skills",
+      "toneDistractors": [
+        "apologetic / regretful",
+        "sarcastic / mocking",
+        "worried / hesitant"
+      ],
+      "toneWhy": "Definitely strengthens the emphasis. Paul and Sophia both say yes, but their voices differ.",
+      "toneWhyZh": "Definitely 加強肯定；Paul 與 Sophia 都答「是」，但語氣不同。"
+    },
+    {
+      "id": "E",
+      "name": "Danh",
+      "job": "accountant",
+      "text": "Most people don't become biologists, so studying biology may not be useful for your job, so in some cases, school doesn't prepare you very well. However, school introduces you to a lot of ideas and subjects. You probably need to study biology to discover if you are interested in it or not. School helps you learn what you like and don't like, and then you can decide on the right career. Until my math teacher told me I could become an accountant, I didn't know that job existed.",
+      "position": "depends",
+      "positionWhy": "It depends: Danh recognises limited direct relevance and benefits for exploring interests.",
+      "positionWhyZh": "視乎情況：Danh 同時指出直接相關性的限制與探索興趣的益處。",
+      "tone": "balanced / qualified",
+      "toneZh": "兼顧不同面向／有保留",
+      "cue": "However",
+      "toneDistractors": [
+        "mocking / sarcastic",
+        "abrupt / dismissive",
+        "angry / accusatory"
+      ],
+      "toneWhy": "In some cases, However and probably limit and balance the argument. The book calls this a factual tone; that describes style, not proven truth.",
+      "toneWhyZh": "In some cases、However 及 probably 形成有保留、兼顧不同面向的表達；課本所稱 factual 指風格，不表示內容已獲證實。"
+    },
+    {
+      "id": "F",
+      "name": "Aslan",
+      "job": "construction worker",
+      "text": "Not at all - or at least not for me. Does a paramedic learn to drive an ambulance at school? I don't think so. Does a firefighter learn to fight fires at school? Never! Sadly, for most jobs, you don't need to know the things you learn in school. I forgot about school when I started working.",
+      "position": "no",
+      "positionWhy": "No: Aslan questions how school learning prepares people for practical job tasks.",
+      "positionWhyZh": "否：Aslan 質疑學校如何準備實際工作任務。",
+      "tone": "abrupt / dismissive",
+      "toneZh": "生硬／不屑",
+      "cue": "Never!",
+      "toneDistractors": [
+        "warm / nostalgic",
+        "celebratory / excited",
+        "uncertain / hesitant"
+      ],
+      "toneWhy": "Short rhetorical answers and Never! create an abrupt, dismissive effect. Critical or frustrated can also fit with evidence.",
+      "toneWhyZh": "簡短反問回應與 Never! 形成生硬、不屑的效果；有證據時也可描述為批判或失望。"
+    }
+  ]
+}

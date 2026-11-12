@@ -1,0 +1,31 @@
+---
+import reading from '../../data/generalEnglishUnit9Session2Reading.json';
+interface Props { kind: 'phrases' | 'viewpoint' | 'tone'; lang: 'en' | 'zh'; }
+const {kind,lang}=Astro.props;
+const zh=lang==='zh';
+---
+<div class="u9-s2-game" data-s2-game={kind} data-s2-lang={lang}>
+  <div class="s2-game-tools">
+    {kind==='phrases' && <>
+      <label>{zh?'詞庫':'Bank'} <select data-s2-bank aria-label={zh?'選擇詞庫':'Choose phrase bank'}><option value="core">{zh?'12個核心詞組':'12 core chunks'}</option><option value="all">{zh?'全部60個詞組':'All 60 chunks'}</option></select></label>
+      <label>{zh?'挑戰':'Challenge'} <select data-s2-mode aria-label={zh?'選擇挑戰':'Choose challenge'}><option value="0">{zh?'意思':'Meaning'}</option><option value="1">{zh?'介詞':'Preposition'}</option><option value="2">{zh?'句中運用':'Use in context'}</option></select></label>
+    </>}
+    <button type="button" data-s2-restart>{kind==='phrases'?(zh?'打亂重玩':'Shuffle and restart'):(zh?'重新開始':'Restart')}</button>
+    <output data-s2-progress aria-live="polite"></output>
+  </div>
+  {kind!=='phrases' && <article class="s2-book-reading" aria-label={zh?'課本閱讀':'Textbook response'}><h3 data-s2-author>{reading.responses[0].name} · {reading.responses[0].job}</h3><p data-s2-passage lang="en">{reading.responses[0].text}</p><p class="source-note">Perspectives Pre-Intermediate · Unit 9B · p.109 · {zh?'課本註明回應改編自 Debate.org':'Book responses adapted from Debate.org'}</p></article>}
+  <p class="s2-question" data-s2-question></p>
+  <p class="s2-prompt" data-s2-prompt lang="en"></p>
+  <div class="s2-game-choices" role="group" aria-label={zh?'答案選項':'Answer choices'}>{[0,1,2,3].map(i=><button type="button" data-s2-choice={i} aria-pressed="false"></button>)}</div>
+  <div class="s2-game-actions"><button type="button" data-s2-check disabled>{zh?'核對及解釋':'Check and explain'}</button><button type="button" data-s2-next disabled>{zh?'下一題':'Next challenge'}</button></div>
+  <p class="s2-game-feedback" data-s2-feedback role="status" aria-live="polite"></p>
+  <p class="s2-game-followup" data-s2-followup></p>
+</div>
+<script>import '../../scripts/generalEnglishUnit9Session2';</script>
+<style>
+.u9-s2-game{margin:1.2rem 0;border-top:1px solid var(--lesson-line);padding-top:1rem}
+.s2-game-tools{display:flex;align-items:center;gap:.7rem 1rem;flex-wrap:wrap}.s2-game-tools label{font-size:1rem}.s2-game-tools select{max-width:100%;border:1px solid var(--lesson-line);padding:.4rem;color:var(--lesson-ink);background:white;font:inherit;min-height:44px}.s2-game-tools output{font-size:.95rem;color:var(--lesson-muted)}
+.s2-book-reading{max-width:76ch;padding:1rem 1.2rem;margin:1rem 0;background:var(--lesson-soft);border-left:3px solid var(--lesson-green)}.s2-book-reading h3{font-size:1.25rem}.s2-book-reading p:not(.source-note){font-size:1.2rem;line-height:1.65}.s2-question{font-weight:600}.s2-prompt{font-size:1.45rem!important;white-space:pre-wrap;max-width:75ch}
+.s2-game-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem}.u9-s2-game button{min-height:44px;border:1px solid var(--lesson-green);background:white;color:var(--lesson-green);border-radius:.3rem;padding:.6rem 1rem;font:inherit;cursor:pointer;overflow-wrap:anywhere}.s2-game-choices button{text-align:left}.s2-game-choices [aria-pressed="true"]{background:var(--lesson-green);color:white}.s2-game-actions{display:flex;flex-wrap:wrap;gap:.7rem;margin:1rem 0}.u9-s2-game button:disabled{opacity:.45;cursor:default}.s2-game-feedback{border-left:3px solid var(--lesson-green);padding:.6rem 1rem;white-space:pre-line;background:var(--lesson-soft)}.s2-game-feedback:empty{display:none}.s2-game-followup{font-size:1rem!important;color:var(--lesson-muted)}
+@media(max-width:600px){.s2-game-choices{grid-template-columns:1fr}.s2-book-reading{padding:.8rem}.s2-game-tools select{max-width:210px}.s2-prompt{font-size:1.2rem!important}}
+</style>
