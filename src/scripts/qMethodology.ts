@@ -111,40 +111,119 @@ document.querySelector('[data-fullscreen]')?.addEventListener('click', () => {
   void result.catch(() => {});
 });
 
-function renderSort() {
-  document.querySelectorAll<HTMLSelectElement>('[data-sort-id]').forEach((select) => { select.value = ranks[select.dataset.sortId || ''] || ''; });
-  for (const [rank, capacity] of Object.entries(capacities)) {
-    const ids = Object.keys(ranks).filter((id) => ranks[id] === rank).sort((a, b) => Number(a) - Number(b));
-    document.querySelectorAll<HTMLElement>(`[data-rank-count="${rank}"]`).forEach((label) => {
-      label.textContent = `${ids.length} / ${capacity}`;
-      label.dataset.overfull = String(ids.length > capacity);
-    });
-    document.querySelectorAll<HTMLElement>(`[data-rank-slots="${rank}"]`).forEach((container) => {
-      const slots = Array.from({ length: Math.max(capacity, ids.length) }, (_, i) => {
-        const slot = document.createElement('span');
-        slot.className = 'q-slot';
-        slot.textContent = ids[i] || '—';
-        if (ids[i]) slot.classList.add('filled');
-        return slot;
-      });
-      container.replaceChildren(...slots);
-    });
+let selectedId: string | null = null;
+const cards = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-sort-id]'));
+const statementText = (id: string, language: string) => cards.find((card) => card.dataset.sortId === id && card.closest<HTMLElement>('[data-language]')?.dataset.language === language)?.querySelector('span')?.textContent || '';
+function sortFeedback(en: string, zh: string) {
+  document.querySelectorAll<HTMLElement>('[data-sort-feedback]').forEach((output) => { output.textContent = chinese(output) ? zh : en; });
+}
+function selectCard(id: string | null) {
+  selectedId = id;
+  cards.forEach((card) => {
+    const selected = card.dataset.sortId === id;
+    card.classList.toggle('is-selected', selected);
+    card.setAttribute('aria-pressed', String(selected));
+  });
+  if (id) sortFeedback(`Card ${id} selected. Choose a grid space, another card to swap, or Return selected card.`, `已選卡片${id}。請選格網位置、另一張卡交換，或移回陳述區。`);
+}
+function placeCard(id: string, rank?: string, occupant?: string) {
+  const previous = ranks[id];
+  if (occupant === id) return;
+  if (rank && !occupant && Object.values(ranks).filter((value) => value === rank).length >= capacities[rank]) {
+    sortFeedback('This column is full. Drop onto a card to swap places.', '此欄已滿，請放到另一張卡上交換位置。');
+    return;
   }
+  if (occupant) {
+    if (previous) ranks[occupant] = previous;
+    else delete ranks[occupant];
+  }
+  if (rank) ranks[id] = rank;
+  else delete ranks[id];
+  const saved = safeSave(sortKey, ranks);
+  selectCard(null);
+  renderSort();
+  sortFeedback(saved ? `Card ${id} moved${rank ? ` to ${Number(rank) > 0 ? '+' : ''}${rank}` : ' back to the statement area'}.` : 'Saving is unavailable. You can still sort during this visit.', saved ? `卡片${id}已${rank ? `移至${Number(rank) > 0 ? '+' : ''}${rank}` : '移回陳述區'}。` : '此瀏覽器無法儲存；本次頁面仍可繼續排序。');
+  cards.find((card) => card.dataset.sortId === id && !card.closest<HTMLElement>('[data-language]')?.hidden)?.focus({ preventScroll: true });
+}
+function renderSort() {
+  // Keep the existing cards and saved statement IDs when moving between bank and grid.
+  document.querySelectorAll<HTMLElement>('[data-sort-bank]').forEach((bank) => {
+    const panel = bank.closest<HTMLElement>('[data-language]')!;
+    const localCards = cards.filter((card) => card.closest('[data-language]') === panel);
+    localCards.forEach((card) => bank.append(card));
+    for (const [rank, capacity] of Object.entries(capacities)) {
+      const ids = Object.keys(ranks).filter((id) => ranks[id] === rank).sort((a, b) => Number(a) - Number(b));
+      const count = panel.querySelector<HTMLElement>(`[data-rank-count="${rank}"]`);
+      if (count) { count.textContent = `${ids.length} / ${capacity}`; count.dataset.overfull = String(ids.length > capacity); }
+      const container = panel.querySelector<HTMLElement>(`[data-rank-slots="${rank}"]`)!;
+      container.replaceChildren();
+      for (let index = 0; index < Math.max(capacity, ids.length); index += 1) {
+        const slot = document.createElement('div');
+        slot.className = 'q-slot';
+        slot.dataset.dropRank = rank;
+        if (ids[index]) {
+          slot.dataset.occupant = ids[index];
+          slot.classList.add('filled');
+          slot.append(localCards.find((card) => card.dataset.sortId === ids[index])!);
+        } else {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'q-empty-slot';
+          button.textContent = '+';
+          button.setAttribute('aria-label', chinese(container) ? `放置於${rank}，位置${index + 1}` : `Place at ${rank}, space ${index + 1}`);
+          slot.append(button);
+        }
+        container.append(slot);
+      }
+    }
+  });
   document.querySelectorAll<HTMLElement>('[data-endpoint]').forEach((output) => {
     const id = Object.keys(ranks).find((key) => ranks[key] === output.dataset.endpoint);
-    const panel = output.closest<HTMLElement>('[data-language]');
-    const source = panel?.dataset.language === 'zh' ? 'zh' : 'en';
-    const statement = id ? document.querySelector(`[data-language="${source}"] [data-sort-id="${id}"]`)?.closest('label')?.querySelector('span')?.textContent : null;
+    const statement = id ? statementText(id, chinese(output) ? 'zh' : 'en') : '';
     output.textContent = statement ? `${id}. ${statement}` : chinese(output) ? '完成排序後，這裡會顯示你的陳述。' : 'Complete the sort to see your statement here.';
   });
 }
-document.querySelectorAll<HTMLSelectElement>('[data-sort-id]').forEach((select) => select.addEventListener('change', () => {
-  const id = select.dataset.sortId!;
-  if (Object.hasOwn(capacities, select.value)) ranks[id] = select.value;
-  else delete ranks[id];
-  const saved = safeSave(sortKey, ranks);
-  renderSort();
-  document.querySelectorAll<HTMLElement>('[data-sort-feedback]').forEach((output) => { output.textContent = saved ? '' : chinese(output) ? '此瀏覽器無法儲存；本次頁面仍可繼續排序。' : 'Saving is unavailable in this browser. You can still sort during this visit.'; });
+cards.forEach((card) => {
+  card.addEventListener('click', () => {
+    const id = card.dataset.sortId!;
+    if (selectedId && selectedId !== id) placeCard(selectedId, ranks[id], id);
+    else selectCard(selectedId === id ? null : id);
+  });
+  card.addEventListener('dragstart', (event) => {
+    selectCard(card.dataset.sortId!);
+    event.dataTransfer?.setData('text/plain', card.dataset.sortId!);
+    if (event.dataTransfer) event.dataTransfer.effectAllowed = 'move';
+    card.classList.add('is-dragging');
+  });
+  card.addEventListener('dragend', () => { card.classList.remove('is-dragging'); document.querySelectorAll('.is-drop-target').forEach((target) => target.classList.remove('is-drop-target')); });
+});
+document.querySelectorAll<HTMLElement>('.q-sort-workspace').forEach((workspace) => {
+  workspace.addEventListener('click', (event) => {
+    const target = (event.target as Element).closest<HTMLElement>('[data-drop-rank]');
+    if (target && selectedId && !(event.target as Element).closest('[data-sort-id]')) placeCard(selectedId, target.dataset.dropRank, target.dataset.occupant);
+  });
+  workspace.addEventListener('dragover', (event) => {
+    const target = (event.target as Element).closest<HTMLElement>('[data-drop-rank], [data-sort-bank]');
+    if (!target || !selectedId) return;
+    event.preventDefault();
+    if (event.dataTransfer) event.dataTransfer.dropEffect = 'move';
+    workspace.querySelectorAll('.is-drop-target').forEach((element) => element.classList.remove('is-drop-target'));
+    target.classList.add('is-drop-target');
+  });
+  workspace.addEventListener('dragleave', (event) => { (event.target as Element).closest('.is-drop-target')?.classList.remove('is-drop-target'); });
+  workspace.addEventListener('drop', (event) => {
+    const target = (event.target as Element).closest<HTMLElement>('[data-drop-rank], [data-sort-bank]');
+    const id = event.dataTransfer?.getData('text/plain');
+    if (!target || !id || !cards.some((card) => card.dataset.sortId === id)) return;
+    event.preventDefault();
+    placeCard(id, target.dataset.dropRank, target.dataset.occupant);
+    workspace.querySelectorAll('.is-drop-target').forEach((element) => element.classList.remove('is-drop-target'));
+  });
+  workspace.addEventListener('keydown', (event) => { if (event.key === 'Escape') { selectCard(null); sortFeedback('Selection cancelled.', '已取消選取。'); } });
+});
+document.querySelectorAll<HTMLButtonElement>('[data-return-sort]').forEach((button) => button.addEventListener('click', () => {
+  if (selectedId) placeCard(selectedId);
+  else sortFeedback('Select a card to return to the statement area.', '請先選取要移回陳述區的卡片。');
 }));
 document.querySelectorAll<HTMLButtonElement>('[data-check-sort]').forEach((button) => button.addEventListener('click', () => {
   const assigned = Object.keys(ranks).length;
@@ -156,6 +235,7 @@ document.querySelectorAll<HTMLButtonElement>('[data-check-sort]').forEach((butto
 }));
 document.querySelectorAll<HTMLButtonElement>('[data-reset-sort]').forEach((button) => button.addEventListener('click', () => {
   ranks = {};
+  selectCard(null);
   safeSave(sortKey, ranks);
   renderSort();
   document.querySelectorAll<HTMLElement>('[data-sort-feedback]').forEach((output) => { output.textContent = chinese(output) ? '排序已重設。' : 'Sort reset.'; });

@@ -120,3 +120,23 @@
 @media screen and (min-width: 1001px) {
   .q-deck .q-sort-instruction { max-width: none; }
 }
+
+/* Movable statement cards and fixed-capacity sorting spaces. */
+.q-sort-workspace { grid-template-columns: 1fr; gap: 1rem; }
+.q-deck .q-statements { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .45rem; min-height: 3rem; padding: .5rem; border: 1px dashed #bad8c5; border-radius: .3rem; }
+.q-statement { grid-template-columns: 1.25rem 1fr; width: 100%; min-height: 64px; padding: .55rem; border: 1px solid #bad8c5; border-radius: .3rem; background: #fff; color: #0f4a32; text-align: left; font: 400 .95rem/1.25 'Source Sans 3', sans-serif; cursor: grab; }
+.q-statement:active { cursor: grabbing; }
+.q-statement.is-selected { outline: 3px solid #1f6b45; outline-offset: 1px; background: #edf7f0; }
+.q-statement.is-dragging { opacity: .45; }
+.q-slot { min-height: 95px; padding: .2rem; }
+.q-slot .q-statement { height: 100%; min-height: 88px; font-size: .88rem; }
+.q-empty-slot { width: 100%; height: 100%; min-height: 88px; border: 0; background: transparent; color: #607b6d; font: 400 1.5rem 'Source Sans 3', sans-serif; cursor: pointer; }
+.q-slot.is-drop-target, .q-statements.is-drop-target { outline: 3px solid #1f6b45; background: #edf7f0; }
+.q-statement:focus-visible, .q-empty-slot:focus-visible { outline: 3px solid #1f6b45; outline-offset: 2px; }
+@media screen and (max-width: 700px) {
+  .q-deck .q-statements { grid-template-columns: 1fr 1fr; }
+  .q-rank-grid { gap: .2rem; }
+  .q-slot { padding: 0; min-height: 120px; }
+  .q-slot .q-statement { display: block; padding: .3rem; font-size: .76rem; overflow-wrap: anywhere; }
+  .q-slot .q-statement b { display: block; margin-bottom: .25rem; }
+}
