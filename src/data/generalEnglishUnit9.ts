@@ -665,6 +665,14 @@ export const unit9Sessions: Unit9Session[] = [
             },
             "href": "/teaching/courses/general-english/unit-9/session-2/student-handout.pdf",
             "download": true
+          },
+          {
+            "label": {
+              "en": "English–Chinese matching cards",
+              "zh": "英中配對卡"
+            },
+            "href": "/teaching/courses/general-english/unit-9/session-2/phrase-meaning-cards.pdf",
+            "download": true
           }
         ],
         "id": "s2-redesign-1"
@@ -801,12 +809,12 @@ export const unit9Sessions: Unit9Session[] = [
       {
         "minutes": 6,
         "title": {
-          "en": "Phrase relay",
-          "zh": "詞組接力"
+          "en": "Choose the correct answer",
+          "zh": "選擇正確答案"
         },
         "lead": {
-          "en": "Three chunks. Three connected sentences. Sixty seconds.",
-          "zh": "三個詞組，三句相連的故事，60秒。"
+          "en": "Meaning, missing preposition, or use in a sentence.",
+          "zh": "選擇題型：意思、缺少的介詞，或句中運用。"
         },
         "game": "phrases",
         "id": "s2-redesign-4"

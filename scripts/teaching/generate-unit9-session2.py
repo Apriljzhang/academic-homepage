@@ -1,4 +1,4 @@
-"""Create three A4 print masters for Unit 9 Session 2.
+"""Create A4 print masters for Unit 9 Session 2.
 Run with a Python environment containing reportlab and pypdf.
 """
 from pathlib import Path
@@ -6,7 +6,7 @@ import json, shutil, re
 from io import BytesIO
 import argparse
 parser=argparse.ArgumentParser()
-parser.add_argument("--only",nargs="+",choices=["language-bank.pdf","student-handout.pdf","teaching-notes.pdf"])
+parser.add_argument("--only",nargs="+",choices=["language-bank.pdf","student-handout.pdf","teaching-notes.pdf","phrase-meaning-cards.pdf"])
 SELECTED=parser.parse_args().only
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4, landscape
@@ -104,6 +104,34 @@ for page_no in range(4):
  p.end('Learn the complete chunk. These examples extend the supplied unit vocabulary into useful sentence patterns.')
 p.save()
 
+# Four independent sets: one English sheet + one shuffled Chinese sheet per set.
+p=Page(OUT/'phrase-meaning-cards.pdf')
+import random
+for set_no in range(4):
+ items=BANK[set_no*15:(set_no+1)*15]
+ order=list(range(15));rng=random.Random(900+set_no)
+ while any(i==j for i,j in enumerate(order)):rng.shuffle(order)
+ for chinese in [False,True]:
+  language='Chinese meanings' if chinese else 'English phrases'
+  other='English phrases' if chinese else 'Chinese meanings'
+  p.start(f'Set {set_no+1} - {language}','15 pairs. Cut on the dashed lines.')
+  p.c.setStrokeColor(HexColor('#929992'));p.c.setLineWidth(.5);p.c.setDash(3,2)
+  for col in range(4):
+   x=(12+col*62)*mm;p.c.line(x,p.H-42*mm,x,p.H-282*mm)
+  for row in range(6):
+   y=p.H-(42+row*48)*mm;p.c.line(12*mm,y,198*mm,y)
+  p.c.setDash()
+  for cell in range(15):
+   item=items[order[cell] if chinese else cell]
+   text=item['zh'] if chinese else item['phrase']
+   style=ParagraphStyle('card',fontName='CJK' if chinese else 'Body',fontSize=14 if chinese else 12.5,leading=19 if chinese else 17,textColor=black,alignment=TA_CENTER,wordWrap='CJK' if chinese else None)
+   paragraph=Paragraph(escape(text),style);_,height=paragraph.wrap(52*mm,38*mm)
+   assert height<=38*mm,(text,height)
+   col,row=cell%3,cell//3
+   paragraph.drawOn(p.c,(17+col*62)*mm,p.H-(42+row*48+24)*mm-height/2)
+  p.end(f'Use with Set {set_no+1} - {other}. Print single-sided at 100%.')
+p.save()
+
 p=Page(OUT/'student-handout.pdf')
 p.start('Phrases, viewpoints and debate','Name: ______________________________   Class: __________')
 p.heading('1. Practise the phrases','',47)
@@ -124,13 +152,13 @@ p.save()
 p=Page(OUT/'teaching-notes.pdf')
 p.start('Teach the language, then debate','Session 2: dependent prepositions; viewpoint versus tone; claims with convincing support. 75 minutes.')
 p.heading('Print and organise','先準備詞庫、講義及網頁分組板。',48)
-y=p.para('<b>Per student:</b> one-page student handout. Keep the four-page language bank for review, or share one reference copy between two students.<br/><b>Grouping boards:</b> show all six reading cards together. Students drag cards into groups, or select a card then choose a group button. Discuss placements before checking. Phrase relay: pairs alternate 60-second story turns using three chunks. The other pair checks use and awards points. No reading cut-outs are needed.<br/><b>Source:</b> responses transcribed from the user-supplied Unit 9B p.109 photograph. The six full responses appear in the HTML reading games with source credit.',12,60,186,9.7)
+y=p.para('<b>Per student:</b> one-page student handout. Keep the four-page language bank for review, or share one reference copy between two students.<br/><b>Grouping boards:</b> show all six reading cards together. Students drag cards into groups, or select a card then choose a group button. Discuss placements before checking. Phrase game: choose meaning, missing preposition or use in a sentence; select one answer and check. Optional matching: give each student one English or Chinese card and ask them to find their partner. No reading cut-outs are needed.<br/><b>Source:</b> responses transcribed from the user-supplied Unit 9B p.109 photograph. The six full responses appear in the HTML reading games with source credit.',12,60,186,9.7)
 y=p.heading('75-minute sequence','詞庫先作支援，最後用於個人論證與回應。',y+11)
 y=p.table(['Time','Teaching and material'],[
  ('0-4','Same position, different tone: compare the two original opening comments.'),
  ('4-9','Language bank p.1 + handout p.1: notice word + preposition + noun / pronoun / -ing. Twelve starred chunks are the active set.'),
  ('9-17','Complete eight gaps and repair two sentences. In pairs, say a personalised example with a recycled unit word.'),
- ('17-23','Phrase relay: two pairs A/B build a three-sentence story with three chunks in 60 seconds. Alternate speakers. Award 1 point per accurate chunk, 1 per meaningful sentence, and 1 for a connected story (7 maximum). Play four turns.'),
+ ('17-23','Phrase multiple choice: select meaning, missing preposition or use in a sentence. Choose an answer, check, then continue. Use the 12 core phrases in class; all 60 are available for review.'),
  ('23-28','Use the slide questions and handout grid to separate position, reason, example and tone. Model a tone judgement with exact wording.'),
  ('28-39','Viewpoint board: read all six cards, group them under yes / no / depends, and justify placements. Use Check grouping after students explain.'),
  ('39-47','Tone board: regroup all six cards by tone using exact wording. Compare A/F (both no) and B/D (both yes). Accept alternative tone labels with evidence.'),
@@ -172,7 +200,7 @@ y=p.para('<b>Evidence boundary:</b> the six reading responses are selected perso
 p.end('Individual product: an opening, a response, and a revised written claim with support and useful chunks.')
 p.save()
 
-for name,n in [('language-bank.pdf',4),('student-handout.pdf',1),('teaching-notes.pdf',3)]:
+for name,n in [('language-bank.pdf',4),('student-handout.pdf',1),('teaching-notes.pdf',3),('phrase-meaning-cards.pdf',8)]:
  if SELECTED is not None and name not in SELECTED:continue
  reader=PdfReader(OUT/name);assert len(reader.pages)==n,(name,len(reader.pages));shutil.copy2(OUT/name,LOCAL/name);print(name,n,'pages')
-print('Selected print PDFs ready. Reading and phrase activities use HTML grouping boards.')
+print('Selected print PDFs ready.')
