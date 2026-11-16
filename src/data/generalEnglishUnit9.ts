@@ -1681,8 +1681,8 @@ export const unit9Sessions: Unit9Session[] = [
         ],
         "id": "s3-10",
         "handoutCue": {
-          "en": "Front: choose three different question words and one yes/no question. Prepare keywords on the back.",
-          "zh": "正面：選三個不同疑問詞，再加一條是非問句。背面：先準備答案關鍵詞。"
+          "en": "Handout: choose three different question words and one yes/no question. Prepare your own answer keywords.",
+          "zh": "講義：選三個不同疑問詞，再加一條是非問句，先準備自己的答案關鍵詞。"
         }
       },
       {
@@ -1744,8 +1744,8 @@ export const unit9Sessions: Unit9Session[] = [
         },
         "steps": [
           {
-            "en": "Choose a topic: a hidden talent, a part-time job or a campus project. Use your own information or an invented profile.",
-            "zh": "選題：隱藏才藝、兼職或校園計劃。可用自己的資料或虛構人物。"
+            "en": "Choose a topic: becoming an influencer, a hidden talent or a campus project. Use your own information or an invented profile.",
+            "zh": "選題：成為網紅、隱藏才藝或校園計劃。可用自己的資料或虛構人物。"
           },
           {
             "en": "Prepare your own answer keywords first. The handout shows every role rotation.",
@@ -1951,8 +1951,8 @@ export const unit9Sessions: Unit9Session[] = [
           }
         ],
         "handoutCue": {
-          "en": "Back: write one supplies note and one bigger lesson after watching.",
-          "zh": "背面：觀看後，記一項補給資訊及一項較大的領悟。"
+          "en": "Use textbook pp.112–113 directly for the 9D listening tasks.",
+          "zh": "9D 聆聽活動直接使用課本第112–113頁。"
         },
         "teacher": {
           "en": "The practice sentence is original. Model it if Audio 56 is unavailable; identify this as teacher-led practice. Aim to recognise weak forms, not pronounce every small word strongly.",
