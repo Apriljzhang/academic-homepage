@@ -1403,50 +1403,74 @@ export const unit9Sessions: Unit9Session[] = [
           "zh": "準備有內容的答案"
         },
         "lead": {
-          "en": "Choose two useful chunks. Add a real or invented detail.",
-          "zh": "選兩個實用詞組，加入真實或虛構細節。"
+          "en": "Choose two or three chunks from the handout. Use them in your interview.",
+          "zh": "從講義選兩至三個詞組，在訪談中使用。"
         },
         "id": "s3-4",
         "ref": "Review: Units 1, 2, 5 and 9",
-        "columns": [
+        "example": "“I want to improve my communication skills.”\n“I have not decided on a topic yet.”",
+        "handoutCue": {
+          "en": "Front: vocabulary and worked examples. Back: questions, roles and notes.",
+          "zh": "正面：詞庫及例子；背面：問題、角色及筆記。"
+        },
+        "wordBank": [
           {
-            "title": {
-              "en": "People and strengths",
-              "zh": "人物及長處"
-            },
-            "lines": [
-              {
-                "en": "confident · hard-working · helpful · sociable",
-                "zh": "自信 · 勤奮 · 樂於助人 · 善於交際"
-              },
-              {
-                "en": "classmate · teammate · professional",
-                "zh": "同學 · 隊友 · 專業的"
-              }
-            ]
+            "word": "confident",
+            "meaning": {
+              "en": "believing in your ability",
+              "zh": "自信的"
+            }
           },
           {
-            "title": {
-              "en": "Interests and plans",
-              "zh": "興趣及計劃"
-            },
-            "lines": [
-              {
-                "en": "communication · designer · sustainable materials",
-                "zh": "溝通 · 設計師 · 可持續材料"
-              },
-              {
-                "en": "apply for a job · be part of a team · focus on",
-                "zh": "申請工作 · 成為團隊一員 · 專注於"
-              }
-            ]
+            "word": "honest",
+            "meaning": {
+              "en": "telling the truth",
+              "zh": "誠實的"
+            }
+          },
+          {
+            "word": "communication skills",
+            "meaning": {
+              "en": "expressing ideas and listening",
+              "zh": "溝通技巧"
+            }
+          },
+          {
+            "word": "classmate",
+            "meaning": {
+              "en": "someone in your class",
+              "zh": "同學"
+            }
+          },
+          {
+            "word": "professional",
+            "meaning": {
+              "en": "working with skill and care",
+              "zh": "專業的"
+            }
+          },
+          {
+            "word": "focus on",
+            "meaning": {
+              "en": "give attention to",
+              "zh": "專注於"
+            }
+          },
+          {
+            "word": "decide on",
+            "meaning": {
+              "en": "choose",
+              "zh": "決定"
+            }
+          },
+          {
+            "word": "do something you enjoy",
+            "meaning": {
+              "en": "do an activity you like",
+              "zh": "做喜歡的事"
+            }
           }
-        ],
-        "example": "“I am interested in design. My classmate introduced me to a repair project.”\n“I might join if beginners are welcome.”",
-        "handoutCue": {
-          "en": "Front: language bank. Underline two chunks you will use.",
-          "zh": "正面：語言庫。畫出你會使用的兩個詞組。"
-        }
+        ]
       },
       {
         "minutes": 3,
@@ -1581,8 +1605,8 @@ export const unit9Sessions: Unit9Session[] = [
           }
         ],
         "teacher": {
-          "en": "Teach common backshift first. Present forms may remain when reporting information that is still true; judge the meaning in context. Reported questions are outside this lesson’s assessed scope.",
-          "zh": "先教常見時態後移；仍然屬實的資訊可保留現在式，須按語境判斷。本節不評核間接問句轉述。"
+          "en": "A present tense may remain for information that is still true. In this task, ask questions directly and report the answers.",
+          "zh": "仍然屬實的資訊可保留現在式。本活動直接提問，再轉述答案。"
         },
         "id": "s3-7"
       },
@@ -1652,11 +1676,7 @@ export const unit9Sessions: Unit9Session[] = [
           "en": "Yes/no questions often rise; wh-questions often fall. Natural intonation varies with purpose.",
           "zh": "是非問句常上揚，wh 問句常下降；自然語調會按目的改變。"
         },
-        "id": "s3-9",
-        "teacher": {
-          "en": "Play Audio 60 if available. Then use the two class questions printed here. Students tap the stressed words and trace the final rise or fall. This is a useful starting pattern, not a rule for every question.",
-          "zh": "如可播放，先用音訊60，再練習本頁兩個課堂問句。學生輕拍重讀詞，畫出句尾升降。這是入門模式，並非所有問句的規則。"
-        }
+        "id": "s3-9"
       },
       {
         "minutes": 3,
@@ -1671,12 +1691,8 @@ export const unit9Sessions: Unit9Session[] = [
         "example": "What do you enjoy doing?\nWhat have you tried before?\nWhat would you like to learn?\nWhen are you available?\nWhat support would you need?",
         "steps": [
           {
-            "en": "Take turns asking. Add one follow-up that responds to the answer.",
-            "zh": "輪流提問，加一條根據答案而來的追問。"
-          },
-          {
-            "en": "Avoid judging someone’s ability from their favourite subject alone. Ask for an example.",
-            "zh": "不要只憑喜歡的科目判斷能力，請對方舉例。"
+            "en": "Take turns asking. Add a follow-up: “Can you give an example?”",
+            "zh": "輪流提問，再追問：「Can you give an example?」"
           }
         ],
         "id": "s3-10",
@@ -1834,11 +1850,7 @@ export const unit9Sessions: Unit9Session[] = [
             "hint": "Speaker / answer / time or condition",
             "rows": 4
           }
-        ],
-        "teacher": {
-          "en": "For four: AB|CD → BC|DA → CD|AB → DA|BC (interviewer, guest | reporters). For three: AB|C → BC|A → CA|B. Every student reports and becomes a guest. Use the shared timer once per round.",
-          "zh": "四人：AB|CD → BC|DA → CD|AB → DA|BC（訪問者、受訪者｜報道員）。三人：AB|C → BC|A → CA|B。每人都要轉述及受訪，每輪使用一次共用計時器。"
-        }
+        ]
       },
       {
         "minutes": 4,
@@ -1890,8 +1902,8 @@ export const unit9Sessions: Unit9Session[] = [
           "zh": "留意輕讀的小詞"
         },
         "lead": {
-          "en": "9D: Ellen MacArthur’s sailing experience led her to think about resources.",
-          "zh": "9D：Ellen MacArthur 的航海經驗令她思考資源的使用。"
+          "en": "Use textbook p.112. Listen to Audio 56 and notice weak forms.",
+          "zh": "使用課本第112頁，聽音訊56，留意弱讀。"
         },
         "id": "s3-14",
         "ref": "9D · p. 112 · Weak forms · Audio 56–57",
@@ -1942,21 +1954,13 @@ export const unit9Sessions: Unit9Session[] = [
         "example": "I WANT to be PART of a TEAM.\nto /tə/ · of /əv/ · a /ə/ · and /ən(d)/",
         "steps": [
           {
-            "en": "Listen to Audio 56. Notice the weak forms. Then tap the stressed words in the practice sentence.",
-            "zh": "聽音訊56，留意弱讀，再輕拍練習句的重讀詞。"
-          },
-          {
-            "en": "Predict two things a solo sailor could use up. Compare with a student’s week.",
-            "zh": "預測獨航者可能用盡的兩種東西，再與學生一星期的生活比較。"
+            "en": "Tap the stressed words, then repeat the sentence.",
+            "zh": "輕拍重讀詞，再跟讀句子。"
           }
         ],
         "handoutCue": {
           "en": "Use textbook pp.112–113 directly for the 9D listening tasks.",
           "zh": "9D 聆聽活動直接使用課本第112–113頁。"
-        },
-        "teacher": {
-          "en": "The practice sentence is original. Model it if Audio 56 is unavailable; identify this as teacher-led practice. Aim to recognise weak forms, not pronounce every small word strongly.",
-          "zh": "練習句為原創。如無音訊56，可由教師示範，並說明是教師帶讀。目標是辨認弱讀，無須把每個小詞重讀。"
         }
       },
       {
@@ -1966,56 +1970,17 @@ export const unit9Sessions: Unit9Session[] = [
           "zh": "她能帶甚麼上船？"
         },
         "lead": {
-          "en": "Watch the supplies extract from Video 9.2 twice.",
-          "zh": "觀看影片9.2的補給段兩次。"
+          "en": "Use textbook p.112 with Video 9.2. Compare your answers with a partner.",
+          "zh": "配合影片9.2，使用課本第112頁，與同伴核對答案。"
         },
         "id": "s3-15",
         "ref": "9D · p. 112 · Video 9.2 · Ex. 4–5, selected extract",
         "steps": [
           {
-            "en": "First watch: why is living on the boat different from living near a shop?",
-            "zh": "第一次：在船上生活，與住在商店附近有甚麼不同？"
-          },
-          {
-            "en": "Second watch: note two supplies and what happens when they run out.",
-            "zh": "第二次：記下兩種補給，以及用盡後會怎樣。"
-          },
-          {
-            "en": "Compare a note with a partner. Keep your own campus examples separate from Ellen’s examples.",
-            "zh": "與同伴比較一項筆記，分清 Ellen 的例子及你自己的校園例子。"
+            "en": "What was tough? What was amazing? Use an example from the video.",
+            "zh": "甚麼很困難？甚麼令人驚嘆？用影片中的例子說明。"
           }
-        ],
-        "fields": [
-          {
-            "key": "ted-supplies",
-            "label": {
-              "en": "Two supplies and the constraint",
-              "zh": "兩種補給及限制"
-            },
-            "hint": "Ellen explained that …",
-            "rows": 3
-          }
-        ],
-        "reveal": {
-          "title": {
-            "en": "Check the listening",
-            "zh": "核對聆聽內容"
-          },
-          "lines": [
-            {
-              "en": "She mentions food, fuel, clothes and items such as toothpaste. She has only the supplies carried on board.",
-              "zh": "她提到食物、燃料、衣物及牙膏等用品；能用的只有船上帶備的補給。"
-            },
-            {
-              "en": "A possible report: Ellen explained that she had to take everything she needed with her.",
-              "zh": "轉述例子：Ellen explained that she had to take everything she needed with her。"
-            }
-          ]
-        },
-        "teacher": {
-          "en": "Use the section beginning with the boat as her entire world and ending with the explanation of finite supplies. Keep the selected extract around 60–90 seconds. Use the textbook player; do not play the full talk.",
-          "zh": "選「船就是她整個世界」至「補給有限」的段落，約60至90秒。使用課本播放器，本節不播放整段演講。"
-        }
+        ]
       },
       {
         "minutes": 5,
@@ -2024,56 +1989,21 @@ export const unit9Sessions: Unit9Session[] = [
           "zh": "這個經驗改變了甚麼？"
         },
         "lead": {
-          "en": "Watch the short connection and reuse extracts from Videos 9.3 and 9.4.",
-          "zh": "觀看影片9.3及9.4中連結資源與再用的短段。"
+          "en": "Use textbook p.113 for the finite-materials and reuse sections of Videos 9.3–9.4.",
+          "zh": "配合影片9.3–9.4的有限材料與再用段落，使用課本第113頁。"
         },
         "id": "s3-16",
         "ref": "9D · p. 113 · Videos 9.3–9.4 · Ex. 6–7, selected extracts",
         "steps": [
           {
-            "en": "Listen for the connection between a boat and the world. What can stay useful for longer?",
-            "zh": "聽出船與世界的關聯。甚麼能保持用途更久？"
+            "en": "Compare the boat and the world: what is limited?",
+            "zh": "比較船與世界：甚麼是有限的？"
           },
           {
-            "en": "Write one reported statement about her idea and one example she gives.",
-            "zh": "用間接引語寫出她的一個觀點及她舉的一個例子。"
-          },
-          {
-            "en": "Tell a partner: “Ellen explained that …”. Your partner checks whether the example was in the talk.",
-            "zh": "告訴同伴：「Ellen explained that …」，同伴核對例子是否來自演講。"
+            "en": "Report one idea to a partner: “Ellen explained that …”.",
+            "zh": "向同伴轉述一個觀點：「Ellen explained that …」。"
           }
-        ],
-        "fields": [
-          {
-            "key": "ted-report",
-            "label": {
-              "en": "Ellen’s idea and her example",
-              "zh": "Ellen 的觀點及例子"
-            },
-            "hint": "Ellen explained that … For example, she suggested …",
-            "rows": 3
-          }
-        ],
-        "reveal": {
-          "title": {
-            "en": "Check idea and example",
-            "zh": "核對觀點及例子"
-          },
-          "lines": [
-            {
-              "en": "Idea: the world’s materials are finite; products and materials could remain useful for longer. Example: rebuilding engines or recovering components and materials.",
-              "zh": "觀點：世界的材料有限；產品及材料可以更長久地保持用途。例子：翻新引擎，或回收零件及材料。"
-            },
-            {
-              "en": "A report can keep the present tense for a general idea that remains true: Ellen explained that resources are finite.",
-              "zh": "仍然成立的一般觀點可保留現在式：Ellen explained that resources are finite。"
-            }
-          ]
-        },
-        "teacher": {
-          "en": "From 9.3 use the opening connection between the economy and finite materials. From 9.4 use the opening idea and engines/components examples; about 60–90 seconds combined. Avoid the historical depletion estimates. Replay once if needed.",
-          "zh": "9.3選開首經濟與有限材料的連結；9.4選開首觀點及引擎／零件例子，合共約60至90秒。略過歷史性的資源耗盡估算，按需要重播一次。"
-        }
+        ]
       },
       {
         "minutes": 5,
@@ -2082,8 +2012,8 @@ export const unit9Sessions: Unit9Session[] = [
           "zh": "寫出自己的準確轉述"
         },
         "lead": {
-          "en": "Work alone. Report the message, report Ellen’s idea, then add your own campus action.",
-          "zh": "獨立完成：轉述訊息、轉述 Ellen 的觀點，再提出自己的校園行動。"
+          "en": "Work alone. Report Alex’s message today and explain one change.",
+          "zh": "獨立完成：今天轉述 Alex 的訊息，再解釋一項改動。"
         },
         "id": "s3-16-exit",
         "example": "Yesterday, Alex told you: “I am free tomorrow, but I can only stay for an hour.”\nReport the message today.",
@@ -2091,11 +2021,11 @@ export const unit9Sessions: Unit9Session[] = [
           {
             "key": "exit",
             "label": {
-              "en": "My report, Ellen’s idea and my action",
-              "zh": "我的轉述、Ellen 的觀點及個人行動"
+              "en": "My report and one change",
+              "zh": "我的轉述及一項改動"
             },
-            "hint": "1. Alex said …\n2. Ellen explained that …\n3. On campus, I could …",
-            "rows": 5
+            "hint": "Alex said …\nI changed … because …",
+            "rows": 3
           }
         ],
         "reveal": {
@@ -2111,10 +2041,6 @@ export const unit9Sessions: Unit9Session[] = [
             {
               "en": "Tomorrow becomes today because you report on the following day. Keep the one-hour condition. Underline one word you changed.",
               "zh": "翌日轉述時 tomorrow 變成 today，保留一小時的限制，畫出一個改動的詞。"
-            },
-            {
-              "en": "Keep Ellen’s idea separate from your action: for example, borrowing an event costume instead of buying a new one is your campus application.",
-              "zh": "分清 Ellen 的觀點及自己的行動；例如借用活動服裝，是你提出的校園應用。"
             }
           ]
         },

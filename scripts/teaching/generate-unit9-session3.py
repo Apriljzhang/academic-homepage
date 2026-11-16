@@ -149,38 +149,28 @@ p.finish('9C pp.110–111. Question intonation: 9E p.114. Name the source and ke
 p.save(2)
 
 p = PDF('teaching-notes.pdf')
-p.start('Gossip, interviews and a bigger idea', '75 minutes. Keep slides 6–10: reported speech, changes, question intonation and question choices.')
+p.start('Session 3: teaching plan', '75 minutes. Influencer gossip, reported speech, group interviews and textbook listening.')
 y = p.head('Prepare', 46)
-y = p.para('Print one two-page 9C student sheet per student, preferably double-sided. It includes influencer vocabulary from Units 1, 2, 5 and 9, worked interview/report examples and role rotations. Use the textbook directly for all 9D listening tasks. Open 9C pp.110–111, Audio 60 for question intonation, Audio 56 for weak forms, and Videos 9.2–9.4. Prepare the short extracts described on page 2. Use the slide timer once per group round.', y, 9.4)
-y = p.head('Teaching sequence', y + 9)
-y = p.table(['Minutes', 'Slides', 'Teaching and individual evidence'], [
-    ('0–7', '1–2', 'Read the fictional gossip; pairs request the source. Reveal Maya’s message. Each student repairs the report, preserving might, the condition and undecided status.'),
-    ('7–16', '3–5', 'Use Carmen’s race / full-time driving example. Students choose two or three influencer chunks from the handout and trace changes in its worked interview/report examples.'),
-    ('16–29', '6–8', 'Keep the direct/reported comparison and said/told/pronoun work. Use two p.110 Ex.3–4 items. Check person, tense and time from the situation.'),
-    ('29–36', '9–10', 'Listen and trace final pitch. Stress question keywords. Each student selects three different question words and one yes/no question.'),
-    ('36–38', '11', 'Assign A/B/C/D or A/B/C. Choose a topic; students prepare their own answer keywords first.'),
-    ('38–50', '12', 'Interview and rotate using the handout table. Reporters listen first and report the answers. Every student is interviewer, guest and reporter.'),
-    ('50–54', '13', 'Each student prepares two reports and shares a 30-second scoop. The original speaker confirms or corrects. Collect one corrected statement.'),
-    ('54–58', '14', 'Teach finite / tough / use up / focus on / curiosity / materials. Audio 56: notice weak forms; model the original practice sentence.'),
-    ('58–63', '15', 'Use the textbook directly: watch the supplies extract twice; check two supplies and the constraint with a partner.'),
-    ('63–68', '16', 'Use the textbook directly for the finite-materials and reuse extracts. Each student reports one idea and an example heard.'),
-    ('68–73', '17', 'Handout exit: report Alex’s message today and explain one change. Complete the 9D follow-up in the textbook or notebook.'),
-    ('73–75', '18', 'Share one useful sentence. Ask students to photograph/describe an object for Session 4. Download browser work if used.'),
-], y + 1, [22, 16, 144], size=8.7)
-y = p.head('Make every role count', y + 9)
-y = p.para('<b>Four students:</b> four 3-minute rounds: interview 75 seconds, two reporters 45 seconds total, source check/correction/rotation 60 seconds. Each reporter passes on two answers.<br/><b>Three students:</b> three 4-minute rounds: interview 90 seconds, report 60 seconds, check/correct/prepare/rotate 90 seconds. The reporter passes on three answers.<br/><b>Support:</b> use the handout question bank and sentence openings. Guests may invent a profile. Invite a follow-up from confident interviewers. Reporters work from keywords.<br/><b>Notice:</b> one example of meaning preserved; one tense/pronoun/time repair; one clear question with useful stress. During the round, let the speaker finish before feedback.', y, 9.1)
-p.finish('Handout evidence: two verified reports and an independent grammar response. Use the textbook for 9D.')
-
-p.start('Source cues and answer checks', 'Use the supplied textbook pages. Play the licensed textbook video or the official TED talk.')
-y = p.head('Keep the clips short', 46)
-y = p.para('<b>9.2 supplies:</b> select the section where she describes the boat as her whole world, carrying everything for the journey, and the meaning of finite. About 60–90 seconds; play twice.<br/><b>9.3 connection:</b> select the opening link between the economy and finite materials.<br/><b>9.4 reuse:</b> select the opening idea plus the engine/component examples. Keep 9.3 + 9.4 to about 60–90 seconds combined; replay if needed. Use start/stop cues in the e-book, as edited-player timings differ.<br/>These are selected extracts. Session 4 returns to the idea for a practical proposal and an enquiry email. Avoid presenting the talk’s historical resource-depletion estimates as current facts.', y, 9.3)
-y = p.head('Answers and acceptable reports', y + 8)
-y = p.para('<b>Gossip:</b> Maya said she might try making study videos that summer if she had enough time. She said she had not decided yet. The original says nothing about leaving university or becoming a full-time influencer.<br/><b>Carmen:</b> first race at 12; full-time driving at 20. After said: had entered / had started.<br/><b>Slide 7:</b> told me / said that; Alex said he had finished his part; might / was.<br/><b>Slide 8:</b> was busy that day; would help today; had started ... the previous year; should practise ... . Time words depend on the actual reporting day.<br/><b>Question intonation:</b> yes/no often rises; wh often falls. Stress information words. Natural intonation varies with intent. Audio 60 examples: rising yes/no, falling wh questions.<br/><b>9D supplies:</b> food, fuel, clothes, toothpaste and other necessities; only the supplies on board are available.<br/><b>9D idea:</b> resources are finite; materials/products can stay useful. Examples include rebuilding engines and recovering components/materials.<br/><b>Exit:</b> Alex said he was free today, but he could only stay for an hour. Accept appropriate pronouns. Ellen explained that resources are finite / were finite. The campus action is the student’s own application.', y, 9.2)
-y = p.head('If the audio or video cannot play', y + 8)
-y = p.para('<b>Original teacher-written listening substitute; not a transcript.</b> Read twice with the text hidden. Use the questions below, not the textbook detail questions.', y, 9.1)
-y = p.para('<i>On a long solo voyage, a sailor has only the supplies she takes with her. She must plan food, fuel and other necessities carefully. Ellen MacArthur connected this experience with the world’s limited resources. She began to explore how materials and products could stay useful for longer. Her talk considers recovering components and materials so that they can be used again.</i>', y + 2, 9.4)
-y = p.para('Ask: (1) What two supplies are named? (2) What is limited? (3) How could products stay useful?<br/><b>Key:</b> food and fuel; supplies/resources; recover and reuse components/materials. Students report one answer. For weak forms, model “I WANT to be PART of a TEAM”; label it teacher-led practice.', y + 3, 9)
-y = p.head('Grammar focus and sources', y + 8)
-y = p.para('Teach common backshift after said/told. Preserve might, negation and conditions. Pronouns and time/place expressions depend on the reporting situation. A present tense may remain for a general truth or information still true. Past perfect normally stays past perfect. Students report statements; reported questions are outside the assessed task.<br/>Sources: Perspectives I, 9C pp.110–111; 9D pp.112–113; question intonation from 9E p.114. Activities and substitute scripts are original adaptations.<br/><link href="https://www.ted.com/talks/dame_ellen_macarthur_the_surprising_thing_i_learned_sailing_solo_around_the_world" color="#183b2b">Official TED Talk: The surprising thing I learned sailing solo around the world</link>', y, 8.7)
-p.finish('Feedback priority: original meaning first; accurate grammar and clear pronunciation support that meaning.')
-p.save(2)
+y = p.para('Print the student handout double-sided. Open 9C pp.110–111 and 9D pp.112–113. Use Audio 60 for question intonation, Audio 56 for weak forms and Videos 9.2–9.4 for listening.', y, 9.4)
+y = p.head('Sequence', y + 9)
+y = p.table(['Minutes', 'Slides', 'Task'], [
+    ('0–7', '1–2', 'Compare the influencer rumour with Maya’s message. Repair the report; keep might and the condition.'),
+    ('7–16', '3–5', 'Read Carmen’s example. Choose two or three vocabulary chunks; follow the interview-to-report model.'),
+    ('16–29', '6–8', 'Teach tense, pronoun and time changes; practise said / told and two items from p.110 Ex.3–4.'),
+    ('29–36', '9–10', 'Listen to Audio 60; practise stress and final pitch. Choose three question words and one yes/no question.'),
+    ('36–38', '11', 'Assign roles. Each student prepares answer keywords on the handout.'),
+    ('38–50', '12', 'Interview, report and rotate using the handout table.'),
+    ('50–54', '13', 'Each student shares two reports. The original speaker confirms or corrects them.'),
+    ('54–58', '14', 'Use textbook p.112 and Audio 56 to notice weak forms.'),
+    ('58–63', '15', 'Use the textbook and Video 9.2. Compare answers with a partner.'),
+    ('63–68', '16', 'Use the finite-materials and reuse sections of Videos 9.3–9.4 with textbook p.113.'),
+    ('68–73', '17', 'Handout exit: report Alex’s message and explain one change.'),
+    ('73–75', '18', 'Share one useful sentence. Prepare an object/photo for Session 4.'),
+], y + 1, [22, 16, 144], size=9)
+y = p.head('Group rounds', y + 9)
+y = p.para('<b>Four students:</b> four 3-minute rounds. Interview 75 seconds; two reporters 45 seconds total; check and rotate 60 seconds. Each reporter reports two answers.<br/><b>Three students:</b> three 4-minute rounds. Interview 90 seconds; report three answers in 60 seconds; check and rotate 90 seconds.<br/>Check person, event, time, possibility and condition. Everyone asks, answers and reports.', y, 9.2)
+y = p.head('Quick checks', y + 9)
+y = p.para('<b>Gossip:</b> Maya said she might try making study videos if she had enough time. She said she had not decided yet.<br/><b>Carmen:</b> first race at 12; full-time driving at 20. Use had entered / had started.<br/><b>Grammar:</b> said (that) ...; told me/us (that) ... . Keep might, not and if. Time words depend on the reporting day.<br/><b>Exit:</b> Alex said he was free today, but he could only stay for an hour. Accept appropriate pronouns.<br/><b>Feedback:</b> one accurate report, one clear question, one correction checked by the speaker.', y, 9.2)
+y = p.para('<b>9D:</b> use the textbook directly. Keep viewing short: 9.2 supplies; 9.3 finite materials; 9.4 reuse examples. Students report one idea from the talk.', y + 5, 9.2)
+p.finish('Sources: Perspectives I, 9C pp.110–111; 9D pp.112–113; question intonation from 9E p.114.')
+p.save(1)
