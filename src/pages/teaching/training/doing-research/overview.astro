@@ -1,0 +1,7 @@
+---
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+
+const document = readFileSync(resolve('public/teaching/training/doing-research/research-methods-map.html'), 'utf8');
+---
+<Fragment set:html={document} />
