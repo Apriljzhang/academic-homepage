@@ -1259,12 +1259,12 @@ export const unit9Sessions: Unit9Session[] = [
           "zh": "她真的這樣說嗎？"
         },
         "lead": {
-          "en": "Campus gossip: Maya is leaving university to become a famous chef!",
-          "zh": "校園傳聞：Maya 要退學，成為名廚！"
+          "en": "Campus gossip: Maya is leaving university to become a full-time influencer!",
+          "zh": "校園傳聞：Maya 要退學，當全職網紅！"
         },
         "id": "s3-1",
         "cover": true,
-        "example": "Fictional group-chat message: “Maya has got a job as a chef. She is leaving university!”",
+        "example": "Fictional group-chat message: “Maya has become a full-time influencer. She is leaving university!”",
         "steps": [
           {
             "en": "In pairs, decide: what would you ask before passing this message on?",
@@ -1278,12 +1278,12 @@ export const unit9Sessions: Unit9Session[] = [
           },
           "lines": [
             {
-              "en": "“I might apply for a part-time job in a café this summer if it fits my timetable. I have not decided yet.”",
-              "zh": "「如果時間表配合，我今年暑假可能申請咖啡店兼職。我還未決定。」"
+              "en": "“I might try making study videos this summer if I have enough time. I have not decided yet.”",
+              "zh": "「如果有足夠時間，我今年暑假可能試拍學習影片。我還未決定。」"
             },
             {
-              "en": "What changed: might became certain; applying became getting a job; leaving university was invented.",
-              "zh": "改動：可能變成確定；申請變成獲聘；退學是添加的內容。"
+              "en": "What changed: might became certain; trying videos became a full-time career; leaving university was invented.",
+              "zh": "改動：可能變成確定；試拍影片變成全職事業；退學是添加的內容。"
             }
           ]
         },
@@ -1329,18 +1329,18 @@ export const unit9Sessions: Unit9Session[] = [
                 "zh": "Maya said she would leave university."
               },
               {
-                "en": "Maya said she might apply for a summer café job if it fitted her timetable.",
-                "zh": "Maya said she might apply for a summer café job if it fitted her timetable."
+                "en": "Maya said she might try making study videos that summer if she had enough time.",
+                "zh": "Maya said she might try making study videos that summer if she had enough time."
               },
               {
-                "en": "Maya said she had already got a chef’s job.",
-                "zh": "Maya said she had already got a chef’s job."
+                "en": "Maya said she had already become a full-time influencer.",
+                "zh": "Maya said she had already become a full-time influencer."
               }
             ],
             "correct": 1,
             "feedback": {
-              "en": "Keep might, the timetable condition and the fact that she has not decided.",
-              "zh": "保留 might、時間表條件及尚未決定的資訊。"
+              "en": "Keep might, the time condition and the fact that she has not decided.",
+              "zh": "保留 might、時間條件及尚未決定的資訊。"
             }
           }
         ],
