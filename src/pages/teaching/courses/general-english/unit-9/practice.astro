@@ -24,6 +24,7 @@ const selected: Record<number,string[]> = {
       <button type="button" data-print-practice class="print-action mt-5 rounded border border-border px-4 py-3 font-semibold">Print practice sheets / 列印練習紙</button>
       <p class="mt-4"><a href={withBase('/teaching/courses/general-english/unit-9/session-1/student-handout.pdf')}>Session 1: scaffolded student handout (PDF)</a> · <a href={withBase('/teaching/courses/general-english/unit-9/session-1/group-mats-and-cards.pdf')}>Matching mats and cut-out cards (PDF)</a></p>
       <p class="mt-4"><a href={withBase('/teaching/courses/general-english/unit-9/session-2/language-bank.pdf')}>Session 2: 60-phrase bank (PDF)</a> · <a href={withBase('/teaching/courses/general-english/unit-9/session-2/student-handout.pdf')}>Tone and debate handout (PDF)</a></p>
+      <p class="mt-4"><a href={withBase('/teaching/courses/general-english/unit-9/session-3/student-handout.pdf')}>Session 3: two-sided interview and reported-speech handout (PDF)</a></p>
       {unit9Sessions.map(session => <section class="practice-session">
         <h2>{session.number}. {session.title.en}</h2><p>{session.title.zh}</p>
         <p class="text-muted">{session.sections} · pp. {session.pages} · 75 minutes</p>

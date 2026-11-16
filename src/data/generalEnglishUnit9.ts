@@ -1245,71 +1245,102 @@ export const unit9Sessions: Unit9Session[] = [
       "en": "Did she actually say that?",
       "zh": "她真的這樣說嗎？"
     },
-    "sections": "9C + 9E speaking",
-    "pages": "110–111, 114",
+    "sections": "9C + 9D; question intonation from 9E",
+    "pages": "110–114",
     "outcome": {
-      "en": "Ask useful questions and report answers without changing meaning or certainty.",
-      "zh": "提出有用問題，轉述答案時保留原意及確定程度。"
+      "en": "Ask clear questions, report classmates’ answers accurately, and explain a listening idea about finite resources.",
+      "zh": "清楚提問、準確轉述同學答案，並說明關於有限資源的聆聽觀點。"
     },
     "slides": [
       {
-        "minutes": 3,
+        "minutes": 4,
         "title": {
           "en": "Did she actually say that?",
           "zh": "她真的這樣說嗎？"
         },
         "lead": {
-          "en": "A small change can turn a possibility into a promise.",
-          "zh": "小改動也能把可能變成承諾。"
+          "en": "Campus gossip: Maya is leaving university to become a famous chef!",
+          "zh": "校園傳聞：Maya 要退學，成為名廚！"
         },
+        "id": "s3-1",
         "cover": true,
-        "example": "Original: “I might join if the meetings are on Fridays.”\nReport: “She said she would join.”",
+        "example": "Fictional group-chat message: “Maya has got a job as a chef. She is leaving university!”",
         "steps": [
           {
-            "en": "What has disappeared? What might the listener wrongly expect?",
-            "zh": "少了甚麼？聆聽者可能產生甚麼錯誤期望？"
+            "en": "In pairs, decide: what would you ask before passing this message on?",
+            "zh": "兩人討論：轉發前，你會先問甚麼？"
           }
         ],
-        "takeaway": {
-          "en": "Today: ask → listen → report → check with the speaker.",
-          "zh": "今天：提問 → 聆聽 → 轉述 → 跟說話者核對。"
+        "reveal": {
+          "title": {
+            "en": "Read Maya’s original message",
+            "zh": "查看 Maya 的原話"
+          },
+          "lines": [
+            {
+              "en": "“I might apply for a part-time job in a café this summer if it fits my timetable. I have not decided yet.”",
+              "zh": "「如果時間表配合，我今年暑假可能申請咖啡店兼職。我還未決定。」"
+            },
+            {
+              "en": "What changed: might became certain; applying became getting a job; leaving university was invented.",
+              "zh": "改動：可能變成確定；申請變成獲聘；退學是添加的內容。"
+            }
+          ]
         },
-        "id": "s3-1"
+        "handoutCue": {
+          "en": "One sheet, two sides. Keep the question bank and change table beside you.",
+          "zh": "一張紙，雙面。把問句庫及變化表放在旁邊。"
+        },
+        "takeaway": {
+          "en": "Today: ask clearly → listen → report accurately → check with the speaker.",
+          "zh": "今天：清楚提問 → 聆聽 → 準確轉述 → 跟說話者核對。"
+        },
+        "links": [
+          {
+            "label": {
+              "en": "Student handout",
+              "zh": "學生講義"
+            },
+            "href": "/teaching/courses/general-english/unit-9/session-3/student-handout.pdf",
+            "download": true
+          }
+        ]
       },
       {
-        "minutes": 5,
+        "minutes": 3,
         "title": {
-          "en": "Keep the condition",
-          "zh": "保留條件"
+          "en": "Keep the possibility",
+          "zh": "保留可能性"
         },
         "lead": {
-          "en": "Check information, certainty and conditions.",
-          "zh": "核對資訊、確定程度及條件。"
+          "en": "Repair the gossip before it travels further.",
+          "zh": "先修正傳聞，再傳給別人。"
         },
+        "id": "s3-2",
         "quiz": [
           {
             "prompt": {
-              "en": "“I can help on Friday, but only after three.” Which report keeps the meaning?",
-              "zh": "「星期五我能幫忙，但只能三時後。」哪個轉述保留原意？"
+              "en": "Which report keeps Maya’s meaning?",
+              "zh": "哪個轉述保留 Maya 的原意？"
             },
             "choices": [
               {
-                "en": "She said she could help all Friday.",
-                "zh": "She said she could help all Friday."
+                "en": "Maya said she would leave university.",
+                "zh": "Maya said she would leave university."
               },
               {
-                "en": "She said she could help on Friday after three.",
-                "zh": "She said she could help on Friday after three."
+                "en": "Maya said she might apply for a summer café job if it fitted her timetable.",
+                "zh": "Maya said she might apply for a summer café job if it fitted her timetable."
               },
               {
-                "en": "She said she could not help on Friday.",
-                "zh": "She said she could not help on Friday."
+                "en": "Maya said she had already got a chef’s job.",
+                "zh": "Maya said she had already got a chef’s job."
               }
             ],
             "correct": 1,
             "feedback": {
-              "en": "After three is a necessary condition.",
-              "zh": "三時後是必要條件。"
+              "en": "Keep might, the timetable condition and the fact that she has not decided.",
+              "zh": "保留 might、時間表條件及尚未決定的資訊。"
             }
           }
         ],
@@ -1317,106 +1348,128 @@ export const unit9Sessions: Unit9Session[] = [
           {
             "key": "message-repair",
             "label": {
-              "en": "Repair the opening report",
-              "zh": "修正開場的轉述"
+              "en": "My accurate version",
+              "zh": "我的準確版本"
             },
-            "hint": "She said she might … if …",
+            "hint": "Maya said she might … if …",
             "rows": 3
           }
-        ],
-        "id": "s3-2"
+        ]
       },
       {
         "minutes": 3,
         "title": {
-          "en": "Before the careers conversation",
-          "zh": "職業對話前準備"
+          "en": "From a dream to a job",
+          "zh": "從夢想到工作"
         },
         "lead": {
-          "en": "Think of one app you use often. What makes it easy or difficult to use?",
-          "zh": "想一個常用應用程式，甚麼令它容易或難用？"
+          "en": "Read Carmen’s words. Find the event, age and change in her working life.",
+          "zh": "讀 Carmen 的原話，找出事件、年齡及工作上的改變。"
         },
-        "ref": "9E · p. 114 · Audio 59 · Ex. 2",
+        "id": "s3-3",
+        "ref": "9C · p. 110 · Photo quote; Ex. 1, 3–4",
+        "example": "“I entered my first go-kart race at the age of 12 … I continued with my studies and university until I was 19. I started driving full time at age 20.”",
         "steps": [
           {
-            "en": "Predict what a user experience designer might improve.",
-            "zh": "預測使用者體驗設計師可能改善甚麼。"
+            "en": "Which age marks her first race? Which marks full-time driving?",
+            "zh": "她幾歲首次參賽？幾歲開始全職駕駛？"
           },
           {
-            "en": "Prepare three note headings: interests / job tasks / skills.",
-            "zh": "準備三個筆記欄：興趣／工作內容／技能。"
-          }
-        ],
-        "id": "s3-3"
-      },
-      {
-        "minutes": 4,
-        "title": {
-          "en": "Listen for the main connection",
-          "zh": "聽出主要關聯"
-        },
-        "lead": {
-          "en": "Play Audio 59. How do the student’s interests connect to the suggested role?",
-          "zh": "播放音訊59，學生的興趣與建議職業有甚麼關聯？"
-        },
-        "ref": "9E · p. 114 · Ex. 2",
-        "fields": [
-          {
-            "key": "careers-gist",
-            "label": {
-              "en": "Interests and the suggested role",
-              "zh": "興趣及建議職業"
-            },
-            "hint": "",
-            "rows": 3
+            "en": "Complete: Carmen said she had entered her first race at __ and had started driving full time at __.",
+            "zh": "完成：Carmen said she had entered her first race at __ and had started driving full time at __。"
           }
         ],
         "reveal": {
           "title": {
-            "en": "Check and explain",
-            "zh": "核對並解釋"
+            "en": "Check the two events",
+            "zh": "核對兩件事"
           },
           "lines": [
             {
-              "en": "The student enjoys games, does well in IT and likes art. The adviser suggests UX design.",
-              "zh": "學生喜歡遊戲、資訊科技成績好，也喜歡美術；顧問建議使用者體驗設計。"
+              "en": "Her first race: 12. Full-time driving: 20. The earlier past actions become had entered / had started after said.",
+              "zh": "首次參賽：12歲。全職駕駛：20歲。said 後，較早的過去動作變成 had entered／had started。"
             }
           ]
         },
-        "id": "s3-4"
+        "source": {
+          "en": "Perspectives I · Unit 9C · p.110 · Short extract from the supplied page.",
+          "zh": "Perspectives I，第9C節，第110頁；節錄自所提供課本頁。"
+        }
       },
       {
-        "minutes": 5,
+        "minutes": 3,
         "title": {
-          "en": "Check the details",
-          "zh": "核對細節"
+          "en": "Build something worth saying",
+          "zh": "準備有內容的答案"
         },
         "lead": {
-          "en": "Replay Audio 59. Complete the four choices, then compare one piece of evidence.",
-          "zh": "重播音訊59，完成四項選擇，再比較一項證據。"
+          "en": "Choose two useful chunks. Add a real or invented detail.",
+          "zh": "選兩個實用詞組，加入真實或虛構細節。"
         },
-        "ref": "9E · p. 114 · Ex. 2–3",
-        "reveal": {
-          "title": {
-            "en": "Check and explain",
-            "zh": "核對並解釋"
-          },
-          "lines": [
-            {
-              "en": "Ex. 2: enjoys / easy to use / banks / art.",
-              "zh": "第2題：enjoys／easy to use／banks／art。"
+        "id": "s3-4",
+        "ref": "Review: Units 1, 2, 5 and 9",
+        "columns": [
+          {
+            "title": {
+              "en": "People and strengths",
+              "zh": "人物及長處"
             },
-            {
-              "en": "The conversation links design with teamwork and computer skills.",
-              "zh": "對話把設計與團隊合作、電腦技能連起來。"
-            }
-          ]
+            "lines": [
+              {
+                "en": "confident · hard-working · helpful · sociable",
+                "zh": "自信 · 勤奮 · 樂於助人 · 善於交際"
+              },
+              {
+                "en": "classmate · teammate · professional",
+                "zh": "同學 · 隊友 · 專業的"
+              }
+            ]
+          },
+          {
+            "title": {
+              "en": "Interests and plans",
+              "zh": "興趣及計劃"
+            },
+            "lines": [
+              {
+                "en": "communication · designer · sustainable materials",
+                "zh": "溝通 · 設計師 · 可持續材料"
+              },
+              {
+                "en": "apply for a job · be part of a team · focus on",
+                "zh": "申請工作 · 成為團隊一員 · 專注於"
+              }
+            ]
+          }
+        ],
+        "example": "“I am interested in design. My classmate introduced me to a repair project.”\n“I might join if beginners are welcome.”",
+        "handoutCue": {
+          "en": "Front: language bank. Underline two chunks you will use.",
+          "zh": "正面：語言庫。畫出你會使用的兩個詞組。"
+        }
+      },
+      {
+        "minutes": 3,
+        "title": {
+          "en": "Hear it, then pass it on",
+          "zh": "先聽，再轉述"
         },
-        "teacher": {
-          "en": "The textbook conversation’s pay comparisons are a speaker’s claims in that recording. Do not present them as current salary guidance.",
-          "zh": "錄音中的收入比較屬該對話說法，不當作現時薪酬指引。"
+        "lead": {
+          "en": "Read the short conversation. The reporters pass on the answers.",
+          "zh": "讀簡短對話，報道員轉述答案。"
         },
-        "id": "s3-5"
+        "id": "s3-5",
+        "example": "A: What do you enjoy doing?\nB: I enjoy making videos.\nA: What have you tried before?\nB: I have helped my classmate film an event.\nC: B said they enjoyed making videos.\nD: B said they had helped a classmate film an event.",
+        "steps": [
+          {
+            "en": "Point to one change in each report. Keep the questions as direct questions.",
+            "zh": "指出每句轉述的一項變化，提問仍用直接問句。"
+          }
+        ],
+        "takeaway": {
+          "en": "Ask a question. Report the answer. Name the speaker.",
+          "zh": "提出問題，轉述答案，指出誰說的。"
+        }
       },
       {
         "minutes": 5,
@@ -1480,17 +1533,27 @@ export const unit9Sessions: Unit9Session[] = [
                 "en": "He said he had used that app.",
                 "zh": "他說他用過那個程式。"
               }
+            ],
+            [
+              {
+                "en": "“I will join the team.”",
+                "zh": "「我會加入團隊。」"
+              },
+              {
+                "en": "She said she would join the team.",
+                "zh": "她說她會加入團隊。"
+              }
             ]
           ]
         },
         "takeaway": {
-          "en": "Common pattern after said/told: present → past; past/present perfect → past perfect; can → could.",
-          "zh": "said／told 後的常見變化：現在式 → 過去式；過去式／現在完成式 → 過去完成式；can → could。"
+          "en": "After said/told: present → past; past/present perfect → past perfect; can → could; will → would. Had + past participle stays the same.",
+          "zh": "said／told 後：現在式 → 過去式；過去式／現在完成式 → 過去完成式；can → could；will → would。had＋過去分詞維持不變。"
         },
         "id": "s3-6"
       },
       {
-        "minutes": 5,
+        "minutes": 4,
         "title": {
           "en": "Who is speaking to whom?",
           "zh": "誰向誰說話？"
@@ -1524,7 +1587,7 @@ export const unit9Sessions: Unit9Session[] = [
         "id": "s3-7"
       },
       {
-        "minutes": 5,
+        "minutes": 4,
         "title": {
           "en": "Try, check, explain",
           "zh": "練習、核對、解釋"
@@ -1579,16 +1642,24 @@ export const unit9Sessions: Unit9Session[] = [
           {
             "en": "Practise each question twice with a partner. Keep the key words clear.",
             "zh": "與同伴每題練習兩次，讓關鍵詞清楚。"
+          },
+          {
+            "en": "Stress the key words: WHAT do you ENJOY doing? ↘ CAN you HELP on FRIDAY? ↗",
+            "zh": "重讀關鍵詞：WHAT do you ENJOY doing? ↘ CAN you HELP on FRIDAY? ↗"
           }
         ],
         "takeaway": {
           "en": "Yes/no questions often rise; wh-questions often fall. Natural intonation varies with purpose.",
           "zh": "是非問句常上揚，wh 問句常下降；自然語調會按目的改變。"
         },
-        "id": "s3-9"
+        "id": "s3-9",
+        "teacher": {
+          "en": "Play Audio 60 if available. Then use the two class questions printed here. Students tap the stressed words and trace the final rise or fall. This is a useful starting pattern, not a rule for every question.",
+          "zh": "如可播放，先用音訊60，再練習本頁兩個課堂問句。學生輕拍重讀詞，畫出句尾升降。這是入門模式，並非所有問句的規則。"
+        }
       },
       {
-        "minutes": 4,
+        "minutes": 3,
         "title": {
           "en": "Ask for something worth knowing",
           "zh": "提出有用問題"
@@ -1608,249 +1679,497 @@ export const unit9Sessions: Unit9Session[] = [
             "zh": "不要只憑喜歡的科目判斷能力，請對方舉例。"
           }
         ],
-        "id": "s3-10"
+        "id": "s3-10",
+        "handoutCue": {
+          "en": "Front: choose three different question words and one yes/no question. Prepare keywords on the back.",
+          "zh": "正面：選三個不同疑問詞，再加一條是非問句。背面：先準備答案關鍵詞。"
+        }
       },
       {
-        "minutes": 4,
+        "minutes": 2,
         "title": {
-          "en": "Interview, report, verify",
-          "zh": "訪談、轉述、核對"
+          "en": "Your group’s campus scoop",
+          "zh": "小組校園新消息"
         },
         "lead": {
-          "en": "Work in groups of three: speaker, interviewer and new listener. Rotate roles.",
-          "zh": "三人一組：說話者、訪問者及新聆聽者，之後輪換角色。"
+          "en": "Groups of three or four. Two people talk; the other member or members report.",
+          "zh": "三至四人一組。兩人對話，其他組員轉述。"
+        },
+        "id": "s3-11",
+        "table": {
+          "headers": [
+            {
+              "en": "Group",
+              "zh": "組別"
+            },
+            {
+              "en": "Interview pair",
+              "zh": "訪談二人"
+            },
+            {
+              "en": "Reporters",
+              "zh": "報道員"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Four people",
+                "zh": "四人"
+              },
+              {
+                "en": "A asks B four questions.",
+                "zh": "A 問 B 四條問題。"
+              },
+              {
+                "en": "C reports answers 1–2; D reports 3–4.",
+                "zh": "C 轉述答案1–2；D 轉述3–4。"
+              }
+            ],
+            [
+              {
+                "en": "Three people",
+                "zh": "三人"
+              },
+              {
+                "en": "A asks B four questions.",
+                "zh": "A 問 B 四條問題。"
+              },
+              {
+                "en": "C reports three answers.",
+                "zh": "C 轉述三個答案。"
+              }
+            ]
+          ]
         },
         "steps": [
           {
-            "en": "The interviewer asks four questions and records keywords. The speaker checks the notes.",
-            "zh": "訪問者問四題並記錄關鍵詞，說話者核對筆記。"
+            "en": "Choose a topic: a hidden talent, a part-time job or a campus project. Use your own information or an invented profile.",
+            "zh": "選題：隱藏才藝、兼職或校園計劃。可用自己的資料或虛構人物。"
           },
           {
-            "en": "The interviewer reports three answers to the new listener. The original speaker then checks the report.",
-            "zh": "訪問者向新聆聽者轉述三個答案，原說話者再核對。"
-          },
-          {
-            "en": "Use your own information or choose a fictional profile on the next slide.",
-            "zh": "可用自己的資料，或選下頁的虛構人物。"
-          }
-        ],
-        "id": "s3-11"
-      },
-      {
-        "minutes": 4,
-        "title": {
-          "en": "Prepare your information",
-          "zh": "準備你的資料"
-        },
-        "lead": {
-          "en": "Choose a campus media team, welcome event or design workshop.",
-          "zh": "選校園媒體團隊、新生活動或設計工作坊。"
-        },
-        "columns": [
-          {
-            "title": {
-              "en": "Fictional profile: Kai",
-              "zh": "虛構人物：Kai"
-            },
-            "lines": [
-              {
-                "en": "“I enjoy photography. I helped at a school sports day.”",
-                "zh": "「我喜歡攝影，曾在學校運動會幫忙。」"
-              },
-              {
-                "en": "“I can help on Friday after three. I want to learn video editing.”",
-                "zh": "「星期五三時後我能幫忙，我想學剪片。」"
-              }
-            ]
-          },
-          {
-            "title": {
-              "en": "Fictional profile: Mei",
-              "zh": "虛構人物：Mei"
-            },
-            "lines": [
-              {
-                "en": "“I like drawing. I have never made an event poster.”",
-                "zh": "「我喜歡畫畫，但未做過活動海報。」"
-              },
-              {
-                "en": "“I might join if beginners are welcome. I need to check my timetable.”",
-                "zh": "「如果歡迎初學者，我可能加入；我要先看時間表。」"
-              }
-            ]
+            "en": "Prepare your own answer keywords first. The handout shows every role rotation.",
+            "zh": "先各自準備答案關鍵詞，講義列出每輪角色。"
           }
         ],
         "fields": [
           {
             "key": "interview-plan",
             "label": {
-              "en": "My questions and the speaker’s key answers",
-              "zh": "我的問題及說話者答案關鍵詞"
+              "en": "My topic, questions and answer keywords",
+              "zh": "我的主題、問題及答案關鍵詞"
             },
-            "hint": "Keep names optional. Record meaning, not every word.",
-            "rows": 6
+            "hint": "What / Who / Where / When / Why / How …",
+            "rows": 3
           }
-        ],
-        "id": "s3-12"
+        ]
       },
       {
-        "minutes": 6,
+        "minutes": 12,
         "title": {
-          "en": "Round one: find out",
-          "zh": "第一輪：了解對方"
+          "en": "Interview, report, rotate",
+          "zh": "訪談、轉述、換角色"
         },
         "lead": {
-          "en": "Ask, listen and check. Everyone takes the interviewer role once.",
-          "zh": "提問、聆聽及核對，每人都擔任一次訪問者。"
+          "en": "Use the role table on the back of the handout. Everyone interviews, answers and reports.",
+          "zh": "使用講義背面的角色表。每人都要提問、回答及轉述。"
         },
-        "steps": [
+        "id": "s3-12",
+        "ref": "9C · p. 111 · Ex. 8–9, adapted for a group interview",
+        "columns": [
           {
-            "en": "Use two minutes per interviewer. Ask four questions, then check one detail aloud.",
-            "zh": "每位訪問者兩分鐘，問四題，再口頭核對一項細節。"
+            "title": {
+              "en": "Four people: four 3-minute rounds",
+              "zh": "四人：每輪3分鐘，共四輪"
+            },
+            "lines": [
+              {
+                "en": "Interview: 75 seconds. The two reporters pass on two answers each: 45 seconds in total.",
+                "zh": "訪談75秒；兩位報道員各轉述兩個答案，共45秒。"
+              },
+              {
+                "en": "The guest checks the meaning; correct and rotate: 60 seconds.",
+                "zh": "受訪者核對原意；修正及換角色，共60秒。"
+              }
+            ]
           },
           {
-            "en": "Try: “So you can help after three, but you are not sure about Saturday?”",
-            "zh": "可說：「所以你三時後能幫忙，但星期六未確定？」"
+            "title": {
+              "en": "Three people: three 4-minute rounds",
+              "zh": "三人：每輪4分鐘，共三輪"
+            },
+            "lines": [
+              {
+                "en": "Interview: 90 seconds. The reporter passes on three answers: 60 seconds.",
+                "zh": "訪談90秒；報道員轉述三個答案，共60秒。"
+              },
+              {
+                "en": "Check, correct, prepare and rotate: 90 seconds.",
+                "zh": "核對、修正、準備及換角色，共90秒。"
+              }
+            ]
+          }
+        ],
+        "steps": [
+          {
+            "en": "Ask four questions: three different question words + one yes/no question. Listen for a useful follow-up.",
+            "zh": "問四題：三個不同疑問詞＋一條是非問句。留意可追問的內容。"
+          },
+          {
+            "en": "Reporters listen without interrupting. Note keywords, then report the answers using said / told me or told us.",
+            "zh": "報道員先聽，不打斷對話。記關鍵詞，再用 said／told me 或 told us 轉述答案。"
+          },
+          {
+            "en": "The guest checks: person, event, time, possibility and condition. Then move to the next row of the role table.",
+            "zh": "受訪者核對人物、事件、時間、可能性及條件，再按角色表進入下一輪。"
           }
         ],
         "fields": [
           {
             "key": "interview-notes",
             "label": {
-              "en": "Keywords I will report",
-              "zh": "我要轉述的關鍵詞"
+              "en": "Keywords I heard",
+              "zh": "我聽到的關鍵詞"
             },
-            "hint": "",
-            "rows": 5
+            "hint": "Speaker / answer / time or condition",
+            "rows": 4
           }
         ],
-        "id": "s3-13"
+        "teacher": {
+          "en": "For four: AB|CD → BC|DA → CD|AB → DA|BC (interviewer, guest | reporters). For three: AB|C → BC|A → CA|B. Every student reports and becomes a guest. Use the shared timer once per round.",
+          "zh": "四人：AB|CD → BC|DA → CD|AB → DA|BC（訪問者、受訪者｜報道員）。三人：AB|C → BC|A → CA|B。每人都要轉述及受訪，每輪使用一次共用計時器。"
+        }
       },
       {
-        "minutes": 6,
+        "minutes": 4,
         "title": {
-          "en": "Round two: pass it on",
-          "zh": "第二輪：轉告別人"
+          "en": "Share a verified scoop",
+          "zh": "分享核對過的新消息"
         },
         "lead": {
-          "en": "Report three answers without reading the original sentences aloud.",
-          "zh": "轉述三個答案，避免逐句讀出原句。"
+          "en": "Prepare two accurate reported statements. Each person shares for about 30 seconds.",
+          "zh": "準備兩句準確轉述，每人分享約30秒。"
         },
-        "example": "Kai said he enjoyed photography. He told me he had helped at a sports day. He said he could help on Friday after three.",
+        "id": "s3-13",
+        "example": "“Kai said they were interested in communication. They told us they might apply for a media role if training was available.”",
         "steps": [
           {
-            "en": "Rotate every two minutes. The new listener asks one clarification question.",
-            "zh": "每兩分鐘輪換，新聆聽者問一個澄清問題。"
+            "en": "Choose two answers from your notes. Include a tense change and keep any might / if detail.",
+            "zh": "從筆記選兩個答案，使用一項時態變化，保留 might／if 等細節。"
           },
           {
-            "en": "Check the person, time, tense and certainty. Leave out details you did not hear.",
-            "zh": "核對人物、時間、時態及確定程度，未聽到的細節不要添加。"
+            "en": "The original speaker responds: “That is right” or “I said …”. Repair your report.",
+            "zh": "原說話者回應：「That is right」或「I said …」，再修正轉述。"
           }
         ],
         "fields": [
           {
             "key": "reported-answers",
             "label": {
-              "en": "Three answers in reported speech",
-              "zh": "用間接引語轉述三個答案"
+              "en": "My two reported statements",
+              "zh": "我的兩句轉述"
             },
-            "hint": "",
-            "rows": 5
-          }
-        ],
-        "id": "s3-14"
-      },
-      {
-        "minutes": 5,
-        "title": {
-          "en": "Check with the source",
-          "zh": "跟原說話者核對"
-        },
-        "lead": {
-          "en": "The original speaker checks the report. Repair one sentence, then say it again.",
-          "zh": "原說話者核對轉述，修正一句，再說一次。"
-        },
-        "steps": [
-          {
-            "en": "Does it preserve the information? The certainty? The conditions?",
-            "zh": "有保留資訊、確定程度及條件嗎？"
+            "hint": "[Name] said … / [Name] told us …",
+            "rows": 3
           },
-          {
-            "en": "If the grammar is correct but the meaning changed, fix the meaning first.",
-            "zh": "文法正確但意思改變時，先修正意思。"
-          }
-        ],
-        "fields": [
           {
             "key": "verified-report",
             "label": {
-              "en": "My corrected report and what changed",
-              "zh": "我的修正轉述及改動之處"
+              "en": "My correction, checked by the speaker",
+              "zh": "原說話者核對後的修正"
             },
-            "hint": "",
-            "rows": 3
+            "hint": "Keep the original meaning.",
+            "rows": 2
+          }
+        ]
+      },
+      {
+        "minutes": 4,
+        "title": {
+          "en": "Listen for the small words",
+          "zh": "留意輕讀的小詞"
+        },
+        "lead": {
+          "en": "9D: Ellen MacArthur’s sailing experience led her to think about resources.",
+          "zh": "9D：Ellen MacArthur 的航海經驗令她思考資源的使用。"
+        },
+        "id": "s3-14",
+        "ref": "9D · p. 112 · Weak forms · Audio 56–57",
+        "wordBank": [
+          {
+            "word": "tough",
+            "meaning": {
+              "en": "difficult",
+              "zh": "困難的"
+            }
+          },
+          {
+            "word": "finite",
+            "meaning": {
+              "en": "limited; not endless",
+              "zh": "有限的"
+            }
+          },
+          {
+            "word": "use up",
+            "meaning": {
+              "en": "use all of something",
+              "zh": "用盡"
+            }
+          },
+          {
+            "word": "focus on",
+            "meaning": {
+              "en": "give attention to",
+              "zh": "專注於"
+            }
+          },
+          {
+            "word": "curiosity",
+            "meaning": {
+              "en": "a wish to learn more",
+              "zh": "好奇心"
+            }
+          },
+          {
+            "word": "materials",
+            "meaning": {
+              "en": "what things are made from",
+              "zh": "材料"
+            }
           }
         ],
-        "id": "s3-15"
+        "example": "I WANT to be PART of a TEAM.\nto /tə/ · of /əv/ · a /ə/ · and /ən(d)/",
+        "steps": [
+          {
+            "en": "Listen to Audio 56. Notice the weak forms. Then tap the stressed words in the practice sentence.",
+            "zh": "聽音訊56，留意弱讀，再輕拍練習句的重讀詞。"
+          },
+          {
+            "en": "Predict two things a solo sailor could use up. Compare with a student’s week.",
+            "zh": "預測獨航者可能用盡的兩種東西，再與學生一星期的生活比較。"
+          }
+        ],
+        "handoutCue": {
+          "en": "Back: write one supplies note and one bigger lesson after watching.",
+          "zh": "背面：觀看後，記一項補給資訊及一項較大的領悟。"
+        },
+        "teacher": {
+          "en": "The practice sentence is original. Model it if Audio 56 is unavailable; identify this as teacher-led practice. Aim to recognise weak forms, not pronounce every small word strongly.",
+          "zh": "練習句為原創。如無音訊56，可由教師示範，並說明是教師帶讀。目標是辨認弱讀，無須把每個小詞重讀。"
+        }
       },
       {
         "minutes": 5,
         "title": {
-          "en": "Report it independently",
-          "zh": "獨立轉述"
+          "en": "What could she take with her?",
+          "zh": "她能帶甚麼上船？"
         },
         "lead": {
-          "en": "Use the situation given here, then explain one change.",
-          "zh": "根據以下情境轉述，再解釋一項改動。"
+          "en": "Watch the supplies extract from Video 9.2 twice.",
+          "zh": "觀看影片9.2的補給段兩次。"
         },
-        "example": "Yesterday, Alex told you: “I am free tomorrow, but I can only stay for an hour.”\nReport the message today.",
+        "id": "s3-15",
+        "ref": "9D · p. 112 · Video 9.2 · Ex. 4–5, selected extract",
+        "steps": [
+          {
+            "en": "First watch: why is living on the boat different from living near a shop?",
+            "zh": "第一次：在船上生活，與住在商店附近有甚麼不同？"
+          },
+          {
+            "en": "Second watch: note two supplies and what happens when they run out.",
+            "zh": "第二次：記下兩種補給，以及用盡後會怎樣。"
+          },
+          {
+            "en": "Compare a note with a partner. Keep your own campus examples separate from Ellen’s examples.",
+            "zh": "與同伴比較一項筆記，分清 Ellen 的例子及你自己的校園例子。"
+          }
+        ],
         "fields": [
           {
-            "key": "exit",
+            "key": "ted-supplies",
             "label": {
-              "en": "My report and one explanation",
-              "zh": "我的轉述及一項解釋"
+              "en": "Two supplies and the constraint",
+              "zh": "兩種補給及限制"
             },
-            "hint": "",
+            "hint": "Ellen explained that …",
             "rows": 3
           }
         ],
         "reveal": {
           "title": {
-            "en": "Check and explain",
-            "zh": "核對並解釋"
+            "en": "Check the listening",
+            "zh": "核對聆聽內容"
+          },
+          "lines": [
+            {
+              "en": "She mentions food, fuel, clothes and items such as toothpaste. She has only the supplies carried on board.",
+              "zh": "她提到食物、燃料、衣物及牙膏等用品；能用的只有船上帶備的補給。"
+            },
+            {
+              "en": "A possible report: Ellen explained that she had to take everything she needed with her.",
+              "zh": "轉述例子：Ellen explained that she had to take everything she needed with her。"
+            }
+          ]
+        },
+        "teacher": {
+          "en": "Use the section beginning with the boat as her entire world and ending with the explanation of finite supplies. Keep the selected extract around 60–90 seconds. Use the textbook player; do not play the full talk.",
+          "zh": "選「船就是她整個世界」至「補給有限」的段落，約60至90秒。使用課本播放器，本節不播放整段演講。"
+        }
+      },
+      {
+        "minutes": 5,
+        "title": {
+          "en": "What did the experience change?",
+          "zh": "這個經驗改變了甚麼？"
+        },
+        "lead": {
+          "en": "Watch the short connection and reuse extracts from Videos 9.3 and 9.4.",
+          "zh": "觀看影片9.3及9.4中連結資源與再用的短段。"
+        },
+        "id": "s3-16",
+        "ref": "9D · p. 113 · Videos 9.3–9.4 · Ex. 6–7, selected extracts",
+        "steps": [
+          {
+            "en": "Listen for the connection between a boat and the world. What can stay useful for longer?",
+            "zh": "聽出船與世界的關聯。甚麼能保持用途更久？"
+          },
+          {
+            "en": "Write one reported statement about her idea and one example she gives.",
+            "zh": "用間接引語寫出她的一個觀點及她舉的一個例子。"
+          },
+          {
+            "en": "Tell a partner: “Ellen explained that …”. Your partner checks whether the example was in the talk.",
+            "zh": "告訴同伴：「Ellen explained that …」，同伴核對例子是否來自演講。"
+          }
+        ],
+        "fields": [
+          {
+            "key": "ted-report",
+            "label": {
+              "en": "Ellen’s idea and her example",
+              "zh": "Ellen 的觀點及例子"
+            },
+            "hint": "Ellen explained that … For example, she suggested …",
+            "rows": 3
+          }
+        ],
+        "reveal": {
+          "title": {
+            "en": "Check idea and example",
+            "zh": "核對觀點及例子"
+          },
+          "lines": [
+            {
+              "en": "Idea: the world’s materials are finite; products and materials could remain useful for longer. Example: rebuilding engines or recovering components and materials.",
+              "zh": "觀點：世界的材料有限；產品及材料可以更長久地保持用途。例子：翻新引擎，或回收零件及材料。"
+            },
+            {
+              "en": "A report can keep the present tense for a general idea that remains true: Ellen explained that resources are finite.",
+              "zh": "仍然成立的一般觀點可保留現在式：Ellen explained that resources are finite。"
+            }
+          ]
+        },
+        "teacher": {
+          "en": "From 9.3 use the opening connection between the economy and finite materials. From 9.4 use the opening idea and engines/components examples; about 60–90 seconds combined. Avoid the historical depletion estimates. Replay once if needed.",
+          "zh": "9.3選開首經濟與有限材料的連結；9.4選開首觀點及引擎／零件例子，合共約60至90秒。略過歷史性的資源耗盡估算，按需要重播一次。"
+        }
+      },
+      {
+        "minutes": 5,
+        "title": {
+          "en": "Your own accurate report",
+          "zh": "寫出自己的準確轉述"
+        },
+        "lead": {
+          "en": "Work alone. Report the message, report Ellen’s idea, then add your own campus action.",
+          "zh": "獨立完成：轉述訊息、轉述 Ellen 的觀點，再提出自己的校園行動。"
+        },
+        "id": "s3-16-exit",
+        "example": "Yesterday, Alex told you: “I am free tomorrow, but I can only stay for an hour.”\nReport the message today.",
+        "fields": [
+          {
+            "key": "exit",
+            "label": {
+              "en": "My report, Ellen’s idea and my action",
+              "zh": "我的轉述、Ellen 的觀點及個人行動"
+            },
+            "hint": "1. Alex said …\n2. Ellen explained that …\n3. On campus, I could …",
+            "rows": 5
+          }
+        ],
+        "reveal": {
+          "title": {
+            "en": "Check before sharing",
+            "zh": "分享前核對"
           },
           "lines": [
             {
               "en": "Alex said he was free today, but he could only stay for an hour.",
-              "zh": "Alex 說他今天有空，但只能留一小時。"
+              "zh": "Alex said he was free today, but he could only stay for an hour。"
             },
             {
-              "en": "Tomorrow becomes today because you are reporting on the following day. Keep the one-hour condition.",
-              "zh": "翌日轉述時，tomorrow 變成 today；保留只能一小時的條件。"
+              "en": "Tomorrow becomes today because you report on the following day. Keep the one-hour condition. Underline one word you changed.",
+              "zh": "翌日轉述時 tomorrow 變成 today，保留一小時的限制，畫出一個改動的詞。"
+            },
+            {
+              "en": "Keep Ellen’s idea separate from your action: for example, borrowing an event costume instead of buying a new one is your campus application.",
+              "zh": "分清 Ellen 的觀點及自己的行動；例如借用活動服裝，是你提出的校園應用。"
             }
           ]
         },
-        "id": "s3-16"
+        "takeaway": {
+          "en": "I can ask clearly, report an answer and check its meaning against the source.",
+          "zh": "我能清楚提問、轉述答案，並跟來源核對意思。"
+        }
       },
       {
         "minutes": 2,
         "title": {
-          "en": "Bring an object with another life",
-          "zh": "帶來可再利用的物品"
+          "en": "Keep a useful idea moving",
+          "zh": "把有用的點子傳下去"
         },
         "lead": {
           "en": "Before Session 4, photograph or describe something that could be repaired, borrowed, shared or reused.",
           "zh": "第四節前，拍攝或描述一件可維修、借用、共享或再用的物品。"
         },
+        "id": "s3-17",
         "steps": [
           {
-            "en": "A book, bag, cable or decoration is enough. Explain one possible next use. About 10 minutes.",
-            "zh": "書、袋、電線或裝飾都可以，說明一種下一步用途，約10分鐘。"
+            "en": "A book, bag, cable or decoration is enough. Explain one possible next use. About 10 minutes after class.",
+            "zh": "書、袋、電線或裝飾都可以，說明一種下一步用途；課後約10分鐘。"
           }
         ],
         "export": true,
-        "id": "s3-17"
+        "links": [
+          {
+            "label": {
+              "en": "Student handout",
+              "zh": "學生講義"
+            },
+            "href": "/teaching/courses/general-english/unit-9/session-3/student-handout.pdf",
+            "download": true
+          },
+          {
+            "label": {
+              "en": "Teaching notes",
+              "zh": "教學筆記"
+            },
+            "href": "/teaching/courses/general-english/unit-9/session-3/teaching-notes.pdf",
+            "download": true
+          },
+          {
+            "label": {
+              "en": "Ellen MacArthur’s TED Talk",
+              "zh": "Ellen MacArthur 的 TED 演講"
+            },
+            "href": "https://www.ted.com/talks/dame_ellen_macarthur_the_surprising_thing_i_learned_sailing_solo_around_the_world"
+          }
+        ],
+        "source": {
+          "en": "9C: pp.110–111. 9D: pp.112–113. Question intonation: 9E p.114. Video is played from the textbook or TED.",
+          "zh": "9C：第110–111頁；9D：第112–113頁；問句語調：9E第114頁。影片使用課本或 TED 播放。"
+        }
       }
     ]
   },
