@@ -96,91 +96,107 @@ class PDF:
 
 DATA = json.loads((ROOT / 'src/data/generalEnglishUnit9.ts').read_text().split('export const unit9Sessions: Unit9Session[] = ', 1)[1].strip().removesuffix(';'))[3]
 SLIDES = {s['id']: s for s in DATA['slides']}
-MODEL = SLIDES['s4-8']['example']
+PROF, REPLY, PEER = (SLIDES[f's4-{i}']['example'] for i in (10, 14, 15))
+ROUGH = SLIDES['s4-9']['example']
+JOBS = SLIDES['s4-2']['wordBank']
+
+def cn(s):
+    return '<font name="CJK">' + escape(s) + '</font>'
+
+def blocks(p, text, y, size=9):
+    for para in text.split('\n\n'):
+        y = p.para(escape(para).replace('\n', '<br/>'), y, size) + 2
+    return y
+
+def ruled(p, y, n=10, gap=6):
+    for _ in range(n):
+        y += gap
+        p.line(14, y, 182)
+    return y
 
 p = PDF('student-handout.pdf')
-p.start('Ask about your next step', 'Name: __________________________  Class: __________  Group: __________')
-y = p.head('1. Prepare your profile', 46)
-y = p.para('My interest or strength: ______________________  A real example: ___________________________<br/>A skill I want to improve: ____________________  My priority: _______________________________', y, 9.3)
-y = p.head('2. Choose a workshop', y + 8)
-y = p.table(['Practice workshop', 'What you could learn and use'], [
-    (c['title']['en'], ' '.join(x['en'] for x in c['lines'])) for c in SLIDES['s4-3']['columns']
-], y + 1, [43, 139], size=9.2)
-y = p.para('The options give skills only. Ask the coordinator about times, entry requirements and equipment.', y + 2, 8.9)
-y = p.head('3. Use your speaking bank', y + 8)
-y = p.table(['Useful language', 'Purpose'], [
-    ('I am interested in ... / I am good at ...', '<font name="CJK">興趣／長處</font>'),
-    ('I have tried / helped ... . For example, ...', '<font name="CJK">經驗及例子</font>'),
-    ('I would like to improve ...', '<font name="CJK">學習目標</font>'),
-    ('I would recommend ... because ...', '<font name="CJK">建議及理由</font>'),
-    ('[Name] said they ...', '<font name="CJK">準確轉述</font>'),
-    ('I still need to ask about ...', '<font name="CJK">仍需知道的資訊</font>'),
-], y + 1, [134, 48], size=9.1)
-y = p.para('<b>Ask:</b> What do you enjoy? What have you tried? What would you like to improve?<br/><b>Follow up:</b> Can you give an example? &nbsp; WHAT would you like to LEARN? <font name="CJK">↘</font> CAN you work with a TEAM? <font name="CJK">↗</font>', y + 3, 8.9)
-y = p.head('4. Talk, advise, report and rotate', y + 8)
-y = p.table(['Round', 'Student', 'Adviser', 'Reporter', 'Questioner'], [
-    ('1', 'A', 'B', 'C', 'D'), ('2', 'B', 'C', 'D', 'A'),
-    ('3', 'C', 'D', 'A', 'B'), ('4', 'D', 'A', 'B', 'C'),
-], y + 1, [18, 41, 41, 41, 41], size=8.8)
-y = p.para('<b>Four people:</b> four 3-minute rounds. <b>Three people:</b> A/B/C <font name="CJK">→</font> B/C/A <font name="CJK">→</font> C/A/B, four minutes each; the reporter also asks the missing-information question.<br/>Student: explain your profile. Adviser: ask and recommend with a reason/example. Reporter: pass on the needs and advice. Questioner: ask what is still unknown. Check and rotate.', y + 3, 8.8)
-y = p.head('5. My spoken choice', y + 8)
-y = p.para('I chose __________________ because __________________________________________________<br/>__________________ said _____________________________________________________________<br/>I still need to ask about __________________ / __________________ / __________________', y, 9.2)
-p.finish('Individual output: a 30-second choice supported by a reason, an example and advice you heard.')
+p.start('Economics: my career profile', 'Name: __________________________  Class: __________  Group: __________')
+y = p.head('1. Learn the job vocabulary', 46)
+rows = []
+for j in JOBS:
+    meaning = j['meaning']['zh'].split('：', 1)[0]
+    rows.append((j['word'] + '<br/>' + cn(meaning), j['meaning']['en']))
+y = p.table(['Job', 'What they do'], rows, y + 1, [55, 127], size=8.8)
+y = p.head('2. Separate three kinds of preparation', y + 7)
+y = p.table(['Qualities: the person', 'Skills: what they can do', 'Knowledge: what they understand'], [
+    ('honest; hard-working; organised; curiosity', 'analyse data; check figures; explain results; work in a team', 'economics; mathematics; statistics; accounting; financial statements'),
+], y + 1, [60, 61, 61], size=8.7)
+y = p.para('<b>Review:</b> U1: confident / nervous / helpful / honest / hard-working.<br/>U2: communication / business / education / imagination. U5: classmate / teammate / professional / international.<br/>U9: focus on / ask for / depend on / decide on / apply for / be part of a team.', y + 3, 8.5)
+y = p.head('3. Prepare your own profile', y + 7)
+y = p.para('My job: _______________________  Two qualities: ______________________________________<br/>Two skills: ________________________________________________________________________<br/>Two knowledge areas: ______________________________________________________________<br/>One point with a reason/example: ___________________________________________________<br/>My Year 1 learning gap: ______________________________________________________________', y, 9.2)
+y = p.head('4. Discuss, report and rotate', y + 7)
+y = p.para('<b>Four people:</b> speaker / interviewer / reporter / evidence checker. Rotate A/B/C/D to B/C/D/A, then C/D/A/B, then D/A/B/C; 2.5 minutes per round.<br/><b>Three people:</b> speaker / interviewer / reporter; rotate three times, 3 minutes each, then check for 1 minute. The interviewer also checks evidence.', y, 8.6)
+y = p.para('<b>Ask:</b> What does a(n) ... do? What qualities / skills / knowledge do they need? Why? What could you learn now?<br/><b>Explain:</b> I need to be ... / be able to ... / have knowledge of ... . This matters because ... . For example, ... .<br/><b>Report:</b> [Name] said they ... . <b>Intonation:</b> WHAT skills do they NEED? ' + cn('↘') + ' DO they work in a TEAM? ' + cn('↗'), y + 3, 8.6)
+y = p.para('My professor question: ______________________________________________________________', y + 4, 9)
+p.finish('Share your own profile: 2 qualities, 2 skills, 2 knowledge areas, one reason/example and one learning gap.')
 
-p.start('Write an enquiry you can use', 'Use the workshop you chose in your conversation. Write 90–120 words.')
-y = p.head('1. Notice the purpose and three questions', 46)
-for paragraph in MODEL.split('\n\n'):
-    y = p.para(escape(paragraph).replace('\n', '<br/>'), y, 9.1)
-    y += 2
-y = p.head('2. Use statement word order inside the question', y + 4)
-y = p.table(['Direct', 'Indirect'], [
-    ('When does it start?', 'Could you tell me when it starts?'),
-    ('Can beginners join?', 'I would like to know whether beginners can join.'),
-    ('What should I bring?', 'Could you tell me what I should bring?'),
-], y + 1, [57, 125], size=9)
-y = p.head('3. Write your own enquiry', y + 7)
-y = p.para('Include a subject, greeting, purpose, brief context, three useful questions and a close.<br/>Use at least two indirect questions and two useful chunks. Write below; revise the same draft.', y, 8.8)
-for i in range(11):
-    y += 6.2
-    p.line(14, y, 182)
-y = p.head('4. Check and improve', y + 8)
-y = p.para('Partner check: underline the purpose; number three questions; check two indirect questions.<br/>Give one comment. Revise at least one sentence. Then ask one revised question aloud.', y, 8.8)
-y = p.para('My improved sentence: ______________________________________________________________', y + 4, 9)
-p.finish('Original classroom model. All workshop options are fictional. Keep purpose, questions and tone clear.')
-p.save(2)
+p.start('Write to your professor', 'Ask how you could prepare for a career while you are in Year 1.')
+y = p.head('1. Repair the rough emails', 46)
+rough_rows = [
+    ('A', 'Subject: Help!!!<br/>Hey prof,<br/>I want a high-paid quant job. Tell me everything I need to know. Could you tell me what should I study? Please reply tonight.<br/>Alex'),
+    ('B', '[No subject]<br/>Dear Sir/Madam,<br/>I am a student and I have a lot of confusion about my future. I want to be an accountant. I would like to know do I need communication skills. I am waiting for your reply.<br/>Your student'),
+]
+y = p.table(['Draft', 'What would you change?'], rough_rows, y + 1, [15, 167], size=8.5)
+y = p.para('Check: subject / greeting / purpose and context / focused requests / tone / close and name.', y + 2, 8.5)
+y = p.head('2. Notice how the model works', y + 6)
+y = blocks(p, PROF, y, 8.6)
+y = p.para('<b>Ask indirectly:</b> Could you tell me which subjects <b>I should focus on</b>?<br/>I would like to know <b>whether I need</b> programming skills. Use statement word order inside the question.', y + 1, 8.5)
+y = p.head('3. Write your own enquiry: 90-120 words', y + 6)
+y = p.para('Use your own career and learning gap. Include 3 focused requests, at least 2 indirect questions and 3 review words/chunks. Revise the same draft after feedback.', y, 8.5)
+y = ruled(p, y, 10, 5.6)
+y = p.para('<b>Partner check:</b> Is the purpose clear? Are the requests answerable? Does the tone fit a professor?<br/>Check word order, greeting and close. Underline one revision.', y + 4, 8.5)
+p.finish('Classroom models with fictional people. Write a practice email; you do not need to send it.')
+
+p.start('Report the advice to a classmate', 'Use the reply below as your source. Separate the professor\'s advice from your own plan.')
+y = p.head('1. Read the fictional reply', 46)
+y = blocks(p, REPLY, y, 8.9)
+y = p.head('2. Notice a different recipient and purpose', y + 4)
+y = blocks(p, PEER, y, 8.8)
+y = p.para('<b>Report:</b> said (that) ... / told me (that) ... / advised me to ... . Can ' + cn('→') + ' could; should stays should.<br/>Keep relevant if-conditions and the strength of advice. Present forms can remain if the advice is still current.', y + 1, 8.5)
+y = p.head('3. Write your own report: 80-100 words', y + 6)
+y = p.para('Use a clear subject and friendly greeting/close. Report 3 supported points using 2 reporting patterns.<br/>Use 3 review words/chunks. Add your own next step: I plan to ... . For another career, use the general advice and say what you still need to ask.', y, 8.5)
+y = ruled(p, y, 9, 5.8)
+y = p.para('<b>Partner check:</b> Compare every report with the reply. Keep conditions and meaning. Check tone and reporting forms; revise one sentence.<br/><b>Say:</b> one thing you could learn now and one improved sentence.', y + 4, 8.5)
+p.finish('Individual outputs: a career profile, a professor enquiry and an accurate email reporting advice.')
+p.save(3)
 
 p = PDF('teaching-notes.pdf')
-p.start('Session 4: speaking to writing', '75 minutes. Each student gives supported advice and produces a revised enquiry email.')
-y = p.head('Build on Sessions 1–3', 46)
-y = p.para('<b>1:</b> skills and experience. <b>2:</b> dependent-preposition chunks, reasons, examples and tone. <b>3:</b> question intonation and accurate reports. Today these support a personal workshop choice and enquiry.<br/><b>Prepare:</b> one two-page handout per student, double-sided; textbook 9E pp.114–115. The workshop options and email model are original classroom materials.', y, 9.2)
-y = p.head('Sequence', y + 8)
-elapsed = 0
-rows = []
-purposes = [
-    'Use the object/photo or a recent activity to name a useful skill. Introduce the two outputs.',
-    'Recall one strength, one specific example and one learning goal; tell a partner.',
-    'Read the three workshop options and make a provisional choice.',
-    'Pairs read the advice model; identify a question, recommendation and support.',
-    'Prepare individual keywords and questions. Keep the language bank visible.',
-    'Rotate student/adviser/reporter/questioner roles. Every student takes every role.',
-    'Each student shares a 30-second choice and names three unanswered questions.',
-    'Read the enquiry model: purpose, relevant context and three answerable questions.',
-    'Teach embedded subject + verb, if/whether and final punctuation.',
-    'Repair three questions individually, then say the answers in pairs.',
-    'Plan recipient, purpose, context and three questions from the conversation.',
-    'Write a 90–120-word enquiry; include at least two indirect questions and two chunks.',
-    'Partner acts as recipient: check purpose, question usefulness and word order.',
-    'Revise the same paper draft, or the browser final field; practise one question aloud.',
-    'Share a workshop choice and revised question; record one improved sentence.',
+p.start('Applied Economics: speaking and writing', '75 minutes. Career profile > professor enquiry > accurate email to a classmate.')
+y = p.head('Prepare and connect', 46)
+y = p.para('Print the 3-page student handout; use textbook 9E pp.114-115. Reuse Session 1 skills/experience, Session 2 chunks/reasons/tone and Session 3 question intonation/reported speech. New job titles extend the Unit 9 bank. U1/2/5/9 words are reviewed in speaking and both emails. The professor and all correspondence are fictional.', y, 8.8)
+y = p.head('Sequence', y + 6)
+actions = [
+ 'Name a career interest and a possible first-year learning goal; introduce the three outputs.',
+ 'Teach 8 job titles. Pairs describe/guess a role. Distinguish accountant/auditor and quant/data analyst.',
+ 'Distinguish qualities, skills and knowledge; ask students to supply an extra example of each.',
+ 'Compare the quant/accountant prompts; accept supported alternatives. Do not present an exhaustive checklist.',
+ 'Read the career dialogue in pairs. Find a claim, reason and example; rehearse question intonation.',
+ 'Individual keywords: job, 2 qualities, 2 skills, 2 knowledge areas and a learning gap.',
+ 'Rotate roles. Each speaker explains their own profile; reporter checks meaning with the speaker.',
+ 'Each student states a career goal/gap and develops two questions for a professor.',
+ 'Repair both rough emails individually, then compare. Reveal possible changes after discussion.',
+ 'Read the enquiry model: purpose, relevant context, focused requests and appropriate tone.',
+ 'Repair indirect questions. Teach embedded subject + verb, if/whether and recommend something to someone.',
+ 'Write a 90-120-word professor enquiry: 3 requests, 2 indirect questions, 3 review words/chunks.',
+ 'Partners read as professor; writer revises one sentence in the same draft.',
+ 'Read the supplied reply. Select general advice and the career-specific advice that fits; retain conditions.',
+ 'Read the peer model: identify 3 reports, 2 reporting patterns and the separate personal plan.',
+ 'Write an 80-100-word classmate email from the reply, using 3 supported points and an own next step.',
+ 'Compare reports against reply. Reveal answers; check meaning/tone and revise the same draft.',
+ 'Each student shares one next step and one improved sentence; save/download work.',
 ]
-for i, (s, purpose) in enumerate(zip(DATA['slides'], purposes), 1):
-    rows.append((f'{elapsed}-{elapsed+s["minutes"]}', str(i), purpose))
-    elapsed += s['minutes']
+rows=[]; elapsed=0
+for i,(s,a) in enumerate(zip(DATA['slides'],actions),1):
+    rows.append((f'{elapsed}-{elapsed+s["minutes"]}',str(i),a)); elapsed+=s['minutes']
 assert elapsed == 75
-y = p.table(['Minutes', 'Slide', 'Task'], rows, y + 1, [22, 15, 145], size=8.8)
-y = p.head('Speaking rounds and individual checks', y + 8)
-y = p.para('<b>Four students:</b> four 3-minute rounds: profile 30 seconds; questions 60; advice 30; report 30; missing information and check 30. <b>Three students:</b> three 4-minute rounds, with the reporter also asking what is missing. Use the extra minute for follow-up questions and correction.<br/><b>Speaking:</b> reason + specific example; report the advice accurately. <b>Writing:</b> clear purpose, three useful questions, at least two indirect, suitable opening/close and one identifiable revision.<br/>Advisers use the skills in the descriptions; unknown times, fees and requirements become questions for the coordinator. Past perfect is optional when an earlier past event needs it.', y, 8.9)
-y = p.head('Language checks', y + 8)
-y = p.para('<b>Slide 10:</b> (1) Could you tell me when the workshop starts? (2) I would like to know whether/if beginners can join. (3) Could you tell me what equipment I should bring?<br/>A reported statement passes on information. An indirect question requests information; do not backshift its tense automatically. A direct question can also be polite.', y, 8.9)
-p.finish('9E pp.114–115. Individual outputs: a supported spoken choice and a revised enquiry.')
+y = p.table(['Minutes','Slide','Teacher action'], rows, y+1, [20,14,148], size=8.1)
+y = p.head('Rounds, feedback and answers', y+6)
+y = p.para('<b>4 students:</b> 4 x 2.5 min: profile 45s, questions 30s, support/example 30s, report 30s, meaning check 15s. <b>3:</b> 3 x 3 min + 1 min check; interviewer checks evidence. Everyone speaks and reports.<br/><b>Slide 9:</b> A: specific subject, named greeting, year/major, focused requests, no unexplained deadline; well-paid; what I should study. B: subject/context/name; whether I need; courteous thanks/close. Explain recipient fit, not rigid bans.<br/><b>Slide 11:</b> which subjects I should focus on; whether/if I need programming skills; recommend a project to me / recommend a small project.<br/><b>Slide 17:</b> (1) Unsupported: gradual programming advice is conditional. (2) The writer owns the plan.<br/><b>Check:</b> speaking separates all three categories and supports a claim; enquiry has clear purpose/requests; peer email preserves meaning, conditions and certainty. Backshift is common, not compulsory for still-current advice. Past perfect is optional when earlier past experience fits.', y, 8.25)
+y = p.para('Career descriptions: simplified from O*NET Financial Quantitative Analysts and U.S. BLS profiles (accountants/auditors, financial analysts, market research analysts, economists). Discuss first-year preparation with the professor; examples are not local recruitment or licensing requirements.', y+3, 7.6)
+p.finish('Three individual outputs. Drafts are classroom practice; no sending or real professor reply is required.')
 p.save(1)

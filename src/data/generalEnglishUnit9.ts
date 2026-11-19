@@ -2103,57 +2103,57 @@ export const unit9Sessions: Unit9Session[] = [
     "number": 4,
     "slug": "better-campus-life",
     "title": {
-      "en": "Ask about your next step",
-      "zh": "為下一步問清楚"
+      "en": "Economics: ask, prepare and report",
+      "zh": "經濟職涯：查詢、準備與轉述"
     },
-    "sections": "9E speaking + writing; review of 9A–9D",
+    "sections": "9E speaking and writing · review of 9A–9D and Units 1, 2, 5, 9",
     "pages": "114–115",
     "outcome": {
-      "en": "Discuss skills and interests, justify a workshop choice and write a clear enquiry using indirect questions.",
-      "zh": "討論技能及興趣、說明工作坊選擇的理據，並用間接問句寫清楚的查詢電郵。"
+      "en": "Explain career qualities, skills and knowledge; enquire about Year 1 preparation; report advice accurately to a classmate.",
+      "zh": "說明職業特質、技能及知識；查詢一年級準備方向；向同學準確轉述建議。"
     },
     "slides": [
       {
         "id": "s4-1",
-        "minutes": 3,
+        "minutes": 4,
         "title": {
-          "en": "Ask about your next step",
-          "zh": "為下一步問清楚"
+          "en": "Your major, your next step",
+          "zh": "我的專業與下一步"
         },
         "lead": {
-          "en": "Show your object/photo from Session 3, or name a recent student activity. Which skill would help?",
-          "zh": "展示上節的物品／照片，或說一項近期學生活動。哪種技能能幫到你？"
+          "en": "You are in Year 1 of Applied Economics. Which job interests you, and what could you start learning now?",
+          "zh": "你是應用經濟學一年級學生，對哪項職業有興趣？現在可以開始學甚麼？"
         },
         "cover": true,
         "columns": [
           {
             "title": {
-              "en": "Speaking",
+              "en": "Speak",
               "zh": "口語"
             },
             "lines": [
               {
-                "en": "Explain your skills and interests. Give advice with a reason and an example.",
-                "zh": "說明技能及興趣，用原因及例子提出建議。"
+                "en": "Explain a job, its qualities, skills and knowledge. Support one point with an example.",
+                "zh": "說明職業需要的個人特質、技能及知識，並用例子支持一點。"
               }
             ]
           },
           {
             "title": {
-              "en": "Writing",
+              "en": "Write",
               "zh": "寫作"
             },
             "lines": [
               {
-                "en": "Write a 90–120-word workshop enquiry with three useful questions.",
-                "zh": "寫一封90–120字的工作坊查詢電郵，提出三個有用問題。"
+                "en": "Ask a professor for preparation advice. Then email a classmate to report the advice.",
+                "zh": "向教授查詢準備方向，再寫電郵向同學轉述建議。"
               }
             ]
           }
         ],
-        "handoutCue": {
-          "en": "One sheet, double-sided: speaking on the front; writing on the back.",
-          "zh": "一張紙，雙面：正面口語，背面寫作。"
+        "takeaway": {
+          "en": "Career needs → my learning gap → professor enquiry → report to a classmate.",
+          "zh": "職業需要 → 我的學習差距 → 向教授查詢 → 向同學轉述。"
         },
         "links": [
           {
@@ -2164,238 +2164,326 @@ export const unit9Sessions: Unit9Session[] = [
             "href": "/teaching/courses/general-english/unit-9/session-4/student-handout.pdf",
             "download": true
           }
-        ],
-        "takeaway": {
-          "en": "Skills + evidence → advice → questions → a clear enquiry.",
-          "zh": "技能＋證據 → 建議 → 問題 → 清楚的查詢。"
-        }
+        ]
       },
       {
         "id": "s4-2",
-        "minutes": 5,
+        "minutes": 4,
         "title": {
-          "en": "Bring your language back",
-          "zh": "重用學過的語言"
+          "en": "Eight jobs in economics",
+          "zh": "經濟學相關的八項職業"
         },
         "lead": {
-          "en": "Write one strength, one real example and one thing you want to learn. Then tell a partner.",
-          "zh": "寫一項長處、一個真實例子及一件想學的事，再告訴同伴。"
+          "en": "New job vocabulary. In pairs, explain one role without saying its title; your partner names it.",
+          "zh": "學習新職業詞彙：兩人一組，一人不用職稱解釋工作，由同伴猜出職業。"
+        },
+        "wordBank": [
+          {
+            "word": "quantitative analyst",
+            "meaning": {
+              "en": "Uses mathematical and statistical models to analyse financial problems.",
+              "zh": "量化分析師：運用數學及統計模型分析金融問題。"
+            }
+          },
+          {
+            "word": "data analyst",
+            "meaning": {
+              "en": "Organises and analyses data to answer practical questions.",
+              "zh": "數據分析師：整理及分析數據，回答實際問題。"
+            }
+          },
+          {
+            "word": "accountant",
+            "meaning": {
+              "en": "Prepares and checks financial records and statements.",
+              "zh": "會計師：編製及核對財務紀錄與報表。"
+            }
+          },
+          {
+            "word": "auditor",
+            "meaning": {
+              "en": "Examines financial records and checks their accuracy and compliance.",
+              "zh": "審計師：查核財務紀錄的準確性及合規情況。"
+            }
+          },
+          {
+            "word": "financial analyst",
+            "meaning": {
+              "en": "Studies financial information to support investment or business decisions.",
+              "zh": "金融分析師：研究財務資訊，支援投資或商業決策。"
+            }
+          },
+          {
+            "word": "risk analyst",
+            "meaning": {
+              "en": "Assesses possible financial risks and their effects.",
+              "zh": "風險分析師：評估可能的金融風險及其影響。"
+            }
+          },
+          {
+            "word": "market research analyst",
+            "meaning": {
+              "en": "Studies customers, competitors and market conditions.",
+              "zh": "市場研究分析師：研究顧客、競爭者及市場情況。"
+            }
+          },
+          {
+            "word": "economic / policy analyst",
+            "meaning": {
+              "en": "Uses economic evidence to examine issues and policy choices.",
+              "zh": "經濟／政策分析師：運用經濟證據分析議題與政策選擇。"
+            }
+          }
+        ],
+        "source": {
+          "en": "Simplified classroom descriptions; titles and duties vary across workplaces.",
+          "zh": "簡化的課堂工作描述；不同機構的職稱及職責會有差異。"
+        }
+      },
+      {
+        "id": "s4-3",
+        "minutes": 4,
+        "title": {
+          "en": "Qualities, skills and knowledge",
+          "zh": "個人特質、技能與知識"
+        },
+        "lead": {
+          "en": "Describe the person, what they can do and what they need to understand.",
+          "zh": "分別說明個人特質、能做甚麼，以及需要理解甚麼。"
+        },
+        "columns": [
+          {
+            "title": {
+              "en": "Qualities: what you are like",
+              "zh": "特質：你是怎樣的人"
+            },
+            "lines": [
+              {
+                "en": "honest, hard-working, helpful, confident (U1)",
+                "zh": "honest 誠實、hard-working 勤奮、helpful 樂於助人、confident 自信（U1）"
+              },
+              {
+                "en": "organised; curiosity (U9)",
+                "zh": "organised 有條理；curiosity 好奇心（U9）"
+              }
+            ]
+          },
+          {
+            "title": {
+              "en": "Skills: what you can do",
+              "zh": "技能：你能做甚麼"
+            },
+            "lines": [
+              {
+                "en": "analyse data; check figures; explain results",
+                "zh": "分析數據；核對數字；解釋結果"
+              },
+              {
+                "en": "communication (U2); be part of a team (U9)",
+                "zh": "communication 溝通（U2）；be part of a team 成為團隊一員（U9）"
+              }
+            ]
+          },
+          {
+            "title": {
+              "en": "Knowledge: what you understand",
+              "zh": "知識：你理解甚麼"
+            },
+            "lines": [
+              {
+                "en": "economics; mathematics; statistics; accounting",
+                "zh": "經濟學、數學、統計學、會計學"
+              },
+              {
+                "en": "business (U2); the economy (U9); international / cultural contexts (U5)",
+                "zh": "business 商業（U2）；economy 經濟（U9）；international／cultural contexts 國際／文化背景（U5）"
+              }
+            ]
+          }
+        ],
+        "takeaway": {
+          "en": "Quality: I need to be honest / show curiosity. Skill: I need to be able to analyse data. Knowledge: I need knowledge of statistics.",
+          "zh": "特質：I need to be honest／show curiosity. 技能：I need to be able to analyse data. 知識：I need knowledge of statistics."
+        }
+      },
+      {
+        "id": "s4-4",
+        "minutes": 3,
+        "title": {
+          "en": "Build a career profile",
+          "zh": "建立職業能力描述"
+        },
+        "lead": {
+          "en": "Discuss these possible starting points. Add or challenge a suggestion, with a reason.",
+          "zh": "討論以下起點，提出理由以補充或質疑建議。"
         },
         "table": {
           "headers": [
             {
-              "en": "From earlier lessons",
-              "zh": "前幾節的語言"
+              "en": "Area",
+              "zh": "範疇"
             },
             {
-              "en": "Use it today",
-              "zh": "今天怎樣使用"
+              "en": "Quantitative analyst",
+              "zh": "量化分析師"
+            },
+            {
+              "en": "Accountant",
+              "zh": "會計師"
             }
           ],
           "rows": [
             [
               {
-                "en": "1 · Skills and experience",
-                "zh": "1 · 技能及經驗"
+                "en": "Qualities",
+                "zh": "特質"
               },
               {
-                "en": "I am good at … . For example, I helped … .",
-                "zh": "I am good at … . For example, I helped … ."
+                "en": "honest; hard-working; curiosity",
+                "zh": "honest; hard-working; curiosity"
+              },
+              {
+                "en": "honest; organised; professional",
+                "zh": "honest; organised; professional"
               }
             ],
             [
               {
-                "en": "2 · Chunks, reasons and tone",
-                "zh": "2 · 詞組、原因及語氣"
+                "en": "Skills",
+                "zh": "技能"
               },
               {
-                "en": "I am interested in … . This would help because … .",
-                "zh": "I am interested in … . This would help because … ."
+                "en": "analyse data; use code; explain results",
+                "zh": "analyse data; use code; explain results"
+              },
+              {
+                "en": "check figures; use spreadsheets; communicate clearly",
+                "zh": "check figures; use spreadsheets; communicate clearly"
               }
             ],
             [
               {
-                "en": "3 · Questions and reports",
-                "zh": "3 · 問句及轉述"
+                "en": "Knowledge",
+                "zh": "知識"
               },
               {
-                "en": "What would you like to learn? They said they … .",
-                "zh": "What would you like to learn? They said they … ."
+                "en": "mathematics; statistics; programming; economics",
+                "zh": "mathematics; statistics; programming; economics"
+              },
+              {
+                "en": "accounting; financial statements; business rules",
+                "zh": "accounting; financial statements; business rules"
               }
             ]
           ]
         },
-        "fields": [
-          {
-            "key": "skills-profile",
-            "label": {
-              "en": "My strength, example and learning goal",
-              "zh": "我的長處、例子及學習目標"
-            },
-            "hint": "I am … / I have … / I would like to …",
-            "rows": 3
-          }
-        ]
-      },
-      {
-        "id": "s4-3",
-        "minutes": 3,
-        "title": {
-          "en": "Choose a useful workshop",
-          "zh": "選一個有用的工作坊"
-        },
-        "lead": {
-          "en": "Which option could help you now? Choose one provisionally.",
-          "zh": "哪個選項現在能幫到你？先選一個。"
-        },
-        "ref": "9E · p.114 · Skills, interests and careers",
-        "columns": [
-          {
-            "title": {
-              "en": "Video storytelling",
-              "zh": "影片敘事"
-            },
-            "lines": [
-              {
-                "en": "Plan and edit short videos.",
-                "zh": "策劃及剪輯短片。"
-              },
-              {
-                "en": "Use it for a campus vlog or a club story.",
-                "zh": "可用於校園 vlog 或社團故事。"
-              }
-            ]
-          },
-          {
-            "title": {
-              "en": "Poster design",
-              "zh": "海報設計"
-            },
-            "lines": [
-              {
-                "en": "Organise words and images clearly.",
-                "zh": "清楚編排文字及圖像。"
-              },
-              {
-                "en": "Use it to publicise student activities.",
-                "zh": "可用於宣傳學生活動。"
-              }
-            ]
-          },
-          {
-            "title": {
-              "en": "Repair and reuse",
-              "zh": "維修與再用"
-            },
-            "lines": [
-              {
-                "en": "Repair or repurpose everyday items.",
-                "zh": "維修日常物品，或賦予新用途。"
-              },
-              {
-                "en": "Use it for a campus swap or reuse project.",
-                "zh": "可用於校園交換或再用計劃。"
-              }
-            ]
-          }
-        ],
-        "steps": [
-          {
-            "en": "You know the skills each workshop practises. Ask the coordinator about times, entry requirements and equipment.",
-            "zh": "你知道各工作坊練習的技能；時間、入門要求及器材需要問統籌者。"
-          }
-        ],
+        "example": "An accountant needs to be honest because other people depend on accurate financial information. For example, a small error could affect a business decision.",
         "source": {
-          "en": "Fictional workshop options for this classroom task.",
-          "zh": "本課堂活動的虛構工作坊選項。"
-        }
-      },
-      {
-        "id": "s4-4",
-        "minutes": 4,
-        "title": {
-          "en": "Give advice that fits the person",
-          "zh": "提出適合對方的建議"
-        },
-        "lead": {
-          "en": "Read the model in pairs. Find a question, a recommendation and its support.",
-          "zh": "兩人讀示範，找出問題、建議及支持理由。"
-        },
-        "ref": "9E · p.114 · Useful language",
-        "example": "Student: I enjoy making videos, but I am not confident about editing.\nAdviser: What have you tried before?\nStudent: I helped a classmate film a club activity.\nAdviser: I would recommend video storytelling because it builds on that experience. You could learn to plan and edit clearer videos.\nStudent: Can beginners join?\nAdviser: We still need to ask the coordinator.",
-        "takeaway": {
-          "en": "Recommendation + because + a detail from the student’s experience.",
-          "zh": "建議＋because＋學生經驗中的具體細節。"
+          "en": "Discussion prompts, not a complete list of qualifications. Ask your professor what is appropriate for Year 1.",
+          "zh": "討論提示，並非完整資格清單；請向教授了解適合一年級的準備方向。"
         }
       },
       {
         "id": "s4-5",
-        "minutes": 4,
+        "minutes": 3,
         "title": {
-          "en": "Prepare before you speak",
-          "zh": "先準備，再開口"
+          "en": "Ask, explain and support",
+          "zh": "提問、說明與支持"
         },
         "lead": {
-          "en": "Choose two or three chunks. Prepare your own answer keywords first.",
-          "zh": "選兩至三個詞組，先準備自己的答案關鍵詞。"
+          "en": "Read in pairs. Find a quality, a skill, some knowledge and a supporting example.",
+          "zh": "兩人讀示範，找出特質、技能、知識及支持例子。"
+        },
+        "ref": "9E · p.114 · Talking about careers, skills and interests",
+        "example": "A: What does a quantitative analyst do?\nB: They use mathematical models to analyse financial problems. They need to be honest and good at analysing data. They also need knowledge of statistics.\nA: Why does communication matter?\nB: They need to explain results to teammates. For example, a model is less useful if the team cannot understand its limits.\nA: What could you start learning now?\nB: I could focus on statistics and ask for advice about programming.\n\nWHAT skills do they NEED? ↘   DO they work in a TEAM? ↗",
+        "takeaway": {
+          "en": "Claim + because + a concrete example. Question intonation is a useful tendency, not a fixed rule.",
+          "zh": "觀點＋because＋具體例子；問句語調是常見傾向，並非固定規則。"
+        }
+      },
+      {
+        "id": "s4-6",
+        "minutes": 3,
+        "title": {
+          "en": "Prepare your own profile",
+          "zh": "準備自己的職業描述"
+        },
+        "lead": {
+          "en": "Choose one job. Note two qualities, two skills, two areas of knowledge and one learning gap.",
+          "zh": "選一項職業，記下兩項特質、兩項技能、兩項知識及一項學習差距。"
         },
         "columns": [
           {
             "title": {
-              "en": "Student",
-              "zh": "學生"
+              "en": "Use earlier vocabulary",
+              "zh": "重用前面單元詞彙"
             },
             "lines": [
               {
-                "en": "One interest or strength; one example; one skill to improve.",
-                "zh": "一項興趣或長處、一個例子、一項想改善的技能。"
+                "en": "U1: confident / nervous / honest / hard-working",
+                "zh": "U1: confident / nervous / honest / hard-working"
               },
               {
-                "en": "One priority: enjoyment, teamwork, time, cost or confidence.",
-                "zh": "一項取向：興趣、團隊、時間、費用或自信。"
+                "en": "U2: communication / business / education / imagination",
+                "zh": "U2: communication / business / education / imagination"
+              },
+              {
+                "en": "U5: classmate / teammate / professional / international",
+                "zh": "U5: classmate / teammate / professional / international"
+              },
+              {
+                "en": "U9: accountant / economy / curiosity / be part of a team",
+                "zh": "U9: accountant / economy / curiosity / be part of a team"
               }
             ]
           },
           {
             "title": {
-              "en": "Adviser",
-              "zh": "顧問"
+              "en": "Use earlier patterns",
+              "zh": "重用前面單元句式"
             },
             "lines": [
               {
-                "en": "What do you enjoy? What have you tried? What would you like to improve?",
-                "zh": "你喜歡甚麼？試過甚麼？想改善甚麼？"
+                "en": "I am interested in … / I am good at …",
+                "zh": "I am interested in … / I am good at …"
               },
               {
-                "en": "Follow up: Can you give an example?",
-                "zh": "追問：Can you give an example?"
+                "en": "I need to be … / be able to … / have knowledge of … .",
+                "zh": "I need to be …／be able to …／have knowledge of … ."
+              },
+              {
+                "en": "I could focus on … / I need to ask for …",
+                "zh": "I could focus on … / I need to ask for …"
+              },
+              {
+                "en": "Before I started university, I had … . (Only if it fits.)",
+                "zh": "Before I started university, I had … . (Only if it fits.)"
               }
             ]
           }
         ],
-        "example": "WHAT would you like to LEARN? ↘\nCAN you work with a TEAM? ↗",
         "fields": [
           {
-            "key": "advice-prep",
+            "key": "skills-profile",
             "label": {
-              "en": "My answer keywords and questions",
-              "zh": "我的答案關鍵詞及問題"
+              "en": "My job: qualities, skills, knowledge and gap",
+              "zh": "我的職業：特質、技能、知識及差距"
             },
-            "hint": "Use the speaking bank on the handout.",
-            "rows": 3
+            "hint": "Job / 2 qualities / 2 skills / 2 knowledge areas / one thing I need to learn",
+            "rows": 4
           }
         ]
       },
       {
-        "id": "s4-6",
-        "minutes": 12,
+        "id": "s4-7",
+        "minutes": 10,
         "title": {
-          "en": "The skills-advice circle",
-          "zh": "技能建議小組"
+          "en": "Career conversations",
+          "zh": "職業對談"
         },
         "lead": {
-          "en": "Groups of three or four. Use the rotation table on the handout. Everyone takes each role.",
-          "zh": "三至四人一組，按講義角色表輪換，每人都擔任各角色。"
+          "en": "Groups of three or four. Rotate so everyone explains their own job profile.",
+          "zh": "三至四人一組輪換，讓每人都說明自己的職業描述。"
         },
         "table": {
           "headers": [
@@ -2404,381 +2492,412 @@ export const unit9Sessions: Unit9Session[] = [
               "zh": "角色"
             },
             {
-              "en": "What to do",
-              "zh": "做甚麼"
+              "en": "Action",
+              "zh": "行動"
             }
           ],
           "rows": [
             [
               {
-                "en": "Student",
-                "zh": "學生"
+                "en": "Speaker",
+                "zh": "發言者"
               },
               {
-                "en": "Explain an interest, an example and a learning goal.",
-                "zh": "說明一項興趣、一個例子及一項學習目標。"
+                "en": "Explain the job, two qualities, two skills and two knowledge areas. Support one point.",
+                "zh": "說明職業、兩項特質、兩項技能及兩項知識，並支持一點。"
               }
             ],
             [
               {
-                "en": "Adviser",
-                "zh": "顧問"
+                "en": "Interviewer",
+                "zh": "訪問者"
               },
               {
-                "en": "Ask questions. Recommend one option with a reason and an example.",
-                "zh": "提出問題，再用原因及例子建議一個選項。"
+                "en": "Ask What / Why / How questions. Ask what they could learn in Year 1.",
+                "zh": "用 What／Why／How 提問，問一年級可以學甚麼。"
               }
             ],
             [
               {
                 "en": "Reporter",
-                "zh": "報道員"
+                "zh": "轉述者"
               },
               {
-                "en": "Report the student’s needs and the advice. The student checks the meaning.",
-                "zh": "轉述學生需要及建議，由學生核對意思。"
+                "en": "Report two points: “[Name] said …”. Check the meaning with the speaker.",
+                "zh": "用「[Name] said …」轉述兩點，與發言者核對意思。"
               }
             ],
             [
               {
-                "en": "Questioner (fourth person)",
-                "zh": "追問者（第四人）"
+                "en": "Evidence checker (fourth person)",
+                "zh": "理據核對者（第四人）"
               },
               {
-                "en": "Ask what information is still missing. In a trio, the reporter also does this.",
-                "zh": "問還缺甚麼資訊；三人組由報道員兼任。"
+                "en": "Ask for an example and check the qualities / skills / knowledge distinction.",
+                "zh": "要求例子，並核對特質／技能／知識的分類。"
               }
             ]
           ]
         },
         "steps": [
           {
-            "en": "Four people: four 3-minute rounds. Three people: three 4-minute rounds.",
-            "zh": "四人：四輪，每輪3分鐘。三人：三輪，每輪4分鐘。"
+            "en": "Four people: four 2½-minute rounds. Three people: three 3-minute rounds, then 1 minute to check; the interviewer also checks evidence.",
+            "zh": "四人：四輪，每輪2分半。三人：三輪，每輪3分鐘，再用1分鐘核對；訪問者兼任理據核對。"
           },
           {
-            "en": "Use the workshop options for advice. Record unknown details as questions for the coordinator.",
-            "zh": "根據工作坊資料提出建議，把未知細節記成要問統籌者的問題。"
+            "en": "Change speaker each round. Give advice as a possible first step, then record what needs a professor’s advice.",
+            "zh": "每輪更換發言者；把建議說成可能的第一步，記下需要向教授查詢的事。"
           }
         ],
         "fields": [
           {
             "key": "advice-notes",
             "label": {
-              "en": "Advice I received and one unanswered question",
-              "zh": "我收到的建議及一項未解答的問題"
+              "en": "Two points I heard and one useful suggestion",
+              "zh": "我聽到的兩點及一項建議"
             },
-            "hint": "[Name] said … / They recommended … because …",
+            "hint": "[Name] said … / They suggested …",
             "rows": 3
           }
         ]
       },
       {
-        "id": "s4-7",
-        "minutes": 3,
+        "id": "s4-8",
+        "minutes": 2,
         "title": {
-          "en": "Make your own choice",
-          "zh": "作出自己的選擇"
+          "en": "What should I ask my professor?",
+          "zh": "我應向教授問甚麼？"
         },
         "lead": {
-          "en": "Each person gives a 30-second choice, then names the information they still need.",
-          "zh": "每人用30秒說明選擇，再指出仍需知道的資訊。"
+          "en": "Each person shares one career goal and one preparation gap with a partner. Turn the gap into two useful questions.",
+          "zh": "每人向同伴說明一項職業目標及一項準備差距，把差距變成兩個有用問題。"
         },
-        "example": "“I chose video storytelling because I have tried filming but want to improve my editing. Sam said it would build on my experience. I still need to ask about the time, entry requirements and equipment.”",
+        "example": "I am interested in quantitative analysis, but I am not confident about programming yet. Which subjects should I focus on? Is there a small project I could try?",
         "fields": [
           {
-            "key": "workshop-choice",
+            "key": "career-choice",
             "label": {
-              "en": "My choice and reason",
-              "zh": "我的選擇及原因"
+              "en": "My career goal and one reason",
+              "zh": "我的職業目標及理由"
             },
-            "hint": "I chose … because …",
+            "hint": "I am interested in … because …",
             "rows": 2
           },
           {
             "key": "plan-question",
             "label": {
-              "en": "Three things I still need to know",
-              "zh": "我仍需知道的三件事"
+              "en": "Two questions for my professor",
+              "zh": "我要向教授問的兩個問題"
             },
-            "hint": "Time / entry requirements / equipment, or questions useful to you.",
+            "hint": "Subjects / skills / a small project / useful resources",
             "rows": 2
           }
         ]
       },
       {
-        "id": "s4-8",
-        "minutes": 4,
-        "title": {
-          "en": "Read as the coordinator",
-          "zh": "站在統籌者角度閱讀"
-        },
-        "lead": {
-          "en": "Find the purpose, relevant context and three questions. Which two questions are indirect?",
-          "zh": "找出目的、相關背景及三條問題；哪兩條是間接問句？"
-        },
-        "ref": "9E · p.115 · A formal email",
-        "example": "Subject: Enquiry about the video storytelling workshop\n\nDear Workshop Coordinator,\n\nI am a first-year student writing to ask about your video storytelling workshop. I enjoy making short videos.\n\nI recently helped a classmate film a club activity. I would like to improve my communication and editing skills so that I can share clearer stories about university life. I am usually free on Friday afternoons and would like to join a beginner group.\n\nCould you tell me when the next workshop takes place? I would also like to know whether beginners can join. What equipment should I bring?\n\nThank you for your help. I look forward to hearing from you.\n\nKind regards,\nAlex Chen",
-        "source": {
-          "en": "Original classroom email model.",
-          "zh": "原創課堂電郵示範。"
-        }
-      },
-      {
         "id": "s4-9",
         "minutes": 5,
         "title": {
-          "en": "Ask indirectly and clearly",
-          "zh": "間接而清楚地提問"
+          "en": "Improve these emails",
+          "zh": "改善這兩封電郵"
         },
         "lead": {
-          "en": "Use subject + verb inside the question. Use if or whether for a yes/no question.",
-          "zh": "內層問句用「主語＋動詞」，是非問句加 if 或 whether。"
+          "en": "Work alone, then compare. Improve the subject, greeting, purpose, request, tone and close.",
+          "zh": "先獨立修改，再比較；改善主旨、稱呼、目的、請求、語氣及結語。"
         },
-        "ref": "9E · p.115 · Indirect questions",
-        "table": {
-          "headers": [
+        "ref": "9E · p.115 · A formal email",
+        "example": "A\nSubject: Help!!!\nHey prof,\nI want a high-paid quant job. Tell me everything I need to know. Could you tell me what should I study? Please reply tonight.\nAlex\n\nB\n[No subject]\nDear Sir/Madam,\nI am a student and I have a lot of confusion about my future. I want to be an accountant. I would like to know do I need communication skills. I am waiting for your reply.\nYour student",
+        "reveal": {
+          "title": {
+            "en": "Possible improvements",
+            "zh": "可行的修改"
+          },
+          "lines": [
             {
-              "en": "Direct question",
-              "zh": "直接問句"
+              "en": "A: use a specific subject and the professor’s name; introduce your year/major; ask focused questions; remove the unexplained deadline. A well-paid job is more natural than a high-paid job.",
+              "zh": "A：主旨具體、用教授姓名稱呼、介紹年級／專業、提出明確問題、刪去未解釋的限期；用 a well-paid job 較自然。"
             },
             {
-              "en": "Indirect question",
-              "zh": "間接問句"
+              "en": "A: “Could you tell me what I should study?” B: “I would like to know whether I need communication skills.”",
+              "zh": "A：Could you tell me what I should study? B：I would like to know whether I need communication skills."
+            },
+            {
+              "en": "B: add a subject and specific context. “Dear Professor Lee” fits a known recipient. Replace “I am waiting” with thanks and a courteous close; sign your name.",
+              "zh": "B：補上主旨及具體背景；已知收件人可用 Dear Professor Lee；用致謝及有禮貌結語代替 I am waiting，並署名。"
             }
-          ],
-          "rows": [
-            [
-              {
-                "en": "When does the workshop start?",
-                "zh": "工作坊何時開始？"
-              },
-              {
-                "en": "Could you tell me when the workshop starts?",
-                "zh": "Could you tell me when the workshop starts?"
-              }
-            ],
-            [
-              {
-                "en": "Can beginners join?",
-                "zh": "初學者可以參加嗎？"
-              },
-              {
-                "en": "I would like to know whether beginners can join.",
-                "zh": "I would like to know whether beginners can join."
-              }
-            ],
-            [
-              {
-                "en": "Do I need any experience?",
-                "zh": "我需要經驗嗎？"
-              },
-              {
-                "en": "Could you tell me if I need any experience?",
-                "zh": "Could you tell me if I need any experience?"
-              }
-            ],
-            [
-              {
-                "en": "What equipment should I bring?",
-                "zh": "我應帶甚麼器材？"
-              },
-              {
-                "en": "Could you tell me what equipment I should bring?",
-                "zh": "Could you tell me what equipment I should bring?"
-              }
-            ]
           ]
         },
-        "takeaway": {
-          "en": "Could you tell me … ? / I would like to know … . Direct questions can also be polite.",
-          "zh": "Could you tell me … ?／I would like to know … . 直接問句也可以有禮貌。"
+        "teacher": {
+          "en": "Treat style as recipient- and purpose-dependent. Direct questions can be polite; not every original phrase is a grammar error.",
+          "zh": "語體取決於收件人及目的；直接問句也可有禮貌，並非所有原句都有文法錯誤。"
         }
       },
       {
         "id": "s4-10",
         "minutes": 4,
         "title": {
-          "en": "Fix, say, write",
-          "zh": "修正、說出、寫下"
+          "en": "A clearer enquiry",
+          "zh": "更清楚的查詢"
         },
         "lead": {
-          "en": "Work alone, then say your corrected questions to a partner.",
-          "zh": "先獨立修正，再向同伴說出問句。"
+          "en": "Find the purpose, relevant experience and three focused requests. Notice the tone and format.",
+          "zh": "找出目的、相關經驗及三項具體請求，留意語氣與格式。"
         },
-        "practice": [
-          {
-            "number": 1,
-            "prompt": "Could you tell me when does the workshop start?",
-            "answer": "Could you tell me when the workshop starts?"
-          },
-          {
-            "number": 2,
-            "prompt": "I would like to know can beginners join.",
-            "answer": "I would like to know whether/if beginners can join."
-          },
-          {
-            "number": 3,
-            "prompt": "Could you tell me what equipment should I bring.",
-            "answer": "Could you tell me what equipment I should bring?"
-          }
-        ],
-        "steps": [
-          {
-            "en": "Check the inner word order, if/whether and final punctuation.",
-            "zh": "核對內層語序、if／whether 及句末標點。"
-          }
-        ]
+        "example": "Subject: Preparing for quantitative analysis in Year 1\n\nDear Professor Lee,\n\nI am a first-year Applied Economics student, and I would like your advice on preparing for a career in quantitative analysis.\n\nI enjoy working with numbers, but I am not yet confident about programming. In a recent group task, I helped my teammates check a table of data.\n\nCould you tell me which subjects I should focus on this year? I would also like to know whether I should begin learning a programming language now. Could you recommend a small project that would help me develop my analytical skills?\n\nThank you for your time and advice.\n\nKind regards,\nAlex Chen",
+        "source": {
+          "en": "Original classroom model. Professor Lee and Alex are fictional.",
+          "zh": "原創課堂示範；Professor Lee 及 Alex 為虛構人物。"
+        }
       },
       {
         "id": "s4-11",
-        "minutes": 3,
+        "minutes": 4,
         "title": {
-          "en": "Plan the enquiry you need",
-          "zh": "規劃真正需要的查詢"
+          "en": "Ask clearly and politely",
+          "zh": "清楚而有禮貌地提問"
         },
         "lead": {
-          "en": "Use your own workshop choice and unanswered questions from the conversation.",
-          "zh": "使用對話後自己的工作坊選擇及尚未解答的問題。"
+          "en": "Repair the inner word order. Use if/whether for a yes/no question.",
+          "zh": "修正內層語序；是非問句加 if／whether。"
+        },
+        "ref": "9E · p.115 · Indirect questions",
+        "practice": [
+          {
+            "number": 1,
+            "prompt": "Could you tell me which subjects should I focus on?",
+            "answer": "Could you tell me which subjects I should focus on?"
+          },
+          {
+            "number": 2,
+            "prompt": "I would like to know do I need programming skills.",
+            "answer": "I would like to know whether/if I need programming skills."
+          },
+          {
+            "number": 3,
+            "prompt": "Could you recommend me a project? (Try recommend + something + to someone.)",
+            "answer": "Could you recommend a project to me? / Could you recommend a small project?"
+          }
+        ],
+        "takeaway": {
+          "en": "Could you tell me … ? / I would like to know … . Use statement word order; keep the tense that fits your meaning.",
+          "zh": "Could you tell me … ?／I would like to know … . 內層用陳述語序，時態配合意思。"
+        }
+      },
+      {
+        "id": "s4-12",
+        "minutes": 8,
+        "title": {
+          "en": "Write to your professor",
+          "zh": "寫給教授"
+        },
+        "lead": {
+          "en": "Write 90–120 words about your chosen career. Ask what you could start learning in Year 1.",
+          "zh": "就所選職業寫90–120字，問一年級可以開始學甚麼。"
         },
         "steps": [
           {
-            "en": "Name the recipient, purpose and one relevant detail about yourself.",
-            "zh": "寫出收件人、目的及一項相關個人背景。"
+            "en": "Include a specific subject, appropriate greeting, purpose, brief context and a courteous close.",
+            "zh": "包括具體主旨、合適稱呼、目的、簡短背景及有禮貌結語。"
           },
           {
-            "en": "Choose three useful questions. Make at least two indirect.",
-            "zh": "選三個有用問題，至少兩個用間接問句。"
+            "en": "Make three focused requests about knowledge, skills or a first project. Use at least two indirect questions and three review words/chunks.",
+            "zh": "就知識、技能或第一個小項目提出三項具體請求；至少用兩個間接問句及三個複習詞彙／詞組。"
           }
         ],
         "fields": [
           {
             "key": "email-plan",
             "label": {
-              "en": "Recipient, purpose, context and three questions",
-              "zh": "收件人、目的、背景及三個問題"
+              "en": "My purpose, background and questions",
+              "zh": "我的目的、背景及問題"
             },
-            "hint": "Workshop Coordinator / I am writing to ask about …",
-            "rows": 4
-          }
-        ]
-      },
-      {
-        "id": "s4-12",
-        "minutes": 10,
-        "title": {
-          "en": "Write your enquiry",
-          "zh": "寫出你的查詢"
-        },
-        "lead": {
-          "en": "Write 90–120 words about the workshop you chose.",
-          "zh": "就自己選的工作坊寫90–120字。"
-        },
-        "steps": [
-          {
-            "en": "Include a subject, greeting, clear purpose, brief context, three questions and a suitable close.",
-            "zh": "包括主旨、稱呼、清楚目的、簡短背景、三個問題及合適結語。"
+            "hint": "Year 1 Applied Economics / career / learning gap / 3 requests",
+            "rows": 3
           },
-          {
-            "en": "Use at least two indirect questions and two useful chunks from earlier sessions.",
-            "zh": "至少使用兩個間接問句及兩個前幾節的實用詞組。"
-          }
-        ],
-        "fields": [
           {
             "key": "email-draft",
             "label": {
-              "en": "My enquiry draft",
-              "zh": "我的查詢初稿"
+              "en": "My professor enquiry",
+              "zh": "我給教授的查詢電郵"
             },
-            "hint": "Subject: …\nDear Workshop Coordinator,",
+            "hint": "Subject: …\nDear Professor …,",
             "rows": 10
           }
         ],
         "handoutCue": {
-          "en": "Write on the back of the handout or in the response space.",
-          "zh": "在講義背面或本頁書寫欄寫作。"
+          "en": "Page 2. Draft in the writing space; revise the same email.",
+          "zh": "第2頁：在書寫欄起草，再修改同一封電郵。"
         }
       },
       {
         "id": "s4-13",
-        "minutes": 5,
+        "minutes": 3,
         "title": {
-          "en": "Be the recipient",
-          "zh": "當一次收件人"
+          "en": "Check the enquiry",
+          "zh": "核對查詢電郵"
         },
         "lead": {
-          "en": "Exchange emails. Give one useful comment and discuss one revision.",
-          "zh": "交換電郵，給一項有用意見，討論一項修訂。"
+          "en": "Be the professor. Give one specific comment; the writer revises one sentence.",
+          "zh": "站在教授角度，給一項具體意見；作者修訂一句。"
         },
         "steps": [
           {
-            "en": "Underline the purpose. Can you tell why this student wants to join?",
-            "zh": "畫出目的：看得出這位學生為何想參加嗎？"
+            "en": "Can you identify the student’s year, career interest and preparation gap?",
+            "zh": "看得出學生的年級、職業興趣及準備差距嗎？"
           },
           {
-            "en": "Number the three questions. Are they useful and answerable?",
-            "zh": "標出三條問題：有用而且可回答嗎？"
+            "en": "Are the three requests focused and answerable? Check two indirect questions.",
+            "zh": "三項請求具體而可回答嗎？核對兩個間接問句。"
           },
           {
-            "en": "Check two indirect questions: subject + verb; if/whether where needed; punctuation.",
-            "zh": "核對兩個間接問句：主語＋動詞、所需的 if／whether 及標點。"
-          }
-        ],
-        "example": "“Your purpose is clear. Could you make the equipment question more specific?”"
-      },
-      {
-        "id": "s4-14",
-        "minutes": 7,
-        "title": {
-          "en": "Revise, then ask aloud",
-          "zh": "修訂，再說出問句"
-        },
-        "lead": {
-          "en": "Revise the draft using your partner’s comment. Then practise one enquiry question aloud.",
-          "zh": "根據同伴意見修訂初稿，再口頭練習一條查詢問題。"
-        },
-        "steps": [
-          {
-            "en": "Improve at least one sentence. Keep your own workshop choice and useful questions.",
-            "zh": "至少改善一句，保留自己的工作坊選擇及有用問題。"
-          },
-          {
-            "en": "On paper, revise the same draft. In the browser, copy and improve it below.",
-            "zh": "紙本直接修改原稿；瀏覽器使用者把初稿複製到下方再修改。"
+            "en": "Does the greeting, tone and close fit a professor? Underline one improvement.",
+            "zh": "稱呼、語氣及結語適合教授嗎？畫出一項改善。"
           }
         ],
         "fields": [
           {
             "key": "email-final",
             "label": {
-              "en": "My revised enquiry",
-              "zh": "我的查詢修訂稿"
+              "en": "My revised professor enquiry (or revise on paper)",
+              "zh": "我給教授的修訂查詢（或在紙本修改）"
             },
-            "hint": "Keep the subject, greeting and close.",
-            "rows": 10
+            "hint": "Revise the same paper draft, or paste and improve the browser draft here.",
+            "rows": 8
           }
         ]
       },
       {
-        "id": "s4-16",
-        "minutes": 3,
+        "id": "s4-14",
+        "minutes": 4,
         "title": {
-          "en": "Keep one useful next step",
-          "zh": "留下可用的下一步"
+          "en": "Read the professor’s reply",
+          "zh": "讀教授的回覆"
         },
         "lead": {
-          "en": "Tell a partner which workshop you chose and ask one of your revised questions.",
-          "zh": "告訴同伴你選了哪個工作坊，再提出一條修訂後的問題。"
+          "en": "Underline advice you can report. Keep the condition attached to each career-specific suggestion.",
+          "zh": "畫出可以轉述的建議；特定職業的建議必須保留其條件。"
+        },
+        "example": "Dear Alex,\n\nAt this stage, focus on economics, mathematics and statistics. You can practise analysing a small public dataset and explaining the results in plain English.\n\nIf you are interested in quantitative analysis, build your programming skills gradually. If you prefer accounting, learn to read financial statements and check figures carefully.\n\nWork with a classmate and keep a short record of your contribution. You do not need to decide on a career now. Try a small project first, then ask for feedback.\n\nBest wishes,\nProfessor Lee",
+        "source": {
+          "en": "Fictional reply for this writing task. Everyone uses this text; choose the advice relevant to your career.",
+          "zh": "本寫作活動的虛構回覆；全班使用此文本，選擇適合自己職業的建議。"
+        },
+        "takeaway": {
+          "en": "General advice + the relevant if-clause + a practical next step.",
+          "zh": "一般建議＋相關 if 條件＋實際下一步。"
+        }
+      },
+      {
+        "id": "s4-15",
+        "minutes": 3,
+        "title": {
+          "en": "Report advice to a classmate",
+          "zh": "向同學轉述建議"
+        },
+        "lead": {
+          "en": "Find three reported points and one personal plan. Check every report against the reply.",
+          "zh": "找出三項轉述及一項個人計劃，逐一與回覆核對。"
+        },
+        "example": "Subject: Professor Lee's advice on quantitative analysis\n\nHi Jamie,\n\nI asked Professor Lee how I could prepare for quantitative analysis. They advised me to focus on economics, mathematics and statistics. They said I could practise analysing a small public dataset and explaining the results in plain English.\n\nThey added that I should build my programming skills gradually if I was interested in quantitative analysis. They also said I did not need to decide on a career yet.\n\nI plan to start a small project with a classmate. Would you like to work with me?\n\nBest,\nAlex",
+        "takeaway": {
+          "en": "said (that) … / told me (that) … / advised me to … . Can → could; should stays should. Keep conditions and certainty.",
+          "zh": "said (that) …／told me (that) …／advised me to … . can 可變 could，should 不變；保留條件及確定程度。"
+        },
+        "teacher": {
+          "en": "Backshift is common after said/told; present forms can remain when the advice is still current. They refers to Professor Lee. A friendly email still needs a clear subject and accurate meaning.",
+          "zh": "said／told 後常用時態後移；建議仍適用時也可保留現在式。They 指 Professor Lee；友善電郵仍須主旨清楚、轉述準確。"
+        }
+      },
+      {
+        "id": "s4-16",
+        "minutes": 6,
+        "title": {
+          "en": "Email your classmate",
+          "zh": "寫電郵給同學"
+        },
+        "lead": {
+          "en": "Write 80–100 words to a classmate. Report the professor’s advice relevant to your career, then add your own next step.",
+          "zh": "寫80–100字給同學，轉述與你的職業相關的教授建議，再加入自己的下一步。"
+        },
+        "steps": [
+          {
+            "en": "Use a clear subject and friendly greeting/close. Report at least three points; use two reporting patterns.",
+            "zh": "用清楚主旨及友善稱呼／結語；轉述至少三點，使用兩種轉述句式。"
+          },
+          {
+            "en": "Retain any relevant if-condition. Use three review words/chunks. Clearly mark your own plan: “I plan to …”.",
+            "zh": "保留相關 if 條件；用三個複習詞彙／詞組，以 I plan to … 清楚標明自己的計劃。"
+          },
+          {
+            "en": "For another career, use the general advice and say what you still need to ask. Do not invent a professor’s reply.",
+            "zh": "選其他職業者可用一般建議，說明仍需追問甚麼；不要自行編造教授回覆。"
+          }
+        ],
+        "fields": [
+          {
+            "key": "peer-email",
+            "label": {
+              "en": "My email reporting the advice",
+              "zh": "我轉述建議的電郵"
+            },
+            "hint": "Subject: …\nHi …,\nI asked Professor Lee …",
+            "rows": 10
+          }
+        ],
+        "handoutCue": {
+          "en": "Page 3. Use the fictional reply as your source. No email needs to be sent.",
+          "zh": "第3頁：以虛構回覆為資料來源，不用實際寄出電郵。"
+        }
+      },
+      {
+        "id": "s4-17",
+        "minutes": 3,
+        "title": {
+          "en": "Check meaning and tone",
+          "zh": "核對意思與語氣"
+        },
+        "lead": {
+          "en": "Exchange reports. Mark one accurate report and one sentence to improve; revise the same draft.",
+          "zh": "交換電郵，標出一項準確轉述及一句可改善的句子，再修改同一份初稿。"
+        },
+        "practice": [
+          {
+            "number": 1,
+            "prompt": "“Professor Lee said everyone had to master programming immediately.” Does the reply support this?",
+            "answer": "No. It says to build programming skills gradually if you are interested in quantitative analysis."
+          },
+          {
+            "number": 2,
+            "prompt": "“Professor Lee said we did not need to decide on a career yet. I plan to try a small project.” Whose plan is this?",
+            "answer": "The writer’s plan. The advice and the personal decision are clearly separated."
+          }
+        ],
+        "steps": [
+          {
+            "en": "Check three supported points, conditions, reporting forms and a friendly, clear style. Keep can/could as a possibility, not a guarantee.",
+            "zh": "核對三項有根據的內容、條件、轉述句式及友善清楚的語體；can／could 表可能，不是保證。"
+          }
+        ]
+      },
+      {
+        "id": "s4-18",
+        "minutes": 2,
+        "title": {
+          "en": "Share one next step",
+          "zh": "分享一項下一步"
+        },
+        "lead": {
+          "en": "Tell a partner one thing you could learn now. Read one improved question or reported sentence aloud.",
+          "zh": "向同伴說明現在可以學的一件事，再讀出一項改善後的問句或轉述句。"
         },
         "fields": [
           {
             "key": "exit",
             "label": {
-              "en": "One improved sentence and why it is clearer",
-              "zh": "一句改善後的句子，以及它為何更清楚"
+              "en": "One improved sentence and my next step",
+              "zh": "一句改善後的句子及我的下一步"
             },
-            "hint": "I changed … because …",
+            "hint": "I changed … / I plan to …",
             "rows": 2
           }
         ],
@@ -2802,8 +2921,8 @@ export const unit9Sessions: Unit9Session[] = [
           }
         ],
         "takeaway": {
-          "en": "My outputs: a supported spoken choice and a revised enquiry email.",
-          "zh": "我的成果：有理據的口頭選擇，以及修訂後的查詢電郵。"
+          "en": "My outputs: a career profile, a professor enquiry and an accurate email to a classmate.",
+          "zh": "我的成果：職業能力描述、給教授的查詢及準確轉述給同學的電郵。"
         }
       }
     ]
