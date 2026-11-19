@@ -9,15 +9,6 @@ export const peerReviewSlides = [
     "cover": true
   },
   {
-    "id": "route",
-    "title": "Today’s review workshop",
-    "titleZh": "今天的工作坊",
-    "en": "<div class=\"review-table\"><table><thead><tr><th scope=\"col\">Minutes</th><th scope=\"col\">Focus</th><th scope=\"col\">Output</th></tr></thead><tbody><tr><td>0–5</td><td>Opening judgement</td><td>One reasoned concern</td></tr><tr><td>5–15</td><td>Reviewer role and ethics</td><td>Invitation decision</td></tr><tr><td>15–30</td><td>Evaluate the research</td><td>Prioritised evidence notes</td></tr><tr><td>30–42</td><td>Read a public review exchange</td><td>Comment–response analysis</td></tr><tr><td>42–52</td><td>Write actionable comments</td><td>One revised comment</td></tr><tr><td>52–72</td><td>Review the teaching manuscript</td><td>Draft report</td></tr><tr><td>72–82</td><td>Calibrate recommendations</td><td>Peer feedback and revision</td></tr><tr><td>82–90</td><td>Re-review and transfer</td><td>Personal checklist</td></tr></tbody></table></div>",
-    "zh": "<div class=\"review-table\"><table><thead><tr><th scope=\"col\">分鐘</th><th scope=\"col\">重點</th><th scope=\"col\">產出</th></tr></thead><tbody><tr><td>0–5</td><td>初步判斷</td><td>一項有理據的關注</td></tr><tr><td>5–15</td><td>審稿角色與倫理</td><td>是否接受邀請</td></tr><tr><td>15–30</td><td>評估研究</td><td>有優次的證據筆記</td></tr><tr><td>30–42</td><td>閱讀公開評審往來</td><td>意見—回應分析</td></tr><tr><td>42–52</td><td>撰寫可操作意見</td><td>修訂一則意見</td></tr><tr><td>52–72</td><td>評閱教學用稿件</td><td>報告初稿</td></tr><tr><td>72–82</td><td>校準處理建議</td><td>互評並修訂</td></tr><tr><td>82–90</td><td>複審與遷移</td><td>個人檢核表</td></tr></tbody></table></div>",
-    "section": "Doing Research · Topic 4",
-    "cover": false
-  },
-  {
     "id": "opening",
     "title": "What makes this a major issue?",
     "titleZh": "甚麼使這成為主要問題？",
