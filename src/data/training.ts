@@ -22,7 +22,9 @@ export const doingResearchTheme = {
   sessions: [
     { number: 1, slug: 'journals-and-indexes', title: 'Understanding Journals and Indexes' },
     { number: 2, slug: 'preparing-a-journal-submission', title: 'Preparing a Journal Submission' },
-    { number: 3, slug: 'advanced-quantitative-data-analysis', title: 'Advanced Quantitative Data Analysis' },
+    { number: 3, slug: 'delivering-an-academic-presentation', title: 'Delivering an Academic Presentation' },
+    { number: 4, slug: 'peer-review', title: 'Peer Review for Journal Articles' },
+    { number: 5, slug: 'advanced-quantitative-data-analysis', title: 'Advanced Quantitative Data Analysis' },
   ],
 } as const satisfies TrainingTheme;
 
