@@ -2103,384 +2103,439 @@ export const unit9Sessions: Unit9Session[] = [
     "number": 4,
     "slug": "better-campus-life",
     "title": {
-      "en": "A better idea for campus life",
-      "zh": "改善校園生活的點子"
+      "en": "Ask about your next step",
+      "zh": "為下一步問清楚"
     },
-    "sections": "9D + 9E writing",
-    "pages": "112–115",
+    "sections": "9E speaking + writing; review of 9A–9D",
+    "pages": "114–115",
     "outcome": {
-      "en": "Use listening evidence, propose a practical change and write a clear enquiry email.",
-      "zh": "運用聆聽證據、提出可行改變，並寫清楚的查詢電郵。"
+      "en": "Discuss skills and interests, justify a workshop choice and write a clear enquiry using indirect questions.",
+      "zh": "討論技能及興趣、說明工作坊選擇的理據，並用間接問句寫清楚的查詢電郵。"
     },
     "slides": [
       {
+        "id": "s4-1",
         "minutes": 3,
         "title": {
-          "en": "What could we use again?",
-          "zh": "甚麼可以再用？"
+          "en": "Ask about your next step",
+          "zh": "為下一步問清楚"
         },
         "lead": {
-          "en": "Look at an everyday object. What happens when its first user no longer needs it?",
-          "zh": "看看一件日常物品，第一位使用者不再需要後會怎樣？"
+          "en": "Show your object/photo from Session 3, or name a recent student activity. Which skill would help?",
+          "zh": "展示上節的物品／照片，或說一項近期學生活動。哪種技能能幫到你？"
         },
         "cover": true,
-        "takeaway": {
-          "en": "Today: listen for an idea → improve a campus routine → ask for useful information.",
-          "zh": "今天：聽出觀點 → 改善校園日常安排 → 查詢有用資訊。"
-        },
-        "id": "s4-1"
-      },
-      {
-        "minutes": 4,
-        "title": {
-          "en": "An object with another life",
-          "zh": "物品的下一段用途"
-        },
-        "lead": {
-          "en": "Share the object you brought or choose a book, bag or charger.",
-          "zh": "分享帶來的物品，或選書、袋、充電器。"
-        },
-        "steps": [
+        "columns": [
           {
-            "en": "Explain its current use and a possible next use. Your partner asks one practical question.",
-            "zh": "說明現有用途及下一種用途，同伴問一個實際問題。"
-          },
-          {
-            "en": "Who would keep it, repair it or pass it on?",
-            "zh": "誰負責保管、維修或轉交？"
-          }
-        ],
-        "fields": [
-          {
-            "key": "object",
-            "label": {
-              "en": "My object and its possible next use",
-              "zh": "我的物品及下一種用途"
+            "title": {
+              "en": "Speaking",
+              "zh": "口語"
             },
-            "hint": "",
-            "rows": 3
+            "lines": [
+              {
+                "en": "Explain your skills and interests. Give advice with a reason and an example.",
+                "zh": "說明技能及興趣，用原因及例子提出建議。"
+              }
+            ]
+          },
+          {
+            "title": {
+              "en": "Writing",
+              "zh": "寫作"
+            },
+            "lines": [
+              {
+                "en": "Write a 90–120-word workshop enquiry with three useful questions.",
+                "zh": "寫一封90–120字的工作坊查詢電郵，提出三個有用問題。"
+              }
+            ]
           }
         ],
-        "id": "s4-2"
-      },
-      {
-        "minutes": 3,
-        "title": {
-          "en": "Before the talk",
-          "zh": "演講前準備"
+        "handoutCue": {
+          "en": "One sheet, double-sided: speaking on the front; writing on the back.",
+          "zh": "一張紙，雙面：正面口語，背面寫作。"
         },
-        "lead": {
-          "en": "Ellen MacArthur connects a sailing experience with the idea of limited resources.",
-          "zh": "Ellen MacArthur 把航海經歷與資源有限的觀點連起來。"
-        },
-        "ref": "9D · pp. 112–113 · Video 9.2 and 9.4",
-        "wordBank": [
-          {
-            "word": "finite",
-            "meaning": {
-              "en": "limited; not endless",
-              "zh": "有限的"
-            }
-          },
-          {
-            "word": "resources",
-            "meaning": {
-              "en": "things available for use",
-              "zh": "可供使用的資源"
-            }
-          },
-          {
-            "word": "reuse",
-            "meaning": {
-              "en": "use something again",
-              "zh": "再用"
-            }
-          },
-          {
-            "word": "repair",
-            "meaning": {
-              "en": "make a damaged thing work again",
-              "zh": "修理"
-            }
-          }
-        ],
-        "steps": [
-          {
-            "en": "Predict: what could run out on a long boat journey?",
-            "zh": "預測：長途航程中，甚麼可能用完？"
-          }
-        ],
         "links": [
           {
             "label": {
-              "en": "Open the official TED Talk",
-              "zh": "開啟 TED 官方演講"
+              "en": "Student handout",
+              "zh": "學生講義"
             },
-            "href": "https://www.ted.com/talks/dame_ellen_macarthur_the_surprising_thing_i_learned_sailing_solo_around_the_world"
+            "href": "/teaching/courses/general-english/unit-9/session-4/student-handout.pdf",
+            "download": true
           }
         ],
-        "teacher": {
-          "en": "Use the textbook-edited 9.2 and 9.4 extracts. Select short sections about supplies and recovering materials; do not play the full 16-minute talk here. Preview the player before class.",
-          "zh": "使用課本剪輯9.2及9.4，選補給及回收材料的短段，本節不播放整段約16分鐘演講；課前先檢查播放器。"
-        },
-        "id": "s4-3"
+        "takeaway": {
+          "en": "Skills + evidence → advice → questions → a clear enquiry.",
+          "zh": "技能＋證據 → 建議 → 問題 → 清楚的查詢。"
+        }
       },
       {
+        "id": "s4-2",
         "minutes": 5,
         "title": {
-          "en": "First viewing: connect the idea",
-          "zh": "第一次觀看：連起觀點"
+          "en": "Bring your language back",
+          "zh": "重用學過的語言"
         },
         "lead": {
-          "en": "Watch the short supplies section from Video 9.2.",
-          "zh": "觀看影片9.2中關於補給的短段。"
+          "en": "Write one strength, one real example and one thing you want to learn. Then tell a partner.",
+          "zh": "寫一項長處、一個真實例子及一件想學的事，再告訴同伴。"
         },
-        "quiz": [
-          {
-            "prompt": {
-              "en": "Why does the boat help explain finite resources?",
-              "zh": "為甚麼船能幫助解釋資源有限？"
+        "table": {
+          "headers": [
+            {
+              "en": "From earlier lessons",
+              "zh": "前幾節的語言"
             },
-            "choices": [
+            {
+              "en": "Use it today",
+              "zh": "今天怎樣使用"
+            }
+          ],
+          "rows": [
+            [
               {
-                "en": "She can buy new supplies whenever she wants.",
-                "zh": "She can buy new supplies whenever she wants."
+                "en": "1 · Skills and experience",
+                "zh": "1 · 技能及經驗"
               },
               {
-                "en": "She must manage the supplies she carries.",
-                "zh": "She must manage the supplies she carries."
-              },
-              {
-                "en": "The weather never changes.",
-                "zh": "The weather never changes."
+                "en": "I am good at … . For example, I helped … .",
+                "zh": "I am good at … . For example, I helped … ."
               }
             ],
-            "correct": 1,
-            "feedback": {
-              "en": "The supplies she carries limit what she can use during the journey.",
-              "zh": "她帶上的物資限制了航程中的使用。"
-            }
-          }
-        ],
-        "fields": [
-          {
-            "key": "ted-gist",
-            "label": {
-              "en": "The main idea in my own words",
-              "zh": "用自己的話說主旨"
-            },
-            "hint": "",
-            "rows": 3
-          }
-        ],
-        "id": "s4-4"
-      },
-      {
-        "minutes": 6,
-        "title": {
-          "en": "Second viewing: collect evidence",
-          "zh": "第二次觀看：找出證據"
-        },
-        "lead": {
-          "en": "Replay the supplies section, then watch a short reuse section from Video 9.4.",
-          "zh": "重播補給段，再看影片9.4中關於再用的短段。"
-        },
-        "ref": "9D · pp. 112–113 · selected extracts",
-        "steps": [
-          {
-            "en": "Note two examples of supplies she needed.",
-            "zh": "記下兩種她需要的補給品。"
-          },
-          {
-            "en": "What does she propose doing with products or materials after use? Record one example you actually hear.",
-            "zh": "她建議如何處理用過的產品或材料？記下一個實際聽到的例子。"
-          },
-          {
-            "en": "Compare notes. Separate what she says from your own campus idea.",
-            "zh": "比較筆記，分清她的說法與你自己的校園點子。"
-          }
-        ],
-        "fields": [
-          {
-            "key": "ted-evidence",
-            "label": {
-              "en": "Two supplies / one proposed change / supporting words",
-              "zh": "兩種補給／一項建議改變／支持詞句"
-            },
-            "hint": "",
-            "rows": 5
-          }
-        ],
-        "reveal": {
-          "title": {
-            "en": "Check and explain",
-            "zh": "核對並解釋"
-          },
-          "lines": [
-            {
-              "en": "Supplies may include food, fuel, clothes and toiletries. Check which examples occur in the selected extract.",
-              "zh": "補給例子包括食物、燃料、衣物及盥洗用品；核對所選段落實際提及哪些。"
-            },
-            {
-              "en": "Her proposals include recovering and reusing components or materials. Use the example in your chosen clip.",
-              "zh": "她提出回收及再用零件或材料；以所選片段的例子為準。"
-            }
+            [
+              {
+                "en": "2 · Chunks, reasons and tone",
+                "zh": "2 · 詞組、原因及語氣"
+              },
+              {
+                "en": "I am interested in … . This would help because … .",
+                "zh": "I am interested in … . This would help because … ."
+              }
+            ],
+            [
+              {
+                "en": "3 · Questions and reports",
+                "zh": "3 · 問句及轉述"
+              },
+              {
+                "en": "What would you like to learn? They said they … .",
+                "zh": "What would you like to learn? They said they … ."
+              }
+            ]
           ]
         },
-        "teacher": {
-          "en": "The 2015 talk includes older resource estimates. Do not present these as present-day countdowns. Assess the argument and the examples heard.",
-          "zh": "2015年演講包含較早的資源估計，不當作現時倒數；評核觀點及聽到的例子。"
-        },
-        "id": "s4-5"
+        "fields": [
+          {
+            "key": "skills-profile",
+            "label": {
+              "en": "My strength, example and learning goal",
+              "zh": "我的長處、例子及學習目標"
+            },
+            "hint": "I am … / I have … / I would like to …",
+            "rows": 3
+          }
+        ]
       },
       {
-        "minutes": 4,
+        "id": "s4-3",
+        "minutes": 3,
         "title": {
-          "en": "Hear the quiet words",
-          "zh": "聽見較輕的詞"
+          "en": "Choose a useful workshop",
+          "zh": "選一個有用的工作坊"
         },
         "lead": {
-          "en": "Listen to the short examples in Audio 56–57. Meaning words often stand out more.",
-          "zh": "聽音訊56–57短例句，承載意思的詞通常較突出。"
+          "en": "Which option could help you now? Choose one provisionally.",
+          "zh": "哪個選項現在能幫到你？先選一個。"
         },
-        "ref": "9D · p. 112 · Authentic listening skills · Ex. 1–2",
-        "steps": [
+        "ref": "9E · p.114 · Skills, interests and careers",
+        "columns": [
           {
-            "en": "First catch the stressed words. Replay and notice quieter articles, prepositions and conjunctions.",
-            "zh": "先抓重讀詞，再重聽冠詞、介詞及連接詞的弱讀。"
+            "title": {
+              "en": "Video storytelling",
+              "zh": "影片敘事"
+            },
+            "lines": [
+              {
+                "en": "Plan and edit short videos.",
+                "zh": "策劃及剪輯短片。"
+              },
+              {
+                "en": "Use it for a campus vlog or a club story.",
+                "zh": "可用於校園 vlog 或社團故事。"
+              }
+            ]
           },
           {
-            "en": "Practise this original sentence at a comfortable pace. Keep the nouns and main verbs clear.",
-            "zh": "以舒適速度練習以下原創句子，讓名詞及主要動詞清楚。"
+            "title": {
+              "en": "Poster design",
+              "zh": "海報設計"
+            },
+            "lines": [
+              {
+                "en": "Organise words and images clearly.",
+                "zh": "清楚編排文字及圖像。"
+              },
+              {
+                "en": "Use it to publicise student activities.",
+                "zh": "可用於宣傳學生活動。"
+              }
+            ]
+          },
+          {
+            "title": {
+              "en": "Repair and reuse",
+              "zh": "維修與再用"
+            },
+            "lines": [
+              {
+                "en": "Repair or repurpose everyday items.",
+                "zh": "維修日常物品，或賦予新用途。"
+              },
+              {
+                "en": "Use it for a campus swap or reuse project.",
+                "zh": "可用於校園交換或再用計劃。"
+              }
+            ]
           }
         ],
-        "example": "We need to find a way to use the books again.\nListen for quieter to / a / the.",
-        "takeaway": {
-          "en": "The aim is to recognise connected speech. You do not need to imitate an accent.",
-          "zh": "目標是辨認連貫語流，不必模仿特定口音。"
-        },
-        "id": "s4-6"
+        "steps": [
+          {
+            "en": "You know the skills each workshop practises. Ask the coordinator about times, entry requirements and equipment.",
+            "zh": "你知道各工作坊練習的技能；時間、入門要求及器材需要問統籌者。"
+          }
+        ],
+        "source": {
+          "en": "Fictional workshop options for this classroom task.",
+          "zh": "本課堂活動的虛構工作坊選項。"
+        }
       },
       {
+        "id": "s4-4",
         "minutes": 4,
         "title": {
-          "en": "Choose one campus problem",
-          "zh": "選一項校園問題"
+          "en": "Give advice that fits the person",
+          "zh": "提出適合對方的建議"
         },
         "lead": {
-          "en": "Make a small change that a student team could organise.",
-          "zh": "提出學生團隊可以統籌的小改變。"
+          "en": "Read the model in pairs. Find a question, a recommendation and its support.",
+          "zh": "兩人讀示範，找出問題、建議及支持理由。"
+        },
+        "ref": "9E · p.114 · Useful language",
+        "example": "Student: I enjoy making videos, but I am not confident about editing.\nAdviser: What have you tried before?\nStudent: I helped a classmate film a club activity.\nAdviser: I would recommend video storytelling because it builds on that experience. You could learn to plan and edit clearer videos.\nStudent: Can beginners join?\nAdviser: We still need to ask the coordinator.",
+        "takeaway": {
+          "en": "Recommendation + because + a detail from the student’s experience.",
+          "zh": "建議＋because＋學生經驗中的具體細節。"
+        }
+      },
+      {
+        "id": "s4-5",
+        "minutes": 4,
+        "title": {
+          "en": "Prepare before you speak",
+          "zh": "先準備，再開口"
+        },
+        "lead": {
+          "en": "Choose two or three chunks. Prepare your own answer keywords first.",
+          "zh": "選兩至三個詞組，先準備自己的答案關鍵詞。"
         },
         "columns": [
           {
             "title": {
-              "en": "Possible starting points",
-              "zh": "可選起點"
+              "en": "Student",
+              "zh": "學生"
             },
             "lines": [
               {
-                "en": "Textbooks left unused after a course",
-                "zh": "課程結束後閒置的課本"
+                "en": "One interest or strength; one example; one skill to improve.",
+                "zh": "一項興趣或長處、一個例子、一項想改善的技能。"
               },
               {
-                "en": "Decorations bought for a single event",
-                "zh": "只用一次的活動裝飾"
+                "en": "One priority: enjoyment, teamwork, time, cost or confidence.",
+                "zh": "一項取向：興趣、團隊、時間、費用或自信。"
               }
             ]
           },
           {
             "title": {
-              "en": "Other everyday examples",
-              "zh": "其他日常例子"
+              "en": "Adviser",
+              "zh": "顧問"
             },
             "lines": [
               {
-                "en": "Equipment needed only occasionally",
-                "zh": "偶爾才用到的器材"
+                "en": "What do you enjoy? What have you tried? What would you like to improve?",
+                "zh": "你喜歡甚麼？試過甚麼？想改善甚麼？"
               },
               {
-                "en": "A useful object with a small repairable fault",
-                "zh": "只有小故障、仍有用的物品"
+                "en": "Follow up: Can you give an example?",
+                "zh": "追問：Can you give an example?"
               }
             ]
           }
         ],
-        "steps": [
-          {
-            "en": "Choose one. Name who experiences the problem and what currently happens.",
-            "zh": "選一項，說明誰遇到問題及現時如何處理。"
-          }
-        ],
-        "id": "s4-7"
-      },
-      {
-        "minutes": 5,
-        "title": {
-          "en": "Make the idea workable",
-          "zh": "讓點子可以實行"
-        },
-        "lead": {
-          "en": "A useful idea needs people and arrangements.",
-          "zh": "有用的點子需要人手及安排。"
-        },
+        "example": "WHAT would you like to LEARN? ↘\nCAN you work with a TEAM? ↗",
         "fields": [
           {
-            "key": "campus-plan",
+            "key": "advice-prep",
             "label": {
-              "en": "Problem / proposed change / organiser / likely difficulty",
-              "zh": "問題／改變建議／統籌者／可能困難"
+              "en": "My answer keywords and questions",
+              "zh": "我的答案關鍵詞及問題"
             },
-            "hint": "We could … Someone would need to … A difficulty might be …",
-            "rows": 5
+            "hint": "Use the speaking bank on the handout.",
+            "rows": 3
           }
-        ],
+        ]
+      },
+      {
+        "id": "s4-6",
+        "minutes": 12,
+        "title": {
+          "en": "The skills-advice circle",
+          "zh": "技能建議小組"
+        },
+        "lead": {
+          "en": "Groups of three or four. Use the rotation table on the handout. Everyone takes each role.",
+          "zh": "三至四人一組，按講義角色表輪換，每人都擔任各角色。"
+        },
+        "table": {
+          "headers": [
+            {
+              "en": "Role",
+              "zh": "角色"
+            },
+            {
+              "en": "What to do",
+              "zh": "做甚麼"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "en": "Student",
+                "zh": "學生"
+              },
+              {
+                "en": "Explain an interest, an example and a learning goal.",
+                "zh": "說明一項興趣、一個例子及一項學習目標。"
+              }
+            ],
+            [
+              {
+                "en": "Adviser",
+                "zh": "顧問"
+              },
+              {
+                "en": "Ask questions. Recommend one option with a reason and an example.",
+                "zh": "提出問題，再用原因及例子建議一個選項。"
+              }
+            ],
+            [
+              {
+                "en": "Reporter",
+                "zh": "報道員"
+              },
+              {
+                "en": "Report the student’s needs and the advice. The student checks the meaning.",
+                "zh": "轉述學生需要及建議，由學生核對意思。"
+              }
+            ],
+            [
+              {
+                "en": "Questioner (fourth person)",
+                "zh": "追問者（第四人）"
+              },
+              {
+                "en": "Ask what information is still missing. In a trio, the reporter also does this.",
+                "zh": "問還缺甚麼資訊；三人組由報道員兼任。"
+              }
+            ]
+          ]
+        },
         "steps": [
           {
-            "en": "Agree on one change. Decide how people would participate and who would do the work.",
-            "zh": "商議一項改變，決定如何參與及誰負責。"
+            "en": "Four people: four 3-minute rounds. Three people: three 4-minute rounds.",
+            "zh": "四人：四輪，每輪3分鐘。三人：三輪，每輪4分鐘。"
           },
           {
-            "en": "Connect one role to a skill from Session 1.",
-            "zh": "把一個角色與第一節的技能連起來。"
+            "en": "Use the workshop options for advice. Record unknown details as questions for the coordinator.",
+            "zh": "根據工作坊資料提出建議，把未知細節記成要問統籌者的問題。"
           }
         ],
-        "id": "s4-8"
+        "fields": [
+          {
+            "key": "advice-notes",
+            "label": {
+              "en": "Advice I received and one unanswered question",
+              "zh": "我收到的建議及一項未解答的問題"
+            },
+            "hint": "[Name] said … / They recommended … because …",
+            "rows": 3
+          }
+        ]
       },
       {
+        "id": "s4-7",
         "minutes": 3,
         "title": {
-          "en": "Test the proposal",
-          "zh": "試問計劃是否可行"
+          "en": "Make your own choice",
+          "zh": "作出自己的選擇"
         },
         "lead": {
-          "en": "Give another group a 30-second explanation. Ask one practical question about their plan.",
-          "zh": "用30秒向另一組說明，再問對方一個實際問題。"
+          "en": "Each person gives a 30-second choice, then names the information they still need.",
+          "zh": "每人用30秒說明選擇，再指出仍需知道的資訊。"
         },
-        "example": "Who would store the books?\nHow would students find out?\nWhat would happen if an item was damaged?",
+        "example": "“I chose video storytelling because I have tried filming but want to improve my editing. Sam said it would build on my experience. I still need to ask about the time, entry requirements and equipment.”",
         "fields": [
+          {
+            "key": "workshop-choice",
+            "label": {
+              "en": "My choice and reason",
+              "zh": "我的選擇及原因"
+            },
+            "hint": "I chose … because …",
+            "rows": 2
+          },
           {
             "key": "plan-question",
             "label": {
-              "en": "A question we still need answered",
-              "zh": "我們仍需要解答的問題"
+              "en": "Three things I still need to know",
+              "zh": "我仍需知道的三件事"
             },
-            "hint": "",
-            "rows": 3
+            "hint": "Time / entry requirements / equipment, or questions useful to you.",
+            "rows": 2
           }
-        ],
-        "id": "s4-9"
+        ]
       },
       {
-        "minutes": 5,
+        "id": "s4-8",
+        "minutes": 4,
         "title": {
-          "en": "Ask clearly and politely",
-          "zh": "清楚有禮地提問"
+          "en": "Read as the coordinator",
+          "zh": "站在統籌者角度閱讀"
         },
         "lead": {
-          "en": "Write an enquiry to a workshop coordinator who does not know you yet.",
-          "zh": "寫信向尚未認識你的工作坊統籌查詢。"
+          "en": "Find the purpose, relevant context and three questions. Which two questions are indirect?",
+          "zh": "找出目的、相關背景及三條問題；哪兩條是間接問句？"
         },
-        "ref": "9E · p. 115 · Writing skill",
+        "ref": "9E · p.115 · A formal email",
+        "example": "Subject: Enquiry about the video storytelling workshop\n\nDear Workshop Coordinator,\n\nI am a first-year student writing to ask about your video storytelling workshop. I enjoy making short videos.\n\nI recently helped a classmate film a club activity. I would like to improve my communication and editing skills so that I can share clearer stories about university life. I am usually free on Friday afternoons and would like to join a beginner group.\n\nCould you tell me when the next workshop takes place? I would also like to know whether beginners can join. What equipment should I bring?\n\nThank you for your help. I look forward to hearing from you.\n\nKind regards,\nAlex Chen",
+        "source": {
+          "en": "Original classroom email model.",
+          "zh": "原創課堂電郵示範。"
+        }
+      },
+      {
+        "id": "s4-9",
+        "minutes": 5,
+        "title": {
+          "en": "Ask indirectly and clearly",
+          "zh": "間接而清楚地提問"
+        },
+        "lead": {
+          "en": "Use subject + verb inside the question. Use if or whether for a yes/no question.",
+          "zh": "內層問句用「主語＋動詞」，是非問句加 if 或 whether。"
+        },
+        "ref": "9E · p.115 · Indirect questions",
         "table": {
           "headers": [
             {
@@ -2500,214 +2555,256 @@ export const unit9Sessions: Unit9Session[] = [
               },
               {
                 "en": "Could you tell me when the workshop starts?",
-                "zh": "可否告訴我工作坊何時開始？"
+                "zh": "Could you tell me when the workshop starts?"
               }
             ],
             [
               {
-                "en": "Do beginners need experience?",
-                "zh": "初學者需要經驗嗎？"
+                "en": "Can beginners join?",
+                "zh": "初學者可以參加嗎？"
               },
               {
-                "en": "I would like to know whether beginners need experience.",
-                "zh": "我想知道初學者是否需要經驗。"
+                "en": "I would like to know whether beginners can join.",
+                "zh": "I would like to know whether beginners can join."
+              }
+            ],
+            [
+              {
+                "en": "Do I need any experience?",
+                "zh": "我需要經驗嗎？"
+              },
+              {
+                "en": "Could you tell me if I need any experience?",
+                "zh": "Could you tell me if I need any experience?"
+              }
+            ],
+            [
+              {
+                "en": "What equipment should I bring?",
+                "zh": "我應帶甚麼器材？"
+              },
+              {
+                "en": "Could you tell me what equipment I should bring?",
+                "zh": "Could you tell me what equipment I should bring?"
               }
             ]
           ]
         },
         "takeaway": {
-          "en": "Inside the indirect question, use statement word order: when + subject + verb. Use if/whether for yes/no information.",
-          "zh": "間接問句內用陳述語序：when + 主語 + 動詞；是非資訊用 if／whether。"
-        },
-        "id": "s4-10"
+          "en": "Could you tell me … ? / I would like to know … . Direct questions can also be polite.",
+          "zh": "Could you tell me … ?／I would like to know … . 直接問句也可以有禮貌。"
+        }
       },
       {
-        "minutes": 5,
+        "id": "s4-10",
+        "minutes": 4,
         "title": {
-          "en": "Fix the question",
-          "zh": "修正問句"
+          "en": "Fix, say, write",
+          "zh": "修正、說出、寫下"
         },
         "lead": {
-          "en": "Compare the word order and punctuation.",
-          "zh": "比較語序及標點。"
+          "en": "Work alone, then say your corrected questions to a partner.",
+          "zh": "先獨立修正，再向同伴說出問句。"
         },
         "practice": [
           {
             "number": 1,
-            "prompt": "Could you tell me when does the class finish?",
-            "answer": "Could you tell me when the class finishes?"
+            "prompt": "Could you tell me when does the workshop start?",
+            "answer": "Could you tell me when the workshop starts?"
           },
           {
             "number": 2,
-            "prompt": "I would like to know do I need a laptop.",
-            "answer": "I would like to know if/whether I need a laptop."
+            "prompt": "I would like to know can beginners join.",
+            "answer": "I would like to know whether/if beginners can join."
           },
           {
             "number": 3,
-            "prompt": "Where can I register? Begin: Could you tell me …",
-            "answer": "Could you tell me where I can register?"
-          },
-          {
-            "number": 4,
-            "prompt": "Is there a fee? Begin: I would like to know …",
-            "answer": "I would like to know if/whether there is a fee."
+            "prompt": "Could you tell me what equipment should I bring.",
+            "answer": "Could you tell me what equipment I should bring?"
           }
         ],
-        "takeaway": {
-          "en": "Could you tell me …? takes a question mark. I would like to know … is a statement and ends with a full stop.",
-          "zh": "Could you tell me …? 用問號；I would like to know … 是陳述句，以句號結束。"
-        },
-        "id": "s4-11"
-      },
-      {
-        "minutes": 5,
-        "title": {
-          "en": "Read as the coordinator",
-          "zh": "以統籌角度閱讀"
-        },
-        "lead": {
-          "en": "This original model asks about a class that could support a student project.",
-          "zh": "以下原創示範查詢能支持學生計劃的課程。"
-        },
-        "example": "Subject: Enquiry about the poster-design workshop\n\nDear Workshop Coordinator,\n\nI am a first-year student interested in your poster-design workshop. I would like to learn how to make clearer posters for student activities.\n\nCould you tell me when the next workshop takes place? I would also like to know whether beginners can join. Do I need to bring a laptop or install any software beforehand?\n\nI am helping my classmates plan a second-hand textbook exchange, so these skills would be useful for our publicity.\n\nThank you for your help. I look forward to hearing from you.\n\nKind regards,\nAlex Chen",
         "steps": [
           {
-            "en": "Find the purpose, useful context and three answerable questions. Which questions are indirect?",
-            "zh": "找出目的、有用背景及三個可回答的問題；哪些是間接問句？"
+            "en": "Check the inner word order, if/whether and final punctuation.",
+            "zh": "核對內層語序、if／whether 及句末標點。"
           }
-        ],
-        "source": {
-          "en": "Original teaching model; it replaces the unavailable student-book p. 152 model.",
-          "zh": "原創教學示範，代替尚未提供的學生課本第152頁範文。"
-        },
-        "id": "s4-12"
+        ]
       },
       {
+        "id": "s4-11",
         "minutes": 3,
         "title": {
-          "en": "Choose a class and a reason",
-          "zh": "選課程及查詢原因"
+          "en": "Plan the enquiry you need",
+          "zh": "規劃真正需要的查詢"
         },
         "lead": {
-          "en": "Choose poster design, event planning, basic repair or digital skills. These are imagined workshops.",
-          "zh": "選海報設計、活動策劃、基礎維修或數碼技能，均為假設工作坊。"
+          "en": "Use your own workshop choice and unanswered questions from the conversation.",
+          "zh": "使用對話後自己的工作坊選擇及尚未解答的問題。"
         },
         "steps": [
           {
-            "en": "Decide what you already know and what information is missing. Ask questions that are useful for your choice.",
-            "zh": "決定已知甚麼、缺甚麼資訊，提出有助選擇的問題。"
+            "en": "Name the recipient, purpose and one relevant detail about yourself.",
+            "zh": "寫出收件人、目的及一項相關個人背景。"
+          },
+          {
+            "en": "Choose three useful questions. Make at least two indirect.",
+            "zh": "選三個有用問題，至少兩個用間接問句。"
           }
         ],
         "fields": [
           {
             "key": "email-plan",
             "label": {
-              "en": "Recipient / purpose / relevant context / three questions",
-              "zh": "收件人／目的／相關背景／三個問題"
+              "en": "Recipient, purpose, context and three questions",
+              "zh": "收件人、目的、背景及三個問題"
             },
-            "hint": "",
-            "rows": 5
+            "hint": "Workshop Coordinator / I am writing to ask about …",
+            "rows": 4
           }
-        ],
-        "id": "s4-13"
+        ]
       },
       {
+        "id": "s4-12",
         "minutes": 10,
         "title": {
           "en": "Write your enquiry",
-          "zh": "撰寫查詢電郵"
+          "zh": "寫出你的查詢"
         },
         "lead": {
-          "en": "Write 90–120 words. Make the purpose clear near the start.",
-          "zh": "寫90–120字，開頭說清楚目的。"
+          "en": "Write 90–120 words about the workshop you chose.",
+          "zh": "就自己選的工作坊寫90–120字。"
         },
         "steps": [
           {
-            "en": "Include a subject, greeting, brief context, three useful questions and a suitable close. Use at least two indirect questions.",
-            "zh": "包括主旨、稱呼、簡短背景、三個有用問題及合適結語，至少兩個用間接問句。"
+            "en": "Include a subject, greeting, clear purpose, brief context, three questions and a suitable close.",
+            "zh": "包括主旨、稱呼、清楚目的、簡短背景、三個問題及合適結語。"
           },
           {
-            "en": "Use your own situation and questions. You can refer to the model for structure.",
-            "zh": "使用自己的情境及問題，可參考示範的組織方式。"
+            "en": "Use at least two indirect questions and two useful chunks from earlier sessions.",
+            "zh": "至少使用兩個間接問句及兩個前幾節的實用詞組。"
           }
         ],
         "fields": [
           {
             "key": "email-draft",
             "label": {
-              "en": "My first email",
-              "zh": "我的電郵初稿"
+              "en": "My enquiry draft",
+              "zh": "我的查詢初稿"
             },
-            "hint": "Subject: …\nDear …",
+            "hint": "Subject: …\nDear Workshop Coordinator,",
             "rows": 10
           }
         ],
-        "id": "s4-14"
+        "handoutCue": {
+          "en": "Write on the back of the handout or in the response space.",
+          "zh": "在講義背面或本頁書寫欄寫作。"
+        }
       },
       {
-        "minutes": 7,
+        "id": "s4-13",
+        "minutes": 5,
         "title": {
-          "en": "Help the recipient answer",
-          "zh": "讓收件人容易回答"
+          "en": "Be the recipient",
+          "zh": "當一次收件人"
         },
         "lead": {
-          "en": "Exchange emails. Point to one strength and one specific place to improve.",
-          "zh": "交換電郵，指出一個優點及一處具體改善位置。"
+          "en": "Exchange emails. Give one useful comment and discuss one revision.",
+          "zh": "交換電郵，給一項有用意見，討論一項修訂。"
         },
         "steps": [
           {
-            "en": "Can you identify why the writer is contacting you? Can you answer each question?",
-            "zh": "能看出寫信原因嗎？每個問題都能回答嗎？"
+            "en": "Underline the purpose. Can you tell why this student wants to join?",
+            "zh": "畫出目的：看得出這位學生為何想參加嗎？"
           },
           {
-            "en": "Check statement word order inside indirect questions and whether/if where needed.",
-            "zh": "核對間接問句的陳述語序，以及 if／whether 的使用。"
+            "en": "Number the three questions. Are they useful and answerable?",
+            "zh": "標出三條問題：有用而且可回答嗎？"
           },
           {
-            "en": "Revise at least one sentence. The revised version is your final lesson product.",
-            "zh": "至少修訂一句，修訂版是本節最終作品。"
+            "en": "Check two indirect questions: subject + verb; if/whether where needed; punctuation.",
+            "zh": "核對兩個間接問句：主語＋動詞、所需的 if／whether 及標點。"
+          }
+        ],
+        "example": "“Your purpose is clear. Could you make the equipment question more specific?”"
+      },
+      {
+        "id": "s4-14",
+        "minutes": 7,
+        "title": {
+          "en": "Revise, then ask aloud",
+          "zh": "修訂，再說出問句"
+        },
+        "lead": {
+          "en": "Revise the draft using your partner’s comment. Then practise one enquiry question aloud.",
+          "zh": "根據同伴意見修訂初稿，再口頭練習一條查詢問題。"
+        },
+        "steps": [
+          {
+            "en": "Improve at least one sentence. Keep your own workshop choice and useful questions.",
+            "zh": "至少改善一句，保留自己的工作坊選擇及有用問題。"
+          },
+          {
+            "en": "On paper, revise the same draft. In the browser, copy and improve it below.",
+            "zh": "紙本直接修改原稿；瀏覽器使用者把初稿複製到下方再修改。"
           }
         ],
         "fields": [
           {
             "key": "email-final",
             "label": {
-              "en": "My revised email",
-              "zh": "我的電郵修訂稿"
+              "en": "My revised enquiry",
+              "zh": "我的查詢修訂稿"
             },
-            "hint": "Keep the subject and closing.",
+            "hint": "Keep the subject, greeting and close.",
             "rows": 10
           }
-        ],
-        "id": "s4-15"
+        ]
       },
       {
+        "id": "s4-16",
         "minutes": 3,
         "title": {
-          "en": "One next step you could take",
-          "zh": "你可以採取的一個下一步"
+          "en": "Keep one useful next step",
+          "zh": "留下可用的下一步"
         },
         "lead": {
-          "en": "Choose one expression and one action you could use outside this classroom.",
-          "zh": "選一個課外可用的表達及一項行動。"
+          "en": "Tell a partner which workshop you chose and ask one of your revised questions.",
+          "zh": "告訴同伴你選了哪個工作坊，再提出一條修訂後的問題。"
         },
         "fields": [
           {
             "key": "exit",
             "label": {
-              "en": "Useful expression / practical next step / one thing I improved",
-              "zh": "有用表達／實際下一步／我改善的一點"
+              "en": "One improved sentence and why it is clearer",
+              "zh": "一句改善後的句子，以及它為何更清楚"
             },
-            "hint": "",
-            "rows": 3
+            "hint": "I changed … because …",
+            "rows": 2
+          }
+        ],
+        "export": true,
+        "links": [
+          {
+            "label": {
+              "en": "Student handout",
+              "zh": "學生講義"
+            },
+            "href": "/teaching/courses/general-english/unit-9/session-4/student-handout.pdf",
+            "download": true
+          },
+          {
+            "label": {
+              "en": "Teaching plan",
+              "zh": "教學計劃"
+            },
+            "href": "/teaching/courses/general-english/unit-9/session-4/teaching-notes.pdf",
+            "download": true
           }
         ],
         "takeaway": {
-          "en": "You have described skills, evaluated views, checked messages and asked for information. Keep your work as evidence of what you can do.",
-          "zh": "你已描述技能、評估觀點、核對訊息及查詢資訊，保留作品記錄自己的能力。"
-        },
-        "export": true,
-        "id": "s4-16"
+          "en": "My outputs: a supported spoken choice and a revised enquiry email.",
+          "zh": "我的成果：有理據的口頭選擇，以及修訂後的查詢電郵。"
+        }
       }
     ]
   }
