@@ -1,0 +1,27 @@
+---
+import CourseSlideLayout from '../../../../layouts/CourseSlideLayout.astro';
+import LessonDeckChrome from '../../../../components/lessons/LessonDeckChrome.astro';
+import { peerReviewSlides } from '../../../../data/doingResearchPeerReview';
+import { withBase } from '../../../../utils/paths';
+import '../../../../styles/doing-research-peer-review.css';
+const title = 'Peer Review for Journal Articles · Doing Research';
+const description = 'Topic 4: a bilingual 90-minute workshop on journal peer review, with public journal guidance, review exemplars, a fictional manuscript, activities and a reusable reviewer template.';
+const courseHref = withBase('/teaching/training/doing-research/');
+---
+<CourseSlideLayout {title} {description} lessonDeck>
+  <LessonDeckChrome {courseHref} lessonTitle="Peer review for journal articles" courseLabel="Doing Research" timer={false} />
+  <main class="deck peer-review-deck" aria-label="Peer review for journal articles slide deck">
+    {peerReviewSlides.map((slide,index) => <section id={slide.id} class:list={['slide', {'is-active': index === 0}]} data-title={slide.title} data-title-zh={slide.titleZh} aria-hidden={index !== 0} inert={index !== 0}>
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">{slide.section}</span></header>
+        {slide.cover && <div class="title-rule"></div>}
+        {(['en','zh'] as const).map(lang => <div data-language={lang} lang={lang === 'zh' ? 'zh-Hant' : 'en-GB'} hidden={lang === 'zh'}>
+          {slide.cover ? <h1>{lang === 'zh' ? slide.titleZh : slide.title}</h1> : <h2>{lang === 'zh' ? slide.titleZh : slide.title}</h2>}
+          <div class="review-content" set:html={lang === 'zh' ? slide.zh : slide.en}></div>
+        </div>)}
+      </div>
+    </section>)}
+  </main>
+  <noscript><p>This interactive lesson requires JavaScript. You can download the <a href={withBase('/teaching/training/doing-research/peer-review/peer-review-workshop-pack.md')}>workshop pack</a>.</p></noscript>
+  <script>import '../../../../scripts/doingResearchPeerReview';</script>
+</CourseSlideLayout>
