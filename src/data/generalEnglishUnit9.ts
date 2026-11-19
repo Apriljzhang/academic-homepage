@@ -2152,8 +2152,8 @@ export const unit9Sessions: Unit9Session[] = [
           }
         ],
         "takeaway": {
-          "en": "Career needs → my learning gap → professor enquiry → report to a classmate.",
-          "zh": "職業需要 → 我的學習差距 → 向教授查詢 → 向同學轉述。"
+          "en": "Work individually or with one partner. Prepare and write your own responses.",
+          "zh": "獨立或兩人合作；每人都準備及寫出自己的答案。"
         },
         "links": [
           {
@@ -2174,8 +2174,8 @@ export const unit9Sessions: Unit9Session[] = [
           "zh": "經濟學相關的八項職業"
         },
         "lead": {
-          "en": "New job vocabulary. In pairs, explain one role without saying its title; your partner names it.",
-          "zh": "學習新職業詞彙：兩人一組，一人不用職稱解釋工作，由同伴猜出職業。"
+          "en": "Learn the job titles. Alone: cover the titles and name each role from its description. In pairs: describe and guess.",
+          "zh": "學習職稱。獨立：遮住職稱，根據描述說出職業。兩人：互相描述及猜職業。"
         },
         "wordBank": [
           {
@@ -2391,8 +2391,8 @@ export const unit9Sessions: Unit9Session[] = [
           "zh": "提問、說明與支持"
         },
         "lead": {
-          "en": "Read in pairs. Find a quality, a skill, some knowledge and a supporting example.",
-          "zh": "兩人讀示範，找出特質、技能、知識及支持例子。"
+          "en": "Read aloud, alone or with a partner. Find a quality, a skill, some knowledge and a supporting example.",
+          "zh": "獨立朗讀或與同伴讀示範，找出特質、技能、知識及支持例子。"
         },
         "ref": "9E · p.114 · Talking about careers, skills and interests",
         "example": "A: What does a quantitative analyst do?\nB: They use mathematical models to analyse financial problems. They need to be honest and good at analysing data. They also need knowledge of statistics.\nA: Why does communication matter?\nB: They need to explain results to teammates. For example, a model is less useful if the team cannot understand its limits.\nA: What could you start learning now?\nB: I could focus on statistics and ask for advice about programming.\n\nWHAT skills do they NEED? ↘   DO they work in a TEAM? ↗",
@@ -2482,81 +2482,61 @@ export const unit9Sessions: Unit9Session[] = [
           "zh": "職業對談"
         },
         "lead": {
-          "en": "Groups of three or four. Rotate so everyone explains their own job profile.",
-          "zh": "三至四人一組輪換，讓每人都說明自己的職業描述。"
+          "en": "Work individually or in pairs. Use your own career profile and improve one explanation.",
+          "zh": "獨立或兩人合作，使用自己的職業描述，改善一項說明。"
         },
         "table": {
           "headers": [
             {
-              "en": "Role",
-              "zh": "角色"
+              "en": "Mode",
+              "zh": "方式"
             },
             {
-              "en": "Action",
-              "zh": "行動"
+              "en": "10-minute sequence",
+              "zh": "10分鐘流程"
             }
           ],
           "rows": [
             [
               {
-                "en": "Speaker",
-                "zh": "發言者"
+                "en": "Individual",
+                "zh": "獨立"
               },
               {
-                "en": "Explain the job, two qualities, two skills and two knowledge areas. Support one point.",
-                "zh": "說明職業、兩項特質、兩項技能及兩項知識，並支持一點。"
+                "en": "2 min review → 2 min explain aloud → 2 min answer the prompts → 2 min improve a reason/example → 2 min rehearse.",
+                "zh": "2分鐘檢視 → 2分鐘口頭說明 → 2分鐘回答提示 → 2分鐘改善理由／例子 → 2分鐘再練習。"
               }
             ],
             [
               {
-                "en": "Interviewer",
-                "zh": "訪問者"
+                "en": "Pair",
+                "zh": "兩人"
               },
               {
-                "en": "Ask What / Why / How questions. Ask what they could learn in Year 1.",
-                "zh": "用 What／Why／How 提問，問一年級可以學甚麼。"
-              }
-            ],
-            [
-              {
-                "en": "Reporter",
-                "zh": "轉述者"
-              },
-              {
-                "en": "Report two points: “[Name] said …”. Check the meaning with the speaker.",
-                "zh": "用「[Name] said …」轉述兩點，與發言者核對意思。"
-              }
-            ],
-            [
-              {
-                "en": "Evidence checker (fourth person)",
-                "zh": "理據核對者（第四人）"
-              },
-              {
-                "en": "Ask for an example and check the qualities / skills / knowledge distinction.",
-                "zh": "要求例子，並核對特質／技能／知識的分類。"
+                "en": "A explains (2 min). B asks (1 min), then reports two points (1 min). A checks the meaning (1 min). Swap for the next 5 minutes.",
+                "zh": "A說明（2分鐘）；B提問（1分鐘），再轉述兩點（1分鐘）；A核對意思（1分鐘）。接著5分鐘交換角色。"
               }
             ]
           ]
         },
         "steps": [
           {
-            "en": "Four people: four 2½-minute rounds. Three people: three 3-minute rounds, then 1 minute to check; the interviewer also checks evidence.",
-            "zh": "四人：四輪，每輪2分半。三人：三輪，每輪3分鐘，再用1分鐘核對；訪問者兼任理據核對。"
+            "en": "Explain the job, two qualities, two skills and two knowledge areas. Support one point with a reason and example.",
+            "zh": "說明職業、兩項特質、兩項技能及兩項知識；用理由和例子支持一點。"
           },
           {
-            "en": "Change speaker each round. Give advice as a possible first step, then record what needs a professor’s advice.",
-            "zh": "每輪更換發言者；把建議說成可能的第一步，記下需要向教授查詢的事。"
+            "en": "Use What / Why / How prompts. Finish with one thing you could learn in Year 1.",
+            "zh": "用 What／Why／How 提示提問或自問，最後提出一年級可以學的一件事。"
           }
         ],
         "fields": [
           {
             "key": "advice-notes",
             "label": {
-              "en": "Two points I heard and one useful suggestion",
-              "zh": "我聽到的兩點及一項建議"
+              "en": "Two key points and one useful next step",
+              "zh": "兩項重點及一項有用的下一步"
             },
-            "hint": "[Name] said … / They suggested …",
+            "hint": "Individual: I need … because … / Pair: [Name] said …",
             "rows": 3
           }
         ]
@@ -2569,8 +2549,8 @@ export const unit9Sessions: Unit9Session[] = [
           "zh": "我應向教授問甚麼？"
         },
         "lead": {
-          "en": "Each person shares one career goal and one preparation gap with a partner. Turn the gap into two useful questions.",
-          "zh": "每人向同伴說明一項職業目標及一項準備差距，把差距變成兩個有用問題。"
+          "en": "State one career goal and one learning gap, aloud or to a partner. Write two useful questions for your professor.",
+          "zh": "獨立說出或向同伴說明一項職業目標及學習差距，再寫兩個要向教授問的有用問題。"
         },
         "example": "I am interested in quantitative analysis, but I am not confident about programming yet. Which subjects should I focus on? Is there a small project I could try?",
         "fields": [
@@ -2602,8 +2582,8 @@ export const unit9Sessions: Unit9Session[] = [
           "zh": "改善這兩封電郵"
         },
         "lead": {
-          "en": "Work alone, then compare. Improve the subject, greeting, purpose, request, tone and close.",
-          "zh": "先獨立修改，再比較；改善主旨、稱呼、目的、請求、語氣及結語。"
+          "en": "Improve the emails yourself, then self-check or compare with a partner: subject, greeting, purpose, request, tone and close.",
+          "zh": "先自行改善電郵，再自查或與同伴比較：主旨、稱呼、目的、請求、語氣及結語。"
         },
         "ref": "9E · p.115 · A formal email",
         "example": "A\nSubject: Help!!!\nHey prof,\nI want a high-paid quant job. Tell me everything I need to know. Could you tell me what should I study? Please reply tonight.\nAlex\n\nB\n[No subject]\nDear Sir/Madam,\nI am a student and I have a lot of confusion about my future. I want to be an accountant. I would like to know do I need communication skills. I am waiting for your reply.\nYour student",
@@ -2737,8 +2717,8 @@ export const unit9Sessions: Unit9Session[] = [
           "zh": "核對查詢電郵"
         },
         "lead": {
-          "en": "Be the professor. Give one specific comment; the writer revises one sentence.",
-          "zh": "站在教授角度，給一項具體意見；作者修訂一句。"
+          "en": "Read as the professor, or exchange with a partner. Identify one improvement and revise one sentence.",
+          "zh": "站在教授角度自讀，或與同伴交換，找出一項改善並修訂一句。"
         },
         "steps": [
           {
@@ -2857,8 +2837,8 @@ export const unit9Sessions: Unit9Session[] = [
           "zh": "核對意思與語氣"
         },
         "lead": {
-          "en": "Exchange reports. Mark one accurate report and one sentence to improve; revise the same draft.",
-          "zh": "交換電郵，標出一項準確轉述及一句可改善的句子，再修改同一份初稿。"
+          "en": "Self-check or exchange with a partner. Mark one accurate report and one sentence to improve; revise the same draft.",
+          "zh": "自查或與同伴交換，標出一項準確轉述及一句可改善的句子，再修改同一份初稿。"
         },
         "practice": [
           {
@@ -2887,8 +2867,8 @@ export const unit9Sessions: Unit9Session[] = [
           "zh": "分享一項下一步"
         },
         "lead": {
-          "en": "Tell a partner one thing you could learn now. Read one improved question or reported sentence aloud.",
-          "zh": "向同伴說明現在可以學的一件事，再讀出一項改善後的問句或轉述句。"
+          "en": "Say one thing you could learn now, aloud or to a partner. Read one improved question or reported sentence.",
+          "zh": "獨立說出或向同伴說明現在可以學的一件事，再讀出一項改善後的問句或轉述句。"
         },
         "fields": [
           {
