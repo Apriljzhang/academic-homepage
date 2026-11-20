@@ -1,0 +1,27 @@
+---
+import CourseSlideLayout from '../../../../layouts/CourseSlideLayout.astro';
+import LessonDeckChrome from '../../../../components/lessons/LessonDeckChrome.astro';
+import {presentationSlides} from '../../../../data/doingResearchPresentation';
+import {withBase} from '../../../../utils/paths';
+import '../../../../styles/doing-research-presentation.css';
+const title = 'Delivering an Academic Presentation · Doing Research';
+const description = 'A bilingual 90-minute postgraduate workshop on academic conference presentations: research arguments, evidence, slides, delivery, timing, questions and peer rehearsal.';
+const courseHref = withBase('/teaching/training/doing-research');
+---
+<CourseSlideLayout {title} {description} lessonDeck>
+  <LessonDeckChrome {courseHref} lessonTitle="Delivering an academic presentation" courseLabel="Doing Research" />
+  <main class="deck presentation-deck" aria-label="Delivering an academic presentation slide deck">
+    {presentationSlides.map((slide,index) => <section id={slide.id} class:list={['slide',{'is-active':index===0}]} data-title={slide.title} data-title-zh={slide.titleZh} aria-hidden={index!==0} inert={index!==0}>
+      <div class="slide-inner">
+        <header class="slide-header"><span class="eyebrow">{slide.section}</span></header>
+        {slide.cover && <div class="title-rule"></div>}
+        {(['en','zh'] as const).map(lang => <div data-language={lang} lang={lang==='zh'?'zh-Hant':'en-GB'} hidden={lang==='zh'}>
+          {slide.cover ? <h1>{lang==='zh'?slide.titleZh:slide.title}</h1> : <h2>{lang==='zh'?slide.titleZh:slide.title}</h2>}
+          <div class="presentation-content" set:html={lang==='zh'?slide.zh:slide.en}></div>
+        </div>)}
+      </div>
+    </section>)}
+  </main>
+  <noscript><p class="no-script">Enable JavaScript to navigate this interactive lesson. / 請啟用JavaScript以使用互動課件。</p></noscript>
+  <script>import '../../../../scripts/doingResearchPresentation';</script>
+</CourseSlideLayout>
