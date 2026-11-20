@@ -1,6 +1,7 @@
 ---
 import CourseSlideLayout from '../../../../../layouts/CourseSlideLayout.astro';
 import LessonDeckChrome from '../../../../../components/lessons/LessonDeckChrome.astro';
+import Unit9JobPictures from '../../../../../components/lessons/Unit9JobPictures.astro';
 import Unit9Session1Mat from '../../../../../components/lessons/Unit9Session1Mat.astro';
 import Unit9PhraseGame from '../../../../../components/lessons/Unit9PhraseGame.astro';
 import Unit9Session2Game from '../../../../../components/lessons/Unit9Session2Game.astro';
@@ -41,6 +42,7 @@ const languages = ['en', 'zh'] as const;
           {slide.game === 'phrases' ? <Unit9PhraseGame {lang} /> : slide.game && <Unit9Session2Game kind={slide.game} {lang} />}
           {slide.mat && <Unit9Session1Mat kind={slide.mat} {lang} />}
           {slide.quotePairs && <div class="u9-quote-pairs">{slide.quotePairs.map(pair=><section><h3>{pair.title[lang]}</h3>{pair.quotes.map(item=><figure><figcaption>{item.speaker}</figcaption><blockquote lang="en">{item.quote.split(item.cue)[0]}<mark>{item.cue}</mark>{item.quote.split(item.cue).slice(1).join(item.cue)}</blockquote><p>{item.note[lang]}</p></figure>)}</section>)}</div>}
+          {slide.jobPictures && <Unit9JobPictures {lang} />}
           {slide.timeline && <ol class="u9-timeline">{slide.timeline.map(point => <li>{point[lang]}</li>)}</ol>}
           {slide.wordBank && <dl class="u5-word-bank">{slide.wordBank.map(item => <div><dt lang="en">{item.word}</dt><dd>{item.meaning[lang]}</dd></div>)}</dl>}
           {slide.table && <div class="u5-table"><table><thead><tr>{slide.table.headers.map(header => <th scope="col">{header[lang]}</th>)}</tr></thead><tbody>{slide.table.rows.map(row => <tr>{row.map(cell => <td>{cell[lang]}</td>)}</tr>)}</tbody></table></div>}

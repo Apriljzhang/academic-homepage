@@ -1,6 +1,6 @@
 import type { UnitSlide, Text } from './generalEnglishUnit5';
 export type Unit9Field = { key: string; label: Text; hint: string; rows: number };
-export type Unit9Slide = UnitSlide & { id: string; fields?: Unit9Field[]; timeline?: Text[]; teacher?: Text; export?: boolean; mat?: 'jobs' | 'timeline'; game?: 'phrases' | 'viewpoint' | 'tone'; quotePairs?: { title: Text; quotes: { speaker: string; quote: string; cue: string; note: Text }[] }[] };
+export type Unit9Slide = UnitSlide & { id: string; fields?: Unit9Field[]; timeline?: Text[]; teacher?: Text; export?: boolean; jobPictures?: boolean; mat?: 'jobs' | 'timeline'; game?: 'phrases' | 'viewpoint' | 'tone'; quotePairs?: { title: Text; quotes: { speaker: string; quote: string; cue: string; note: Text }[] }[] };
 export type Unit9Session = { number: number; slug: string; title: Text; sections: string; pages: string; outcome: Text; slides: Unit9Slide[] };
 export const unit9Sessions: Unit9Session[] = [
   {
@@ -2115,7 +2115,7 @@ export const unit9Sessions: Unit9Session[] = [
     "slides": [
       {
         "id": "s4-1",
-        "minutes": 4,
+        "minutes": 1,
         "title": {
           "en": "Your major, your next step",
           "zh": "我的專業與下一步"
@@ -2168,14 +2168,14 @@ export const unit9Sessions: Unit9Session[] = [
       },
       {
         "id": "s4-2",
-        "minutes": 4,
+        "minutes": 3,
         "title": {
           "en": "Eight jobs in economics",
           "zh": "經濟學相關的八項職業"
         },
         "lead": {
-          "en": "Learn the job titles. Alone: cover the titles and name each role from its description. In pairs: describe and guess.",
-          "zh": "學習職稱。獨立：遮住職稱，根據描述說出職業。兩人：互相描述及猜職業。"
+          "en": "Read the job titles and descriptions. Which two roles could be easily confused?",
+          "zh": "閱讀職稱及描述；哪兩項職業容易混淆？"
         },
         "wordBank": [
           {
@@ -2239,6 +2239,19 @@ export const unit9Sessions: Unit9Session[] = [
           "en": "Simplified classroom descriptions; titles and duties vary across workplaces.",
           "zh": "簡化的課堂工作描述；不同機構的職稱及職責會有差異。"
         }
+      },
+      {
+        "id": "s4-job-pictures",
+        "minutes": 4,
+        "title": {
+          "en": "Describe and guess the job",
+          "zh": "Describe and guess the job"
+        },
+        "lead": {
+          "en": "Alone or in pairs: choose a picture, describe two clues and guess the job. Open the picture to check.",
+          "zh": "Alone or in pairs: choose a picture, describe two clues and guess the job. Open the picture to check."
+        },
+        "jobPictures": true
       },
       {
         "id": "s4-3",

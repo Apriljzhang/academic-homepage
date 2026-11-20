@@ -1,0 +1,57 @@
+---
+import { withBase } from '../../utils/paths';
+interface Props { lang: 'en' | 'zh'; }
+const { lang } = Astro.props;
+// A fixed mixed order encourages students to use clues, not the preceding vocabulary order.
+const pictures = [
+  { file:'07', answer:'Market research analyst', alt:'A person comparing survey responses, product packages and customer preference charts.', clue:'Customer surveys, products and preferences.' },
+  { file:'03', answer:'Accountant', alt:'A person entering invoice figures into a spreadsheet and using a calculator.', clue:'Preparing financial records from invoices and receipts.' },
+  { file:'06', answer:'Risk analyst', alt:'A person examining a coloured impact matrix and possible loss scenarios.', clue:'Comparing possible losses and their impact.' },
+  { file:'08', answer:'Economic / policy analyst', alt:'A person comparing city transport routes, public spending and economic charts.', clue:'Using economic evidence to compare public policy choices.' },
+  { file:'04', answer:'Auditor', alt:'A person checking receipts against financial records with an inspection checklist.', clue:'Checking records against supporting evidence.' },
+  { file:'02', answer:'Data analyst', alt:'A person comparing spreadsheet data with bar charts and a scatter plot.', clue:'Organising data and explaining patterns.' },
+  { file:'01', answer:'Quantitative analyst', alt:'A person comparing computer code, mathematical notes and model simulations.', clue:'Mathematics, programming and financial models.' },
+  { file:'05', answer:'Financial analyst', alt:'A person comparing company financial reports and long-term performance charts.', clue:'Comparing company performance to support investment decisions.' },
+].map((picture,index)=>({...picture, letter:String.fromCharCode(65+index), src:withBase(`/teaching/courses/general-english/unit-9/session-4/job-images/${picture.file}.webp`), id:`job-picture-${lang}-${index}`}));
+---
+<div class="job-picture-gallery" aria-label="Eight job pictures">
+  {pictures.map(picture=><button class="job-picture-card" type="button" data-job-picture-open={picture.id} aria-label={`Open Picture ${picture.letter}`} aria-haspopup="dialog">
+    <img src={picture.src} alt={picture.alt} width="1536" height="1024" loading="lazy" />
+    <span class="job-picture-letter" aria-hidden="true">{picture.letter}</span>
+  </button>)}
+</div>
+<p class="job-picture-language" lang="en">I can see … . They are … . I think they are a(n) … because … .</p>
+<p class="job-picture-note">Several jobs share similar tasks. Support your guess with clues.</p>
+{pictures.map(picture=><dialog class="job-picture-dialog" id={picture.id} aria-labelledby={`${picture.id}-title`}>
+  <header><h3 id={`${picture.id}-title`}>Picture {picture.letter}</h3><form method="dialog"><button type="submit" aria-label="Close picture">Close</button></form></header>
+  <img src={picture.src} alt={picture.alt} width="1536" height="1024" loading="lazy" />
+  <details><summary>Reveal job</summary><p><strong>{picture.answer}</strong><br/>{picture.clue}</p></details>
+</dialog>)}
+<script>
+  document.querySelectorAll<HTMLButtonElement>('[data-job-picture-open]').forEach(button=>{
+    button.addEventListener('click',()=>{
+      const dialog=document.getElementById(button.dataset.jobPictureOpen || '');
+      if(dialog instanceof HTMLDialogElement) dialog.showModal();
+    });
+  });
+</script>
+<style>
+  .job-picture-gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.85rem;margin:1.25rem 0 .75rem}
+  .job-picture-card{position:relative;display:block;padding:0;border:1px solid var(--lesson-line,#bad8c5);border-radius:.25rem;overflow:hidden;background:white;cursor:zoom-in;min-width:0}
+  .job-picture-card img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:contain}
+  .job-picture-letter{position:absolute;top:.45rem;left:.45rem;display:grid;place-items:center;width:2rem;height:2rem;border-radius:50%;background:#fff;color:#0f4a32;font:600 1rem 'Source Sans 3',sans-serif;border:1px solid #bad8c5}
+  .job-picture-card:focus-visible{outline:3px solid #1f6b45;outline-offset:3px}
+  .job-picture-language{font-size:1.1rem!important;margin:.75rem 0 .25rem!important;color:#0f4a32}
+  .job-picture-note{font-size:.9rem!important;color:#607b6d;margin:.25rem 0!important}
+  .job-picture-dialog{position:fixed;inset:0;margin:auto;width:min(1160px,calc(100vw - 2rem));max-height:calc(100dvh - 2rem);padding:1rem;border:1px solid #bad8c5;border-radius:.4rem;color:#0f4a32;overflow:auto;background:#fff}
+  .job-picture-dialog::backdrop{background:rgba(12,35,24,.65)}
+  .job-picture-dialog header{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:.7rem}
+  .job-picture-dialog h3{margin:0;font:600 1.3rem 'Source Sans 3',sans-serif}
+  .job-picture-dialog form{margin:0}
+  .job-picture-dialog button{min-height:44px;padding:.35rem .8rem;border:1px solid #1f6b45;border-radius:.25rem;color:#0f4a32;background:#fff;font:inherit;cursor:pointer}
+  .job-picture-dialog img{display:block;width:100%;height:auto;max-height:65dvh;object-fit:contain}
+  .job-picture-dialog details{margin-top:.8rem;border-top:1px solid #bad8c5;padding-top:.5rem}
+  .job-picture-dialog summary{cursor:pointer;min-height:44px;align-content:center;font-weight:600}
+  .job-picture-dialog p{margin:.25rem 0;font-size:1.1rem;line-height:1.4}
+  @media(max-width:700px){.job-picture-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem}.job-picture-dialog{padding:.7rem}}
+</style>
