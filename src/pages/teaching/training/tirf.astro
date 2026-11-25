@@ -14,13 +14,13 @@ import TirfFramework from '../../../components/lessons/TirfFramework.astro';
 import { workshopTitle, worksheet, planningGroups } from '../../../data/tirfWorkshop';
 import '../../../styles/tirf-workshop.css';
 import '../../../styles/tirf-models.css';
-const title = `${workshopTitle} · April Jiawei Zhang`;
+const title = workshopTitle;
 const description = 'A practical workshop for language teachers: use Codex or WorkBuddy to design formative assessment activities for language classrooms, connecting evidence to feedback and action.';
 const courseHref = '/teaching/training/';
 const resources = '/teaching/training/tirf/resources/';
 ---
 <CourseSlideLayout {title} {description} lessonDeck>
-<section class="tirf-access" data-tirf-access aria-labelledby="tirf-access-title"><p>AI4ELE / TIRF · 24 October 2026</p><h1 id="tirf-access-title">{workshopTitle}</h1><p>April Jiawei Zhang · City University of Macau</p><form data-tirf-access-form><label for="tirf-access-code">Workshop access code / 工作坊進入碼</label><div><input id="tirf-access-code" inputmode="numeric" autocomplete="off" required aria-describedby="tirf-access-feedback" /><button type="submit">Open workshop / 進入工作坊</button></div><p id="tirf-access-feedback" role="status"></p></form><a href={courseHref}>Back to training / 返回培訓</a><noscript>Enable JavaScript / 請啟用JavaScript</noscript></section>
+<section class="tirf-access" data-tirf-access aria-labelledby="tirf-access-title"><p>AI4ELE / TIRF · 24 October 2026</p><h1 id="tirf-access-title">{workshopTitle}</h1><form data-tirf-access-form><label for="tirf-access-code">Workshop access code / 工作坊進入碼</label><div><input id="tirf-access-code" inputmode="numeric" autocomplete="off" required aria-describedby="tirf-access-feedback" /><button type="submit">Open workshop / 進入工作坊</button></div><p id="tirf-access-feedback" role="status"></p></form><a href={courseHref}>Back to training / 返回培訓</a><noscript>Enable JavaScript / 請啟用JavaScript</noscript></section>
 <div data-tirf-workshop hidden>
 <LessonDeckChrome {courseHref} courseLabel="training materials" lessonTitle="Designing formative assessment with generative AI" />
 <main class="deck tirf-deck" aria-label="Formative assessment workshop for language teachers">
@@ -30,7 +30,6 @@ const resources = '/teaching/training/tirf/resources/';
 <div class="core-definition"><p><B en="Teachers and students use evidence of learning to decide what to do next to help students reach a learning target." zh="教師與學生運用學習證據，決定接下來怎樣教與學，以幫助學生達到學習目標。" /></p></div>
 <h3><B en="By the end, you can:" zh="完成後，你能：" /></h3><ol class="workshop-outcomes"><li><B en="Use the three frameworks to collect, interpret and act on evidence in an English class." zh="依三個框架，在英語課堂蒐集、詮釋並運用學習證據。" /></li><li><B en="Use ready-to-copy AI prompts to prepare assessment questions and feedback." zh="用可直接複製的AI指令準備評估問題及反馈。" /></li><li><B en="Build and try one assessment website with Codex or WorkBuddy, then plan how to use it with students." zh="用Codex或WorkBuddy製作及試用一個評估網站，再規劃如何用於課堂。" /></li></ol>
 <p><B en="Choose a scenario → explore the frameworks → build the site → use it for assessment. Publishing online is optional." zh="選擇情境 → 理解框架 → 製作網站 → 用於評估。網上發佈屬可選步驟。" /></p>
-<p><B en="Dr. April Jiawei Zhang · School of Education, City University of Macau" zh="張家維博士 · 澳門城市大學教育學院" /></p>
 </div></section>
 <section class="slide" data-title="Primary English in China" data-title-zh="中國小學英語" aria-hidden="true"><div class="slide-inner">
 <header class="slide-header"><span class="eyebrow"><B en="Scenario 1 · Primary English in China" zh="情境一：中國小學英語" /></span></header><h2><B en="Primary English: has or can?" zh="小學英語：has還是can？" /></h2>

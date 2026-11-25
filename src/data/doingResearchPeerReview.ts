@@ -3,8 +3,8 @@ export const peerReviewSlides = [
     "id": "start",
     "title": "Peer review for journal articles",
     "titleZh": "期刊論文同行評審",
-    "en": "<p><span class=\"lead\">Evaluate the study. Prioritise the revisions. Write a review the author can act on.</span></p><p>A 90-minute workshop for postgraduate researchers and early-career reviewers in education and applied linguistics.</p><p>Dr April Jiawei Zhang · City University of Macau</p><p class=\"takeaway\">Focus: sound judgement, actionable comments and the reasoning in a real reviewer–author exchange.</p>",
-    "zh": "<p><span class=\"lead\">評估研究、釐清修訂優次，撰寫作者能據以修訂的評審意見。</span></p><p>90分鐘工作坊｜教育與應用語言學研究生及初任審稿人</p><p>張家維博士 · 澳門城市大學</p><p class=\"takeaway\">課程重點：有理據的判斷、可據以修訂的意見，以及真實審稿往來中的推理。</p>",
+    "en": "<p><span class=\"lead\">Evaluate the study. Prioritise the revisions. Write a review the author can act on.</span></p><p>A workshop for postgraduate researchers and early-career reviewers in education and applied linguistics.</p><p class=\"takeaway\">Focus: sound judgement, actionable comments and the reasoning in a real reviewer–author exchange.</p>",
+    "zh": "<p><span class=\"lead\">評估研究、釐清修訂優次，撰寫作者能據以修訂的評審意見。</span></p><p>工作坊｜教育與應用語言學研究生及初任審稿人</p><p class=\"takeaway\">課程重點：有理據的判斷、可據以修訂的意見，以及真實審稿往來中的推理。</p>",
     "section": "Doing Research · Topic 4",
     "cover": true
   },

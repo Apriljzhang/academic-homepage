@@ -7,8 +7,8 @@ const grid = (a: string, b: string) => `<div class="presentation-grid"><article>
 
 export const presentationSlides: PresentationSlide[] = [
  {...slide('start','Delivering an academic presentation','如何做好學術報告','Doing Research · Topic 3',
- `<p class="lead">Make your research clear, credible and memorable.</p><p>Conference talks · Research seminars · Postgraduate presentations</p><p class="session-meta">90-minute workshop · April Jiawei Zhang · City University of Macau</p>`,
- `<p class="lead">清晰、有根據地傳達研究，讓聽眾記住核心貢獻。</p><p>學術會議報告 · 研究研討會 · 研究生匯報</p><p class="session-meta">90分鐘工作坊 · 張家維 · 澳門城市大學</p>`),cover:true},
+ `<p class="lead">Make your research clear, credible and memorable.</p><p>Conference talks · Research seminars · Postgraduate presentations</p>`,
+ `<p class="lead">清晰、有根據地傳達研究，讓聽眾記住核心貢獻。</p><p>學術會議報告 · 研究研討會 · 研究生匯報</p>`),cover:true},
  slide('outcomes','What will your audience take away?','聽眾將帶走甚麼？','Purpose · Learning outcomes',
  `<ol><li>Frame one defensible contribution for a particular audience.</li><li>Build a timed argument connecting a question, evidence and implications.</li><li>Explain a finding through readable visuals and purposeful speech.</li><li>Respond to questions with evidence and appropriate qualification.</li><li>Use peer feedback to revise a short presentation.</li></ol>${note('Your outputs: a talk plan, an opening, an evidence explanation and a rehearsal action plan.')}${field('diagnosis','Recall a talk you found difficult to follow. What did you need from the speaker?',false,2)}`,
  `<ol><li>針對特定聽眾，提出一項有證據支持的核心貢獻。</li><li>在限定時間內，連貫地說明問題、證據與意涵。</li><li>配合易讀圖像及有目的的口語表達，解釋一項發現。</li><li>以證據及適切的限定回應提問。</li><li>運用同儕回饋修訂簡短報告。</li></ol>${note('本課產出：報告規劃、開場、證據解說，以及排練改進計劃。')}${field('diagnosis','回想一場難以跟上的報告：你當時需要講者提供甚麼？',true,2)}`),
