@@ -98,8 +98,8 @@ fields.forEach(field => {
 });
 document.querySelectorAll('[data-export]').forEach(button => button.addEventListener('click', () => {
   const lang = isChinese() ? 'zh' : 'en';
-  const title = lang === 'zh' ? '期刊論文同行評審 — 練習回應' : 'Peer review for journal articles — practice responses';
-  const parts = [title, 'Doing Research · Topic 4', 'Fictional training case / 虛構教學案例', ''];
+  const title = lang === 'zh' ? '期刊論文同行評審 — 舊版已儲存回應' : 'Peer review for journal articles — previously saved responses';
+  const parts = [title, 'Doing Research · Topic 4', 'Earlier lesson activities / 舊版課程活動', ''];
   const seen = new Set<string>();
   fields.filter(field => field.closest('[data-language]')?.getAttribute('data-language') === lang).forEach(field => {
     const key = field.dataset.response!;
@@ -107,6 +107,25 @@ document.querySelectorAll('[data-export]').forEach(button => button.addEventList
     seen.add(key);
     parts.push((field.parentElement?.firstChild?.textContent || key).trim(), answers[key] || (lang === 'zh' ? '（未填寫）' : '(Not completed)'), '');
   });
+  // Removed activities remain exportable without adding response fields to the lesson.
+  const previousLabels: Record<string, [string, string]> = {
+    opening: ['Opening concern', '開場問題'],
+    'public-analysis': ['Public review analysis', '公開評審分析'],
+    rewrite: ['Comment rewrite', '意見改寫'],
+    priority: ['Review priorities', '審稿優次'],
+    summary: ['Overview and contribution', '概述與貢獻'],
+    major: ['Major comments', '主要意見'],
+    minor: ['Minor comments', '次要意見'],
+    recommendation: ['Recommendation', '處理建議'],
+    'peer-feedback': ['Peer feedback', '同儕回饋'],
+    rereview: ['Re-review', '複審'],
+    exit: ['Reviewing action', '審稿改進行動'],
+  };
+  for (const [key, value] of Object.entries(answers)) {
+    if (seen.has(key)) continue;
+    parts.push(previousLabels[key]?.[lang === 'zh' ? 1 : 0] || key, value, '');
+  }
+  if (parts.length === 4) parts.push(lang === 'zh' ? '此瀏覽器沒有已儲存的回應。' : 'No earlier responses are saved in this browser.');
   const url = URL.createObjectURL(new Blob([parts.join('\n')], { type: 'text/plain;charset=utf-8' }));
   const anchor = document.createElement('a');
   anchor.href = url; anchor.download = 'peer-review-practice-responses.txt';
