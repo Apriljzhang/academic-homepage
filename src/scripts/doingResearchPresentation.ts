@@ -68,6 +68,7 @@ budgets.forEach(box=>{const slot=box.querySelector<HTMLInputElement>('[data-slot
 document.querySelectorAll('[data-export-plan]').forEach(button=>button.addEventListener('click',()=>{
  const zh=button.closest('[data-language]')?.getAttribute('data-language')==='zh';
  const lines=[zh?'學術報告規劃 · Doing Research · 第三課':'Academic presentation plan · Doing Research · Session 3',''];
+ if(responses.diagnosis)lines.push(zh?'舊版課程：難以跟上的報告反思':'Earlier lesson: reflection on a difficult-to-follow talk',responses.diagnosis,'');
  const seen=new Set<string>();fields.filter(f=>f.closest('[data-language]')?.getAttribute('data-language')===(zh?'zh':'en')).forEach(f=>{const key=f.dataset.response!;if(seen.has(key))return;seen.add(key);const label=Array.from(f.parentElement!.childNodes).filter(n=>n.nodeType===Node.TEXT_NODE).map(n=>n.textContent).join('').trim();lines.push(label,responses[key]||'—','');});
  if(responses.timing)lines.push(zh?'時間規劃':'Timing plan',responses.timing,'');
  const blob=new Blob(['\uFEFF'+lines.join('\n')],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download='Academic-Presentation-Plan.txt';document.body.append(link);link.click();link.remove();window.setTimeout(()=>URL.revokeObjectURL(url),1000);
